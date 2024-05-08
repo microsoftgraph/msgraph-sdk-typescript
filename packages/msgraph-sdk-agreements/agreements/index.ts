@@ -54,6 +54,14 @@ export interface AgreementsRequestBuilder extends BaseRequestBuilder<AgreementsR
  */
 export interface AgreementsRequestBuilderGetQueryParameters {
     /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
      * Search items by search phrases
      */
     search?: string;
@@ -61,17 +69,29 @@ export interface AgreementsRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
 }
 /**
  * Uri template for the request builder.
  */
-export const AgreementsRequestBuilderUriTemplate = "{+baseurl}/agreements{?%24search,%24select}";
+export const AgreementsRequestBuilderUriTemplate = "{+baseurl}/agreements{?%24count,%24filter,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AgreementsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
     "search": "%24search",
     "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
 };
 /**
  * Metadata for all the navigation properties in the request builder.

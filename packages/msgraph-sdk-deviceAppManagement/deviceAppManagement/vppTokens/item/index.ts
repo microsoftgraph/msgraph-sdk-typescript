@@ -19,40 +19,43 @@ export interface VppTokenItemRequestBuilder extends BaseRequestBuilder<VppTokenI
      */
     get syncLicenses(): SyncLicensesRequestBuilder;
     /**
-     * Delete navigation property vppTokens for deviceAppManagement
+     * Deletes a vppToken.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-vpptoken-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * List of Vpp tokens for this organization.
+     * Read properties and relationships of the vppToken object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VppToken>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-vpptoken-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VppTokenItemRequestBuilderGetQueryParameters> | undefined) : Promise<VppToken | undefined>;
     /**
-     * Update the navigation property vppTokens in deviceAppManagement
+     * Update the properties of a vppToken object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VppToken>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-vpptoken-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: VppToken, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VppToken | undefined>;
     /**
-     * Delete navigation property vppTokens for deviceAppManagement
+     * Deletes a vppToken.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * List of Vpp tokens for this organization.
+     * Read properties and relationships of the vppToken object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<VppTokenItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property vppTokens in deviceAppManagement
+     * Update the properties of a vppToken object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface VppTokenItemRequestBuilder extends BaseRequestBuilder<VppTokenI
      toPatchRequestInformation(body: VppToken, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List of Vpp tokens for this organization.
+ * Read properties and relationships of the vppToken object.
  */
 export interface VppTokenItemRequestBuilderGetQueryParameters {
     /**

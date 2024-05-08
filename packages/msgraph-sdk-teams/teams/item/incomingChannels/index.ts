@@ -27,21 +27,22 @@ export interface IncomingChannelsRequestBuilder extends BaseRequestBuilder<Incom
      */
      byChannelId(channelId: string) : ChannelItemRequestBuilder;
     /**
-     * List of channels shared with the team.
+     * Get the list of incoming channels (channels shared with a team).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ChannelCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/team-list-incomingchannels?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IncomingChannelsRequestBuilderGetQueryParameters> | undefined) : Promise<ChannelCollectionResponse | undefined>;
     /**
-     * List of channels shared with the team.
+     * Get the list of incoming channels (channels shared with a team).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IncomingChannelsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * List of channels shared with the team.
+ * Get the list of incoming channels (channels shared with a team).
  */
 export interface IncomingChannelsRequestBuilderGetQueryParameters {
     /**

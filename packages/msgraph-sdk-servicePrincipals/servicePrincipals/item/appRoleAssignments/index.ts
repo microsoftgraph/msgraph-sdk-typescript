@@ -27,28 +27,30 @@ export interface AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder<App
      */
      byAppRoleAssignmentId(appRoleAssignmentId: string) : AppRoleAssignmentItemRequestBuilder;
     /**
-     * App role assignment for another app or service, granted to this service principal. Supports $expand.
+     * Read the properties and relationships of an appRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppRoleAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-approleassignments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppRoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<AppRoleAssignmentCollectionResponse | undefined>;
     /**
-     * Create new navigation property to appRoleAssignments for servicePrincipals
+     * Assign an app role to a client service principal. App roles that are assigned to service principals are also known as application permissions. Application permissions can be granted directly with app role assignments, or through a consent experience. To grant an app role assignment to a client service principal, you need three identifiers:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppRoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-1.0|Find more info here}
      */
      post(body: AppRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppRoleAssignment | undefined>;
     /**
-     * App role assignment for another app or service, granted to this service principal. Supports $expand.
+     * Read the properties and relationships of an appRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppRoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to appRoleAssignments for servicePrincipals
+     * Assign an app role to a client service principal. App roles that are assigned to service principals are also known as application permissions. Application permissions can be granted directly with app role assignments, or through a consent experience. To grant an app role assignment to a client service principal, you need three identifiers:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder<App
      toPostRequestInformation(body: AppRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * App role assignment for another app or service, granted to this service principal. Supports $expand.
+ * Read the properties and relationships of an appRoleAssignment object.
  */
 export interface AppRoleAssignmentsRequestBuilderGetQueryParameters {
     /**

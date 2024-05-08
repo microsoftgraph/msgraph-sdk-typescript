@@ -13,39 +13,42 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder> {
     /**
-     * Delete ref of navigation property members for directory
+     * Use this API to remove a member (user, group, or device) from an administrative unit.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-delete-members?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : Promise<void>;
     /**
-     * Users and groups that are members of this administrative unit. Supports $expand.
+     * Use this API to get the members list (users, groups, or devices) in an administrative unit.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<StringCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-list-members?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RefRequestBuilderGetQueryParameters> | undefined) : Promise<StringCollectionResponse | undefined>;
     /**
-     * Create new navigation property ref to members for directory
+     * Use this API to add a member (user, group, or device) to an administrative unit. Currently it's only possible to add one member at a time to an administrative unit.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-post-members?view=graph-rest-1.0|Find more info here}
      */
      post(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Delete ref of navigation property members for directory
+     * Use this API to remove a member (user, group, or device) from an administrative unit.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : RequestInformation;
     /**
-     * Users and groups that are members of this administrative unit. Supports $expand.
+     * Use this API to get the members list (users, groups, or devices) in an administrative unit.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property ref to members for directory
+     * Use this API to add a member (user, group, or device) to an administrative unit. Currently it's only possible to add one member at a time to an administrative unit.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -53,7 +56,7 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      toPostRequestInformation(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Delete ref of navigation property members for directory
+ * Use this API to remove a member (user, group, or device) from an administrative unit.
  */
 export interface RefRequestBuilderDeleteQueryParameters {
     /**
@@ -62,7 +65,7 @@ export interface RefRequestBuilderDeleteQueryParameters {
     id?: string;
 }
 /**
- * Users and groups that are members of this administrative unit. Supports $expand.
+ * Use this API to get the members list (users, groups, or devices) in an administrative unit.
  */
 export interface RefRequestBuilderGetQueryParameters {
     /**

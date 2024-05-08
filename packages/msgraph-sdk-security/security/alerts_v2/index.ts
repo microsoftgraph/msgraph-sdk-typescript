@@ -27,10 +27,11 @@ export interface Alerts_v2RequestBuilder extends BaseRequestBuilder<Alerts_v2Req
      */
      byAlertId(alertId: string) : AlertItemRequestBuilder;
     /**
-     * A collection of alerts in Microsoft 365 Defender.
+     * Get a list of alert resources created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AlertCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-list-alerts_v2?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<Alerts_v2RequestBuilderGetQueryParameters> | undefined) : Promise<AlertCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface Alerts_v2RequestBuilder extends BaseRequestBuilder<Alerts_v2Req
      */
      post(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Alert | undefined>;
     /**
-     * A collection of alerts in Microsoft 365 Defender.
+     * Get a list of alert resources created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface Alerts_v2RequestBuilder extends BaseRequestBuilder<Alerts_v2Req
      toPostRequestInformation(body: Alert, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of alerts in Microsoft 365 Defender.
+ * Get a list of alert resources created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.
  */
 export interface Alerts_v2RequestBuilderGetQueryParameters {
     /**

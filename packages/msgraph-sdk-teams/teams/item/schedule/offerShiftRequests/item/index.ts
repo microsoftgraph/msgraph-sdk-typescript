@@ -19,10 +19,11 @@ export interface OfferShiftRequestItemRequestBuilder extends BaseRequestBuilder<
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The offer requests for shifts in the schedule.
+     * Retrieve the properties and relationships of an offerShiftRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OfferShiftRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/offershiftrequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OfferShiftRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<OfferShiftRequest | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface OfferShiftRequestItemRequestBuilder extends BaseRequestBuilder<
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The offer requests for shifts in the schedule.
+     * Retrieve the properties and relationships of an offerShiftRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface OfferShiftRequestItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: OfferShiftRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The offer requests for shifts in the schedule.
+ * Retrieve the properties and relationships of an offerShiftRequest object.
  */
 export interface OfferShiftRequestItemRequestBuilderGetQueryParameters {
     /**

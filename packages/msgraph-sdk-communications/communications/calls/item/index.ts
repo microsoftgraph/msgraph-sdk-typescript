@@ -127,16 +127,18 @@ export interface CallItemRequestBuilder extends BaseRequestBuilder<CallItemReque
      */
     get updateRecordingStatus(): UpdateRecordingStatusRequestBuilder;
     /**
-     * Delete navigation property calls for communications
+     * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/call-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get calls from communications
+     * Retrieve the properties and relationships of a call object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Call>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/call-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CallItemRequestBuilderGetQueryParameters> | undefined) : Promise<Call | undefined>;
     /**
@@ -148,13 +150,13 @@ export interface CallItemRequestBuilder extends BaseRequestBuilder<CallItemReque
      */
      patch(body: Call, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Call | undefined>;
     /**
-     * Delete navigation property calls for communications
+     * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get calls from communications
+     * Retrieve the properties and relationships of a call object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -168,7 +170,7 @@ export interface CallItemRequestBuilder extends BaseRequestBuilder<CallItemReque
      toPatchRequestInformation(body: Call, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get calls from communications
+ * Retrieve the properties and relationships of a call object.
  */
 export interface CallItemRequestBuilderGetQueryParameters {
     /**

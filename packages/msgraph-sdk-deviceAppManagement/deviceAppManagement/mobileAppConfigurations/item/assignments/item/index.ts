@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder extends BaseRequestBuilder<ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder> {
     /**
-     * Delete navigation property assignments for deviceAppManagement
+     * Deletes a managedDeviceMobileAppConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of group assignemenets for app configration.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignment | undefined>;
     /**
-     * Update the navigation property assignments in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ManagedDeviceMobileAppConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignment | undefined>;
     /**
-     * Delete navigation property assignments for deviceAppManagement
+     * Deletes a managedDeviceMobileAppConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of group assignemenets for app configration.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property assignments in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
      toPatchRequestInformation(body: ManagedDeviceMobileAppConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of group assignemenets for app configration.
+ * Read properties and relationships of the managedDeviceMobileAppConfigurationAssignment object.
  */
 export interface ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters {
     /**

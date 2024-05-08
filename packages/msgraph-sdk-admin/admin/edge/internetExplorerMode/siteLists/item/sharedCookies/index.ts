@@ -27,28 +27,30 @@ export interface SharedCookiesRequestBuilder extends BaseRequestBuilder<SharedCo
      */
      byBrowserSharedCookieId(browserSharedCookieId: string) : BrowserSharedCookieItemRequestBuilder;
     /**
-     * A collection of shared cookies defined for the site list.
+     * Get a list of the browserSharedCookie objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSharedCookieCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-list-sharedcookies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SharedCookiesRequestBuilderGetQueryParameters> | undefined) : Promise<BrowserSharedCookieCollectionResponse | undefined>;
     /**
-     * Create new navigation property to sharedCookies for admin
+     * Create a new browserSharedCookie object in a browserSiteList.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSharedCookie>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-post-sharedcookies?view=graph-rest-1.0|Find more info here}
      */
      post(body: BrowserSharedCookie, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BrowserSharedCookie | undefined>;
     /**
-     * A collection of shared cookies defined for the site list.
+     * Get a list of the browserSharedCookie objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharedCookiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to sharedCookies for admin
+     * Create a new browserSharedCookie object in a browserSiteList.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface SharedCookiesRequestBuilder extends BaseRequestBuilder<SharedCo
      toPostRequestInformation(body: BrowserSharedCookie, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of shared cookies defined for the site list.
+ * Get a list of the browserSharedCookie objects and their properties.
  */
 export interface SharedCookiesRequestBuilderGetQueryParameters {
     /**

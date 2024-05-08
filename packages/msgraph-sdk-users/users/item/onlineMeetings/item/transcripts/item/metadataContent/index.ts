@@ -13,6 +13,12 @@ export interface MetadataContentRequestBuilder extends BaseRequestBuilder<Metada
     /**
      * The time-aligned metadata of the utterances in the transcript. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
+     * The time-aligned metadata of the utterances in the transcript. Read-only.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
@@ -25,6 +31,12 @@ export interface MetadataContentRequestBuilder extends BaseRequestBuilder<Metada
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      put(body: ArrayBuffer | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
+    /**
+     * The time-aligned metadata of the utterances in the transcript. Read-only.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * The time-aligned metadata of the utterances in the transcript. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -47,6 +59,14 @@ export const MetadataContentRequestBuilderUriTemplate = "{+baseurl}/users/{user%
  * Metadata for all the requests in the request builder.
  */
 export const MetadataContentRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: MetadataContentRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: MetadataContentRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",

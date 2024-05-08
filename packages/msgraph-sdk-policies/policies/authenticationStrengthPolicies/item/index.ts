@@ -31,40 +31,43 @@ export interface AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequ
      */
     get usage(): UsageRequestBuilder;
     /**
-     * Delete navigation property authenticationStrengthPolicies for policies
+     * Delete a custom authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-delete-policies?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
+     * Read the properties and relationships of an authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationStrengthPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationStrengthPolicy | undefined>;
     /**
-     * Update the navigation property authenticationStrengthPolicies in policies
+     * Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationStrengthPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AuthenticationStrengthPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationStrengthPolicy | undefined>;
     /**
-     * Delete navigation property authenticationStrengthPolicies for policies
+     * Delete a custom authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
+     * Read the properties and relationships of an authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property authenticationStrengthPolicies in policies
+     * Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +75,7 @@ export interface AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: AuthenticationStrengthPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
+ * Read the properties and relationships of an authenticationStrengthPolicy object.
  */
 export interface AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters {
     /**

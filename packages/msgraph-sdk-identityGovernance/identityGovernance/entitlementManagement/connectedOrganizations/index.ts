@@ -27,28 +27,30 @@ export interface ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder
      */
      byConnectedOrganizationId(connectedOrganizationId: string) : ConnectedOrganizationItemRequestBuilder;
     /**
-     * References to a directory or domain of another organization whose users can request access.
+     * Retrieve a list of connectedOrganization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConnectedOrganizationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-connectedorganizations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConnectedOrganizationsRequestBuilderGetQueryParameters> | undefined) : Promise<ConnectedOrganizationCollectionResponse | undefined>;
     /**
-     * Create new navigation property to connectedOrganizations for identityGovernance
+     * Create a new connectedOrganization object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConnectedOrganization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-connectedorganizations?view=graph-rest-1.0|Find more info here}
      */
      post(body: ConnectedOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConnectedOrganization | undefined>;
     /**
-     * References to a directory or domain of another organization whose users can request access.
+     * Retrieve a list of connectedOrganization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConnectedOrganizationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to connectedOrganizations for identityGovernance
+     * Create a new connectedOrganization object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: ConnectedOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * References to a directory or domain of another organization whose users can request access.
+ * Retrieve a list of connectedOrganization objects.
  */
 export interface ConnectedOrganizationsRequestBuilderGetQueryParameters {
     /**

@@ -13,39 +13,42 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder> {
     /**
-     * Delete ref of navigation property teachers for education
+     * Remove a teacher from an educationClass.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-delete-teachers?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : Promise<void>;
     /**
-     * All teachers in the class. Nullable.
+     * Retrieve a list of teachers for a class. Delegated tokens must be members of the class to get the teacher list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<StringCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-list-teachers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RefRequestBuilderGetQueryParameters> | undefined) : Promise<StringCollectionResponse | undefined>;
     /**
-     * Create new navigation property ref to teachers for education
+     * Add a teacher to a class.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-post-teachers?view=graph-rest-1.0|Find more info here}
      */
      post(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Delete ref of navigation property teachers for education
+     * Remove a teacher from an educationClass.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : RequestInformation;
     /**
-     * All teachers in the class. Nullable.
+     * Retrieve a list of teachers for a class. Delegated tokens must be members of the class to get the teacher list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property ref to teachers for education
+     * Add a teacher to a class.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -53,7 +56,7 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      toPostRequestInformation(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Delete ref of navigation property teachers for education
+ * Remove a teacher from an educationClass.
  */
 export interface RefRequestBuilderDeleteQueryParameters {
     /**
@@ -62,7 +65,7 @@ export interface RefRequestBuilderDeleteQueryParameters {
     id?: string;
 }
 /**
- * All teachers in the class. Nullable.
+ * Retrieve a list of teachers for a class. Delegated tokens must be members of the class to get the teacher list.
  */
 export interface RefRequestBuilderGetQueryParameters {
     /**

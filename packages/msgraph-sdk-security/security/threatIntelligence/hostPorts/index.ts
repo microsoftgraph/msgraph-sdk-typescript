@@ -27,7 +27,7 @@ export interface HostPortsRequestBuilder extends BaseRequestBuilder<HostPortsReq
      */
      byHostPortId(hostPortId: string) : HostPortItemRequestBuilder;
     /**
-     * Retrieve details about hostPort objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostPort object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostPortCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface HostPortsRequestBuilder extends BaseRequestBuilder<HostPortsReq
      */
      post(body: HostPort, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HostPort | undefined>;
     /**
-     * Retrieve details about hostPort objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostPort object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface HostPortsRequestBuilder extends BaseRequestBuilder<HostPortsReq
      toPostRequestInformation(body: HostPort, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve details about hostPort objects.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of a hostPort object.
  */
 export interface HostPortsRequestBuilderGetQueryParameters {
     /**

@@ -31,40 +31,43 @@ export interface DeviceEnrollmentConfigurationItemRequestBuilder extends BaseReq
      */
     get setPriority(): SetPriorityRequestBuilder;
     /**
-     * Delete navigation property deviceEnrollmentConfigurations for deviceManagement
+     * Deletes a deviceEnrollmentLimitConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of device enrollment configurations
+     * Read properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceEnrollmentConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceEnrollmentConfiguration | undefined>;
     /**
-     * Update the navigation property deviceEnrollmentConfigurations in deviceManagement
+     * Update the properties of a deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceEnrollmentConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceEnrollmentConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceEnrollmentConfiguration | undefined>;
     /**
-     * Delete navigation property deviceEnrollmentConfigurations for deviceManagement
+     * Deletes a deviceEnrollmentLimitConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of device enrollment configurations
+     * Read properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property deviceEnrollmentConfigurations in deviceManagement
+     * Update the properties of a deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +75,7 @@ export interface DeviceEnrollmentConfigurationItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: DeviceEnrollmentConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of device enrollment configurations
+ * Read properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration object.
  */
 export interface DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters {
     /**

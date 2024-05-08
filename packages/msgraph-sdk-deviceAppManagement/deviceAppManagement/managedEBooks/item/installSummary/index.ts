@@ -19,18 +19,20 @@ export interface InstallSummaryRequestBuilder extends BaseRequestBuilder<Install
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Mobile App Install Summary.
+     * Read properties and relationships of the eBookInstallSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EBookInstallSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-ebookinstallsummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<InstallSummaryRequestBuilderGetQueryParameters> | undefined) : Promise<EBookInstallSummary | undefined>;
     /**
-     * Update the navigation property installSummary in deviceAppManagement
+     * Update the properties of a eBookInstallSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EBookInstallSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-ebookinstallsummary-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EBookInstallSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EBookInstallSummary | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface InstallSummaryRequestBuilder extends BaseRequestBuilder<Install
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Mobile App Install Summary.
+     * Read properties and relationships of the eBookInstallSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<InstallSummaryRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property installSummary in deviceAppManagement
+     * Update the properties of a eBookInstallSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface InstallSummaryRequestBuilder extends BaseRequestBuilder<Install
      toPatchRequestInformation(body: EBookInstallSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Mobile App Install Summary.
+ * Read properties and relationships of the eBookInstallSummary object.
  */
 export interface InstallSummaryRequestBuilderGetQueryParameters {
     /**

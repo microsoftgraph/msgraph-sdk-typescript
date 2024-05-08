@@ -27,28 +27,30 @@ export interface TelecomExpenseManagementPartnersRequestBuilder extends BaseRequ
      */
      byTelecomExpenseManagementPartnerId(telecomExpenseManagementPartnerId: string) : TelecomExpenseManagementPartnerItemRequestBuilder;
     /**
-     * The telecom expense management partners.
+     * List properties and relationships of the telecomExpenseManagementPartner objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TelecomExpenseManagementPartnerCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TelecomExpenseManagementPartnersRequestBuilderGetQueryParameters> | undefined) : Promise<TelecomExpenseManagementPartnerCollectionResponse | undefined>;
     /**
-     * Create new navigation property to telecomExpenseManagementPartners for deviceManagement
+     * Create a new telecomExpenseManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TelecomExpenseManagementPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: TelecomExpenseManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TelecomExpenseManagementPartner | undefined>;
     /**
-     * The telecom expense management partners.
+     * List properties and relationships of the telecomExpenseManagementPartner objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TelecomExpenseManagementPartnersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to telecomExpenseManagementPartners for deviceManagement
+     * Create a new telecomExpenseManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface TelecomExpenseManagementPartnersRequestBuilder extends BaseRequ
      toPostRequestInformation(body: TelecomExpenseManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The telecom expense management partners.
+ * List properties and relationships of the telecomExpenseManagementPartner objects.
  */
 export interface TelecomExpenseManagementPartnersRequestBuilderGetQueryParameters {
     /**

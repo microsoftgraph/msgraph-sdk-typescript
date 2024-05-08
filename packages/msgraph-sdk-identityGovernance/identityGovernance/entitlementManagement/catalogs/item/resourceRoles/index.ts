@@ -27,10 +27,11 @@ export interface ResourceRolesRequestBuilder extends BaseRequestBuilder<Resource
      */
      byAccessPackageResourceRoleId(accessPackageResourceRoleId: string) : AccessPackageResourceRoleItemRequestBuilder;
     /**
-     * Get resourceRoles from identityGovernance
+     * Retrieve a list of accessPackageResourceRole objects of an accessPackageResource in an accessPackageCatalog. The resource should have been added to the catalog by creating an accessPackageResourceRequest. This list of roles can then be used by the caller to select a role, which is needed when subsequently creating an accessPackageResourceRoleScope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageResourceRoleCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-list-resourceroles?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourceRolesRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageResourceRoleCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ResourceRolesRequestBuilder extends BaseRequestBuilder<Resource
      */
      post(body: AccessPackageResourceRole, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageResourceRole | undefined>;
     /**
-     * Get resourceRoles from identityGovernance
+     * Retrieve a list of accessPackageResourceRole objects of an accessPackageResource in an accessPackageCatalog. The resource should have been added to the catalog by creating an accessPackageResourceRequest. This list of roles can then be used by the caller to select a role, which is needed when subsequently creating an accessPackageResourceRoleScope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ResourceRolesRequestBuilder extends BaseRequestBuilder<Resource
      toPostRequestInformation(body: AccessPackageResourceRole, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get resourceRoles from identityGovernance
+ * Retrieve a list of accessPackageResourceRole objects of an accessPackageResource in an accessPackageCatalog. The resource should have been added to the catalog by creating an accessPackageResourceRequest. This list of roles can then be used by the caller to select a role, which is needed when subsequently creating an accessPackageResourceRoleScope.
  */
 export interface ResourceRolesRequestBuilderGetQueryParameters {
     /**

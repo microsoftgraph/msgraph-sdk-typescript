@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilder<ConditionalAccessPolicyItemRequestBuilder> {
     /**
-     * Delete navigation property policies for identity
+     * Delete a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+     * Retrieve the properties and relationships of a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConditionalAccessPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConditionalAccessPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConditionalAccessPolicy | undefined>;
     /**
-     * Update the navigation property policies in identity
+     * Update the properties of a conditionalAccessPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConditionalAccessPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ConditionalAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConditionalAccessPolicy | undefined>;
     /**
-     * Delete navigation property policies for identity
+     * Delete a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+     * Retrieve the properties and relationships of a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConditionalAccessPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property policies in identity
+     * Update the properties of a conditionalAccessPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: ConditionalAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+ * Retrieve the properties and relationships of a conditionalAccessPolicy object.
  */
 export interface ConditionalAccessPolicyItemRequestBuilderGetQueryParameters {
     /**

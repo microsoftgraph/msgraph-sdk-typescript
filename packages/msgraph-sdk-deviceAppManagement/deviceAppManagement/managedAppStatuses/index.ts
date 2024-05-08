@@ -27,10 +27,11 @@ export interface ManagedAppStatusesRequestBuilder extends BaseRequestBuilder<Man
      */
      byManagedAppStatusId(managedAppStatusId: string) : ManagedAppStatusItemRequestBuilder;
     /**
-     * The managed app statuses.
+     * List properties and relationships of the managedAppStatusRaw objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppStatusCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatusraw-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedAppStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppStatusCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ManagedAppStatusesRequestBuilder extends BaseRequestBuilder<Man
      */
      post(body: ManagedAppStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppStatus | undefined>;
     /**
-     * The managed app statuses.
+     * List properties and relationships of the managedAppStatusRaw objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ManagedAppStatusesRequestBuilder extends BaseRequestBuilder<Man
      toPostRequestInformation(body: ManagedAppStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The managed app statuses.
+ * List properties and relationships of the managedAppStatusRaw objects.
  */
 export interface ManagedAppStatusesRequestBuilderGetQueryParameters {
     /**

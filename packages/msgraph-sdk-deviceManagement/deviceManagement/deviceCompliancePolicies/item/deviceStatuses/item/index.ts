@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeviceComplianceDeviceStatusItemRequestBuilder extends BaseRequestBuilder<DeviceComplianceDeviceStatusItemRequestBuilder> {
     /**
-     * Delete navigation property deviceStatuses for deviceManagement
+     * Deletes a deviceComplianceDeviceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedevicestatus-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * List of DeviceComplianceDeviceStatus.
+     * Read properties and relationships of the deviceComplianceDeviceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceDeviceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedevicestatus-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceComplianceDeviceStatusItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceDeviceStatus | undefined>;
     /**
-     * Update the navigation property deviceStatuses in deviceManagement
+     * Update the properties of a deviceComplianceDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceDeviceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedevicestatus-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceComplianceDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceDeviceStatus | undefined>;
     /**
-     * Delete navigation property deviceStatuses for deviceManagement
+     * Deletes a deviceComplianceDeviceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * List of DeviceComplianceDeviceStatus.
+     * Read properties and relationships of the deviceComplianceDeviceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceComplianceDeviceStatusItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property deviceStatuses in deviceManagement
+     * Update the properties of a deviceComplianceDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface DeviceComplianceDeviceStatusItemRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: DeviceComplianceDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List of DeviceComplianceDeviceStatus.
+ * Read properties and relationships of the deviceComplianceDeviceStatus object.
  */
 export interface DeviceComplianceDeviceStatusItemRequestBuilderGetQueryParameters {
     /**

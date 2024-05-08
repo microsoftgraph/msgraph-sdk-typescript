@@ -49,10 +49,11 @@ export interface UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseReq
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Schedules for active role assignment operations.
+     * Retrieve the schedule for an active role assignment operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleAssignmentSchedule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignmentschedule-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleAssignmentScheduleItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined>;
     /**
@@ -70,7 +71,7 @@ export interface UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseReq
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Schedules for active role assignment operations.
+     * Retrieve the schedule for an active role assignment operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -84,7 +85,7 @@ export interface UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: UnifiedRoleAssignmentSchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Schedules for active role assignment operations.
+ * Retrieve the schedule for an active role assignment operation.
  */
 export interface UnifiedRoleAssignmentScheduleItemRequestBuilderGetQueryParameters {
     /**

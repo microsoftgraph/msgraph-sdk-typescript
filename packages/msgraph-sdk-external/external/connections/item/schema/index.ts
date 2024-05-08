@@ -13,28 +13,30 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface SchemaRequestBuilder extends BaseRequestBuilder<SchemaRequestBuilder> {
     /**
-     * Get schema from external
+     * Read the properties and relationships of a schema object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Schema>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SchemaRequestBuilderGetQueryParameters> | undefined) : Promise<Schema | undefined>;
     /**
-     * Update the navigation property schema in external
+     * Create a new schema object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Schema>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-patch-schema?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Schema, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Schema | undefined>;
     /**
-     * Get schema from external
+     * Read the properties and relationships of a schema object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchemaRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property schema in external
+     * Create a new schema object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -42,7 +44,7 @@ export interface SchemaRequestBuilder extends BaseRequestBuilder<SchemaRequestBu
      toPatchRequestInformation(body: Schema, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get schema from external
+ * Read the properties and relationships of a schema object.
  */
 export interface SchemaRequestBuilderGetQueryParameters {
     /**

@@ -27,28 +27,30 @@ export interface SubcategoriesRequestBuilder extends BaseRequestBuilder<Subcateg
      */
      bySubcategoryTemplateId(subcategoryTemplateId: string) : SubcategoryTemplateItemRequestBuilder;
     /**
-     * Get subcategories from security
+     * Get a list of subcategories subcategoryTemplate associated with a category template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SubcategoryTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-categorytemplate-list-subcategories?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SubcategoriesRequestBuilderGetQueryParameters> | undefined) : Promise<SubcategoryTemplateCollectionResponse | undefined>;
     /**
-     * Create new navigation property to subcategories for security
+     * Create a new subcategoryTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SubcategoryTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-categorytemplate-post-subcategories?view=graph-rest-1.0|Find more info here}
      */
      post(body: SubcategoryTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SubcategoryTemplate | undefined>;
     /**
-     * Get subcategories from security
+     * Get a list of subcategories subcategoryTemplate associated with a category template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SubcategoriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to subcategories for security
+     * Create a new subcategoryTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface SubcategoriesRequestBuilder extends BaseRequestBuilder<Subcateg
      toPostRequestInformation(body: SubcategoryTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get subcategories from security
+ * Get a list of subcategories subcategoryTemplate associated with a category template.
  */
 export interface SubcategoriesRequestBuilderGetQueryParameters {
     /**

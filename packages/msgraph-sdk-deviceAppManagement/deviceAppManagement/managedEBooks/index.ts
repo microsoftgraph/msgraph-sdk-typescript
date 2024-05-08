@@ -27,28 +27,30 @@ export interface ManagedEBooksRequestBuilder extends BaseRequestBuilder<ManagedE
      */
      byManagedEBookId(managedEBookId: string) : ManagedEBookItemRequestBuilder;
     /**
-     * The Managed eBook.
+     * List properties and relationships of the iosVppEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedEBookCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedEBooksRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedEBookCollectionResponse | undefined>;
     /**
-     * Create new navigation property to managedEBooks for deviceAppManagement
+     * Create a new iosVppEBook object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedEBook>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedEBook, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedEBook | undefined>;
     /**
-     * The Managed eBook.
+     * List properties and relationships of the iosVppEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedEBooksRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to managedEBooks for deviceAppManagement
+     * Create a new iosVppEBook object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ManagedEBooksRequestBuilder extends BaseRequestBuilder<ManagedE
      toPostRequestInformation(body: ManagedEBook, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Managed eBook.
+ * List properties and relationships of the iosVppEBook objects.
  */
 export interface ManagedEBooksRequestBuilderGetQueryParameters {
     /**

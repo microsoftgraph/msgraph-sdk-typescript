@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TimeOffItemRequestBuilder extends BaseRequestBuilder<TimeOffItemRequestBuilder> {
     /**
-     * Delete navigation property timesOff for teams
+     * Delete a timeOff instance from a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/timeoff-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The instances of times off in the schedule.
+     * Retrieve the properties and relationships of a timeOff object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOff>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/timeoff-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TimeOffItemRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOff | undefined>;
     /**
-     * Update the navigation property timesOff in teams
+     * Replace an existing timeOff object. If the specified timeOff object doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOff>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/timeoff-put?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TimeOff, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOff | undefined>;
     /**
-     * Delete navigation property timesOff for teams
+     * Delete a timeOff instance from a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The instances of times off in the schedule.
+     * Retrieve the properties and relationships of a timeOff object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TimeOffItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property timesOff in teams
+     * Replace an existing timeOff object. If the specified timeOff object doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface TimeOffItemRequestBuilder extends BaseRequestBuilder<TimeOffIte
      toPatchRequestInformation(body: TimeOff, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The instances of times off in the schedule.
+ * Retrieve the properties and relationships of a timeOff object by ID.
  */
 export interface TimeOffItemRequestBuilderGetQueryParameters {
     /**

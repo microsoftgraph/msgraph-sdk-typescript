@@ -25,10 +25,11 @@ export interface HostTrackerItemRequestBuilder extends BaseRequestBuilder<HostTr
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostTracker object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostTracker>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-hosttracker-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HostTrackerItemRequestBuilderGetQueryParameters> | undefined) : Promise<HostTracker | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface HostTrackerItemRequestBuilder extends BaseRequestBuilder<HostTr
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostTracker object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface HostTrackerItemRequestBuilder extends BaseRequestBuilder<HostTr
      toPatchRequestInformation(body: HostTracker, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of a hostTracker object.
  */
 export interface HostTrackerItemRequestBuilderGetQueryParameters {
     /**

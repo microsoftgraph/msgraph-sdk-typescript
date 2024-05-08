@@ -19,18 +19,20 @@ export interface DeviceStatusOverviewRequestBuilder extends BaseRequestBuilder<D
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Device compliance devices status overview
+     * Read properties and relationships of the deviceComplianceDeviceOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceDeviceOverview>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedeviceoverview-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceStatusOverviewRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceDeviceOverview | undefined>;
     /**
-     * Update the navigation property deviceStatusOverview in deviceManagement
+     * Update the properties of a deviceComplianceDeviceOverview object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceDeviceOverview>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedeviceoverview-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceComplianceDeviceOverview, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceDeviceOverview | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface DeviceStatusOverviewRequestBuilder extends BaseRequestBuilder<D
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Device compliance devices status overview
+     * Read properties and relationships of the deviceComplianceDeviceOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceStatusOverviewRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property deviceStatusOverview in deviceManagement
+     * Update the properties of a deviceComplianceDeviceOverview object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface DeviceStatusOverviewRequestBuilder extends BaseRequestBuilder<D
      toPatchRequestInformation(body: DeviceComplianceDeviceOverview, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Device compliance devices status overview
+ * Read properties and relationships of the deviceComplianceDeviceOverview object.
  */
 export interface DeviceStatusOverviewRequestBuilderGetQueryParameters {
     /**

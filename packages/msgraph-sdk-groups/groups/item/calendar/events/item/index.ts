@@ -92,11 +92,12 @@ export interface EventItemRequestBuilder extends BaseRequestBuilder<EventItemReq
      */
      get(requestConfiguration?: RequestConfiguration<EventItemRequestBuilderGetQueryParameters> | undefined) : Promise<Event | undefined>;
     /**
-     * Update the navigation property events in groups
+     * Update an event object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Event>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-update-event?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Event, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Event | undefined>;
     /**
@@ -112,7 +113,7 @@ export interface EventItemRequestBuilder extends BaseRequestBuilder<EventItemReq
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EventItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property events in groups
+     * Update an event object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

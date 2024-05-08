@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder<AudioRoutingGroupItemRequestBuilder> {
     /**
-     * Delete navigation property audioRoutingGroups for communications
+     * Delete the specified audioRoutingGroup.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/audioroutinggroup-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get audioRoutingGroups from communications
+     * Retrieve the properties and relationships of an audioRoutingGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AudioRoutingGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/audioroutinggroup-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AudioRoutingGroupItemRequestBuilderGetQueryParameters> | undefined) : Promise<AudioRoutingGroup | undefined>;
     /**
-     * Update the navigation property audioRoutingGroups in communications
+     * Modify sources and receivers of an audioRoutingGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AudioRoutingGroup>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/audioroutinggroup-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AudioRoutingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AudioRoutingGroup | undefined>;
     /**
-     * Delete navigation property audioRoutingGroups for communications
+     * Delete the specified audioRoutingGroup.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get audioRoutingGroups from communications
+     * Retrieve the properties and relationships of an audioRoutingGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AudioRoutingGroupItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property audioRoutingGroups in communications
+     * Modify sources and receivers of an audioRoutingGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: AudioRoutingGroup, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get audioRoutingGroups from communications
+ * Retrieve the properties and relationships of an audioRoutingGroup object.
  */
 export interface AudioRoutingGroupItemRequestBuilderGetQueryParameters {
     /**

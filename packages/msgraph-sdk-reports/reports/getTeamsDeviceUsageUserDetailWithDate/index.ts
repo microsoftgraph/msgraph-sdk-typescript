@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type DateOnly, type Parsable, type ParsableFac
  */
 export interface GetTeamsDeviceUsageUserDetailWithDateRequestBuilder extends BaseRequestBuilder<GetTeamsDeviceUsageUserDetailWithDateRequestBuilder> {
     /**
-     * Invoke function getTeamsDeviceUsageUserDetail
+     * Get details about Microsoft Teams device usage by user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getTeamsDeviceUsageUserDetail
+     * Get details about Microsoft Teams device usage by user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

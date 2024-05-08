@@ -32,11 +32,12 @@ export interface AssignmentSettingsRequestBuilder extends BaseRequestBuilder<Ass
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentSettingsRequestBuilderGetQueryParameters> | undefined) : Promise<EducationAssignmentSettings | undefined>;
     /**
-     * Update the navigation property assignmentSettings in education
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationAssignmentSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignmentsettings-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EducationAssignmentSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationAssignmentSettings | undefined>;
     /**
@@ -52,7 +53,7 @@ export interface AssignmentSettingsRequestBuilder extends BaseRequestBuilder<Ass
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentSettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property assignmentSettings in education
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

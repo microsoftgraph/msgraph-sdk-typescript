@@ -27,21 +27,22 @@ export interface PassiveDnsRequestBuilder extends BaseRequestBuilder<PassiveDnsR
      */
      byPassiveDnsRecordId(passiveDnsRecordId: string) : PassiveDnsRecordItemRequestBuilder;
     /**
-     * Passive DNS retrieval about this host.
+     * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PassiveDnsRecordCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-passivedns?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PassiveDnsRequestBuilderGetQueryParameters> | undefined) : Promise<PassiveDnsRecordCollectionResponse | undefined>;
     /**
-     * Passive DNS retrieval about this host.
+     * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PassiveDnsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Passive DNS retrieval about this host.
+ * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname. 
  */
 export interface PassiveDnsRequestBuilderGetQueryParameters {
     /**

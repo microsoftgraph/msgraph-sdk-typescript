@@ -27,10 +27,11 @@ export interface InstancesRequestBuilder extends BaseRequestBuilder<InstancesReq
      */
      byAccessReviewHistoryInstanceId(accessReviewHistoryInstanceId: string) : AccessReviewHistoryInstanceItemRequestBuilder;
     /**
-     * If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn't recur will have exactly one instance.
+     * Retrieve the instances of an access review history definition created in the last 30 days.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewHistoryInstanceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewhistorydefinition-list-instances?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<InstancesRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewHistoryInstanceCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface InstancesRequestBuilder extends BaseRequestBuilder<InstancesReq
      */
      post(body: AccessReviewHistoryInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewHistoryInstance | undefined>;
     /**
-     * If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn't recur will have exactly one instance.
+     * Retrieve the instances of an access review history definition created in the last 30 days.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface InstancesRequestBuilder extends BaseRequestBuilder<InstancesReq
      toPostRequestInformation(body: AccessReviewHistoryInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that doesn't recur will have exactly one instance.
+ * Retrieve the instances of an access review history definition created in the last 30 days.
  */
 export interface InstancesRequestBuilderGetQueryParameters {
     /**

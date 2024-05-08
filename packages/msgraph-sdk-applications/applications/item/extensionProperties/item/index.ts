@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder<ExtensionPropertyItemRequestBuilder> {
     /**
-     * Delete navigation property extensionProperties for applications
+     * Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/extensionproperty-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+     * Read a directory extension definition represented by an extensionProperty object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExtensionProperty>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/extensionproperty-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ExtensionPropertyItemRequestBuilderGetQueryParameters> | undefined) : Promise<ExtensionProperty | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder<
      */
      patch(body: ExtensionProperty, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExtensionProperty | undefined>;
     /**
-     * Delete navigation property extensionProperties for applications
+     * Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+     * Read a directory extension definition represented by an extensionProperty object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: ExtensionProperty, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+ * Read a directory extension definition represented by an extensionProperty object.
  */
 export interface ExtensionPropertyItemRequestBuilderGetQueryParameters {
     /**

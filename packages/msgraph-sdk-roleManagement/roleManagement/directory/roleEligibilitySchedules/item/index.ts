@@ -43,10 +43,11 @@ export interface UnifiedRoleEligibilityScheduleItemRequestBuilder extends BaseRe
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Schedules for role eligibility operations.
+     * Retrieve the schedule for a role eligibility operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleEligibilitySchedule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleeligibilityschedule-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleEligibilityScheduleItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleEligibilitySchedule | undefined>;
     /**
@@ -64,7 +65,7 @@ export interface UnifiedRoleEligibilityScheduleItemRequestBuilder extends BaseRe
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Schedules for role eligibility operations.
+     * Retrieve the schedule for a role eligibility operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -78,7 +79,7 @@ export interface UnifiedRoleEligibilityScheduleItemRequestBuilder extends BaseRe
      toPatchRequestInformation(body: UnifiedRoleEligibilitySchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Schedules for role eligibility operations.
+ * Retrieve the schedule for a role eligibility operation.
  */
 export interface UnifiedRoleEligibilityScheduleItemRequestBuilderGetQueryParameters {
     /**

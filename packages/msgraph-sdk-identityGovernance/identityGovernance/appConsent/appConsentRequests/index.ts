@@ -35,10 +35,11 @@ export interface AppConsentRequestsRequestBuilder extends BaseRequestBuilder<App
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * A collection of appConsentRequest objects representing apps for which admin consent has been requested by one or more users.
+     * Retrieve appConsentRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppConsentRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/appconsentapprovalroute-list-appconsentrequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppConsentRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<AppConsentRequestCollectionResponse | undefined>;
     /**
@@ -50,7 +51,7 @@ export interface AppConsentRequestsRequestBuilder extends BaseRequestBuilder<App
      */
      post(body: AppConsentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppConsentRequest | undefined>;
     /**
-     * A collection of appConsentRequest objects representing apps for which admin consent has been requested by one or more users.
+     * Retrieve appConsentRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -64,7 +65,7 @@ export interface AppConsentRequestsRequestBuilder extends BaseRequestBuilder<App
      toPostRequestInformation(body: AppConsentRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of appConsentRequest objects representing apps for which admin consent has been requested by one or more users.
+ * Retrieve appConsentRequest objects and their properties.
  */
 export interface AppConsentRequestsRequestBuilderGetQueryParameters {
     /**

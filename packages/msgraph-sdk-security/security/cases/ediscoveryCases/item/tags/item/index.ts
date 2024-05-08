@@ -25,40 +25,43 @@ export interface EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilde
      */
     get parent(): ParentRequestBuilder;
     /**
-     * Delete navigation property tags for security
+     * Remove an ediscoveryReviewTag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-delete-tags?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Returns a list of ediscoveryReviewTag objects associated to this case.
+     * Read the properties and relationships of an ediscoveryReviewTag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewTag>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewtag-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EdiscoveryReviewTagItemRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewTag | undefined>;
     /**
-     * Update the navigation property tags in security
+     * Update the properties of an ediscoveryReviewTag object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewTag>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewtag-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EdiscoveryReviewTag, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryReviewTag | undefined>;
     /**
-     * Delete navigation property tags for security
+     * Remove an ediscoveryReviewTag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Returns a list of ediscoveryReviewTag objects associated to this case.
+     * Read the properties and relationships of an ediscoveryReviewTag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoveryReviewTagItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property tags in security
+     * Update the properties of an ediscoveryReviewTag object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +69,7 @@ export interface EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: EdiscoveryReviewTag, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Returns a list of ediscoveryReviewTag objects associated to this case.
+ * Read the properties and relationships of an ediscoveryReviewTag object.
  */
 export interface EdiscoveryReviewTagItemRequestBuilderGetQueryParameters {
     /**

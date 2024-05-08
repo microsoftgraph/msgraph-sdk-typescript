@@ -27,28 +27,30 @@ export interface TermsAndConditionsRequestBuilder extends BaseRequestBuilder<Ter
      */
      byTermsAndConditionsId(termsAndConditionsId: string) : TermsAndConditionsItemRequestBuilder;
     /**
-     * The terms and conditions associated with device management of the company.
+     * List properties and relationships of the termsAndConditions objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditionsCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditions-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TermsAndConditionsRequestBuilderGetQueryParameters> | undefined) : Promise<TermsAndConditionsCollectionResponse | undefined>;
     /**
-     * Create new navigation property to termsAndConditions for deviceManagement
+     * Create a new termsAndConditions object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditions>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditions-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: TermsAndConditions, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TermsAndConditions | undefined>;
     /**
-     * The terms and conditions associated with device management of the company.
+     * List properties and relationships of the termsAndConditions objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TermsAndConditionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to termsAndConditions for deviceManagement
+     * Create a new termsAndConditions object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface TermsAndConditionsRequestBuilder extends BaseRequestBuilder<Ter
      toPostRequestInformation(body: TermsAndConditions, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The terms and conditions associated with device management of the company.
+ * List properties and relationships of the termsAndConditions objects.
  */
 export interface TermsAndConditionsRequestBuilderGetQueryParameters {
     /**

@@ -19,10 +19,11 @@ export interface ExtensionItemRequestBuilder extends BaseRequestBuilder<Extensio
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The collection of open extensions defined for the event. Nullable.
+     * Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Extension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ExtensionItemRequestBuilderGetQueryParameters> | undefined) : Promise<Extension | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface ExtensionItemRequestBuilder extends BaseRequestBuilder<Extensio
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The collection of open extensions defined for the event. Nullable.
+     * Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface ExtensionItemRequestBuilder extends BaseRequestBuilder<Extensio
      toPatchRequestInformation(body: Extension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection of open extensions defined for the event. Nullable.
+ * Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
  */
 export interface ExtensionItemRequestBuilderGetQueryParameters {
     /**

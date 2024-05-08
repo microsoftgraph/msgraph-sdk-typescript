@@ -27,10 +27,11 @@ export interface EndpointsRequestBuilder extends BaseRequestBuilder<EndpointsReq
      */
      byPrintServiceEndpointId(printServiceEndpointId: string) : PrintServiceEndpointItemRequestBuilder;
     /**
-     * Endpoints that can be used to access the service. Read-only. Nullable.
+     * Retrieve a list of endpoints exposed by a print service.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintServiceEndpointCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printservice-list-endpoints?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EndpointsRequestBuilderGetQueryParameters> | undefined) : Promise<PrintServiceEndpointCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface EndpointsRequestBuilder extends BaseRequestBuilder<EndpointsReq
      */
      post(body: PrintServiceEndpoint, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintServiceEndpoint | undefined>;
     /**
-     * Endpoints that can be used to access the service. Read-only. Nullable.
+     * Retrieve a list of endpoints exposed by a print service.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface EndpointsRequestBuilder extends BaseRequestBuilder<EndpointsReq
      toPostRequestInformation(body: PrintServiceEndpoint, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Endpoints that can be used to access the service. Read-only. Nullable.
+ * Retrieve a list of endpoints exposed by a print service.
  */
 export interface EndpointsRequestBuilderGetQueryParameters {
     /**

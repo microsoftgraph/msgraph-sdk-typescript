@@ -27,10 +27,11 @@ export interface ServiceConfigurationRecordsRequestBuilder extends BaseRequestBu
      */
      byDomainDnsRecordId(domainDnsRecordId: string) : DomainDnsRecordItemRequestBuilder;
     /**
-     * DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+     * Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DomainDnsRecordCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/domain-list-serviceconfigurationrecords?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ServiceConfigurationRecordsRequestBuilderGetQueryParameters> | undefined) : Promise<DomainDnsRecordCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ServiceConfigurationRecordsRequestBuilder extends BaseRequestBu
      */
      post(body: DomainDnsRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DomainDnsRecord | undefined>;
     /**
-     * DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+     * Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ServiceConfigurationRecordsRequestBuilder extends BaseRequestBu
      toPostRequestInformation(body: DomainDnsRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
+ * Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
  */
 export interface ServiceConfigurationRecordsRequestBuilderGetQueryParameters {
     /**

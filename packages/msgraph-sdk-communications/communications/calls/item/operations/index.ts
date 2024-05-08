@@ -27,7 +27,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      byCommsOperationId(commsOperationId: string) : CommsOperationItemRequestBuilder;
     /**
-     * Get operations from communications
+     * Get the status of an operation that adds the large gallery view to a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CommsOperationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      post(body: CommsOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CommsOperation | undefined>;
     /**
-     * Get operations from communications
+     * Get the status of an operation that adds the large gallery view to a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      toPostRequestInformation(body: CommsOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get operations from communications
+ * Get the status of an operation that adds the large gallery view to a call.
  */
 export interface OperationsRequestBuilderGetQueryParameters {
     /**

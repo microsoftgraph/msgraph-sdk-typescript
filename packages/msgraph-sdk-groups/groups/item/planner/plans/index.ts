@@ -27,10 +27,11 @@ export interface PlansRequestBuilder extends BaseRequestBuilder<PlansRequestBuil
      */
      byPlannerPlanId(plannerPlanId: string) : PlannerPlanItemRequestBuilder;
     /**
-     * Read-only. Nullable. Returns the plannerPlans owned by the group.
+     * Retrieve a list of plannerPlan objects owned by a group object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerPlanCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannergroup-list-plans?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PlansRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerPlanCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface PlansRequestBuilder extends BaseRequestBuilder<PlansRequestBuil
      */
      post(body: PlannerPlan, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerPlan | undefined>;
     /**
-     * Read-only. Nullable. Returns the plannerPlans owned by the group.
+     * Retrieve a list of plannerPlan objects owned by a group object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface PlansRequestBuilder extends BaseRequestBuilder<PlansRequestBuil
      toPostRequestInformation(body: PlannerPlan, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. Returns the plannerPlans owned by the group.
+ * Retrieve a list of plannerPlan objects owned by a group object.
  */
 export interface PlansRequestBuilderGetQueryParameters {
     /**

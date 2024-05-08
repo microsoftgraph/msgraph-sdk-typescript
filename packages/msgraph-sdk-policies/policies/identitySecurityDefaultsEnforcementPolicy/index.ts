@@ -19,18 +19,20 @@ export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The policy that represents the security defaults that protect against common attacks.
+     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentitySecurityDefaultsEnforcementPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitysecuritydefaultsenforcementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<IdentitySecurityDefaultsEnforcementPolicy | undefined>;
     /**
-     * Update the navigation property identitySecurityDefaultsEnforcementPolicy in policies
+     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentitySecurityDefaultsEnforcementPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitysecuritydefaultsenforcementpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: IdentitySecurityDefaultsEnforcementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentitySecurityDefaultsEnforcementPolicy | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The policy that represents the security defaults that protect against common attacks.
+     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property identitySecurityDefaultsEnforcementPolicy in policies
+     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends
      toPatchRequestInformation(body: IdentitySecurityDefaultsEnforcementPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The policy that represents the security defaults that protect against common attacks.
+ * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
  */
 export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters {
     /**

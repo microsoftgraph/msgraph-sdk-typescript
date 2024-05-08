@@ -19,40 +19,43 @@ export interface TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilde
      */
     get appliesTo(): AppliesToRequestBuilder;
     /**
-     * Delete navigation property tokenLifetimePolicies for policies
+     * Delete a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Microsoft Entra ID.
+     * Retrieve the properties and relationships of a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenLifetimePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TokenLifetimePolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<TokenLifetimePolicy | undefined>;
     /**
-     * Update the navigation property tokenLifetimePolicies in policies
+     * Update the properties of a tokenLifetimePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenLifetimePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TokenLifetimePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TokenLifetimePolicy | undefined>;
     /**
-     * Delete navigation property tokenLifetimePolicies for policies
+     * Delete a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Microsoft Entra ID.
+     * Retrieve the properties and relationships of a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TokenLifetimePolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property tokenLifetimePolicies in policies
+     * Update the properties of a tokenLifetimePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: TokenLifetimePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Microsoft Entra ID.
+ * Retrieve the properties and relationships of a tokenLifetimePolicy object.
  */
 export interface TokenLifetimePolicyItemRequestBuilderGetQueryParameters {
     /**

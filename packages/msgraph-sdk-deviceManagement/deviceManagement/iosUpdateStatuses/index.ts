@@ -27,28 +27,30 @@ export interface IosUpdateStatusesRequestBuilder extends BaseRequestBuilder<IosU
      */
      byIosUpdateDeviceStatusId(iosUpdateDeviceStatusId: string) : IosUpdateDeviceStatusItemRequestBuilder;
     /**
-     * The IOS software update installation statuses for this account.
+     * List properties and relationships of the iosUpdateDeviceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IosUpdateDeviceStatusCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IosUpdateStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<IosUpdateDeviceStatusCollectionResponse | undefined>;
     /**
-     * Create new navigation property to iosUpdateStatuses for deviceManagement
+     * Create a new iosUpdateDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IosUpdateDeviceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: IosUpdateDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IosUpdateDeviceStatus | undefined>;
     /**
-     * The IOS software update installation statuses for this account.
+     * List properties and relationships of the iosUpdateDeviceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IosUpdateStatusesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to iosUpdateStatuses for deviceManagement
+     * Create a new iosUpdateDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface IosUpdateStatusesRequestBuilder extends BaseRequestBuilder<IosU
      toPostRequestInformation(body: IosUpdateDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The IOS software update installation statuses for this account.
+ * List properties and relationships of the iosUpdateDeviceStatus objects.
  */
 export interface IosUpdateStatusesRequestBuilderGetQueryParameters {
     /**

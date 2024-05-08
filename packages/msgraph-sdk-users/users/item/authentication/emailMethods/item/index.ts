@@ -13,9 +13,10 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder<EmailAuthenticationMethodItemRequestBuilder> {
     /**
-     * Delete navigation property emailMethods for users
+     * Deletes a user's emailAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -26,15 +27,16 @@ export interface EmailAuthenticationMethodItemRequestBuilder extends BaseRequest
      */
      get(requestConfiguration?: RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<EmailAuthenticationMethod | undefined>;
     /**
-     * Update the navigation property emailMethods in users
+     * Update a user's email address represented by an emailAuthenticationMethod object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EmailAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EmailAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EmailAuthenticationMethod | undefined>;
     /**
-     * Delete navigation property emailMethods for users
+     * Deletes a user's emailAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -46,7 +48,7 @@ export interface EmailAuthenticationMethodItemRequestBuilder extends BaseRequest
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property emailMethods in users
+     * Update a user's email address represented by an emailAuthenticationMethod object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

@@ -31,16 +31,18 @@ export interface BaseSitePageItemRequestBuilder extends BaseRequestBuilder<BaseS
      */
     get lastModifiedByUser(): LastModifiedByUserRequestBuilder;
     /**
-     * Delete navigation property pages for sites
+     * Delete a baseSitePage from the site pages list in a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/basesitepage-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The collection of pages in the baseSitePages list in this site.
+     * Get the metadata for a baseSitePage in the site pages list in a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BaseSitePage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/basesitepage-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BaseSitePageItemRequestBuilderGetQueryParameters> | undefined) : Promise<BaseSitePage | undefined>;
     /**
@@ -52,13 +54,13 @@ export interface BaseSitePageItemRequestBuilder extends BaseRequestBuilder<BaseS
      */
      patch(body: BaseSitePage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BaseSitePage | undefined>;
     /**
-     * Delete navigation property pages for sites
+     * Delete a baseSitePage from the site pages list in a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The collection of pages in the baseSitePages list in this site.
+     * Get the metadata for a baseSitePage in the site pages list in a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -72,7 +74,7 @@ export interface BaseSitePageItemRequestBuilder extends BaseRequestBuilder<BaseS
      toPatchRequestInformation(body: BaseSitePage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection of pages in the baseSitePages list in this site.
+ * Get the metadata for a baseSitePage in the site pages list in a site.
  */
 export interface BaseSitePageItemRequestBuilderGetQueryParameters {
     /**

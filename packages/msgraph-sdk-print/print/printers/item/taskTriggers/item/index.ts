@@ -19,16 +19,18 @@ export interface PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder<P
      */
     get definition(): DefinitionRequestBuilder;
     /**
-     * Delete navigation property taskTriggers for print
+     * Delete the task trigger of a printer to prevent related print events from triggering tasks on the specified printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printer-delete-tasktrigger?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A list of task triggers that are associated with the printer.
+     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintTaskTrigger>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printtasktrigger-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrintTaskTriggerItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrintTaskTrigger | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder<P
      */
      patch(body: PrintTaskTrigger, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintTaskTrigger | undefined>;
     /**
-     * Delete navigation property taskTriggers for print
+     * Delete the task trigger of a printer to prevent related print events from triggering tasks on the specified printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A list of task triggers that are associated with the printer.
+     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +62,7 @@ export interface PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder<P
      toPatchRequestInformation(body: PrintTaskTrigger, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A list of task triggers that are associated with the printer.
+ * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
  */
 export interface PrintTaskTriggerItemRequestBuilderGetQueryParameters {
     /**

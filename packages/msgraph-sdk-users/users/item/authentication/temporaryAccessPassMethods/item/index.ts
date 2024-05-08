@@ -13,33 +13,35 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder<TemporaryAccessPassAuthenticationMethodItemRequestBuilder> {
     /**
-     * Delete navigation property temporaryAccessPassMethods for users
+     * Delete a users's temporaryAccessPassAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+     * Retrieve a user's single temporaryAccessPassAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TemporaryAccessPassAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<TemporaryAccessPassAuthenticationMethod | undefined>;
     /**
-     * Delete navigation property temporaryAccessPassMethods for users
+     * Delete a users's temporaryAccessPassAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+     * Retrieve a user's single temporaryAccessPassAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+ * Retrieve a user's single temporaryAccessPassAuthenticationMethod object.
  */
 export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /**

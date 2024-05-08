@@ -25,10 +25,11 @@ export interface DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBui
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The customer who has a delegated admin relationship with a Microsoft partner.
+     * Read the properties of a delegatedAdminCustomer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminCustomer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadmincustomer-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedAdminCustomerItemRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminCustomer | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBui
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The customer who has a delegated admin relationship with a Microsoft partner.
+     * Read the properties of a delegatedAdminCustomer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: DelegatedAdminCustomer, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The customer who has a delegated admin relationship with a Microsoft partner.
+ * Read the properties of a delegatedAdminCustomer object.
  */
 export interface DelegatedAdminCustomerItemRequestBuilderGetQueryParameters {
     /**

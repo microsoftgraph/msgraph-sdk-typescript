@@ -27,28 +27,30 @@ export interface DeviceComplianceSettingStatesRequestBuilder extends BaseRequest
      */
      byDeviceComplianceSettingStateId(deviceComplianceSettingStateId: string) : DeviceComplianceSettingStateItemRequestBuilder;
     /**
-     * Not yet documented
+     * List properties and relationships of the deviceComplianceSettingState objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceSettingStateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceComplianceSettingStatesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceSettingStateCollectionResponse | undefined>;
     /**
-     * Create new navigation property to deviceComplianceSettingStates for deviceManagement
+     * Create a new deviceComplianceSettingState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceSettingState>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceComplianceSettingState, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceSettingState | undefined>;
     /**
-     * Not yet documented
+     * List properties and relationships of the deviceComplianceSettingState objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceComplianceSettingStatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to deviceComplianceSettingStates for deviceManagement
+     * Create a new deviceComplianceSettingState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface DeviceComplianceSettingStatesRequestBuilder extends BaseRequest
      toPostRequestInformation(body: DeviceComplianceSettingState, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Not yet documented
+ * List properties and relationships of the deviceComplianceSettingState objects.
  */
 export interface DeviceComplianceSettingStatesRequestBuilderGetQueryParameters {
     /**

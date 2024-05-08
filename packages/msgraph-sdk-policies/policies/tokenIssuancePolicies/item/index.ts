@@ -19,9 +19,10 @@ export interface TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilde
      */
     get appliesTo(): AppliesToRequestBuilder;
     /**
-     * Delete navigation property tokenIssuancePolicies for policies
+     * Delete a tokenIssuancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tokenissuancepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -32,15 +33,16 @@ export interface TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<TokenIssuancePolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<TokenIssuancePolicy | undefined>;
     /**
-     * Update the navigation property tokenIssuancePolicies in policies
+     * Update the properties of a tokenIssuancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenIssuancePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tokenissuancepolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TokenIssuancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TokenIssuancePolicy | undefined>;
     /**
-     * Delete navigation property tokenIssuancePolicies for policies
+     * Delete a tokenIssuancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -52,7 +54,7 @@ export interface TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilde
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TokenIssuancePolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property tokenIssuancePolicies in policies
+     * Update the properties of a tokenIssuancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

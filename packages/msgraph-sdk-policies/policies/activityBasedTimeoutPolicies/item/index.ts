@@ -19,40 +19,43 @@ export interface ActivityBasedTimeoutPolicyItemRequestBuilder extends BaseReques
      */
     get appliesTo(): AppliesToRequestBuilder;
     /**
-     * Delete navigation property activityBasedTimeoutPolicies for policies
+     * Delete an activityBasedTimeoutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The policy that controls the idle time out for web sessions for applications.
+     * Get the properties of an activityBasedTimeoutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ActivityBasedTimeoutPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<ActivityBasedTimeoutPolicy | undefined>;
     /**
-     * Update the navigation property activityBasedTimeoutPolicies in policies
+     * Update the properties of an activityBasedTimeoutPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ActivityBasedTimeoutPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ActivityBasedTimeoutPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ActivityBasedTimeoutPolicy | undefined>;
     /**
-     * Delete navigation property activityBasedTimeoutPolicies for policies
+     * Delete an activityBasedTimeoutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The policy that controls the idle time out for web sessions for applications.
+     * Get the properties of an activityBasedTimeoutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property activityBasedTimeoutPolicies in policies
+     * Update the properties of an activityBasedTimeoutPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface ActivityBasedTimeoutPolicyItemRequestBuilder extends BaseReques
      toPatchRequestInformation(body: ActivityBasedTimeoutPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The policy that controls the idle time out for web sessions for applications.
+ * Get the properties of an activityBasedTimeoutPolicy object.
  */
 export interface ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters {
     /**

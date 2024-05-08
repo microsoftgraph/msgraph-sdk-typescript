@@ -19,18 +19,20 @@ export interface AuthorizationPolicyRequestBuilder extends BaseRequestBuilder<Au
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The policy that controls Microsoft Entra authorization settings.
+     * Retrieve the properties of an authorizationPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthorizationPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/authorizationpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthorizationPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<AuthorizationPolicy | undefined>;
     /**
-     * Update the navigation property authorizationPolicy in policies
+     * Update the properties of an authorizationPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthorizationPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/authorizationpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AuthorizationPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthorizationPolicy | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface AuthorizationPolicyRequestBuilder extends BaseRequestBuilder<Au
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The policy that controls Microsoft Entra authorization settings.
+     * Retrieve the properties of an authorizationPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthorizationPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property authorizationPolicy in policies
+     * Update the properties of an authorizationPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface AuthorizationPolicyRequestBuilder extends BaseRequestBuilder<Au
      toPatchRequestInformation(body: AuthorizationPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The policy that controls Microsoft Entra authorization settings.
+ * Retrieve the properties of an authorizationPolicy object.
  */
 export interface AuthorizationPolicyRequestBuilderGetQueryParameters {
     /**

@@ -31,9 +31,10 @@ export interface TermItemRequestBuilder extends BaseRequestBuilder<TermItemReque
      */
     get set(): SetRequestBuilder;
     /**
-     * Delete navigation property terms for sites
+     * Delete a term object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -44,15 +45,16 @@ export interface TermItemRequestBuilder extends BaseRequestBuilder<TermItemReque
      */
      get(requestConfiguration?: RequestConfiguration<TermItemRequestBuilderGetQueryParameters> | undefined) : Promise<Term | undefined>;
     /**
-     * Update the navigation property terms in sites
+     * Update the properties of a term object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Term>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Term, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Term | undefined>;
     /**
-     * Delete navigation property terms for sites
+     * Delete a term object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -64,7 +66,7 @@ export interface TermItemRequestBuilder extends BaseRequestBuilder<TermItemReque
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TermItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property terms in sites
+     * Update the properties of a term object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

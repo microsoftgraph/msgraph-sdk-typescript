@@ -25,40 +25,43 @@ export interface NotificationMessageTemplateItemRequestBuilder extends BaseReque
      */
     get sendTestMessage(): SendTestMessageRequestBuilder;
     /**
-     * Delete navigation property notificationMessageTemplates for deviceManagement
+     * Deletes a notificationMessageTemplate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The Notification Message Templates.
+     * Read properties and relationships of the notificationMessageTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<NotificationMessageTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<NotificationMessageTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<NotificationMessageTemplate | undefined>;
     /**
-     * Update the navigation property notificationMessageTemplates in deviceManagement
+     * Update the properties of a notificationMessageTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<NotificationMessageTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: NotificationMessageTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<NotificationMessageTemplate | undefined>;
     /**
-     * Delete navigation property notificationMessageTemplates for deviceManagement
+     * Deletes a notificationMessageTemplate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The Notification Message Templates.
+     * Read properties and relationships of the notificationMessageTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<NotificationMessageTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property notificationMessageTemplates in deviceManagement
+     * Update the properties of a notificationMessageTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +69,7 @@ export interface NotificationMessageTemplateItemRequestBuilder extends BaseReque
      toPatchRequestInformation(body: NotificationMessageTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Notification Message Templates.
+ * Read properties and relationships of the notificationMessageTemplate object.
  */
 export interface NotificationMessageTemplateItemRequestBuilderGetQueryParameters {
     /**

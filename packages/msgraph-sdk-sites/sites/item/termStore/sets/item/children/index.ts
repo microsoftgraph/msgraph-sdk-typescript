@@ -27,28 +27,30 @@ export interface ChildrenRequestBuilder extends BaseRequestBuilder<ChildrenReque
      */
      byTermId(termId: string) : TermItemRequestBuilder;
     /**
-     * Children terms of set in term [store].
+     * Get the first level children of a [set] or [term] resource using the children navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-list-children?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChildrenRequestBuilderGetQueryParameters> | undefined) : Promise<TermCollectionResponse | undefined>;
     /**
-     * Create new navigation property to children for sites
+     * Create a new term object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Term>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: Term, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Term | undefined>;
     /**
-     * Children terms of set in term [store].
+     * Get the first level children of a [set] or [term] resource using the children navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChildrenRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to children for sites
+     * Create a new term object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ChildrenRequestBuilder extends BaseRequestBuilder<ChildrenReque
      toPostRequestInformation(body: Term, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Children terms of set in term [store].
+ * Get the first level children of a [set] or [term] resource using the children navigation property.
  */
 export interface ChildrenRequestBuilderGetQueryParameters {
     /**

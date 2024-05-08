@@ -27,10 +27,11 @@ export interface TrainingsRequestBuilder extends BaseRequestBuilder<TrainingsReq
      */
      byTrainingId(trainingId: string) : TrainingItemRequestBuilder;
     /**
-     * Represents details about attack simulation trainings.
+     * Get a list of the training objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TrainingCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-trainings?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TrainingsRequestBuilderGetQueryParameters> | undefined) : Promise<TrainingCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface TrainingsRequestBuilder extends BaseRequestBuilder<TrainingsReq
      */
      post(body: Training, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Training | undefined>;
     /**
-     * Represents details about attack simulation trainings.
+     * Get a list of the training objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface TrainingsRequestBuilder extends BaseRequestBuilder<TrainingsReq
      toPostRequestInformation(body: Training, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents details about attack simulation trainings.
+ * Get a list of the training objects and their properties.
  */
 export interface TrainingsRequestBuilderGetQueryParameters {
     /**

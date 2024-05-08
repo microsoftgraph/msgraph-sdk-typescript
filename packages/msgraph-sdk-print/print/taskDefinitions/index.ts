@@ -27,28 +27,30 @@ export interface TaskDefinitionsRequestBuilder extends BaseRequestBuilder<TaskDe
      */
      byPrintTaskDefinitionId(printTaskDefinitionId: string) : PrintTaskDefinitionItemRequestBuilder;
     /**
-     * List of abstract definition for a task that can be triggered when various events occur within Universal Print.
+     * Retrieve a list of task definitions that the requesting app defined in the tenant. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintTaskDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/print-list-taskdefinitions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaskDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<PrintTaskDefinitionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to taskDefinitions for print
+     * Create a new task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintTaskDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/print-post-taskdefinitions?view=graph-rest-1.0|Find more info here}
      */
      post(body: PrintTaskDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintTaskDefinition | undefined>;
     /**
-     * List of abstract definition for a task that can be triggered when various events occur within Universal Print.
+     * Retrieve a list of task definitions that the requesting app defined in the tenant. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to taskDefinitions for print
+     * Create a new task definition. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface TaskDefinitionsRequestBuilder extends BaseRequestBuilder<TaskDe
      toPostRequestInformation(body: PrintTaskDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List of abstract definition for a task that can be triggered when various events occur within Universal Print.
+ * Retrieve a list of task definitions that the requesting app defined in the tenant. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
  */
 export interface TaskDefinitionsRequestBuilderGetQueryParameters {
     /**

@@ -19,18 +19,20 @@ export interface UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseR
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The collection of rules like approval rules and expiration rules. Supports $expand.
+     * Retrieve a rule or settings defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleManagementPolicyRule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicyrule-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined>;
     /**
-     * Update the navigation property rules in policies
+     * Update a rule defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: For more information about rules for Microsoft Entra roles and examples of updating rules, see the following articles:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleManagementPolicyRule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicyrule-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseR
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The collection of rules like approval rules and expiration rules. Supports $expand.
+     * Retrieve a rule or settings defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property rules in policies
+     * Update a rule defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: For more information about rules for Microsoft Entra roles and examples of updating rules, see the following articles:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseR
      toPatchRequestInformation(body: UnifiedRoleManagementPolicyRule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection of rules like approval rules and expiration rules. Supports $expand.
+ * Retrieve a rule or settings defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object:
  */
 export interface UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParameters {
     /**

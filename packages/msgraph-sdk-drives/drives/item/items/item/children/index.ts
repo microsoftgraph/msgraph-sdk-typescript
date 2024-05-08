@@ -27,10 +27,11 @@ export interface ChildrenRequestBuilder extends BaseRequestBuilder<ChildrenReque
      */
      byDriveItemId1(driveItemId1: string) : DriveItemItemRequestBuilder;
     /**
-     * Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
+     * Return a collection of DriveItems in the children relationship of a DriveItem. DriveItems with a non-null folder or package facet can have one or more child DriveItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-list-children?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChildrenRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItemCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ChildrenRequestBuilder extends BaseRequestBuilder<ChildrenReque
      */
      post(body: DriveItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItem | undefined>;
     /**
-     * Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
+     * Return a collection of DriveItems in the children relationship of a DriveItem. DriveItems with a non-null folder or package facet can have one or more child DriveItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ChildrenRequestBuilder extends BaseRequestBuilder<ChildrenReque
      toPostRequestInformation(body: DriveItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
+ * Return a collection of DriveItems in the children relationship of a DriveItem. DriveItems with a non-null folder or package facet can have one or more child DriveItems.
  */
 export interface ChildrenRequestBuilderGetQueryParameters {
     /**

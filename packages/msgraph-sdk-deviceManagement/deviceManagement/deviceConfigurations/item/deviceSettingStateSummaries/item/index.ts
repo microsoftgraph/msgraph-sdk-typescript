@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface SettingStateDeviceSummaryItemRequestBuilder extends BaseRequestBuilder<SettingStateDeviceSummaryItemRequestBuilder> {
     /**
-     * Delete navigation property deviceSettingStateSummaries for deviceManagement
+     * Deletes a settingStateDeviceSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Device Configuration Setting State Device Summary
+     * Read properties and relationships of the settingStateDeviceSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SettingStateDeviceSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters> | undefined) : Promise<SettingStateDeviceSummary | undefined>;
     /**
-     * Update the navigation property deviceSettingStateSummaries in deviceManagement
+     * Update the properties of a settingStateDeviceSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SettingStateDeviceSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: SettingStateDeviceSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SettingStateDeviceSummary | undefined>;
     /**
-     * Delete navigation property deviceSettingStateSummaries for deviceManagement
+     * Deletes a settingStateDeviceSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Device Configuration Setting State Device Summary
+     * Read properties and relationships of the settingStateDeviceSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property deviceSettingStateSummaries in deviceManagement
+     * Update the properties of a settingStateDeviceSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface SettingStateDeviceSummaryItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: SettingStateDeviceSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Device Configuration Setting State Device Summary
+ * Read properties and relationships of the settingStateDeviceSummary object.
  */
 export interface SettingStateDeviceSummaryItemRequestBuilderGetQueryParameters {
     /**

@@ -25,21 +25,22 @@ export interface ApiConnectorConfigurationRequestBuilder extends BaseRequestBuil
      */
     get postFederationSignup(): PostFederationSignupRequestBuilder;
     /**
-     * Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
+     * Get the apiConnectorConfiguration property in a b2xIdentityUserFlow to detail the API connectors enabled for the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserFlowApiConnectorConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-get-apiconnectorconfiguration?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ApiConnectorConfigurationRequestBuilderGetQueryParameters> | undefined) : Promise<UserFlowApiConnectorConfiguration | undefined>;
     /**
-     * Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
+     * Get the apiConnectorConfiguration property in a b2xIdentityUserFlow to detail the API connectors enabled for the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApiConnectorConfigurationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Configuration for enabling an API connector for use as part of the self-service sign-up user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
+ * Get the apiConnectorConfiguration property in a b2xIdentityUserFlow to detail the API connectors enabled for the user flow.
  */
 export interface ApiConnectorConfigurationRequestBuilderGetQueryParameters {
     /**

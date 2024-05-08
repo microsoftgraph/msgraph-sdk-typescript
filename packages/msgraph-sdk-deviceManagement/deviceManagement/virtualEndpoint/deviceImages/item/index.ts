@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder<CloudPcDeviceImageItemRequestBuilder> {
     /**
-     * Delete navigation property deviceImages for deviceManagement
+     * Delete a cloudPcDeviceImage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpcdeviceimage-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A collection of device image resources on Cloud PC.
+     * Read the properties and relationships of a specific cloudPcDeviceImage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcDeviceImage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpcdeviceimage-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CloudPcDeviceImageItemRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcDeviceImage | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
      */
      patch(body: CloudPcDeviceImage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcDeviceImage | undefined>;
     /**
-     * Delete navigation property deviceImages for deviceManagement
+     * Delete a cloudPcDeviceImage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A collection of device image resources on Cloud PC.
+     * Read the properties and relationships of a specific cloudPcDeviceImage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface CloudPcDeviceImageItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: CloudPcDeviceImage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of device image resources on Cloud PC.
+ * Read the properties and relationships of a specific cloudPcDeviceImage object.
  */
 export interface CloudPcDeviceImageItemRequestBuilderGetQueryParameters {
     /**

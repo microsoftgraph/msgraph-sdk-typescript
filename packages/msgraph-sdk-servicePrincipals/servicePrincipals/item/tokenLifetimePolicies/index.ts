@@ -27,21 +27,22 @@ export interface TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder<
      */
      byTokenLifetimePolicyId(tokenLifetimePolicyId: string) : TokenLifetimePolicyItemRequestBuilder;
     /**
-     * The tokenLifetimePolicies assigned to this service principal.
+     * List the tokenLifetimePolicy objects that are assigned to a servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to a service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TokenLifetimePolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-tokenlifetimepolicies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TokenLifetimePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<TokenLifetimePolicyCollectionResponse | undefined>;
     /**
-     * The tokenLifetimePolicies assigned to this service principal.
+     * List the tokenLifetimePolicy objects that are assigned to a servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to a service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TokenLifetimePoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The tokenLifetimePolicies assigned to this service principal.
+ * List the tokenLifetimePolicy objects that are assigned to a servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to a service principal.
  */
 export interface TokenLifetimePoliciesRequestBuilderGetQueryParameters {
     /**

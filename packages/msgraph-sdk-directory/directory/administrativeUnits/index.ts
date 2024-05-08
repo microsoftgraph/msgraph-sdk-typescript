@@ -33,28 +33,30 @@ export interface AdministrativeUnitsRequestBuilder extends BaseRequestBuilder<Ad
      */
      byAdministrativeUnitId(administrativeUnitId: string) : AdministrativeUnitItemRequestBuilder;
     /**
-     * Conceptual container for user and group directory objects.
+     * Retrieve a list of administrativeUnit objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdministrativeUnitCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/directory-list-administrativeunits?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AdministrativeUnitsRequestBuilderGetQueryParameters> | undefined) : Promise<AdministrativeUnitCollectionResponse | undefined>;
     /**
-     * Create new navigation property to administrativeUnits for directory
+     * Use this API to create a new administrativeUnit.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdministrativeUnit>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/directory-post-administrativeunits?view=graph-rest-1.0|Find more info here}
      */
      post(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AdministrativeUnit | undefined>;
     /**
-     * Conceptual container for user and group directory objects.
+     * Retrieve a list of administrativeUnit objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdministrativeUnitsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to administrativeUnits for directory
+     * Use this API to create a new administrativeUnit.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +64,7 @@ export interface AdministrativeUnitsRequestBuilder extends BaseRequestBuilder<Ad
      toPostRequestInformation(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Conceptual container for user and group directory objects.
+ * Retrieve a list of administrativeUnit objects.
  */
 export interface AdministrativeUnitsRequestBuilderGetQueryParameters {
     /**

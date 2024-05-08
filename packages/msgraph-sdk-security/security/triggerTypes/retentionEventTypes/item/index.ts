@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder<RetentionEventTypeItemRequestBuilder> {
     /**
-     * Delete navigation property retentionEventTypes for security
+     * Delete a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentioneventtype-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get retentionEventTypes from security
+     * Read the properties and relationships of a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RetentionEventType>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentioneventtype-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RetentionEventTypeItemRequestBuilderGetQueryParameters> | undefined) : Promise<RetentionEventType | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder
      */
      patch(body: RetentionEventType, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RetentionEventType | undefined>;
     /**
-     * Delete navigation property retentionEventTypes for security
+     * Delete a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get retentionEventTypes from security
+     * Read the properties and relationships of a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: RetentionEventType, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get retentionEventTypes from security
+ * Read the properties and relationships of a retentionEventType object.
  */
 export interface RetentionEventTypeItemRequestBuilderGetQueryParameters {
     /**

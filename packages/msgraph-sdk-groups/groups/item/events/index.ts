@@ -33,28 +33,30 @@ export interface EventsRequestBuilder extends BaseRequestBuilder<EventsRequestBu
      */
      byEventId(eventId: string) : EventItemRequestBuilder;
     /**
-     * The group's calendar events.
+     * Retrieve a list of event objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EventCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-events?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EventsRequestBuilderGetQueryParameters> | undefined) : Promise<EventCollectionResponse | undefined>;
     /**
-     * Create new navigation property to events for groups
+     * Use this API to create a new event.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Event>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-post-events?view=graph-rest-1.0|Find more info here}
      */
      post(body: Event, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Event | undefined>;
     /**
-     * The group's calendar events.
+     * Retrieve a list of event objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EventsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to events for groups
+     * Use this API to create a new event.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +64,7 @@ export interface EventsRequestBuilder extends BaseRequestBuilder<EventsRequestBu
      toPostRequestInformation(body: Event, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The group's calendar events.
+ * Retrieve a list of event objects.
  */
 export interface EventsRequestBuilderGetQueryParameters {
     /**
@@ -77,6 +79,10 @@ export interface EventsRequestBuilderGetQueryParameters {
      * Order items by property values
      */
     orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
     /**
      * Select properties to be returned
      */
@@ -93,7 +99,7 @@ export interface EventsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EventsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/events{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+export const EventsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/events{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -101,6 +107,7 @@ const EventsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

@@ -39,21 +39,22 @@ export interface MemberOfRequestBuilder extends BaseRequestBuilder<MemberOfReque
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.
+     * Get groups and administrative units that this device is a direct member of. This operation is not transitive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/device-list-memberof?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MemberOfRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.
+     * Get groups and administrative units that this device is a direct member of. This operation is not transitive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MemberOfRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.
+ * Get groups and administrative units that this device is a direct member of. This operation is not transitive.
  */
 export interface MemberOfRequestBuilderGetQueryParameters {
     /**

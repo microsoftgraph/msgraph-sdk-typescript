@@ -37,40 +37,43 @@ export interface SetItemRequestBuilder extends BaseRequestBuilder<SetItemRequest
      */
     get terms(): TermsRequestBuilder;
     /**
-     * Delete navigation property sets for sites
+     * Delete a set object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-set-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
+     * Read the properties and relationships of a set object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Set>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-set-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SetItemRequestBuilderGetQueryParameters> | undefined) : Promise<Set | undefined>;
     /**
-     * Update the navigation property sets in sites
+     * Update the properties of a set object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Set>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-set-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Set, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Set | undefined>;
     /**
-     * Delete navigation property sets for sites
+     * Delete a set object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
+     * Read the properties and relationships of a set object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SetItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property sets in sites
+     * Update the properties of a set object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -78,7 +81,7 @@ export interface SetItemRequestBuilder extends BaseRequestBuilder<SetItemRequest
      toPatchRequestInformation(body: Set, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
+ * Read the properties and relationships of a set object.
  */
 export interface SetItemRequestBuilderGetQueryParameters {
     /**

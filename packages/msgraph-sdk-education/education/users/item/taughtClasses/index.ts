@@ -27,21 +27,22 @@ export interface TaughtClassesRequestBuilder extends BaseRequestBuilder<TaughtCl
      */
      byEducationClassId(educationClassId: string) : EducationClassItemRequestBuilder;
     /**
-     * Classes for which the user is a teacher.
+     * Get the educationClass resources owned by an educationUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationClassCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-list-taughtclasses?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaughtClassesRequestBuilderGetQueryParameters> | undefined) : Promise<EducationClassCollectionResponse | undefined>;
     /**
-     * Classes for which the user is a teacher.
+     * Get the educationClass resources owned by an educationUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaughtClassesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Classes for which the user is a teacher.
+ * Get the educationClass resources owned by an educationUser.
  */
 export interface TaughtClassesRequestBuilderGetQueryParameters {
     /**

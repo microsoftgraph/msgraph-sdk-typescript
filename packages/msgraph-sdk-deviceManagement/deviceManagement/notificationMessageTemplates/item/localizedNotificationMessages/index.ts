@@ -27,28 +27,30 @@ export interface LocalizedNotificationMessagesRequestBuilder extends BaseRequest
      */
      byLocalizedNotificationMessageId(localizedNotificationMessageId: string) : LocalizedNotificationMessageItemRequestBuilder;
     /**
-     * The list of localized messages for this Notification Message Template.
+     * List properties and relationships of the localizedNotificationMessage objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LocalizedNotificationMessageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LocalizedNotificationMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<LocalizedNotificationMessageCollectionResponse | undefined>;
     /**
-     * Create new navigation property to localizedNotificationMessages for deviceManagement
+     * Create a new localizedNotificationMessage object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LocalizedNotificationMessage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: LocalizedNotificationMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LocalizedNotificationMessage | undefined>;
     /**
-     * The list of localized messages for this Notification Message Template.
+     * List properties and relationships of the localizedNotificationMessage objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LocalizedNotificationMessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to localizedNotificationMessages for deviceManagement
+     * Create a new localizedNotificationMessage object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface LocalizedNotificationMessagesRequestBuilder extends BaseRequest
      toPostRequestInformation(body: LocalizedNotificationMessage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of localized messages for this Notification Message Template.
+ * List properties and relationships of the localizedNotificationMessage objects.
  */
 export interface LocalizedNotificationMessagesRequestBuilderGetQueryParameters {
     /**

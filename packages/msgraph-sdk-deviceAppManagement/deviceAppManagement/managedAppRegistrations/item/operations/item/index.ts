@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder<ManagedAppOperationItemRequestBuilder> {
     /**
-     * Delete navigation property operations for deviceAppManagement
+     * Deletes a managedAppOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Zero or more long running operations triggered on the app registration.
+     * Read properties and relationships of the managedAppOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedAppOperationItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppOperation | undefined>;
     /**
-     * Update the navigation property operations in deviceAppManagement
+     * Update the properties of a managedAppOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ManagedAppOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppOperation | undefined>;
     /**
-     * Delete navigation property operations for deviceAppManagement
+     * Deletes a managedAppOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Zero or more long running operations triggered on the app registration.
+     * Read properties and relationships of the managedAppOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedAppOperationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property operations in deviceAppManagement
+     * Update the properties of a managedAppOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface ManagedAppOperationItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: ManagedAppOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Zero or more long running operations triggered on the app registration.
+ * Read properties and relationships of the managedAppOperation object.
  */
 export interface ManagedAppOperationItemRequestBuilderGetQueryParameters {
     /**

@@ -27,28 +27,30 @@ export interface AuthenticationEventListenersRequestBuilder extends BaseRequestB
      */
      byAuthenticationEventListenerId(authenticationEventListenerId: string) : AuthenticationEventListenerItemRequestBuilder;
     /**
-     * Represents listeners for custom authentication extension events in Azure AD for workforce and customers.
+     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationEventListenerCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-list-authenticationeventlisteners?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationEventListenersRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationEventListenerCollectionResponse | undefined>;
     /**
-     * Create new navigation property to authenticationEventListeners for identity
+     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationEventListener>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-post-authenticationeventlisteners?view=graph-rest-1.0|Find more info here}
      */
      post(body: AuthenticationEventListener, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationEventListener | undefined>;
     /**
-     * Represents listeners for custom authentication extension events in Azure AD for workforce and customers.
+     * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationEventListenersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to authenticationEventListeners for identity
+     * Create a new authenticationEventListener object. You can create one of the following subtypes that are derived from authenticationEventListener.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AuthenticationEventListenersRequestBuilder extends BaseRequestB
      toPostRequestInformation(body: AuthenticationEventListener, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents listeners for custom authentication extension events in Azure AD for workforce and customers.
+ * Get a list of the authenticationEventListener objects and their properties. The following derived types are supported:
  */
 export interface AuthenticationEventListenersRequestBuilderGetQueryParameters {
     /**

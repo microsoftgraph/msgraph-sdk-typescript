@@ -49,10 +49,11 @@ export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Instances for active role assignments.
+     * Get the instance of an active role assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleAssignmentScheduleInstance>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignmentscheduleinstance-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleAssignmentScheduleInstance | undefined>;
     /**
@@ -70,7 +71,7 @@ export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Instances for active role assignments.
+     * Get the instance of an active role assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -84,7 +85,7 @@ export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends
      toPatchRequestInformation(body: UnifiedRoleAssignmentScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Instances for active role assignments.
+ * Get the instance of an active role assignment.
  */
 export interface UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetQueryParameters {
     /**

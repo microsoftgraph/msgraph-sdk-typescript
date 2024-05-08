@@ -27,10 +27,11 @@ export interface StagesRequestBuilder extends BaseRequestBuilder<StagesRequestBu
      */
      byApprovalStageId(approvalStageId: string) : ApprovalStageItemRequestBuilder;
     /**
-     * A collection of stages in the approval decision.
+     * List the approvalStage objects associated with an approval. This API request is made by an approver in the following scenarios: In Microsoft Entra entitlement management, providing the identifier of the access package assignment request.In PIM for groups, providing the identifier of the assignment schedule request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApprovalStageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/approval-list-stages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<StagesRequestBuilderGetQueryParameters> | undefined) : Promise<ApprovalStageCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface StagesRequestBuilder extends BaseRequestBuilder<StagesRequestBu
      */
      post(body: ApprovalStage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ApprovalStage | undefined>;
     /**
-     * A collection of stages in the approval decision.
+     * List the approvalStage objects associated with an approval. This API request is made by an approver in the following scenarios: In Microsoft Entra entitlement management, providing the identifier of the access package assignment request.In PIM for groups, providing the identifier of the assignment schedule request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface StagesRequestBuilder extends BaseRequestBuilder<StagesRequestBu
      toPostRequestInformation(body: ApprovalStage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of stages in the approval decision.
+ * List the approvalStage objects associated with an approval. This API request is made by an approver in the following scenarios: In Microsoft Entra entitlement management, providing the identifier of the access package assignment request.In PIM for groups, providing the identifier of the assignment schedule request.
  */
 export interface StagesRequestBuilderGetQueryParameters {
     /**

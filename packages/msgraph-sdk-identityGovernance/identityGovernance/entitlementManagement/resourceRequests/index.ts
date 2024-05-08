@@ -27,28 +27,30 @@ export interface ResourceRequestsRequestBuilder extends BaseRequestBuilder<Resou
      */
      byAccessPackageResourceRequestId(accessPackageResourceRequestId: string) : AccessPackageResourceRequestItemRequestBuilder;
     /**
-     * Represents a request to add or remove a resource to or from a catalog respectively.
+     * Retrieve a list of accessPackageResourceRequest objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageResourceRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-resourcerequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourceRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageResourceRequestCollectionResponse | undefined>;
     /**
-     * Create new navigation property to resourceRequests for identityGovernance
+     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageResourceRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-resourcerequests?view=graph-rest-1.0|Find more info here}
      */
      post(body: AccessPackageResourceRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageResourceRequest | undefined>;
     /**
-     * Represents a request to add or remove a resource to or from a catalog respectively.
+     * Retrieve a list of accessPackageResourceRequest objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ResourceRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to resourceRequests for identityGovernance
+     * Create a new accessPackageResourceRequest object to request the addition of a resource to an access package catalog, update of a resource, or the removal of a resource from a catalog.  A resource must be included in an access package catalog before a role of that resource can be added to an access package.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ResourceRequestsRequestBuilder extends BaseRequestBuilder<Resou
      toPostRequestInformation(body: AccessPackageResourceRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents a request to add or remove a resource to or from a catalog respectively.
+ * Retrieve a list of accessPackageResourceRequest objects.
  */
 export interface ResourceRequestsRequestBuilderGetQueryParameters {
     /**

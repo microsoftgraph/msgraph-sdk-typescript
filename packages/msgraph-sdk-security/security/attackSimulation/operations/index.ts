@@ -27,7 +27,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      byAttackSimulationOperationId(attackSimulationOperationId: string) : AttackSimulationOperationItemRequestBuilder;
     /**
-     * Represents an attack simulation training operation.
+     * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AttackSimulationOperationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      post(body: AttackSimulationOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AttackSimulationOperation | undefined>;
     /**
-     * Represents an attack simulation training operation.
+     * Get an attack simulation operation to track a long-running operation request for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      toPostRequestInformation(body: AttackSimulationOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents an attack simulation training operation.
+ * Get an attack simulation operation to track a long-running operation request for a tenant.
  */
 export interface OperationsRequestBuilderGetQueryParameters {
     /**

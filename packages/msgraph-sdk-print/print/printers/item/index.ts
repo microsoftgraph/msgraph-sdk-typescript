@@ -43,40 +43,43 @@ export interface PrinterItemRequestBuilder extends BaseRequestBuilder<PrinterIte
      */
     get taskTriggers(): TaskTriggersRequestBuilder;
     /**
-     * Delete navigation property printers for print
+     * Delete (unregister) a printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printer-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of printers registered in the tenant.
+     * Retrieve the properties and relationships of a printer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Printer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printer-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrinterItemRequestBuilderGetQueryParameters> | undefined) : Promise<Printer | undefined>;
     /**
-     * Update the navigation property printers in print
+     * Update the properties of a printer object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Printer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printer-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Printer, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Printer | undefined>;
     /**
-     * Delete navigation property printers for print
+     * Delete (unregister) a printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of printers registered in the tenant.
+     * Retrieve the properties and relationships of a printer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PrinterItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property printers in print
+     * Update the properties of a printer object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -84,7 +87,7 @@ export interface PrinterItemRequestBuilder extends BaseRequestBuilder<PrinterIte
      toPatchRequestInformation(body: Printer, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of printers registered in the tenant.
+ * Retrieve the properties and relationships of a printer object.
  */
 export interface PrinterItemRequestBuilderGetQueryParameters {
     /**

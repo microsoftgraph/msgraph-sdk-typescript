@@ -49,40 +49,43 @@ export interface EducationUserItemRequestBuilder extends BaseRequestBuilder<Educ
      */
     get user(): UserRequestBuilder;
     /**
-     * Delete navigation property users for education
+     * Delete a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get users from education
+     * Read the properties and relationships of an educationUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationUser>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EducationUserItemRequestBuilderGetQueryParameters> | undefined) : Promise<EducationUser | undefined>;
     /**
-     * Update the navigation property users in education
+     * Update the properties of an educationUser object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationUser>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EducationUser, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationUser | undefined>;
     /**
-     * Delete navigation property users for education
+     * Delete a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get users from education
+     * Read the properties and relationships of an educationUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EducationUserItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property users in education
+     * Update the properties of an educationUser object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -90,7 +93,7 @@ export interface EducationUserItemRequestBuilder extends BaseRequestBuilder<Educ
      toPatchRequestInformation(body: EducationUser, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get users from education
+ * Read the properties and relationships of an educationUser object.
  */
 export interface EducationUserItemRequestBuilderGetQueryParameters {
     /**

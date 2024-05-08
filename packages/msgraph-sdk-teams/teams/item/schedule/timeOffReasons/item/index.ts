@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TimeOffReasonItemRequestBuilder extends BaseRequestBuilder<TimeOffReasonItemRequestBuilder> {
     /**
-     * Delete navigation property timeOffReasons for teams
+     * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method doesn't remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The set of reasons for a time off in the schedule.
+     * Retrieve the properties and relationships of a timeOffReason object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOffReason>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TimeOffReasonItemRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOffReason | undefined>;
     /**
-     * Update the navigation property timeOffReasons in teams
+     * Replace an existing timeOffReason. If the specified timeOffReason doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOffReason>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-put?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TimeOffReason, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOffReason | undefined>;
     /**
-     * Delete navigation property timeOffReasons for teams
+     * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method doesn't remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The set of reasons for a time off in the schedule.
+     * Retrieve the properties and relationships of a timeOffReason object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TimeOffReasonItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property timeOffReasons in teams
+     * Replace an existing timeOffReason. If the specified timeOffReason doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface TimeOffReasonItemRequestBuilder extends BaseRequestBuilder<Time
      toPatchRequestInformation(body: TimeOffReason, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The set of reasons for a time off in the schedule.
+ * Retrieve the properties and relationships of a timeOffReason object by ID.
  */
 export interface TimeOffReasonItemRequestBuilderGetQueryParameters {
     /**

@@ -19,10 +19,11 @@ export interface ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder<M
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The managed app statuses.
+     * Read properties and relationships of the managedAppStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatus-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedAppStatusItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppStatus | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder<M
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The managed app statuses.
+     * Read properties and relationships of the managedAppStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder<M
      toPatchRequestInformation(body: ManagedAppStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The managed app statuses.
+ * Read properties and relationships of the managedAppStatus object.
  */
 export interface ManagedAppStatusItemRequestBuilderGetQueryParameters {
     /**

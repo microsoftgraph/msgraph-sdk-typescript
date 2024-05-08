@@ -27,28 +27,30 @@ export interface UserFlowAttributesRequestBuilder extends BaseRequestBuilder<Use
      */
      byIdentityUserFlowAttributeId(identityUserFlowAttributeId: string) : IdentityUserFlowAttributeItemRequestBuilder;
     /**
-     * Represents entry point for identity userflow attributes.
+     * Retrieve a list of identityUserFlowAttribute objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityUserFlowAttributeCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserFlowAttributesRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityUserFlowAttributeCollectionResponse | undefined>;
     /**
-     * Create new navigation property to userFlowAttributes for identity
+     * Create a new custom identityUserFlowAttribute object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityUserFlowAttribute>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: IdentityUserFlowAttribute, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityUserFlowAttribute | undefined>;
     /**
-     * Represents entry point for identity userflow attributes.
+     * Retrieve a list of identityUserFlowAttribute objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserFlowAttributesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to userFlowAttributes for identity
+     * Create a new custom identityUserFlowAttribute object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface UserFlowAttributesRequestBuilder extends BaseRequestBuilder<Use
      toPostRequestInformation(body: IdentityUserFlowAttribute, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents entry point for identity userflow attributes.
+ * Retrieve a list of identityUserFlowAttribute objects.
  */
 export interface UserFlowAttributesRequestBuilderGetQueryParameters {
     /**

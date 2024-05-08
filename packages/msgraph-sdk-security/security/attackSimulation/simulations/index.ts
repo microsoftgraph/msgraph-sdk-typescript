@@ -27,28 +27,30 @@ export interface SimulationsRequestBuilder extends BaseRequestBuilder<Simulation
      */
      bySimulationId(simulationId: string) : SimulationItemRequestBuilder;
     /**
-     * Represents an attack simulation training campaign in a tenant.
+     * Get a list of attack simulation campaigns for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SimulationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-simulations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SimulationsRequestBuilderGetQueryParameters> | undefined) : Promise<SimulationCollectionResponse | undefined>;
     /**
-     * Create new navigation property to simulations for security
+     * Create an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Simulation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-post-simulation?view=graph-rest-1.0|Find more info here}
      */
      post(body: Simulation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Simulation | undefined>;
     /**
-     * Represents an attack simulation training campaign in a tenant.
+     * Get a list of attack simulation campaigns for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SimulationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to simulations for security
+     * Create an attack simulation campaign for a tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface SimulationsRequestBuilder extends BaseRequestBuilder<Simulation
      toPostRequestInformation(body: Simulation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents an attack simulation training campaign in a tenant.
+ * Get a list of attack simulation campaigns for a tenant.
  */
 export interface SimulationsRequestBuilderGetQueryParameters {
     /**

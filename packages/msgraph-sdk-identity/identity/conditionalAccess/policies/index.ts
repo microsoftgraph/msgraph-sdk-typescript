@@ -27,28 +27,30 @@ export interface PoliciesRequestBuilder extends BaseRequestBuilder<PoliciesReque
      */
      byConditionalAccessPolicyId(conditionalAccessPolicyId: string) : ConditionalAccessPolicyItemRequestBuilder;
     /**
-     * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+     * Retrieve a list of conditionalAccessPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConditionalAccessPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-list-policies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<ConditionalAccessPolicyCollectionResponse | undefined>;
     /**
-     * Create new navigation property to policies for identity
+     * Create a new conditionalAccessPolicy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConditionalAccessPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-post-policies?view=graph-rest-1.0|Find more info here}
      */
      post(body: ConditionalAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConditionalAccessPolicy | undefined>;
     /**
-     * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+     * Retrieve a list of conditionalAccessPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to policies for identity
+     * Create a new conditionalAccessPolicy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface PoliciesRequestBuilder extends BaseRequestBuilder<PoliciesReque
      toPostRequestInformation(body: ConditionalAccessPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+ * Retrieve a list of conditionalAccessPolicy objects.
  */
 export interface PoliciesRequestBuilderGetQueryParameters {
     /**

@@ -27,10 +27,11 @@ export interface RoleDefinitionsRequestBuilder extends BaseRequestBuilder<RoleDe
      */
      byUnifiedRoleDefinitionId(unifiedRoleDefinitionId: string) : UnifiedRoleDefinitionItemRequestBuilder;
     /**
-     * Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Microsoft Entra ID)- entitlement management (Microsoft Entra Entitlement Management)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleDefinitionCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface RoleDefinitionsRequestBuilder extends BaseRequestBuilder<RoleDe
      */
      post(body: UnifiedRoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleDefinition | undefined>;
     /**
-     * Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Microsoft Entra ID)- entitlement management (Microsoft Entra Entitlement Management)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface RoleDefinitionsRequestBuilder extends BaseRequestBuilder<RoleDe
      toPostRequestInformation(body: UnifiedRoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+ * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Microsoft Entra ID)- entitlement management (Microsoft Entra Entitlement Management)
  */
 export interface RoleDefinitionsRequestBuilderGetQueryParameters {
     /**

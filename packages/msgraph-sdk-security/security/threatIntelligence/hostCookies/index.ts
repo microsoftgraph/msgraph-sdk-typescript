@@ -27,7 +27,7 @@ export interface HostCookiesRequestBuilder extends BaseRequestBuilder<HostCookie
      */
      byHostCookieId(hostCookieId: string) : HostCookieItemRequestBuilder;
     /**
-     * Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostCookie object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostCookieCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface HostCookiesRequestBuilder extends BaseRequestBuilder<HostCookie
      */
      post(body: HostCookie, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HostCookie | undefined>;
     /**
-     * Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostCookie object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface HostCookiesRequestBuilder extends BaseRequestBuilder<HostCookie
      toPostRequestInformation(body: HostCookie, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of a hostCookie object.
  */
 export interface HostCookiesRequestBuilderGetQueryParameters {
     /**

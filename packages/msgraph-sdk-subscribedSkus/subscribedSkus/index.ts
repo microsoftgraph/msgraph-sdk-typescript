@@ -55,6 +55,14 @@ export interface SubscribedSkusRequestBuilder extends BaseRequestBuilder<Subscri
  */
 export interface SubscribedSkusRequestBuilderGetQueryParameters {
     /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
      * Order items by property values
      */
     orderby?: string[];
@@ -66,18 +74,30 @@ export interface SubscribedSkusRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
 }
 /**
  * Uri template for the request builder.
  */
-export const SubscribedSkusRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus{?%24orderby,%24search,%24select}";
+export const SubscribedSkusRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SubscribedSkusRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
+    "filter": "%24filter",
     "orderby": "%24orderby",
     "search": "%24search",
     "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
 };
 /**
  * Metadata for all the navigation properties in the request builder.

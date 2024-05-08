@@ -25,10 +25,11 @@ export interface HostComponentItemRequestBuilder extends BaseRequestBuilder<Host
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostComponent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostComponent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-hostcomponent-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HostComponentItemRequestBuilderGetQueryParameters> | undefined) : Promise<HostComponent | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface HostComponentItemRequestBuilder extends BaseRequestBuilder<Host
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
+     * Read the properties and relationships of a hostComponent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface HostComponentItemRequestBuilder extends BaseRequestBuilder<Host
      toPatchRequestInformation(body: HostComponent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve details about hostComponent objects.Note: List retrieval is not yet supported.
+ * Read the properties and relationships of a hostComponent object.
  */
 export interface HostComponentItemRequestBuilderGetQueryParameters {
     /**

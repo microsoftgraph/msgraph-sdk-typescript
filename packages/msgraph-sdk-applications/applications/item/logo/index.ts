@@ -13,6 +13,12 @@ export interface LogoRequestBuilder extends BaseRequestBuilder<LogoRequestBuilde
     /**
      * The main logo for the application. Not nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
+     * The main logo for the application. Not nullable.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
@@ -25,6 +31,12 @@ export interface LogoRequestBuilder extends BaseRequestBuilder<LogoRequestBuilde
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      put(body: ArrayBuffer | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
+    /**
+     * The main logo for the application. Not nullable.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * The main logo for the application. Not nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -47,6 +59,14 @@ export const LogoRequestBuilderUriTemplate = "{+baseurl}/applications/{applicati
  * Metadata for all the requests in the request builder.
  */
 export const LogoRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: LogoRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: LogoRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",

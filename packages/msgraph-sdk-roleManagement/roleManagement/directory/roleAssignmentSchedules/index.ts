@@ -35,10 +35,11 @@ export interface RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilde
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Schedules for active role assignment operations.
+     * Get the schedules for active role assignment operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleAssignmentScheduleCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleassignmentschedules?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleAssignmentSchedulesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleAssignmentScheduleCollectionResponse | undefined>;
     /**
@@ -50,7 +51,7 @@ export interface RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilde
      */
      post(body: UnifiedRoleAssignmentSchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined>;
     /**
-     * Schedules for active role assignment operations.
+     * Get the schedules for active role assignment operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -64,7 +65,7 @@ export interface RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: UnifiedRoleAssignmentSchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Schedules for active role assignment operations.
+ * Get the schedules for active role assignment operations.
  */
 export interface RoleAssignmentSchedulesRequestBuilderGetQueryParameters {
     /**

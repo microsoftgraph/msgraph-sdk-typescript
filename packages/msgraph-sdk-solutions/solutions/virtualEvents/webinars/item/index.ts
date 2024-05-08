@@ -31,10 +31,11 @@ export interface VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get webinars from solutions
+     * Read the properties and relationships of a virtualEventWebinar object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventWebinar>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventwebinar-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VirtualEventWebinarItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventWebinar | undefined>;
     /**
@@ -52,7 +53,7 @@ export interface VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get webinars from solutions
+     * Read the properties and relationships of a virtualEventWebinar object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +67,7 @@ export interface VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: VirtualEventWebinar, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get webinars from solutions
+ * Read the properties and relationships of a virtualEventWebinar object.
  */
 export interface VirtualEventWebinarItemRequestBuilderGetQueryParameters {
     /**

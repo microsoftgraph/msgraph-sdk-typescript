@@ -27,21 +27,22 @@ export interface Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder
      */
      byOAuth2PermissionGrantId(oAuth2PermissionGrantId: string) : OAuth2PermissionGrantItemRequestBuilder;
     /**
-     * Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
+     * Retrieve a list of oAuth2PermissionGrant entities, representing delegated permissions granted to the service principal (representing the client application) to access an API on behalf of a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OAuth2PermissionGrantCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-oauth2permissiongrants?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<Oauth2PermissionGrantsRequestBuilderGetQueryParameters> | undefined) : Promise<OAuth2PermissionGrantCollectionResponse | undefined>;
     /**
-     * Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
+     * Retrieve a list of oAuth2PermissionGrant entities, representing delegated permissions granted to the service principal (representing the client application) to access an API on behalf of a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<Oauth2PermissionGrantsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
+ * Retrieve a list of oAuth2PermissionGrant entities, representing delegated permissions granted to the service principal (representing the client application) to access an API on behalf of a user.
  */
 export interface Oauth2PermissionGrantsRequestBuilderGetQueryParameters {
     /**

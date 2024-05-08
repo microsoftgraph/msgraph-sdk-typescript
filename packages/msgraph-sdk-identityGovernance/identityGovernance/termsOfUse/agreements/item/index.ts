@@ -31,40 +31,43 @@ export interface AgreementItemRequestBuilder extends BaseRequestBuilder<Agreemen
      */
     get files(): FilesRequestBuilder;
     /**
-     * Delete navigation property agreements for identityGovernance
+     * Delete an agreement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/agreement-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents a tenant's customizable terms of use agreement that's created and managed with Microsoft Entra ID Governance.
+     * Retrieve the properties and relationships of an agreement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Agreement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AgreementItemRequestBuilderGetQueryParameters> | undefined) : Promise<Agreement | undefined>;
     /**
-     * Update the navigation property agreements in identityGovernance
+     * Update the properties of an agreement object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Agreement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/agreement-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Agreement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Agreement | undefined>;
     /**
-     * Delete navigation property agreements for identityGovernance
+     * Delete an agreement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents a tenant's customizable terms of use agreement that's created and managed with Microsoft Entra ID Governance.
+     * Retrieve the properties and relationships of an agreement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AgreementItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property agreements in identityGovernance
+     * Update the properties of an agreement object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +75,7 @@ export interface AgreementItemRequestBuilder extends BaseRequestBuilder<Agreemen
      toPatchRequestInformation(body: Agreement, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents a tenant's customizable terms of use agreement that's created and managed with Microsoft Entra ID Governance.
+ * Retrieve the properties and relationships of an agreement object.
  */
 export interface AgreementItemRequestBuilderGetQueryParameters {
     /**

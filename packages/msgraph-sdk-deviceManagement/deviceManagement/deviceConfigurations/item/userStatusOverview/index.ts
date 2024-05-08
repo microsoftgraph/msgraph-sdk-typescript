@@ -19,18 +19,20 @@ export interface UserStatusOverviewRequestBuilder extends BaseRequestBuilder<Use
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Device Configuration users status overview
+     * Read properties and relationships of the deviceConfigurationUserOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationUserOverview>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuseroverview-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserStatusOverviewRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationUserOverview | undefined>;
     /**
-     * Update the navigation property userStatusOverview in deviceManagement
+     * Update the properties of a deviceConfigurationUserOverview object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationUserOverview>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuseroverview-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceConfigurationUserOverview, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfigurationUserOverview | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface UserStatusOverviewRequestBuilder extends BaseRequestBuilder<Use
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Device Configuration users status overview
+     * Read properties and relationships of the deviceConfigurationUserOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserStatusOverviewRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property userStatusOverview in deviceManagement
+     * Update the properties of a deviceConfigurationUserOverview object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface UserStatusOverviewRequestBuilder extends BaseRequestBuilder<Use
      toPatchRequestInformation(body: DeviceConfigurationUserOverview, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Device Configuration users status overview
+ * Read properties and relationships of the deviceConfigurationUserOverview object.
  */
 export interface UserStatusOverviewRequestBuilderGetQueryParameters {
     /**

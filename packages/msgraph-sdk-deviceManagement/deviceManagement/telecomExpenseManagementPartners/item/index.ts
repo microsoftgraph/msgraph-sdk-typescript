@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TelecomExpenseManagementPartnerItemRequestBuilder extends BaseRequestBuilder<TelecomExpenseManagementPartnerItemRequestBuilder> {
     /**
-     * Delete navigation property telecomExpenseManagementPartners for deviceManagement
+     * Deletes a telecomExpenseManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The telecom expense management partners.
+     * Read properties and relationships of the telecomExpenseManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TelecomExpenseManagementPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters> | undefined) : Promise<TelecomExpenseManagementPartner | undefined>;
     /**
-     * Update the navigation property telecomExpenseManagementPartners in deviceManagement
+     * Update the properties of a telecomExpenseManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TelecomExpenseManagementPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TelecomExpenseManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TelecomExpenseManagementPartner | undefined>;
     /**
-     * Delete navigation property telecomExpenseManagementPartners for deviceManagement
+     * Deletes a telecomExpenseManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The telecom expense management partners.
+     * Read properties and relationships of the telecomExpenseManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property telecomExpenseManagementPartners in deviceManagement
+     * Update the properties of a telecomExpenseManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface TelecomExpenseManagementPartnerItemRequestBuilder extends BaseR
      toPatchRequestInformation(body: TelecomExpenseManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The telecom expense management partners.
+ * Read properties and relationships of the telecomExpenseManagementPartner object.
  */
 export interface TelecomExpenseManagementPartnerItemRequestBuilderGetQueryParameters {
     /**

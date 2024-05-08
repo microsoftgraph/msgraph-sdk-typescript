@@ -25,10 +25,11 @@ export interface AccessReviewHistoryDefinitionItemRequestBuilder extends BaseReq
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents a collection of access review history data and the scopes used to collect that data.
+     * Retrieve an accessReviewHistoryDefinition object by its identifier. All the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewHistoryDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewhistorydefinition-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewHistoryDefinition | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface AccessReviewHistoryDefinitionItemRequestBuilder extends BaseReq
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents a collection of access review history data and the scopes used to collect that data.
+     * Retrieve an accessReviewHistoryDefinition object by its identifier. All the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface AccessReviewHistoryDefinitionItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: AccessReviewHistoryDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents a collection of access review history data and the scopes used to collect that data.
+ * Retrieve an accessReviewHistoryDefinition object by its identifier. All the properties of the access review history definition object are returned. If the definition is 30 days or older, a 404 Not Found error is returned.
  */
 export interface AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParameters {
     /**

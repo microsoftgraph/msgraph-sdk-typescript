@@ -27,28 +27,30 @@ export interface AcronymsRequestBuilder extends BaseRequestBuilder<AcronymsReque
      */
      byAcronymId(acronymId: string) : AcronymItemRequestBuilder;
     /**
-     * Administrative answer in Microsoft Search results to define common acronyms in an organization.
+     * Get a list of the acronym objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AcronymCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/search-searchentity-list-acronyms?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AcronymsRequestBuilderGetQueryParameters> | undefined) : Promise<AcronymCollectionResponse | undefined>;
     /**
-     * Create new navigation property to acronyms for search
+     * Create a new acronym object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Acronym>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/search-searchentity-post-acronyms?view=graph-rest-1.0|Find more info here}
      */
      post(body: Acronym, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Acronym | undefined>;
     /**
-     * Administrative answer in Microsoft Search results to define common acronyms in an organization.
+     * Get a list of the acronym objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AcronymsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to acronyms for search
+     * Create a new acronym object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AcronymsRequestBuilder extends BaseRequestBuilder<AcronymsReque
      toPostRequestInformation(body: Acronym, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Administrative answer in Microsoft Search results to define common acronyms in an organization.
+ * Get a list of the acronym objects and their properties.
  */
 export interface AcronymsRequestBuilderGetQueryParameters {
     /**

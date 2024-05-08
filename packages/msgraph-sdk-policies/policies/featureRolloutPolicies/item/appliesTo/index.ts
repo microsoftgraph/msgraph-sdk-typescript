@@ -33,28 +33,29 @@ export interface AppliesToRequestBuilder extends BaseRequestBuilder<AppliesToReq
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Nullable. Specifies a list of directoryObjects that feature is enabled for.
+     * Nullable. Specifies a list of directoryObject resources that feature is enabled for.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AppliesToRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Create new navigation property to appliesTo for policies
+     * Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-post-appliesto?view=graph-rest-1.0|Find more info here}
      */
      post(body: DirectoryObject, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DirectoryObject | undefined>;
     /**
-     * Nullable. Specifies a list of directoryObjects that feature is enabled for.
+     * Nullable. Specifies a list of directoryObject resources that feature is enabled for.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppliesToRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to appliesTo for policies
+     * Add an appliesTo on a featureRolloutPolicy object to specify the directoryObject to which the featureRolloutPolicy should be applied.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +63,7 @@ export interface AppliesToRequestBuilder extends BaseRequestBuilder<AppliesToReq
      toPostRequestInformation(body: DirectoryObject, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Nullable. Specifies a list of directoryObjects that feature is enabled for.
+ * Nullable. Specifies a list of directoryObject resources that feature is enabled for.
  */
 export interface AppliesToRequestBuilderGetQueryParameters {
     /**

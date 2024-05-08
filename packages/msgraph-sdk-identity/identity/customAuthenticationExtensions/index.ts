@@ -33,28 +33,30 @@ export interface CustomAuthenticationExtensionsRequestBuilder extends BaseReques
      */
      byCustomAuthenticationExtensionId(customAuthenticationExtensionId: string) : CustomAuthenticationExtensionItemRequestBuilder;
     /**
-     * Represents custom extensions to authentication flows in Azure AD for workforce and customers.
+     * Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomAuthenticationExtensionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-list-customauthenticationextensions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomAuthenticationExtensionsRequestBuilderGetQueryParameters> | undefined) : Promise<CustomAuthenticationExtensionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to customAuthenticationExtensions for identity
+     * Create a new customAuthenticationExtension object. The following derived types are currently supported.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomAuthenticationExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-post-customauthenticationextensions?view=graph-rest-1.0|Find more info here}
      */
      post(body: CustomAuthenticationExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomAuthenticationExtension | undefined>;
     /**
-     * Represents custom extensions to authentication flows in Azure AD for workforce and customers.
+     * Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomAuthenticationExtensionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to customAuthenticationExtensions for identity
+     * Create a new customAuthenticationExtension object. The following derived types are currently supported.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +64,7 @@ export interface CustomAuthenticationExtensionsRequestBuilder extends BaseReques
      toPostRequestInformation(body: CustomAuthenticationExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents custom extensions to authentication flows in Azure AD for workforce and customers.
+ * Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
  */
 export interface CustomAuthenticationExtensionsRequestBuilderGetQueryParameters {
     /**

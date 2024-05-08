@@ -19,33 +19,35 @@ export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder e
      */
     get device(): DeviceRequestBuilder;
     /**
-     * Delete navigation property windowsHelloForBusinessMethods for users
+     * Deletes a windowsHelloForBusinessAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
+     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsHelloForBusinessAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsHelloForBusinessAuthenticationMethod | undefined>;
     /**
-     * Delete navigation property windowsHelloForBusinessMethods for users
+     * Deletes a windowsHelloForBusinessAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
+     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Represents the Windows Hello for Business authentication method registered to a user for authentication.
+ * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
  */
 export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /**

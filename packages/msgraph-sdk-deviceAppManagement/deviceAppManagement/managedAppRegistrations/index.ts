@@ -33,28 +33,30 @@ export interface ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilde
      */
      byManagedAppRegistrationId(managedAppRegistrationId: string) : ManagedAppRegistrationItemRequestBuilder;
     /**
-     * The managed app registrations.
+     * List properties and relationships of the iosManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppRegistrationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappregistration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedAppRegistrationsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppRegistrationCollectionResponse | undefined>;
     /**
-     * Create new navigation property to managedAppRegistrations for deviceAppManagement
+     * Create a new androidManagedAppRegistration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppRegistration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedAppRegistration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppRegistration | undefined>;
     /**
-     * The managed app registrations.
+     * List properties and relationships of the iosManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedAppRegistrationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to managedAppRegistrations for deviceAppManagement
+     * Create a new androidManagedAppRegistration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +64,7 @@ export interface ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: ManagedAppRegistration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The managed app registrations.
+ * List properties and relationships of the iosManagedAppRegistration objects.
  */
 export interface ManagedAppRegistrationsRequestBuilderGetQueryParameters {
     /**

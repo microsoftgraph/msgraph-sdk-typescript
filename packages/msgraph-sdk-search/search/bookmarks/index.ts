@@ -27,28 +27,30 @@ export interface BookmarksRequestBuilder extends BaseRequestBuilder<BookmarksReq
      */
      byBookmarkId(bookmarkId: string) : BookmarkItemRequestBuilder;
     /**
-     * Administrative answer in Microsoft Search results for common search queries in an organization.
+     * Get a list of bookmark objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookmarkCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/search-searchentity-list-bookmarks?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookmarksRequestBuilderGetQueryParameters> | undefined) : Promise<BookmarkCollectionResponse | undefined>;
     /**
-     * Create new navigation property to bookmarks for search
+     * Create a new bookmark object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Bookmark>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/search-searchentity-post-bookmarks?view=graph-rest-1.0|Find more info here}
      */
      post(body: Bookmark, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Bookmark | undefined>;
     /**
-     * Administrative answer in Microsoft Search results for common search queries in an organization.
+     * Get a list of bookmark objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookmarksRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to bookmarks for search
+     * Create a new bookmark object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface BookmarksRequestBuilder extends BaseRequestBuilder<BookmarksReq
      toPostRequestInformation(body: Bookmark, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Administrative answer in Microsoft Search results for common search queries in an organization.
+ * Get a list of bookmark objects and their properties.
  */
 export interface BookmarksRequestBuilderGetQueryParameters {
     /**

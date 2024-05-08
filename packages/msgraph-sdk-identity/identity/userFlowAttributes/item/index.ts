@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuilder<IdentityUserFlowAttributeItemRequestBuilder> {
     /**
-     * Delete navigation property userFlowAttributes for identity
+     * Delete a custom identityUserFlowAttribute.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents entry point for identity userflow attributes.
+     * Retrieve the properties and relationships of a identityUserFlowAttribute object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityUserFlowAttribute>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters> | undefined) : Promise<IdentityUserFlowAttribute | undefined>;
     /**
-     * Update the navigation property userFlowAttributes in identity
+     * Update the properties of a custom identityUserFlowAttribute object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityUserFlowAttribute>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: IdentityUserFlowAttribute, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IdentityUserFlowAttribute | undefined>;
     /**
-     * Delete navigation property userFlowAttributes for identity
+     * Delete a custom identityUserFlowAttribute.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents entry point for identity userflow attributes.
+     * Retrieve the properties and relationships of a identityUserFlowAttribute object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property userFlowAttributes in identity
+     * Update the properties of a custom identityUserFlowAttribute object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface IdentityUserFlowAttributeItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: IdentityUserFlowAttribute, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents entry point for identity userflow attributes.
+ * Retrieve the properties and relationships of a identityUserFlowAttribute object.
  */
 export interface IdentityUserFlowAttributeItemRequestBuilderGetQueryParameters {
     /**

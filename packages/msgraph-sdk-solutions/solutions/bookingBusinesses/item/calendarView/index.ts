@@ -27,10 +27,11 @@ export interface CalendarViewRequestBuilder extends BaseRequestBuilder<CalendarV
      */
      byBookingAppointmentId(bookingAppointmentId: string) : BookingAppointmentItemRequestBuilder;
     /**
-     * The set of appointments of this business in a specified date range. Read-only. Nullable.
+     * Get the collection of bookingAppointment objects for a bookingBusiness that occurs in the specified date range.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingAppointmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-calendarview?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CalendarViewRequestBuilderGetQueryParameters> | undefined) : Promise<BookingAppointmentCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface CalendarViewRequestBuilder extends BaseRequestBuilder<CalendarV
      */
      post(body: BookingAppointment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingAppointment | undefined>;
     /**
-     * The set of appointments of this business in a specified date range. Read-only. Nullable.
+     * Get the collection of bookingAppointment objects for a bookingBusiness that occurs in the specified date range.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface CalendarViewRequestBuilder extends BaseRequestBuilder<CalendarV
      toPostRequestInformation(body: BookingAppointment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The set of appointments of this business in a specified date range. Read-only. Nullable.
+ * Get the collection of bookingAppointment objects for a bookingBusiness that occurs in the specified date range.
  */
 export interface CalendarViewRequestBuilderGetQueryParameters {
     /**

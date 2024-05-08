@@ -27,10 +27,11 @@ export interface ContentSharingSessionsRequestBuilder extends BaseRequestBuilder
      */
      byContentSharingSessionId(contentSharingSessionId: string) : ContentSharingSessionItemRequestBuilder;
     /**
-     * Get contentSharingSessions from communications
+     * Retrieve a list of contentSharingSession objects in a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ContentSharingSessionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ContentSharingSessionsRequestBuilderGetQueryParameters> | undefined) : Promise<ContentSharingSessionCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ContentSharingSessionsRequestBuilder extends BaseRequestBuilder
      */
      post(body: ContentSharingSession, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ContentSharingSession | undefined>;
     /**
-     * Get contentSharingSessions from communications
+     * Retrieve a list of contentSharingSession objects in a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ContentSharingSessionsRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: ContentSharingSession, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get contentSharingSessions from communications
+ * Retrieve a list of contentSharingSession objects in a call.
  */
 export interface ContentSharingSessionsRequestBuilderGetQueryParameters {
     /**

@@ -31,16 +31,18 @@ export interface TeamsAppInstallationItemRequestBuilder extends BaseRequestBuild
      */
     get upgrade(): UpgradeRequestBuilder;
     /**
-     * Delete navigation property installedApps for chats
+     * Uninstall an app installed within a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/chat-delete-installedapps?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A collection of all the apps in the chat. Nullable.
+     * Get an app installed in a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsAppInstallation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/chat-get-installedapps?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TeamsAppInstallationItemRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsAppInstallation | undefined>;
     /**
@@ -52,13 +54,13 @@ export interface TeamsAppInstallationItemRequestBuilder extends BaseRequestBuild
      */
      patch(body: TeamsAppInstallation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsAppInstallation | undefined>;
     /**
-     * Delete navigation property installedApps for chats
+     * Uninstall an app installed within a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A collection of all the apps in the chat. Nullable.
+     * Get an app installed in a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -72,7 +74,7 @@ export interface TeamsAppInstallationItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: TeamsAppInstallation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of all the apps in the chat. Nullable.
+ * Get an app installed in a chat.
  */
 export interface TeamsAppInstallationItemRequestBuilderGetQueryParameters {
     /**

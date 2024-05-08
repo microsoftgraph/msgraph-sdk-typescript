@@ -25,40 +25,43 @@ export interface PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuil
      */
     get includes(): IncludesRequestBuilder;
     /**
-     * Delete navigation property permissionGrantPolicies for policies
+     * Delete a permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The policy that specifies the conditions under which consent can be granted.
+     * Retrieve a single permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionGrantPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PermissionGrantPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<PermissionGrantPolicy | undefined>;
     /**
-     * Update the navigation property permissionGrantPolicies in policies
+     * Update properties of a  permissionGrantPolicy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionGrantPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PermissionGrantPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PermissionGrantPolicy | undefined>;
     /**
-     * Delete navigation property permissionGrantPolicies for policies
+     * Delete a permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The policy that specifies the conditions under which consent can be granted.
+     * Retrieve a single permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PermissionGrantPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property permissionGrantPolicies in policies
+     * Update properties of a  permissionGrantPolicy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +69,7 @@ export interface PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: PermissionGrantPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The policy that specifies the conditions under which consent can be granted.
+ * Retrieve a single permissionGrantPolicy object.
  */
 export interface PermissionGrantPolicyItemRequestBuilderGetQueryParameters {
     /**

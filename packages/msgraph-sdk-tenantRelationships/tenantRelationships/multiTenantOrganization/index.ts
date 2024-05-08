@@ -25,28 +25,30 @@ export interface MultiTenantOrganizationRequestBuilder extends BaseRequestBuilde
      */
     get tenants(): TenantsRequestBuilder;
     /**
-     * Defines an organization with more than one instance of Microsoft Entra ID.
+     * Get properties of the multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganization-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationRequestBuilderGetQueryParameters> | undefined) : Promise<MultiTenantOrganization | undefined>;
     /**
-     * Update the navigation property multiTenantOrganization in tenantRelationships
+     * Create a new multitenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-put-multitenantorganization?view=graph-rest-1.0|Find more info here}
      */
      put(body: MultiTenantOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganization | undefined>;
     /**
-     * Defines an organization with more than one instance of Microsoft Entra ID.
+     * Get properties of the multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property multiTenantOrganization in tenantRelationships
+     * Create a new multitenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface MultiTenantOrganizationRequestBuilder extends BaseRequestBuilde
      toPutRequestInformation(body: MultiTenantOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Defines an organization with more than one instance of Microsoft Entra ID.
+ * Get properties of the multitenant organization.
  */
 export interface MultiTenantOrganizationRequestBuilderGetQueryParameters {
     /**

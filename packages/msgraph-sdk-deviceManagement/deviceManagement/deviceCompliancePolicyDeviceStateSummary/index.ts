@@ -19,18 +19,20 @@ export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends 
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The device compliance state summary for this account.
+     * Read properties and relationships of the deviceCompliancePolicyDeviceStateSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicyDeviceStateSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicydevicestatesummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummary | undefined>;
     /**
-     * Update the navigation property deviceCompliancePolicyDeviceStateSummary in deviceManagement
+     * Update the properties of a deviceCompliancePolicyDeviceStateSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicyDeviceStateSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicydevicestatesummary-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceCompliancePolicyDeviceStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummary | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends 
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The device compliance state summary for this account.
+     * Read properties and relationships of the deviceCompliancePolicyDeviceStateSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property deviceCompliancePolicyDeviceStateSummary in deviceManagement
+     * Update the properties of a deviceCompliancePolicyDeviceStateSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends 
      toPatchRequestInformation(body: DeviceCompliancePolicyDeviceStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The device compliance state summary for this account.
+ * Read properties and relationships of the deviceCompliancePolicyDeviceStateSummary object.
  */
 export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryParameters {
     /**

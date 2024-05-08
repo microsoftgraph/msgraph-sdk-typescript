@@ -27,28 +27,30 @@ export interface VppTokensRequestBuilder extends BaseRequestBuilder<VppTokensReq
      */
      byVppTokenId(vppTokenId: string) : VppTokenItemRequestBuilder;
     /**
-     * List of Vpp tokens for this organization.
+     * List properties and relationships of the vppToken objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VppTokenCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-vpptoken-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VppTokensRequestBuilderGetQueryParameters> | undefined) : Promise<VppTokenCollectionResponse | undefined>;
     /**
-     * Create new navigation property to vppTokens for deviceAppManagement
+     * Create a new vppToken object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VppToken>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-vpptoken-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: VppToken, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VppToken | undefined>;
     /**
-     * List of Vpp tokens for this organization.
+     * List properties and relationships of the vppToken objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<VppTokensRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to vppTokens for deviceAppManagement
+     * Create a new vppToken object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface VppTokensRequestBuilder extends BaseRequestBuilder<VppTokensReq
      toPostRequestInformation(body: VppToken, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List of Vpp tokens for this organization.
+ * List properties and relationships of the vppToken objects.
  */
 export interface VppTokensRequestBuilderGetQueryParameters {
     /**

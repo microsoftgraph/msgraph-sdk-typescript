@@ -33,28 +33,30 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      */
      byConversationMemberId(conversationMemberId: string) : ConversationMemberItemRequestBuilder;
     /**
-     * Members and owners of the team.
+     * Get the conversationMember collection of a team. The membership IDs returned by the server must be treated as opaque strings. The client shouldn't try to parse or make assumptions about these resource IDs. In the future, membership results can include users from various tenants, as indicated in the response. Clients should avoid assuming that all members exclusively belong to the current tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMemberCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/team-list-members?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationMemberCollectionResponse | undefined>;
     /**
-     * Create new navigation property to members for teams
+     * Add a new conversationMember to a team.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/team-post-members?view=graph-rest-1.0|Find more info here}
      */
      post(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationMember | undefined>;
     /**
-     * Members and owners of the team.
+     * Get the conversationMember collection of a team. The membership IDs returned by the server must be treated as opaque strings. The client shouldn't try to parse or make assumptions about these resource IDs. In the future, membership results can include users from various tenants, as indicated in the response. Clients should avoid assuming that all members exclusively belong to the current tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to members for teams
+     * Add a new conversationMember to a team.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +64,7 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      toPostRequestInformation(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Members and owners of the team.
+ * Get the conversationMember collection of a team. The membership IDs returned by the server must be treated as opaque strings. The client shouldn't try to parse or make assumptions about these resource IDs. In the future, membership results can include users from various tenants, as indicated in the response. Clients should avoid assuming that all members exclusively belong to the current tenant.
  */
 export interface MembersRequestBuilderGetQueryParameters {
     /**

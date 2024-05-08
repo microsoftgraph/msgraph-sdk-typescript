@@ -13,9 +13,10 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder<SoftwareOathAuthenticationMethodItemRequestBuilder> {
     /**
-     * Delete navigation property softwareOathMethods for users
+     * Delete a user's Software OATH token authentication method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/softwareoathauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -26,7 +27,7 @@ export interface SoftwareOathAuthenticationMethodItemRequestBuilder extends Base
      */
      get(requestConfiguration?: RequestConfiguration<SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<SoftwareOathAuthenticationMethod | undefined>;
     /**
-     * Delete navigation property softwareOathMethods for users
+     * Delete a user's Software OATH token authentication method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

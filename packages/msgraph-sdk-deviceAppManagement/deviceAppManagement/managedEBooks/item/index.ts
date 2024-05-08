@@ -43,40 +43,43 @@ export interface ManagedEBookItemRequestBuilder extends BaseRequestBuilder<Manag
      */
     get userStateSummary(): UserStateSummaryRequestBuilder;
     /**
-     * Delete navigation property managedEBooks for deviceAppManagement
+     * Deletes a iosVppEBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The Managed eBook.
+     * Read properties and relationships of the managedEBook object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedEBook>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebook-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedEBookItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedEBook | undefined>;
     /**
-     * Update the navigation property managedEBooks in deviceAppManagement
+     * Update the properties of a iosVppEBook object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedEBook>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ManagedEBook, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedEBook | undefined>;
     /**
-     * Delete navigation property managedEBooks for deviceAppManagement
+     * Deletes a iosVppEBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The Managed eBook.
+     * Read properties and relationships of the managedEBook object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedEBookItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property managedEBooks in deviceAppManagement
+     * Update the properties of a iosVppEBook object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -84,7 +87,7 @@ export interface ManagedEBookItemRequestBuilder extends BaseRequestBuilder<Manag
      toPatchRequestInformation(body: ManagedEBook, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Managed eBook.
+ * Read properties and relationships of the managedEBook object.
  */
 export interface ManagedEBookItemRequestBuilderGetQueryParameters {
     /**

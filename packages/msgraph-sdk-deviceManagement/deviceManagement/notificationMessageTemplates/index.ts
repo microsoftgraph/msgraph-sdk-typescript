@@ -27,28 +27,30 @@ export interface NotificationMessageTemplatesRequestBuilder extends BaseRequestB
      */
      byNotificationMessageTemplateId(notificationMessageTemplateId: string) : NotificationMessageTemplateItemRequestBuilder;
     /**
-     * The Notification Message Templates.
+     * List properties and relationships of the notificationMessageTemplate objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<NotificationMessageTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<NotificationMessageTemplatesRequestBuilderGetQueryParameters> | undefined) : Promise<NotificationMessageTemplateCollectionResponse | undefined>;
     /**
-     * Create new navigation property to notificationMessageTemplates for deviceManagement
+     * Create a new notificationMessageTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<NotificationMessageTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: NotificationMessageTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<NotificationMessageTemplate | undefined>;
     /**
-     * The Notification Message Templates.
+     * List properties and relationships of the notificationMessageTemplate objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<NotificationMessageTemplatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to notificationMessageTemplates for deviceManagement
+     * Create a new notificationMessageTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface NotificationMessageTemplatesRequestBuilder extends BaseRequestB
      toPostRequestInformation(body: NotificationMessageTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Notification Message Templates.
+ * List properties and relationships of the notificationMessageTemplate objects.
  */
 export interface NotificationMessageTemplatesRequestBuilderGetQueryParameters {
     /**

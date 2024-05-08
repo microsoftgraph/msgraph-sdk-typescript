@@ -112,11 +112,15 @@ export interface DirectoryRoleTemplatesRequestBuilderGetQueryParameters {
      * Skip the first n items
      */
     skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
 }
 /**
  * Uri template for the request builder.
  */
-export const DirectoryRoleTemplatesRequestBuilderUriTemplate = "{+baseurl}/directoryRoleTemplates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip}";
+export const DirectoryRoleTemplatesRequestBuilderUriTemplate = "{+baseurl}/directoryRoleTemplates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,6 +132,7 @@ const DirectoryRoleTemplatesRequestBuilderGetQueryParametersMapper: Record<strin
     "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
+    "top": "%24top",
 };
 /**
  * Metadata for all the navigation properties in the request builder.

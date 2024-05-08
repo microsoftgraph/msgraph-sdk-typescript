@@ -67,40 +67,43 @@ export interface BookingBusinessItemRequestBuilder extends BaseRequestBuilder<Bo
      */
     get unpublish(): UnpublishRequestBuilder;
     /**
-     * Delete navigation property bookingBusinesses for solutions
+     * Delete a bookingBusiness object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get bookingBusinesses from solutions
+     * Get the properties and relationships of a bookingBusiness object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingBusiness>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingBusinessItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingBusiness | undefined>;
     /**
-     * Update the navigation property bookingBusinesses in solutions
+     * Update the properties of a bookingBusiness object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingBusiness>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BookingBusiness, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingBusiness | undefined>;
     /**
-     * Delete navigation property bookingBusinesses for solutions
+     * Delete a bookingBusiness object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get bookingBusinesses from solutions
+     * Get the properties and relationships of a bookingBusiness object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BookingBusinessItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property bookingBusinesses in solutions
+     * Update the properties of a bookingBusiness object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -108,7 +111,7 @@ export interface BookingBusinessItemRequestBuilder extends BaseRequestBuilder<Bo
      toPatchRequestInformation(body: BookingBusiness, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get bookingBusinesses from solutions
+ * Get the properties and relationships of a bookingBusiness object.
  */
 export interface BookingBusinessItemRequestBuilderGetQueryParameters {
     /**

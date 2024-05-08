@@ -19,9 +19,10 @@ export interface WebPartItemRequestBuilder extends BaseRequestBuilder<WebPartIte
      */
     get getPositionOfWebPart(): GetPositionOfWebPartRequestBuilder;
     /**
-     * Delete navigation property webParts for sites
+     * Delete a webPart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/webpart-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -40,7 +41,7 @@ export interface WebPartItemRequestBuilder extends BaseRequestBuilder<WebPartIte
      */
      patch(body: WebPart, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WebPart | undefined>;
     /**
-     * Delete navigation property webParts for sites
+     * Delete a webPart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

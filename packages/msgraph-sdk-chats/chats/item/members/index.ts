@@ -33,28 +33,30 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      */
      byConversationMemberId(conversationMemberId: string) : ConversationMemberItemRequestBuilder;
     /**
-     * A collection of all the members in the chat. Nullable.
+     * List all conversation members in a chat or channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMemberCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationMemberCollectionResponse | undefined>;
     /**
-     * Create new navigation property to members for chats
+     * Add a conversationMember to a chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/chat-post-members?view=graph-rest-1.0|Find more info here}
      */
      post(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationMember | undefined>;
     /**
-     * A collection of all the members in the chat. Nullable.
+     * List all conversation members in a chat or channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to members for chats
+     * Add a conversationMember to a chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +64,7 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      toPostRequestInformation(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of all the members in the chat. Nullable.
+ * List all conversation members in a chat or channel.
  */
 export interface MembersRequestBuilderGetQueryParameters {
     /**

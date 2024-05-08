@@ -55,40 +55,43 @@ export interface AccessPackageItemRequestBuilder extends BaseRequestBuilder<Acce
      */
     get resourceRoleScopes(): ResourceRoleScopesRequestBuilder;
     /**
-     * Delete navigation property accessPackages for identityGovernance
+     * Delete an accessPackage object. You cannot delete an access package if it has any accessPackageAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessPackageItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackage | undefined>;
     /**
-     * Update the navigation property accessPackages in identityGovernance
+     * Update an existing accessPackage object to change one or more of its properties, such as the display name or description.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AccessPackage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackage | undefined>;
     /**
-     * Delete navigation property accessPackages for identityGovernance
+     * Delete an accessPackage object. You cannot delete an access package if it has any accessPackageAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessPackageItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property accessPackages in identityGovernance
+     * Update an existing accessPackage object to change one or more of its properties, such as the display name or description.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -96,7 +99,7 @@ export interface AccessPackageItemRequestBuilder extends BaseRequestBuilder<Acce
      toPatchRequestInformation(body: AccessPackage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
+ * Retrieve the properties and relationships of an accessPackage object.
  */
 export interface AccessPackageItemRequestBuilderGetQueryParameters {
     /**

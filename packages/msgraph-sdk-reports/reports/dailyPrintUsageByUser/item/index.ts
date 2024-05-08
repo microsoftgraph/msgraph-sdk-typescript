@@ -19,10 +19,11 @@ export interface PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder<P
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve a list of daily print usage summaries, grouped by user.
+     * Retrieve a user's usage summary for a particular time period. For descriptions of each endpoint, see printUsageByUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintUsageByUser>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printusagebyuser-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrintUsageByUserItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrintUsageByUser | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder<P
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve a list of daily print usage summaries, grouped by user.
+     * Retrieve a user's usage summary for a particular time period. For descriptions of each endpoint, see printUsageByUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder<P
      toPatchRequestInformation(body: PrintUsageByUser, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of daily print usage summaries, grouped by user.
+ * Retrieve a user's usage summary for a particular time period. For descriptions of each endpoint, see printUsageByUser.
  */
 export interface PrintUsageByUserItemRequestBuilderGetQueryParameters {
     /**

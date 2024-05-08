@@ -39,10 +39,11 @@ export interface RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder
      */
      byRiskyServicePrincipalId(riskyServicePrincipalId: string) : RiskyServicePrincipalItemRequestBuilder;
     /**
-     * Microsoft Entra service principals that are at risk.
+     * Retrieve the properties and relationships of riskyServicePrincipal objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RiskyServicePrincipalCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identityprotectionroot-list-riskyserviceprincipals?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RiskyServicePrincipalsRequestBuilderGetQueryParameters> | undefined) : Promise<RiskyServicePrincipalCollectionResponse | undefined>;
     /**
@@ -54,7 +55,7 @@ export interface RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder
      */
      post(body: RiskyServicePrincipal, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RiskyServicePrincipal | undefined>;
     /**
-     * Microsoft Entra service principals that are at risk.
+     * Retrieve the properties and relationships of riskyServicePrincipal objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -68,7 +69,7 @@ export interface RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: RiskyServicePrincipal, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Microsoft Entra service principals that are at risk.
+ * Retrieve the properties and relationships of riskyServicePrincipal objects.
  */
 export interface RiskyServicePrincipalsRequestBuilderGetQueryParameters {
     /**

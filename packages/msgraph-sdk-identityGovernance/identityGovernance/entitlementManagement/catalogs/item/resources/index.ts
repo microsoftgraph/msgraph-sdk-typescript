@@ -27,10 +27,11 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      */
      byAccessPackageResourceId(accessPackageResourceId: string) : AccessPackageResourceItemRequestBuilder;
     /**
-     * Access package resources in this catalog.
+     * Retrieve a list of accessPackageResource objects in an accessPackageCatalog.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageResourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-list-resources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourcesRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageResourceCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      */
      post(body: AccessPackageResource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageResource | undefined>;
     /**
-     * Access package resources in this catalog.
+     * Retrieve a list of accessPackageResource objects in an accessPackageCatalog.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      toPostRequestInformation(body: AccessPackageResource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Access package resources in this catalog.
+ * Retrieve a list of accessPackageResource objects in an accessPackageCatalog.
  */
 export interface ResourcesRequestBuilderGetQueryParameters {
     /**

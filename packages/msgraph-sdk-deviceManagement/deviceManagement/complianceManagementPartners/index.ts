@@ -27,28 +27,30 @@ export interface ComplianceManagementPartnersRequestBuilder extends BaseRequestB
      */
      byComplianceManagementPartnerId(complianceManagementPartnerId: string) : ComplianceManagementPartnerItemRequestBuilder;
     /**
-     * The list of Compliance Management Partners configured by the tenant.
+     * List properties and relationships of the complianceManagementPartner objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ComplianceManagementPartnerCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ComplianceManagementPartnersRequestBuilderGetQueryParameters> | undefined) : Promise<ComplianceManagementPartnerCollectionResponse | undefined>;
     /**
-     * Create new navigation property to complianceManagementPartners for deviceManagement
+     * Create a new complianceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ComplianceManagementPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ComplianceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ComplianceManagementPartner | undefined>;
     /**
-     * The list of Compliance Management Partners configured by the tenant.
+     * List properties and relationships of the complianceManagementPartner objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ComplianceManagementPartnersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to complianceManagementPartners for deviceManagement
+     * Create a new complianceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ComplianceManagementPartnersRequestBuilder extends BaseRequestB
      toPostRequestInformation(body: ComplianceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of Compliance Management Partners configured by the tenant.
+ * List properties and relationships of the complianceManagementPartner objects.
  */
 export interface ComplianceManagementPartnersRequestBuilderGetQueryParameters {
     /**

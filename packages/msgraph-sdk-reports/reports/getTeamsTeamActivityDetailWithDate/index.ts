@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type DateOnly, type Parsable, type ParsableFac
  */
 export interface GetTeamsTeamActivityDetailWithDateRequestBuilder extends BaseRequestBuilder<GetTeamsTeamActivityDetailWithDateRequestBuilder> {
     /**
-     * Invoke function getTeamsTeamActivityDetail
+     * Get details about Microsoft Teams activity by team. The numbers include activities for both licensed and nonlicensed users.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getTeamsTeamActivityDetail
+     * Get details about Microsoft Teams activity by team. The numbers include activities for both licensed and nonlicensed users.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

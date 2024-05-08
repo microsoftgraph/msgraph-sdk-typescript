@@ -31,40 +31,43 @@ export interface MdmWindowsInformationProtectionPolicyItemRequestBuilder extends
      */
     get protectedAppLockerFiles(): ProtectedAppLockerFilesRequestBuilder;
     /**
-     * Delete navigation property mdmWindowsInformationProtectionPolicies for deviceAppManagement
+     * Deletes a mdmWindowsInformationProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Windows information protection for apps running on devices which are MDM enrolled.
+     * Read properties and relationships of the mdmWindowsInformationProtectionPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MdmWindowsInformationProtectionPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<MdmWindowsInformationProtectionPolicy | undefined>;
     /**
-     * Update the navigation property mdmWindowsInformationProtectionPolicies in deviceAppManagement
+     * Update the properties of a mdmWindowsInformationProtectionPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MdmWindowsInformationProtectionPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MdmWindowsInformationProtectionPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MdmWindowsInformationProtectionPolicy | undefined>;
     /**
-     * Delete navigation property mdmWindowsInformationProtectionPolicies for deviceAppManagement
+     * Deletes a mdmWindowsInformationProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Windows information protection for apps running on devices which are MDM enrolled.
+     * Read properties and relationships of the mdmWindowsInformationProtectionPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property mdmWindowsInformationProtectionPolicies in deviceAppManagement
+     * Update the properties of a mdmWindowsInformationProtectionPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +75,7 @@ export interface MdmWindowsInformationProtectionPolicyItemRequestBuilder extends
      toPatchRequestInformation(body: MdmWindowsInformationProtectionPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Windows information protection for apps running on devices which are MDM enrolled.
+ * Read properties and relationships of the mdmWindowsInformationProtectionPolicy object.
  */
 export interface MdmWindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters {
     /**

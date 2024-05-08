@@ -19,21 +19,22 @@ export interface GraphRoomRequestBuilder extends BaseRequestBuilder<GraphRoomReq
      */
     get count(): CountRequestBuilder;
     /**
-     * Get the items of type microsoft.graph.room in the microsoft.graph.place collection
+     * Get a collection of the specified type of place objects defined in the tenant. For example, you can get all the rooms, all the room lists, or the rooms in a specific room list in the tenant. A place object can be one of the following types: Both room and roomList are derived from the place object. By default, this operation returns 100 places per page. Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. See details for how they compare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoomCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/place-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GraphRoomRequestBuilderGetQueryParameters> | undefined) : Promise<RoomCollectionResponse | undefined>;
     /**
-     * Get the items of type microsoft.graph.room in the microsoft.graph.place collection
+     * Get a collection of the specified type of place objects defined in the tenant. For example, you can get all the rooms, all the room lists, or the rooms in a specific room list in the tenant. A place object can be one of the following types: Both room and roomList are derived from the place object. By default, this operation returns 100 places per page. Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. See details for how they compare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphRoomRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the items of type microsoft.graph.room in the microsoft.graph.place collection
+ * Get a collection of the specified type of place objects defined in the tenant. For example, you can get all the rooms, all the room lists, or the rooms in a specific room list in the tenant. A place object can be one of the following types: Both room and roomList are derived from the place object. By default, this operation returns 100 places per page. Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. See details for how they compare.
  */
 export interface GraphRoomRequestBuilderGetQueryParameters {
     /**

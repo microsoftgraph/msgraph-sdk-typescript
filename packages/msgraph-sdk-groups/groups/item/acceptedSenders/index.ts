@@ -33,21 +33,22 @@ export interface AcceptedSendersRequestBuilder extends BaseRequestBuilder<Accept
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * The list of users or groups allowed to create posts or calendar events in this group. If this list is non-empty, then only users or groups listed here are allowed to post.
+     * Users in the accepted senders list can post to conversations of the group (identified in the GET request URL).Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-acceptedsenders?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AcceptedSendersRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * The list of users or groups allowed to create posts or calendar events in this group. If this list is non-empty, then only users or groups listed here are allowed to post.
+     * Users in the accepted senders list can post to conversations of the group (identified in the GET request URL).Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AcceptedSendersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The list of users or groups allowed to create posts or calendar events in this group. If this list is non-empty, then only users or groups listed here are allowed to post.
+ * Users in the accepted senders list can post to conversations of the group (identified in the GET request URL).Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
  */
 export interface AcceptedSendersRequestBuilderGetQueryParameters {
     /**
@@ -62,6 +63,10 @@ export interface AcceptedSendersRequestBuilderGetQueryParameters {
      * Order items by property values
      */
     orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
     /**
      * Select properties to be returned
      */
@@ -78,7 +83,7 @@ export interface AcceptedSendersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AcceptedSendersRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/acceptedSenders{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+export const AcceptedSendersRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/acceptedSenders{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -86,6 +91,7 @@ const AcceptedSendersRequestBuilderGetQueryParametersMapper: Record<string, stri
     "count": "%24count",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

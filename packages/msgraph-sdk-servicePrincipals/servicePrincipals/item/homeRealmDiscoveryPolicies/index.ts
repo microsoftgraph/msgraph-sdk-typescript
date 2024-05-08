@@ -33,21 +33,22 @@ export interface HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBui
      */
      byHomeRealmDiscoveryPolicyId(homeRealmDiscoveryPolicyId: string) : HomeRealmDiscoveryPolicyItemRequestBuilder;
     /**
-     * The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.
+     * List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HomeRealmDiscoveryPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-homerealmdiscoverypolicies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<HomeRealmDiscoveryPolicyCollectionResponse | undefined>;
     /**
-     * The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.
+     * List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.
+ * List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal.
  */
 export interface HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters {
     /**

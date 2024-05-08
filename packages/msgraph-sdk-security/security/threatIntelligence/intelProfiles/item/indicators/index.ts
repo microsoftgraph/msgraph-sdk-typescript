@@ -27,21 +27,22 @@ export interface IndicatorsRequestBuilder extends BaseRequestBuilder<IndicatorsR
      */
      byIntelligenceProfileIndicatorId(intelligenceProfileIndicatorId: string) : IntelligenceProfileIndicatorItemRequestBuilder;
     /**
-     * Includes an assemblage of high-fidelity network indicators of compromise.
+     * Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IntelligenceProfileIndicatorCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-intelligenceprofile-list-indicators?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IndicatorsRequestBuilderGetQueryParameters> | undefined) : Promise<IntelligenceProfileIndicatorCollectionResponse | undefined>;
     /**
-     * Includes an assemblage of high-fidelity network indicators of compromise.
+     * Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IndicatorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Includes an assemblage of high-fidelity network indicators of compromise.
+ * Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.
  */
 export interface IndicatorsRequestBuilderGetQueryParameters {
     /**

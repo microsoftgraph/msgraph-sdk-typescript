@@ -127,40 +127,43 @@ export interface MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAp
      */
     get graphWindowsWebApp(): GraphWindowsWebAppRequestBuilder;
     /**
-     * Delete navigation property mobileApps for deviceAppManagement
+     * Deletes a win32LobApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The mobile apps.
+     * Read properties and relationships of the mobileApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileapp-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * Update the navigation property mobileApps in deviceAppManagement
+     * Update the properties of a iosVppApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosvppapp-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * Delete navigation property mobileApps for deviceAppManagement
+     * Deletes a win32LobApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The mobile apps.
+     * Read properties and relationships of the mobileApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property mobileApps in deviceAppManagement
+     * Update the properties of a iosVppApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -168,7 +171,7 @@ export interface MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAp
      toPatchRequestInformation(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The mobile apps.
+ * Read properties and relationships of the mobileApp object.
  */
 export interface MobileAppItemRequestBuilderGetQueryParameters {
     /**

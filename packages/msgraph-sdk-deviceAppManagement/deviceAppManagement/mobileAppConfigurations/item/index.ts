@@ -49,40 +49,43 @@ export interface ManagedDeviceMobileAppConfigurationItemRequestBuilder extends B
      */
     get userStatusSummary(): UserStatusSummaryRequestBuilder;
     /**
-     * Delete navigation property mobileAppConfigurations for deviceAppManagement
+     * Deletes a iosMobileAppConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The Managed Device Mobile Application Configurations.
+     * Read properties and relationships of the iosMobileAppConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined>;
     /**
-     * Update the navigation property mobileAppConfigurations in deviceAppManagement
+     * Update the properties of a iosMobileAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined>;
     /**
-     * Delete navigation property mobileAppConfigurations for deviceAppManagement
+     * Deletes a iosMobileAppConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The Managed Device Mobile Application Configurations.
+     * Read properties and relationships of the iosMobileAppConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property mobileAppConfigurations in deviceAppManagement
+     * Update the properties of a iosMobileAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -90,7 +93,7 @@ export interface ManagedDeviceMobileAppConfigurationItemRequestBuilder extends B
      toPatchRequestInformation(body: ManagedDeviceMobileAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The Managed Device Mobile Application Configurations.
+ * Read properties and relationships of the iosMobileAppConfiguration object.
  */
 export interface ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters {
     /**

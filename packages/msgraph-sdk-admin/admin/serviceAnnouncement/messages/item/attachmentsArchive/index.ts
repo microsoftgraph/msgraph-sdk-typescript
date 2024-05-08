@@ -13,8 +13,15 @@ export interface AttachmentsArchiveRequestBuilder extends BaseRequestBuilder<Att
     /**
      * The zip file that contains all attachments for a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
+     * Get the list of attachments associated with a service message.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-list-attachments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
@@ -27,6 +34,12 @@ export interface AttachmentsArchiveRequestBuilder extends BaseRequestBuilder<Att
      put(body: ArrayBuffer | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
      * The zip file that contains all attachments for a message.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+    /**
+     * Get the list of attachments associated with a service message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -47,6 +60,14 @@ export const AttachmentsArchiveRequestBuilderUriTemplate = "{+baseurl}/admin/ser
  * Metadata for all the requests in the request builder.
  */
 export const AttachmentsArchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: AttachmentsArchiveRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: AttachmentsArchiveRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",

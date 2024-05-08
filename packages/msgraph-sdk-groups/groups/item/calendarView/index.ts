@@ -33,21 +33,22 @@ export interface CalendarViewRequestBuilder extends BaseRequestBuilder<CalendarV
      */
      byEventId(eventId: string) : EventItemRequestBuilder;
     /**
-     * The calendar view for the calendar. Read-only.
+     * Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range,from the default calendar of a group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EventCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-calendarview?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CalendarViewRequestBuilderGetQueryParameters> | undefined) : Promise<EventCollectionResponse | undefined>;
     /**
-     * The calendar view for the calendar. Read-only.
+     * Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range,from the default calendar of a group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CalendarViewRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The calendar view for the calendar. Read-only.
+ * Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range,from the default calendar of a group.
  */
 export interface CalendarViewRequestBuilderGetQueryParameters {
     /**
@@ -66,6 +67,10 @@ export interface CalendarViewRequestBuilderGetQueryParameters {
      * Order items by property values
      */
     orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
     /**
      * Select properties to be returned
      */
@@ -86,7 +91,7 @@ export interface CalendarViewRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CalendarViewRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+export const CalendarViewRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendarView?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -94,6 +99,7 @@ const CalendarViewRequestBuilderGetQueryParametersMapper: Record<string, string>
     "count": "%24count",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

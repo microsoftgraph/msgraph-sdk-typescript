@@ -25,10 +25,11 @@ export interface SimulationAutomationItemRequestBuilder extends BaseRequestBuild
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents simulation automation created to run on a tenant.
+     * Get an attack simulation automation for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SimulationAutomation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/simulationautomation-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SimulationAutomationItemRequestBuilderGetQueryParameters> | undefined) : Promise<SimulationAutomation | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface SimulationAutomationItemRequestBuilder extends BaseRequestBuild
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents simulation automation created to run on a tenant.
+     * Get an attack simulation automation for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface SimulationAutomationItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: SimulationAutomation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents simulation automation created to run on a tenant.
+ * Get an attack simulation automation for a tenant.
  */
 export interface SimulationAutomationItemRequestBuilderGetQueryParameters {
     /**

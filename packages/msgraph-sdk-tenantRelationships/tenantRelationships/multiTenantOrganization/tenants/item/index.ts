@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MultiTenantOrganizationMemberItemRequestBuilder extends BaseRequestBuilder<MultiTenantOrganizationMemberItemRequestBuilder> {
     /**
-     * Delete navigation property tenants for tenantRelationships
+     * Remove a tenant from a multitenant organization. A tenant can be removed in the following scenarios:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganization-delete-tenants?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Defines tenants added to a multitenant organization.
+     * Get a tenant and its properties in the multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganizationmember-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationMemberItemRequestBuilderGetQueryParameters> | undefined) : Promise<MultiTenantOrganizationMember | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface MultiTenantOrganizationMemberItemRequestBuilder extends BaseReq
      */
      patch(body: MultiTenantOrganizationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganizationMember | undefined>;
     /**
-     * Delete navigation property tenants for tenantRelationships
+     * Remove a tenant from a multitenant organization. A tenant can be removed in the following scenarios:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Defines tenants added to a multitenant organization.
+     * Get a tenant and its properties in the multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface MultiTenantOrganizationMemberItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: MultiTenantOrganizationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Defines tenants added to a multitenant organization.
+ * Get a tenant and its properties in the multitenant organization.
  */
 export interface MultiTenantOrganizationMemberItemRequestBuilderGetQueryParameters {
     /**

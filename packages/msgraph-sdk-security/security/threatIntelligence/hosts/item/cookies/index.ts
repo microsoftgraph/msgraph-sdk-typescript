@@ -27,21 +27,22 @@ export interface CookiesRequestBuilder extends BaseRequestBuilder<CookiesRequest
      */
      byHostCookieId(hostCookieId: string) : HostCookieItemRequestBuilder;
     /**
-     * The hostCookies that are associated with this host.
+     * Get a list of hostCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostCookieCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-cookies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CookiesRequestBuilderGetQueryParameters> | undefined) : Promise<HostCookieCollectionResponse | undefined>;
     /**
-     * The hostCookies that are associated with this host.
+     * Get a list of hostCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CookiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The hostCookies that are associated with this host.
+ * Get a list of hostCookie resources.
  */
 export interface CookiesRequestBuilderGetQueryParameters {
     /**

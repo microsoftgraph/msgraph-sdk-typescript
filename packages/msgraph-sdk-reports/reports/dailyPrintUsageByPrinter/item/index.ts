@@ -19,10 +19,11 @@ export interface PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve a list of daily print usage summaries, grouped by printer.
+     * Retrieve a usage summary for a printer for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintUsageByPrinter>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printusagebyprinter-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrintUsageByPrinterItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrintUsageByPrinter | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve a list of daily print usage summaries, grouped by printer.
+     * Retrieve a usage summary for a printer for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: PrintUsageByPrinter, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of daily print usage summaries, grouped by printer.
+ * Retrieve a usage summary for a printer for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
  */
 export interface PrintUsageByPrinterItemRequestBuilderGetQueryParameters {
     /**

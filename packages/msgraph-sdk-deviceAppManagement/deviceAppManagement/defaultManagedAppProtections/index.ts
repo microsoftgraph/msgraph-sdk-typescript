@@ -27,28 +27,30 @@ export interface DefaultManagedAppProtectionsRequestBuilder extends BaseRequestB
      */
      byDefaultManagedAppProtectionId(defaultManagedAppProtectionId: string) : DefaultManagedAppProtectionItemRequestBuilder;
     /**
-     * Default managed app policies.
+     * List properties and relationships of the defaultManagedAppProtection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DefaultManagedAppProtectionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DefaultManagedAppProtectionsRequestBuilderGetQueryParameters> | undefined) : Promise<DefaultManagedAppProtectionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to defaultManagedAppProtections for deviceAppManagement
+     * Create a new defaultManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DefaultManagedAppProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DefaultManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DefaultManagedAppProtection | undefined>;
     /**
-     * Default managed app policies.
+     * List properties and relationships of the defaultManagedAppProtection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DefaultManagedAppProtectionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to defaultManagedAppProtections for deviceAppManagement
+     * Create a new defaultManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface DefaultManagedAppProtectionsRequestBuilder extends BaseRequestB
      toPostRequestInformation(body: DefaultManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Default managed app policies.
+ * List properties and relationships of the defaultManagedAppProtection objects.
  */
 export interface DefaultManagedAppProtectionsRequestBuilderGetQueryParameters {
     /**

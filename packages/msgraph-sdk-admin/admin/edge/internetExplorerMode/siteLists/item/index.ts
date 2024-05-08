@@ -31,40 +31,43 @@ export interface BrowserSiteListItemRequestBuilder extends BaseRequestBuilder<Br
      */
     get sites(): SitesRequestBuilder;
     /**
-     * Delete navigation property siteLists for admin
+     * Delete a browserSiteList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A collection of site lists to support Internet Explorer mode.
+     * Get a browserSiteList that contains browserSite and browserSharedCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSiteList>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BrowserSiteListItemRequestBuilderGetQueryParameters> | undefined) : Promise<BrowserSiteList | undefined>;
     /**
-     * Update the navigation property siteLists in admin
+     * Update the properties of a browserSiteList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowserSiteList>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: BrowserSiteList, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BrowserSiteList | undefined>;
     /**
-     * Delete navigation property siteLists for admin
+     * Delete a browserSiteList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A collection of site lists to support Internet Explorer mode.
+     * Get a browserSiteList that contains browserSite and browserSharedCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BrowserSiteListItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property siteLists in admin
+     * Update the properties of a browserSiteList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -72,7 +75,7 @@ export interface BrowserSiteListItemRequestBuilder extends BaseRequestBuilder<Br
      toPatchRequestInformation(body: BrowserSiteList, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of site lists to support Internet Explorer mode.
+ * Get a browserSiteList that contains browserSite and browserSharedCookie resources.
  */
 export interface BrowserSiteListItemRequestBuilderGetQueryParameters {
     /**

@@ -25,10 +25,11 @@ export interface RiskyUserItemRequestBuilder extends BaseRequestBuilder<RiskyUse
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Users that are flagged as at-risk by Microsoft Entra ID Protection.
+     * Read the properties and relationships of a riskyUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RiskyUser>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RiskyUserItemRequestBuilderGetQueryParameters> | undefined) : Promise<RiskyUser | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface RiskyUserItemRequestBuilder extends BaseRequestBuilder<RiskyUse
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Users that are flagged as at-risk by Microsoft Entra ID Protection.
+     * Read the properties and relationships of a riskyUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface RiskyUserItemRequestBuilder extends BaseRequestBuilder<RiskyUse
      toPatchRequestInformation(body: RiskyUser, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Users that are flagged as at-risk by Microsoft Entra ID Protection.
+ * Read the properties and relationships of a riskyUser object.
  */
 export interface RiskyUserItemRequestBuilderGetQueryParameters {
     /**

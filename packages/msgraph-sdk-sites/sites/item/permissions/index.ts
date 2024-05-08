@@ -27,28 +27,30 @@ export interface PermissionsRequestBuilder extends BaseRequestBuilder<Permission
      */
      byPermissionId(permissionId: string) : PermissionItemRequestBuilder;
     /**
-     * The permissions associated with the site. Nullable.
+     * Get the permission resources from the permissions navigation property on a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/site-list-permissions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PermissionsRequestBuilderGetQueryParameters> | undefined) : Promise<PermissionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to permissions for sites
+     * Create a new permission object on a site. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Permission>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/site-post-permissions?view=graph-rest-1.0|Find more info here}
      */
      post(body: Permission, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Permission | undefined>;
     /**
-     * The permissions associated with the site. Nullable.
+     * Get the permission resources from the permissions navigation property on a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PermissionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to permissions for sites
+     * Create a new permission object on a site. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface PermissionsRequestBuilder extends BaseRequestBuilder<Permission
      toPostRequestInformation(body: Permission, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The permissions associated with the site. Nullable.
+ * Get the permission resources from the permissions navigation property on a site.
  */
 export interface PermissionsRequestBuilderGetQueryParameters {
     /**

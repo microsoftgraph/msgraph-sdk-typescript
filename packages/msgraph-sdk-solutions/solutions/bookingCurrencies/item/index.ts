@@ -19,10 +19,11 @@ export interface BookingCurrencyItemRequestBuilder extends BaseRequestBuilder<Bo
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get bookingCurrencies from solutions
+     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCurrency>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcurrency-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingCurrencyItemRequestBuilderGetQueryParameters> | undefined) : Promise<BookingCurrency | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface BookingCurrencyItemRequestBuilder extends BaseRequestBuilder<Bo
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get bookingCurrencies from solutions
+     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface BookingCurrencyItemRequestBuilder extends BaseRequestBuilder<Bo
      toPatchRequestInformation(body: BookingCurrency, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get bookingCurrencies from solutions
+ * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
  */
 export interface BookingCurrencyItemRequestBuilderGetQueryParameters {
     /**

@@ -27,28 +27,30 @@ export interface TenantsRequestBuilder extends BaseRequestBuilder<TenantsRequest
      */
      byMultiTenantOrganizationMemberId(multiTenantOrganizationMemberId: string) : MultiTenantOrganizationMemberItemRequestBuilder;
     /**
-     * Defines tenants added to a multitenant organization.
+     * List the tenants and their properties in the multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationMemberCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganization-list-tenants?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TenantsRequestBuilderGetQueryParameters> | undefined) : Promise<MultiTenantOrganizationMemberCollectionResponse | undefined>;
     /**
-     * Create new navigation property to tenants for tenantRelationships
+     * Add a tenant to a multitenant organization. The administrator of an owner tenant has the permissions to add tenants to the multitenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multitenant organization by submitting a join request. A tenant can be part of only one multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganization-post-tenants?view=graph-rest-1.0|Find more info here}
      */
      post(body: MultiTenantOrganizationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganizationMember | undefined>;
     /**
-     * Defines tenants added to a multitenant organization.
+     * List the tenants and their properties in the multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TenantsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to tenants for tenantRelationships
+     * Add a tenant to a multitenant organization. The administrator of an owner tenant has the permissions to add tenants to the multitenant organization. The added tenant is in the pending state until the administrator of the added tenant joins the multitenant organization by submitting a join request. A tenant can be part of only one multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface TenantsRequestBuilder extends BaseRequestBuilder<TenantsRequest
      toPostRequestInformation(body: MultiTenantOrganizationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Defines tenants added to a multitenant organization.
+ * List the tenants and their properties in the multitenant organization.
  */
 export interface TenantsRequestBuilderGetQueryParameters {
     /**

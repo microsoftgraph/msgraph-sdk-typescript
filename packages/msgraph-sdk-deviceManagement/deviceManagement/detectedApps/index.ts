@@ -27,28 +27,30 @@ export interface DetectedAppsRequestBuilder extends BaseRequestBuilder<DetectedA
      */
      byDetectedAppId(detectedAppId: string) : DetectedAppItemRequestBuilder;
     /**
-     * The list of detected apps associated with a device.
+     * List properties and relationships of the detectedApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DetectedAppCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DetectedAppsRequestBuilderGetQueryParameters> | undefined) : Promise<DetectedAppCollectionResponse | undefined>;
     /**
-     * Create new navigation property to detectedApps for deviceManagement
+     * Create a new detectedApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DetectedApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DetectedApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DetectedApp | undefined>;
     /**
-     * The list of detected apps associated with a device.
+     * List properties and relationships of the detectedApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DetectedAppsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to detectedApps for deviceManagement
+     * Create a new detectedApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface DetectedAppsRequestBuilder extends BaseRequestBuilder<DetectedA
      toPostRequestInformation(body: DetectedApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of detected apps associated with a device.
+ * List properties and relationships of the detectedApp objects.
  */
 export interface DetectedAppsRequestBuilderGetQueryParameters {
     /**

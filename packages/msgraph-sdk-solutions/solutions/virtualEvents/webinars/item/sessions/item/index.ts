@@ -25,10 +25,11 @@ export interface VirtualEventSessionItemRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Sessions for the virtual event.
+     * Read the properties and relationships of a virtualEventSession object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventSession>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventsession-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VirtualEventSessionItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventSession | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface VirtualEventSessionItemRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Sessions for the virtual event.
+     * Read the properties and relationships of a virtualEventSession object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface VirtualEventSessionItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: VirtualEventSession, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Sessions for the virtual event.
+ * Read the properties and relationships of a virtualEventSession object.
  */
 export interface VirtualEventSessionItemRequestBuilderGetQueryParameters {
     /**

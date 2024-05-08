@@ -69,28 +69,30 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Users and groups that are members of this administrative unit. Supports $expand.
+     * Use this API to get the members list (users, groups, or devices) in an administrative unit.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-list-members?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Create new navigation property to members for directory
+     * Use this API to add a member (user, group, or device) to an administrative unit. Currently it's only possible to add one member at a time to an administrative unit.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-post-members?view=graph-rest-1.0|Find more info here}
      */
      post(body: DirectoryObject, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DirectoryObject | undefined>;
     /**
-     * Users and groups that are members of this administrative unit. Supports $expand.
+     * Use this API to get the members list (users, groups, or devices) in an administrative unit.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to members for directory
+     * Use this API to add a member (user, group, or device) to an administrative unit. Currently it's only possible to add one member at a time to an administrative unit.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -98,7 +100,7 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      toPostRequestInformation(body: DirectoryObject, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Users and groups that are members of this administrative unit. Supports $expand.
+ * Use this API to get the members list (users, groups, or devices) in an administrative unit.
  */
 export interface MembersRequestBuilderGetQueryParameters {
     /**

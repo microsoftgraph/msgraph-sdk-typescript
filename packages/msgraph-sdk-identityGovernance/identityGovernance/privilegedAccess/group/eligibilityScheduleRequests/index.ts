@@ -35,28 +35,30 @@ export interface EligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
+     * Get a list of the privilegedAccessGroupEligibilityScheduleRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupEligibilityScheduleRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-eligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EligibilityScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<PrivilegedAccessGroupEligibilityScheduleRequestCollectionResponse | undefined>;
     /**
-     * Create new navigation property to eligibilityScheduleRequests for identityGovernance
+     * Create a new privilegedAccessGroupEligibilityScheduleRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupEligibilityScheduleRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-post-eligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
      post(body: PrivilegedAccessGroupEligibilityScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrivilegedAccessGroupEligibilityScheduleRequest | undefined>;
     /**
-     * The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
+     * Get a list of the privilegedAccessGroupEligibilityScheduleRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EligibilityScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to eligibilityScheduleRequests for identityGovernance
+     * Create a new privilegedAccessGroupEligibilityScheduleRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +66,7 @@ export interface EligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
      toPostRequestInformation(body: PrivilegedAccessGroupEligibilityScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The schedule requests for operations to create, update, delete, extend, and renew an eligibility.
+ * Get a list of the privilegedAccessGroupEligibilityScheduleRequest objects and their properties.
  */
 export interface EligibilityScheduleRequestsRequestBuilderGetQueryParameters {
     /**

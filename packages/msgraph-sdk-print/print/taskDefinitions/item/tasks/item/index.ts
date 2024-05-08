@@ -31,18 +31,20 @@ export interface PrintTaskItemRequestBuilder extends BaseRequestBuilder<PrintTas
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
+     * Get details about a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintTask>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printtask-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrintTaskItemRequestBuilderGetQueryParameters> | undefined) : Promise<PrintTask | undefined>;
     /**
-     * Update the navigation property tasks in print
+     * Update a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintTask>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printtaskdefinition-update-task?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PrintTask, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintTask | undefined>;
     /**
@@ -52,13 +54,13 @@ export interface PrintTaskItemRequestBuilder extends BaseRequestBuilder<PrintTas
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
+     * Get details about a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PrintTaskItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property tasks in print
+     * Update a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +68,7 @@ export interface PrintTaskItemRequestBuilder extends BaseRequestBuilder<PrintTas
      toPatchRequestInformation(body: PrintTask, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
+ * Get details about a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
  */
 export interface PrintTaskItemRequestBuilderGetQueryParameters {
     /**

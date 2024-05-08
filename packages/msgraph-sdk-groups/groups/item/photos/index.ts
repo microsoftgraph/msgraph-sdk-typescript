@@ -21,23 +21,28 @@ export interface PhotosRequestBuilder extends BaseRequestBuilder<PhotosRequestBu
      */
      byProfilePhotoId(profilePhotoId: string) : ProfilePhotoItemRequestBuilder;
     /**
-     * The profile photos owned by the group. Read-only. Nullable.
+     * Retrieve a list of profilePhoto objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ProfilePhotoCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-photos?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PhotosRequestBuilderGetQueryParameters> | undefined) : Promise<ProfilePhotoCollectionResponse | undefined>;
     /**
-     * The profile photos owned by the group. Read-only. Nullable.
+     * Retrieve a list of profilePhoto objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PhotosRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The profile photos owned by the group. Read-only. Nullable.
+ * Retrieve a list of profilePhoto objects.
  */
 export interface PhotosRequestBuilderGetQueryParameters {
+    /**
+     * Include count of items
+     */
+    count?: boolean;
     /**
      * Filter items by property values
      */
@@ -46,6 +51,10 @@ export interface PhotosRequestBuilderGetQueryParameters {
      * Order items by property values
      */
     orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
     /**
      * Select properties to be returned
      */
@@ -62,13 +71,15 @@ export interface PhotosRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PhotosRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/photos{?%24filter,%24orderby,%24select,%24skip,%24top}";
+export const PhotosRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/photos{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const PhotosRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

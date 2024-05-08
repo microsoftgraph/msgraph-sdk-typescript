@@ -27,10 +27,11 @@ export interface SharedWithTeamsRequestBuilder extends BaseRequestBuilder<Shared
      */
      bySharedWithChannelTeamInfoId(sharedWithChannelTeamInfoId: string) : SharedWithChannelTeamInfoItemRequestBuilder;
     /**
-     * A collection of teams with which a channel is shared.
+     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharedWithChannelTeamInfoCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/sharedwithchannelteaminfo-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SharedWithTeamsRequestBuilderGetQueryParameters> | undefined) : Promise<SharedWithChannelTeamInfoCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface SharedWithTeamsRequestBuilder extends BaseRequestBuilder<Shared
      */
      post(body: SharedWithChannelTeamInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SharedWithChannelTeamInfo | undefined>;
     /**
-     * A collection of teams with which a channel is shared.
+     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface SharedWithTeamsRequestBuilder extends BaseRequestBuilder<Shared
      toPostRequestInformation(body: SharedWithChannelTeamInfo, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of teams with which a channel is shared.
+ * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a membershipType value of shared.
  */
 export interface SharedWithTeamsRequestBuilderGetQueryParameters {
     /**

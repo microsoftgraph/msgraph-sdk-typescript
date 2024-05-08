@@ -13,21 +13,22 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface WhoisRequestBuilder extends BaseRequestBuilder<WhoisRequestBuilder> {
     /**
-     * The most recent whoisRecord for this host.
+     * Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WhoisRecord>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-whoisrecord-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WhoisRequestBuilderGetQueryParameters> | undefined) : Promise<WhoisRecord | undefined>;
     /**
-     * The most recent whoisRecord for this host.
+     * Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WhoisRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The most recent whoisRecord for this host.
+ * Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
  */
 export interface WhoisRequestBuilderGetQueryParameters {
     /**

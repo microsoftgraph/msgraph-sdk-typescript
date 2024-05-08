@@ -27,28 +27,30 @@ export interface DeviceStatusesRequestBuilder extends BaseRequestBuilder<DeviceS
      */
      byManagedDeviceMobileAppConfigurationDeviceStatusId(managedDeviceMobileAppConfigurationDeviceStatusId: string) : ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder;
     /**
-     * List of ManagedDeviceMobileAppConfigurationDeviceStatus.
+     * List properties and relationships of the managedDeviceMobileAppConfigurationDeviceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse | undefined>;
     /**
-     * Create new navigation property to deviceStatuses for deviceAppManagement
+     * Create a new managedDeviceMobileAppConfigurationDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationDeviceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedDeviceMobileAppConfigurationDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceStatus | undefined>;
     /**
-     * List of ManagedDeviceMobileAppConfigurationDeviceStatus.
+     * List properties and relationships of the managedDeviceMobileAppConfigurationDeviceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceStatusesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to deviceStatuses for deviceAppManagement
+     * Create a new managedDeviceMobileAppConfigurationDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface DeviceStatusesRequestBuilder extends BaseRequestBuilder<DeviceS
      toPostRequestInformation(body: ManagedDeviceMobileAppConfigurationDeviceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List of ManagedDeviceMobileAppConfigurationDeviceStatus.
+ * List properties and relationships of the managedDeviceMobileAppConfigurationDeviceStatus objects.
  */
 export interface DeviceStatusesRequestBuilderGetQueryParameters {
     /**

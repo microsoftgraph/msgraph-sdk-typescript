@@ -27,28 +27,30 @@ export interface TaskTriggersRequestBuilder extends BaseRequestBuilder<TaskTrigg
      */
      byPrintTaskTriggerId(printTaskTriggerId: string) : PrintTaskTriggerItemRequestBuilder;
     /**
-     * A list of task triggers that are associated with the printer.
+     * Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintTaskTriggerCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printer-list-tasktriggers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaskTriggersRequestBuilderGetQueryParameters> | undefined) : Promise<PrintTaskTriggerCollectionResponse | undefined>;
     /**
-     * Create new navigation property to taskTriggers for print
+     * Create a new task trigger on the specified printer. Currently, only one task trigger can be specified per printer, but this limit might be removed in the future. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintTaskTrigger>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printer-post-tasktriggers?view=graph-rest-1.0|Find more info here}
      */
      post(body: PrintTaskTrigger, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintTaskTrigger | undefined>;
     /**
-     * A list of task triggers that are associated with the printer.
+     * Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskTriggersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to taskTriggers for print
+     * Create a new task trigger on the specified printer. Currently, only one task trigger can be specified per printer, but this limit might be removed in the future. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface TaskTriggersRequestBuilder extends BaseRequestBuilder<TaskTrigg
      toPostRequestInformation(body: PrintTaskTrigger, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A list of task triggers that are associated with the printer.
+ * Retrieve a list of task triggers associated with the printer. The list of task triggers defines which tasks will be triggered as a result of events that occur during printing. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
  */
 export interface TaskTriggersRequestBuilderGetQueryParameters {
     /**

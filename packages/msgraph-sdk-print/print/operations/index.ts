@@ -27,7 +27,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      byPrintOperationId(printOperationId: string) : PrintOperationItemRequestBuilder;
     /**
-     * The list of print long running operations.
+     * Retrieve the properties and relationships of a printOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintOperationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      */
      post(body: PrintOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintOperation | undefined>;
     /**
-     * The list of print long running operations.
+     * Retrieve the properties and relationships of a printOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
      toPostRequestInformation(body: PrintOperation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of print long running operations.
+ * Retrieve the properties and relationships of a printOperation object.
  */
 export interface OperationsRequestBuilderGetQueryParameters {
     /**

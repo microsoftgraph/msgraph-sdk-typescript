@@ -13,33 +13,35 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface CertificateBasedAuthConfigurationItemRequestBuilder extends BaseRequestBuilder<CertificateBasedAuthConfigurationItemRequestBuilder> {
     /**
-     * Delete navigation property certificateBasedAuthConfiguration for organization
+     * Delete a certificateBasedAuthConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+     * Get the properties of a certificateBasedAuthConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateBasedAuthConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<CertificateBasedAuthConfiguration | undefined>;
     /**
-     * Delete navigation property certificateBasedAuthConfiguration for organization
+     * Delete a certificateBasedAuthConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+     * Get the properties of a certificateBasedAuthConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+ * Get the properties of a certificateBasedAuthConfiguration object.
  */
 export interface CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParameters {
     /**

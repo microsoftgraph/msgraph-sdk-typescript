@@ -34,11 +34,12 @@ export interface AppDefinitionsRequestBuilder extends BaseRequestBuilder<AppDefi
      */
      get(requestConfiguration?: RequestConfiguration<AppDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<TeamsAppDefinitionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to appDefinitions for appCatalogs
+     * Update an app previously published to the Microsoft Teams app catalog. To update an app, the distributionMethod property for the app must be set to organization. This API specifically updates an app published to your organization's app catalog (the tenant app catalog).
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsAppDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/teamsapp-update?view=graph-rest-1.0|Find more info here}
      */
      post(body: TeamsAppDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamsAppDefinition | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface AppDefinitionsRequestBuilder extends BaseRequestBuilder<AppDefi
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to appDefinitions for appCatalogs
+     * Update an app previously published to the Microsoft Teams app catalog. To update an app, the distributionMethod property for the app must be set to organization. This API specifically updates an app published to your organization's app catalog (the tenant app catalog).
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

@@ -19,18 +19,20 @@ export interface AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
+     * Retrieve the properties and relationships of a plannerAssignedToTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerAssignedToTaskBoardTaskFormat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignedToTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined>;
     /**
-     * Update the navigation property assignedToTaskBoardFormat in planner
+     * Update the properties of plannerAssignedToTaskBoardTaskFormat object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerAssignedToTaskBoardTaskFormat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerAssignedToTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
+     * Retrieve the properties and relationships of a plannerAssignedToTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignedToTaskBoardFormatRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property assignedToTaskBoardFormat in planner
+     * Update the properties of plannerAssignedToTaskBoardTaskFormat object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: PlannerAssignedToTaskBoardTaskFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
+ * Retrieve the properties and relationships of a plannerAssignedToTaskBoardTaskFormat object.
  */
 export interface AssignedToTaskBoardFormatRequestBuilderGetQueryParameters {
     /**

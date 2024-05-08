@@ -27,28 +27,30 @@ export interface ProvisioningPoliciesRequestBuilder extends BaseRequestBuilder<P
      */
      byCloudPcProvisioningPolicyId(cloudPcProvisioningPolicyId: string) : CloudPcProvisioningPolicyItemRequestBuilder;
     /**
-     * A collection of Cloud PC provisioning policies.
+     * List properties and relationships of the cloudPcProvisioningPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcProvisioningPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualendpoint-list-provisioningpolicies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ProvisioningPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcProvisioningPolicyCollectionResponse | undefined>;
     /**
-     * Create new navigation property to provisioningPolicies for deviceManagement
+     * Create a new cloudPcProvisioningPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcProvisioningPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualendpoint-post-provisioningpolicies?view=graph-rest-1.0|Find more info here}
      */
      post(body: CloudPcProvisioningPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcProvisioningPolicy | undefined>;
     /**
-     * A collection of Cloud PC provisioning policies.
+     * List properties and relationships of the cloudPcProvisioningPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ProvisioningPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to provisioningPolicies for deviceManagement
+     * Create a new cloudPcProvisioningPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ProvisioningPoliciesRequestBuilder extends BaseRequestBuilder<P
      toPostRequestInformation(body: CloudPcProvisioningPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of Cloud PC provisioning policies.
+ * List properties and relationships of the cloudPcProvisioningPolicy objects.
  */
 export interface ProvisioningPoliciesRequestBuilderGetQueryParameters {
     /**

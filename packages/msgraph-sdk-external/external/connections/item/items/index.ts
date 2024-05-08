@@ -27,7 +27,7 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      */
      byExternalItemId(externalItemId: string) : ExternalItemItemRequestBuilder;
     /**
-     * Get items from external
+     * Read the properties and relationships of an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      */
      post(body: ExternalItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExternalItem | undefined>;
     /**
-     * Get items from external
+     * Read the properties and relationships of an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      toPostRequestInformation(body: ExternalItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get items from external
+ * Read the properties and relationships of an externalItem object.
  */
 export interface ItemsRequestBuilderGetQueryParameters {
     /**

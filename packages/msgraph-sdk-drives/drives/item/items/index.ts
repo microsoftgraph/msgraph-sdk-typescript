@@ -27,10 +27,11 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      */
      byDriveItemId(driveItemId: string) : DriveItemItemRequestBuilder;
     /**
-     * All items contained in the drive. Read-only. Nullable.
+     * Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they are items from a different drive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/drive-sharedwithme?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ItemsRequestBuilderGetQueryParameters> | undefined) : Promise<DriveItemCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      */
      post(body: DriveItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItem | undefined>;
     /**
-     * All items contained in the drive. Read-only. Nullable.
+     * Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they are items from a different drive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      toPostRequestInformation(body: DriveItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * All items contained in the drive. Read-only. Nullable.
+ * Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they are items from a different drive.
  */
 export interface ItemsRequestBuilderGetQueryParameters {
     /**

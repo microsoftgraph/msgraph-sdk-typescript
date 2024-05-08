@@ -11,14 +11,20 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ContentRequestBuilder extends BaseRequestBuilder<ContentRequestBuilder> {
     /**
-     * Get media content for the navigation property hostedContents from teamwork
+     * The unique identifier for an entity. Read-only.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
+     * The unique identifier for an entity. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<ContentRequestBuilderGetQueryParameters> | undefined) : Promise<ArrayBuffer | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Update media content for the navigation property hostedContents in teamwork
+     * The unique identifier for an entity. Read-only.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
@@ -26,13 +32,19 @@ export interface ContentRequestBuilder extends BaseRequestBuilder<ContentRequest
      */
      put(body: ArrayBuffer | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Get media content for the navigation property hostedContents from teamwork
+     * The unique identifier for an entity. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
-     toGetRequestInformation(requestConfiguration?: RequestConfiguration<ContentRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Update media content for the navigation property hostedContents in teamwork
+     * The unique identifier for an entity. Read-only.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+    /**
+     * The unique identifier for an entity. Read-only.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -40,28 +52,21 @@ export interface ContentRequestBuilder extends BaseRequestBuilder<ContentRequest
      toPutRequestInformation(body: ArrayBuffer | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get media content for the navigation property hostedContents from teamwork
- */
-export interface ContentRequestBuilderGetQueryParameters {
-    /**
-     * Format of the content
-     */
-    format?: string;
-}
-/**
  * Uri template for the request builder.
  */
-export const ContentRequestBuilderUriTemplate = "{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/hostedContents/{chatMessageHostedContent%2Did}/$value{?%24format*}";
-/**
- * Mapper for query parameters from symbol name to serialization name represented as a constant.
- */
-const ContentRequestBuilderGetQueryParametersMapper: Record<string, string> = {
-    "format": "%24format",
-};
+export const ContentRequestBuilderUriTemplate = "{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/hostedContents/{chatMessageHostedContent%2Did}/$value";
 /**
  * Metadata for all the requests in the request builder.
  */
 export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: ContentRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: ContentRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",
@@ -70,7 +75,6 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
         },
         adapterMethodName: "sendPrimitive",
         responseBodyFactory:  "ArrayBuffer",
-        queryParametersMapper: ContentRequestBuilderGetQueryParametersMapper,
     },
     put: {
         uriTemplate: ContentRequestBuilderUriTemplate,

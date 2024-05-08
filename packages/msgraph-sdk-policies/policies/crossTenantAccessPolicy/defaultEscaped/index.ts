@@ -25,18 +25,20 @@ export interface DefaultRequestBuilder extends BaseRequestBuilder<DefaultRequest
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.
+     * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantAccessPolicyConfigurationDefault>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DefaultRequestBuilderGetQueryParameters> | undefined) : Promise<CrossTenantAccessPolicyConfigurationDefault | undefined>;
     /**
-     * Update the navigation property default in policies
+     * Update the default configuration of a cross-tenant access policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantAccessPolicyConfigurationDefault>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CrossTenantAccessPolicyConfigurationDefault, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CrossTenantAccessPolicyConfigurationDefault | undefined>;
     /**
@@ -46,13 +48,13 @@ export interface DefaultRequestBuilder extends BaseRequestBuilder<DefaultRequest
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.
+     * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DefaultRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property default in policies
+     * Update the default configuration of a cross-tenant access policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +62,7 @@ export interface DefaultRequestBuilder extends BaseRequestBuilder<DefaultRequest
      toPatchRequestInformation(body: CrossTenantAccessPolicyConfigurationDefault, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Defines the default configuration for how your organization interacts with external Microsoft Entra organizations.
+ * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Microsoft Entra ID (isServiceDefault is true) or may be customized in your tenant (isServiceDefault is false).
  */
 export interface DefaultRequestBuilderGetQueryParameters {
     /**

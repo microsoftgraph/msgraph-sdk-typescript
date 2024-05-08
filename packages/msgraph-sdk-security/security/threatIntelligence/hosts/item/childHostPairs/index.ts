@@ -27,21 +27,22 @@ export interface ChildHostPairsRequestBuilder extends BaseRequestBuilder<ChildHo
      */
      byHostPairId(hostPairId: string) : HostPairItemRequestBuilder;
     /**
-     * The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a childHost.
+     * Get the list of hostPair resources associated with a host, where that host is the *parent* and has an outgoing pairing to a *child*. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostPairCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-childhostpairs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChildHostPairsRequestBuilderGetQueryParameters> | undefined) : Promise<HostPairCollectionResponse | undefined>;
     /**
-     * The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a childHost.
+     * Get the list of hostPair resources associated with a host, where that host is the *parent* and has an outgoing pairing to a *child*. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChildHostPairsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a childHost.
+ * Get the list of hostPair resources associated with a host, where that host is the *parent* and has an outgoing pairing to a *child*. 
  */
 export interface ChildHostPairsRequestBuilderGetQueryParameters {
     /**

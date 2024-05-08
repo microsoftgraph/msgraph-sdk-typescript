@@ -35,28 +35,30 @@ export interface RoleEligibilityScheduleRequestsRequestBuilder extends BaseReque
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Requests for role eligibilities for principals through PIM.
+     * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleEligibilityScheduleRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleEligibilityScheduleRequestCollectionResponse | undefined>;
     /**
-     * Create new navigation property to roleEligibilityScheduleRequests for roleManagement
+     * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleEligibilityScheduleRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-post-roleeligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
      post(body: UnifiedRoleEligibilityScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleEligibilityScheduleRequest | undefined>;
     /**
-     * Requests for role eligibilities for principals through PIM.
+     * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to roleEligibilityScheduleRequests for roleManagement
+     * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +66,7 @@ export interface RoleEligibilityScheduleRequestsRequestBuilder extends BaseReque
      toPostRequestInformation(body: UnifiedRoleEligibilityScheduleRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Requests for role eligibilities for principals through PIM.
+ * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
  */
 export interface RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters {
     /**

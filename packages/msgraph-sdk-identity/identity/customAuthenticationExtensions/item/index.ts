@@ -19,40 +19,43 @@ export interface CustomAuthenticationExtensionItemRequestBuilder extends BaseReq
      */
     get validateAuthenticationConfiguration(): ValidateAuthenticationConfigurationRequestBuilder;
     /**
-     * Delete navigation property customAuthenticationExtensions for identity
+     * Delete a customAuthenticationExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/customauthenticationextension-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents custom extensions to authentication flows in Azure AD for workforce and customers.
+     * Read the properties and relationships of a customAuthenticationExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomAuthenticationExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/customauthenticationextension-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomAuthenticationExtensionItemRequestBuilderGetQueryParameters> | undefined) : Promise<CustomAuthenticationExtension | undefined>;
     /**
-     * Update the navigation property customAuthenticationExtensions in identity
+     * Update the properties of a customAuthenticationExtension object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomAuthenticationExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/customauthenticationextension-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CustomAuthenticationExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomAuthenticationExtension | undefined>;
     /**
-     * Delete navigation property customAuthenticationExtensions for identity
+     * Delete a customAuthenticationExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents custom extensions to authentication flows in Azure AD for workforce and customers.
+     * Read the properties and relationships of a customAuthenticationExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomAuthenticationExtensionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property customAuthenticationExtensions in identity
+     * Update the properties of a customAuthenticationExtension object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface CustomAuthenticationExtensionItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: CustomAuthenticationExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents custom extensions to authentication flows in Azure AD for workforce and customers.
+ * Read the properties and relationships of a customAuthenticationExtension object.
  */
 export interface CustomAuthenticationExtensionItemRequestBuilderGetQueryParameters {
     /**

@@ -19,21 +19,22 @@ export interface GraphGroupRequestBuilder extends BaseRequestBuilder<GraphGroupR
      */
     get count(): CountRequestBuilder;
     /**
-     * Get the items of type microsoft.graph.group in the microsoft.graph.directoryObject collection
+     * Get groups that the group is a direct member of. This operation is not transitive. Unlike getting a user's Microsoft 365 groups, this returns all types of groups, not just Microsoft 365 groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-memberof?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GraphGroupRequestBuilderGetQueryParameters> | undefined) : Promise<GroupCollectionResponse | undefined>;
     /**
-     * Get the items of type microsoft.graph.group in the microsoft.graph.directoryObject collection
+     * Get groups that the group is a direct member of. This operation is not transitive. Unlike getting a user's Microsoft 365 groups, this returns all types of groups, not just Microsoft 365 groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphGroupRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the items of type microsoft.graph.group in the microsoft.graph.directoryObject collection
+ * Get groups that the group is a direct member of. This operation is not transitive. Unlike getting a user's Microsoft 365 groups, this returns all types of groups, not just Microsoft 365 groups.
  */
 export interface GraphGroupRequestBuilderGetQueryParameters {
     /**

@@ -27,28 +27,30 @@ export interface AssignmentPoliciesRequestBuilder extends BaseRequestBuilder<Ass
      */
      byAccessPackageAssignmentPolicyId(accessPackageAssignmentPolicyId: string) : AccessPackageAssignmentPolicyItemRequestBuilder;
     /**
-     * Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment.
+     * In Microsoft Entra entitlement management, retrieve a list of accessPackageAssignmentPolicy objects. If the delegated user is in a directory role, the resulting list includes all the assignment policies that the caller has access to read, across all catalogs and access packages. If the delegated user is an access package manager or catalog owner, they should instead retrieve the policies for the access packages they can read with list accessPackages by including $expand=assignmentPolicies as a query parameter.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageAssignmentPolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-assignmentpolicies?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageAssignmentPolicyCollectionResponse | undefined>;
     /**
-     * Create new navigation property to assignmentPolicies for identityGovernance
+     * In Microsoft Entra entitlement management, create a new accessPackageAssignmentPolicy object.  The request will include a reference to the accessPackage that will contain this policy, which must already exist.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageAssignmentPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-assignmentpolicies?view=graph-rest-1.0|Find more info here}
      */
      post(body: AccessPackageAssignmentPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageAssignmentPolicy | undefined>;
     /**
-     * Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment.
+     * In Microsoft Entra entitlement management, retrieve a list of accessPackageAssignmentPolicy objects. If the delegated user is in a directory role, the resulting list includes all the assignment policies that the caller has access to read, across all catalogs and access packages. If the delegated user is an access package manager or catalog owner, they should instead retrieve the policies for the access packages they can read with list accessPackages by including $expand=assignmentPolicies as a query parameter.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentPoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to assignmentPolicies for identityGovernance
+     * In Microsoft Entra entitlement management, create a new accessPackageAssignmentPolicy object.  The request will include a reference to the accessPackage that will contain this policy, which must already exist.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AssignmentPoliciesRequestBuilder extends BaseRequestBuilder<Ass
      toPostRequestInformation(body: AccessPackageAssignmentPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment.
+ * In Microsoft Entra entitlement management, retrieve a list of accessPackageAssignmentPolicy objects. If the delegated user is in a directory role, the resulting list includes all the assignment policies that the caller has access to read, across all catalogs and access packages. If the delegated user is an access package manager or catalog owner, they should instead retrieve the policies for the access packages they can read with list accessPackages by including $expand=assignmentPolicies as a query parameter.
  */
 export interface AssignmentPoliciesRequestBuilderGetQueryParameters {
     /**

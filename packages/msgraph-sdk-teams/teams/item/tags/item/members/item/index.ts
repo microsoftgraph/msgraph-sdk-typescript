@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder<TeamworkTagMemberItemRequestBuilder> {
     /**
-     * Delete navigation property members for teams
+     * Delete a member from a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Users assigned to the tag.
+     * Get the properties and relationships of a member of a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamworkTagMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TeamworkTagMemberItemRequestBuilderGetQueryParameters> | undefined) : Promise<TeamworkTagMember | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder<
      */
      patch(body: TeamworkTagMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TeamworkTagMember | undefined>;
     /**
-     * Delete navigation property members for teams
+     * Delete a member from a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Users assigned to the tag.
+     * Get the properties and relationships of a member of a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: TeamworkTagMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Users assigned to the tag.
+ * Get the properties and relationships of a member of a standard tag in a team.
  */
 export interface TeamworkTagMemberItemRequestBuilderGetQueryParameters {
     /**

@@ -27,28 +27,30 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      byEnrollmentConfigurationAssignmentId(enrollmentConfigurationAssignmentId: string) : EnrollmentConfigurationAssignmentItemRequestBuilder;
     /**
-     * The list of group assignments for the device configuration profile
+     * List properties and relationships of the enrollmentConfigurationAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EnrollmentConfigurationAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<EnrollmentConfigurationAssignmentCollectionResponse | undefined>;
     /**
-     * Create new navigation property to assignments for deviceManagement
+     * Create a new enrollmentConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EnrollmentConfigurationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: EnrollmentConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EnrollmentConfigurationAssignment | undefined>;
     /**
-     * The list of group assignments for the device configuration profile
+     * List properties and relationships of the enrollmentConfigurationAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to assignments for deviceManagement
+     * Create a new enrollmentConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      toPostRequestInformation(body: EnrollmentConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of group assignments for the device configuration profile
+ * List properties and relationships of the enrollmentConfigurationAssignment objects.
  */
 export interface AssignmentsRequestBuilderGetQueryParameters {
     /**

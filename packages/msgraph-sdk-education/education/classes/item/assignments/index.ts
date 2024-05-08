@@ -33,28 +33,30 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      byEducationAssignmentId(educationAssignmentId: string) : EducationAssignmentItemRequestBuilder;
     /**
-     * All assignments associated with this class. Nullable.
+     * Retrieve a list of assignment objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher, or an application running with application permissions, can see all assignment objects for the class. Students can only see assignments that are assigned to them.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-list-assignments?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<EducationAssignmentCollectionResponse | undefined>;
     /**
-     * Create new navigation property to assignments for education
+     * Create a new assignment. Only teachers in a class can create an assignment. Assignments start in the Draft state, which means that students will not see the assignment until publication.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-post-assignment?view=graph-rest-1.0|Find more info here}
      */
      post(body: EducationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationAssignment | undefined>;
     /**
-     * All assignments associated with this class. Nullable.
+     * Retrieve a list of assignment objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher, or an application running with application permissions, can see all assignment objects for the class. Students can only see assignments that are assigned to them.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to assignments for education
+     * Create a new assignment. Only teachers in a class can create an assignment. Assignments start in the Draft state, which means that students will not see the assignment until publication.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +64,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      toPostRequestInformation(body: EducationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * All assignments associated with this class. Nullable.
+ * Retrieve a list of assignment objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher, or an application running with application permissions, can see all assignment objects for the class. Students can only see assignments that are assigned to them.
  */
 export interface AssignmentsRequestBuilderGetQueryParameters {
     /**

@@ -19,18 +19,20 @@ export interface UserStatusSummaryRequestBuilder extends BaseRequestBuilder<User
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * App configuration user status summary.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationUserSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationUserSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationusersummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserStatusSummaryRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserSummary | undefined>;
     /**
-     * Update the navigation property userStatusSummary in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationUserSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationUserSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationusersummary-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ManagedDeviceMobileAppConfigurationUserSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserSummary | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface UserStatusSummaryRequestBuilder extends BaseRequestBuilder<User
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * App configuration user status summary.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationUserSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserStatusSummaryRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property userStatusSummary in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationUserSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface UserStatusSummaryRequestBuilder extends BaseRequestBuilder<User
      toPatchRequestInformation(body: ManagedDeviceMobileAppConfigurationUserSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * App configuration user status summary.
+ * Read properties and relationships of the managedDeviceMobileAppConfigurationUserSummary object.
  */
 export interface UserStatusSummaryRequestBuilderGetQueryParameters {
     /**

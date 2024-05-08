@@ -32,11 +32,12 @@ export interface SynchronizationTemplateItemRequestBuilder extends BaseRequestBu
      */
      get(requestConfiguration?: RequestConfiguration<SynchronizationTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<SynchronizationTemplate | undefined>;
     /**
-     * Update the navigation property templates in applications
+     * Update (override) the synchronization template associated with a given application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationtemplate-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: SynchronizationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SynchronizationTemplate | undefined>;
     /**
@@ -52,7 +53,7 @@ export interface SynchronizationTemplateItemRequestBuilder extends BaseRequestBu
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SynchronizationTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property templates in applications
+     * Update (override) the synchronization template associated with a given application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

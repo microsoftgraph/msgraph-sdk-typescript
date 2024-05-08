@@ -33,10 +33,11 @@ export interface PrintersRequestBuilder extends BaseRequestBuilder<PrintersReque
      */
      byPrinterId(printerId: string) : PrinterItemRequestBuilder;
     /**
-     * The list of printers registered in the tenant.
+     * Retrieve the list of printers that are registered in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrinterCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/print-list-printers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PrintersRequestBuilderGetQueryParameters> | undefined) : Promise<PrinterCollectionResponse | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface PrintersRequestBuilder extends BaseRequestBuilder<PrintersReque
      */
      post(body: Printer, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Printer | undefined>;
     /**
-     * The list of printers registered in the tenant.
+     * Retrieve the list of printers that are registered in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -62,7 +63,7 @@ export interface PrintersRequestBuilder extends BaseRequestBuilder<PrintersReque
      toPostRequestInformation(body: Printer, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of printers registered in the tenant.
+ * Retrieve the list of printers that are registered in the tenant.
  */
 export interface PrintersRequestBuilderGetQueryParameters {
     /**

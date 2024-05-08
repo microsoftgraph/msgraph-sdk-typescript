@@ -27,10 +27,11 @@ export interface TranscriptsRequestBuilder extends BaseRequestBuilder<Transcript
      */
      byCallTranscriptId(callTranscriptId: string) : CallTranscriptItemRequestBuilder;
     /**
-     * The transcripts of an online meeting. Read-only.
+     * Retrieve the list of callTranscript objects associated with a scheduled onlineMeeting. This API doesn't support getting call transcripts from channel meetings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CallTranscriptCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-list-transcripts?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TranscriptsRequestBuilderGetQueryParameters> | undefined) : Promise<CallTranscriptCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface TranscriptsRequestBuilder extends BaseRequestBuilder<Transcript
      */
      post(body: CallTranscript, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CallTranscript | undefined>;
     /**
-     * The transcripts of an online meeting. Read-only.
+     * Retrieve the list of callTranscript objects associated with a scheduled onlineMeeting. This API doesn't support getting call transcripts from channel meetings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface TranscriptsRequestBuilder extends BaseRequestBuilder<Transcript
      toPostRequestInformation(body: CallTranscript, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The transcripts of an online meeting. Read-only.
+ * Retrieve the list of callTranscript objects associated with a scheduled onlineMeeting. This API doesn't support getting call transcripts from channel meetings.
  */
 export interface TranscriptsRequestBuilderGetQueryParameters {
     /**

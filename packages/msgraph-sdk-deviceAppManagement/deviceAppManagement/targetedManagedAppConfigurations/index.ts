@@ -27,28 +27,30 @@ export interface TargetedManagedAppConfigurationsRequestBuilder extends BaseRequ
      */
      byTargetedManagedAppConfigurationId(targetedManagedAppConfigurationId: string) : TargetedManagedAppConfigurationItemRequestBuilder;
     /**
-     * Targeted managed app configurations.
+     * List properties and relationships of the targetedManagedAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TargetedManagedAppConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<TargetedManagedAppConfigurationCollectionResponse | undefined>;
     /**
-     * Create new navigation property to targetedManagedAppConfigurations for deviceAppManagement
+     * Create a new targetedManagedAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TargetedManagedAppConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: TargetedManagedAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TargetedManagedAppConfiguration | undefined>;
     /**
-     * Targeted managed app configurations.
+     * List properties and relationships of the targetedManagedAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to targetedManagedAppConfigurations for deviceAppManagement
+     * Create a new targetedManagedAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface TargetedManagedAppConfigurationsRequestBuilder extends BaseRequ
      toPostRequestInformation(body: TargetedManagedAppConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Targeted managed app configurations.
+ * List properties and relationships of the targetedManagedAppConfiguration objects.
  */
 export interface TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters {
     /**

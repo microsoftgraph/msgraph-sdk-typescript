@@ -27,28 +27,30 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      byTermsAndConditionsAssignmentId(termsAndConditionsAssignmentId: string) : TermsAndConditionsAssignmentItemRequestBuilder;
     /**
-     * The list of assignments for this T&C policy.
+     * List properties and relationships of the termsAndConditionsAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditionsAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<TermsAndConditionsAssignmentCollectionResponse | undefined>;
     /**
-     * Create new navigation property to assignments for deviceManagement
+     * Create a new termsAndConditionsAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditionsAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: TermsAndConditionsAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TermsAndConditionsAssignment | undefined>;
     /**
-     * The list of assignments for this T&C policy.
+     * List properties and relationships of the termsAndConditionsAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to assignments for deviceManagement
+     * Create a new termsAndConditionsAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      toPostRequestInformation(body: TermsAndConditionsAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of assignments for this T&C policy.
+ * List properties and relationships of the termsAndConditionsAssignment objects.
  */
 export interface AssignmentsRequestBuilderGetQueryParameters {
     /**

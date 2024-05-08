@@ -27,10 +27,11 @@ export interface BookingCurrenciesRequestBuilder extends BaseRequestBuilder<Book
      */
      byBookingCurrencyId(bookingCurrencyId: string) : BookingCurrencyItemRequestBuilder;
     /**
-     * Get bookingCurrencies from solutions
+     * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingCurrencyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<BookingCurrenciesRequestBuilderGetQueryParameters> | undefined) : Promise<BookingCurrencyCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface BookingCurrenciesRequestBuilder extends BaseRequestBuilder<Book
      */
      post(body: BookingCurrency, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingCurrency | undefined>;
     /**
-     * Get bookingCurrencies from solutions
+     * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface BookingCurrenciesRequestBuilder extends BaseRequestBuilder<Book
      toPostRequestInformation(body: BookingCurrency, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get bookingCurrencies from solutions
+ * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
  */
 export interface BookingCurrenciesRequestBuilderGetQueryParameters {
     /**

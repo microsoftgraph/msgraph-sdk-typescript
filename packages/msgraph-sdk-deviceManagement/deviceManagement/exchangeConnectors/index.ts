@@ -27,28 +27,30 @@ export interface ExchangeConnectorsRequestBuilder extends BaseRequestBuilder<Exc
      */
      byDeviceManagementExchangeConnectorId(deviceManagementExchangeConnectorId: string) : DeviceManagementExchangeConnectorItemRequestBuilder;
     /**
-     * The list of Exchange Connectors configured by the tenant.
+     * List properties and relationships of the deviceManagementExchangeConnector objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementExchangeConnectorCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ExchangeConnectorsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagementExchangeConnectorCollectionResponse | undefined>;
     /**
-     * Create new navigation property to exchangeConnectors for deviceManagement
+     * Create a new deviceManagementExchangeConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementExchangeConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceManagementExchangeConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagementExchangeConnector | undefined>;
     /**
-     * The list of Exchange Connectors configured by the tenant.
+     * List properties and relationships of the deviceManagementExchangeConnector objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExchangeConnectorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to exchangeConnectors for deviceManagement
+     * Create a new deviceManagementExchangeConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ExchangeConnectorsRequestBuilder extends BaseRequestBuilder<Exc
      toPostRequestInformation(body: DeviceManagementExchangeConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of Exchange Connectors configured by the tenant.
+ * List properties and relationships of the deviceManagementExchangeConnector objects.
  */
 export interface ExchangeConnectorsRequestBuilderGetQueryParameters {
     /**

@@ -13,6 +13,12 @@ export interface CustomCSSRequestBuilder extends BaseRequestBuilder<CustomCSSReq
     /**
      * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
@@ -26,6 +32,12 @@ export interface CustomCSSRequestBuilder extends BaseRequestBuilder<CustomCSSReq
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      put(body: ArrayBuffer | undefined, contentType: string | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
+    /**
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -49,6 +61,14 @@ export const CustomCSSRequestBuilderUriTemplate = "{+baseurl}/organization/{orga
  * Metadata for all the requests in the request builder.
  */
 export const CustomCSSRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: CustomCSSRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: CustomCSSRequestBuilderUriTemplate,
         responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json",

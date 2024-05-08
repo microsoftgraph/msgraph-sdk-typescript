@@ -19,18 +19,20 @@ export interface GroupSettingItemRequestBuilder extends BaseRequestBuilder<Group
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
+     * Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupSetting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/groupsetting-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GroupSettingItemRequestBuilderGetQueryParameters> | undefined) : Promise<GroupSetting | undefined>;
     /**
-     * Update the navigation property settings in groups
+     * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupSetting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/groupsetting-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: GroupSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GroupSetting | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface GroupSettingItemRequestBuilder extends BaseRequestBuilder<Group
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
+     * Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GroupSettingItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property settings in groups
+     * Update the properties of a groupSetting object for tenant-wide group settings or a specific group setting.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface GroupSettingItemRequestBuilder extends BaseRequestBuilder<Group
      toPatchRequestInformation(body: GroupSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
+ * Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
  */
 export interface GroupSettingItemRequestBuilderGetQueryParameters {
     /**

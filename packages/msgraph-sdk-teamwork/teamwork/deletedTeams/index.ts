@@ -33,10 +33,11 @@ export interface DeletedTeamsRequestBuilder extends BaseRequestBuilder<DeletedTe
      */
      byDeletedTeamId(deletedTeamId: string) : DeletedTeamItemRequestBuilder;
     /**
-     * The deleted team.
+     * Get a list of the deletedTeam objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeletedTeamCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/teamwork-list-deletedteams?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeletedTeamsRequestBuilderGetQueryParameters> | undefined) : Promise<DeletedTeamCollectionResponse | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface DeletedTeamsRequestBuilder extends BaseRequestBuilder<DeletedTe
      */
      post(body: DeletedTeam, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeletedTeam | undefined>;
     /**
-     * The deleted team.
+     * Get a list of the deletedTeam objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -62,7 +63,7 @@ export interface DeletedTeamsRequestBuilder extends BaseRequestBuilder<DeletedTe
      toPostRequestInformation(body: DeletedTeam, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The deleted team.
+ * Get a list of the deletedTeam objects and their properties.
  */
 export interface DeletedTeamsRequestBuilderGetQueryParameters {
     /**

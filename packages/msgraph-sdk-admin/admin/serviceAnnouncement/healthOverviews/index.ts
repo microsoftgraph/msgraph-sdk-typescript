@@ -27,10 +27,11 @@ export interface HealthOverviewsRequestBuilder extends BaseRequestBuilder<Health
      */
      byServiceHealthId(serviceHealthId: string) : ServiceHealthItemRequestBuilder;
     /**
-     * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceHealthCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceannouncement-list-healthoverviews?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HealthOverviewsRequestBuilderGetQueryParameters> | undefined) : Promise<ServiceHealthCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface HealthOverviewsRequestBuilder extends BaseRequestBuilder<Health
      */
      post(body: ServiceHealth, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServiceHealth | undefined>;
     /**
-     * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface HealthOverviewsRequestBuilder extends BaseRequestBuilder<Health
      toPostRequestInformation(body: ServiceHealth, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+ * Retrieve the serviceHealth resources from the healthOverviews navigation property. This operation provides the health report of all subscribed services for a tenant.
  */
 export interface HealthOverviewsRequestBuilderGetQueryParameters {
     /**

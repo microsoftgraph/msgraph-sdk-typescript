@@ -19,18 +19,20 @@ export interface DetailsRequestBuilder extends BaseRequestBuilder<DetailsRequest
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read-only. Nullable. More details about the task.
+     * Retrieve the properties and relationships of a plannerTaskDetails object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerTaskDetails>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannertaskdetails-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DetailsRequestBuilderGetQueryParameters> | undefined) : Promise<PlannerTaskDetails | undefined>;
     /**
-     * Update the navigation property details in planner
+     * Update the properties of plannerTaskDetails object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PlannerTaskDetails>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/plannertaskdetails-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: PlannerTaskDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PlannerTaskDetails | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface DetailsRequestBuilder extends BaseRequestBuilder<DetailsRequest
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read-only. Nullable. More details about the task.
+     * Retrieve the properties and relationships of a plannerTaskDetails object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DetailsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property details in planner
+     * Update the properties of plannerTaskDetails object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface DetailsRequestBuilder extends BaseRequestBuilder<DetailsRequest
      toPatchRequestInformation(body: PlannerTaskDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only. Nullable. More details about the task.
+ * Retrieve the properties and relationships of a plannerTaskDetails object.
  */
 export interface DetailsRequestBuilderGetQueryParameters {
     /**

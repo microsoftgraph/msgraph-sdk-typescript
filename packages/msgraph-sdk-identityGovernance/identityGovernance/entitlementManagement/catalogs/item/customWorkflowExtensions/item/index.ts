@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder<CustomCalloutExtensionItemRequestBuilder> {
     /**
-     * Delete navigation property customWorkflowExtensions for identityGovernance
+     * Delete an accessPackageAssignmentRequestWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get customWorkflowExtensions from identityGovernance
+     * Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomCalloutExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomCalloutExtensionItemRequestBuilderGetQueryParameters> | undefined) : Promise<CustomCalloutExtension | undefined>;
     /**
-     * Update the navigation property customWorkflowExtensions in identityGovernance
+     * Update the properties of an accessPackageAssignmentRequestWorkflowExtension object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CustomCalloutExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequestworkflowextension-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CustomCalloutExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CustomCalloutExtension | undefined>;
     /**
-     * Delete navigation property customWorkflowExtensions for identityGovernance
+     * Delete an accessPackageAssignmentRequestWorkflowExtension object. The custom workflow extension must first be removed from any associated policies before it can be deleted. Follow these steps to remove the custom workflow extension from any associated policies:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get customWorkflowExtensions from identityGovernance
+     * Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomCalloutExtensionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property customWorkflowExtensions in identityGovernance
+     * Update the properties of an accessPackageAssignmentRequestWorkflowExtension object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface CustomCalloutExtensionItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: CustomCalloutExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get customWorkflowExtensions from identityGovernance
+ * Read the properties and relationships of an accessPackageAssignmentRequestWorkflowExtension object.
  */
 export interface CustomCalloutExtensionItemRequestBuilderGetQueryParameters {
     /**

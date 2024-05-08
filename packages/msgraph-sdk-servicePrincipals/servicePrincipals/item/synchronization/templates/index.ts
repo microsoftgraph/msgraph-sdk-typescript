@@ -27,10 +27,11 @@ export interface TemplatesRequestBuilder extends BaseRequestBuilder<TemplatesReq
      */
      bySynchronizationTemplateId(synchronizationTemplateId: string) : SynchronizationTemplateItemRequestBuilder;
     /**
-     * Preconfigured synchronization settings for a particular application.
+     * List the synchronization templates associated with a given application or service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-list-templates?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TemplatesRequestBuilderGetQueryParameters> | undefined) : Promise<SynchronizationTemplateCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface TemplatesRequestBuilder extends BaseRequestBuilder<TemplatesReq
      */
      post(body: SynchronizationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SynchronizationTemplate | undefined>;
     /**
-     * Preconfigured synchronization settings for a particular application.
+     * List the synchronization templates associated with a given application or service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface TemplatesRequestBuilder extends BaseRequestBuilder<TemplatesReq
      toPostRequestInformation(body: SynchronizationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Preconfigured synchronization settings for a particular application.
+ * List the synchronization templates associated with a given application or service principal.
  */
 export interface TemplatesRequestBuilderGetQueryParameters {
     /**

@@ -35,10 +35,11 @@ export interface RoleAssignmentScheduleInstancesRequestBuilder extends BaseReque
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Instances for active role assignments.
+     * Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleAssignmentScheduleInstanceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleassignmentscheduleinstances?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleAssignmentScheduleInstancesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleAssignmentScheduleInstanceCollectionResponse | undefined>;
     /**
@@ -50,7 +51,7 @@ export interface RoleAssignmentScheduleInstancesRequestBuilder extends BaseReque
      */
      post(body: UnifiedRoleAssignmentScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleAssignmentScheduleInstance | undefined>;
     /**
-     * Instances for active role assignments.
+     * Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -64,7 +65,7 @@ export interface RoleAssignmentScheduleInstancesRequestBuilder extends BaseReque
      toPostRequestInformation(body: UnifiedRoleAssignmentScheduleInstance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Instances for active role assignments.
+ * Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
  */
 export interface RoleAssignmentScheduleInstancesRequestBuilderGetQueryParameters {
     /**

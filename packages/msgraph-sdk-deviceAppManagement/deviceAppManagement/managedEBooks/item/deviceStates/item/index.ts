@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeviceInstallStateItemRequestBuilder extends BaseRequestBuilder<DeviceInstallStateItemRequestBuilder> {
     /**
-     * Delete navigation property deviceStates for deviceAppManagement
+     * Deletes a deviceInstallState.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceinstallstate-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of installation states for this eBook.
+     * Read properties and relationships of the deviceInstallState object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceInstallState>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceinstallstate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceInstallStateItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceInstallState | undefined>;
     /**
-     * Update the navigation property deviceStates in deviceAppManagement
+     * Update the properties of a deviceInstallState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceInstallState>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceinstallstate-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceInstallState, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceInstallState | undefined>;
     /**
-     * Delete navigation property deviceStates for deviceAppManagement
+     * Deletes a deviceInstallState.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of installation states for this eBook.
+     * Read properties and relationships of the deviceInstallState object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceInstallStateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property deviceStates in deviceAppManagement
+     * Update the properties of a deviceInstallState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface DeviceInstallStateItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: DeviceInstallState, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of installation states for this eBook.
+ * Read properties and relationships of the deviceInstallState object.
  */
 export interface DeviceInstallStateItemRequestBuilderGetQueryParameters {
     /**

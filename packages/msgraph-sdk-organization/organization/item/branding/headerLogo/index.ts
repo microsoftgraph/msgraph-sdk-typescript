@@ -13,6 +13,12 @@ export interface HeaderLogoRequestBuilder extends BaseRequestBuilder<HeaderLogoR
     /**
      * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
+     * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
@@ -26,6 +32,12 @@ export interface HeaderLogoRequestBuilder extends BaseRequestBuilder<HeaderLogoR
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      put(body: ArrayBuffer | undefined, contentType: string | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
+    /**
+     * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -49,6 +61,14 @@ export const HeaderLogoRequestBuilderUriTemplate = "{+baseurl}/organization/{org
  * Metadata for all the requests in the request builder.
  */
 export const HeaderLogoRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: HeaderLogoRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: HeaderLogoRequestBuilderUriTemplate,
         responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json",

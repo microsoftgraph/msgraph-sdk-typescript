@@ -27,10 +27,11 @@ export interface ComponentsRequestBuilder extends BaseRequestBuilder<ComponentsR
      */
      byVulnerabilityComponentId(vulnerabilityComponentId: string) : VulnerabilityComponentItemRequestBuilder;
     /**
-     * Components related to this vulnerability article.
+     * Get a list of vulnerabilityComponent objects related to a known vulnerability.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VulnerabilityComponentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-vulnerability-list-components?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ComponentsRequestBuilderGetQueryParameters> | undefined) : Promise<VulnerabilityComponentCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ComponentsRequestBuilder extends BaseRequestBuilder<ComponentsR
      */
      post(body: VulnerabilityComponent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VulnerabilityComponent | undefined>;
     /**
-     * Components related to this vulnerability article.
+     * Get a list of vulnerabilityComponent objects related to a known vulnerability.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ComponentsRequestBuilder extends BaseRequestBuilder<ComponentsR
      toPostRequestInformation(body: VulnerabilityComponent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Components related to this vulnerability article.
+ * Get a list of vulnerabilityComponent objects related to a known vulnerability.
  */
 export interface ComponentsRequestBuilderGetQueryParameters {
     /**

@@ -33,28 +33,30 @@ export interface DeviceImagesRequestBuilder extends BaseRequestBuilder<DeviceIma
      */
      byCloudPcDeviceImageId(cloudPcDeviceImageId: string) : CloudPcDeviceImageItemRequestBuilder;
     /**
-     * A collection of device image resources on Cloud PC.
+     * List the properties and relationships of cloudPcDeviceImage objects (operating system images) uploaded to Cloud PC.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcDeviceImageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualendpoint-list-deviceimages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceImagesRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPcDeviceImageCollectionResponse | undefined>;
     /**
-     * Create new navigation property to deviceImages for deviceManagement
+     * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPcDeviceImage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualendpoint-post-deviceimages?view=graph-rest-1.0|Find more info here}
      */
      post(body: CloudPcDeviceImage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPcDeviceImage | undefined>;
     /**
-     * A collection of device image resources on Cloud PC.
+     * List the properties and relationships of cloudPcDeviceImage objects (operating system images) uploaded to Cloud PC.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceImagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to deviceImages for deviceManagement
+     * Create a new cloudPcDeviceImage object. Upload a custom OS image that you can later provision on Cloud PCs.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +64,7 @@ export interface DeviceImagesRequestBuilder extends BaseRequestBuilder<DeviceIma
      toPostRequestInformation(body: CloudPcDeviceImage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of device image resources on Cloud PC.
+ * List the properties and relationships of cloudPcDeviceImage objects (operating system images) uploaded to Cloud PC.
  */
 export interface DeviceImagesRequestBuilderGetQueryParameters {
     /**

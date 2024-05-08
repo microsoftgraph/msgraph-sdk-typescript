@@ -27,28 +27,30 @@ export interface DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBu
      */
      byDelegatedAdminRelationshipId(delegatedAdminRelationshipId: string) : DelegatedAdminRelationshipItemRequestBuilder;
     /**
-     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+     * Get a list of the delegatedAdminRelationship objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminRelationshipCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-list-delegatedadminrelationships?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedAdminRelationshipsRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminRelationshipCollectionResponse | undefined>;
     /**
-     * Create new navigation property to delegatedAdminRelationships for tenantRelationships
+     * Create a new delegatedAdminRelationship object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminRelationship>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-post-delegatedadminrelationships?view=graph-rest-1.0|Find more info here}
      */
      post(body: DelegatedAdminRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminRelationship | undefined>;
     /**
-     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+     * Get a list of the delegatedAdminRelationship objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DelegatedAdminRelationshipsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to delegatedAdminRelationships for tenantRelationships
+     * Create a new delegatedAdminRelationship object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBu
      toPostRequestInformation(body: DelegatedAdminRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+ * Get a list of the delegatedAdminRelationship objects and their properties.
  */
 export interface DelegatedAdminRelationshipsRequestBuilderGetQueryParameters {
     /**

@@ -27,10 +27,11 @@ export interface DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilde
      */
      byDelegatedAdminCustomerId(delegatedAdminCustomerId: string) : DelegatedAdminCustomerItemRequestBuilder;
     /**
-     * The customer who has a delegated admin relationship with a Microsoft partner.
+     * Get a list of the delegatedAdminCustomer objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DelegatedAdminCustomerCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-list-delegatedadmincustomers?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DelegatedAdminCustomersRequestBuilderGetQueryParameters> | undefined) : Promise<DelegatedAdminCustomerCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilde
      */
      post(body: DelegatedAdminCustomer, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DelegatedAdminCustomer | undefined>;
     /**
-     * The customer who has a delegated admin relationship with a Microsoft partner.
+     * Get a list of the delegatedAdminCustomer objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: DelegatedAdminCustomer, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The customer who has a delegated admin relationship with a Microsoft partner.
+ * Get a list of the delegatedAdminCustomer objects and their properties.
  */
 export interface DelegatedAdminCustomersRequestBuilderGetQueryParameters {
     /**

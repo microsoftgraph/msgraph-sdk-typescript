@@ -27,28 +27,30 @@ export interface ModulesRequestBuilder extends BaseRequestBuilder<ModulesRequest
      */
      byEducationModuleId(educationModuleId: string) : EducationModuleItemRequestBuilder;
     /**
-     * All modules in the class. Nullable.
+     * Retrieve a list of module objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can see all module objects for the class. Students can only see published modules.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationModuleCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-list-modules?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ModulesRequestBuilderGetQueryParameters> | undefined) : Promise<EducationModuleCollectionResponse | undefined>;
     /**
-     * Create new navigation property to modules for education
+     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students can't see the modules until publication.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationModule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-post-module?view=graph-rest-1.0|Find more info here}
      */
      post(body: EducationModule, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationModule | undefined>;
     /**
-     * All modules in the class. Nullable.
+     * Retrieve a list of module objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can see all module objects for the class. Students can only see published modules.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ModulesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to modules for education
+     * Create a new module in a class. Only teachers in a class can create a module. Modules start in the draft state, which means that students can't see the modules until publication.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ModulesRequestBuilder extends BaseRequestBuilder<ModulesRequest
      toPostRequestInformation(body: EducationModule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * All modules in the class. Nullable.
+ * Retrieve a list of module objects. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can see all module objects for the class. Students can only see published modules.
  */
 export interface ModulesRequestBuilderGetQueryParameters {
     /**

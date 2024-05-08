@@ -13,9 +13,10 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder<LearningCourseActivityItemRequestBuilder> {
     /**
-     * Delete navigation property learningCourseActivities for employeeExperience
+     * Delete a learningCourseActivity object using the course activity ID of either an assignment or a self-initiated activity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -26,15 +27,16 @@ export interface LearningCourseActivityItemRequestBuilder extends BaseRequestBui
      */
      get(requestConfiguration?: RequestConfiguration<LearningCourseActivityItemRequestBuilderGetQueryParameters> | undefined) : Promise<LearningCourseActivity | undefined>;
     /**
-     * Update the navigation property learningCourseActivities in employeeExperience
+     * Update the properties of a learningCourseActivity object. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LearningCourseActivity>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: LearningCourseActivity, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LearningCourseActivity | undefined>;
     /**
-     * Delete navigation property learningCourseActivities for employeeExperience
+     * Delete a learningCourseActivity object using the course activity ID of either an assignment or a self-initiated activity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -46,7 +48,7 @@ export interface LearningCourseActivityItemRequestBuilder extends BaseRequestBui
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LearningCourseActivityItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property learningCourseActivities in employeeExperience
+     * Update the properties of a learningCourseActivity object. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

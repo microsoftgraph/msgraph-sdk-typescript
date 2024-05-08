@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type DateOnly, type Parsable, type ParsableFac
  */
 export interface GetM365AppUserDetailWithDateRequestBuilder extends BaseRequestBuilder<GetM365AppUserDetailWithDateRequestBuilder> {
     /**
-     * Invoke function getM365AppUserDetail
+     * Get a report that provides the details about which apps and platforms users have used.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Invoke function getM365AppUserDetail
+     * Get a report that provides the details about which apps and platforms users have used.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

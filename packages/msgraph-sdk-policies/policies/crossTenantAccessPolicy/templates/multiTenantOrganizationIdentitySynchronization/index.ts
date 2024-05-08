@@ -19,18 +19,20 @@ export interface MultiTenantOrganizationIdentitySynchronizationRequestBuilder ex
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Defines an optional cross-tenant access policy template with user synchronization settings for a multitenant organization.
+     * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationIdentitySyncPolicyTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganizationidentitysyncpolicytemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetQueryParameters> | undefined) : Promise<MultiTenantOrganizationIdentitySyncPolicyTemplate | undefined>;
     /**
-     * Update the navigation property multiTenantOrganizationIdentitySynchronization in policies
+     * Update the cross-tenant access policy template with user synchronization settings for a multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationIdentitySyncPolicyTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganizationidentitysyncpolicytemplate-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MultiTenantOrganizationIdentitySyncPolicyTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganizationIdentitySyncPolicyTemplate | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface MultiTenantOrganizationIdentitySynchronizationRequestBuilder ex
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Defines an optional cross-tenant access policy template with user synchronization settings for a multitenant organization.
+     * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property multiTenantOrganizationIdentitySynchronization in policies
+     * Update the cross-tenant access policy template with user synchronization settings for a multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface MultiTenantOrganizationIdentitySynchronizationRequestBuilder ex
      toPatchRequestInformation(body: MultiTenantOrganizationIdentitySyncPolicyTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Defines an optional cross-tenant access policy template with user synchronization settings for a multitenant organization.
+ * Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.
  */
 export interface MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetQueryParameters {
     /**

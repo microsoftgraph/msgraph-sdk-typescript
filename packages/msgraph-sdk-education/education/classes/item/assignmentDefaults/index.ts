@@ -19,18 +19,20 @@ export interface AssignmentDefaultsRequestBuilder extends BaseRequestBuilder<Ass
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Specifies class-level defaults respected by new assignments created in the class.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each assignment creation if they don't want the default behaviors. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationAssignmentDefaults>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignmentdefaults-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentDefaultsRequestBuilderGetQueryParameters> | undefined) : Promise<EducationAssignmentDefaults | undefined>;
     /**
-     * Update the navigation property assignmentDefaults in education
+     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationAssignmentDefaults>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignmentdefaults-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EducationAssignmentDefaults, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationAssignmentDefaults | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface AssignmentDefaultsRequestBuilder extends BaseRequestBuilder<Ass
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Specifies class-level defaults respected by new assignments created in the class.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each assignment creation if they don't want the default behaviors. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentDefaultsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property assignmentDefaults in education
+     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface AssignmentDefaultsRequestBuilder extends BaseRequestBuilder<Ass
      toPatchRequestInformation(body: EducationAssignmentDefaults, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Specifies class-level defaults respected by new assignments created in the class.
+ * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each assignment creation if they don't want the default behaviors. Only teachers can perform this operation.
  */
 export interface AssignmentDefaultsRequestBuilderGetQueryParameters {
     /**

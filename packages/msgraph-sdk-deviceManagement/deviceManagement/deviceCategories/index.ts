@@ -27,28 +27,30 @@ export interface DeviceCategoriesRequestBuilder extends BaseRequestBuilder<Devic
      */
      byDeviceCategoryId(deviceCategoryId: string) : DeviceCategoryItemRequestBuilder;
     /**
-     * The list of device categories with the tenant.
+     * List properties and relationships of the deviceCategory objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCategoryCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicecategory-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCategoriesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCategoryCollectionResponse | undefined>;
     /**
-     * Create new navigation property to deviceCategories for deviceManagement
+     * Create a new deviceCategory object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicecategory-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCategory | undefined>;
     /**
-     * The list of device categories with the tenant.
+     * List properties and relationships of the deviceCategory objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCategoriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to deviceCategories for deviceManagement
+     * Create a new deviceCategory object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface DeviceCategoriesRequestBuilder extends BaseRequestBuilder<Devic
      toPostRequestInformation(body: DeviceCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of device categories with the tenant.
+ * List properties and relationships of the deviceCategory objects.
  */
 export interface DeviceCategoriesRequestBuilderGetQueryParameters {
     /**

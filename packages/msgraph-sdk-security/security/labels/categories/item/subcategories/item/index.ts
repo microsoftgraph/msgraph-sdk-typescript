@@ -19,10 +19,11 @@ export interface SubcategoryTemplateItemRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get subcategories from security
+     * Read the properties and relationships of a subcategoryTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SubcategoryTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-subcategorytemplate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SubcategoryTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<SubcategoryTemplate | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface SubcategoryTemplateItemRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get subcategories from security
+     * Read the properties and relationships of a subcategoryTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface SubcategoryTemplateItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: SubcategoryTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get subcategories from security
+ * Read the properties and relationships of a subcategoryTemplate object.
  */
 export interface SubcategoryTemplateItemRequestBuilderGetQueryParameters {
     /**

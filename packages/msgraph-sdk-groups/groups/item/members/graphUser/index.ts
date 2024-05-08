@@ -19,21 +19,22 @@ export interface GraphUserRequestBuilder extends BaseRequestBuilder<GraphUserReq
      */
     get count(): CountRequestBuilder;
     /**
-     * Get the items of type microsoft.graph.user in the microsoft.graph.directoryObject collection
+     * Get a list of the group's direct members. A group can have users, organizational contacts, devices, service principals and other groups as members. This operation is not transitive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-members?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GraphUserRequestBuilderGetQueryParameters> | undefined) : Promise<UserCollectionResponse | undefined>;
     /**
-     * Get the items of type microsoft.graph.user in the microsoft.graph.directoryObject collection
+     * Get a list of the group's direct members. A group can have users, organizational contacts, devices, service principals and other groups as members. This operation is not transitive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphUserRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the items of type microsoft.graph.user in the microsoft.graph.directoryObject collection
+ * Get a list of the group's direct members. A group can have users, organizational contacts, devices, service principals and other groups as members. This operation is not transitive.
  */
 export interface GraphUserRequestBuilderGetQueryParameters {
     /**

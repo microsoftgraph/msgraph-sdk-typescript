@@ -72,6 +72,10 @@ export interface OverridesRequestBuilderGetQueryParameters {
      */
     orderby?: string[];
     /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -87,7 +91,7 @@ export interface OverridesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OverridesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/inferenceClassification/overrides{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}";
+export const OverridesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/inferenceClassification/overrides{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -95,6 +99,7 @@ const OverridesRequestBuilderGetQueryParametersMapper: Record<string, string> = 
     "count": "%24count",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

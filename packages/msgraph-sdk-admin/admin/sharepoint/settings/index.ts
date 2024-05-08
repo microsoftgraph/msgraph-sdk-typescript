@@ -19,18 +19,20 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get settings from admin
+     * Get the tenant-level settings for SharePoint and OneDrive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharepointSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/sharepointsettings-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : Promise<SharepointSettings | undefined>;
     /**
-     * Update the navigation property settings in admin
+     * Update one or more tenant-level settings for SharePoint and OneDrive.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharepointSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/sharepointsettings-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: SharepointSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SharepointSettings | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get settings from admin
+     * Get the tenant-level settings for SharePoint and OneDrive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property settings in admin
+     * Update one or more tenant-level settings for SharePoint and OneDrive.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      toPatchRequestInformation(body: SharepointSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get settings from admin
+ * Get the tenant-level settings for SharePoint and OneDrive.
  */
 export interface SettingsRequestBuilderGetQueryParameters {
     /**

@@ -39,6 +39,10 @@ export interface PhotosRequestBuilder extends BaseRequestBuilder<PhotosRequestBu
  */
 export interface PhotosRequestBuilderGetQueryParameters {
     /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
      * Filter items by property values
      */
     filter?: string;
@@ -46,6 +50,10 @@ export interface PhotosRequestBuilderGetQueryParameters {
      * Order items by property values
      */
     orderby?: string[];
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
     /**
      * Select properties to be returned
      */
@@ -62,13 +70,15 @@ export interface PhotosRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PhotosRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/photos{?%24filter,%24orderby,%24select,%24skip,%24top}";
+export const PhotosRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/photos{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const PhotosRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

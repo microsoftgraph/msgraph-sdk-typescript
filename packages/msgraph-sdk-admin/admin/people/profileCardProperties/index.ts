@@ -27,28 +27,30 @@ export interface ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder<
      */
      byProfileCardPropertyId(profileCardPropertyId: string) : ProfileCardPropertyItemRequestBuilder;
     /**
-     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card.
+     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ProfileCardPropertyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/peopleadminsettings-list-profilecardproperties?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ProfileCardPropertiesRequestBuilderGetQueryParameters> | undefined) : Promise<ProfileCardPropertyCollectionResponse | undefined>;
     /**
-     * Create new navigation property to profileCardProperties for admin
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ProfileCardProperty>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/peopleadminsettings-post-profilecardproperties?view=graph-rest-1.0|Find more info here}
      */
      post(body: ProfileCardProperty, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProfileCardProperty | undefined>;
     /**
-     * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card.
+     * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ProfileCardPropertiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to profileCardProperties for admin
+     * Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ProfileCardPropertiesRequestBuilder extends BaseRequestBuilder<
      toPostRequestInformation(body: ProfileCardProperty, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Contains a collection of the properties an administrator has defined as visible on the Microsoft 365 profile card.
+ * Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
  */
 export interface ProfileCardPropertiesRequestBuilderGetQueryParameters {
     /**

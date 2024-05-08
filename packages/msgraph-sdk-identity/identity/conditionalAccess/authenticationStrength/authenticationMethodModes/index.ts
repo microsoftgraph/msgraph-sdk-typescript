@@ -27,10 +27,11 @@ export interface AuthenticationMethodModesRequestBuilder extends BaseRequestBuil
      */
      byAuthenticationMethodModeDetailId(authenticationMethodModeDetailId: string) : AuthenticationMethodModeDetailItemRequestBuilder;
     /**
-     * Names and descriptions of all valid authentication method modes in the system.
+     * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationMethodModeDetailCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-list-authenticationmethodmodes?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationMethodModesRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationMethodModeDetailCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface AuthenticationMethodModesRequestBuilder extends BaseRequestBuil
      */
      post(body: AuthenticationMethodModeDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationMethodModeDetail | undefined>;
     /**
-     * Names and descriptions of all valid authentication method modes in the system.
+     * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface AuthenticationMethodModesRequestBuilder extends BaseRequestBuil
      toPostRequestInformation(body: AuthenticationMethodModeDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Names and descriptions of all valid authentication method modes in the system.
+ * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
  */
 export interface AuthenticationMethodModesRequestBuilderGetQueryParameters {
     /**

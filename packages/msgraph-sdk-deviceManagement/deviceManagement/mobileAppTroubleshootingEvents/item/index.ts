@@ -19,40 +19,43 @@ export interface MobileAppTroubleshootingEventItemRequestBuilder extends BaseReq
      */
     get appLogCollectionRequests(): AppLogCollectionRequestsRequestBuilder;
     /**
-     * Delete navigation property mobileAppTroubleshootingEvents for deviceManagement
+     * Deletes a mobileAppTroubleshootingEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The collection property of MobileAppTroubleshootingEvent.
+     * Read properties and relationships of the mobileAppTroubleshootingEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppTroubleshootingEvent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppTroubleshootingEvent | undefined>;
     /**
-     * Update the navigation property mobileAppTroubleshootingEvents in deviceManagement
+     * Update the properties of a mobileAppTroubleshootingEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppTroubleshootingEvent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MobileAppTroubleshootingEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileAppTroubleshootingEvent | undefined>;
     /**
-     * Delete navigation property mobileAppTroubleshootingEvents for deviceManagement
+     * Deletes a mobileAppTroubleshootingEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The collection property of MobileAppTroubleshootingEvent.
+     * Read properties and relationships of the mobileAppTroubleshootingEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property mobileAppTroubleshootingEvents in deviceManagement
+     * Update the properties of a mobileAppTroubleshootingEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface MobileAppTroubleshootingEventItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: MobileAppTroubleshootingEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection property of MobileAppTroubleshootingEvent.
+ * Read properties and relationships of the mobileAppTroubleshootingEvent object.
  */
 export interface MobileAppTroubleshootingEventItemRequestBuilderGetQueryParameters {
     /**

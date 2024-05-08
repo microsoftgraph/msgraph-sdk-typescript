@@ -25,10 +25,11 @@ export interface ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder<M
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Managed app policies.
+     * Read properties and relationships of the windowsInformationProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-windowsinformationprotection-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ManagedAppPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppPolicy | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder<M
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Managed app policies.
+     * Read properties and relationships of the windowsInformationProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder<M
      toPatchRequestInformation(body: ManagedAppPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Managed app policies.
+ * Read properties and relationships of the windowsInformationProtection object.
  */
 export interface ManagedAppPolicyItemRequestBuilderGetQueryParameters {
     /**

@@ -11,14 +11,20 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ContentRequestBuilder extends BaseRequestBuilder<ContentRequestBuilder> {
     /**
-     * Get media content for the navigation property documents from print
+     * The unique identifier for an entity. Read-only.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     */
+     delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+    /**
+     * The unique identifier for an entity. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Update media content for the navigation property documents in print
+     * The unique identifier for an entity. Read-only.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
@@ -26,13 +32,19 @@ export interface ContentRequestBuilder extends BaseRequestBuilder<ContentRequest
      */
      put(body: ArrayBuffer | undefined, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Get media content for the navigation property documents from print
+     * The unique identifier for an entity. Read-only.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns {RequestInformation}
+     */
+     toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+    /**
+     * The unique identifier for an entity. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Update media content for the navigation property documents in print
+     * The unique identifier for an entity. Read-only.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -47,6 +59,14 @@ export const ContentRequestBuilderUriTemplate = "{+baseurl}/print/printers/{prin
  * Metadata for all the requests in the request builder.
  */
 export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
+    delete: {
+        uriTemplate: ContentRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
+        errorMappings: {
+            XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
+        },
+        adapterMethodName: "sendNoResponseContent",
+    },
     get: {
         uriTemplate: ContentRequestBuilderUriTemplate,
         responseBodyContentType: "application/octet-stream, application/json",

@@ -27,10 +27,11 @@ export interface CloudPCsRequestBuilder extends BaseRequestBuilder<CloudPCsReque
      */
      byCloudPCId(cloudPCId: string) : CloudPCItemRequestBuilder;
     /**
-     * A collection of cloud-managed virtual desktops.
+     * List the cloudPC devices in a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudPCCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualendpoint-list-cloudpcs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CloudPCsRequestBuilderGetQueryParameters> | undefined) : Promise<CloudPCCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface CloudPCsRequestBuilder extends BaseRequestBuilder<CloudPCsReque
      */
      post(body: CloudPC, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CloudPC | undefined>;
     /**
-     * A collection of cloud-managed virtual desktops.
+     * List the cloudPC devices in a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface CloudPCsRequestBuilder extends BaseRequestBuilder<CloudPCsReque
      toPostRequestInformation(body: CloudPC, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of cloud-managed virtual desktops.
+ * List the cloudPC devices in a tenant.
  */
 export interface CloudPCsRequestBuilderGetQueryParameters {
     /**

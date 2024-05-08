@@ -19,40 +19,43 @@ export interface FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuild
      */
     get appliesTo(): AppliesToRequestBuilder;
     /**
-     * Delete navigation property featureRolloutPolicies for policies
+     * Delete a featureRolloutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The feature rollout policy associated with a directory object.
+     * Retrieve the properties and relationships of a featureRolloutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FeatureRolloutPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FeatureRolloutPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<FeatureRolloutPolicy | undefined>;
     /**
-     * Update the navigation property featureRolloutPolicies in policies
+     * Update the properties of featureRolloutPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FeatureRolloutPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: FeatureRolloutPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FeatureRolloutPolicy | undefined>;
     /**
-     * Delete navigation property featureRolloutPolicies for policies
+     * Delete a featureRolloutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The feature rollout policy associated with a directory object.
+     * Retrieve the properties and relationships of a featureRolloutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FeatureRolloutPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property featureRolloutPolicies in policies
+     * Update the properties of featureRolloutPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: FeatureRolloutPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The feature rollout policy associated with a directory object.
+ * Retrieve the properties and relationships of a featureRolloutPolicy object.
  */
 export interface FeatureRolloutPolicyItemRequestBuilderGetQueryParameters {
     /**
