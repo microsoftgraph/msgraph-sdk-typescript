@@ -1577,6 +1577,22 @@ export function createGoogleCloudResourceEvidenceFromDiscriminatorValue(parseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {HealthIssueCollectionResponse}
+ */
+export function createHealthIssueCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoHealthIssueCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {HealthIssue}
+ */
+export function createHealthIssueFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoHealthIssue;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {HostCollectionResponse}
  */
 export function createHostCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
@@ -1778,6 +1794,14 @@ export function createHuntingRowResultFromDiscriminatorValue(parseNode: ParseNod
  */
 export function createHyperlinkFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHyperlink;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IdentityContainer}
+ */
+export function createIdentityContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIdentityContainer;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -3745,6 +3769,38 @@ export function deserializeIntoGoogleCloudResourceEvidence(googleCloudResourceEv
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+export function deserializeIntoHealthIssue(healthIssue: Partial<HealthIssue> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(healthIssue),
+        "additionalInformation": n => { healthIssue.additionalInformation = n.getCollectionOfPrimitiveValues<string>(); },
+        "createdDateTime": n => { healthIssue.createdDateTime = n.getDateValue(); },
+        "description": n => { healthIssue.description = n.getStringValue(); },
+        "displayName": n => { healthIssue.displayName = n.getStringValue(); },
+        "domainNames": n => { healthIssue.domainNames = n.getCollectionOfPrimitiveValues<string>(); },
+        "healthIssueType": n => { healthIssue.healthIssueType = n.getEnumValue<HealthIssueType>(HealthIssueTypeObject); },
+        "issueTypeId": n => { healthIssue.issueTypeId = n.getStringValue(); },
+        "lastModifiedDateTime": n => { healthIssue.lastModifiedDateTime = n.getDateValue(); },
+        "recommendations": n => { healthIssue.recommendations = n.getCollectionOfPrimitiveValues<string>(); },
+        "recommendedActionCommands": n => { healthIssue.recommendedActionCommands = n.getCollectionOfPrimitiveValues<string>(); },
+        "sensorDNSNames": n => { healthIssue.sensorDNSNames = n.getCollectionOfPrimitiveValues<string>(); },
+        "severity": n => { healthIssue.severity = n.getEnumValue<HealthIssueSeverity>(HealthIssueSeverityObject); },
+        "status": n => { healthIssue.status = n.getEnumValue<HealthIssueStatus>(HealthIssueStatusObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+export function deserializeIntoHealthIssueCollectionResponse(healthIssueCollectionResponse: Partial<HealthIssueCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(healthIssueCollectionResponse),
+        "value": n => { healthIssueCollectionResponse.value = n.getCollectionOfObjectValues<HealthIssue>(createHealthIssueFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
 export function deserializeIntoHost(host: Partial<Host> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoArtifact(host),
@@ -4051,6 +4107,16 @@ export function deserializeIntoHyperlink(hyperlink: Partial<Hyperlink> | undefin
         "name": n => { hyperlink.name = n.getStringValue(); },
         "@odata.type": n => { hyperlink.odataType = n.getStringValue(); },
         "url": n => { hyperlink.url = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+export function deserializeIntoIdentityContainer(identityContainer: Partial<IdentityContainer> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(identityContainer),
+        "healthIssues": n => { identityContainer.healthIssues = n.getCollectionOfObjectValues<HealthIssue>(createHealthIssueFromDiscriminatorValue); },
     }
 }
 /**
@@ -6084,6 +6150,69 @@ export interface GoogleCloudResourceEvidence extends AlertEvidence, Parsable {
      */
     resourceType?: string;
 }
+export interface HealthIssue extends Entity, Parsable {
+    /**
+     * The additionalInformation property
+     */
+    additionalInformation?: string[];
+    /**
+     * The createdDateTime property
+     */
+    createdDateTime?: Date;
+    /**
+     * The description property
+     */
+    description?: string;
+    /**
+     * The displayName property
+     */
+    displayName?: string;
+    /**
+     * The domainNames property
+     */
+    domainNames?: string[];
+    /**
+     * The healthIssueType property
+     */
+    healthIssueType?: HealthIssueType;
+    /**
+     * The issueTypeId property
+     */
+    issueTypeId?: string;
+    /**
+     * The lastModifiedDateTime property
+     */
+    lastModifiedDateTime?: Date;
+    /**
+     * The recommendations property
+     */
+    recommendations?: string[];
+    /**
+     * The recommendedActionCommands property
+     */
+    recommendedActionCommands?: string[];
+    /**
+     * The sensorDNSNames property
+     */
+    sensorDNSNames?: string[];
+    /**
+     * The severity property
+     */
+    severity?: HealthIssueSeverity;
+    /**
+     * The status property
+     */
+    status?: HealthIssueStatus;
+}
+export interface HealthIssueCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: HealthIssue[];
+}
+export type HealthIssueSeverity = (typeof HealthIssueSeverityObject)[keyof typeof HealthIssueSeverityObject];
+export type HealthIssueStatus = (typeof HealthIssueStatusObject)[keyof typeof HealthIssueStatusObject];
+export type HealthIssueType = (typeof HealthIssueTypeObject)[keyof typeof HealthIssueTypeObject];
 export interface Host extends Artifact, Parsable {
     /**
      * The hostPairs that are resources associated with a host, where that host is the parentHost and has an outgoing pairing to a childHost.
@@ -6575,6 +6704,12 @@ export interface Hyperlink extends AdditionalDataHolder, BackedModel, Parsable {
      * The URL for this hyperlink.
      */
     url?: string;
+}
+export interface IdentityContainer extends Entity, Parsable {
+    /**
+     * The healthIssues property
+     */
+    healthIssues?: HealthIssue[];
 }
 export interface Incident extends Entity, Parsable {
     /**
@@ -8674,6 +8809,34 @@ export function serializeGoogleCloudResourceEvidence(writer: SerializationWriter
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+export function serializeHealthIssue(writer: SerializationWriter, healthIssue: Partial<HealthIssue> | undefined = {}) : void {
+    serializeEntity(writer, healthIssue)
+    writer.writeCollectionOfPrimitiveValues<string>("additionalInformation", healthIssue.additionalInformation);
+    writer.writeDateValue("createdDateTime", healthIssue.createdDateTime);
+    writer.writeStringValue("description", healthIssue.description);
+    writer.writeStringValue("displayName", healthIssue.displayName);
+    writer.writeCollectionOfPrimitiveValues<string>("domainNames", healthIssue.domainNames);
+    writer.writeEnumValue<HealthIssueType>("healthIssueType", healthIssue.healthIssueType);
+    writer.writeStringValue("issueTypeId", healthIssue.issueTypeId);
+    writer.writeDateValue("lastModifiedDateTime", healthIssue.lastModifiedDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("recommendations", healthIssue.recommendations);
+    writer.writeCollectionOfPrimitiveValues<string>("recommendedActionCommands", healthIssue.recommendedActionCommands);
+    writer.writeCollectionOfPrimitiveValues<string>("sensorDNSNames", healthIssue.sensorDNSNames);
+    writer.writeEnumValue<HealthIssueSeverity>("severity", healthIssue.severity);
+    writer.writeEnumValue<HealthIssueStatus>("status", healthIssue.status);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeHealthIssueCollectionResponse(writer: SerializationWriter, healthIssueCollectionResponse: Partial<HealthIssueCollectionResponse> | undefined = {}) : void {
+    serializeBaseCollectionPaginationCountResponse(writer, healthIssueCollectionResponse)
+    writer.writeCollectionOfObjectValues<HealthIssue>("value", healthIssueCollectionResponse.value, serializeHealthIssue);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
 export function serializeHost(writer: SerializationWriter, host: Partial<Host> | undefined = {}) : void {
     serializeArtifact(writer, host)
     writer.writeCollectionOfObjectValues<HostPair>("childHostPairs", host.childHostPairs, serializeHostPair);
@@ -8933,6 +9096,14 @@ export function serializeHyperlink(writer: SerializationWriter, hyperlink: Parti
     writer.writeStringValue("@odata.type", hyperlink.odataType);
     writer.writeStringValue("url", hyperlink.url);
     writer.writeAdditionalData(hyperlink.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeIdentityContainer(writer: SerializationWriter, identityContainer: Partial<IdentityContainer> | undefined = {}) : void {
+    serializeEntity(writer, identityContainer)
+    writer.writeCollectionOfObjectValues<HealthIssue>("healthIssues", identityContainer.healthIssues, serializeHealthIssue);
 }
 /**
  * Serializes information the current object
@@ -10958,6 +11129,23 @@ export const GoogleCloudLocationTypeObject = {
     Unknown: "unknown",
     Regional: "regional",
     Zonal: "zonal",
+    Global: "global",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const HealthIssueSeverityObject = {
+    Low: "low",
+    Medium: "medium",
+    High: "high",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const HealthIssueStatusObject = {
+    Open: "open",
+    Closed: "closed",
+    Suppressed: "suppressed",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const HealthIssueTypeObject = {
+    Sensor: "sensor",
     Global: "global",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
