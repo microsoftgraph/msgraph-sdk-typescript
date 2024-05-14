@@ -19,7 +19,7 @@ export interface TitleRequestBuilder extends BaseRequestBuilder<TitleRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
+     * Represents the title of the specified chart, including the text, visibility, position and formatting of the title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartTitle>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -40,7 +40,7 @@ export interface TitleRequestBuilder extends BaseRequestBuilder<TitleRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
+     * Represents the title of the specified chart, including the text, visibility, position and formatting of the title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface TitleRequestBuilder extends BaseRequestBuilder<TitleRequestBuil
      toPatchRequestInformation(body: WorkbookChartTitle, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
+ * Represents the title of the specified chart, including the text, visibility, position and formatting of the title. Read-only.
  */
 export interface TitleRequestBuilderGetQueryParameters {
     /**

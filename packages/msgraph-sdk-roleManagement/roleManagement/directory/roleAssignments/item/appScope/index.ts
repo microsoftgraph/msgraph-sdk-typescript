@@ -19,7 +19,7 @@ export interface AppScopeRequestBuilder extends BaseRequestBuilder<AppScopeReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
+     * Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppScope>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -40,7 +40,7 @@ export interface AppScopeRequestBuilder extends BaseRequestBuilder<AppScopeReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
+     * Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface AppScopeRequestBuilder extends BaseRequestBuilder<AppScopeReque
      toPatchRequestInformation(body: AppScope, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
+ * Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand for the entitlement provider only.
  */
 export interface AppScopeRequestBuilderGetQueryParameters {
     /**
