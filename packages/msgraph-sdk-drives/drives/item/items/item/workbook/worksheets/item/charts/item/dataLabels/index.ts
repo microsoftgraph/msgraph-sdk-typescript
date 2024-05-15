@@ -25,7 +25,7 @@ export interface DataLabelsRequestBuilder extends BaseRequestBuilder<DataLabelsR
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents the datalabels on the chart. Read-only.
+     * Represents the data labels on the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartDataLabels>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface DataLabelsRequestBuilder extends BaseRequestBuilder<DataLabelsR
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents the datalabels on the chart. Read-only.
+     * Represents the data labels on the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface DataLabelsRequestBuilder extends BaseRequestBuilder<DataLabelsR
      toPatchRequestInformation(body: WorkbookChartDataLabels, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents the datalabels on the chart. Read-only.
+ * Represents the data labels on the chart. Read-only.
  */
 export interface DataLabelsRequestBuilderGetQueryParameters {
     /**
