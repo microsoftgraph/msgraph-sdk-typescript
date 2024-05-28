@@ -10,6 +10,8 @@ import { ApiConnectorsRequestBuilderNavigationMetadata, ApiConnectorsRequestBuil
 // @ts-ignore
 import { AuthenticationEventListenersRequestBuilderNavigationMetadata, AuthenticationEventListenersRequestBuilderRequestsMetadata, type AuthenticationEventListenersRequestBuilder } from './authenticationEventListeners/';
 // @ts-ignore
+import { AuthenticationEventsFlowsRequestBuilderNavigationMetadata, AuthenticationEventsFlowsRequestBuilderRequestsMetadata, type AuthenticationEventsFlowsRequestBuilder } from './authenticationEventsFlows/';
+// @ts-ignore
 import { B2xUserFlowsRequestBuilderNavigationMetadata, B2xUserFlowsRequestBuilderRequestsMetadata, type B2xUserFlowsRequestBuilder } from './b2xUserFlows/';
 // @ts-ignore
 import { ConditionalAccessRequestBuilderNavigationMetadata, type ConditionalAccessRequestBuilder } from './conditionalAccess/';
@@ -34,6 +36,10 @@ export interface IdentityRequestBuilder extends BaseRequestBuilder<IdentityReque
      * Provides operations to manage the authenticationEventListeners property of the microsoft.graph.identityContainer entity.
      */
     get authenticationEventListeners(): AuthenticationEventListenersRequestBuilder;
+    /**
+     * Provides operations to manage the authenticationEventsFlows property of the microsoft.graph.identityContainer entity.
+     */
+    get authenticationEventsFlows(): AuthenticationEventsFlowsRequestBuilder;
     /**
      * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
      */
@@ -118,6 +124,10 @@ export const IdentityRequestBuilderNavigationMetadata: Record<Exclude<keyof Iden
     authenticationEventListeners: {
         requestsMetadata: AuthenticationEventListenersRequestBuilderRequestsMetadata,
         navigationMetadata: AuthenticationEventListenersRequestBuilderNavigationMetadata,
+    },
+    authenticationEventsFlows: {
+        requestsMetadata: AuthenticationEventsFlowsRequestBuilderRequestsMetadata,
+        navigationMetadata: AuthenticationEventsFlowsRequestBuilderNavigationMetadata,
     },
     b2xUserFlows: {
         requestsMetadata: B2xUserFlowsRequestBuilderRequestsMetadata,

@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PasswordAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder<PasswordAuthenticationMethodItemRequestBuilder> {
     /**
-     * Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
+     * Represents the password registered to a user for authentication. For security, the password itself is never returned in the object, but action can be taken to reset a password.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PasswordAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<PasswordAuthenticationMethod | undefined>;
     /**
-     * Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
+     * Represents the password registered to a user for authentication. For security, the password itself is never returned in the object, but action can be taken to reset a password.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
+ * Represents the password registered to a user for authentication. For security, the password itself is never returned in the object, but action can be taken to reset a password.
  */
 export interface PasswordAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /**
