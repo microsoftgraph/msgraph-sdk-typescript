@@ -101,6 +101,10 @@ export interface EventItemRequestBuilderGetQueryParameters {
      */
     endDateTime?: string;
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -112,11 +116,12 @@ export interface EventItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EventItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24select}";
+export const EventItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const EventItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

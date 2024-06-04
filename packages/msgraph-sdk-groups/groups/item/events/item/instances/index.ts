@@ -59,6 +59,10 @@ export interface InstancesRequestBuilderGetQueryParameters {
      */
     endDateTime?: string;
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Filter items by property values
      */
     filter?: string;
@@ -90,12 +94,13 @@ export interface InstancesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InstancesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/events/{event%2Did}/instances?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const InstancesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/events/{event%2Did}/instances?endDateTime={endDateTime}&startDateTime={startDateTime}{&%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const InstancesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
+    "expand": "%24expand",
     "filter": "%24filter",
     "orderby": "%24orderby",
     "search": "%24search",

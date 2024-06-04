@@ -25,16 +25,18 @@ export interface DocumentSetVersionItemRequestBuilder extends BaseRequestBuilder
      */
     get restore(): RestoreRequestBuilder;
     /**
-     * Delete navigation property documentSetVersions for sites
+     * Delete a version of a document set in a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/documentsetversion-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Version information for a document set version created by a user.
+     * Read the properties and relationships of a documentSetVersion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DocumentSetVersion>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/documentsetversion-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DocumentSetVersionItemRequestBuilderGetQueryParameters> | undefined) : Promise<DocumentSetVersion | undefined>;
     /**
@@ -46,13 +48,13 @@ export interface DocumentSetVersionItemRequestBuilder extends BaseRequestBuilder
      */
      patch(body: DocumentSetVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DocumentSetVersion | undefined>;
     /**
-     * Delete navigation property documentSetVersions for sites
+     * Delete a version of a document set in a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Version information for a document set version created by a user.
+     * Read the properties and relationships of a documentSetVersion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +68,7 @@ export interface DocumentSetVersionItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: DocumentSetVersion, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Version information for a document set version created by a user.
+ * Read the properties and relationships of a documentSetVersion object.
  */
 export interface DocumentSetVersionItemRequestBuilderGetQueryParameters {
     /**

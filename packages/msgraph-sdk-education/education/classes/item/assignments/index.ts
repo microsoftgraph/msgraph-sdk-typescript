@@ -41,7 +41,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<EducationAssignmentCollectionResponse | undefined>;
     /**
-     * Create a new assignment. Only teachers in a class can create an assignment. Assignments start in the Draft state, which means that students will not see the assignment until publication.
+     * Create a new assignment. Only teachers in a class can create an assignment. Assignments start in draft status, which means that students can't see the assignment until it's published.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationAssignment>}
@@ -56,7 +56,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new assignment. Only teachers in a class can create an assignment. Assignments start in the Draft state, which means that students will not see the assignment until publication.
+     * Create a new assignment. Only teachers in a class can create an assignment. Assignments start in draft status, which means that students can't see the assignment until it's published.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

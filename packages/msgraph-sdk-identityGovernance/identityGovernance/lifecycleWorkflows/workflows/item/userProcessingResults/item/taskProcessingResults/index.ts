@@ -27,21 +27,22 @@ export interface TaskProcessingResultsRequestBuilder extends BaseRequestBuilder<
      */
      byTaskProcessingResultId(taskProcessingResultId: string) : TaskProcessingResultItemRequestBuilder;
     /**
-     * The associated individual task execution.
+     * Get the task processing result from a userProcessingResult either directly or through a run.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TaskProcessingResultCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-userprocessingresult-list-taskprocessingresults?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaskProcessingResultsRequestBuilderGetQueryParameters> | undefined) : Promise<TaskProcessingResultCollectionResponse | undefined>;
     /**
-     * The associated individual task execution.
+     * Get the task processing result from a userProcessingResult either directly or through a run.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskProcessingResultsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The associated individual task execution.
+ * Get the task processing result from a userProcessingResult either directly or through a run.
  */
 export interface TaskProcessingResultsRequestBuilderGetQueryParameters {
     /**

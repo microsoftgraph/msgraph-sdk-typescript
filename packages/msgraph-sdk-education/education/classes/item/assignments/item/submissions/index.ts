@@ -27,10 +27,11 @@ export interface SubmissionsRequestBuilder extends BaseRequestBuilder<Submission
      */
      byEducationSubmissionId(educationSubmissionId: string) : EducationSubmissionItemRequestBuilder;
     /**
-     * Once published, there's a submission object for each student representing their work and grade. Read-only. Nullable.
+     * List all the submissions associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions while a student can only get submissions that they're associated with.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationSubmissionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-list-submissions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SubmissionsRequestBuilderGetQueryParameters> | undefined) : Promise<EducationSubmissionCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface SubmissionsRequestBuilder extends BaseRequestBuilder<Submission
      */
      post(body: EducationSubmission, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationSubmission | undefined>;
     /**
-     * Once published, there's a submission object for each student representing their work and grade. Read-only. Nullable.
+     * List all the submissions associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions while a student can only get submissions that they're associated with.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface SubmissionsRequestBuilder extends BaseRequestBuilder<Submission
      toPostRequestInformation(body: EducationSubmission, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Once published, there's a submission object for each student representing their work and grade. Read-only. Nullable.
+ * List all the submissions associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation. A teacher or an application with application permissions can get all the submissions while a student can only get submissions that they're associated with.
  */
 export interface SubmissionsRequestBuilderGetQueryParameters {
     /**

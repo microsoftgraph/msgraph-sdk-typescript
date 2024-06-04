@@ -21,7 +21,7 @@ export interface SchemaRequestBuilder extends BaseRequestBuilder<SchemaRequestBu
      */
      get(requestConfiguration?: RequestConfiguration<SchemaRequestBuilderGetQueryParameters> | undefined) : Promise<Schema | undefined>;
     /**
-     * Create a new schema object.
+     * Create a new or update an existing schema for a Microsoft Search connection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Schema>}
@@ -36,7 +36,7 @@ export interface SchemaRequestBuilder extends BaseRequestBuilder<SchemaRequestBu
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchemaRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new schema object.
+     * Create a new or update an existing schema for a Microsoft Search connection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

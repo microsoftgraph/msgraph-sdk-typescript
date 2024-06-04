@@ -64,6 +64,10 @@ export interface CalendarsRequestBuilderGetQueryParameters {
      */
     count?: boolean;
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Filter items by property values
      */
     filter?: string;
@@ -91,12 +95,13 @@ export interface CalendarsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CalendarsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CalendarsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const CalendarsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
+    "expand": "%24expand",
     "filter": "%24filter",
     "orderby": "%24orderby",
     "search": "%24search",

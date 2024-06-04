@@ -58,6 +58,10 @@ export interface CalendarPermissionItemRequestBuilder extends BaseRequestBuilder
  */
 export interface CalendarPermissionItemRequestBuilderGetQueryParameters {
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -65,11 +69,12 @@ export interface CalendarPermissionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CalendarPermissionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/calendarPermissions/{calendarPermission%2Did}{?%24select}";
+export const CalendarPermissionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/calendarPermissions/{calendarPermission%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const CalendarPermissionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

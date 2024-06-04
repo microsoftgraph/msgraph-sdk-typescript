@@ -35,12 +35,12 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedEBookAssignmentCollectionResponse | undefined>;
     /**
-     * Create a new managedEBookAssignment object.
+     * Create a new iosVppEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedEBookAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedEBookAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedEBookAssignment | undefined>;
     /**
@@ -50,7 +50,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new managedEBookAssignment object.
+     * Create a new iosVppEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

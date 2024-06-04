@@ -39,21 +39,21 @@ export function deserializeIntoAsHierarchyGetResponse(asHierarchyGetResponse: Pa
  */
 export interface MicrosoftGraphSecurityAsHierarchyRequestBuilder extends BaseRequestBuilder<MicrosoftGraphSecurityAsHierarchyRequestBuilder> {
     /**
-     * Invoke function asHierarchy
+     * List eDiscovery review tags with the tag hierarchy shown.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AsHierarchyGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters> | undefined) : Promise<AsHierarchyGetResponse | undefined>;
     /**
-     * Invoke function asHierarchy
+     * List eDiscovery review tags with the tag hierarchy shown.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function asHierarchy
+ * List eDiscovery review tags with the tag hierarchy shown.
  */
 export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters {
     /**

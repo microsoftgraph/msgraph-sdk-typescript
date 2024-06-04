@@ -27,7 +27,7 @@ export interface UserRegistrationDetailsRequestBuilder extends BaseRequestBuilde
      */
      byUserRegistrationDetailsId(userRegistrationDetailsId: string) : UserRegistrationDetailsItemRequestBuilder;
     /**
-     * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object.
+     * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object. This method doesn't work for disabled users. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserRegistrationDetailsCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -43,7 +43,7 @@ export interface UserRegistrationDetailsRequestBuilder extends BaseRequestBuilde
      */
      post(body: UserRegistrationDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserRegistrationDetails | undefined>;
     /**
-     * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object.
+     * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object. This method doesn't work for disabled users. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +57,7 @@ export interface UserRegistrationDetailsRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: UserRegistrationDetails, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object.
+ * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object. This method doesn't work for disabled users. 
  */
 export interface UserRegistrationDetailsRequestBuilderGetQueryParameters {
     /**

@@ -6,6 +6,10 @@ import { createCallRecordFromDiscriminatorValue, serializeCallRecord, type CallR
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/';
 // @ts-ignore
+import { Organizer_v2RequestBuilderRequestsMetadata, type Organizer_v2RequestBuilder } from './organizer_v2/';
+// @ts-ignore
+import { Participants_v2RequestBuilderNavigationMetadata, Participants_v2RequestBuilderRequestsMetadata, type Participants_v2RequestBuilder } from './participants_v2/';
+// @ts-ignore
 import { SessionsRequestBuilderNavigationMetadata, SessionsRequestBuilderRequestsMetadata, type SessionsRequestBuilder } from './sessions/';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +18,14 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
  */
 export interface CallRecordItemRequestBuilder extends BaseRequestBuilder<CallRecordItemRequestBuilder> {
+    /**
+     * Provides operations to manage the organizer_v2 property of the microsoft.graph.callRecords.callRecord entity.
+     */
+    get organizer_v2(): Organizer_v2RequestBuilder;
+    /**
+     * Provides operations to manage the participants_v2 property of the microsoft.graph.callRecords.callRecord entity.
+     */
+    get participants_v2(): Participants_v2RequestBuilder;
     /**
      * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
      */
@@ -25,7 +37,7 @@ export interface CallRecordItemRequestBuilder extends BaseRequestBuilder<CallRec
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.
+     * Retrieve the properties and relationships of a callRecord object. You can get the id of a callRecord in two ways:* Subscribe to change notifications to the /communications/callRecords endpoint.* Use the callChainId property of a call. The call record is available only after the associated call is completed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CallRecord>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -47,7 +59,7 @@ export interface CallRecordItemRequestBuilder extends BaseRequestBuilder<CallRec
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.
+     * Retrieve the properties and relationships of a callRecord object. You can get the id of a callRecord in two ways:* Subscribe to change notifications to the /communications/callRecords endpoint.* Use the callChainId property of a call. The call record is available only after the associated call is completed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +73,7 @@ export interface CallRecordItemRequestBuilder extends BaseRequestBuilder<CallRec
      toPatchRequestInformation(body: CallRecord, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord: You can use the $expand query parameter to optionally include session and segment details, as shown in the Get full details example. When you expand session details, the maximum page size is 60 sessions.
+ * Retrieve the properties and relationships of a callRecord object. You can get the id of a callRecord in two ways:* Subscribe to change notifications to the /communications/callRecords endpoint.* Use the callChainId property of a call. The call record is available only after the associated call is completed.
  */
 export interface CallRecordItemRequestBuilderGetQueryParameters {
     /**
@@ -88,6 +100,13 @@ const CallRecordItemRequestBuilderGetQueryParametersMapper: Record<string, strin
  * Metadata for all the navigation properties in the request builder.
  */
 export const CallRecordItemRequestBuilderNavigationMetadata: Record<Exclude<keyof CallRecordItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    organizer_v2: {
+        requestsMetadata: Organizer_v2RequestBuilderRequestsMetadata,
+    },
+    participants_v2: {
+        requestsMetadata: Participants_v2RequestBuilderRequestsMetadata,
+        navigationMetadata: Participants_v2RequestBuilderNavigationMetadata,
+    },
     sessions: {
         requestsMetadata: SessionsRequestBuilderRequestsMetadata,
         navigationMetadata: SessionsRequestBuilderNavigationMetadata,

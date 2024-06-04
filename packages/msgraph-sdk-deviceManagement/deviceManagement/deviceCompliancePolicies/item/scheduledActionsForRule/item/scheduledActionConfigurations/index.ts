@@ -27,28 +27,30 @@ export interface ScheduledActionConfigurationsRequestBuilder extends BaseRequest
      */
      byDeviceComplianceActionItemId(deviceComplianceActionItemId: string) : DeviceComplianceActionItemItemRequestBuilder;
     /**
-     * The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
+     * List properties and relationships of the deviceComplianceActionItem objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceActionItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ScheduledActionConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceActionItemCollectionResponse | undefined>;
     /**
-     * Create new navigation property to scheduledActionConfigurations for deviceManagement
+     * Create a new deviceComplianceActionItem object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceActionItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceComplianceActionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceActionItem | undefined>;
     /**
-     * The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
+     * List properties and relationships of the deviceComplianceActionItem objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ScheduledActionConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to scheduledActionConfigurations for deviceManagement
+     * Create a new deviceComplianceActionItem object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface ScheduledActionConfigurationsRequestBuilder extends BaseRequest
      toPostRequestInformation(body: DeviceComplianceActionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
+ * List properties and relationships of the deviceComplianceActionItem objects.
  */
 export interface ScheduledActionConfigurationsRequestBuilderGetQueryParameters {
     /**

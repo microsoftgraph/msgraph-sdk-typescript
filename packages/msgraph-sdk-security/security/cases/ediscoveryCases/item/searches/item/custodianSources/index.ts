@@ -27,21 +27,22 @@ export interface CustodianSourcesRequestBuilder extends BaseRequestBuilder<Custo
      */
      byDataSourceId(dataSourceId: string) : DataSourceItemRequestBuilder;
     /**
-     * Custodian sources that are included in the eDiscovery search.
+     * Get the list of custodial data sources associated with an eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DataSourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-list-custodiansources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustodianSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<DataSourceCollectionResponse | undefined>;
     /**
-     * Custodian sources that are included in the eDiscovery search.
+     * Get the list of custodial data sources associated with an eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustodianSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Custodian sources that are included in the eDiscovery search.
+ * Get the list of custodial data sources associated with an eDiscovery search.
  */
 export interface CustodianSourcesRequestBuilderGetQueryParameters {
     /**

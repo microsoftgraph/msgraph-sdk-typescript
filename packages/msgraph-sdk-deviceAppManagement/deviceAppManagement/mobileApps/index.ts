@@ -131,12 +131,12 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCollectionResponse | undefined>;
     /**
-     * Create a new windowsWebApp object.
+     * Create a new iosLobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowswebapp-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-ioslobapp-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
@@ -146,7 +146,7 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new windowsWebApp object.
+     * Create a new iosLobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

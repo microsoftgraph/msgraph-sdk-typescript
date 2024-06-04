@@ -13,39 +13,42 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder> {
     /**
-     * Delete ref of navigation property categories for education
+     * Remove an educationCategory from an educationAssignment. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-remove-category?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : Promise<void>;
     /**
-     * When set, enables users to easily find assignments of a given type. Read-only. Nullable.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<StringCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-list-categories?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RefRequestBuilderGetQueryParameters> | undefined) : Promise<StringCollectionResponse | undefined>;
     /**
-     * Create new navigation property ref to categories for education
+     * Add one or more existing educationCategory objects to the specified  educationAssignment. Only teachers can perform this operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-post-categories?view=graph-rest-1.0|Find more info here}
      */
      post(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Delete ref of navigation property categories for education
+     * Remove an educationCategory from an educationAssignment. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : RequestInformation;
     /**
-     * When set, enables users to easily find assignments of a given type. Read-only. Nullable.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property ref to categories for education
+     * Add one or more existing educationCategory objects to the specified  educationAssignment. Only teachers can perform this operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -53,7 +56,7 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      toPostRequestInformation(body: ReferenceCreate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Delete ref of navigation property categories for education
+ * Remove an educationCategory from an educationAssignment. Only teachers can perform this operation.
  */
 export interface RefRequestBuilderDeleteQueryParameters {
     /**
@@ -62,7 +65,7 @@ export interface RefRequestBuilderDeleteQueryParameters {
     id?: string;
 }
 /**
- * When set, enables users to easily find assignments of a given type. Read-only. Nullable.
+ * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
  */
 export interface RefRequestBuilderGetQueryParameters {
     /**

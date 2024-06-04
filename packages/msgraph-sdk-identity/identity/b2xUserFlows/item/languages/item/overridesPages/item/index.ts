@@ -19,9 +19,10 @@ export interface UserFlowLanguagePageItemRequestBuilder extends BaseRequestBuild
      */
     get content(): ContentRequestBuilder;
     /**
-     * Delete navigation property overridesPages for identity
+     * Deletes the values in an userFlowLanguagePage object. You may only delete the values in an overridesPage, which is used to customize the values shown to a user during a user journey defined by a user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/userflowlanguagepage-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -32,15 +33,16 @@ export interface UserFlowLanguagePageItemRequestBuilder extends BaseRequestBuild
      */
      get(requestConfiguration?: RequestConfiguration<UserFlowLanguagePageItemRequestBuilderGetQueryParameters> | undefined) : Promise<UserFlowLanguagePage | undefined>;
     /**
-     * Update the navigation property overridesPages in identity
+     * Update the values in an userFlowLanguagePage object. You may only update the values in an overridesPage, which is used to customize the values shown to a user during a user journey defined by a user flow.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserFlowLanguagePage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/userflowlanguagepage-put?view=graph-rest-1.0|Find more info here}
      */
      patch(body: UserFlowLanguagePage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserFlowLanguagePage | undefined>;
     /**
-     * Delete navigation property overridesPages for identity
+     * Deletes the values in an userFlowLanguagePage object. You may only delete the values in an overridesPage, which is used to customize the values shown to a user during a user journey defined by a user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -52,7 +54,7 @@ export interface UserFlowLanguagePageItemRequestBuilder extends BaseRequestBuild
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserFlowLanguagePageItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property overridesPages in identity
+     * Update the values in an userFlowLanguagePage object. You may only update the values in an overridesPage, which is used to customize the values shown to a user during a user journey defined by a user flow.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

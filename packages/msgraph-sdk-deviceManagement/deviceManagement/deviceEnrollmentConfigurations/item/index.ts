@@ -38,20 +38,20 @@ export interface DeviceEnrollmentConfigurationItemRequestBuilder extends BaseReq
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration object.
+     * Read properties and relationships of the deviceEnrollmentConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceEnrollmentConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceEnrollmentConfiguration | undefined>;
     /**
-     * Update the properties of a deviceEnrollmentLimitConfiguration object.
+     * Update the properties of a deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceEnrollmentConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceEnrollmentConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceEnrollmentConfiguration | undefined>;
     /**
@@ -61,13 +61,13 @@ export interface DeviceEnrollmentConfigurationItemRequestBuilder extends BaseReq
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration object.
+     * Read properties and relationships of the deviceEnrollmentConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceEnrollmentLimitConfiguration object.
+     * Update the properties of a deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -75,7 +75,7 @@ export interface DeviceEnrollmentConfigurationItemRequestBuilder extends BaseReq
      toPatchRequestInformation(body: DeviceEnrollmentConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration object.
+ * Read properties and relationships of the deviceEnrollmentConfiguration object.
  */
 export interface DeviceEnrollmentConfigurationItemRequestBuilderGetQueryParameters {
     /**

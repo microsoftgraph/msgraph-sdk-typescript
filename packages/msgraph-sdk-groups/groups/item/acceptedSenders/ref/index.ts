@@ -81,6 +81,10 @@ export interface RefRequestBuilderGetQueryParameters {
      */
     orderby?: string[];
     /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
      * Skip the first n items
      */
     skip?: number;
@@ -92,7 +96,7 @@ export interface RefRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RefRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/acceptedSenders/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24skip,%24top}";
+export const RefRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/acceptedSenders/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -106,6 +110,7 @@ const RefRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "skip": "%24skip",
     "top": "%24top",
 };

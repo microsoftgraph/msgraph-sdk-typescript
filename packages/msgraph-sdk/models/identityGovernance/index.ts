@@ -1479,7 +1479,7 @@ export interface TaskDefinition extends Entity, Parsable {
      */
     category?: LifecycleTaskCategory[];
     /**
-     * The continueOnError property
+     * Defines if the workflow will continue if the task has an error.
      */
     continueOnError?: boolean;
     /**

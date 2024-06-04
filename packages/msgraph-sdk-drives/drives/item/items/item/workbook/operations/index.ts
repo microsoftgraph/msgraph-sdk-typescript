@@ -60,9 +60,17 @@ export interface OperationsRequestBuilder extends BaseRequestBuilder<OperationsR
  */
 export interface OperationsRequestBuilderGetQueryParameters {
     /**
+     * Include count of items
+     */
+    count?: boolean;
+    /**
      * Expand related entities
      */
     expand?: string[];
+    /**
+     * Filter items by property values
+     */
+    filter?: string;
     /**
      * Order items by property values
      */
@@ -75,19 +83,31 @@ export interface OperationsRequestBuilderGetQueryParameters {
      * Select properties to be returned
      */
     select?: string[];
+    /**
+     * Skip the first n items
+     */
+    skip?: number;
+    /**
+     * Show only the first n items
+     */
+    top?: number;
 }
 /**
  * Uri template for the request builder.
  */
-export const OperationsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/operations{?%24expand,%24orderby,%24search,%24select}";
+export const OperationsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/operations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const OperationsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "count": "%24count",
     "expand": "%24expand",
+    "filter": "%24filter",
     "orderby": "%24orderby",
     "search": "%24search",
     "select": "%24select",
+    "skip": "%24skip",
+    "top": "%24top",
 };
 /**
  * Metadata for all the navigation properties in the request builder.

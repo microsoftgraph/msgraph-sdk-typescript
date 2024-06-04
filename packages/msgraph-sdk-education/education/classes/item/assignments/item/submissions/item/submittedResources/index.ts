@@ -27,10 +27,11 @@ export interface SubmittedResourcesRequestBuilder extends BaseRequestBuilder<Sub
      */
      byEducationSubmissionResourceId(educationSubmissionResourceId: string) : EducationSubmissionResourceItemRequestBuilder;
     /**
-     * Get submittedResources from education
+     * List the educationSubmissionResource objects that were officially submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission can't change the submitted list without resubmitting the assignment. This resource is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationSubmissionResourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationsubmission-list-submittedresources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SubmittedResourcesRequestBuilderGetQueryParameters> | undefined) : Promise<EducationSubmissionResourceCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface SubmittedResourcesRequestBuilder extends BaseRequestBuilder<Sub
      */
      post(body: EducationSubmissionResource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationSubmissionResource | undefined>;
     /**
-     * Get submittedResources from education
+     * List the educationSubmissionResource objects that were officially submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission can't change the submitted list without resubmitting the assignment. This resource is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface SubmittedResourcesRequestBuilder extends BaseRequestBuilder<Sub
      toPostRequestInformation(body: EducationSubmissionResource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get submittedResources from education
+ * List the educationSubmissionResource objects that were officially submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission can't change the submitted list without resubmitting the assignment. This resource is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment.
  */
 export interface SubmittedResourcesRequestBuilderGetQueryParameters {
     /**

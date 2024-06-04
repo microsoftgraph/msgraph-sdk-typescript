@@ -25,40 +25,43 @@ export interface EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestB
      */
     get microsoftGraphSecurityExport(): MicrosoftGraphSecurityExportRequestBuilder;
     /**
-     * Delete navigation property queries for security
+     * Delete an ediscoveryReviewSetQuery object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-delete-queries?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents queries within the review set.
+     * Read the properties and relationships of an ediscoveryReviewSetQuery object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewSetQuery>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewSetQuery | undefined>;
     /**
-     * Update the navigation property queries in security
+     * Update the properties of an ediscoveryReviewSetQuery object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewSetQuery>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewsetquery-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EdiscoveryReviewSetQuery, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EdiscoveryReviewSetQuery | undefined>;
     /**
-     * Delete navigation property queries for security
+     * Delete an ediscoveryReviewSetQuery object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents queries within the review set.
+     * Read the properties and relationships of an ediscoveryReviewSetQuery object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property queries in security
+     * Update the properties of an ediscoveryReviewSetQuery object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +69,7 @@ export interface EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestB
      toPatchRequestInformation(body: EdiscoveryReviewSetQuery, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents queries within the review set.
+ * Read the properties and relationships of an ediscoveryReviewSetQuery object.
  */
 export interface EdiscoveryReviewSetQueryItemRequestBuilderGetQueryParameters {
     /**

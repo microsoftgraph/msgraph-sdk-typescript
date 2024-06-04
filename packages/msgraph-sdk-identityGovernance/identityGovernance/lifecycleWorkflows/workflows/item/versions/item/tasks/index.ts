@@ -27,10 +27,11 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      */
      byTaskId(taskId: string) : TaskItemRequestBuilder;
     /**
-     * The tasks in the workflow.
+     * Get a list of task objects in a workflowVersion.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TaskCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflowversion-list-tasks?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TasksRequestBuilderGetQueryParameters> | undefined) : Promise<TaskCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      */
      post(body: Task, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Task | undefined>;
     /**
-     * The tasks in the workflow.
+     * Get a list of task objects in a workflowVersion.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      toPostRequestInformation(body: Task, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The tasks in the workflow.
+ * Get a list of task objects in a workflowVersion.
  */
 export interface TasksRequestBuilderGetQueryParameters {
     /**

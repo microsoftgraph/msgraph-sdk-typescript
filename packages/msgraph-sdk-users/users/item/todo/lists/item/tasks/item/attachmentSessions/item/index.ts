@@ -64,6 +64,10 @@ export interface AttachmentSessionItemRequestBuilder extends BaseRequestBuilder<
  */
 export interface AttachmentSessionItemRequestBuilderGetQueryParameters {
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -71,11 +75,12 @@ export interface AttachmentSessionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttachmentSessionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachmentSessions/{attachmentSession%2Did}{?%24select}";
+export const AttachmentSessionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachmentSessions/{attachmentSession%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AttachmentSessionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

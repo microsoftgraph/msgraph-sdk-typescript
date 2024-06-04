@@ -37,6 +37,10 @@ export interface ProfilePhotoItemRequestBuilder extends BaseRequestBuilder<Profi
  */
 export interface ProfilePhotoItemRequestBuilderGetQueryParameters {
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -44,11 +48,12 @@ export interface ProfilePhotoItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProfilePhotoItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/photos/{profilePhoto%2Did}{?%24select}";
+export const ProfilePhotoItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/photos/{profilePhoto%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ProfilePhotoItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

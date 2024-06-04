@@ -61,6 +61,10 @@ export interface TimeOffItemRequestBuilder extends BaseRequestBuilder<TimeOffIte
  */
 export interface TimeOffItemRequestBuilderGetQueryParameters {
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -68,11 +72,12 @@ export interface TimeOffItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TimeOffItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/timesOff/{timeOff%2Did}{?%24select}";
+export const TimeOffItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/timesOff/{timeOff%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const TimeOffItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**
