@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { ChatsRequestBuilder } from "./chats";
-import { ChatsServiceClientNavigationMetadata } from "./chatsServiceClient";
+import { ChatsServiceClientNavigationMetadata } from "./chatsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(ChatsServiceClientNavigationMetadata);
-export * from "./chatsServiceClient";
+export * from "./chatsServiceClient.js";

@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { DataPolicyOperationsRequestBuilder } from "./dataPolicyOperations";
-import { DataPolicyOperationsServiceClientNavigationMetadata } from "./dataPolicyOperationsServiceClient";
+import { DataPolicyOperationsServiceClientNavigationMetadata } from "./dataPolicyOperationsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(DataPolicyOperationsServiceClientNavigationMetadata);
-export * from "./dataPolicyOperationsServiceClient";
+export * from "./dataPolicyOperationsServiceClient.js";

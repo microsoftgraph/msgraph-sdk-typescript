@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { SubscribedSkusRequestBuilder } from "./subscribedSkus";
-import { SubscribedSkusServiceClientNavigationMetadata } from "./subscribedSkusServiceClient";
+import { SubscribedSkusServiceClientNavigationMetadata } from "./subscribedSkusServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(SubscribedSkusServiceClientNavigationMetadata);
-export * from "./subscribedSkusServiceClient";
+export * from "./subscribedSkusServiceClient.js";

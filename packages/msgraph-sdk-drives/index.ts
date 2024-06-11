@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { DrivesRequestBuilder } from "./drives";
-import { DrivesServiceClientNavigationMetadata } from "./drivesServiceClient";
+import { DrivesServiceClientNavigationMetadata } from "./drivesServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(DrivesServiceClientNavigationMetadata);
-export * from "./drivesServiceClient";
+export * from "./drivesServiceClient.js";

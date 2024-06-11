@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { ComplianceRequestBuilder } from "./compliance";
-import { ComplianceServiceClientNavigationMetadata } from "./complianceServiceClient";
+import { ComplianceServiceClientNavigationMetadata } from "./complianceServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(ComplianceServiceClientNavigationMetadata);
-export * from "./complianceServiceClient";
+export * from "./complianceServiceClient.js";

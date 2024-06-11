@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { TeamsRequestBuilder } from "./teams";
-import { TeamsServiceClientNavigationMetadata } from "./teamsServiceClient";
+import { TeamsServiceClientNavigationMetadata } from "./teamsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(TeamsServiceClientNavigationMetadata);
-export * from "./teamsServiceClient";
+export * from "./teamsServiceClient.js";

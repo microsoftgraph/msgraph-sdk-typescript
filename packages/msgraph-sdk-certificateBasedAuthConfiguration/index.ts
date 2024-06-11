@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { CertificateBasedAuthConfigurationRequestBuilder } from "./certificateBasedAuthConfiguration";
-import { CertificateBasedAuthConfigurationServiceClientNavigationMetadata } from "./certificateBasedAuthConfigurationServiceClient";
+import { CertificateBasedAuthConfigurationServiceClientNavigationMetadata } from "./certificateBasedAuthConfigurationServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -14,4 +14,4 @@ declare module "@microsoft/msgraph-sdk" {
 extendGraphServiceClient(
   CertificateBasedAuthConfigurationServiceClientNavigationMetadata,
 );
-export * from "./certificateBasedAuthConfigurationServiceClient";
+export * from "./certificateBasedAuthConfigurationServiceClient.js";

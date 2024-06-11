@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { DirectoryRolesRequestBuilder } from "./directoryRoles";
-import { DirectoryRolesServiceClientNavigationMetadata } from "./directoryRolesServiceClient";
+import { DirectoryRolesServiceClientNavigationMetadata } from "./directoryRolesServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(DirectoryRolesServiceClientNavigationMetadata);
-export * from "./directoryRolesServiceClient";
+export * from "./directoryRolesServiceClient.js";

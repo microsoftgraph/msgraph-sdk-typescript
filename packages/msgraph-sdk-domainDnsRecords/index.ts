@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { DomainDnsRecordsRequestBuilder } from "./domainDnsRecords";
-import { DomainDnsRecordsServiceClientNavigationMetadata } from "./domainDnsRecordsServiceClient";
+import { DomainDnsRecordsServiceClientNavigationMetadata } from "./domainDnsRecordsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(DomainDnsRecordsServiceClientNavigationMetadata);
-export * from "./domainDnsRecordsServiceClient";
+export * from "./domainDnsRecordsServiceClient.js";

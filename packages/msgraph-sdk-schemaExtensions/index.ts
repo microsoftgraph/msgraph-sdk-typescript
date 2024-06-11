@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { SchemaExtensionsRequestBuilder } from "./schemaExtensions";
-import { SchemaExtensionsServiceClientNavigationMetadata } from "./schemaExtensionsServiceClient";
+import { SchemaExtensionsServiceClientNavigationMetadata } from "./schemaExtensionsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(SchemaExtensionsServiceClientNavigationMetadata);
-export * from "./schemaExtensionsServiceClient";
+export * from "./schemaExtensionsServiceClient.js";

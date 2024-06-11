@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { GroupLifecyclePoliciesRequestBuilder } from "./groupLifecyclePolicies";
-import { GroupLifecyclePoliciesServiceClientNavigationMetadata } from "./groupLifecyclePoliciesServiceClient";
+import { GroupLifecyclePoliciesServiceClientNavigationMetadata } from "./groupLifecyclePoliciesServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(GroupLifecyclePoliciesServiceClientNavigationMetadata);
-export * from "./groupLifecyclePoliciesServiceClient";
+export * from "./groupLifecyclePoliciesServiceClient.js";

@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { DeviceAppManagementRequestBuilder } from "./deviceAppManagement";
-import { DeviceAppManagementServiceClientNavigationMetadata } from "./deviceAppManagementServiceClient";
+import { DeviceAppManagementServiceClientNavigationMetadata } from "./deviceAppManagementServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(DeviceAppManagementServiceClientNavigationMetadata);
-export * from "./deviceAppManagementServiceClient";
+export * from "./deviceAppManagementServiceClient.js";

@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { SecurityRequestBuilder } from "./security";
-import { SecurityServiceClientNavigationMetadata } from "./securityServiceClient";
+import { SecurityServiceClientNavigationMetadata } from "./securityServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(SecurityServiceClientNavigationMetadata);
-export * from "./securityServiceClient";
+export * from "./securityServiceClient.js";

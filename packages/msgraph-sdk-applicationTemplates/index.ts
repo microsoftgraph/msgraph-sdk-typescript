@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { ApplicationTemplatesRequestBuilder } from "./applicationTemplates";
-import { ApplicationTemplatesServiceClientNavigationMetadata } from "./applicationTemplatesServiceClient";
+import { ApplicationTemplatesServiceClientNavigationMetadata } from "./applicationTemplatesServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(ApplicationTemplatesServiceClientNavigationMetadata);
-export * from "./applicationTemplatesServiceClient";
+export * from "./applicationTemplatesServiceClient.js";

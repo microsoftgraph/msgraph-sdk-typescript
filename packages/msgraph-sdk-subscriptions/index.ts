@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { SubscriptionsRequestBuilder } from "./subscriptions";
-import { SubscriptionsServiceClientNavigationMetadata } from "./subscriptionsServiceClient";
+import { SubscriptionsServiceClientNavigationMetadata } from "./subscriptionsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(SubscriptionsServiceClientNavigationMetadata);
-export * from "./subscriptionsServiceClient";
+export * from "./subscriptionsServiceClient.js";

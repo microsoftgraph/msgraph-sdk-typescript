@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
 import type { PlacesRequestBuilder } from "./places";
-import { PlacesServiceClientNavigationMetadata } from "./placesServiceClient";
+import { PlacesServiceClientNavigationMetadata } from "./placesServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(PlacesServiceClientNavigationMetadata);
-export * from "./placesServiceClient";
+export * from "./placesServiceClient.js";
