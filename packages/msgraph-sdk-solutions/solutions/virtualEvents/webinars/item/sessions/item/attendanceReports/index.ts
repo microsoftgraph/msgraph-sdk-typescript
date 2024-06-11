@@ -27,10 +27,11 @@ export interface AttendanceReportsRequestBuilder extends BaseRequestBuilder<Atte
      */
      byMeetingAttendanceReportId(meetingAttendanceReportId: string) : MeetingAttendanceReportItemRequestBuilder;
     /**
-     * The attendance reports of an online meeting. Read-only.
+     * Get a list of meetingAttendanceReport objects for an onlineMeeting or a virtualEvent. Each time an online meeting or a virtual event ends, an attendance report is generated for that session.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MeetingAttendanceReportCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/meetingattendancereport-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AttendanceReportsRequestBuilderGetQueryParameters> | undefined) : Promise<MeetingAttendanceReportCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface AttendanceReportsRequestBuilder extends BaseRequestBuilder<Atte
      */
      post(body: MeetingAttendanceReport, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MeetingAttendanceReport | undefined>;
     /**
-     * The attendance reports of an online meeting. Read-only.
+     * Get a list of meetingAttendanceReport objects for an onlineMeeting or a virtualEvent. Each time an online meeting or a virtual event ends, an attendance report is generated for that session.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface AttendanceReportsRequestBuilder extends BaseRequestBuilder<Atte
      toPostRequestInformation(body: MeetingAttendanceReport, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The attendance reports of an online meeting. Read-only.
+ * Get a list of meetingAttendanceReport objects for an onlineMeeting or a virtualEvent. Each time an online meeting or a virtual event ends, an attendance report is generated for that session.
  */
 export interface AttendanceReportsRequestBuilderGetQueryParameters {
     /**

@@ -27,28 +27,30 @@ export interface UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder<Un
      */
      byUnifiedGroupSourceId(unifiedGroupSourceId: string) : UnifiedGroupSourceItemRequestBuilder;
     /**
-     * Data source entity for groups associated with the custodian.
+     * Get a list of the unifiedGroupSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedGroupSourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-unifiedgroupsources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnifiedGroupSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedGroupSourceCollectionResponse | undefined>;
     /**
-     * Create new navigation property to unifiedGroupSources for security
+     * Create a new unifiedGroupSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedGroupSource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-post-unifiedgroupsources?view=graph-rest-1.0|Find more info here}
      */
      post(body: UnifiedGroupSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedGroupSource | undefined>;
     /**
-     * Data source entity for groups associated with the custodian.
+     * Get a list of the unifiedGroupSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UnifiedGroupSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to unifiedGroupSources for security
+     * Create a new unifiedGroupSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder<Un
      toPostRequestInformation(body: UnifiedGroupSource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Data source entity for groups associated with the custodian.
+ * Get a list of the unifiedGroupSource objects associated with an ediscoveryCustodian.
  */
 export interface UnifiedGroupSourcesRequestBuilderGetQueryParameters {
     /**

@@ -82,6 +82,10 @@ export interface ContactsRequestBuilderGetQueryParameters {
      */
     orderby?: string[];
     /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -97,7 +101,7 @@ export interface ContactsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContactsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/childFolders/{contactFolder%2Did1}/contacts{?%24count,%24expand,%24filter,%24orderby,%24select,%24skip,%24top}";
+export const ContactsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/childFolders/{contactFolder%2Did1}/contacts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -106,6 +110,7 @@ const ContactsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

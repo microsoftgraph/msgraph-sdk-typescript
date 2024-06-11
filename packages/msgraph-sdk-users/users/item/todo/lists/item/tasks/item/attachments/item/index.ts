@@ -49,6 +49,10 @@ export interface AttachmentBaseItemRequestBuilder extends BaseRequestBuilder<Att
  */
 export interface AttachmentBaseItemRequestBuilderGetQueryParameters {
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -56,11 +60,12 @@ export interface AttachmentBaseItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttachmentBaseItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}{?%24select}";
+export const AttachmentBaseItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AttachmentBaseItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

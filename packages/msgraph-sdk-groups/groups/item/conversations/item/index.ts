@@ -26,11 +26,11 @@ export interface ConversationItemRequestBuilder extends BaseRequestBuilder<Conve
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of conversation object.
+     * The group's conversations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Conversation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-get-conversation?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConversationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Conversation | undefined>;
     /**
@@ -40,16 +40,20 @@ export interface ConversationItemRequestBuilder extends BaseRequestBuilder<Conve
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of conversation object.
+     * The group's conversations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConversationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of conversation object.
+ * The group's conversations.
  */
 export interface ConversationItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
     /**
      * Select properties to be returned
      */
@@ -58,11 +62,12 @@ export interface ConversationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConversationItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}{?%24select}";
+export const ConversationItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ConversationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

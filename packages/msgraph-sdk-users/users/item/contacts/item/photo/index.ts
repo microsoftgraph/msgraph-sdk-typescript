@@ -52,6 +52,10 @@ export interface PhotoRequestBuilder extends BaseRequestBuilder<PhotoRequestBuil
  */
 export interface PhotoRequestBuilderGetQueryParameters {
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -59,11 +63,12 @@ export interface PhotoRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PhotoRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contacts/{contact%2Did}/photo{?%24select}";
+export const PhotoRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contacts/{contact%2Did}/photo{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const PhotoRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface CreatedOnBehalfOfRequestBuilder extends BaseRequestBuilder<CreatedOnBehalfOfRequestBuilder> {
     /**
-     * The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
+     * The user (or application) that created the group. NOTE: This property isn't set if the user is an administrator. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<CreatedOnBehalfOfRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
     /**
-     * The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
+     * The user (or application) that created the group. NOTE: This property isn't set if the user is an administrator. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CreatedOnBehalfOfRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
+ * The user (or application) that created the group. NOTE: This property isn't set if the user is an administrator. Read-only.
  */
 export interface CreatedOnBehalfOfRequestBuilderGetQueryParameters {
     /**

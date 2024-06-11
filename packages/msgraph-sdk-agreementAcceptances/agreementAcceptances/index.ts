@@ -58,9 +58,17 @@ export interface AgreementAcceptancesRequestBuilderGetQueryParameters {
      */
     count?: boolean;
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Filter items by property values
      */
     filter?: string;
+    /**
+     * Order items by property values
+     */
+    orderby?: string[];
     /**
      * Search items by search phrases
      */
@@ -81,13 +89,15 @@ export interface AgreementAcceptancesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AgreementAcceptancesRequestBuilderUriTemplate = "{+baseurl}/agreementAcceptances{?%24count,%24filter,%24search,%24select,%24skip,%24top}";
+export const AgreementAcceptancesRequestBuilderUriTemplate = "{+baseurl}/agreementAcceptances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const AgreementAcceptancesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
+    "expand": "%24expand",
     "filter": "%24filter",
+    "orderby": "%24orderby",
     "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",

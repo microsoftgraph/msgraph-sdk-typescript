@@ -35,10 +35,11 @@ export interface DecisionsRequestBuilder extends BaseRequestBuilder<DecisionsReq
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewInstanceDecisionItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstance-list-decisions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DecisionsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewInstanceDecisionItemCollectionResponse | undefined>;
     /**
@@ -50,7 +51,7 @@ export interface DecisionsRequestBuilder extends BaseRequestBuilder<DecisionsReq
      */
      post(body: AccessReviewInstanceDecisionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined>;
     /**
-     * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -64,7 +65,7 @@ export interface DecisionsRequestBuilder extends BaseRequestBuilder<DecisionsReq
      toPostRequestInformation(body: AccessReviewInstanceDecisionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+ * Retrieve the accessReviewInstanceDecisionItem objects for a specific accessReviewInstance. A list of zero or more accessReviewInstanceDecisionItem objects are returned, including all of their nested properties.
  */
 export interface DecisionsRequestBuilderGetQueryParameters {
     /**

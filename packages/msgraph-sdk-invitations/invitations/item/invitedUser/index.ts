@@ -25,21 +25,21 @@ export interface InvitedUserRequestBuilder extends BaseRequestBuilder<InvitedUse
      */
     get serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder;
     /**
-     * The user created as part of the invitation creation. Read-Only
+     * The user created as part of the invitation creation. Read-only. The id property is required in the request body to reset a redemption status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<InvitedUserRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
-     * The user created as part of the invitation creation. Read-Only
+     * The user created as part of the invitation creation. Read-only. The id property is required in the request body to reset a redemption status.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<InvitedUserRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The user created as part of the invitation creation. Read-Only
+ * The user created as part of the invitation creation. Read-only. The id property is required in the request body to reset a redemption status.
  */
 export interface InvitedUserRequestBuilderGetQueryParameters {
     /**

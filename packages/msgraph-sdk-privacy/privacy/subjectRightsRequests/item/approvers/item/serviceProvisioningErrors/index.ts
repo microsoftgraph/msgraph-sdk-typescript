@@ -20,7 +20,7 @@ export interface ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuil
      */
     get count(): CountRequestBuilder;
     /**
-     * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
+     * Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceProvisioningErrorCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -28,7 +28,7 @@ export interface ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuil
      */
      get(requestConfiguration?: RequestConfiguration<ServiceProvisioningErrorsRequestBuilderGetQueryParameters> | undefined) : Promise<ServiceProvisioningErrorCollectionResponse | undefined>;
     /**
-     * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
+     * Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
@@ -36,7 +36,7 @@ export interface ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuil
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ServiceProvisioningErrorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
+ * Errors published by a federated service describing a nontransient, service-specific error regarding the properties or link from a user object.  Supports $filter (eq, not, for isResolved and serviceInstance).
  */
 export interface ServiceProvisioningErrorsRequestBuilderGetQueryParameters {
     /**

@@ -25,10 +25,11 @@ export interface TaskItemRequestBuilder extends BaseRequestBuilder<TaskItemReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The tasks in the workflow.
+     * Get a specific task from a workflow or workflowVersion.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Task>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-task-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaskItemRequestBuilderGetQueryParameters> | undefined) : Promise<Task | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface TaskItemRequestBuilder extends BaseRequestBuilder<TaskItemReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The tasks in the workflow.
+     * Get a specific task from a workflow or workflowVersion.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface TaskItemRequestBuilder extends BaseRequestBuilder<TaskItemReque
      toPatchRequestInformation(body: Task, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The tasks in the workflow.
+ * Get a specific task from a workflow or workflowVersion.
  */
 export interface TaskItemRequestBuilderGetQueryParameters {
     /**

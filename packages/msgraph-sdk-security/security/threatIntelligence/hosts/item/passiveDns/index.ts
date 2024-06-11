@@ -27,7 +27,7 @@ export interface PassiveDnsRequestBuilder extends BaseRequestBuilder<PassiveDnsR
      */
      byPassiveDnsRecordId(passiveDnsRecordId: string) : PassiveDnsRecordItemRequestBuilder;
     /**
-     * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname. 
+     * Get a list of passiveDnsRecord resources associated with a host. This method is a forward DNS lookup that queries the IP address of the specified host using its hostname. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PassiveDnsRecordCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,14 +35,14 @@ export interface PassiveDnsRequestBuilder extends BaseRequestBuilder<PassiveDnsR
      */
      get(requestConfiguration?: RequestConfiguration<PassiveDnsRequestBuilderGetQueryParameters> | undefined) : Promise<PassiveDnsRecordCollectionResponse | undefined>;
     /**
-     * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname. 
+     * Get a list of passiveDnsRecord resources associated with a host. This method is a forward DNS lookup that queries the IP address of the specified host using its hostname. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PassiveDnsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of passiveDnsRecord resources associated with a host. This is a forward DNS lookup which queries the IP address of the specified host using its hostname. 
+ * Get a list of passiveDnsRecord resources associated with a host. This method is a forward DNS lookup that queries the IP address of the specified host using its hostname. 
  */
 export interface PassiveDnsRequestBuilderGetQueryParameters {
     /**

@@ -27,21 +27,22 @@ export interface TaskProcessingResultsRequestBuilder extends BaseRequestBuilder<
      */
      byTaskProcessingResultId(taskProcessingResultId: string) : TaskProcessingResultItemRequestBuilder;
     /**
-     * The related lifecycle workflow taskProcessingResults.
+     * Get the task processing result resources from the taskReport.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TaskProcessingResultCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-taskreport-list-taskprocessingresults?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TaskProcessingResultsRequestBuilderGetQueryParameters> | undefined) : Promise<TaskProcessingResultCollectionResponse | undefined>;
     /**
-     * The related lifecycle workflow taskProcessingResults.
+     * Get the task processing result resources from the taskReport.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskProcessingResultsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The related lifecycle workflow taskProcessingResults.
+ * Get the task processing result resources from the taskReport.
  */
 export interface TaskProcessingResultsRequestBuilderGetQueryParameters {
     /**

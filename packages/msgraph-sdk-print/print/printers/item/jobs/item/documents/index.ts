@@ -27,10 +27,11 @@ export interface DocumentsRequestBuilder extends BaseRequestBuilder<DocumentsReq
      */
      byPrintDocumentId(printDocumentId: string) : PrintDocumentItemRequestBuilder;
     /**
-     * Get documents from print
+     * Download the binary file associated with a printDocument. Calling this method yields a redirect response with a preauthenticated URL that can be used to download the payload.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrintDocumentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/printdocument-get-file?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DocumentsRequestBuilderGetQueryParameters> | undefined) : Promise<PrintDocumentCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface DocumentsRequestBuilder extends BaseRequestBuilder<DocumentsReq
      */
      post(body: PrintDocument, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrintDocument | undefined>;
     /**
-     * Get documents from print
+     * Download the binary file associated with a printDocument. Calling this method yields a redirect response with a preauthenticated URL that can be used to download the payload.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface DocumentsRequestBuilder extends BaseRequestBuilder<DocumentsReq
      toPostRequestInformation(body: PrintDocument, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get documents from print
+ * Download the binary file associated with a printDocument. Calling this method yields a redirect response with a preauthenticated URL that can be used to download the payload.
  */
 export interface DocumentsRequestBuilderGetQueryParameters {
     /**

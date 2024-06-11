@@ -27,28 +27,30 @@ export interface UserSourcesRequestBuilder extends BaseRequestBuilder<UserSource
      */
      byUserSourceId(userSourceId: string) : UserSourceItemRequestBuilder;
     /**
-     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+     * Get a list of the userSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserSourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-usersources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserSourcesRequestBuilderGetQueryParameters> | undefined) : Promise<UserSourceCollectionResponse | undefined>;
     /**
-     * Create new navigation property to userSources for security
+     * Create a new userSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserSource>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-post-usersources?view=graph-rest-1.0|Find more info here}
      */
      post(body: UserSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserSource | undefined>;
     /**
-     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+     * Get a list of the userSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserSourcesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to userSources for security
+     * Create a new userSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface UserSourcesRequestBuilder extends BaseRequestBuilder<UserSource
      toPostRequestInformation(body: UserSource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+ * Get a list of the userSource objects associated with an ediscoveryCustodian.
  */
 export interface UserSourcesRequestBuilderGetQueryParameters {
     /**

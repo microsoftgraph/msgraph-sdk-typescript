@@ -27,10 +27,11 @@ export interface DefaultPagesRequestBuilder extends BaseRequestBuilder<DefaultPa
      */
      byUserFlowLanguagePageId(userFlowLanguagePageId: string) : UserFlowLanguagePageItemRequestBuilder;
     /**
-     * Collection of pages with the default content to display in a user flow for a specified language. This collection doesn't allow any kind of modification.
+     * Read the values in a userFlowLanguagePage object for a language in a user flow. These values are shown to a user during a user journey defined by a user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserFlowLanguagePageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/userflowlanguagepage-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DefaultPagesRequestBuilderGetQueryParameters> | undefined) : Promise<UserFlowLanguagePageCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface DefaultPagesRequestBuilder extends BaseRequestBuilder<DefaultPa
      */
      post(body: UserFlowLanguagePage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserFlowLanguagePage | undefined>;
     /**
-     * Collection of pages with the default content to display in a user flow for a specified language. This collection doesn't allow any kind of modification.
+     * Read the values in a userFlowLanguagePage object for a language in a user flow. These values are shown to a user during a user journey defined by a user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface DefaultPagesRequestBuilder extends BaseRequestBuilder<DefaultPa
      toPostRequestInformation(body: UserFlowLanguagePage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Collection of pages with the default content to display in a user flow for a specified language. This collection doesn't allow any kind of modification.
+ * Read the values in a userFlowLanguagePage object for a language in a user flow. These values are shown to a user during a user journey defined by a user flow.
  */
 export interface DefaultPagesRequestBuilderGetQueryParameters {
     /**

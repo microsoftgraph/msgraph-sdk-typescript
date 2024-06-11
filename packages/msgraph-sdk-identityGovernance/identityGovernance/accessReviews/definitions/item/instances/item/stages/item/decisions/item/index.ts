@@ -25,18 +25,20 @@ export interface AccessReviewInstanceDecisionItemItemRequestBuilder extends Base
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewInstanceDecisionItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstancedecisionitem-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined>;
     /**
-     * Update the navigation property decisions in identityGovernance
+     * Update access decisions, known as accessReviewInstanceDecisionItems, for which the user is the reviewer.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewInstanceDecisionItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstancedecisionitem-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AccessReviewInstanceDecisionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined>;
     /**
@@ -46,13 +48,13 @@ export interface AccessReviewInstanceDecisionItemItemRequestBuilder extends Base
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property decisions in identityGovernance
+     * Update access decisions, known as accessReviewInstanceDecisionItems, for which the user is the reviewer.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +62,7 @@ export interface AccessReviewInstanceDecisionItemItemRequestBuilder extends Base
      toPatchRequestInformation(body: AccessReviewInstanceDecisionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
+ * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
  */
 export interface AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters {
     /**

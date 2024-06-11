@@ -40,7 +40,7 @@ export interface MultiTenantOrganizationRequestBuilder extends BaseRequestBuilde
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/multitenantorganization-update?view=graph-rest-1.0|Find more info here}
      */
-     put(body: MultiTenantOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganization | undefined>;
+     patch(body: MultiTenantOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganization | undefined>;
     /**
      * Get properties of the multitenant organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -53,7 +53,7 @@ export interface MultiTenantOrganizationRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
-     toPutRequestInformation(body: MultiTenantOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+     toPatchRequestInformation(body: MultiTenantOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Get properties of the multitenant organization.
@@ -105,7 +105,7 @@ export const MultiTenantOrganizationRequestBuilderRequestsMetadata: RequestsMeta
         responseBodyFactory:  createMultiTenantOrganizationFromDiscriminatorValue,
         queryParametersMapper: MultiTenantOrganizationRequestBuilderGetQueryParametersMapper,
     },
-    put: {
+    patch: {
         uriTemplate: MultiTenantOrganizationRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {

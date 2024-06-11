@@ -63,6 +63,10 @@ export interface CalendarRequestBuilder extends BaseRequestBuilder<CalendarReque
  */
 export interface CalendarRequestBuilderGetQueryParameters {
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -70,11 +74,12 @@ export interface CalendarRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CalendarRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendar{?%24select}";
+export const CalendarRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendar{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const CalendarRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

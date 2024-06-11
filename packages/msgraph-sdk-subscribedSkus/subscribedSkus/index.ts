@@ -59,6 +59,10 @@ export interface SubscribedSkusRequestBuilderGetQueryParameters {
      */
     count?: boolean;
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Filter items by property values
      */
     filter?: string;
@@ -86,12 +90,13 @@ export interface SubscribedSkusRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubscribedSkusRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SubscribedSkusRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SubscribedSkusRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
+    "expand": "%24expand",
     "filter": "%24filter",
     "orderby": "%24orderby",
     "search": "%24search",

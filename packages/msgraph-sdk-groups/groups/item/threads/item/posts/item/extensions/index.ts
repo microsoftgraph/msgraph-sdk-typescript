@@ -27,7 +27,7 @@ export interface ExtensionsRequestBuilder extends BaseRequestBuilder<ExtensionsR
      */
      byExtensionId(extensionId: string) : ExtensionItemRequestBuilder;
     /**
-     * The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
+     * Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExtensionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface ExtensionsRequestBuilder extends BaseRequestBuilder<ExtensionsR
      */
      post(body: Extension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Extension | undefined>;
     /**
-     * The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
+     * Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface ExtensionsRequestBuilder extends BaseRequestBuilder<ExtensionsR
      toPostRequestInformation(body: Extension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
+ * Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
  */
 export interface ExtensionsRequestBuilderGetQueryParameters {
     /**
@@ -76,6 +76,10 @@ export interface ExtensionsRequestBuilderGetQueryParameters {
      */
     orderby?: string[];
     /**
+     * Search items by search phrases
+     */
+    search?: string;
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -91,7 +95,7 @@ export interface ExtensionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExtensionsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/extensions{?%24count,%24expand,%24filter,%24orderby,%24select,%24skip,%24top}";
+export const ExtensionsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/extensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -100,6 +104,7 @@ const ExtensionsRequestBuilderGetQueryParametersMapper: Record<string, string> =
     "expand": "%24expand",
     "filter": "%24filter",
     "orderby": "%24orderby",
+    "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
     "top": "%24top",

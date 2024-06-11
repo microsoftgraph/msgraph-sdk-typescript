@@ -58,6 +58,10 @@ export interface OutlookCategoryItemRequestBuilder extends BaseRequestBuilder<Ou
  */
 export interface OutlookCategoryItemRequestBuilderGetQueryParameters {
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -65,11 +69,12 @@ export interface OutlookCategoryItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OutlookCategoryItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/masterCategories/{outlookCategory%2Did}{?%24select}";
+export const OutlookCategoryItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/masterCategories/{outlookCategory%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const OutlookCategoryItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

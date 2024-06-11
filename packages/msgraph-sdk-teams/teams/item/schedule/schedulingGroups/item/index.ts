@@ -61,6 +61,10 @@ export interface SchedulingGroupItemRequestBuilder extends BaseRequestBuilder<Sc
  */
 export interface SchedulingGroupItemRequestBuilderGetQueryParameters {
     /**
+     * Expand related entities
+     */
+    expand?: string[];
+    /**
      * Select properties to be returned
      */
     select?: string[];
@@ -68,11 +72,12 @@ export interface SchedulingGroupItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SchedulingGroupItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups/{schedulingGroup%2Did}{?%24select}";
+export const SchedulingGroupItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups/{schedulingGroup%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const SchedulingGroupItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

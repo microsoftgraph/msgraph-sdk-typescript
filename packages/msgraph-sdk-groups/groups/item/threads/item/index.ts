@@ -32,11 +32,11 @@ export interface ConversationThreadItemRequestBuilder extends BaseRequestBuilder
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
+     * Get a thread object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationThread>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-get-thread?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConversationThreadItemRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationThread | undefined>;
     /**
@@ -55,7 +55,7 @@ export interface ConversationThreadItemRequestBuilder extends BaseRequestBuilder
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
+     * Get a thread object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -69,9 +69,13 @@ export interface ConversationThreadItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: ConversationThread, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
+ * Get a thread object.
  */
 export interface ConversationThreadItemRequestBuilderGetQueryParameters {
+    /**
+     * Expand related entities
+     */
+    expand?: string[];
     /**
      * Select properties to be returned
      */
@@ -80,11 +84,12 @@ export interface ConversationThreadItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConversationThreadItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}{?%24select}";
+export const ConversationThreadItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const ConversationThreadItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "expand": "%24expand",
     "select": "%24select",
 };
 /**

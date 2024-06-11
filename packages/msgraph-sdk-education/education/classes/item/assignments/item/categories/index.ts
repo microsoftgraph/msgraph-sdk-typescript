@@ -39,28 +39,30 @@ export interface CategoriesRequestBuilder extends BaseRequestBuilder<CategoriesR
      */
      byEducationCategoryId(educationCategoryId: string) : EducationCategoryItemRequestBuilder;
     /**
-     * When set, enables users to easily find assignments of a given type. Read-only. Nullable.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationCategoryCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-list-categories?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CategoriesRequestBuilderGetQueryParameters> | undefined) : Promise<EducationCategoryCollectionResponse | undefined>;
     /**
-     * Create new navigation property to categories for education
+     * Add one or more existing educationCategory objects to the specified  educationAssignment. Only teachers can perform this operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationCategory>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-post-categories?view=graph-rest-1.0|Find more info here}
      */
      post(body: EducationCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationCategory | undefined>;
     /**
-     * When set, enables users to easily find assignments of a given type. Read-only. Nullable.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CategoriesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to categories for education
+     * Add one or more existing educationCategory objects to the specified  educationAssignment. Only teachers can perform this operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -68,7 +70,7 @@ export interface CategoriesRequestBuilder extends BaseRequestBuilder<CategoriesR
      toPostRequestInformation(body: EducationCategory, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * When set, enables users to easily find assignments of a given type. Read-only. Nullable.
+ * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
  */
 export interface CategoriesRequestBuilderGetQueryParameters {
     /**

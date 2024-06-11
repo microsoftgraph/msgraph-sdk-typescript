@@ -29,10 +29,11 @@ export interface UserProcessingResultsRequestBuilder extends BaseRequestBuilder<
      */
      byUserProcessingResultId(userProcessingResultId: string) : UserProcessingResultItemRequestBuilder;
     /**
-     * The associated individual user execution.
+     * Get user processing results of a workflow run object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserProcessingResultCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-run-list-userprocessingresults?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserProcessingResultsRequestBuilderGetQueryParameters> | undefined) : Promise<UserProcessingResultCollectionResponse | undefined>;
     /**
@@ -43,14 +44,14 @@ export interface UserProcessingResultsRequestBuilder extends BaseRequestBuilder<
      */
      microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime(endDateTime: Date | undefined, startDateTime: Date | undefined) : MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder;
     /**
-     * The associated individual user execution.
+     * Get user processing results of a workflow run object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserProcessingResultsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The associated individual user execution.
+ * Get user processing results of a workflow run object.
  */
 export interface UserProcessingResultsRequestBuilderGetQueryParameters {
     /**

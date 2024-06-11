@@ -32,16 +32,21 @@ export interface CountRequestBuilderGetQueryParameters {
      * Filter items by property values
      */
     filter?: string;
+    /**
+     * Search items by search phrases
+     */
+    search?: string;
 }
 /**
  * Uri template for the request builder.
  */
-export const CountRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}/instances/{event%2Did1}/attachments/$count{?%24filter}";
+export const CountRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarView/{event%2Did}/instances/{event%2Did1}/attachments/$count{?%24filter,%24search}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const CountRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "filter": "%24filter",
+    "search": "%24search",
 };
 /**
  * Metadata for all the requests in the request builder.

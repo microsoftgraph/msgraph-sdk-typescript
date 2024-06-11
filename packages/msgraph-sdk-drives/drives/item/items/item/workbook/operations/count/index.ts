@@ -29,6 +29,10 @@ export interface CountRequestBuilder extends BaseRequestBuilder<CountRequestBuil
  */
 export interface CountRequestBuilderGetQueryParameters {
     /**
+     * Filter items by property values
+     */
+    filter?: string;
+    /**
      * Search items by search phrases
      */
     search?: string;
@@ -36,11 +40,12 @@ export interface CountRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CountRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/operations/$count{?%24search}";
+export const CountRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/operations/$count{?%24filter,%24search}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
 const CountRequestBuilderGetQueryParametersMapper: Record<string, string> = {
+    "filter": "%24filter",
     "search": "%24search",
 };
 /**

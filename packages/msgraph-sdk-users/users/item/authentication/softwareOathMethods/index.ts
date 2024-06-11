@@ -27,21 +27,21 @@ export interface SoftwareOathMethodsRequestBuilder extends BaseRequestBuilder<So
      */
      bySoftwareOathAuthenticationMethodId(softwareOathAuthenticationMethodId: string) : SoftwareOathAuthenticationMethodItemRequestBuilder;
     /**
-     * The software OATH TOTP applications registered to a user for authentication.
+     * The software OATH time-based one-time password (TOTP) applications registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SoftwareOathAuthenticationMethodCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<SoftwareOathMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<SoftwareOathAuthenticationMethodCollectionResponse | undefined>;
     /**
-     * The software OATH TOTP applications registered to a user for authentication.
+     * The software OATH time-based one-time password (TOTP) applications registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SoftwareOathMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The software OATH TOTP applications registered to a user for authentication.
+ * The software OATH time-based one-time password (TOTP) applications registered to a user for authentication.
  */
 export interface SoftwareOathMethodsRequestBuilderGetQueryParameters {
     /**
