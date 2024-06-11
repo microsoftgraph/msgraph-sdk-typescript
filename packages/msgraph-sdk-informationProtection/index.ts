@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { InformationProtectionRequestBuilder } from "./informationProtection";
+import type { InformationProtectionRequestBuilder } from "./informationProtection/index.js";
 import { InformationProtectionServiceClientNavigationMetadata } from "./informationProtectionServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

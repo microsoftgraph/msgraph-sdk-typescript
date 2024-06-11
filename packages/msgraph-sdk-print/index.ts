@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { PrintRequestBuilder } from "./print";
+import type { PrintRequestBuilder } from "./print/index.js";
 import { PrintServiceClientNavigationMetadata } from "./printServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

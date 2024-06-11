@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { IdentityGovernanceRequestBuilder } from "./identityGovernance";
+import type { IdentityGovernanceRequestBuilder } from "./identityGovernance/index.js";
 import { IdentityGovernanceServiceClientNavigationMetadata } from "./identityGovernanceServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

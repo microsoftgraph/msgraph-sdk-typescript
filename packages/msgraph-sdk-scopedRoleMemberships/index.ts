@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { ScopedRoleMembershipsRequestBuilder } from "./scopedRoleMemberships";
+import type { ScopedRoleMembershipsRequestBuilder } from "./scopedRoleMemberships/index.js";
 import { ScopedRoleMembershipsServiceClientNavigationMetadata } from "./scopedRoleMembershipsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

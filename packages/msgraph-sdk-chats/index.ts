@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { ChatsRequestBuilder } from "./chats";
+import type { ChatsRequestBuilder } from "./chats/index.js";
 import { ChatsServiceClientNavigationMetadata } from "./chatsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

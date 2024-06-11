@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { EducationRequestBuilder } from "./education";
+import type { EducationRequestBuilder } from "./education/index.js";
 import { EducationServiceClientNavigationMetadata } from "./educationServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

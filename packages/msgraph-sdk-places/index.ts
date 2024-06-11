@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { PlacesRequestBuilder } from "./places";
+import type { PlacesRequestBuilder } from "./places/index.js";
 import { PlacesServiceClientNavigationMetadata } from "./placesServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

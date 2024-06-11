@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { CertificateBasedAuthConfigurationRequestBuilder } from "./certificateBasedAuthConfiguration";
+import type { CertificateBasedAuthConfigurationRequestBuilder } from "./certificateBasedAuthConfiguration/index.js";
 import { CertificateBasedAuthConfigurationServiceClientNavigationMetadata } from "./certificateBasedAuthConfigurationServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

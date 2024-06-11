@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { Oauth2PermissionGrantsRequestBuilder } from "./oauth2PermissionGrants";
+import type { Oauth2PermissionGrantsRequestBuilder } from "./oauth2PermissionGrants/index.js";
 import { Oauth2PermissionGrantsServiceClientNavigationMetadata } from "./oauth2PermissionGrantsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

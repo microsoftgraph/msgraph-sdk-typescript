@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { ExternalRequestBuilder } from "./external";
+import type { ExternalRequestBuilder } from "./external/index.js";
 import { ExternalServiceClientNavigationMetadata } from "./externalServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

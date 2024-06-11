@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { AuthenticationMethodConfigurationsRequestBuilder } from "./authenticationMethodConfigurations";
+import type { AuthenticationMethodConfigurationsRequestBuilder } from "./authenticationMethodConfigurations/index.js";
 import { AuthenticationMethodConfigurationsServiceClientNavigationMetadata } from "./authenticationMethodConfigurationsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {

@@ -1,6 +1,6 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { DomainsRequestBuilder } from "./domains";
+import type { DomainsRequestBuilder } from "./domains/index.js";
 import { DomainsServiceClientNavigationMetadata } from "./domainsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
