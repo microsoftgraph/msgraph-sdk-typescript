@@ -12,7 +12,7 @@ import {
 } from "@microsoft/kiota-http-fetchlibrary";
 import { BaseGraphRequestAdapter } from "@microsoft/msgraph-sdk-core";
 
-import { version } from "./version";
+import { version } from "./version.js";
 
 export class GraphRequestAdapter extends BaseGraphRequestAdapter {
   /**
