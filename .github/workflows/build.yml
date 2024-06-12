@@ -46,6 +46,7 @@ jobs:
           TENANT_ID: ${{secrets.tenant_id}}
           CLIENT_ID: ${{secrets.client_id}}
           CLIENT_SECRET: ${{secrets.client_secret}}
+          USER_ID: ${{secrets.user_id}}
 
   # The check-build-matrix returns success if all matrix jobs in build are successful; otherwise, it returns a failure.
   # Use this as a PR status check for GitHub Policy Service instead of individual matrix entry checks.

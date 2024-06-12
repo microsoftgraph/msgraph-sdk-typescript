@@ -10,8 +10,12 @@ describe("TestGet", () => {
   });
 
   it("should return messages for given user", async () => {
+    const userId = process.env.USER_ID;
+    if (!userId) {
+      throw Error("Missing USER_ID environment variable");
+    }
     const messages = await graphServiceClient.users
-      .byUserId("a4bf4e43-981f-430c-8024-cdb645f8c098")
+      .byUserId(userId)
       .messages.get();
     assert.isDefined(messages?.value);
   });
