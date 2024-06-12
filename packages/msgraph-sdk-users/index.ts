@@ -1,8 +1,8 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { UsersRequestBuilder } from "./users";
-import type { UserItemRequestBuilder } from "./users/item";
-import { UsersServiceClientNavigationMetadata } from "./usersServiceClient";
+import type { UsersRequestBuilder } from "./users/index.js";
+import type { UserItemRequestBuilder } from "./users/item/index.js";
+import { UsersServiceClientNavigationMetadata } from "./usersServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -17,4 +17,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(UsersServiceClientNavigationMetadata);
-export * from "./usersServiceClient";
+export * from "./usersServiceClient.js";

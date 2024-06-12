@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { IdentityGovernanceRequestBuilder } from "./identityGovernance";
-import { IdentityGovernanceServiceClientNavigationMetadata } from "./identityGovernanceServiceClient";
+import type { IdentityGovernanceRequestBuilder } from "./identityGovernance/index.js";
+import { IdentityGovernanceServiceClientNavigationMetadata } from "./identityGovernanceServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(IdentityGovernanceServiceClientNavigationMetadata);
-export * from "./identityGovernanceServiceClient";
+export * from "./identityGovernanceServiceClient.js";

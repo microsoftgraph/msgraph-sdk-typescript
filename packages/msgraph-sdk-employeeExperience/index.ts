@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { EmployeeExperienceRequestBuilder } from "./employeeExperience";
-import { EmployeeExperienceServiceClientNavigationMetadata } from "./employeeExperienceServiceClient";
+import type { EmployeeExperienceRequestBuilder } from "./employeeExperience/index.js";
+import { EmployeeExperienceServiceClientNavigationMetadata } from "./employeeExperienceServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(EmployeeExperienceServiceClientNavigationMetadata);
-export * from "./employeeExperienceServiceClient";
+export * from "./employeeExperienceServiceClient.js";

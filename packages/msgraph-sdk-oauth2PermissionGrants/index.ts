@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { Oauth2PermissionGrantsRequestBuilder } from "./oauth2PermissionGrants";
-import { Oauth2PermissionGrantsServiceClientNavigationMetadata } from "./oauth2PermissionGrantsServiceClient";
+import type { Oauth2PermissionGrantsRequestBuilder } from "./oauth2PermissionGrants/index.js";
+import { Oauth2PermissionGrantsServiceClientNavigationMetadata } from "./oauth2PermissionGrantsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(Oauth2PermissionGrantsServiceClientNavigationMetadata);
-export * from "./oauth2PermissionGrantsServiceClient";
+export * from "./oauth2PermissionGrantsServiceClient.js";

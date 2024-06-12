@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { InformationProtectionRequestBuilder } from "./informationProtection";
-import { InformationProtectionServiceClientNavigationMetadata } from "./informationProtectionServiceClient";
+import type { InformationProtectionRequestBuilder } from "./informationProtection/index.js";
+import { InformationProtectionServiceClientNavigationMetadata } from "./informationProtectionServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(InformationProtectionServiceClientNavigationMetadata);
-export * from "./informationProtectionServiceClient";
+export * from "./informationProtectionServiceClient.js";

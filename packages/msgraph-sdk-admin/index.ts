@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { AdminRequestBuilder } from "./admin";
-import { AdminServiceClientNavigationMetadata } from "./adminServiceClient";
+import type { AdminRequestBuilder } from "./admin/index.js";
+import { AdminServiceClientNavigationMetadata } from "./adminServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(AdminServiceClientNavigationMetadata);
-export * from "./adminServiceClient";
+export * from "./adminServiceClient.js";

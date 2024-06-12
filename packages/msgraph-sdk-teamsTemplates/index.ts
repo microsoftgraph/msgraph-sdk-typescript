@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { TeamsTemplatesRequestBuilder } from "./teamsTemplates";
-import { TeamsTemplatesServiceClientNavigationMetadata } from "./teamsTemplatesServiceClient";
+import type { TeamsTemplatesRequestBuilder } from "./teamsTemplates/index.js";
+import { TeamsTemplatesServiceClientNavigationMetadata } from "./teamsTemplatesServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(TeamsTemplatesServiceClientNavigationMetadata);
-export * from "./teamsTemplatesServiceClient";
+export * from "./teamsTemplatesServiceClient.js";

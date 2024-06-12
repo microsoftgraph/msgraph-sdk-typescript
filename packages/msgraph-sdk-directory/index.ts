@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { DirectoryRequestBuilder } from "./directory";
-import { DirectoryServiceClientNavigationMetadata } from "./directoryServiceClient";
+import type { DirectoryRequestBuilder } from "./directory/index.js";
+import { DirectoryServiceClientNavigationMetadata } from "./directoryServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(DirectoryServiceClientNavigationMetadata);
-export * from "./directoryServiceClient";
+export * from "./directoryServiceClient.js";

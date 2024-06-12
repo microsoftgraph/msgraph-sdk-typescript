@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { PoliciesRequestBuilder } from "./policies";
-import { PoliciesServiceClientNavigationMetadata } from "./policiesServiceClient";
+import type { PoliciesRequestBuilder } from "./policies/index.js";
+import { PoliciesServiceClientNavigationMetadata } from "./policiesServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(PoliciesServiceClientNavigationMetadata);
-export * from "./policiesServiceClient";
+export * from "./policiesServiceClient.js";

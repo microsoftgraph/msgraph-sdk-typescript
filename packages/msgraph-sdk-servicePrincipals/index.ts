@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { ServicePrincipalsRequestBuilder } from "./servicePrincipals";
-import { ServicePrincipalsServiceClientNavigationMetadata } from "./servicePrincipalsServiceClient";
+import type { ServicePrincipalsRequestBuilder } from "./servicePrincipals/index.js";
+import { ServicePrincipalsServiceClientNavigationMetadata } from "./servicePrincipalsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(ServicePrincipalsServiceClientNavigationMetadata);
-export * from "./servicePrincipalsServiceClient";
+export * from "./servicePrincipalsServiceClient.js";

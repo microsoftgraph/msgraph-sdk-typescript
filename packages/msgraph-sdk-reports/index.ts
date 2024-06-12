@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { ReportsRequestBuilder } from "./reports";
-import { ReportsServiceClientNavigationMetadata } from "./reportsServiceClient";
+import type { ReportsRequestBuilder } from "./reports/index.js";
+import { ReportsServiceClientNavigationMetadata } from "./reportsServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(ReportsServiceClientNavigationMetadata);
-export * from "./reportsServiceClient";
+export * from "./reportsServiceClient.js";

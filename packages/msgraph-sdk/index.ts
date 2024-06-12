@@ -1,2 +1,2 @@
-export * from "./graphServiceClient";
-export * from "./graphRequestAdapter";
+export * from "./graphServiceClient.js";
+export * from "./graphRequestAdapter.js";

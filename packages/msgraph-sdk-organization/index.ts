@@ -1,7 +1,7 @@
 import { extendGraphServiceClient } from "@microsoft/msgraph-sdk";
 
-import type { OrganizationRequestBuilder } from "./organization";
-import { OrganizationServiceClientNavigationMetadata } from "./organizationServiceClient";
+import type { OrganizationRequestBuilder } from "./organization/index.js";
+import { OrganizationServiceClientNavigationMetadata } from "./organizationServiceClient.js";
 
 declare module "@microsoft/msgraph-sdk" {
   interface GraphServiceClient {
@@ -12,4 +12,4 @@ declare module "@microsoft/msgraph-sdk" {
   }
 }
 extendGraphServiceClient(OrganizationServiceClientNavigationMetadata);
-export * from "./organizationServiceClient";
+export * from "./organizationServiceClient.js";

@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-search",
-  "version": "1.0.0-preview.23",
+  "version": "1.0.0-preview.24",
   "description": "Search fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
@@ -37,11 +37,12 @@
     "@microsoft/kiota-serialization-json": "^1.0.0-preview.39",
     "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.18",
     "@microsoft/kiota-serialization-text": "^1.0.0-preview.36",
-    "@microsoft/msgraph-sdk": "^1.0.0-preview.23",
+    "@microsoft/msgraph-sdk": "^1.0.0-preview.24",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
-  }
+  },
+  "type": "module"
 }
