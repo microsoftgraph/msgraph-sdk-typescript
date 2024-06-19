@@ -1,4 +1,4 @@
-name: GitOps.PullRequestIssueManagement
+name: GitOpsPullRequestIssueManagement
 description: GitOps.PullRequestIssueManagement primitive
 owner:
 resource: repository
