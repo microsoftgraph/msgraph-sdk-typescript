@@ -16,7 +16,7 @@ configuration:
       - isIssue
       - isOpen
       - hasLabel:
-          label: 'status:waiting-for-author-feed'
+          label: 'status:waiting-for-author-feedback'
       - hasLabel:
           label: 'Status: No Recent Activity'
       - noActivitySince:
@@ -118,6 +118,16 @@ configuration:
       then:
       - removeLabel:
           label: 'Status: No Recent Activity'
+      description:
+    - if:
+      - payloadType: Issues
+      - isAction:
+          action: Closed
+      - hasLabel:
+          label: 'status:waiting-for-author-feedback'
+      then:
+      - removeLabel:
+          label: 'status:waiting-for-author-feedback'
       description:
     - if:
       - payloadType: Issue_Comment
