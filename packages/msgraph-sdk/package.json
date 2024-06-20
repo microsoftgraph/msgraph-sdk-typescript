@@ -39,12 +39,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@azure/identity": "^4.0.1",
-    "@types/chai": "^4.3.11",
-    "@types/mocha": "^10.0.6",
     "@types/node": "^20.11.10",
-    "chai": "^5.0.3",
-    "mocha": "^10.2.0",
     "typescript": "^5.3.3"
   },
   "type": "module"
