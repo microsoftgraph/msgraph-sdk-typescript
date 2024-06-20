@@ -16,7 +16,7 @@ configuration:
       - isIssue
       - isOpen
       - hasLabel:
-          label: 'status:waiting-for-author-feedback'
+          label: 'status:waiting-for-author-feed'
       - hasLabel:
           label: 'Status: No Recent Activity'
       - noActivitySince:
