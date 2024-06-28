@@ -2,7 +2,7 @@
 The best way to get started with a contribution is to start a dialog with us. Sometimes features will be under development or out of scope for this library and it's best to check before starting work on contribution, especially for large work items.
 
 ## Pull requests
-All pull requests should be submitted against the **dev** branch or a specific feature branch. 
+All pull requests should be submitted against the **main** branch or a specific feature branch. 
 
 Some things to note about this project:
 
