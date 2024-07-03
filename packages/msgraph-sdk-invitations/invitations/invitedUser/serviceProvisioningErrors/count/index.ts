@@ -40,7 +40,7 @@ export interface CountRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CountRequestBuilderUriTemplate = "{+baseurl}/invitations/{invitation%2Did}/invitedUserSponsors/$count{?%24filter,%24search}";
+export const CountRequestBuilderUriTemplate = "{+baseurl}/invitations/invitedUser/serviceProvisioningErrors/$count{?%24filter,%24search}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

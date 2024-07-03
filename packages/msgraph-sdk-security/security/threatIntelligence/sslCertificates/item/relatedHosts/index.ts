@@ -27,21 +27,22 @@ export interface RelatedHostsRequestBuilder extends BaseRequestBuilder<RelatedHo
      */
      byHostId(hostId: string) : HostItemRequestBuilder;
     /**
-     * The hosts related with this sslCertificate.
+     * Get a list of related host resources associated with an sslCertificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HostCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-sslcertificate-list-relatedhosts?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RelatedHostsRequestBuilderGetQueryParameters> | undefined) : Promise<HostCollectionResponse | undefined>;
     /**
-     * The hosts related with this sslCertificate.
+     * Get a list of related host resources associated with an sslCertificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RelatedHostsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The hosts related with this sslCertificate.
+ * Get a list of related host resources associated with an sslCertificate.
  */
 export interface RelatedHostsRequestBuilderGetQueryParameters {
     /**

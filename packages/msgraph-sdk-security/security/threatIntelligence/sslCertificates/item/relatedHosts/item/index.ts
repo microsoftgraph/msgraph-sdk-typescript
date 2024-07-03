@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface HostItemRequestBuilder extends BaseRequestBuilder<HostItemRequestBuilder> {
     /**
-     * The hosts related with this sslCertificate.
+     * The host resources related with this sslCertificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Host>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<HostItemRequestBuilderGetQueryParameters> | undefined) : Promise<Host | undefined>;
     /**
-     * The hosts related with this sslCertificate.
+     * The host resources related with this sslCertificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HostItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The hosts related with this sslCertificate.
+ * The host resources related with this sslCertificate.
  */
 export interface HostItemRequestBuilderGetQueryParameters {
     /**

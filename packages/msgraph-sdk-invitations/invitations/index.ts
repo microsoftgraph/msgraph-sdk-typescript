@@ -8,7 +8,9 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { InvitationItemRequestBuilderNavigationMetadata, InvitationItemRequestBuilderRequestsMetadata, type InvitationItemRequestBuilder } from './item/index.js';
+import { InvitedUserRequestBuilderNavigationMetadata, InvitedUserRequestBuilderRequestsMetadata, type InvitedUserRequestBuilder } from './invitedUser/index.js';
+// @ts-ignore
+import { InvitedUserSponsorsRequestBuilderNavigationMetadata, InvitedUserSponsorsRequestBuilderRequestsMetadata, type InvitedUserSponsorsRequestBuilder } from './invitedUserSponsors/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -21,11 +23,13 @@ export interface InvitationsRequestBuilder extends BaseRequestBuilder<Invitation
      */
     get count(): CountRequestBuilder;
     /**
-     * Provides operations to manage the collection of invitation entities.
-     * @param invitationId The unique identifier of invitation
-     * @returns {InvitationItemRequestBuilder}
+     * Provides operations to manage the invitedUser property of the microsoft.graph.invitation entity.
      */
-     byInvitationId(invitationId: string) : InvitationItemRequestBuilder;
+    get invitedUser(): InvitedUserRequestBuilder;
+    /**
+     * Provides operations to manage the invitedUserSponsors property of the microsoft.graph.invitation entity.
+     */
+    get invitedUserSponsors(): InvitedUserSponsorsRequestBuilder;
     /**
      * Get entities from invitations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -114,13 +118,16 @@ const InvitationsRequestBuilderGetQueryParametersMapper: Record<string, string> 
  * Metadata for all the navigation properties in the request builder.
  */
 export const InvitationsRequestBuilderNavigationMetadata: Record<Exclude<keyof InvitationsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
-    byInvitationId: {
-        requestsMetadata: InvitationItemRequestBuilderRequestsMetadata,
-        navigationMetadata: InvitationItemRequestBuilderNavigationMetadata,
-        pathParametersMappings: ["invitation%2Did"],
-    },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    invitedUser: {
+        requestsMetadata: InvitedUserRequestBuilderRequestsMetadata,
+        navigationMetadata: InvitedUserRequestBuilderNavigationMetadata,
+    },
+    invitedUserSponsors: {
+        requestsMetadata: InvitedUserSponsorsRequestBuilderRequestsMetadata,
+        navigationMetadata: InvitedUserSponsorsRequestBuilderNavigationMetadata,
     },
 };
 /**

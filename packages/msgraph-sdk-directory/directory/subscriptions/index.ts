@@ -27,10 +27,11 @@ export interface SubscriptionsRequestBuilder extends BaseRequestBuilder<Subscrip
      */
      byCompanySubscriptionId(companySubscriptionId: string) : CompanySubscriptionItemRequestBuilder;
     /**
-     * Get subscriptions from directory
+     * Get the list of commercial subscriptions that an organization acquired.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CompanySubscriptionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/directory-list-subscriptions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SubscriptionsRequestBuilderGetQueryParameters> | undefined) : Promise<CompanySubscriptionCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface SubscriptionsRequestBuilder extends BaseRequestBuilder<Subscrip
      */
      post(body: CompanySubscription, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CompanySubscription | undefined>;
     /**
-     * Get subscriptions from directory
+     * Get the list of commercial subscriptions that an organization acquired.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface SubscriptionsRequestBuilder extends BaseRequestBuilder<Subscrip
      toPostRequestInformation(body: CompanySubscription, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get subscriptions from directory
+ * Get the list of commercial subscriptions that an organization acquired.
  */
 export interface SubscriptionsRequestBuilderGetQueryParameters {
     /**

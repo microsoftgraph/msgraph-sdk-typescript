@@ -11,7 +11,7 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
- * Builds and executes requests for operations under /invitations/{invitation-id}/invitedUser/serviceProvisioningErrors
+ * Builds and executes requests for operations under /invitations/invitedUser/serviceProvisioningErrors
  */
 export interface ServiceProvisioningErrorsRequestBuilder extends BaseRequestBuilder<ServiceProvisioningErrorsRequestBuilder> {
     /**
@@ -72,7 +72,7 @@ export interface ServiceProvisioningErrorsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ServiceProvisioningErrorsRequestBuilderUriTemplate = "{+baseurl}/invitations/{invitation%2Did}/invitedUser/serviceProvisioningErrors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ServiceProvisioningErrorsRequestBuilderUriTemplate = "{+baseurl}/invitations/invitedUser/serviceProvisioningErrors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
