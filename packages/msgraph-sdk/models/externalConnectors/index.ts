@@ -944,7 +944,7 @@ export interface PropertyRule extends AdditionalDataHolder, BackedModel, Parsabl
      */
     property?: string;
     /**
-     * A collection with one or many strings. The specified string(s) will be matched with the specified property using the specified operation. Required.
+     * A collection with one or many strings. One or more specified strings are matched with the specified property using the specified operation. Required.
      */
     values?: string[];
     /**
