@@ -42,7 +42,7 @@ export interface DirectoryObjectItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryObjectItemRequestBuilderUriTemplate = "{+baseurl}/invitations/{invitation%2Did}/invitedUserSponsors/{directoryObject%2Did}{?%24expand,%24select}";
+export const DirectoryObjectItemRequestBuilderUriTemplate = "{+baseurl}/invitations/invitedUserSponsors/{directoryObject%2Did}{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
