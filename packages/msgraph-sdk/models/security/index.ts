@@ -10196,7 +10196,7 @@ export interface SslCertificate extends Artifact, Parsable {
      */
     lastSeenDateTime?: Date;
     /**
-     * The hosts related with this sslCertificate.
+     * The host resources related with this sslCertificate.
      */
     relatedHosts?: Host[];
     /**

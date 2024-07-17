@@ -9,7 +9,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
- * Builds and executes requests for operations under /invitations/{invitation-id}/invitedUser/mailboxSettings
+ * Builds and executes requests for operations under /invitations/invitedUser/mailboxSettings
  */
 export interface MailboxSettingsRequestBuilder extends BaseRequestBuilder<MailboxSettingsRequestBuilder> {
     /**
@@ -57,7 +57,7 @@ export interface MailboxSettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/invitations/{invitation%2Did}/invitedUser/mailboxSettings{?%24expand,%24select}";
+export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/invitations/invitedUser/mailboxSettings{?%24expand,%24select}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

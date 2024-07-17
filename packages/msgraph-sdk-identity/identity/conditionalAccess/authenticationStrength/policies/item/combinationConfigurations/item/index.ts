@@ -28,7 +28,7 @@ export interface AuthenticationCombinationConfigurationItemRequestBuilder extend
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationCombinationConfiguration | undefined>;
     /**
-     * Update the properties of an authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be updated as they're the only type of authenticationCombinationConfiguration that may be created.
+     * Update the properties of an authenticationCombinationConfiguration object. The properties can be for one of the following derived types:* fido2combinationConfigurations* x509certificatecombinationconfiguration
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationCombinationConfiguration>}
@@ -49,7 +49,7 @@ export interface AuthenticationCombinationConfigurationItemRequestBuilder extend
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be updated as they're the only type of authenticationCombinationConfiguration that may be created.
+     * Update the properties of an authenticationCombinationConfiguration object. The properties can be for one of the following derived types:* fido2combinationConfigurations* x509certificatecombinationconfiguration
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

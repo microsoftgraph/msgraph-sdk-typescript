@@ -27,7 +27,7 @@ export interface CombinationConfigurationsRequestBuilder extends BaseRequestBuil
      */
      byAuthenticationCombinationConfigurationId(authenticationCombinationConfigurationId: string) : AuthenticationCombinationConfigurationItemRequestBuilder;
     /**
-     * Get the authenticationCombinationConfiguration objects for an authentication strength policy. authenticationCombinationConfiguration represents requirements placed on specific authentication method combinations that require specified variants of those authentication methods to be used when authenticating. Currently, only fido2combinationConfigurations objects are supported. authenticationCombinationConfiguration objects are supported only for custom authentication strengths.
+     * Get the authenticationCombinationConfiguration objects for an authentication strength policy. The objects can be of one or more of the following derived types:* fido2combinationConfigurations* x509certificatecombinationconfiguration authenticationCombinationConfiguration objects are supported only for custom authentication strengths.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationCombinationConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,7 +35,7 @@ export interface CombinationConfigurationsRequestBuilder extends BaseRequestBuil
      */
      get(requestConfiguration?: RequestConfiguration<CombinationConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationCombinationConfigurationCollectionResponse | undefined>;
     /**
-     * Create a new authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be created, and these may only be created for custom authentication strength policies.
+     * Create a new authenticationCombinationConfiguration object which can be of one of the following derived types:* fido2combinationConfiguration* x509certificatecombinationconfiguration
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationCombinationConfiguration>}
@@ -44,13 +44,13 @@ export interface CombinationConfigurationsRequestBuilder extends BaseRequestBuil
      */
      post(body: AuthenticationCombinationConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationCombinationConfiguration | undefined>;
     /**
-     * Get the authenticationCombinationConfiguration objects for an authentication strength policy. authenticationCombinationConfiguration represents requirements placed on specific authentication method combinations that require specified variants of those authentication methods to be used when authenticating. Currently, only fido2combinationConfigurations objects are supported. authenticationCombinationConfiguration objects are supported only for custom authentication strengths.
+     * Get the authenticationCombinationConfiguration objects for an authentication strength policy. The objects can be of one or more of the following derived types:* fido2combinationConfigurations* x509certificatecombinationconfiguration authenticationCombinationConfiguration objects are supported only for custom authentication strengths.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CombinationConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new authenticationCombinationConfiguration object. In use, only fido2combinationConfigurations may be created, and these may only be created for custom authentication strength policies.
+     * Create a new authenticationCombinationConfiguration object which can be of one of the following derived types:* fido2combinationConfiguration* x509certificatecombinationconfiguration
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +58,7 @@ export interface CombinationConfigurationsRequestBuilder extends BaseRequestBuil
      toPostRequestInformation(body: AuthenticationCombinationConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the authenticationCombinationConfiguration objects for an authentication strength policy. authenticationCombinationConfiguration represents requirements placed on specific authentication method combinations that require specified variants of those authentication methods to be used when authenticating. Currently, only fido2combinationConfigurations objects are supported. authenticationCombinationConfiguration objects are supported only for custom authentication strengths.
+ * Get the authenticationCombinationConfiguration objects for an authentication strength policy. The objects can be of one or more of the following derived types:* fido2combinationConfigurations* x509certificatecombinationconfiguration authenticationCombinationConfiguration objects are supported only for custom authentication strengths.
  */
 export interface CombinationConfigurationsRequestBuilderGetQueryParameters {
     /**
