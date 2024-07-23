@@ -6,12 +6,24 @@ import { createVirtualEventRegistrationFromDiscriminatorValue, serializeVirtualE
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { CancelRequestBuilderRequestsMetadata, type CancelRequestBuilder } from './cancel/index.js';
+// @ts-ignore
+import { SessionsRequestBuilderNavigationMetadata, SessionsRequestBuilderRequestsMetadata, type SessionsRequestBuilder } from './sessions/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.
  */
 export interface VirtualEventRegistrationItemRequestBuilder extends BaseRequestBuilder<VirtualEventRegistrationItemRequestBuilder> {
+    /**
+     * Provides operations to call the cancel method.
+     */
+    get cancel(): CancelRequestBuilder;
+    /**
+     * Provides operations to manage the sessions property of the microsoft.graph.virtualEventRegistration entity.
+     */
+    get sessions(): SessionsRequestBuilder;
     /**
      * Delete navigation property registrations for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -77,6 +89,18 @@ export const VirtualEventRegistrationItemRequestBuilderUriTemplate = "{+baseurl}
 const VirtualEventRegistrationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const VirtualEventRegistrationItemRequestBuilderNavigationMetadata: Record<Exclude<keyof VirtualEventRegistrationItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    cancel: {
+        requestsMetadata: CancelRequestBuilderRequestsMetadata,
+    },
+    sessions: {
+        requestsMetadata: SessionsRequestBuilderRequestsMetadata,
+        navigationMetadata: SessionsRequestBuilderNavigationMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.
