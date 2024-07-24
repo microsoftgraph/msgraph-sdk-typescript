@@ -24,8 +24,6 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
     "clean": "rimraf -g **/*.d.ts && rimraf -g **/*.d.ts.map && rimraf -g **/*.js.map && rimraf -g **/*.js && rimraf tsconfig.tsbuildinfo"
   },
   "bugs": {
