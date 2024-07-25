@@ -29,7 +29,114 @@ Register your application by following the steps at [Register your app with the 
 
 An instance of the **GraphServiceClient** class handles building client. To create a new instance of this class, you need to provide an instance of **AuthenticationProvider**, which can authenticate requests to Microsoft Graph.
 
-For an example of how to get an authentication provider, see [choose a Microsoft Graph authentication provider](https://docs.microsoft.com/graph/sdks/choose-authentication-providers?tabs=typescript).
+<!-- TODO restore that and remove the snippets below once the SDK hits GA and the public documentation has been updated -->
+<!-- For an example of how to get an authentication provider, see [choose a Microsoft Graph authentication provider](https://docs.microsoft.com/graph/sdks/choose-authentication-providers?tabs=typescript). -->
+
+#### 2.2.1 Authorization Code Provider
+
+```TypeScript
+// @azure/identity
+const credential = new AuthorizationCodeCredential(
+  'YOUR_TENANT_ID',
+  'YOUR_CLIENT_ID',
+  'YOUR_CLIENT_SECRET',
+  'AUTHORIZATION_CODE',
+  'REDIRECT_URL',
+);
+
+// @microsoft/kiota-authentication-azure
+const authProvider = new AzureIdentityAuthenticationProvider(cred, ["User.Read"]);
+```
+
+#### 2.2.2 Client Credentials Provider
+
+##### With a certificate
+
+```TypeScript
+// @azure/identity
+const credential = new ClientCertificateCredential(
+  'YOUR_TENANT_ID',
+  'YOUR_CLIENT_ID',
+  'YOUR_CERTIFICATE_PATH',
+);
+
+// @microsoft/kiota-authentication-azure
+const authProvider = new AzureIdentityAuthenticationProvider(cred, ["https://graph.microsoft.com/.default"]);
+```
+
+##### With a secret
+
+```TypeScript
+// @azure/identity
+const credential = new ClientSecretCredential(
+  'YOUR_TENANT_ID',
+  'YOUR_CLIENT_ID',
+  'YOUR_CLIENT_SECRET',
+);
+
+// @microsoft/kiota-authentication-azure
+const authProvider = new AzureIdentityAuthenticationProvider(cred, ["https://graph.microsoft.com/.default"]);
+```
+
+#### 2.2.3 On-behalf-of provider
+
+```TypeScript
+// @azure/identity
+const credential = new OnBehalfOfCredential({
+  tenantId: 'YOUR_TENANT_ID',
+  clientId: 'YOUR_CLIENT_ID',
+  clientSecret: 'YOUR_CLIENT_SECRET',
+  userAssertionToken: 'JWT_TOKEN_TO_EXCHANGE',
+});
+
+// @microsoft/kiota-authentication-azure
+const authProvider = new AzureIdentityAuthenticationProvider(cred, ["https://graph.microsoft.com/.default"]);
+```
+
+#### 2.2.4 Device code provider
+
+```TypeScript
+// @azure/identity
+const credential = new DeviceCodeCredential({
+  tenantId: 'YOUR_TENANT_ID',
+  clientId: 'YOUR_CLIENT_ID',
+  userPromptCallback: (info) => {
+    console.log(info.message);
+  },
+});
+
+// @microsoft/kiota-authentication-azure
+const authProvider = new AzureIdentityAuthenticationProvider(cred, ["User.Read"]);
+```
+
+#### 2.2.5 Interactive provider
+
+```TypeScript
+// @azure/identity
+const credential = new InteractiveBrowserCredential({
+  tenantId: 'YOUR_TENANT_ID',
+  clientId: 'YOUR_CLIENT_ID',
+  redirectUri: 'http://localhost',
+});
+
+// @microsoft/kiota-authentication-azure
+const authProvider = new AzureIdentityAuthenticationProvider(cred, ["User.Read"]);
+```
+
+#### 2.2.6 Username/password provider
+
+```TypeScript
+// @azure/identity
+const credential = new UsernamePasswordCredential(
+  'YOUR_TENANT_ID',
+  'YOUR_CLIENT_ID',
+  'YOUR_USER_NAME',
+  'YOUR_PASSWORD',
+);
+
+// @microsoft/kiota-authentication-azure
+const authProvider = new AzureIdentityAuthenticationProvider(cred, ["User.Read"]);
+```
 
 ### 2.3 Get a Graph Service Client Adapter object
 
