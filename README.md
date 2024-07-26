@@ -45,7 +45,7 @@ const credential = new AuthorizationCodeCredential(
 );
 
 // @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(cred, ["User.Read"]);
+const authProvider = new AzureIdentityAuthenticationProvider(credential, ["User.Read"]);
 ```
 
 #### 2.2.2 Client Credentials Provider
@@ -61,7 +61,7 @@ const credential = new ClientCertificateCredential(
 );
 
 // @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(cred, ["https://graph.microsoft.com/.default"]);
+const authProvider = new AzureIdentityAuthenticationProvider(credential, ["https://graph.microsoft.com/.default"]);
 ```
 
 ##### With a secret
@@ -75,7 +75,7 @@ const credential = new ClientSecretCredential(
 );
 
 // @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(cred, ["https://graph.microsoft.com/.default"]);
+const authProvider = new AzureIdentityAuthenticationProvider(credential, ["https://graph.microsoft.com/.default"]);
 ```
 
 #### 2.2.3 On-behalf-of provider
@@ -90,7 +90,7 @@ const credential = new OnBehalfOfCredential({
 });
 
 // @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(cred, ["https://graph.microsoft.com/.default"]);
+const authProvider = new AzureIdentityAuthenticationProvider(credential, ["https://graph.microsoft.com/.default"]);
 ```
 
 #### 2.2.4 Device code provider
@@ -106,7 +106,7 @@ const credential = new DeviceCodeCredential({
 });
 
 // @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(cred, ["User.Read"]);
+const authProvider = new AzureIdentityAuthenticationProvider(credential, ["User.Read"]);
 ```
 
 #### 2.2.5 Interactive provider
@@ -120,7 +120,7 @@ const credential = new InteractiveBrowserCredential({
 });
 
 // @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(cred, ["User.Read"]);
+const authProvider = new AzureIdentityAuthenticationProvider(credential, ["User.Read"]);
 ```
 
 #### 2.2.6 Username/password provider
@@ -135,7 +135,7 @@ const credential = new UsernamePasswordCredential(
 );
 
 // @microsoft/kiota-authentication-azure
-const authProvider = new AzureIdentityAuthenticationProvider(cred, ["User.Read"]);
+const authProvider = new AzureIdentityAuthenticationProvider(credential, ["User.Read"]);
 ```
 
 ### 2.3 Get a Graph Service Client Adapter object
