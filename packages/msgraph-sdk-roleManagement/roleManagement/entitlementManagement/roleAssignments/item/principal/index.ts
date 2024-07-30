@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PrincipalRequestBuilder extends BaseRequestBuilder<PrincipalRequestBuilder> {
     /**
-     * Referencing the assigned principal. Read-only. Supports $expand.
+     * Referencing the assigned principal. Read-only. Supports $expand except for the Exchange provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<PrincipalRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
     /**
-     * Referencing the assigned principal. Read-only. Supports $expand.
+     * Referencing the assigned principal. Read-only. Supports $expand except for the Exchange provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PrincipalRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Referencing the assigned principal. Read-only. Supports $expand.
+ * Referencing the assigned principal. Read-only. Supports $expand except for the Exchange provider.
  */
 export interface PrincipalRequestBuilderGetQueryParameters {
     /**

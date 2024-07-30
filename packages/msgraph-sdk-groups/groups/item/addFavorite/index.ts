@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AddFavoriteRequestBuilder extends BaseRequestBuilder<AddFavoriteRequestBuilder> {
     /**
-     * Add the group to the list of the current user's favorite groups. Supported for Microsoft 365 groups only.
+     * Add the group to the list of the current user's favorite groups.  The group shows up in Outlook and Teams favorites. Supported for Microsoft 365 groups only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/group-addfavorite?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Add the group to the list of the current user's favorite groups. Supported for Microsoft 365 groups only.
+     * Add the group to the list of the current user's favorite groups.  The group shows up in Outlook and Teams favorites. Supported for Microsoft 365 groups only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

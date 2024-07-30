@@ -579,6 +579,50 @@ export interface CloudApplicationEvidence extends AlertEvidence, Parsable {
      */
     stream?: Stream;
 }
+export interface CloudLogonRequestEvidence extends AlertEvidence, Parsable {
+    /**
+     * The unique identifier for the sign-in request.
+     */
+    requestId?: string;
+}
+export interface CloudLogonSessionEvidence extends AlertEvidence, Parsable {
+    /**
+     * The account associated with the sign-in session.
+     */
+    account?: UserEvidence;
+    /**
+     * The browser that is used for the sign-in, if known.
+     */
+    browser?: string;
+    /**
+     * The friendly name of the device, if known.
+     */
+    deviceName?: string;
+    /**
+     * The operating system that the device is running, if known.
+     */
+    operatingSystem?: string;
+    /**
+     * The previous sign-in time for this account, if known.
+     */
+    previousLogonDateTime?: Date;
+    /**
+     * The authentication protocol that is used in this session, if known.
+     */
+    protocol?: string;
+    /**
+     * The session ID for the account reported in the alert.
+     */
+    sessionId?: string;
+    /**
+     * The session start time, if known.
+     */
+    startUtcDateTime?: Date;
+    /**
+     * The user agent that is used for the sign-in, if known.
+     */
+    userAgent?: string;
+}
 export interface ContainerEvidence extends AlertEvidence, Parsable {
     /**
      * The list of arguments.
@@ -671,6 +715,10 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoBlobEvidence;
                 case "#microsoft.graph.security.cloudApplicationEvidence":
                     return deserializeIntoCloudApplicationEvidence;
+                case "#microsoft.graph.security.cloudLogonRequestEvidence":
+                    return deserializeIntoCloudLogonRequestEvidence;
+                case "#microsoft.graph.security.cloudLogonSessionEvidence":
+                    return deserializeIntoCloudLogonSessionEvidence;
                 case "#microsoft.graph.security.containerEvidence":
                     return deserializeIntoContainerEvidence;
                 case "#microsoft.graph.security.containerImageEvidence":
@@ -996,6 +1044,22 @@ export function createCitationTemplateFromDiscriminatorValue(parseNode: ParseNod
  */
 export function createCloudApplicationEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCloudApplicationEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CloudLogonRequestEvidence}
+ */
+export function createCloudLogonRequestEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCloudLogonRequestEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CloudLogonSessionEvidence}
+ */
+export function createCloudLogonSessionEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCloudLogonSessionEvidence;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -3016,6 +3080,34 @@ export function deserializeIntoCloudApplicationEvidence(cloudApplicationEvidence
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+export function deserializeIntoCloudLogonRequestEvidence(cloudLogonRequestEvidence: Partial<CloudLogonRequestEvidence> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(cloudLogonRequestEvidence),
+        "requestId": n => { cloudLogonRequestEvidence.requestId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+export function deserializeIntoCloudLogonSessionEvidence(cloudLogonSessionEvidence: Partial<CloudLogonSessionEvidence> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAlertEvidence(cloudLogonSessionEvidence),
+        "account": n => { cloudLogonSessionEvidence.account = n.getObjectValue<UserEvidence>(createUserEvidenceFromDiscriminatorValue); },
+        "browser": n => { cloudLogonSessionEvidence.browser = n.getStringValue(); },
+        "deviceName": n => { cloudLogonSessionEvidence.deviceName = n.getStringValue(); },
+        "operatingSystem": n => { cloudLogonSessionEvidence.operatingSystem = n.getStringValue(); },
+        "previousLogonDateTime": n => { cloudLogonSessionEvidence.previousLogonDateTime = n.getDateValue(); },
+        "protocol": n => { cloudLogonSessionEvidence.protocol = n.getStringValue(); },
+        "sessionId": n => { cloudLogonSessionEvidence.sessionId = n.getStringValue(); },
+        "startUtcDateTime": n => { cloudLogonSessionEvidence.startUtcDateTime = n.getDateValue(); },
+        "userAgent": n => { cloudLogonSessionEvidence.userAgent = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
 export function deserializeIntoContainerEvidence(containerEvidence: Partial<ContainerEvidence> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoAlertEvidence(containerEvidence),
@@ -4142,6 +4234,7 @@ export function deserializeIntoIncident(incident: Partial<Incident> | undefined 
         "resolvingComment": n => { incident.resolvingComment = n.getStringValue(); },
         "severity": n => { incident.severity = n.getEnumValue<AlertSeverity>(AlertSeverityObject); },
         "status": n => { incident.status = n.getEnumValue<IncidentStatus>(IncidentStatusObject); },
+        "summary": n => { incident.summary = n.getStringValue(); },
         "systemTags": n => { incident.systemTags = n.getCollectionOfPrimitiveValues<string>(); },
         "tenantId": n => { incident.tenantId = n.getStringValue(); },
     }
@@ -6777,6 +6870,10 @@ export interface Incident extends Entity, Parsable {
      */
     status?: IncidentStatus;
     /**
+     * The overview of an attack. When applicable, the summary contains details of what occurred, impacted assets, and the type of attack.
+     */
+    summary?: string;
+    /**
      * The system tags associated with the incident.
      */
     systemTags?: string[];
@@ -8180,6 +8277,30 @@ export function serializeCloudApplicationEvidence(writer: SerializationWriter, c
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+export function serializeCloudLogonRequestEvidence(writer: SerializationWriter, cloudLogonRequestEvidence: Partial<CloudLogonRequestEvidence> | undefined = {}) : void {
+    serializeAlertEvidence(writer, cloudLogonRequestEvidence)
+    writer.writeStringValue("requestId", cloudLogonRequestEvidence.requestId);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+export function serializeCloudLogonSessionEvidence(writer: SerializationWriter, cloudLogonSessionEvidence: Partial<CloudLogonSessionEvidence> | undefined = {}) : void {
+    serializeAlertEvidence(writer, cloudLogonSessionEvidence)
+    writer.writeObjectValue<UserEvidence>("account", cloudLogonSessionEvidence.account, serializeUserEvidence);
+    writer.writeStringValue("browser", cloudLogonSessionEvidence.browser);
+    writer.writeStringValue("deviceName", cloudLogonSessionEvidence.deviceName);
+    writer.writeStringValue("operatingSystem", cloudLogonSessionEvidence.operatingSystem);
+    writer.writeDateValue("previousLogonDateTime", cloudLogonSessionEvidence.previousLogonDateTime);
+    writer.writeStringValue("protocol", cloudLogonSessionEvidence.protocol);
+    writer.writeStringValue("sessionId", cloudLogonSessionEvidence.sessionId);
+    writer.writeDateValue("startUtcDateTime", cloudLogonSessionEvidence.startUtcDateTime);
+    writer.writeStringValue("userAgent", cloudLogonSessionEvidence.userAgent);
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
 export function serializeContainerEvidence(writer: SerializationWriter, containerEvidence: Partial<ContainerEvidence> | undefined = {}) : void {
     serializeAlertEvidence(writer, containerEvidence)
     writer.writeCollectionOfPrimitiveValues<string>("args", containerEvidence.args);
@@ -9127,6 +9248,7 @@ export function serializeIncident(writer: SerializationWriter, incident: Partial
     writer.writeStringValue("resolvingComment", incident.resolvingComment);
     writer.writeEnumValue<AlertSeverity>("severity", incident.severity);
     writer.writeEnumValue<IncidentStatus>("status", incident.status);
+    writer.writeStringValue("summary", incident.summary);
     writer.writeCollectionOfPrimitiveValues<string>("systemTags", incident.systemTags);
     writer.writeStringValue("tenantId", incident.tenantId);
 }

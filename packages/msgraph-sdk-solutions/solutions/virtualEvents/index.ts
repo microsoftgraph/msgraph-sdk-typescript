@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { EventsRequestBuilderNavigationMetadata, EventsRequestBuilderRequestsMetadata, type EventsRequestBuilder } from './events/index.js';
 // @ts-ignore
+import { TownhallsRequestBuilderNavigationMetadata, TownhallsRequestBuilderRequestsMetadata, type TownhallsRequestBuilder } from './townhalls/index.js';
+// @ts-ignore
 import { type WebinarsRequestBuilder, WebinarsRequestBuilderNavigationMetadata, WebinarsRequestBuilderRequestsMetadata } from './webinars/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -20,6 +22,10 @@ export interface VirtualEventsRequestBuilder extends BaseRequestBuilder<VirtualE
      * Provides operations to manage the events property of the microsoft.graph.virtualEventsRoot entity.
      */
     get events(): EventsRequestBuilder;
+    /**
+     * Provides operations to manage the townhalls property of the microsoft.graph.virtualEventsRoot entity.
+     */
+    get townhalls(): TownhallsRequestBuilder;
     /**
      * Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
      */
@@ -96,6 +102,10 @@ export const VirtualEventsRequestBuilderNavigationMetadata: Record<Exclude<keyof
     events: {
         requestsMetadata: EventsRequestBuilderRequestsMetadata,
         navigationMetadata: EventsRequestBuilderNavigationMetadata,
+    },
+    townhalls: {
+        requestsMetadata: TownhallsRequestBuilderRequestsMetadata,
+        navigationMetadata: TownhallsRequestBuilderNavigationMetadata,
     },
     webinars: {
         requestsMetadata: WebinarsRequestBuilderRequestsMetadata,

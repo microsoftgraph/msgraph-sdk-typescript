@@ -6,7 +6,15 @@ import { createVirtualEventWebinarFromDiscriminatorValue, serializeVirtualEventW
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { PresentersRequestBuilderNavigationMetadata, PresentersRequestBuilderRequestsMetadata, type PresentersRequestBuilder } from './presenters/index.js';
+// @ts-ignore
+import { RegistrationConfigurationRequestBuilderNavigationMetadata, RegistrationConfigurationRequestBuilderRequestsMetadata, type RegistrationConfigurationRequestBuilder } from './registrationConfiguration/index.js';
+// @ts-ignore
 import { RegistrationsRequestBuilderNavigationMetadata, RegistrationsRequestBuilderRequestsMetadata, type RegistrationsRequestBuilder } from './registrations/index.js';
+// @ts-ignore
+import { RegistrationsWithEmailRequestBuilderNavigationMetadata, RegistrationsWithEmailRequestBuilderRequestsMetadata, type RegistrationsWithEmailRequestBuilder } from './registrationsWithEmail/index.js';
+// @ts-ignore
+import { RegistrationsWithUserIdRequestBuilderNavigationMetadata, RegistrationsWithUserIdRequestBuilderRequestsMetadata, type RegistrationsWithUserIdRequestBuilder } from './registrationsWithUserId/index.js';
 // @ts-ignore
 import { SessionsRequestBuilderNavigationMetadata, SessionsRequestBuilderRequestsMetadata, type SessionsRequestBuilder } from './sessions/index.js';
 // @ts-ignore
@@ -16,6 +24,14 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the webinars property of the microsoft.graph.virtualEventsRoot entity.
  */
 export interface VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilder<VirtualEventWebinarItemRequestBuilder> {
+    /**
+     * Provides operations to manage the presenters property of the microsoft.graph.virtualEvent entity.
+     */
+    get presenters(): PresentersRequestBuilder;
+    /**
+     * Provides operations to manage the registrationConfiguration property of the microsoft.graph.virtualEventWebinar entity.
+     */
+    get registrationConfiguration(): RegistrationConfigurationRequestBuilder;
     /**
      * Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.
      */
@@ -46,6 +62,18 @@ export interface VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilde
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: VirtualEventWebinar, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventWebinar | undefined>;
+    /**
+     * Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.
+     * @param email Alternate key of virtualEventRegistration
+     * @returns {RegistrationsWithEmailRequestBuilder}
+     */
+     registrationsWithEmail(email: string | undefined) : RegistrationsWithEmailRequestBuilder;
+    /**
+     * Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.
+     * @param userId Alternate key of virtualEventRegistration
+     * @returns {RegistrationsWithUserIdRequestBuilder}
+     */
+     registrationsWithUserId(userId: string | undefined) : RegistrationsWithUserIdRequestBuilder;
     /**
      * Delete navigation property webinars for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -94,6 +122,22 @@ const VirtualEventWebinarItemRequestBuilderGetQueryParametersMapper: Record<stri
  * Metadata for all the navigation properties in the request builder.
  */
 export const VirtualEventWebinarItemRequestBuilderNavigationMetadata: Record<Exclude<keyof VirtualEventWebinarItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    registrationsWithEmail: {
+        requestsMetadata: RegistrationsWithEmailRequestBuilderRequestsMetadata,
+        navigationMetadata: RegistrationsWithEmailRequestBuilderNavigationMetadata,
+    },
+    registrationsWithUserId: {
+        requestsMetadata: RegistrationsWithUserIdRequestBuilderRequestsMetadata,
+        navigationMetadata: RegistrationsWithUserIdRequestBuilderNavigationMetadata,
+    },
+    presenters: {
+        requestsMetadata: PresentersRequestBuilderRequestsMetadata,
+        navigationMetadata: PresentersRequestBuilderNavigationMetadata,
+    },
+    registrationConfiguration: {
+        requestsMetadata: RegistrationConfigurationRequestBuilderRequestsMetadata,
+        navigationMetadata: RegistrationConfigurationRequestBuilderNavigationMetadata,
+    },
     registrations: {
         requestsMetadata: RegistrationsRequestBuilderRequestsMetadata,
         navigationMetadata: RegistrationsRequestBuilderNavigationMetadata,

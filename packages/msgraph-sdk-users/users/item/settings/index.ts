@@ -6,7 +6,11 @@ import { createUserSettingsFromDiscriminatorValue, serializeUserSettings, type U
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { ItemInsightsRequestBuilderRequestsMetadata, type ItemInsightsRequestBuilder } from './itemInsights/index.js';
+// @ts-ignore
 import { ShiftPreferencesRequestBuilderRequestsMetadata, type ShiftPreferencesRequestBuilder } from './shiftPreferences/index.js';
+// @ts-ignore
+import { StorageRequestBuilderNavigationMetadata, StorageRequestBuilderRequestsMetadata, type StorageRequestBuilder } from './storage/index.js';
 // @ts-ignore
 import { type WindowsRequestBuilder, WindowsRequestBuilderNavigationMetadata, WindowsRequestBuilderRequestsMetadata } from './windows/index.js';
 // @ts-ignore
@@ -17,9 +21,17 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  */
 export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsRequestBuilder> {
     /**
+     * Provides operations to manage the itemInsights property of the microsoft.graph.userSettings entity.
+     */
+    get itemInsights(): ItemInsightsRequestBuilder;
+    /**
      * Provides operations to manage the shiftPreferences property of the microsoft.graph.userSettings entity.
      */
     get shiftPreferences(): ShiftPreferencesRequestBuilder;
+    /**
+     * Provides operations to manage the storage property of the microsoft.graph.userSettings entity.
+     */
+    get storage(): StorageRequestBuilder;
     /**
      * Provides operations to manage the windows property of the microsoft.graph.userSettings entity.
      */
@@ -93,8 +105,15 @@ const SettingsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const SettingsRequestBuilderNavigationMetadata: Record<Exclude<keyof SettingsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    itemInsights: {
+        requestsMetadata: ItemInsightsRequestBuilderRequestsMetadata,
+    },
     shiftPreferences: {
         requestsMetadata: ShiftPreferencesRequestBuilderRequestsMetadata,
+    },
+    storage: {
+        requestsMetadata: StorageRequestBuilderRequestsMetadata,
+        navigationMetadata: StorageRequestBuilderNavigationMetadata,
     },
     windows: {
         requestsMetadata: WindowsRequestBuilderRequestsMetadata,

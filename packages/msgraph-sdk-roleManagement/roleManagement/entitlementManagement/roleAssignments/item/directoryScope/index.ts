@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DirectoryScopeRequestBuilder extends BaseRequestBuilder<DirectoryScopeRequestBuilder> {
     /**
-     * The directory object that is the scope of the assignment. Read-only. Supports $expand.
+     * The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<DirectoryScopeRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
     /**
-     * The directory object that is the scope of the assignment. Read-only. Supports $expand.
+     * The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DirectoryScopeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The directory object that is the scope of the assignment. Read-only. Supports $expand.
+ * The directory object that is the scope of the assignment. Read-only. Supports $expand for the directory provider.
  */
 export interface DirectoryScopeRequestBuilderGetQueryParameters {
     /**
