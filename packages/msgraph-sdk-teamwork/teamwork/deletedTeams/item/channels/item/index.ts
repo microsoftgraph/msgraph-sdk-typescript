@@ -6,6 +6,8 @@ import { createChannelFromDiscriminatorValue, serializeChannel, type Channel } f
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { ArchiveRequestBuilderRequestsMetadata, type ArchiveRequestBuilder } from './archive/index.js';
+// @ts-ignore
 import { CompleteMigrationRequestBuilderRequestsMetadata, type CompleteMigrationRequestBuilder } from './completeMigration/index.js';
 // @ts-ignore
 import { DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderRequestsMetadata, type DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder } from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/index.js';
@@ -24,12 +26,18 @@ import { SharedWithTeamsRequestBuilderNavigationMetadata, SharedWithTeamsRequest
 // @ts-ignore
 import { TabsRequestBuilderNavigationMetadata, TabsRequestBuilderRequestsMetadata, type TabsRequestBuilder } from './tabs/index.js';
 // @ts-ignore
+import { type UnarchiveRequestBuilder, UnarchiveRequestBuilderRequestsMetadata } from './unarchive/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity.
  */
 export interface ChannelItemRequestBuilder extends BaseRequestBuilder<ChannelItemRequestBuilder> {
+    /**
+     * Provides operations to call the archive method.
+     */
+    get archive(): ArchiveRequestBuilder;
     /**
      * Provides operations to call the completeMigration method.
      */
@@ -66,6 +74,10 @@ export interface ChannelItemRequestBuilder extends BaseRequestBuilder<ChannelIte
      * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
      */
     get tabs(): TabsRequestBuilder;
+    /**
+     * Provides operations to call the unarchive method.
+     */
+    get unarchive(): UnarchiveRequestBuilder;
     /**
      * Delete navigation property channels for teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -135,6 +147,9 @@ const ChannelItemRequestBuilderGetQueryParametersMapper: Record<string, string> 
  * Metadata for all the navigation properties in the request builder.
  */
 export const ChannelItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ChannelItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    archive: {
+        requestsMetadata: ArchiveRequestBuilderRequestsMetadata,
+    },
     completeMigration: {
         requestsMetadata: CompleteMigrationRequestBuilderRequestsMetadata,
     },
@@ -166,6 +181,9 @@ export const ChannelItemRequestBuilderNavigationMetadata: Record<Exclude<keyof C
     tabs: {
         requestsMetadata: TabsRequestBuilderRequestsMetadata,
         navigationMetadata: TabsRequestBuilderNavigationMetadata,
+    },
+    unarchive: {
+        requestsMetadata: UnarchiveRequestBuilderRequestsMetadata,
     },
 };
 /**

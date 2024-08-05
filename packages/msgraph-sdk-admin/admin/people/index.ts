@@ -6,6 +6,8 @@ import { createPeopleAdminSettingsFromDiscriminatorValue, type PeopleAdminSettin
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { ItemInsightsRequestBuilderRequestsMetadata, type ItemInsightsRequestBuilder } from './itemInsights/index.js';
+// @ts-ignore
 import { ProfileCardPropertiesRequestBuilderNavigationMetadata, ProfileCardPropertiesRequestBuilderRequestsMetadata, type ProfileCardPropertiesRequestBuilder } from './profileCardProperties/index.js';
 // @ts-ignore
 import { PronounsRequestBuilderRequestsMetadata, type PronounsRequestBuilder } from './pronouns/index.js';
@@ -16,6 +18,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the people property of the microsoft.graph.admin entity.
  */
 export interface PeopleRequestBuilder extends BaseRequestBuilder<PeopleRequestBuilder> {
+    /**
+     * Provides operations to manage the itemInsights property of the microsoft.graph.peopleAdminSettings entity.
+     */
+    get itemInsights(): ItemInsightsRequestBuilder;
     /**
      * Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.
      */
@@ -67,6 +73,9 @@ const PeopleRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const PeopleRequestBuilderNavigationMetadata: Record<Exclude<keyof PeopleRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    itemInsights: {
+        requestsMetadata: ItemInsightsRequestBuilderRequestsMetadata,
+    },
     profileCardProperties: {
         requestsMetadata: ProfileCardPropertiesRequestBuilderRequestsMetadata,
         navigationMetadata: ProfileCardPropertiesRequestBuilderNavigationMetadata,

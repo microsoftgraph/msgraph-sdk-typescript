@@ -10,6 +10,8 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 // @ts-ignore
 import { GetAllMessagesRequestBuilderRequestsMetadata, type GetAllMessagesRequestBuilder } from './getAllMessages/index.js';
 // @ts-ignore
+import { GetAllRetainedMessagesRequestBuilderRequestsMetadata, type GetAllRetainedMessagesRequestBuilder } from './getAllRetainedMessages/index.js';
+// @ts-ignore
 import { ChannelItemRequestBuilderNavigationMetadata, ChannelItemRequestBuilderRequestsMetadata, type ChannelItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -26,6 +28,10 @@ export interface ChannelsRequestBuilder extends BaseRequestBuilder<ChannelsReque
      * Provides operations to call the getAllMessages method.
      */
     get getAllMessages(): GetAllMessagesRequestBuilder;
+    /**
+     * Provides operations to call the getAllRetainedMessages method.
+     */
+    get getAllRetainedMessages(): GetAllRetainedMessagesRequestBuilder;
     /**
      * Provides operations to manage the channels property of the microsoft.graph.team entity.
      * @param channelId The unique identifier of channel
@@ -131,6 +137,9 @@ export const ChannelsRequestBuilderNavigationMetadata: Record<Exclude<keyof Chan
     },
     getAllMessages: {
         requestsMetadata: GetAllMessagesRequestBuilderRequestsMetadata,
+    },
+    getAllRetainedMessages: {
+        requestsMetadata: GetAllRetainedMessagesRequestBuilderRequestsMetadata,
     },
 };
 /**

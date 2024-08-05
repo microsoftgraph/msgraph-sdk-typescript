@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RoleDefinitionRequestBuilder extends BaseRequestBuilder<RoleDefinitionRequestBuilder> {
     /**
-     * The roleDefinition the assignment is for.  Supports $expand.
+     * The roleDefinition the assignment is for. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<RoleDefinitionRequestBuilderGetQueryParameters> | undefined) : Promise<UnifiedRoleDefinition | undefined>;
     /**
-     * The roleDefinition the assignment is for.  Supports $expand.
+     * The roleDefinition the assignment is for. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleDefinitionRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The roleDefinition the assignment is for.  Supports $expand.
+ * The roleDefinition the assignment is for. Supports $expand.
  */
 export interface RoleDefinitionRequestBuilderGetQueryParameters {
     /**

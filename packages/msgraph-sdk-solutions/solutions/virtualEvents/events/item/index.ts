@@ -6,6 +6,12 @@ import { createVirtualEventFromDiscriminatorValue, serializeVirtualEvent, type V
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { CancelRequestBuilderRequestsMetadata, type CancelRequestBuilder } from './cancel/index.js';
+// @ts-ignore
+import { PresentersRequestBuilderNavigationMetadata, PresentersRequestBuilderRequestsMetadata, type PresentersRequestBuilder } from './presenters/index.js';
+// @ts-ignore
+import { PublishRequestBuilderRequestsMetadata, type PublishRequestBuilder } from './publish/index.js';
+// @ts-ignore
 import { SessionsRequestBuilderNavigationMetadata, SessionsRequestBuilderRequestsMetadata, type SessionsRequestBuilder } from './sessions/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +20,18 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the events property of the microsoft.graph.virtualEventsRoot entity.
  */
 export interface VirtualEventItemRequestBuilder extends BaseRequestBuilder<VirtualEventItemRequestBuilder> {
+    /**
+     * Provides operations to call the cancel method.
+     */
+    get cancel(): CancelRequestBuilder;
+    /**
+     * Provides operations to manage the presenters property of the microsoft.graph.virtualEvent entity.
+     */
+    get presenters(): PresentersRequestBuilder;
+    /**
+     * Provides operations to call the publish method.
+     */
+    get publish(): PublishRequestBuilder;
     /**
      * Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
      */
@@ -87,6 +105,16 @@ const VirtualEventItemRequestBuilderGetQueryParametersMapper: Record<string, str
  * Metadata for all the navigation properties in the request builder.
  */
 export const VirtualEventItemRequestBuilderNavigationMetadata: Record<Exclude<keyof VirtualEventItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    cancel: {
+        requestsMetadata: CancelRequestBuilderRequestsMetadata,
+    },
+    presenters: {
+        requestsMetadata: PresentersRequestBuilderRequestsMetadata,
+        navigationMetadata: PresentersRequestBuilderNavigationMetadata,
+    },
+    publish: {
+        requestsMetadata: PublishRequestBuilderRequestsMetadata,
+    },
     sessions: {
         requestsMetadata: SessionsRequestBuilderRequestsMetadata,
         navigationMetadata: SessionsRequestBuilderNavigationMetadata,

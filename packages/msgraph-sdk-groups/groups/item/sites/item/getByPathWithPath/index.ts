@@ -26,8 +26,6 @@ import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequ
 // @ts-ignore
 import { GetApplicableContentTypesForListWithListIdRequestBuilderRequestsMetadata, type GetApplicableContentTypesForListWithListIdRequestBuilder } from './getApplicableContentTypesForListWithListId/index.js';
 // @ts-ignore
-import { GetByPathWithPath1RequestBuilderNavigationMetadata, GetByPathWithPath1RequestBuilderRequestsMetadata, type GetByPathWithPath1RequestBuilder } from './getByPathWithPath1/index.js';
-// @ts-ignore
 import { ItemsRequestBuilderRequestsMetadata, type ItemsRequestBuilder } from './items/index.js';
 // @ts-ignore
 import { LastModifiedByUserRequestBuilderRequestsMetadata, type LastModifiedByUserRequestBuilder } from './lastModifiedByUser/index.js';
@@ -148,12 +146,6 @@ export interface GetByPathWithPathRequestBuilder extends BaseRequestBuilder<GetB
      */
      getApplicableContentTypesForListWithListId(listId: string | undefined) : GetApplicableContentTypesForListWithListIdRequestBuilder;
     /**
-     * Provides operations to call the getByPath method.
-     * @param path1 Usage: path='{path1}'
-     * @returns {GetByPathWithPath1RequestBuilder}
-     */
-     getByPathWithPath1(path1: string | undefined) : GetByPathWithPath1RequestBuilder;
-    /**
      * Invoke function getByPath
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -173,10 +165,6 @@ export const GetByPathWithPathRequestBuilderNavigationMetadata: Record<Exclude<k
     },
     getApplicableContentTypesForListWithListId: {
         requestsMetadata: GetApplicableContentTypesForListWithListIdRequestBuilderRequestsMetadata,
-    },
-    getByPathWithPath1: {
-        requestsMetadata: GetByPathWithPath1RequestBuilderRequestsMetadata,
-        navigationMetadata: GetByPathWithPath1RequestBuilderNavigationMetadata,
     },
     analytics: {
         requestsMetadata: AnalyticsRequestBuilderRequestsMetadata,

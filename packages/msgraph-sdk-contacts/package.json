@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-contacts",
-  "version": "1.0.0-preview.25",
+  "version": "1.0.0-preview.26",
   "description": "Contacts fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
@@ -35,7 +35,7 @@
     "@microsoft/kiota-serialization-json": "^1.0.0-preview.39",
     "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.18",
     "@microsoft/kiota-serialization-text": "^1.0.0-preview.36",
-    "@microsoft/msgraph-sdk": "^1.0.0-preview.25",
+    "@microsoft/msgraph-sdk": "^1.0.0-preview.26",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
   },
