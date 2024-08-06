@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface VirtualEventPresenterItemRequestBuilder extends BaseRequestBuilder<VirtualEventPresenterItemRequestBuilder> {
     /**
-     * Delete navigation property presenters for solutions
+     * Delete a virtualEventPresenter from a virtual event. Currently the supported virtual event types are:- virtualEventTownhall- virtualEventWebinar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventpresenter-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get presenters from solutions
+     * Read the properties and relationships of a virtualEventPresenter object. Currently the supported virtual event types are: - virtualEventTownhall- virtualEventWebinar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventPresenter>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventpresenter-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VirtualEventPresenterItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventPresenter | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface VirtualEventPresenterItemRequestBuilder extends BaseRequestBuil
      */
      patch(body: VirtualEventPresenter, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventPresenter | undefined>;
     /**
-     * Delete navigation property presenters for solutions
+     * Delete a virtualEventPresenter from a virtual event. Currently the supported virtual event types are:- virtualEventTownhall- virtualEventWebinar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get presenters from solutions
+     * Read the properties and relationships of a virtualEventPresenter object. Currently the supported virtual event types are: - virtualEventTownhall- virtualEventWebinar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface VirtualEventPresenterItemRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: VirtualEventPresenter, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get presenters from solutions
+ * Read the properties and relationships of a virtualEventPresenter object. Currently the supported virtual event types are: - virtualEventTownhall- virtualEventWebinar
  */
 export interface VirtualEventPresenterItemRequestBuilderGetQueryParameters {
     /**

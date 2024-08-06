@@ -49,7 +49,7 @@ export interface WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents a collection of all the columns in the table. Read-only.
+     * The list of all the columns in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableColumn>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -70,7 +70,7 @@ export interface WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents a collection of all the columns in the table. Read-only.
+     * The list of all the columns in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -84,7 +84,7 @@ export interface WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: WorkbookTableColumn, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents a collection of all the columns in the table. Read-only.
+ * The list of all the columns in the table. Read-only.
  */
 export interface WorkbookTableColumnItemRequestBuilderGetQueryParameters {
     /**

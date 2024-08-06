@@ -27,7 +27,7 @@ export interface RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequest
      */
      byWorkbookCommentReplyId(workbookCommentReplyId: string) : WorkbookCommentReplyItemRequestBuilder;
     /**
-     * Get replies from drives
+     * The list of replies to the comment. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookCommentReplyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequest
      */
      post(body: WorkbookCommentReply, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookCommentReply | undefined>;
     /**
-     * Get replies from drives
+     * The list of replies to the comment. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface RepliesRequestBuilder extends BaseRequestBuilder<RepliesRequest
      toPostRequestInformation(body: WorkbookCommentReply, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get replies from drives
+ * The list of replies to the comment. Read-only. Nullable.
  */
 export interface RepliesRequestBuilderGetQueryParameters {
     /**

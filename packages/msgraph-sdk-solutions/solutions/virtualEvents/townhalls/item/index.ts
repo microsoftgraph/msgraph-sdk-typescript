@@ -31,18 +31,20 @@ export interface VirtualEventTownhallItemRequestBuilder extends BaseRequestBuild
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get townhalls from solutions
+     * Read the properties and relationships of a virtualEventTownhall object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventTownhall>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventtownhall-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<VirtualEventTownhallItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventTownhall | undefined>;
     /**
-     * Update the navigation property townhalls in solutions
+     * Update the properties of a virtualEventTownhall object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventTownhall>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventtownhall-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: VirtualEventTownhall, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventTownhall | undefined>;
     /**
@@ -52,13 +54,13 @@ export interface VirtualEventTownhallItemRequestBuilder extends BaseRequestBuild
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get townhalls from solutions
+     * Read the properties and relationships of a virtualEventTownhall object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<VirtualEventTownhallItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property townhalls in solutions
+     * Update the properties of a virtualEventTownhall object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +68,7 @@ export interface VirtualEventTownhallItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: VirtualEventTownhall, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get townhalls from solutions
+ * Read the properties and relationships of a virtualEventTownhall object.
  */
 export interface VirtualEventTownhallItemRequestBuilderGetQueryParameters {
     /**
