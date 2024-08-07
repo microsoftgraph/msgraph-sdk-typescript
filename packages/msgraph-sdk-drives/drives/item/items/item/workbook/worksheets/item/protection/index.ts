@@ -31,7 +31,7 @@ export interface ProtectionRequestBuilder extends BaseRequestBuilder<ProtectionR
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Returns sheet protection object for a worksheet. Read-only.
+     * The sheet protection object for a worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookWorksheetProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface ProtectionRequestBuilder extends BaseRequestBuilder<ProtectionR
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Returns sheet protection object for a worksheet. Read-only.
+     * The sheet protection object for a worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface ProtectionRequestBuilder extends BaseRequestBuilder<ProtectionR
      toPatchRequestInformation(body: WorkbookWorksheetProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Returns sheet protection object for a worksheet. Read-only.
+ * The sheet protection object for a worksheet. Read-only.
  */
 export interface ProtectionRequestBuilderGetQueryParameters {
     /**

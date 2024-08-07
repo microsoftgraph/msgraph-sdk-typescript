@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RowsRequestBuilder extends BaseRequestBuilder<RowsRequestBuilder> {
     /**
-     * Represents a collection of all the rows in the table. Read-only.
+     * The list of all the rows in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableRowCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -28,7 +28,7 @@ export interface RowsRequestBuilder extends BaseRequestBuilder<RowsRequestBuilde
      */
      post(body: WorkbookTableRow, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTableRow | undefined>;
     /**
-     * Represents a collection of all the rows in the table. Read-only.
+     * The list of all the rows in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -42,7 +42,7 @@ export interface RowsRequestBuilder extends BaseRequestBuilder<RowsRequestBuilde
      toPostRequestInformation(body: WorkbookTableRow, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents a collection of all the rows in the table. Read-only.
+ * The list of all the rows in the table. Read-only.
  */
 export interface RowsRequestBuilderGetQueryParameters {
     /**

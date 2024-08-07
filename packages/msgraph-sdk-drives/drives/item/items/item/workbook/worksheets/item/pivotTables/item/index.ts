@@ -31,7 +31,7 @@ export interface WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Collection of PivotTables that are part of the worksheet.
+     * The list of piot tables that are part of the worksheet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookPivotTable>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Collection of PivotTables that are part of the worksheet.
+     * The list of piot tables that are part of the worksheet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: WorkbookPivotTable, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Collection of PivotTables that are part of the worksheet.
+ * The list of piot tables that are part of the worksheet.
  */
 export interface WorkbookPivotTableItemRequestBuilderGetQueryParameters {
     /**

@@ -25,7 +25,7 @@ export interface WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents a collection of all points in the series. Read-only.
+     * A collection of all points in the series. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartPoint>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents a collection of all points in the series. Read-only.
+     * A collection of all points in the series. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents a collection of all points in the series. Read-only.
+ * A collection of all points in the series. Read-only.
  */
 export interface WorkbookChartPointItemRequestBuilderGetQueryParameters {
     /**

@@ -25,7 +25,7 @@ export interface VirtualEventSessionItemRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a virtualEventSession object.
+     * Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: - virtualEventTownhall- virtualEventWebinar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventSession>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -47,7 +47,7 @@ export interface VirtualEventSessionItemRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a virtualEventSession object.
+     * Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: - virtualEventTownhall- virtualEventWebinar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -61,7 +61,7 @@ export interface VirtualEventSessionItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: VirtualEventSession, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a virtualEventSession object.
+ * Read the properties and relationships of a virtualEventSession object.  Currently, the following virtual event types are supported: - virtualEventTownhall- virtualEventWebinar
  */
 export interface VirtualEventSessionItemRequestBuilderGetQueryParameters {
     /**

@@ -85,7 +85,7 @@ export interface WorkbookTableItemRequestBuilder extends BaseRequestBuilder<Work
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Collection of tables that are part of the worksheet. Read-only.
+     * The list of tables that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTable>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -106,7 +106,7 @@ export interface WorkbookTableItemRequestBuilder extends BaseRequestBuilder<Work
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Collection of tables that are part of the worksheet. Read-only.
+     * The list of tables that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -120,7 +120,7 @@ export interface WorkbookTableItemRequestBuilder extends BaseRequestBuilder<Work
      toPatchRequestInformation(body: WorkbookTable, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Collection of tables that are part of the worksheet. Read-only.
+ * The list of tables that are part of the worksheet. Read-only.
  */
 export interface WorkbookTableItemRequestBuilderGetQueryParameters {
     /**

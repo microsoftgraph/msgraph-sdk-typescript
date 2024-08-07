@@ -19,18 +19,19 @@ export interface VirtualEventPresenterItemRequestBuilder extends BaseRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get presenters from solutions
+     * The virtual event presenters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventPresenter>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<VirtualEventPresenterItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventPresenter | undefined>;
     /**
-     * Update the navigation property presenters in solutions
+     * Update the properties of a virtualEventPresenter object. Currently the supported virtual event types are:- virtualEventWebinar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventPresenter>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventpresenter-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: VirtualEventPresenter, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventPresenter | undefined>;
     /**
@@ -40,13 +41,13 @@ export interface VirtualEventPresenterItemRequestBuilder extends BaseRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get presenters from solutions
+     * The virtual event presenters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<VirtualEventPresenterItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property presenters in solutions
+     * Update the properties of a virtualEventPresenter object. Currently the supported virtual event types are:- virtualEventWebinar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +55,7 @@ export interface VirtualEventPresenterItemRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: VirtualEventPresenter, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get presenters from solutions
+ * The virtual event presenters.
  */
 export interface VirtualEventPresenterItemRequestBuilderGetQueryParameters {
     /**

@@ -29,7 +29,7 @@ export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBu
      */
      byWorkbookChartPointId(workbookChartPointId: string) : WorkbookChartPointItemRequestBuilder;
     /**
-     * Represents a collection of all points in the series. Read-only.
+     * A collection of all points in the series. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartPointCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -50,7 +50,7 @@ export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBu
      */
      post(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChartPoint | undefined>;
     /**
-     * Represents a collection of all points in the series. Read-only.
+     * A collection of all points in the series. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -64,7 +64,7 @@ export interface PointsRequestBuilder extends BaseRequestBuilder<PointsRequestBu
      toPostRequestInformation(body: WorkbookChartPoint, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents a collection of all points in the series. Read-only.
+ * A collection of all points in the series. Read-only.
  */
 export interface PointsRequestBuilderGetQueryParameters {
     /**

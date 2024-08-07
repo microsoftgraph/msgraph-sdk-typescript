@@ -85,7 +85,7 @@ export interface WorkbookChartItemRequestBuilder extends BaseRequestBuilder<Work
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Returns collection of charts that are part of the worksheet. Read-only.
+     * The list of charts that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChart>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -127,7 +127,7 @@ export interface WorkbookChartItemRequestBuilder extends BaseRequestBuilder<Work
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Returns collection of charts that are part of the worksheet. Read-only.
+     * The list of charts that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -141,7 +141,7 @@ export interface WorkbookChartItemRequestBuilder extends BaseRequestBuilder<Work
      toPatchRequestInformation(body: WorkbookChart, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Returns collection of charts that are part of the worksheet. Read-only.
+ * The list of charts that are part of the worksheet. Read-only.
  */
 export interface WorkbookChartItemRequestBuilderGetQueryParameters {
     /**

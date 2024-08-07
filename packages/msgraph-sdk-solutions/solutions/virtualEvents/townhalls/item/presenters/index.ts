@@ -27,28 +27,30 @@ export interface PresentersRequestBuilder extends BaseRequestBuilder<PresentersR
      */
      byVirtualEventPresenterId(virtualEventPresenterId: string) : VirtualEventPresenterItemRequestBuilder;
     /**
-     * Get presenters from solutions
+     * Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event types are:- virtualEventTownhall- virtualEventWebinar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventPresenterCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualevent-list-presenters?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PresentersRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventPresenterCollectionResponse | undefined>;
     /**
-     * Create new navigation property to presenters for solutions
+     * Create a new virtualEventPresenter object on a virtual event. Currently, the following types of virtual events are supported: - virtualEventTownhall- virtualEventWebinar
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventPresenter>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualevent-post-presenters?view=graph-rest-1.0|Find more info here}
      */
      post(body: VirtualEventPresenter, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventPresenter | undefined>;
     /**
-     * Get presenters from solutions
+     * Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event types are:- virtualEventTownhall- virtualEventWebinar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PresentersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to presenters for solutions
+     * Create a new virtualEventPresenter object on a virtual event. Currently, the following types of virtual events are supported: - virtualEventTownhall- virtualEventWebinar
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface PresentersRequestBuilder extends BaseRequestBuilder<PresentersR
      toPostRequestInformation(body: VirtualEventPresenter, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get presenters from solutions
+ * Get the list of all virtualEventPresenter objects associated with a virtual event. Currently the supported virtual event types are:- virtualEventTownhall- virtualEventWebinar
  */
 export interface PresentersRequestBuilderGetQueryParameters {
     /**

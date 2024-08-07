@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface WorksheetRequestBuilder extends BaseRequestBuilder<WorksheetRequestBuilder> {
     /**
-     * Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.
+     * Returns the worksheet to which the named item is scoped. Available only if the item is scoped to the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookWorksheet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<WorksheetRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookWorksheet | undefined>;
     /**
-     * Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.
+     * Returns the worksheet to which the named item is scoped. Available only if the item is scoped to the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorksheetRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.
+ * Returns the worksheet to which the named item is scoped. Available only if the item is scoped to the worksheet. Read-only.
  */
 export interface WorksheetRequestBuilderGetQueryParameters {
     /**

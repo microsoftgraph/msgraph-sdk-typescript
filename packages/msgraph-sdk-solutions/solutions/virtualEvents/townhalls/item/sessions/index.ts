@@ -27,7 +27,7 @@ export interface SessionsRequestBuilder extends BaseRequestBuilder<SessionsReque
      */
      byVirtualEventSessionId(virtualEventSessionId: string) : VirtualEventSessionItemRequestBuilder;
     /**
-     * Sessions for the virtual event.
+     * The sessions for the virtual event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventSessionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface SessionsRequestBuilder extends BaseRequestBuilder<SessionsReque
      */
      post(body: VirtualEventSession, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventSession | undefined>;
     /**
-     * Sessions for the virtual event.
+     * The sessions for the virtual event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface SessionsRequestBuilder extends BaseRequestBuilder<SessionsReque
      toPostRequestInformation(body: VirtualEventSession, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Sessions for the virtual event.
+ * The sessions for the virtual event.
  */
 export interface SessionsRequestBuilderGetQueryParameters {
     /**
