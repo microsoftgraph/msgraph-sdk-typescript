@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {F_InvPostRequestBody}
  */
+// @ts-ignore
 export function createF_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoF_InvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createF_InvPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoF_InvPostRequestBody(f_InvPostRequestBody: Partial<F_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { f_InvPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface F_InvRequestBuilder extends BaseRequestBuilder<F_InvRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeF_InvPostRequestBody(writer: SerializationWriter, f_InvPostRequestBody: Partial<F_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("degFreedom1", f_InvPostRequestBody.degFreedom1);
     writer.writeObjectValue("degFreedom2", f_InvPostRequestBody.degFreedom2);

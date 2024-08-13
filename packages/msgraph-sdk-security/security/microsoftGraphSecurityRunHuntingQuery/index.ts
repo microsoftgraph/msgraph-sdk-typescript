@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RunHuntingQueryPostRequestBody}
  */
+// @ts-ignore
 export function createRunHuntingQueryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRunHuntingQueryPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRunHuntingQueryPostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRunHuntingQueryPostRequestBody(runHuntingQueryPostRequestBody: Partial<RunHuntingQueryPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { runHuntingQueryPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface RunHuntingQueryPostRequestBody extends AdditionalDataHolder, Ba
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRunHuntingQueryPostRequestBody(writer: SerializationWriter, runHuntingQueryPostRequestBody: Partial<RunHuntingQueryPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("query", runHuntingQueryPostRequestBody.query);
     writer.writeStringValue("timespan", runHuntingQueryPostRequestBody.timespan);

@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ParseExpressionPostRequestBody}
  */
+// @ts-ignore
 export function createParseExpressionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoParseExpressionPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createParseExpressionPostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoParseExpressionPostRequestBody(parseExpressionPostRequestBody: Partial<ParseExpressionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { parseExpressionPostRequestBody.backingStoreEnabled = true; },
@@ -75,6 +77,7 @@ export interface ParseExpressionRequestBuilder extends BaseRequestBuilder<ParseE
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeParseExpressionPostRequestBody(writer: SerializationWriter, parseExpressionPostRequestBody: Partial<ParseExpressionPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("expression", parseExpressionPostRequestBody.expression);
     writer.writeObjectValue<AttributeDefinition>("targetAttributeDefinition", parseExpressionPostRequestBody.targetAttributeDefinition, serializeAttributeDefinition);

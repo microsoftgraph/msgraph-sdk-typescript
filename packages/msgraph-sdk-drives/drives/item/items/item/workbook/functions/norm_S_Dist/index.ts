@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Norm_S_DistPostRequestBody}
  */
+// @ts-ignore
 export function createNorm_S_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNorm_S_DistPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNorm_S_DistPostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNorm_S_DistPostRequestBody(norm_S_DistPostRequestBody: Partial<Norm_S_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { norm_S_DistPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface Norm_S_DistRequestBuilder extends BaseRequestBuilder<Norm_S_Dis
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeNorm_S_DistPostRequestBody(writer: SerializationWriter, norm_S_DistPostRequestBody: Partial<Norm_S_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("cumulative", norm_S_DistPostRequestBody.cumulative);
     writer.writeObjectValue("z", norm_S_DistPostRequestBody.z);

@@ -54,6 +54,7 @@ export interface AssignLicenseRequestBuilder extends BaseRequestBuilder<AssignLi
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AssignLicensePostRequestBody}
  */
+// @ts-ignore
 export function createAssignLicensePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignLicensePostRequestBody;
 }
@@ -61,6 +62,7 @@ export function createAssignLicensePostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostRequestBody: Partial<AssignLicensePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "addLicenses": n => { assignLicensePostRequestBody.addLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
@@ -72,6 +74,7 @@ export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAssignLicensePostRequestBody(writer: SerializationWriter, assignLicensePostRequestBody: Partial<AssignLicensePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", assignLicensePostRequestBody.addLicenses, serializeAssignedLicense);
     writer.writeCollectionOfPrimitiveValues<Guid>("removeLicenses", assignLicensePostRequestBody.removeLicenses);

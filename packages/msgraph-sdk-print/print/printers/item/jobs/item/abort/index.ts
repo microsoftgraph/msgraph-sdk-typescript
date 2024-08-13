@@ -45,6 +45,7 @@ export interface AbortRequestBuilder extends BaseRequestBuilder<AbortRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AbortPostRequestBody}
  */
+// @ts-ignore
 export function createAbortPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAbortPostRequestBody;
 }
@@ -52,6 +53,7 @@ export function createAbortPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAbortPostRequestBody(abortPostRequestBody: Partial<AbortPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { abortPostRequestBody.backingStoreEnabled = true; },
@@ -62,6 +64,7 @@ export function deserializeIntoAbortPostRequestBody(abortPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAbortPostRequestBody(writer: SerializationWriter, abortPostRequestBody: Partial<AbortPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("reason", abortPostRequestBody.reason);
     writer.writeAdditionalData(abortPostRequestBody.additionalData);

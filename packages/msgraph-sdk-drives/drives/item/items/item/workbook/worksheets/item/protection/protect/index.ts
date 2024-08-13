@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ProtectPostRequestBody}
  */
+// @ts-ignore
 export function createProtectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProtectPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createProtectPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoProtectPostRequestBody(protectPostRequestBody: Partial<ProtectPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { protectPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface ProtectRequestBuilder extends BaseRequestBuilder<ProtectRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeProtectPostRequestBody(writer: SerializationWriter, protectPostRequestBody: Partial<ProtectPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<WorkbookWorksheetProtectionOptions>("options", protectPostRequestBody.options, serializeWorkbookWorksheetProtectionOptions);
     writer.writeAdditionalData(protectPostRequestBody.additionalData);

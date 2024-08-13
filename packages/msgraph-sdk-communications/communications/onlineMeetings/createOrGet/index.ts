@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreateOrGetPostRequestBody}
  */
+// @ts-ignore
 export function createCreateOrGetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateOrGetPostRequestBody;
 }
@@ -75,6 +76,7 @@ export interface CreateOrGetRequestBuilder extends BaseRequestBuilder<CreateOrGe
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createOrGetPostRequestBody.backingStoreEnabled = true; },
@@ -90,6 +92,7 @@ export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);
     writer.writeDateValue("endDateTime", createOrGetPostRequestBody.endDateTime);

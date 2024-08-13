@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RowsPostRequestBody}
  */
+// @ts-ignore
 export function createRowsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRowsPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRowsPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRowsPostRequestBody(rowsPostRequestBody: Partial<RowsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { rowsPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -64,6 +66,7 @@ export interface RowsRequestBuilder extends BaseRequestBuilder<RowsRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRowsPostRequestBody(writer: SerializationWriter, rowsPostRequestBody: Partial<RowsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("array", rowsPostRequestBody.array);
     writer.writeAdditionalData(rowsPostRequestBody.additionalData);

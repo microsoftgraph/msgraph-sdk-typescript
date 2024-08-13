@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TranslateExchangeIdsPostRequestBody}
  */
+// @ts-ignore
 export function createTranslateExchangeIdsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTranslateExchangeIdsPostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createTranslateExchangeIdsPostRequestBodyFromDiscriminatorValue(
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TranslateExchangeIdsPostResponse}
  */
+// @ts-ignore
 export function createTranslateExchangeIdsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTranslateExchangeIdsPostResponse;
 }
@@ -28,6 +30,7 @@ export function createTranslateExchangeIdsPostResponseFromDiscriminatorValue(par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExchangeIdsPostRequestBody: Partial<TranslateExchangeIdsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { translateExchangeIdsPostRequestBody.backingStoreEnabled = true; },
@@ -40,6 +43,7 @@ export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExch
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTranslateExchangeIdsPostResponse(translateExchangeIdsPostResponse: Partial<TranslateExchangeIdsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(translateExchangeIdsPostResponse),
@@ -50,6 +54,7 @@ export function deserializeIntoTranslateExchangeIdsPostResponse(translateExchang
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeTranslateExchangeIdsPostRequestBody(writer: SerializationWriter, translateExchangeIdsPostRequestBody: Partial<TranslateExchangeIdsPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("InputIds", translateExchangeIdsPostRequestBody.inputIds);
     writer.writeEnumValue<ExchangeIdFormat>("SourceIdType", translateExchangeIdsPostRequestBody.sourceIdType);
@@ -60,6 +65,7 @@ export function serializeTranslateExchangeIdsPostRequestBody(writer: Serializati
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeTranslateExchangeIdsPostResponse(writer: SerializationWriter, translateExchangeIdsPostResponse: Partial<TranslateExchangeIdsPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, translateExchangeIdsPostResponse)
     writer.writeCollectionOfObjectValues<ConvertIdResult>("value", translateExchangeIdsPostResponse.value, serializeConvertIdResult);

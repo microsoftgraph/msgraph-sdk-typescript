@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImageGetResponse}
  */
+// @ts-ignore
 export function createImageGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImageGetResponse;
 }
@@ -18,6 +19,7 @@ export function createImageGetResponseFromDiscriminatorValue(parseNode: ParseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImageGetResponse(imageGetResponse: Partial<ImageGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imageGetResponse.backingStoreEnabled = true; },
@@ -60,6 +62,7 @@ export interface ImageRequestBuilder extends BaseRequestBuilder<ImageRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeImageGetResponse(writer: SerializationWriter, imageGetResponse: Partial<ImageGetResponse> | undefined = {}) : void {
     writer.writeStringValue("value", imageGetResponse.value);
     writer.writeAdditionalData(imageGetResponse.additionalData);

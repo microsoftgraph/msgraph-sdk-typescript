@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PmtPostRequestBody}
  */
+// @ts-ignore
 export function createPmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPmtPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPmtPostRequestBody(pmtPostRequestBody: Partial<PmtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { pmtPostRequestBody.backingStoreEnabled = true; },
@@ -84,6 +86,7 @@ export interface PmtRequestBuilder extends BaseRequestBuilder<PmtRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializePmtPostRequestBody(writer: SerializationWriter, pmtPostRequestBody: Partial<PmtPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("fv", pmtPostRequestBody.fv);
     writer.writeObjectValue("nper", pmtPostRequestBody.nper);

@@ -64,6 +64,7 @@ export interface CopyToNotebookRequestBuilder extends BaseRequestBuilder<CopyToN
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopyToNotebookPostRequestBody}
  */
+// @ts-ignore
 export function createCopyToNotebookPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyToNotebookPostRequestBody;
 }
@@ -71,6 +72,7 @@ export function createCopyToNotebookPostRequestBodyFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCopyToNotebookPostRequestBody(copyToNotebookPostRequestBody: Partial<CopyToNotebookPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyToNotebookPostRequestBody.backingStoreEnabled = true; },
@@ -85,6 +87,7 @@ export function deserializeIntoCopyToNotebookPostRequestBody(copyToNotebookPostR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCopyToNotebookPostRequestBody(writer: SerializationWriter, copyToNotebookPostRequestBody: Partial<CopyToNotebookPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("groupId", copyToNotebookPostRequestBody.groupId);
     writer.writeStringValue("id", copyToNotebookPostRequestBody.id);

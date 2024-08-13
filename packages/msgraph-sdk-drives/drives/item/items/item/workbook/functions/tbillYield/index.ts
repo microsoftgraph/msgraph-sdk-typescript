@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TbillYieldPostRequestBody}
  */
+// @ts-ignore
 export function createTbillYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTbillYieldPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTbillYieldPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTbillYieldPostRequestBody(tbillYieldPostRequestBody: Partial<TbillYieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { tbillYieldPostRequestBody.backingStoreEnabled = true; },
@@ -32,6 +34,7 @@ export function deserializeIntoTbillYieldPostRequestBody(tbillYieldPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeTbillYieldPostRequestBody(writer: SerializationWriter, tbillYieldPostRequestBody: Partial<TbillYieldPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("maturity", tbillYieldPostRequestBody.maturity);
     writer.writeObjectValue("pr", tbillYieldPostRequestBody.pr);

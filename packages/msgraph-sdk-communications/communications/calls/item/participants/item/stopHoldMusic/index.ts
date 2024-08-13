@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {StopHoldMusicPostRequestBody}
  */
+// @ts-ignore
 export function createStopHoldMusicPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStopHoldMusicPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createStopHoldMusicPostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoStopHoldMusicPostRequestBody(stopHoldMusicPostRequestBody: Partial<StopHoldMusicPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { stopHoldMusicPostRequestBody.backingStoreEnabled = true; },
@@ -30,6 +32,7 @@ export function deserializeIntoStopHoldMusicPostRequestBody(stopHoldMusicPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeStopHoldMusicPostRequestBody(writer: SerializationWriter, stopHoldMusicPostRequestBody: Partial<StopHoldMusicPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", stopHoldMusicPostRequestBody.clientContext);
     writer.writeAdditionalData(stopHoldMusicPostRequestBody.additionalData);

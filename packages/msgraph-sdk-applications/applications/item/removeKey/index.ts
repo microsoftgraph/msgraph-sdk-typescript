@@ -13,6 +13,7 @@ import { type Guid } from 'guid-typescript';
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RemoveKeyPostRequestBody}
  */
+// @ts-ignore
 export function createRemoveKeyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemoveKeyPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRemoveKeyPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRemoveKeyPostRequestBody(removeKeyPostRequestBody: Partial<RemoveKeyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removeKeyPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface RemoveKeyRequestBuilder extends BaseRequestBuilder<RemoveKeyReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRemoveKeyPostRequestBody(writer: SerializationWriter, removeKeyPostRequestBody: Partial<RemoveKeyPostRequestBody> | undefined = {}) : void {
     writer.writeGuidValue("keyId", removeKeyPostRequestBody.keyId);
     writer.writeStringValue("proof", removeKeyPostRequestBody.proof);

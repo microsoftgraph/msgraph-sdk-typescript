@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LogNorm_InvPostRequestBody}
  */
+// @ts-ignore
 export function createLogNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLogNorm_InvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLogNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLogNorm_InvPostRequestBody(logNorm_InvPostRequestBody: Partial<LogNorm_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { logNorm_InvPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface LogNorm_InvRequestBuilder extends BaseRequestBuilder<LogNorm_In
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeLogNorm_InvPostRequestBody(writer: SerializationWriter, logNorm_InvPostRequestBody: Partial<LogNorm_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("mean", logNorm_InvPostRequestBody.mean);
     writer.writeObjectValue("probability", logNorm_InvPostRequestBody.probability);

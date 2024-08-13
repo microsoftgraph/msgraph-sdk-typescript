@@ -27,6 +27,7 @@ export interface ActivatePostRequestBody extends AdditionalDataHolder, BackedMod
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ActivatePostRequestBody}
  */
+// @ts-ignore
 export function createActivatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoActivatePostRequestBody;
 }
@@ -34,6 +35,7 @@ export function createActivatePostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoActivatePostRequestBody(activatePostRequestBody: Partial<ActivatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { activatePostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface MicrosoftGraphIdentityGovernanceActivateRequestBuilder extends 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeActivatePostRequestBody(writer: SerializationWriter, activatePostRequestBody: Partial<ActivatePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<User>("subjects", activatePostRequestBody.subjects, serializeUser);
     writer.writeAdditionalData(activatePostRequestBody.additionalData);

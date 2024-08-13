@@ -19,7 +19,7 @@ export interface FilterRequestBuilder extends BaseRequestBuilder<FilterRequestBu
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the filter applied to the column. Read-only.
+     * The filter applied to the column. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookFilter>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -40,7 +40,7 @@ export interface FilterRequestBuilder extends BaseRequestBuilder<FilterRequestBu
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the filter applied to the column. Read-only.
+     * The filter applied to the column. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface FilterRequestBuilder extends BaseRequestBuilder<FilterRequestBu
      toPatchRequestInformation(body: WorkbookFilter, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the filter applied to the column. Read-only.
+ * The filter applied to the column. Read-only.
  */
 export interface FilterRequestBuilderGetQueryParameters {
     /**

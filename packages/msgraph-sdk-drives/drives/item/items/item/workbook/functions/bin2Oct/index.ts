@@ -51,6 +51,7 @@ export interface Bin2OctRequestBuilder extends BaseRequestBuilder<Bin2OctRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Bin2OctPostRequestBody}
  */
+// @ts-ignore
 export function createBin2OctPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBin2OctPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createBin2OctPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBin2OctPostRequestBody(bin2OctPostRequestBody: Partial<Bin2OctPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bin2OctPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export function deserializeIntoBin2OctPostRequestBody(bin2OctPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBin2OctPostRequestBody(writer: SerializationWriter, bin2OctPostRequestBody: Partial<Bin2OctPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", bin2OctPostRequestBody.number);
     writer.writeObjectValue("places", bin2OctPostRequestBody.places);

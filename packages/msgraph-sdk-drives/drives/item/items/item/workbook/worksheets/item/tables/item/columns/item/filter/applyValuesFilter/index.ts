@@ -44,6 +44,7 @@ export interface ApplyValuesFilterRequestBuilder extends BaseRequestBuilder<Appl
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyValuesFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyValuesFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyValuesFilterPostRequestBody;
 }
@@ -51,6 +52,7 @@ export function createApplyValuesFilterPostRequestBodyFromDiscriminatorValue(par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyValuesFilterPostRequestBody(applyValuesFilterPostRequestBody: Partial<ApplyValuesFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyValuesFilterPostRequestBody.backingStoreEnabled = true; },
@@ -61,6 +63,7 @@ export function deserializeIntoApplyValuesFilterPostRequestBody(applyValuesFilte
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeApplyValuesFilterPostRequestBody(writer: SerializationWriter, applyValuesFilterPostRequestBody: Partial<ApplyValuesFilterPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("values", applyValuesFilterPostRequestBody.values);
     writer.writeAdditionalData(applyValuesFilterPostRequestBody.additionalData);

@@ -60,6 +60,7 @@ export interface ArchiveRequestBuilder extends BaseRequestBuilder<ArchiveRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ArchivePostRequestBody}
  */
+// @ts-ignore
 export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoArchivePostRequestBody;
 }
@@ -68,6 +69,7 @@ export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ArchivePostResponse}
  */
+// @ts-ignore
 export function createArchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoArchivePostResponse;
 }
@@ -75,6 +77,7 @@ export function createArchivePostResponseFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { archivePostRequestBody.backingStoreEnabled = true; },
@@ -85,6 +88,7 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoArchivePostResponse(archivePostResponse: Partial<ArchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { archivePostResponse.backingStoreEnabled = true; },
@@ -95,6 +99,7 @@ export function deserializeIntoArchivePostResponse(archivePostResponse: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", archivePostRequestBody.messageIds);
     writer.writeAdditionalData(archivePostRequestBody.additionalData);
@@ -103,6 +108,7 @@ export function serializeArchivePostRequestBody(writer: SerializationWriter, arc
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeArchivePostResponse(writer: SerializationWriter, archivePostResponse: Partial<ArchivePostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", archivePostResponse.value);
     writer.writeAdditionalData(archivePostResponse.additionalData);

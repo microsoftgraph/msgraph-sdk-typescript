@@ -43,6 +43,7 @@ export interface CountRequestBuilder extends BaseRequestBuilder<CountRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CountGetResponse}
  */
+// @ts-ignore
 export function createCountGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCountGetResponse;
 }
@@ -50,6 +51,7 @@ export function createCountGetResponseFromDiscriminatorValue(parseNode: ParseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCountGetResponse(countGetResponse: Partial<CountGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { countGetResponse.backingStoreEnabled = true; },
@@ -60,6 +62,7 @@ export function deserializeIntoCountGetResponse(countGetResponse: Partial<CountG
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCountGetResponse(writer: SerializationWriter, countGetResponse: Partial<CountGetResponse> | undefined = {}) : void {
     writer.writeNumberValue("value", countGetResponse.value);
     writer.writeAdditionalData(countGetResponse.additionalData);

@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UpdateRecordingStatusPostRequestBody}
  */
+// @ts-ignore
 export function createUpdateRecordingStatusPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUpdateRecordingStatusPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createUpdateRecordingStatusPostRequestBodyFromDiscriminatorValue
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUpdateRecordingStatusPostRequestBody(updateRecordingStatusPostRequestBody: Partial<UpdateRecordingStatusPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { updateRecordingStatusPostRequestBody.backingStoreEnabled = true; },
@@ -31,6 +33,7 @@ export function deserializeIntoUpdateRecordingStatusPostRequestBody(updateRecord
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeUpdateRecordingStatusPostRequestBody(writer: SerializationWriter, updateRecordingStatusPostRequestBody: Partial<UpdateRecordingStatusPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", updateRecordingStatusPostRequestBody.clientContext);
     writer.writeEnumValue<RecordingStatus>("status", updateRecordingStatusPostRequestBody.status);

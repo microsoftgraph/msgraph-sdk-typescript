@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RemoveGroupPostRequestBody}
  */
+// @ts-ignore
 export function createRemoveGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemoveGroupPostRequestBody;
 }
@@ -19,6 +20,7 @@ export function createRemoveGroupPostRequestBodyFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RemoveGroupPostResponse}
  */
+// @ts-ignore
 export function createRemoveGroupPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemoveGroupPostResponse;
 }
@@ -26,6 +28,7 @@ export function createRemoveGroupPostResponseFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRemoveGroupPostRequestBody(removeGroupPostRequestBody: Partial<RemoveGroupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removeGroupPostRequestBody.backingStoreEnabled = true; },
@@ -36,6 +39,7 @@ export function deserializeIntoRemoveGroupPostRequestBody(removeGroupPostRequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRemoveGroupPostResponse(removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removeGroupPostResponse.backingStoreEnabled = true; },
@@ -95,6 +99,7 @@ export interface RemoveGroupRequestBuilder extends BaseRequestBuilder<RemoveGrou
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRemoveGroupPostRequestBody(writer: SerializationWriter, removeGroupPostRequestBody: Partial<RemoveGroupPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("groupId", removeGroupPostRequestBody.groupId);
     writer.writeAdditionalData(removeGroupPostRequestBody.additionalData);
@@ -103,6 +108,7 @@ export function serializeRemoveGroupPostRequestBody(writer: SerializationWriter,
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRemoveGroupPostResponse(writer: SerializationWriter, removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", removeGroupPostResponse.value);
     writer.writeAdditionalData(removeGroupPostResponse.additionalData);

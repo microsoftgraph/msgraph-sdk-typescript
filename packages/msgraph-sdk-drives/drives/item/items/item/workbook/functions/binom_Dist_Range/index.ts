@@ -59,6 +59,7 @@ export interface Binom_Dist_RangeRequestBuilder extends BaseRequestBuilder<Binom
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Binom_Dist_RangePostRequestBody}
  */
+// @ts-ignore
 export function createBinom_Dist_RangePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBinom_Dist_RangePostRequestBody;
 }
@@ -66,6 +67,7 @@ export function createBinom_Dist_RangePostRequestBodyFromDiscriminatorValue(pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBinom_Dist_RangePostRequestBody(binom_Dist_RangePostRequestBody: Partial<Binom_Dist_RangePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { binom_Dist_RangePostRequestBody.backingStoreEnabled = true; },
@@ -79,6 +81,7 @@ export function deserializeIntoBinom_Dist_RangePostRequestBody(binom_Dist_RangeP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBinom_Dist_RangePostRequestBody(writer: SerializationWriter, binom_Dist_RangePostRequestBody: Partial<Binom_Dist_RangePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("numberS", binom_Dist_RangePostRequestBody.numberS);
     writer.writeObjectValue("numberS2", binom_Dist_RangePostRequestBody.numberS2);

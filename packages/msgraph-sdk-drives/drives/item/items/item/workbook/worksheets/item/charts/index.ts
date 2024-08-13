@@ -37,7 +37,7 @@ export interface ChartsRequestBuilder extends BaseRequestBuilder<ChartsRequestBu
      */
      byWorkbookChartId(workbookChartId: string) : WorkbookChartItemRequestBuilder;
     /**
-     * Returns collection of charts that are part of the worksheet. Read-only.
+     * The list of charts that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -64,7 +64,7 @@ export interface ChartsRequestBuilder extends BaseRequestBuilder<ChartsRequestBu
      */
      post(body: WorkbookChart, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookChart | undefined>;
     /**
-     * Returns collection of charts that are part of the worksheet. Read-only.
+     * The list of charts that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -78,7 +78,7 @@ export interface ChartsRequestBuilder extends BaseRequestBuilder<ChartsRequestBu
      toPostRequestInformation(body: WorkbookChart, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Returns collection of charts that are part of the worksheet. Read-only.
+ * The list of charts that are part of the worksheet. Read-only.
  */
 export interface ChartsRequestBuilderGetQueryParameters {
     /**

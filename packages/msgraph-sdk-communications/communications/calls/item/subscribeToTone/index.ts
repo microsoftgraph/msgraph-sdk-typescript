@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SubscribeToTonePostRequestBody}
  */
+// @ts-ignore
 export function createSubscribeToTonePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSubscribeToTonePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSubscribeToTonePostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSubscribeToTonePostRequestBody(subscribeToTonePostRequestBody: Partial<SubscribeToTonePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { subscribeToTonePostRequestBody.backingStoreEnabled = true; },
@@ -30,6 +32,7 @@ export function deserializeIntoSubscribeToTonePostRequestBody(subscribeToTonePos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSubscribeToTonePostRequestBody(writer: SerializationWriter, subscribeToTonePostRequestBody: Partial<SubscribeToTonePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", subscribeToTonePostRequestBody.clientContext);
     writer.writeAdditionalData(subscribeToTonePostRequestBody.additionalData);

@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnarchivePostRequestBody}
  */
+// @ts-ignore
 export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnarchivePostRequestBody;
 }
@@ -19,6 +20,7 @@ export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnarchivePostResponse}
  */
+// @ts-ignore
 export function createUnarchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnarchivePostResponse;
 }
@@ -26,6 +28,7 @@ export function createUnarchivePostResponseFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody: Partial<UnarchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unarchivePostRequestBody.backingStoreEnabled = true; },
@@ -36,6 +39,7 @@ export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Partial<UnarchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unarchivePostResponse.backingStoreEnabled = true; },
@@ -46,6 +50,7 @@ export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeUnarchivePostRequestBody(writer: SerializationWriter, unarchivePostRequestBody: Partial<UnarchivePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", unarchivePostRequestBody.messageIds);
     writer.writeAdditionalData(unarchivePostRequestBody.additionalData);
@@ -54,6 +59,7 @@ export function serializeUnarchivePostRequestBody(writer: SerializationWriter, u
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: Partial<UnarchivePostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", unarchivePostResponse.value);
     writer.writeAdditionalData(unarchivePostResponse.additionalData);

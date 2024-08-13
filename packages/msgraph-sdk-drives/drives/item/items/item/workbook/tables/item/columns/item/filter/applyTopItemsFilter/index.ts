@@ -44,6 +44,7 @@ export interface ApplyTopItemsFilterRequestBuilder extends BaseRequestBuilder<Ap
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyTopItemsFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyTopItemsFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyTopItemsFilterPostRequestBody;
 }
@@ -51,6 +52,7 @@ export function createApplyTopItemsFilterPostRequestBodyFromDiscriminatorValue(p
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyTopItemsFilterPostRequestBody(applyTopItemsFilterPostRequestBody: Partial<ApplyTopItemsFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyTopItemsFilterPostRequestBody.backingStoreEnabled = true; },
@@ -61,6 +63,7 @@ export function deserializeIntoApplyTopItemsFilterPostRequestBody(applyTopItemsF
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeApplyTopItemsFilterPostRequestBody(writer: SerializationWriter, applyTopItemsFilterPostRequestBody: Partial<ApplyTopItemsFilterPostRequestBody> | undefined = {}) : void {
     writer.writeNumberValue("count", applyTopItemsFilterPostRequestBody.count);
     writer.writeAdditionalData(applyTopItemsFilterPostRequestBody.additionalData);

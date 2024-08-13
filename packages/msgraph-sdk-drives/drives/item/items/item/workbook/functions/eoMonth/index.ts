@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {EoMonthPostRequestBody}
  */
+// @ts-ignore
 export function createEoMonthPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoEoMonthPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createEoMonthPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoEoMonthPostRequestBody(eoMonthPostRequestBody: Partial<EoMonthPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { eoMonthPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface EoMonthRequestBuilder extends BaseRequestBuilder<EoMonthRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeEoMonthPostRequestBody(writer: SerializationWriter, eoMonthPostRequestBody: Partial<EoMonthPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("months", eoMonthPostRequestBody.months);
     writer.writeObjectValue("startDate", eoMonthPostRequestBody.startDate);

@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SupportedLanguagesGetResponse}
  */
+// @ts-ignore
 export function createSupportedLanguagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSupportedLanguagesGetResponse;
 }
@@ -20,6 +21,7 @@ export function createSupportedLanguagesGetResponseFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSupportedLanguagesGetResponse(supportedLanguagesGetResponse: Partial<SupportedLanguagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(supportedLanguagesGetResponse),
@@ -30,6 +32,7 @@ export function deserializeIntoSupportedLanguagesGetResponse(supportedLanguagesG
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSupportedLanguagesGetResponse(writer: SerializationWriter, supportedLanguagesGetResponse: Partial<SupportedLanguagesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, supportedLanguagesGetResponse)
     writer.writeCollectionOfObjectValues<LocaleInfo>("value", supportedLanguagesGetResponse.value, serializeLocaleInfo);

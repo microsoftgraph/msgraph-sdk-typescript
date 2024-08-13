@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DgetPostRequestBody}
  */
+// @ts-ignore
 export function createDgetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDgetPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDgetPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDgetPostRequestBody(dgetPostRequestBody: Partial<DgetPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dgetPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface DgetRequestBuilder extends BaseRequestBuilder<DgetRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDgetPostRequestBody(writer: SerializationWriter, dgetPostRequestBody: Partial<DgetPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("criteria", dgetPostRequestBody.criteria);
     writer.writeObjectValue("database", dgetPostRequestBody.database);

@@ -49,6 +49,7 @@ export interface CheckinRequestBuilder extends BaseRequestBuilder<CheckinRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CheckinPostRequestBody}
  */
+// @ts-ignore
 export function createCheckinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCheckinPostRequestBody;
 }
@@ -56,6 +57,7 @@ export function createCheckinPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCheckinPostRequestBody(checkinPostRequestBody: Partial<CheckinPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { checkinPostRequestBody.backingStoreEnabled = true; },
@@ -67,6 +69,7 @@ export function deserializeIntoCheckinPostRequestBody(checkinPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCheckinPostRequestBody(writer: SerializationWriter, checkinPostRequestBody: Partial<CheckinPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("checkInAs", checkinPostRequestBody.checkInAs);
     writer.writeStringValue("comment", checkinPostRequestBody.comment);

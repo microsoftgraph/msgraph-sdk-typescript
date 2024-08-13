@@ -27,28 +27,29 @@ export interface TownhallsRequestBuilder extends BaseRequestBuilder<TownhallsReq
      */
      byVirtualEventTownhallId(virtualEventTownhallId: string) : VirtualEventTownhallItemRequestBuilder;
     /**
-     * Get townhalls from solutions
+     * Read the properties and relationships of a virtualEventTownhall object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventTownhallCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TownhallsRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventTownhallCollectionResponse | undefined>;
     /**
-     * Create new navigation property to townhalls for solutions
+     * Create a new virtualEventTownhall object in draft mode.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventTownhall>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventsroot-post-townhalls?view=graph-rest-1.0|Find more info here}
      */
      post(body: VirtualEventTownhall, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventTownhall | undefined>;
     /**
-     * Get townhalls from solutions
+     * Read the properties and relationships of a virtualEventTownhall object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TownhallsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to townhalls for solutions
+     * Create a new virtualEventTownhall object in draft mode.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +57,7 @@ export interface TownhallsRequestBuilder extends BaseRequestBuilder<TownhallsReq
      toPostRequestInformation(body: VirtualEventTownhall, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get townhalls from solutions
+ * Read the properties and relationships of a virtualEventTownhall object.
  */
 export interface TownhallsRequestBuilderGetQueryParameters {
     /**

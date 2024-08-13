@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DbcsPostRequestBody}
  */
+// @ts-ignore
 export function createDbcsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDbcsPostRequestBody;
 }
@@ -54,6 +55,7 @@ export interface DbcsRequestBuilder extends BaseRequestBuilder<DbcsRequestBuilde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDbcsPostRequestBody(dbcsPostRequestBody: Partial<DbcsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dbcsPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export function deserializeIntoDbcsPostRequestBody(dbcsPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDbcsPostRequestBody(writer: SerializationWriter, dbcsPostRequestBody: Partial<DbcsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("text", dbcsPostRequestBody.text);
     writer.writeAdditionalData(dbcsPostRequestBody.additionalData);

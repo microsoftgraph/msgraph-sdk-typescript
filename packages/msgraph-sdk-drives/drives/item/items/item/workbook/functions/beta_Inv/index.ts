@@ -63,6 +63,7 @@ export interface Beta_InvRequestBuilder extends BaseRequestBuilder<Beta_InvReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Beta_InvPostRequestBody}
  */
+// @ts-ignore
 export function createBeta_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBeta_InvPostRequestBody;
 }
@@ -70,6 +71,7 @@ export function createBeta_InvPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBeta_InvPostRequestBody(beta_InvPostRequestBody: Partial<Beta_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "A": n => { beta_InvPostRequestBody.a = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -84,6 +86,7 @@ export function deserializeIntoBeta_InvPostRequestBody(beta_InvPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBeta_InvPostRequestBody(writer: SerializationWriter, beta_InvPostRequestBody: Partial<Beta_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("A", beta_InvPostRequestBody.a);
     writer.writeObjectValue("alpha", beta_InvPostRequestBody.alpha);

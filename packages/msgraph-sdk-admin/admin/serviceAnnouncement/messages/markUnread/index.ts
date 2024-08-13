@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MarkUnreadPostRequestBody}
  */
+// @ts-ignore
 export function createMarkUnreadPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkUnreadPostRequestBody;
 }
@@ -19,6 +20,7 @@ export function createMarkUnreadPostRequestBodyFromDiscriminatorValue(parseNode:
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MarkUnreadPostResponse}
  */
+// @ts-ignore
 export function createMarkUnreadPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkUnreadPostResponse;
 }
@@ -26,6 +28,7 @@ export function createMarkUnreadPostResponseFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMarkUnreadPostRequestBody(markUnreadPostRequestBody: Partial<MarkUnreadPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markUnreadPostRequestBody.backingStoreEnabled = true; },
@@ -36,6 +39,7 @@ export function deserializeIntoMarkUnreadPostRequestBody(markUnreadPostRequestBo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMarkUnreadPostResponse(markUnreadPostResponse: Partial<MarkUnreadPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markUnreadPostResponse.backingStoreEnabled = true; },
@@ -95,6 +99,7 @@ export interface MarkUnreadRequestBuilder extends BaseRequestBuilder<MarkUnreadR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeMarkUnreadPostRequestBody(writer: SerializationWriter, markUnreadPostRequestBody: Partial<MarkUnreadPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", markUnreadPostRequestBody.messageIds);
     writer.writeAdditionalData(markUnreadPostRequestBody.additionalData);
@@ -103,6 +108,7 @@ export function serializeMarkUnreadPostRequestBody(writer: SerializationWriter, 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeMarkUnreadPostResponse(writer: SerializationWriter, markUnreadPostResponse: Partial<MarkUnreadPostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", markUnreadPostResponse.value);
     writer.writeAdditionalData(markUnreadPostResponse.additionalData);

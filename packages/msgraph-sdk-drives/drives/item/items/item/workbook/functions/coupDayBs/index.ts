@@ -59,6 +59,7 @@ export interface CoupDayBsRequestBuilder extends BaseRequestBuilder<CoupDayBsReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CoupDayBsPostRequestBody}
  */
+// @ts-ignore
 export function createCoupDayBsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupDayBsPostRequestBody;
 }
@@ -66,6 +67,7 @@ export function createCoupDayBsPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCoupDayBsPostRequestBody(coupDayBsPostRequestBody: Partial<CoupDayBsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { coupDayBsPostRequestBody.backingStoreEnabled = true; },
@@ -79,6 +81,7 @@ export function deserializeIntoCoupDayBsPostRequestBody(coupDayBsPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCoupDayBsPostRequestBody(writer: SerializationWriter, coupDayBsPostRequestBody: Partial<CoupDayBsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("basis", coupDayBsPostRequestBody.basis);
     writer.writeObjectValue("frequency", coupDayBsPostRequestBody.frequency);

@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse}
  */
+// @ts-ignore
 export function createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWit
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse),
@@ -91,6 +93,7 @@ export interface GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInte
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse)
     writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse.value, serializeItemActivityStat);

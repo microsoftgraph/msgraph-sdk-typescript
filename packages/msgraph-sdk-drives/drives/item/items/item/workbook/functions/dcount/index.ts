@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DcountPostRequestBody}
  */
+// @ts-ignore
 export function createDcountPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDcountPostRequestBody;
 }
@@ -62,6 +63,7 @@ export interface DcountRequestBuilder extends BaseRequestBuilder<DcountRequestBu
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDcountPostRequestBody(dcountPostRequestBody: Partial<DcountPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dcountPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export function deserializeIntoDcountPostRequestBody(dcountPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDcountPostRequestBody(writer: SerializationWriter, dcountPostRequestBody: Partial<DcountPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("criteria", dcountPostRequestBody.criteria);
     writer.writeObjectValue("database", dcountPostRequestBody.database);

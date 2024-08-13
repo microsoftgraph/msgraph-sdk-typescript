@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UpgradePostRequestBody}
  */
+// @ts-ignore
 export function createUpgradePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUpgradePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createUpgradePostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUpgradePostRequestBody(upgradePostRequestBody: Partial<UpgradePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { upgradePostRequestBody.backingStoreEnabled = true; },
@@ -30,6 +32,7 @@ export function deserializeIntoUpgradePostRequestBody(upgradePostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeUpgradePostRequestBody(writer: SerializationWriter, upgradePostRequestBody: Partial<UpgradePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<TeamsAppPermissionSet>("consentedPermissionSet", upgradePostRequestBody.consentedPermissionSet, serializeTeamsAppPermissionSet);
     writer.writeAdditionalData(upgradePostRequestBody.additionalData);

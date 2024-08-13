@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {OnenotePatchContentPostRequestBody}
  */
+// @ts-ignore
 export function createOnenotePatchContentPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOnenotePatchContentPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOnenotePatchContentPostRequestBodyFromDiscriminatorValue(p
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOnenotePatchContentPostRequestBody(onenotePatchContentPostRequestBody: Partial<OnenotePatchContentPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { onenotePatchContentPostRequestBody.backingStoreEnabled = true; },
@@ -63,6 +65,7 @@ export interface OnenotePatchContentRequestBuilder extends BaseRequestBuilder<On
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeOnenotePatchContentPostRequestBody(writer: SerializationWriter, onenotePatchContentPostRequestBody: Partial<OnenotePatchContentPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<OnenotePatchContentCommand>("commands", onenotePatchContentPostRequestBody.commands, serializeOnenotePatchContentCommand);
     writer.writeAdditionalData(onenotePatchContentPostRequestBody.additionalData);

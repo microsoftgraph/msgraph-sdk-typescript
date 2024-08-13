@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImCscPostRequestBody}
  */
+// @ts-ignore
 export function createImCscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImCscPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImCscPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImCscPostRequestBody(imCscPostRequestBody: Partial<ImCscPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imCscPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface ImCscRequestBuilder extends BaseRequestBuilder<ImCscRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeImCscPostRequestBody(writer: SerializationWriter, imCscPostRequestBody: Partial<ImCscPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("inumber", imCscPostRequestBody.inumber);
     writer.writeAdditionalData(imCscPostRequestBody.additionalData);

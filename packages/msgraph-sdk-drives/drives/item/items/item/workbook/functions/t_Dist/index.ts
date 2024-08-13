@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {T_DistPostRequestBody}
  */
+// @ts-ignore
 export function createT_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoT_DistPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createT_DistPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoT_DistPostRequestBody(t_DistPostRequestBody: Partial<T_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { t_DistPostRequestBody.backingStoreEnabled = true; },
@@ -32,6 +34,7 @@ export function deserializeIntoT_DistPostRequestBody(t_DistPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeT_DistPostRequestBody(writer: SerializationWriter, t_DistPostRequestBody: Partial<T_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("cumulative", t_DistPostRequestBody.cumulative);
     writer.writeObjectValue("degFreedom", t_DistPostRequestBody.degFreedom);

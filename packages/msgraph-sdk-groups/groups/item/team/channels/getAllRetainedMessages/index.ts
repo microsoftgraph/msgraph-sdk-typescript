@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetAllRetainedMessagesGetResponse}
  */
+// @ts-ignore
 export function createGetAllRetainedMessagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAllRetainedMessagesGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetAllRetainedMessagesGetResponseFromDiscriminatorValue(pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetAllRetainedMessagesGetResponse(getAllRetainedMessagesGetResponse: Partial<GetAllRetainedMessagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAllRetainedMessagesGetResponse),
@@ -91,6 +93,7 @@ export interface GetAllRetainedMessagesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetAllRetainedMessagesGetResponse(writer: SerializationWriter, getAllRetainedMessagesGetResponse: Partial<GetAllRetainedMessagesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getAllRetainedMessagesGetResponse)
     writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllRetainedMessagesGetResponse.value, serializeChatMessage);

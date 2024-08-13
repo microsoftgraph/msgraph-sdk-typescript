@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DeclinePostRequestBody}
  */
+// @ts-ignore
 export function createDeclinePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeclinePostRequestBody;
 }
@@ -62,6 +63,7 @@ export interface DeclineRequestBuilder extends BaseRequestBuilder<DeclineRequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: Partial<DeclinePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { declinePostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDeclinePostRequestBody(writer: SerializationWriter, declinePostRequestBody: Partial<DeclinePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("Comment", declinePostRequestBody.comment);
     writer.writeObjectValue<TimeSlot>("ProposedNewTime", declinePostRequestBody.proposedNewTime, serializeTimeSlot);

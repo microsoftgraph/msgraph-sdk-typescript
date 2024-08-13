@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ValuePostRequestBody}
  */
+// @ts-ignore
 export function createValuePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoValuePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createValuePostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoValuePostRequestBody(valuePostRequestBody: Partial<ValuePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { valuePostRequestBody.backingStoreEnabled = true; },
@@ -30,6 +32,7 @@ export function deserializeIntoValuePostRequestBody(valuePostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeValuePostRequestBody(writer: SerializationWriter, valuePostRequestBody: Partial<ValuePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("text", valuePostRequestBody.text);
     writer.writeAdditionalData(valuePostRequestBody.additionalData);

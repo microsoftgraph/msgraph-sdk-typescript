@@ -44,6 +44,7 @@ export interface ApplyFontColorFilterRequestBuilder extends BaseRequestBuilder<A
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyFontColorFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyFontColorFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyFontColorFilterPostRequestBody;
 }
@@ -51,6 +52,7 @@ export function createApplyFontColorFilterPostRequestBodyFromDiscriminatorValue(
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyFontColorFilterPostRequestBody(applyFontColorFilterPostRequestBody: Partial<ApplyFontColorFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyFontColorFilterPostRequestBody.backingStoreEnabled = true; },
@@ -61,6 +63,7 @@ export function deserializeIntoApplyFontColorFilterPostRequestBody(applyFontColo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeApplyFontColorFilterPostRequestBody(writer: SerializationWriter, applyFontColorFilterPostRequestBody: Partial<ApplyFontColorFilterPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("color", applyFontColorFilterPostRequestBody.color);
     writer.writeAdditionalData(applyFontColorFilterPostRequestBody.additionalData);

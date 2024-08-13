@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse}
  */
+// @ts-ignore
 export function createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse;
 }
@@ -20,6 +21,7 @@ export function createSummarizeDevicePerformanceDevicesWithSummarizeByGetRespons
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(summarizeDevicePerformanceDevicesWithSummarizeByGetResponse),
@@ -30,6 +32,7 @@ export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByG
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(writer: SerializationWriter, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse)
     writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>("value", summarizeDevicePerformanceDevicesWithSummarizeByGetResponse.value, serializeUserExperienceAnalyticsDevicePerformance);

@@ -67,6 +67,7 @@ export interface Beta_DistRequestBuilder extends BaseRequestBuilder<Beta_DistReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Beta_DistPostRequestBody}
  */
+// @ts-ignore
 export function createBeta_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBeta_DistPostRequestBody;
 }
@@ -74,6 +75,7 @@ export function createBeta_DistPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBeta_DistPostRequestBody(beta_DistPostRequestBody: Partial<Beta_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "A": n => { beta_DistPostRequestBody.a = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -89,6 +91,7 @@ export function deserializeIntoBeta_DistPostRequestBody(beta_DistPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBeta_DistPostRequestBody(writer: SerializationWriter, beta_DistPostRequestBody: Partial<Beta_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("A", beta_DistPostRequestBody.a);
     writer.writeObjectValue("alpha", beta_DistPostRequestBody.alpha);

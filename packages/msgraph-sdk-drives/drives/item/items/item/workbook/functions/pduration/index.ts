@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PdurationPostRequestBody}
  */
+// @ts-ignore
 export function createPdurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPdurationPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPdurationPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPdurationPostRequestBody(pdurationPostRequestBody: Partial<PdurationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { pdurationPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface PdurationRequestBuilder extends BaseRequestBuilder<PdurationReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializePdurationPostRequestBody(writer: SerializationWriter, pdurationPostRequestBody: Partial<PdurationPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("fv", pdurationPostRequestBody.fv);
     writer.writeObjectValue("pv", pdurationPostRequestBody.pv);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DatePostRequestBody}
  */
+// @ts-ignore
 export function createDatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDatePostRequestBody;
 }
@@ -62,6 +63,7 @@ export interface DateRequestBuilder extends BaseRequestBuilder<DateRequestBuilde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDatePostRequestBody(datePostRequestBody: Partial<DatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { datePostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export function deserializeIntoDatePostRequestBody(datePostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDatePostRequestBody(writer: SerializationWriter, datePostRequestBody: Partial<DatePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("day", datePostRequestBody.day);
     writer.writeObjectValue("month", datePostRequestBody.month);

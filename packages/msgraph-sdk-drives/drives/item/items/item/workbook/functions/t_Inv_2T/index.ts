@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {T_Inv_2TPostRequestBody}
  */
+// @ts-ignore
 export function createT_Inv_2TPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoT_Inv_2TPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createT_Inv_2TPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoT_Inv_2TPostRequestBody(t_Inv_2TPostRequestBody: Partial<T_Inv_2TPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { t_Inv_2TPostRequestBody.backingStoreEnabled = true; },
@@ -31,6 +33,7 @@ export function deserializeIntoT_Inv_2TPostRequestBody(t_Inv_2TPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeT_Inv_2TPostRequestBody(writer: SerializationWriter, t_Inv_2TPostRequestBody: Partial<T_Inv_2TPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("degFreedom", t_Inv_2TPostRequestBody.degFreedom);
     writer.writeObjectValue("probability", t_Inv_2TPostRequestBody.probability);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Percentile_ExcPostRequestBody}
  */
+// @ts-ignore
 export function createPercentile_ExcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPercentile_ExcPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPercentile_ExcPostRequestBodyFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPercentile_ExcPostRequestBody(percentile_ExcPostRequestBody: Partial<Percentile_ExcPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { percentile_ExcPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -69,6 +71,7 @@ export interface Percentile_ExcRequestBuilder extends BaseRequestBuilder<Percent
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializePercentile_ExcPostRequestBody(writer: SerializationWriter, percentile_ExcPostRequestBody: Partial<Percentile_ExcPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("array", percentile_ExcPostRequestBody.array);
     writer.writeObjectValue("k", percentile_ExcPostRequestBody.k);

@@ -52,6 +52,7 @@ export interface AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder>
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddPostRequestBody}
  */
+// @ts-ignore
 export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddPostRequestBody;
 }
@@ -59,6 +60,7 @@ export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<AddPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addPostRequestBody.backingStoreEnabled = true; },
@@ -70,6 +72,7 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<Ad
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined = {}) : void {
     writer.writeNumberValue("index", addPostRequestBody.index);
     writer.writeObjectValue("values", addPostRequestBody.values);

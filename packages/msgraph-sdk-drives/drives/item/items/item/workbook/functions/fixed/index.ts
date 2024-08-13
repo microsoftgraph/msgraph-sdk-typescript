@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FixedPostRequestBody}
  */
+// @ts-ignore
 export function createFixedPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFixedPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFixedPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFixedPostRequestBody(fixedPostRequestBody: Partial<FixedPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { fixedPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface FixedRequestBuilder extends BaseRequestBuilder<FixedRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeFixedPostRequestBody(writer: SerializationWriter, fixedPostRequestBody: Partial<FixedPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("decimals", fixedPostRequestBody.decimals);
     writer.writeObjectValue("noCommas", fixedPostRequestBody.noCommas);

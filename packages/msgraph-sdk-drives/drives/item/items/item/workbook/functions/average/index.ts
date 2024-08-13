@@ -47,6 +47,7 @@ export interface AverageRequestBuilder extends BaseRequestBuilder<AverageRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AveragePostRequestBody}
  */
+// @ts-ignore
 export function createAveragePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAveragePostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createAveragePostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAveragePostRequestBody(averagePostRequestBody: Partial<AveragePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { averagePostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export function deserializeIntoAveragePostRequestBody(averagePostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAveragePostRequestBody(writer: SerializationWriter, averagePostRequestBody: Partial<AveragePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("values", averagePostRequestBody.values);
     writer.writeAdditionalData(averagePostRequestBody.additionalData);

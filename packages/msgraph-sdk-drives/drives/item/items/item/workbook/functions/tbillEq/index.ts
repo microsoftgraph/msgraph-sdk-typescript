@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TbillEqPostRequestBody}
  */
+// @ts-ignore
 export function createTbillEqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTbillEqPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTbillEqPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTbillEqPostRequestBody(tbillEqPostRequestBody: Partial<TbillEqPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { tbillEqPostRequestBody.backingStoreEnabled = true; },
@@ -32,6 +34,7 @@ export function deserializeIntoTbillEqPostRequestBody(tbillEqPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeTbillEqPostRequestBody(writer: SerializationWriter, tbillEqPostRequestBody: Partial<TbillEqPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("discount", tbillEqPostRequestBody.discount);
     writer.writeObjectValue("maturity", tbillEqPostRequestBody.maturity);

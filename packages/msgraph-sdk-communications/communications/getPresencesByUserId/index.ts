@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetPresencesByUserIdPostRequestBody}
  */
+// @ts-ignore
 export function createGetPresencesByUserIdPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetPresencesByUserIdPostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createGetPresencesByUserIdPostRequestBodyFromDiscriminatorValue(
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetPresencesByUserIdPostResponse}
  */
+// @ts-ignore
 export function createGetPresencesByUserIdPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetPresencesByUserIdPostResponse;
 }
@@ -28,6 +30,7 @@ export function createGetPresencesByUserIdPostResponseFromDiscriminatorValue(par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetPresencesByUserIdPostRequestBody(getPresencesByUserIdPostRequestBody: Partial<GetPresencesByUserIdPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getPresencesByUserIdPostRequestBody.backingStoreEnabled = true; },
@@ -38,6 +41,7 @@ export function deserializeIntoGetPresencesByUserIdPostRequestBody(getPresencesB
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetPresencesByUserIdPostResponse(getPresencesByUserIdPostResponse: Partial<GetPresencesByUserIdPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getPresencesByUserIdPostResponse),
@@ -89,6 +93,7 @@ export interface GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder<G
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetPresencesByUserIdPostRequestBody(writer: SerializationWriter, getPresencesByUserIdPostRequestBody: Partial<GetPresencesByUserIdPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("ids", getPresencesByUserIdPostRequestBody.ids);
     writer.writeAdditionalData(getPresencesByUserIdPostRequestBody.additionalData);
@@ -97,6 +102,7 @@ export function serializeGetPresencesByUserIdPostRequestBody(writer: Serializati
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetPresencesByUserIdPostResponse(writer: SerializationWriter, getPresencesByUserIdPostResponse: Partial<GetPresencesByUserIdPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getPresencesByUserIdPostResponse)
     writer.writeCollectionOfObjectValues<Presence>("value", getPresencesByUserIdPostResponse.value, serializePresence);

@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreatePostRequestBody}
  */
+// @ts-ignore
 export function createCreatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreatePostRequestBody;
 }
@@ -78,6 +79,7 @@ export interface CreateRequestBuilder extends BaseRequestBuilder<CreateRequestBu
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Partial<CreatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createPostRequestBody.backingStoreEnabled = true; },
@@ -94,6 +96,7 @@ export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: Partial<CreatePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);
     writer.writeStringValue("connectorId", createPostRequestBody.connectorId);

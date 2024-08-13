@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {OddFYieldPostRequestBody}
  */
+// @ts-ignore
 export function createOddFYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOddFYieldPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOddFYieldPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOddFYieldPostRequestBody(oddFYieldPostRequestBody: Partial<OddFYieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oddFYieldPostRequestBody.backingStoreEnabled = true; },
@@ -104,6 +106,7 @@ export interface OddFYieldRequestBuilder extends BaseRequestBuilder<OddFYieldReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeOddFYieldPostRequestBody(writer: SerializationWriter, oddFYieldPostRequestBody: Partial<OddFYieldPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("basis", oddFYieldPostRequestBody.basis);
     writer.writeObjectValue("firstCoupon", oddFYieldPostRequestBody.firstCoupon);

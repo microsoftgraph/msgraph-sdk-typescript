@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SetPresencePostRequestBody}
  */
+// @ts-ignore
 export function createSetPresencePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetPresencePostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createSetPresencePostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSetPresencePostRequestBody(setPresencePostRequestBody: Partial<SetPresencePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "activity": n => { setPresencePostRequestBody.activity = n.getStringValue(); },
@@ -31,6 +33,7 @@ export function deserializeIntoSetPresencePostRequestBody(setPresencePostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSetPresencePostRequestBody(writer: SerializationWriter, setPresencePostRequestBody: Partial<SetPresencePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("activity", setPresencePostRequestBody.activity);
     writer.writeStringValue("availability", setPresencePostRequestBody.availability);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MidbPostRequestBody}
  */
+// @ts-ignore
 export function createMidbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMidbPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMidbPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMidbPostRequestBody(midbPostRequestBody: Partial<MidbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { midbPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface MidbRequestBuilder extends BaseRequestBuilder<MidbRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeMidbPostRequestBody(writer: SerializationWriter, midbPostRequestBody: Partial<MidbPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("numBytes", midbPostRequestBody.numBytes);
     writer.writeObjectValue("startNum", midbPostRequestBody.startNum);

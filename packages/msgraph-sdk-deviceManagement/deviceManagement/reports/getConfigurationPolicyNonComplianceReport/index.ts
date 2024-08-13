@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetConfigurationPolicyNonComplianceReportPostRequestBody}
  */
+// @ts-ignore
 export function createGetConfigurationPolicyNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetConfigurationPolicyNonComplianceReportPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetConfigurationPolicyNonComplianceReportPostRequestBodyFr
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetConfigurationPolicyNonComplianceReportPostRequestBody(getConfigurationPolicyNonComplianceReportPostRequestBody: Partial<GetConfigurationPolicyNonComplianceReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getConfigurationPolicyNonComplianceReportPostRequestBody.backingStoreEnabled = true; },
@@ -103,6 +105,7 @@ export interface GetConfigurationPolicyNonComplianceReportRequestBuilder extends
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetConfigurationPolicyNonComplianceReportPostRequestBody(writer: SerializationWriter, getConfigurationPolicyNonComplianceReportPostRequestBody: Partial<GetConfigurationPolicyNonComplianceReportPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("filter", getConfigurationPolicyNonComplianceReportPostRequestBody.filter);
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationPolicyNonComplianceReportPostRequestBody.groupBy);

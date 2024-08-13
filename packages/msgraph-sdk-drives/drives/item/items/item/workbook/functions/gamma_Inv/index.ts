@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Gamma_InvPostRequestBody}
  */
+// @ts-ignore
 export function createGamma_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGamma_InvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createGamma_InvPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGamma_InvPostRequestBody(gamma_InvPostRequestBody: Partial<Gamma_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { gamma_InvPostRequestBody.alpha = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -74,6 +76,7 @@ export interface Gamma_InvRequestBuilder extends BaseRequestBuilder<Gamma_InvReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGamma_InvPostRequestBody(writer: SerializationWriter, gamma_InvPostRequestBody: Partial<Gamma_InvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("alpha", gamma_InvPostRequestBody.alpha);
     writer.writeObjectValue("beta", gamma_InvPostRequestBody.beta);

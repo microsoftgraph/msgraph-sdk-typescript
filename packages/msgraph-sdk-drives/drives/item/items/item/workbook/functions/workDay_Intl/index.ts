@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {WorkDay_IntlPostRequestBody}
  */
+// @ts-ignore
 export function createWorkDay_IntlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWorkDay_IntlPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createWorkDay_IntlPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoWorkDay_IntlPostRequestBody(workDay_IntlPostRequestBody: Partial<WorkDay_IntlPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { workDay_IntlPostRequestBody.backingStoreEnabled = true; },
@@ -33,6 +35,7 @@ export function deserializeIntoWorkDay_IntlPostRequestBody(workDay_IntlPostReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeWorkDay_IntlPostRequestBody(writer: SerializationWriter, workDay_IntlPostRequestBody: Partial<WorkDay_IntlPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("days", workDay_IntlPostRequestBody.days);
     writer.writeObjectValue("holidays", workDay_IntlPostRequestBody.holidays);

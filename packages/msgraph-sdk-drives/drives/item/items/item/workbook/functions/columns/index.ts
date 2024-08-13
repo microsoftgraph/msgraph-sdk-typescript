@@ -47,6 +47,7 @@ export interface ColumnsRequestBuilder extends BaseRequestBuilder<ColumnsRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ColumnsPostRequestBody}
  */
+// @ts-ignore
 export function createColumnsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoColumnsPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createColumnsPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoColumnsPostRequestBody(columnsPostRequestBody: Partial<ColumnsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { columnsPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -64,6 +66,7 @@ export function deserializeIntoColumnsPostRequestBody(columnsPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeColumnsPostRequestBody(writer: SerializationWriter, columnsPostRequestBody: Partial<ColumnsPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("array", columnsPostRequestBody.array);
     writer.writeAdditionalData(columnsPostRequestBody.additionalData);

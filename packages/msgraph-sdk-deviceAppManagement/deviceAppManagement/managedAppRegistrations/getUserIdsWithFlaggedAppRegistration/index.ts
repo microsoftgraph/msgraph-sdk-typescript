@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetUserIdsWithFlaggedAppRegistrationGetResponse}
  */
+// @ts-ignore
 export function createGetUserIdsWithFlaggedAppRegistrationGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetUserIdsWithFlaggedAppRegistrationGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetUserIdsWithFlaggedAppRegistrationGetResponseFromDiscrim
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetUserIdsWithFlaggedAppRegistrationGetResponse(getUserIdsWithFlaggedAppRegistrationGetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getUserIdsWithFlaggedAppRegistrationGetResponse),
@@ -80,6 +82,7 @@ export interface GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParam
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetUserIdsWithFlaggedAppRegistrationGetResponse(writer: SerializationWriter, getUserIdsWithFlaggedAppRegistrationGetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getUserIdsWithFlaggedAppRegistrationGetResponse)
     writer.writeCollectionOfPrimitiveValues<string>("value", getUserIdsWithFlaggedAppRegistrationGetResponse.value);

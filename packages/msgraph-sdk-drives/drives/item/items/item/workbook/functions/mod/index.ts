@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ModPostRequestBody}
  */
+// @ts-ignore
 export function createModPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoModPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createModPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoModPostRequestBody(modPostRequestBody: Partial<ModPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { modPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface ModRequestBuilder extends BaseRequestBuilder<ModRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeModPostRequestBody(writer: SerializationWriter, modPostRequestBody: Partial<ModPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("divisor", modPostRequestBody.divisor);
     writer.writeObjectValue("number", modPostRequestBody.number);

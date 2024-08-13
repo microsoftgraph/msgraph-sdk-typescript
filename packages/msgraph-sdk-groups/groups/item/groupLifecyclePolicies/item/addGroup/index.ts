@@ -60,6 +60,7 @@ export interface AddGroupRequestBuilder extends BaseRequestBuilder<AddGroupReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddGroupPostRequestBody}
  */
+// @ts-ignore
 export function createAddGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddGroupPostRequestBody;
 }
@@ -68,6 +69,7 @@ export function createAddGroupPostRequestBodyFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddGroupPostResponse}
  */
+// @ts-ignore
 export function createAddGroupPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddGroupPostResponse;
 }
@@ -75,6 +77,7 @@ export function createAddGroupPostResponseFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddGroupPostRequestBody(addGroupPostRequestBody: Partial<AddGroupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addGroupPostRequestBody.backingStoreEnabled = true; },
@@ -85,6 +88,7 @@ export function deserializeIntoAddGroupPostRequestBody(addGroupPostRequestBody: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddGroupPostResponse(addGroupPostResponse: Partial<AddGroupPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addGroupPostResponse.backingStoreEnabled = true; },
@@ -95,6 +99,7 @@ export function deserializeIntoAddGroupPostResponse(addGroupPostResponse: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAddGroupPostRequestBody(writer: SerializationWriter, addGroupPostRequestBody: Partial<AddGroupPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("groupId", addGroupPostRequestBody.groupId);
     writer.writeAdditionalData(addGroupPostRequestBody.additionalData);
@@ -103,6 +108,7 @@ export function serializeAddGroupPostRequestBody(writer: SerializationWriter, ad
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAddGroupPostResponse(writer: SerializationWriter, addGroupPostResponse: Partial<AddGroupPostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", addGroupPostResponse.value);
     writer.writeAdditionalData(addGroupPostResponse.additionalData);

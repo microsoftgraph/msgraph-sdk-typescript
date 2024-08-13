@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetAuditActivityTypesGetResponse}
  */
+// @ts-ignore
 export function createGetAuditActivityTypesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAuditActivityTypesGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetAuditActivityTypesGetResponseFromDiscriminatorValue(par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetAuditActivityTypesGetResponse(getAuditActivityTypesGetResponse: Partial<GetAuditActivityTypesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAuditActivityTypesGetResponse),
@@ -80,6 +82,7 @@ export interface GetAuditActivityTypesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetAuditActivityTypesGetResponse(writer: SerializationWriter, getAuditActivityTypesGetResponse: Partial<GetAuditActivityTypesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesGetResponse)
     writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesGetResponse.value);

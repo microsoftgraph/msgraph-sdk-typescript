@@ -46,6 +46,7 @@ export interface CommitRequestBuilder extends BaseRequestBuilder<CommitRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CommitPostRequestBody}
  */
+// @ts-ignore
 export function createCommitPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCommitPostRequestBody;
 }
@@ -53,6 +54,7 @@ export function createCommitPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCommitPostRequestBody(commitPostRequestBody: Partial<CommitPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { commitPostRequestBody.backingStoreEnabled = true; },
@@ -63,6 +65,7 @@ export function deserializeIntoCommitPostRequestBody(commitPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCommitPostRequestBody(writer: SerializationWriter, commitPostRequestBody: Partial<CommitPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<FileEncryptionInfo>("fileEncryptionInfo", commitPostRequestBody.fileEncryptionInfo, serializeFileEncryptionInfo);
     writer.writeAdditionalData(commitPostRequestBody.additionalData);

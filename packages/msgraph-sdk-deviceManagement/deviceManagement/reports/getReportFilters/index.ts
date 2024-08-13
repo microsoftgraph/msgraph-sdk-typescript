@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetReportFiltersPostRequestBody}
  */
+// @ts-ignore
 export function createGetReportFiltersPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetReportFiltersPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetReportFiltersPostRequestBodyFromDiscriminatorValue(pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetReportFiltersPostRequestBody(getReportFiltersPostRequestBody: Partial<GetReportFiltersPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getReportFiltersPostRequestBody.backingStoreEnabled = true; },
@@ -103,6 +105,7 @@ export interface GetReportFiltersRequestBuilder extends BaseRequestBuilder<GetRe
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetReportFiltersPostRequestBody(writer: SerializationWriter, getReportFiltersPostRequestBody: Partial<GetReportFiltersPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("filter", getReportFiltersPostRequestBody.filter);
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getReportFiltersPostRequestBody.groupBy);

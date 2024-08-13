@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SlnPostRequestBody}
  */
+// @ts-ignore
 export function createSlnPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSlnPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSlnPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSlnPostRequestBody(slnPostRequestBody: Partial<SlnPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { slnPostRequestBody.backingStoreEnabled = true; },
@@ -32,6 +34,7 @@ export function deserializeIntoSlnPostRequestBody(slnPostRequestBody: Partial<Sl
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSlnPostRequestBody(writer: SerializationWriter, slnPostRequestBody: Partial<SlnPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("cost", slnPostRequestBody.cost);
     writer.writeObjectValue("life", slnPostRequestBody.life);

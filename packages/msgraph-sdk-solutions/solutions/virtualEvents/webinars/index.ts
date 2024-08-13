@@ -52,11 +52,12 @@ export interface WebinarsRequestBuilder extends BaseRequestBuilder<WebinarsReque
      */
      getByUserRoleWithRole(role: string | undefined) : GetByUserRoleWithRoleRequestBuilder;
     /**
-     * Create new navigation property to webinars for solutions
+     * Create a new virtualEventWebinar object in draft mode.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventWebinar>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventsroot-post-webinars?view=graph-rest-1.0|Find more info here}
      */
      post(body: VirtualEventWebinar, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventWebinar | undefined>;
     /**
@@ -66,7 +67,7 @@ export interface WebinarsRequestBuilder extends BaseRequestBuilder<WebinarsReque
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WebinarsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to webinars for solutions
+     * Create a new virtualEventWebinar object in draft mode.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

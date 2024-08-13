@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PowerPostRequestBody}
  */
+// @ts-ignore
 export function createPowerPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPowerPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPowerPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPowerPostRequestBody(powerPostRequestBody: Partial<PowerPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { powerPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface PowerRequestBuilder extends BaseRequestBuilder<PowerRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializePowerPostRequestBody(writer: SerializationWriter, powerPostRequestBody: Partial<PowerPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", powerPostRequestBody.number);
     writer.writeObjectValue("power", powerPostRequestBody.power);

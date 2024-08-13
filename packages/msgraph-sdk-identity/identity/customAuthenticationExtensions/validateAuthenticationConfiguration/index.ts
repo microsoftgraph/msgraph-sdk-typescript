@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ValidateAuthenticationConfigurationPostRequestBody}
  */
+// @ts-ignore
 export function createValidateAuthenticationConfigurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoValidateAuthenticationConfigurationPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createValidateAuthenticationConfigurationPostRequestBodyFromDisc
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoValidateAuthenticationConfigurationPostRequestBody(validateAuthenticationConfigurationPostRequestBody: Partial<ValidateAuthenticationConfigurationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "authenticationConfiguration": n => { validateAuthenticationConfigurationPostRequestBody.authenticationConfiguration = n.getObjectValue<CustomExtensionAuthenticationConfiguration>(createCustomExtensionAuthenticationConfigurationFromDiscriminatorValue); },
@@ -31,6 +33,7 @@ export function deserializeIntoValidateAuthenticationConfigurationPostRequestBod
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeValidateAuthenticationConfigurationPostRequestBody(writer: SerializationWriter, validateAuthenticationConfigurationPostRequestBody: Partial<ValidateAuthenticationConfigurationPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<CustomExtensionAuthenticationConfiguration>("authenticationConfiguration", validateAuthenticationConfigurationPostRequestBody.authenticationConfiguration, serializeCustomExtensionAuthenticationConfiguration);
     writer.writeObjectValue<CustomExtensionEndpointConfiguration>("endpointConfiguration", validateAuthenticationConfigurationPostRequestBody.endpointConfiguration, serializeCustomExtensionEndpointConfiguration);

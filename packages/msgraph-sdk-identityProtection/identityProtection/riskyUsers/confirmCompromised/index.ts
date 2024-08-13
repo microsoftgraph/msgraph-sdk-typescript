@@ -45,6 +45,7 @@ export interface ConfirmCompromisedRequestBuilder extends BaseRequestBuilder<Con
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ConfirmCompromisedPostRequestBody}
  */
+// @ts-ignore
 export function createConfirmCompromisedPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConfirmCompromisedPostRequestBody;
 }
@@ -52,6 +53,7 @@ export function createConfirmCompromisedPostRequestBodyFromDiscriminatorValue(pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoConfirmCompromisedPostRequestBody(confirmCompromisedPostRequestBody: Partial<ConfirmCompromisedPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { confirmCompromisedPostRequestBody.backingStoreEnabled = true; },
@@ -62,6 +64,7 @@ export function deserializeIntoConfirmCompromisedPostRequestBody(confirmCompromi
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeConfirmCompromisedPostRequestBody(writer: SerializationWriter, confirmCompromisedPostRequestBody: Partial<ConfirmCompromisedPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("userIds", confirmCompromisedPostRequestBody.userIds);
     writer.writeAdditionalData(confirmCompromisedPostRequestBody.additionalData);

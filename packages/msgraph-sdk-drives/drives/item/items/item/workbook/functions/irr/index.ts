@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IrrPostRequestBody}
  */
+// @ts-ignore
 export function createIrrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIrrPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIrrPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIrrPostRequestBody(irrPostRequestBody: Partial<IrrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { irrPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface IrrRequestBuilder extends BaseRequestBuilder<IrrRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeIrrPostRequestBody(writer: SerializationWriter, irrPostRequestBody: Partial<IrrPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("guess", irrPostRequestBody.guess);
     writer.writeObjectValue("values", irrPostRequestBody.values);

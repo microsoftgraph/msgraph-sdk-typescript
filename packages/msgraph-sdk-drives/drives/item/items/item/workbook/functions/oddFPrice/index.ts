@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {OddFPricePostRequestBody}
  */
+// @ts-ignore
 export function createOddFPricePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOddFPricePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOddFPricePostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOddFPricePostRequestBody(oddFPricePostRequestBody: Partial<OddFPricePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oddFPricePostRequestBody.backingStoreEnabled = true; },
@@ -104,6 +106,7 @@ export interface OddFPriceRequestBuilder extends BaseRequestBuilder<OddFPriceReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeOddFPricePostRequestBody(writer: SerializationWriter, oddFPricePostRequestBody: Partial<OddFPricePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("basis", oddFPricePostRequestBody.basis);
     writer.writeObjectValue("firstCoupon", oddFPricePostRequestBody.firstCoupon);

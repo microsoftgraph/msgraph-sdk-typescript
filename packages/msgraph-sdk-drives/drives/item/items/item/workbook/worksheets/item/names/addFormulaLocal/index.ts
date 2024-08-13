@@ -56,6 +56,7 @@ export interface AddFormulaLocalRequestBuilder extends BaseRequestBuilder<AddFor
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddFormulaLocalPostRequestBody}
  */
+// @ts-ignore
 export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddFormulaLocalPostRequestBody;
 }
@@ -63,6 +64,7 @@ export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPostRequestBody: Partial<AddFormulaLocalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addFormulaLocalPostRequestBody.backingStoreEnabled = true; },
@@ -75,6 +77,7 @@ export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWriter, addFormulaLocalPostRequestBody: Partial<AddFormulaLocalPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("comment", addFormulaLocalPostRequestBody.comment);
     writer.writeStringValue("formula", addFormulaLocalPostRequestBody.formula);

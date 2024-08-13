@@ -27,7 +27,7 @@ export interface PresentersRequestBuilder extends BaseRequestBuilder<PresentersR
      */
      byVirtualEventPresenterId(virtualEventPresenterId: string) : VirtualEventPresenterItemRequestBuilder;
     /**
-     * Get presenters from solutions
+     * The virtual event presenters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventPresenterCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface PresentersRequestBuilder extends BaseRequestBuilder<PresentersR
      */
      post(body: VirtualEventPresenter, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventPresenter | undefined>;
     /**
-     * Get presenters from solutions
+     * The virtual event presenters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface PresentersRequestBuilder extends BaseRequestBuilder<PresentersR
      toPostRequestInformation(body: VirtualEventPresenter, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get presenters from solutions
+ * The virtual event presenters.
  */
 export interface PresentersRequestBuilderGetQueryParameters {
     /**

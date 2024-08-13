@@ -60,6 +60,7 @@ export interface CopyToSectionRequestBuilder extends BaseRequestBuilder<CopyToSe
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopyToSectionPostRequestBody}
  */
+// @ts-ignore
 export function createCopyToSectionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyToSectionPostRequestBody;
 }
@@ -67,6 +68,7 @@ export function createCopyToSectionPostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCopyToSectionPostRequestBody(copyToSectionPostRequestBody: Partial<CopyToSectionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyToSectionPostRequestBody.backingStoreEnabled = true; },
@@ -80,6 +82,7 @@ export function deserializeIntoCopyToSectionPostRequestBody(copyToSectionPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCopyToSectionPostRequestBody(writer: SerializationWriter, copyToSectionPostRequestBody: Partial<CopyToSectionPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("groupId", copyToSectionPostRequestBody.groupId);
     writer.writeStringValue("id", copyToSectionPostRequestBody.id);

@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ForceDeletePostRequestBody}
  */
+// @ts-ignore
 export function createForceDeletePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoForceDeletePostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createForceDeletePostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoForceDeletePostRequestBody(forceDeletePostRequestBody: Partial<ForceDeletePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { forceDeletePostRequestBody.backingStoreEnabled = true; },
@@ -62,6 +64,7 @@ export interface ForceDeleteRequestBuilder extends BaseRequestBuilder<ForceDelet
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeForceDeletePostRequestBody(writer: SerializationWriter, forceDeletePostRequestBody: Partial<ForceDeletePostRequestBody> | undefined = {}) : void {
     writer.writeBooleanValue("disableUserAccounts", forceDeletePostRequestBody.disableUserAccounts);
     writer.writeAdditionalData(forceDeletePostRequestBody.additionalData);

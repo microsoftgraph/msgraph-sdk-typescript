@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Days360PostRequestBody}
  */
+// @ts-ignore
 export function createDays360PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDays360PostRequestBody;
 }
@@ -62,6 +63,7 @@ export interface Days360RequestBuilder extends BaseRequestBuilder<Days360Request
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Partial<Days360PostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { days360PostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDays360PostRequestBody(writer: SerializationWriter, days360PostRequestBody: Partial<Days360PostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("endDate", days360PostRequestBody.endDate);
     writer.writeObjectValue("method", days360PostRequestBody.method);

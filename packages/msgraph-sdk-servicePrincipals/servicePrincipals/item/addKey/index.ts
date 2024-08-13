@@ -56,6 +56,7 @@ export interface AddKeyRequestBuilder extends BaseRequestBuilder<AddKeyRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddKeyPostRequestBody}
  */
+// @ts-ignore
 export function createAddKeyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddKeyPostRequestBody;
 }
@@ -63,6 +64,7 @@ export function createAddKeyPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addKeyPostRequestBody.backingStoreEnabled = true; },
@@ -75,6 +77,7 @@ export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
     writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);

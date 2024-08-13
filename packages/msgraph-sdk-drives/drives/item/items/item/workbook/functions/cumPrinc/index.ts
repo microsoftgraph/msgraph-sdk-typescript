@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CumPrincPostRequestBody}
  */
+// @ts-ignore
 export function createCumPrincPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCumPrincPostRequestBody;
 }
@@ -74,6 +75,7 @@ export interface CumPrincRequestBuilder extends BaseRequestBuilder<CumPrincReque
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCumPrincPostRequestBody(cumPrincPostRequestBody: Partial<CumPrincPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cumPrincPostRequestBody.backingStoreEnabled = true; },
@@ -89,6 +91,7 @@ export function deserializeIntoCumPrincPostRequestBody(cumPrincPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCumPrincPostRequestBody(writer: SerializationWriter, cumPrincPostRequestBody: Partial<CumPrincPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("endPeriod", cumPrincPostRequestBody.endPeriod);
     writer.writeObjectValue("nper", cumPrincPostRequestBody.nper);

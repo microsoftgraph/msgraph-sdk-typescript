@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SupportedTimeZonesGetResponse}
  */
+// @ts-ignore
 export function createSupportedTimeZonesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSupportedTimeZonesGetResponse;
 }
@@ -20,6 +21,7 @@ export function createSupportedTimeZonesGetResponseFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSupportedTimeZonesGetResponse(supportedTimeZonesGetResponse: Partial<SupportedTimeZonesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(supportedTimeZonesGetResponse),
@@ -30,6 +32,7 @@ export function deserializeIntoSupportedTimeZonesGetResponse(supportedTimeZonesG
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSupportedTimeZonesGetResponse(writer: SerializationWriter, supportedTimeZonesGetResponse: Partial<SupportedTimeZonesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesGetResponse)
     writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesGetResponse.value, serializeTimeZoneInformation);

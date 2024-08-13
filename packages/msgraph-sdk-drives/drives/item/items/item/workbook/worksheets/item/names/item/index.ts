@@ -31,7 +31,7 @@ export interface WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder<
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Returns collection of names that are associated with the worksheet. Read-only.
+     * The list of names that are associated with the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookNamedItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder<
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Returns collection of names that are associated with the worksheet. Read-only.
+     * The list of names that are associated with the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: WorkbookNamedItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Returns collection of names that are associated with the worksheet. Read-only.
+ * The list of names that are associated with the worksheet. Read-only.
  */
 export interface WorkbookNamedItemItemRequestBuilderGetQueryParameters {
     /**

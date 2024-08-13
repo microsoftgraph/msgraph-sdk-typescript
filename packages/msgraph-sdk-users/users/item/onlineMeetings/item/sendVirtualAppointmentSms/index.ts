@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SendVirtualAppointmentSmsPostRequestBody}
  */
+// @ts-ignore
 export function createSendVirtualAppointmentSmsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendVirtualAppointmentSmsPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSendVirtualAppointmentSmsPostRequestBodyFromDiscriminatorV
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSendVirtualAppointmentSmsPostRequestBody(sendVirtualAppointmentSmsPostRequestBody: Partial<SendVirtualAppointmentSmsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "attendees": n => { sendVirtualAppointmentSmsPostRequestBody.attendees = n.getCollectionOfObjectValues<AttendeeNotificationInfo>(createAttendeeNotificationInfoFromDiscriminatorValue); },
@@ -69,6 +71,7 @@ export interface SendVirtualAppointmentSmsRequestBuilder extends BaseRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSendVirtualAppointmentSmsPostRequestBody(writer: SerializationWriter, sendVirtualAppointmentSmsPostRequestBody: Partial<SendVirtualAppointmentSmsPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<AttendeeNotificationInfo>("attendees", sendVirtualAppointmentSmsPostRequestBody.attendees, serializeAttendeeNotificationInfo);
     writer.writeEnumValue<VirtualAppointmentMessageType>("messageType", sendVirtualAppointmentSmsPostRequestBody.messageType);

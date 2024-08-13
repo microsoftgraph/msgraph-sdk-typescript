@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LogPostRequestBody}
  */
+// @ts-ignore
 export function createLogPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLogPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLogPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLogPostRequestBody(logPostRequestBody: Partial<LogPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { logPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface LogRequestBuilder extends BaseRequestBuilder<LogRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeLogPostRequestBody(writer: SerializationWriter, logPostRequestBody: Partial<LogPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("base", logPostRequestBody.base);
     writer.writeObjectValue("number", logPostRequestBody.number);

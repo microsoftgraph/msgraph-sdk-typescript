@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IntPostRequestBody}
  */
+// @ts-ignore
 export function createIntPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIntPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIntPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIntPostRequestBody(intPostRequestBody: Partial<IntPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { intPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface IntRequestBuilder extends BaseRequestBuilder<IntRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeIntPostRequestBody(writer: SerializationWriter, intPostRequestBody: Partial<IntPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", intPostRequestBody.number);
     writer.writeAdditionalData(intPostRequestBody.additionalData);

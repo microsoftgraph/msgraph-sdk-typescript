@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Iso_CeilingPostRequestBody}
  */
+// @ts-ignore
 export function createIso_CeilingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIso_CeilingPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIso_CeilingPostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIso_CeilingPostRequestBody(iso_CeilingPostRequestBody: Partial<Iso_CeilingPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { iso_CeilingPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface Iso_CeilingRequestBuilder extends BaseRequestBuilder<Iso_Ceilin
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeIso_CeilingPostRequestBody(writer: SerializationWriter, iso_CeilingPostRequestBody: Partial<Iso_CeilingPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", iso_CeilingPostRequestBody.number);
     writer.writeObjectValue("significance", iso_CeilingPostRequestBody.significance);

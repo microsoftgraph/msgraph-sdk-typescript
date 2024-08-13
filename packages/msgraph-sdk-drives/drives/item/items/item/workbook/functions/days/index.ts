@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DaysPostRequestBody}
  */
+// @ts-ignore
 export function createDaysPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDaysPostRequestBody;
 }
@@ -58,6 +59,7 @@ export interface DaysRequestBuilder extends BaseRequestBuilder<DaysRequestBuilde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDaysPostRequestBody(daysPostRequestBody: Partial<DaysPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { daysPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export function deserializeIntoDaysPostRequestBody(daysPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDaysPostRequestBody(writer: SerializationWriter, daysPostRequestBody: Partial<DaysPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("endDate", daysPostRequestBody.endDate);
     writer.writeObjectValue("startDate", daysPostRequestBody.startDate);

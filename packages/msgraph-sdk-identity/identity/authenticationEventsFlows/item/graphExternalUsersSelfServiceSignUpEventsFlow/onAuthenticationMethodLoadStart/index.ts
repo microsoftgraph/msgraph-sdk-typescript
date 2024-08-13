@@ -19,21 +19,21 @@ export interface OnAuthenticationMethodLoadStartRequestBuilder extends BaseReque
      */
     get graphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp(): GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestBuilder;
     /**
-     * Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.
+     * Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.  Supports $filter (eq). See support for filtering on user flows for syntax information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnAuthenticationMethodLoadStartHandler>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<OnAuthenticationMethodLoadStartRequestBuilderGetQueryParameters> | undefined) : Promise<OnAuthenticationMethodLoadStartHandler | undefined>;
     /**
-     * Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.
+     * Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.  Supports $filter (eq). See support for filtering on user flows for syntax information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OnAuthenticationMethodLoadStartRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.
+ * Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.  Supports $filter (eq). See support for filtering on user flows for syntax information.
  */
 export interface OnAuthenticationMethodLoadStartRequestBuilderGetQueryParameters {
     /**

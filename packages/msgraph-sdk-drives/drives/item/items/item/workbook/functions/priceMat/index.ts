@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PriceMatPostRequestBody}
  */
+// @ts-ignore
 export function createPriceMatPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPriceMatPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPriceMatPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPriceMatPostRequestBody(priceMatPostRequestBody: Partial<PriceMatPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { priceMatPostRequestBody.backingStoreEnabled = true; },
@@ -89,6 +91,7 @@ export interface PriceMatRequestBuilder extends BaseRequestBuilder<PriceMatReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializePriceMatPostRequestBody(writer: SerializationWriter, priceMatPostRequestBody: Partial<PriceMatPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("basis", priceMatPostRequestBody.basis);
     writer.writeObjectValue("issue", priceMatPostRequestBody.issue);

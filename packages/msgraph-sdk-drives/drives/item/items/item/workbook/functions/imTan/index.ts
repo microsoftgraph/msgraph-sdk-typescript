@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImTanPostRequestBody}
  */
+// @ts-ignore
 export function createImTanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImTanPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImTanPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImTanPostRequestBody(imTanPostRequestBody: Partial<ImTanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imTanPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface ImTanRequestBuilder extends BaseRequestBuilder<ImTanRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeImTanPostRequestBody(writer: SerializationWriter, imTanPostRequestBody: Partial<ImTanPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("inumber", imTanPostRequestBody.inumber);
     writer.writeAdditionalData(imTanPostRequestBody.additionalData);

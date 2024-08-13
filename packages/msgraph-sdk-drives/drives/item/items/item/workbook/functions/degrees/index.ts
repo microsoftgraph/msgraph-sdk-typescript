@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DegreesPostRequestBody}
  */
+// @ts-ignore
 export function createDegreesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDegreesPostRequestBody;
 }
@@ -54,6 +55,7 @@ export interface DegreesRequestBuilder extends BaseRequestBuilder<DegreesRequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDegreesPostRequestBody(degreesPostRequestBody: Partial<DegreesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "angle": n => { degreesPostRequestBody.angle = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -64,6 +66,7 @@ export function deserializeIntoDegreesPostRequestBody(degreesPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDegreesPostRequestBody(writer: SerializationWriter, degreesPostRequestBody: Partial<DegreesPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("angle", degreesPostRequestBody.angle);
     writer.writeAdditionalData(degreesPostRequestBody.additionalData);

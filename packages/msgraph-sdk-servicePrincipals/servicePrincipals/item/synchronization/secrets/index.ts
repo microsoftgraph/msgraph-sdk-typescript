@@ -15,6 +15,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SecretsPutRequestBody}
  */
+// @ts-ignore
 export function createSecretsPutRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSecretsPutRequestBody;
 }
@@ -23,6 +24,7 @@ export function createSecretsPutRequestBodyFromDiscriminatorValue(parseNode: Par
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SecretsPutResponse}
  */
+// @ts-ignore
 export function createSecretsPutResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSecretsPutResponse;
 }
@@ -30,6 +32,7 @@ export function createSecretsPutResponseFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSecretsPutRequestBody(secretsPutRequestBody: Partial<SecretsPutRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { secretsPutRequestBody.backingStoreEnabled = true; },
@@ -40,6 +43,7 @@ export function deserializeIntoSecretsPutRequestBody(secretsPutRequestBody: Part
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSecretsPutResponse(secretsPutResponse: Partial<SecretsPutResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { secretsPutResponse.backingStoreEnabled = true; },
@@ -103,6 +107,7 @@ export interface SecretsRequestBuilder extends BaseRequestBuilder<SecretsRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSecretsPutRequestBody(writer: SerializationWriter, secretsPutRequestBody: Partial<SecretsPutRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("value", secretsPutRequestBody.value, serializeSynchronizationSecretKeyStringValuePair);
     writer.writeAdditionalData(secretsPutRequestBody.additionalData);
@@ -111,6 +116,7 @@ export function serializeSecretsPutRequestBody(writer: SerializationWriter, secr
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSecretsPutResponse(writer: SerializationWriter, secretsPutResponse: Partial<SecretsPutResponse> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("value", secretsPutResponse.value, serializeSynchronizationSecretKeyStringValuePair);
     writer.writeAdditionalData(secretsPutResponse.additionalData);

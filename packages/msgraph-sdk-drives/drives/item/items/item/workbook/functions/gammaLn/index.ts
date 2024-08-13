@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GammaLnPostRequestBody}
  */
+// @ts-ignore
 export function createGammaLnPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGammaLnPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createGammaLnPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGammaLnPostRequestBody(gammaLnPostRequestBody: Partial<GammaLnPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { gammaLnPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface GammaLnRequestBuilder extends BaseRequestBuilder<GammaLnRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGammaLnPostRequestBody(writer: SerializationWriter, gammaLnPostRequestBody: Partial<GammaLnPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("x", gammaLnPostRequestBody.x);
     writer.writeAdditionalData(gammaLnPostRequestBody.additionalData);

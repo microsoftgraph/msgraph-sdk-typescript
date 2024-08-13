@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ResetPasswordPostRequestBody}
  */
+// @ts-ignore
 export function createResetPasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoResetPasswordPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createResetPasswordPostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoResetPasswordPostRequestBody(resetPasswordPostRequestBody: Partial<ResetPasswordPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { resetPasswordPostRequestBody.backingStoreEnabled = true; },
@@ -65,6 +67,7 @@ export interface ResetPasswordRequestBuilder extends BaseRequestBuilder<ResetPas
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeResetPasswordPostRequestBody(writer: SerializationWriter, resetPasswordPostRequestBody: Partial<ResetPasswordPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("newPassword", resetPasswordPostRequestBody.newPassword);
     writer.writeAdditionalData(resetPasswordPostRequestBody.additionalData);

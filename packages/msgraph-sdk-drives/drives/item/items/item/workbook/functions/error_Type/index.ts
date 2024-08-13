@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Error_TypePostRequestBody}
  */
+// @ts-ignore
 export function createError_TypePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoError_TypePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createError_TypePostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoError_TypePostRequestBody(error_TypePostRequestBody: Partial<Error_TypePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { error_TypePostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface Error_TypeRequestBuilder extends BaseRequestBuilder<Error_TypeR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeError_TypePostRequestBody(writer: SerializationWriter, error_TypePostRequestBody: Partial<Error_TypePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("errorVal", error_TypePostRequestBody.errorVal);
     writer.writeAdditionalData(error_TypePostRequestBody.additionalData);

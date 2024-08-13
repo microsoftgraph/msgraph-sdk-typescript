@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Dec2HexPostRequestBody}
  */
+// @ts-ignore
 export function createDec2HexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDec2HexPostRequestBody;
 }
@@ -58,6 +59,7 @@ export interface Dec2HexRequestBuilder extends BaseRequestBuilder<Dec2HexRequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDec2HexPostRequestBody(dec2HexPostRequestBody: Partial<Dec2HexPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dec2HexPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export function deserializeIntoDec2HexPostRequestBody(dec2HexPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDec2HexPostRequestBody(writer: SerializationWriter, dec2HexPostRequestBody: Partial<Dec2HexPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", dec2HexPostRequestBody.number);
     writer.writeObjectValue("places", dec2HexPostRequestBody.places);

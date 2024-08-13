@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Quartile_IncPostRequestBody}
  */
+// @ts-ignore
 export function createQuartile_IncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQuartile_IncPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createQuartile_IncPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoQuartile_IncPostRequestBody(quartile_IncPostRequestBody: Partial<Quartile_IncPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { quartile_IncPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -69,6 +71,7 @@ export interface Quartile_IncRequestBuilder extends BaseRequestBuilder<Quartile_
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeQuartile_IncPostRequestBody(writer: SerializationWriter, quartile_IncPostRequestBody: Partial<Quartile_IncPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("array", quartile_IncPostRequestBody.array);
     writer.writeObjectValue("quart", quartile_IncPostRequestBody.quart);

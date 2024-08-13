@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreateLinkPostRequestBody}
  */
+// @ts-ignore
 export function createCreateLinkPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateLinkPostRequestBody;
 }
@@ -83,6 +84,7 @@ export interface CreateLinkRequestBuilder extends BaseRequestBuilder<CreateLinkR
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreateLinkPostRequestBody(createLinkPostRequestBody: Partial<CreateLinkPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createLinkPostRequestBody.backingStoreEnabled = true; },
@@ -100,6 +102,7 @@ export function deserializeIntoCreateLinkPostRequestBody(createLinkPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCreateLinkPostRequestBody(writer: SerializationWriter, createLinkPostRequestBody: Partial<CreateLinkPostRequestBody> | undefined = {}) : void {
     writer.writeDateValue("expirationDateTime", createLinkPostRequestBody.expirationDateTime);
     writer.writeStringValue("message", createLinkPostRequestBody.message);

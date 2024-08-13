@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Rank_EqPostRequestBody}
  */
+// @ts-ignore
 export function createRank_EqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRank_EqPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRank_EqPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRank_EqPostRequestBody(rank_EqPostRequestBody: Partial<Rank_EqPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rank_EqPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface Rank_EqRequestBuilder extends BaseRequestBuilder<Rank_EqRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRank_EqPostRequestBody(writer: SerializationWriter, rank_EqPostRequestBody: Partial<Rank_EqPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", rank_EqPostRequestBody.number);
     writer.writeObjectValue("order", rank_EqPostRequestBody.order);

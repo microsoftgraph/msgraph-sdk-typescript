@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RemovePostRequestBody}
  */
+// @ts-ignore
 export function createRemovePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemovePostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createRemovePostRequestBodyFromDiscriminatorValue(parseNode: Par
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RemovePostResponse}
  */
+// @ts-ignore
 export function createRemovePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemovePostResponse;
 }
@@ -28,6 +30,7 @@ export function createRemovePostResponseFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRemovePostRequestBody(removePostRequestBody: Partial<RemovePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removePostRequestBody.backingStoreEnabled = true; },
@@ -38,6 +41,7 @@ export function deserializeIntoRemovePostRequestBody(removePostRequestBody: Part
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRemovePostResponse(removePostResponse: Partial<RemovePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(removePostResponse),
@@ -89,6 +93,7 @@ export interface RemoveRequestBuilder extends BaseRequestBuilder<RemoveRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRemovePostRequestBody(writer: SerializationWriter, removePostRequestBody: Partial<RemovePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<Site>("value", removePostRequestBody.value, serializeSite);
     writer.writeAdditionalData(removePostRequestBody.additionalData);
@@ -97,6 +102,7 @@ export function serializeRemovePostRequestBody(writer: SerializationWriter, remo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRemovePostResponse(writer: SerializationWriter, removePostResponse: Partial<RemovePostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, removePostResponse)
     writer.writeCollectionOfObjectValues<Site>("value", removePostResponse.value, serializeSite);

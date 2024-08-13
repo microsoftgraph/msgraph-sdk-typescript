@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Z_TestPostRequestBody}
  */
+// @ts-ignore
 export function createZ_TestPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoZ_TestPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createZ_TestPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoZ_TestPostRequestBody(z_TestPostRequestBody: Partial<Z_TestPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { z_TestPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -32,6 +34,7 @@ export function deserializeIntoZ_TestPostRequestBody(z_TestPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeZ_TestPostRequestBody(writer: SerializationWriter, z_TestPostRequestBody: Partial<Z_TestPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("array", z_TestPostRequestBody.array);
     writer.writeObjectValue("sigma", z_TestPostRequestBody.sigma);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LowerPostRequestBody}
  */
+// @ts-ignore
 export function createLowerPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLowerPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLowerPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLowerPostRequestBody(lowerPostRequestBody: Partial<LowerPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lowerPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface LowerRequestBuilder extends BaseRequestBuilder<LowerRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeLowerPostRequestBody(writer: SerializationWriter, lowerPostRequestBody: Partial<LowerPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("text", lowerPostRequestBody.text);
     writer.writeAdditionalData(lowerPostRequestBody.additionalData);

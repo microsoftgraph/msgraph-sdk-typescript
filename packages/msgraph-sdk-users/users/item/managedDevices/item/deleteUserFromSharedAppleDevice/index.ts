@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DeleteUserFromSharedAppleDevicePostRequestBody}
  */
+// @ts-ignore
 export function createDeleteUserFromSharedAppleDevicePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeleteUserFromSharedAppleDevicePostRequestBody;
 }
@@ -52,6 +53,7 @@ export interface DeleteUserFromSharedAppleDeviceRequestBuilder extends BaseReque
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDeleteUserFromSharedAppleDevicePostRequestBody(deleteUserFromSharedAppleDevicePostRequestBody: Partial<DeleteUserFromSharedAppleDevicePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { deleteUserFromSharedAppleDevicePostRequestBody.backingStoreEnabled = true; },
@@ -62,6 +64,7 @@ export function deserializeIntoDeleteUserFromSharedAppleDevicePostRequestBody(de
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDeleteUserFromSharedAppleDevicePostRequestBody(writer: SerializationWriter, deleteUserFromSharedAppleDevicePostRequestBody: Partial<DeleteUserFromSharedAppleDevicePostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("userPrincipalName", deleteUserFromSharedAppleDevicePostRequestBody.userPrincipalName);
     writer.writeAdditionalData(deleteUserFromSharedAppleDevicePostRequestBody.additionalData);

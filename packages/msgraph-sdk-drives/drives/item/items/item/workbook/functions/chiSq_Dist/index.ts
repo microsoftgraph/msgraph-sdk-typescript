@@ -55,6 +55,7 @@ export interface ChiSq_DistRequestBuilder extends BaseRequestBuilder<ChiSq_DistR
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ChiSq_DistPostRequestBody}
  */
+// @ts-ignore
 export function createChiSq_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChiSq_DistPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createChiSq_DistPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoChiSq_DistPostRequestBody(chiSq_DistPostRequestBody: Partial<ChiSq_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { chiSq_DistPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export function deserializeIntoChiSq_DistPostRequestBody(chiSq_DistPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeChiSq_DistPostRequestBody(writer: SerializationWriter, chiSq_DistPostRequestBody: Partial<ChiSq_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("cumulative", chiSq_DistPostRequestBody.cumulative);
     writer.writeObjectValue("degFreedom", chiSq_DistPostRequestBody.degFreedom);

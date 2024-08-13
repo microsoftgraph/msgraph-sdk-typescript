@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FindBPostRequestBody}
  */
+// @ts-ignore
 export function createFindBPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFindBPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFindBPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFindBPostRequestBody(findBPostRequestBody: Partial<FindBPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { findBPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface FindBRequestBuilder extends BaseRequestBuilder<FindBRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeFindBPostRequestBody(writer: SerializationWriter, findBPostRequestBody: Partial<FindBPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("findText", findBPostRequestBody.findText);
     writer.writeObjectValue("startNum", findBPostRequestBody.startNum);

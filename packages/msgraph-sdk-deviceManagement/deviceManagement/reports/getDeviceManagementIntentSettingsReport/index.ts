@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetDeviceManagementIntentSettingsReportPostRequestBody}
  */
+// @ts-ignore
 export function createGetDeviceManagementIntentSettingsReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetDeviceManagementIntentSettingsReportPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetDeviceManagementIntentSettingsReportPostRequestBodyFrom
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetDeviceManagementIntentSettingsReportPostRequestBody(getDeviceManagementIntentSettingsReportPostRequestBody: Partial<GetDeviceManagementIntentSettingsReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getDeviceManagementIntentSettingsReportPostRequestBody.backingStoreEnabled = true; },
@@ -103,6 +105,7 @@ export interface GetDeviceManagementIntentSettingsReportRequestBuilder extends B
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetDeviceManagementIntentSettingsReportPostRequestBody(writer: SerializationWriter, getDeviceManagementIntentSettingsReportPostRequestBody: Partial<GetDeviceManagementIntentSettingsReportPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("filter", getDeviceManagementIntentSettingsReportPostRequestBody.filter);
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceManagementIntentSettingsReportPostRequestBody.groupBy);

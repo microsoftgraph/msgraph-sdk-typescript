@@ -47,6 +47,7 @@ export interface ConcatenateRequestBuilder extends BaseRequestBuilder<Concatenat
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ConcatenatePostRequestBody}
  */
+// @ts-ignore
 export function createConcatenatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConcatenatePostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createConcatenatePostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoConcatenatePostRequestBody(concatenatePostRequestBody: Partial<ConcatenatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { concatenatePostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export function deserializeIntoConcatenatePostRequestBody(concatenatePostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeConcatenatePostRequestBody(writer: SerializationWriter, concatenatePostRequestBody: Partial<ConcatenatePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("values", concatenatePostRequestBody.values);
     writer.writeAdditionalData(concatenatePostRequestBody.additionalData);

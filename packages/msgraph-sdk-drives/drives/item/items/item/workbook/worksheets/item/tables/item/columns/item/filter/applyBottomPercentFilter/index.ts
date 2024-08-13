@@ -44,6 +44,7 @@ export interface ApplyBottomPercentFilterRequestBuilder extends BaseRequestBuild
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyBottomPercentFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyBottomPercentFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyBottomPercentFilterPostRequestBody;
 }
@@ -51,6 +52,7 @@ export function createApplyBottomPercentFilterPostRequestBodyFromDiscriminatorVa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyBottomPercentFilterPostRequestBody(applyBottomPercentFilterPostRequestBody: Partial<ApplyBottomPercentFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyBottomPercentFilterPostRequestBody.backingStoreEnabled = true; },
@@ -61,6 +63,7 @@ export function deserializeIntoApplyBottomPercentFilterPostRequestBody(applyBott
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeApplyBottomPercentFilterPostRequestBody(writer: SerializationWriter, applyBottomPercentFilterPostRequestBody: Partial<ApplyBottomPercentFilterPostRequestBody> | undefined = {}) : void {
     writer.writeNumberValue("percent", applyBottomPercentFilterPostRequestBody.percent);
     writer.writeAdditionalData(applyBottomPercentFilterPostRequestBody.additionalData);

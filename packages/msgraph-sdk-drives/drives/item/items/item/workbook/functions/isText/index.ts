@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IsTextPostRequestBody}
  */
+// @ts-ignore
 export function createIsTextPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsTextPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIsTextPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIsTextPostRequestBody(isTextPostRequestBody: Partial<IsTextPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isTextPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface IsTextRequestBuilder extends BaseRequestBuilder<IsTextRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeIsTextPostRequestBody(writer: SerializationWriter, isTextPostRequestBody: Partial<IsTextPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("value", isTextPostRequestBody.value);
     writer.writeAdditionalData(isTextPostRequestBody.additionalData);

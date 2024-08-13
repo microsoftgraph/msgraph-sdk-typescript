@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetNotebookFromWebUrlPostRequestBody}
  */
+// @ts-ignore
 export function createGetNotebookFromWebUrlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetNotebookFromWebUrlPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createGetNotebookFromWebUrlPostRequestBodyFromDiscriminatorValue
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetNotebookFromWebUrlPostRequestBody(getNotebookFromWebUrlPostRequestBody: Partial<GetNotebookFromWebUrlPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getNotebookFromWebUrlPostRequestBody.backingStoreEnabled = true; },
@@ -65,6 +67,7 @@ export interface GetNotebookFromWebUrlRequestBuilder extends BaseRequestBuilder<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetNotebookFromWebUrlPostRequestBody(writer: SerializationWriter, getNotebookFromWebUrlPostRequestBody: Partial<GetNotebookFromWebUrlPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("webUrl", getNotebookFromWebUrlPostRequestBody.webUrl);
     writer.writeAdditionalData(getNotebookFromWebUrlPostRequestBody.additionalData);

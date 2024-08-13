@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IsEvenPostRequestBody}
  */
+// @ts-ignore
 export function createIsEvenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsEvenPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIsEvenPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIsEvenPostRequestBody(isEvenPostRequestBody: Partial<IsEvenPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isEvenPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface IsEvenRequestBuilder extends BaseRequestBuilder<IsEvenRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeIsEvenPostRequestBody(writer: SerializationWriter, isEvenPostRequestBody: Partial<IsEvenPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", isEvenPostRequestBody.number);
     writer.writeAdditionalData(isEvenPostRequestBody.additionalData);

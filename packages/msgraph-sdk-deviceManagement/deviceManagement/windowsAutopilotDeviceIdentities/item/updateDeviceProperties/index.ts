@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UpdateDevicePropertiesPostRequestBody}
  */
+// @ts-ignore
 export function createUpdateDevicePropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUpdateDevicePropertiesPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createUpdateDevicePropertiesPostRequestBodyFromDiscriminatorValu
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUpdateDevicePropertiesPostRequestBody(updateDevicePropertiesPostRequestBody: Partial<UpdateDevicePropertiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "addressableUserName": n => { updateDevicePropertiesPostRequestBody.addressableUserName = n.getStringValue(); },
@@ -31,6 +33,7 @@ export function deserializeIntoUpdateDevicePropertiesPostRequestBody(updateDevic
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeUpdateDevicePropertiesPostRequestBody(writer: SerializationWriter, updateDevicePropertiesPostRequestBody: Partial<UpdateDevicePropertiesPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("addressableUserName", updateDevicePropertiesPostRequestBody.addressableUserName);
     writer.writeStringValue("displayName", updateDevicePropertiesPostRequestBody.displayName);

@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody}
  */
+// @ts-ignore
 export function createGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetDeviceManagementIntentPerSettingContributingProfilesPos
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody(getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody: Partial<GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.backingStoreEnabled = true; },
@@ -103,6 +105,7 @@ export interface GetDeviceManagementIntentPerSettingContributingProfilesRequestB
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody(writer: SerializationWriter, getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody: Partial<GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("filter", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.filter);
     writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.groupBy);

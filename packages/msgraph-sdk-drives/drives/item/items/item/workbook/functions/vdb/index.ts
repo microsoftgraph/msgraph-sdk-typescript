@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {VdbPostRequestBody}
  */
+// @ts-ignore
 export function createVdbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVdbPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createVdbPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoVdbPostRequestBody(vdbPostRequestBody: Partial<VdbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { vdbPostRequestBody.backingStoreEnabled = true; },
@@ -36,6 +38,7 @@ export function deserializeIntoVdbPostRequestBody(vdbPostRequestBody: Partial<Vd
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeVdbPostRequestBody(writer: SerializationWriter, vdbPostRequestBody: Partial<VdbPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("cost", vdbPostRequestBody.cost);
     writer.writeObjectValue("endPeriod", vdbPostRequestBody.endPeriod);

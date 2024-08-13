@@ -33,7 +33,7 @@ export interface PivotTablesRequestBuilder extends BaseRequestBuilder<PivotTable
      */
      byWorkbookPivotTableId(workbookPivotTableId: string) : WorkbookPivotTableItemRequestBuilder;
     /**
-     * Collection of PivotTables that are part of the worksheet.
+     * The list of piot tables that are part of the worksheet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookPivotTableCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -48,7 +48,7 @@ export interface PivotTablesRequestBuilder extends BaseRequestBuilder<PivotTable
      */
      post(body: WorkbookPivotTable, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookPivotTable | undefined>;
     /**
-     * Collection of PivotTables that are part of the worksheet.
+     * The list of piot tables that are part of the worksheet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -62,7 +62,7 @@ export interface PivotTablesRequestBuilder extends BaseRequestBuilder<PivotTable
      toPostRequestInformation(body: WorkbookPivotTable, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Collection of PivotTables that are part of the worksheet.
+ * The list of piot tables that are part of the worksheet.
  */
 export interface PivotTablesRequestBuilderGetQueryParameters {
     /**

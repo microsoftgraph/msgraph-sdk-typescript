@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DecimalPostRequestBody}
  */
+// @ts-ignore
 export function createDecimalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDecimalPostRequestBody;
 }
@@ -58,6 +59,7 @@ export interface DecimalRequestBuilder extends BaseRequestBuilder<DecimalRequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDecimalPostRequestBody(decimalPostRequestBody: Partial<DecimalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { decimalPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export function deserializeIntoDecimalPostRequestBody(decimalPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDecimalPostRequestBody(writer: SerializationWriter, decimalPostRequestBody: Partial<DecimalPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", decimalPostRequestBody.number);
     writer.writeObjectValue("radix", decimalPostRequestBody.radix);

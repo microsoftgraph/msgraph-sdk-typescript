@@ -21,6 +21,7 @@ export interface AsHierarchyGetResponse extends BaseCollectionPaginationCountRes
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AsHierarchyGetResponse}
  */
+// @ts-ignore
 export function createAsHierarchyGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAsHierarchyGetResponse;
 }
@@ -28,6 +29,7 @@ export function createAsHierarchyGetResponseFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAsHierarchyGetResponse(asHierarchyGetResponse: Partial<AsHierarchyGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(asHierarchyGetResponse),
@@ -93,6 +95,7 @@ export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParamete
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAsHierarchyGetResponse(writer: SerializationWriter, asHierarchyGetResponse: Partial<AsHierarchyGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, asHierarchyGetResponse)
     writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", asHierarchyGetResponse.value, serializeEdiscoveryReviewTag);

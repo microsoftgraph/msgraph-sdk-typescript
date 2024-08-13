@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TruncPostRequestBody}
  */
+// @ts-ignore
 export function createTruncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTruncPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTruncPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTruncPostRequestBody(truncPostRequestBody: Partial<TruncPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { truncPostRequestBody.backingStoreEnabled = true; },
@@ -31,6 +33,7 @@ export function deserializeIntoTruncPostRequestBody(truncPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeTruncPostRequestBody(writer: SerializationWriter, truncPostRequestBody: Partial<TruncPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", truncPostRequestBody.number);
     writer.writeObjectValue("numDigits", truncPostRequestBody.numDigits);

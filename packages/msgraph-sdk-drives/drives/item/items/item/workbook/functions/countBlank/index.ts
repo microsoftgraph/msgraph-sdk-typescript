@@ -47,6 +47,7 @@ export interface CountBlankRequestBuilder extends BaseRequestBuilder<CountBlankR
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CountBlankPostRequestBody}
  */
+// @ts-ignore
 export function createCountBlankPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCountBlankPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createCountBlankPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCountBlankPostRequestBody(countBlankPostRequestBody: Partial<CountBlankPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { countBlankPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export function deserializeIntoCountBlankPostRequestBody(countBlankPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCountBlankPostRequestBody(writer: SerializationWriter, countBlankPostRequestBody: Partial<CountBlankPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("range", countBlankPostRequestBody.range);
     writer.writeAdditionalData(countBlankPostRequestBody.additionalData);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SeriesSumPostRequestBody}
  */
+// @ts-ignore
 export function createSeriesSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSeriesSumPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSeriesSumPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSeriesSumPostRequestBody(seriesSumPostRequestBody: Partial<SeriesSumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { seriesSumPostRequestBody.backingStoreEnabled = true; },
@@ -33,6 +35,7 @@ export function deserializeIntoSeriesSumPostRequestBody(seriesSumPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSeriesSumPostRequestBody(writer: SerializationWriter, seriesSumPostRequestBody: Partial<SeriesSumPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("coefficients", seriesSumPostRequestBody.coefficients);
     writer.writeObjectValue("m", seriesSumPostRequestBody.m);

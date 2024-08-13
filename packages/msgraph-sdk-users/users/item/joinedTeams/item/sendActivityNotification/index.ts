@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SendActivityNotificationPostRequestBody}
  */
+// @ts-ignore
 export function createSendActivityNotificationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendActivityNotificationPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSendActivityNotificationPostRequestBodyFromDiscriminatorVa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSendActivityNotificationPostRequestBody(sendActivityNotificationPostRequestBody: Partial<SendActivityNotificationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "activityType": n => { sendActivityNotificationPostRequestBody.activityType = n.getStringValue(); },
@@ -94,6 +96,7 @@ export interface SendActivityNotificationRequestBuilder extends BaseRequestBuild
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSendActivityNotificationPostRequestBody(writer: SerializationWriter, sendActivityNotificationPostRequestBody: Partial<SendActivityNotificationPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("activityType", sendActivityNotificationPostRequestBody.activityType);
     writer.writeNumberValue("chainId", sendActivityNotificationPostRequestBody.chainId);

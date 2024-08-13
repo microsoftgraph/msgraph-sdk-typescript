@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TargetAppsPostRequestBody}
  */
+// @ts-ignore
 export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTargetAppsPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "appGroupType": n => { targetAppsPostRequestBody.appGroupType = n.getEnumValue<TargetedManagedAppGroupType>(TargetedManagedAppGroupTypeObject); },
@@ -31,6 +33,7 @@ export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined = {}) : void {
     writer.writeEnumValue<TargetedManagedAppGroupType>("appGroupType", targetAppsPostRequestBody.appGroupType);
     writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);

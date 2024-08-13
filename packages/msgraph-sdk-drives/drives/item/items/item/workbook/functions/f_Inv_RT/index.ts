@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {F_Inv_RTPostRequestBody}
  */
+// @ts-ignore
 export function createF_Inv_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoF_Inv_RTPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createF_Inv_RTPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoF_Inv_RTPostRequestBody(f_Inv_RTPostRequestBody: Partial<F_Inv_RTPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { f_Inv_RTPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface F_Inv_RTRequestBuilder extends BaseRequestBuilder<F_Inv_RTReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeF_Inv_RTPostRequestBody(writer: SerializationWriter, f_Inv_RTPostRequestBody: Partial<F_Inv_RTPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("degFreedom1", f_Inv_RTPostRequestBody.degFreedom1);
     writer.writeObjectValue("degFreedom2", f_Inv_RTPostRequestBody.degFreedom2);

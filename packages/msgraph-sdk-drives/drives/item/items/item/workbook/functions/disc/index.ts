@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DiscPostRequestBody}
  */
+// @ts-ignore
 export function createDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDiscPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDiscPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDiscPostRequestBody(discPostRequestBody: Partial<DiscPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { discPostRequestBody.backingStoreEnabled = true; },
@@ -84,6 +86,7 @@ export interface DiscRequestBuilder extends BaseRequestBuilder<DiscRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDiscPostRequestBody(writer: SerializationWriter, discPostRequestBody: Partial<DiscPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("basis", discPostRequestBody.basis);
     writer.writeObjectValue("maturity", discPostRequestBody.maturity);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Floor_PrecisePostRequestBody}
  */
+// @ts-ignore
 export function createFloor_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFloor_PrecisePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFloor_PrecisePostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFloor_PrecisePostRequestBody(floor_PrecisePostRequestBody: Partial<Floor_PrecisePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { floor_PrecisePostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface Floor_PreciseRequestBuilder extends BaseRequestBuilder<Floor_Pr
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeFloor_PrecisePostRequestBody(writer: SerializationWriter, floor_PrecisePostRequestBody: Partial<Floor_PrecisePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", floor_PrecisePostRequestBody.number);
     writer.writeObjectValue("significance", floor_PrecisePostRequestBody.significance);

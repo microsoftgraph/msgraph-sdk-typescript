@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {YearPostRequestBody}
  */
+// @ts-ignore
 export function createYearPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoYearPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createYearPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoYearPostRequestBody(yearPostRequestBody: Partial<YearPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { yearPostRequestBody.backingStoreEnabled = true; },
@@ -30,6 +32,7 @@ export function deserializeIntoYearPostRequestBody(yearPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeYearPostRequestBody(writer: SerializationWriter, yearPostRequestBody: Partial<YearPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("serialNumber", yearPostRequestBody.serialNumber);
     writer.writeAdditionalData(yearPostRequestBody.additionalData);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SheetPostRequestBody}
  */
+// @ts-ignore
 export function createSheetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSheetPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSheetPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSheetPostRequestBody(sheetPostRequestBody: Partial<SheetPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sheetPostRequestBody.backingStoreEnabled = true; },
@@ -30,6 +32,7 @@ export function deserializeIntoSheetPostRequestBody(sheetPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSheetPostRequestBody(writer: SerializationWriter, sheetPostRequestBody: Partial<SheetPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("value", sheetPostRequestBody.value);
     writer.writeAdditionalData(sheetPostRequestBody.additionalData);

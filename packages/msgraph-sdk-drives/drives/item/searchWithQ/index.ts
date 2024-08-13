@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SearchWithQGetResponse}
  */
+// @ts-ignore
 export function createSearchWithQGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSearchWithQGetResponse;
 }
@@ -20,6 +21,7 @@ export function createSearchWithQGetResponseFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSearchWithQGetResponse(searchWithQGetResponse: Partial<SearchWithQGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(searchWithQGetResponse),
@@ -92,6 +94,7 @@ export interface SearchWithQRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSearchWithQGetResponse(writer: SerializationWriter, searchWithQGetResponse: Partial<SearchWithQGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, searchWithQGetResponse)
     writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQGetResponse.value, serializeDriveItem);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RomanPostRequestBody}
  */
+// @ts-ignore
 export function createRomanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRomanPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRomanPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRomanPostRequestBody(romanPostRequestBody: Partial<RomanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { romanPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface RomanRequestBuilder extends BaseRequestBuilder<RomanRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRomanPostRequestBody(writer: SerializationWriter, romanPostRequestBody: Partial<RomanPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("form", romanPostRequestBody.form);
     writer.writeObjectValue("number", romanPostRequestBody.number);

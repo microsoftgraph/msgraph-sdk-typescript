@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface VirtualEventSessionItemRequestBuilder extends BaseRequestBuilder<VirtualEventSessionItemRequestBuilder> {
     /**
-     * Get sessions from solutions
+     * Sessions for a registration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventSession>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<VirtualEventSessionItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventSession | undefined>;
     /**
-     * Get sessions from solutions
+     * Sessions for a registration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<VirtualEventSessionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get sessions from solutions
+ * Sessions for a registration.
  */
 export interface VirtualEventSessionItemRequestBuilderGetQueryParameters {
     /**

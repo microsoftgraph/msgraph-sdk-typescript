@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Pa
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GroupCollectionResponse}
  */
+// @ts-ignore
 export function createGroupCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGroupCollectionResponse;
 }
@@ -19,6 +20,7 @@ export function createGroupCollectionResponseFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Group}
  */
+// @ts-ignore
 export function createGroupFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGroup;
 }
@@ -27,6 +29,7 @@ export function createGroupFromDiscriminatorValue(parseNode: ParseNode | undefin
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LocalizedDescription}
  */
+// @ts-ignore
 export function createLocalizedDescriptionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLocalizedDescription;
 }
@@ -35,6 +38,7 @@ export function createLocalizedDescriptionFromDiscriminatorValue(parseNode: Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LocalizedLabel}
  */
+// @ts-ignore
 export function createLocalizedLabelFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLocalizedLabel;
 }
@@ -43,6 +47,7 @@ export function createLocalizedLabelFromDiscriminatorValue(parseNode: ParseNode 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LocalizedName}
  */
+// @ts-ignore
 export function createLocalizedNameFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLocalizedName;
 }
@@ -51,6 +56,7 @@ export function createLocalizedNameFromDiscriminatorValue(parseNode: ParseNode |
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RelationCollectionResponse}
  */
+// @ts-ignore
 export function createRelationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRelationCollectionResponse;
 }
@@ -59,6 +65,7 @@ export function createRelationCollectionResponseFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Relation}
  */
+// @ts-ignore
 export function createRelationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRelation;
 }
@@ -67,6 +74,7 @@ export function createRelationFromDiscriminatorValue(parseNode: ParseNode | unde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SetCollectionResponse}
  */
+// @ts-ignore
 export function createSetCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetCollectionResponse;
 }
@@ -75,6 +83,7 @@ export function createSetCollectionResponseFromDiscriminatorValue(parseNode: Par
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Set}
  */
+// @ts-ignore
 export function createSetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSet;
 }
@@ -83,6 +92,7 @@ export function createSetFromDiscriminatorValue(parseNode: ParseNode | undefined
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {StoreCollectionResponse}
  */
+// @ts-ignore
 export function createStoreCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStoreCollectionResponse;
 }
@@ -91,6 +101,7 @@ export function createStoreCollectionResponseFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Store}
  */
+// @ts-ignore
 export function createStoreFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStore;
 }
@@ -99,6 +110,7 @@ export function createStoreFromDiscriminatorValue(parseNode: ParseNode | undefin
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TermCollectionResponse}
  */
+// @ts-ignore
 export function createTermCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTermCollectionResponse;
 }
@@ -107,6 +119,7 @@ export function createTermCollectionResponseFromDiscriminatorValue(parseNode: Pa
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Term}
  */
+// @ts-ignore
 export function createTermFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTerm;
 }
@@ -114,6 +127,7 @@ export function createTermFromDiscriminatorValue(parseNode: ParseNode | undefine
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGroup(group: Partial<Group> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(group),
@@ -129,6 +143,7 @@ export function deserializeIntoGroup(group: Partial<Group> | undefined = {}) : R
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGroupCollectionResponse(groupCollectionResponse: Partial<GroupCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(groupCollectionResponse),
@@ -139,6 +154,7 @@ export function deserializeIntoGroupCollectionResponse(groupCollectionResponse: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLocalizedDescription(localizedDescription: Partial<LocalizedDescription> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { localizedDescription.backingStoreEnabled = true; },
@@ -151,6 +167,7 @@ export function deserializeIntoLocalizedDescription(localizedDescription: Partia
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLocalizedLabel(localizedLabel: Partial<LocalizedLabel> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { localizedLabel.backingStoreEnabled = true; },
@@ -164,6 +181,7 @@ export function deserializeIntoLocalizedLabel(localizedLabel: Partial<LocalizedL
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLocalizedName(localizedName: Partial<LocalizedName> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { localizedName.backingStoreEnabled = true; },
@@ -176,6 +194,7 @@ export function deserializeIntoLocalizedName(localizedName: Partial<LocalizedNam
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRelation(relation: Partial<Relation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(relation),
@@ -189,6 +208,7 @@ export function deserializeIntoRelation(relation: Partial<Relation> | undefined 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRelationCollectionResponse(relationCollectionResponse: Partial<RelationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(relationCollectionResponse),
@@ -199,6 +219,7 @@ export function deserializeIntoRelationCollectionResponse(relationCollectionResp
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSet(set: Partial<Set> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(set),
@@ -216,6 +237,7 @@ export function deserializeIntoSet(set: Partial<Set> | undefined = {}) : Record<
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSetCollectionResponse(setCollectionResponse: Partial<SetCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(setCollectionResponse),
@@ -226,6 +248,7 @@ export function deserializeIntoSetCollectionResponse(setCollectionResponse: Part
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoStore(store: Partial<Store> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(store),
@@ -239,6 +262,7 @@ export function deserializeIntoStore(store: Partial<Store> | undefined = {}) : R
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoStoreCollectionResponse(storeCollectionResponse: Partial<StoreCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(storeCollectionResponse),
@@ -249,6 +273,7 @@ export function deserializeIntoStoreCollectionResponse(storeCollectionResponse: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTerm(term: Partial<Term> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(term),
@@ -266,6 +291,7 @@ export function deserializeIntoTerm(term: Partial<Term> | undefined = {}) : Reco
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTermCollectionResponse(termCollectionResponse: Partial<TermCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(termCollectionResponse),
@@ -403,6 +429,7 @@ export type RelationType = (typeof RelationTypeObject)[keyof typeof RelationType
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGroup(writer: SerializationWriter, group: Partial<Group> | undefined = {}) : void {
     serializeEntity(writer, group)
     writer.writeDateValue("createdDateTime", group.createdDateTime);
@@ -416,6 +443,7 @@ export function serializeGroup(writer: SerializationWriter, group: Partial<Group
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGroupCollectionResponse(writer: SerializationWriter, groupCollectionResponse: Partial<GroupCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, groupCollectionResponse)
     writer.writeCollectionOfObjectValues<Group>("value", groupCollectionResponse.value, serializeGroup);
@@ -424,6 +452,7 @@ export function serializeGroupCollectionResponse(writer: SerializationWriter, gr
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeLocalizedDescription(writer: SerializationWriter, localizedDescription: Partial<LocalizedDescription> | undefined = {}) : void {
     writer.writeStringValue("description", localizedDescription.description);
     writer.writeStringValue("languageTag", localizedDescription.languageTag);
@@ -434,6 +463,7 @@ export function serializeLocalizedDescription(writer: SerializationWriter, local
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeLocalizedLabel(writer: SerializationWriter, localizedLabel: Partial<LocalizedLabel> | undefined = {}) : void {
     writer.writeBooleanValue("isDefault", localizedLabel.isDefault);
     writer.writeStringValue("languageTag", localizedLabel.languageTag);
@@ -445,6 +475,7 @@ export function serializeLocalizedLabel(writer: SerializationWriter, localizedLa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeLocalizedName(writer: SerializationWriter, localizedName: Partial<LocalizedName> | undefined = {}) : void {
     writer.writeStringValue("languageTag", localizedName.languageTag);
     writer.writeStringValue("name", localizedName.name);
@@ -455,6 +486,7 @@ export function serializeLocalizedName(writer: SerializationWriter, localizedNam
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRelation(writer: SerializationWriter, relation: Partial<Relation> | undefined = {}) : void {
     serializeEntity(writer, relation)
     writer.writeObjectValue<Term>("fromTerm", relation.fromTerm, serializeTerm);
@@ -466,6 +498,7 @@ export function serializeRelation(writer: SerializationWriter, relation: Partial
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRelationCollectionResponse(writer: SerializationWriter, relationCollectionResponse: Partial<RelationCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, relationCollectionResponse)
     writer.writeCollectionOfObjectValues<Relation>("value", relationCollectionResponse.value, serializeRelation);
@@ -474,6 +507,7 @@ export function serializeRelationCollectionResponse(writer: SerializationWriter,
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSet(writer: SerializationWriter, set: Partial<Set> | undefined = {}) : void {
     serializeEntity(writer, set)
     writer.writeCollectionOfObjectValues<Term>("children", set.children, serializeTerm);
@@ -489,6 +523,7 @@ export function serializeSet(writer: SerializationWriter, set: Partial<Set> | un
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSetCollectionResponse(writer: SerializationWriter, setCollectionResponse: Partial<SetCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, setCollectionResponse)
     writer.writeCollectionOfObjectValues<Set>("value", setCollectionResponse.value, serializeSet);
@@ -497,6 +532,7 @@ export function serializeSetCollectionResponse(writer: SerializationWriter, setC
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeStore(writer: SerializationWriter, store: Partial<Store> | undefined = {}) : void {
     serializeEntity(writer, store)
     writer.writeStringValue("defaultLanguageTag", store.defaultLanguageTag);
@@ -508,6 +544,7 @@ export function serializeStore(writer: SerializationWriter, store: Partial<Store
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeStoreCollectionResponse(writer: SerializationWriter, storeCollectionResponse: Partial<StoreCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, storeCollectionResponse)
     writer.writeCollectionOfObjectValues<Store>("value", storeCollectionResponse.value, serializeStore);
@@ -516,6 +553,7 @@ export function serializeStoreCollectionResponse(writer: SerializationWriter, st
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeTerm(writer: SerializationWriter, term: Partial<Term> | undefined = {}) : void {
     serializeEntity(writer, term)
     writer.writeCollectionOfObjectValues<Term>("children", term.children, serializeTerm);
@@ -531,6 +569,7 @@ export function serializeTerm(writer: SerializationWriter, term: Partial<Term> |
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeTermCollectionResponse(writer: SerializationWriter, termCollectionResponse: Partial<TermCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, termCollectionResponse)
     writer.writeCollectionOfObjectValues<Term>("value", termCollectionResponse.value, serializeTerm);

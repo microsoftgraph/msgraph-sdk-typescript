@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ReplyPostRequestBody}
  */
+// @ts-ignore
 export function createReplyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReplyPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createReplyPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoReplyPostRequestBody(replyPostRequestBody: Partial<ReplyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replyPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface ReplyRequestBuilder extends BaseRequestBuilder<ReplyRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeReplyPostRequestBody(writer: SerializationWriter, replyPostRequestBody: Partial<ReplyPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("Comment", replyPostRequestBody.comment);
     writer.writeObjectValue<Message>("Message", replyPostRequestBody.message, serializeMessage);

@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnfavoritePostRequestBody}
  */
+// @ts-ignore
 export function createUnfavoritePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnfavoritePostRequestBody;
 }
@@ -19,6 +20,7 @@ export function createUnfavoritePostRequestBodyFromDiscriminatorValue(parseNode:
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnfavoritePostResponse}
  */
+// @ts-ignore
 export function createUnfavoritePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnfavoritePostResponse;
 }
@@ -26,6 +28,7 @@ export function createUnfavoritePostResponseFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBody: Partial<UnfavoritePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unfavoritePostRequestBody.backingStoreEnabled = true; },
@@ -36,6 +39,7 @@ export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unfavoritePostResponse.backingStoreEnabled = true; },
@@ -46,6 +50,7 @@ export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, unfavoritePostRequestBody: Partial<UnfavoritePostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", unfavoritePostRequestBody.messageIds);
     writer.writeAdditionalData(unfavoritePostRequestBody.additionalData);
@@ -54,6 +59,7 @@ export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", unfavoritePostResponse.value);
     writer.writeAdditionalData(unfavoritePostResponse.additionalData);

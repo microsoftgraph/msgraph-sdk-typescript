@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetManagedAppPoliciesGetResponse}
  */
+// @ts-ignore
 export function createGetManagedAppPoliciesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetManagedAppPoliciesGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetManagedAppPoliciesGetResponseFromDiscriminatorValue(par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetManagedAppPoliciesGetResponse(getManagedAppPoliciesGetResponse: Partial<GetManagedAppPoliciesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedAppPoliciesGetResponse),
@@ -92,6 +94,7 @@ export interface GetManagedAppPoliciesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetManagedAppPoliciesGetResponse(writer: SerializationWriter, getManagedAppPoliciesGetResponse: Partial<GetManagedAppPoliciesGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getManagedAppPoliciesGetResponse)
     writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesGetResponse.value, serializeManagedAppPolicy);

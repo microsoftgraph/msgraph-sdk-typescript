@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DstDevPPostRequestBody}
  */
+// @ts-ignore
 export function createDstDevPPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDstDevPPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDstDevPPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDstDevPPostRequestBody(dstDevPPostRequestBody: Partial<DstDevPPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dstDevPPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface DstDevPRequestBuilder extends BaseRequestBuilder<DstDevPRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDstDevPPostRequestBody(writer: SerializationWriter, dstDevPPostRequestBody: Partial<DstDevPPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("criteria", dstDevPPostRequestBody.criteria);
     writer.writeObjectValue("database", dstDevPPostRequestBody.database);

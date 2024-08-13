@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExactPostRequestBody}
  */
+// @ts-ignore
 export function createExactPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExactPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createExactPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExactPostRequestBody(exactPostRequestBody: Partial<ExactPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { exactPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface ExactRequestBuilder extends BaseRequestBuilder<ExactRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeExactPostRequestBody(writer: SerializationWriter, exactPostRequestBody: Partial<ExactPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("text1", exactPostRequestBody.text1);
     writer.writeObjectValue("text2", exactPostRequestBody.text2);

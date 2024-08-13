@@ -75,6 +75,7 @@ export interface AdditionalAccessRequestBuilderGetQueryParameters {
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AdditionalAccessGetResponse}
  */
+// @ts-ignore
 export function createAdditionalAccessGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAdditionalAccessGetResponse;
 }
@@ -82,6 +83,7 @@ export function createAdditionalAccessGetResponseFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAdditionalAccessGetResponse(additionalAccessGetResponse: Partial<AdditionalAccessGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(additionalAccessGetResponse),
@@ -92,6 +94,7 @@ export function deserializeIntoAdditionalAccessGetResponse(additionalAccessGetRe
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAdditionalAccessGetResponse(writer: SerializationWriter, additionalAccessGetResponse: Partial<AdditionalAccessGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, additionalAccessGetResponse)
     writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessGetResponse.value, serializeAccessPackageAssignment);

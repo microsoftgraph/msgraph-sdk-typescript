@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PreviewPostRequestBody}
  */
+// @ts-ignore
 export function createPreviewPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPreviewPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPreviewPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPreviewPostRequestBody(previewPostRequestBody: Partial<PreviewPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { previewPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface PreviewRequestBuilder extends BaseRequestBuilder<PreviewRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializePreviewPostRequestBody(writer: SerializationWriter, previewPostRequestBody: Partial<PreviewPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("page", previewPostRequestBody.page);
     writer.writeNumberValue("zoom", previewPostRequestBody.zoom);

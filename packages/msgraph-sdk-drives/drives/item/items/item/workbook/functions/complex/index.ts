@@ -55,6 +55,7 @@ export interface ComplexRequestBuilder extends BaseRequestBuilder<ComplexRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ComplexPostRequestBody}
  */
+// @ts-ignore
 export function createComplexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoComplexPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createComplexPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoComplexPostRequestBody(complexPostRequestBody: Partial<ComplexPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { complexPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export function deserializeIntoComplexPostRequestBody(complexPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeComplexPostRequestBody(writer: SerializationWriter, complexPostRequestBody: Partial<ComplexPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("iNum", complexPostRequestBody.iNum);
     writer.writeObjectValue("realNum", complexPostRequestBody.realNum);

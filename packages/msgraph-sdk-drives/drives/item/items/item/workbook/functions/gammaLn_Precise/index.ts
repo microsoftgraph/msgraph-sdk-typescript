@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GammaLn_PrecisePostRequestBody}
  */
+// @ts-ignore
 export function createGammaLn_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGammaLn_PrecisePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createGammaLn_PrecisePostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGammaLn_PrecisePostRequestBody(gammaLn_PrecisePostRequestBody: Partial<GammaLn_PrecisePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { gammaLn_PrecisePostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface GammaLn_PreciseRequestBuilder extends BaseRequestBuilder<GammaL
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGammaLn_PrecisePostRequestBody(writer: SerializationWriter, gammaLn_PrecisePostRequestBody: Partial<GammaLn_PrecisePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("x", gammaLn_PrecisePostRequestBody.x);
     writer.writeAdditionalData(gammaLn_PrecisePostRequestBody.additionalData);

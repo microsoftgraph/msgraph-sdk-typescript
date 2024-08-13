@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SetVerifiedPublisherPostRequestBody}
  */
+// @ts-ignore
 export function createSetVerifiedPublisherPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetVerifiedPublisherPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createSetVerifiedPublisherPostRequestBodyFromDiscriminatorValue(
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSetVerifiedPublisherPostRequestBody(setVerifiedPublisherPostRequestBody: Partial<SetVerifiedPublisherPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setVerifiedPublisherPostRequestBody.backingStoreEnabled = true; },
@@ -28,6 +30,7 @@ export function deserializeIntoSetVerifiedPublisherPostRequestBody(setVerifiedPu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeSetVerifiedPublisherPostRequestBody(writer: SerializationWriter, setVerifiedPublisherPostRequestBody: Partial<SetVerifiedPublisherPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("verifiedPublisherId", setVerifiedPublisherPostRequestBody.verifiedPublisherId);
     writer.writeAdditionalData(setVerifiedPublisherPostRequestBody.additionalData);

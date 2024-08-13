@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GeStepPostRequestBody}
  */
+// @ts-ignore
 export function createGeStepPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGeStepPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createGeStepPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGeStepPostRequestBody(geStepPostRequestBody: Partial<GeStepPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { geStepPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface GeStepRequestBuilder extends BaseRequestBuilder<GeStepRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGeStepPostRequestBody(writer: SerializationWriter, geStepPostRequestBody: Partial<GeStepPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", geStepPostRequestBody.number);
     writer.writeObjectValue("step", geStepPostRequestBody.step);

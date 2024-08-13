@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NegBinom_DistPostRequestBody}
  */
+// @ts-ignore
 export function createNegBinom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNegBinom_DistPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNegBinom_DistPostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNegBinom_DistPostRequestBody(negBinom_DistPostRequestBody: Partial<NegBinom_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { negBinom_DistPostRequestBody.backingStoreEnabled = true; },
@@ -79,6 +81,7 @@ export interface NegBinom_DistRequestBuilder extends BaseRequestBuilder<NegBinom
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeNegBinom_DistPostRequestBody(writer: SerializationWriter, negBinom_DistPostRequestBody: Partial<NegBinom_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("cumulative", negBinom_DistPostRequestBody.cumulative);
     writer.writeObjectValue("numberF", negBinom_DistPostRequestBody.numberF);

@@ -51,6 +51,7 @@ export interface ChiSq_Dist_RTRequestBuilder extends BaseRequestBuilder<ChiSq_Di
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ChiSq_Dist_RTPostRequestBody}
  */
+// @ts-ignore
 export function createChiSq_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChiSq_Dist_RTPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createChiSq_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoChiSq_Dist_RTPostRequestBody(chiSq_Dist_RTPostRequestBody: Partial<ChiSq_Dist_RTPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { chiSq_Dist_RTPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export function deserializeIntoChiSq_Dist_RTPostRequestBody(chiSq_Dist_RTPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeChiSq_Dist_RTPostRequestBody(writer: SerializationWriter, chiSq_Dist_RTPostRequestBody: Partial<ChiSq_Dist_RTPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("degFreedom", chiSq_Dist_RTPostRequestBody.degFreedom);
     writer.writeObjectValue("x", chiSq_Dist_RTPostRequestBody.x);

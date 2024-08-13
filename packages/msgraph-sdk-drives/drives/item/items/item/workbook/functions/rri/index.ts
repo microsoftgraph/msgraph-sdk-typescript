@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RriPostRequestBody}
  */
+// @ts-ignore
 export function createRriPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRriPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRriPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRriPostRequestBody(rriPostRequestBody: Partial<RriPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rriPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface RriRequestBuilder extends BaseRequestBuilder<RriRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRriPostRequestBody(writer: SerializationWriter, rriPostRequestBody: Partial<RriPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("fv", rriPostRequestBody.fv);
     writer.writeObjectValue("nper", rriPostRequestBody.nper);

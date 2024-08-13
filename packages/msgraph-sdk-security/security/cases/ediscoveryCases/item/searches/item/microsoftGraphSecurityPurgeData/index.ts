@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PurgeDataPostRequestBody}
  */
+// @ts-ignore
 export function createPurgeDataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPurgeDataPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPurgeDataPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPurgeDataPostRequestBody(purgeDataPostRequestBody: Partial<PurgeDataPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { purgeDataPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface PurgeDataPostRequestBody extends AdditionalDataHolder, BackedMo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializePurgeDataPostRequestBody(writer: SerializationWriter, purgeDataPostRequestBody: Partial<PurgeDataPostRequestBody> | undefined = {}) : void {
     writer.writeEnumValue<PurgeAreas[]>("purgeAreas", purgeDataPostRequestBody.purgeAreas);
     writer.writeEnumValue<PurgeType>("purgeType", purgeDataPostRequestBody.purgeType);

@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MarkReadPostRequestBody}
  */
+// @ts-ignore
 export function createMarkReadPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkReadPostRequestBody;
 }
@@ -19,6 +20,7 @@ export function createMarkReadPostRequestBodyFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MarkReadPostResponse}
  */
+// @ts-ignore
 export function createMarkReadPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkReadPostResponse;
 }
@@ -26,6 +28,7 @@ export function createMarkReadPostResponseFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMarkReadPostRequestBody(markReadPostRequestBody: Partial<MarkReadPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markReadPostRequestBody.backingStoreEnabled = true; },
@@ -36,6 +39,7 @@ export function deserializeIntoMarkReadPostRequestBody(markReadPostRequestBody: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMarkReadPostResponse(markReadPostResponse: Partial<MarkReadPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markReadPostResponse.backingStoreEnabled = true; },
@@ -95,6 +99,7 @@ export interface MarkReadRequestBuilder extends BaseRequestBuilder<MarkReadReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeMarkReadPostRequestBody(writer: SerializationWriter, markReadPostRequestBody: Partial<MarkReadPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfPrimitiveValues<string>("messageIds", markReadPostRequestBody.messageIds);
     writer.writeAdditionalData(markReadPostRequestBody.additionalData);
@@ -103,6 +108,7 @@ export function serializeMarkReadPostRequestBody(writer: SerializationWriter, ma
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeMarkReadPostResponse(writer: SerializationWriter, markReadPostResponse: Partial<MarkReadPostResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", markReadPostResponse.value);
     writer.writeAdditionalData(markReadPostResponse.additionalData);

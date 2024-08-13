@@ -37,6 +37,7 @@ export interface CheckGrantedPermissionsForAppRequestBuilder extends BaseRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CheckGrantedPermissionsForAppPostResponse}
  */
+// @ts-ignore
 export function createCheckGrantedPermissionsForAppPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCheckGrantedPermissionsForAppPostResponse;
 }
@@ -44,6 +45,7 @@ export function createCheckGrantedPermissionsForAppPostResponseFromDiscriminator
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCheckGrantedPermissionsForAppPostResponse(checkGrantedPermissionsForAppPostResponse: Partial<CheckGrantedPermissionsForAppPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(checkGrantedPermissionsForAppPostResponse),
@@ -54,6 +56,7 @@ export function deserializeIntoCheckGrantedPermissionsForAppPostResponse(checkGr
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCheckGrantedPermissionsForAppPostResponse(writer: SerializationWriter, checkGrantedPermissionsForAppPostResponse: Partial<CheckGrantedPermissionsForAppPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, checkGrantedPermissionsForAppPostResponse)
     writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", checkGrantedPermissionsForAppPostResponse.value, serializeResourceSpecificPermissionGrant);

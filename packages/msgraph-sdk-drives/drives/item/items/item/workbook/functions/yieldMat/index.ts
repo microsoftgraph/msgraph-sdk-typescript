@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {YieldMatPostRequestBody}
  */
+// @ts-ignore
 export function createYieldMatPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoYieldMatPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createYieldMatPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoYieldMatPostRequestBody(yieldMatPostRequestBody: Partial<YieldMatPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { yieldMatPostRequestBody.backingStoreEnabled = true; },
@@ -35,6 +37,7 @@ export function deserializeIntoYieldMatPostRequestBody(yieldMatPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeYieldMatPostRequestBody(writer: SerializationWriter, yieldMatPostRequestBody: Partial<YieldMatPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("basis", yieldMatPostRequestBody.basis);
     writer.writeObjectValue("issue", yieldMatPostRequestBody.issue);

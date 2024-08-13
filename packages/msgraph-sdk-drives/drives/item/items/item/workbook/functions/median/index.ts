@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MedianPostRequestBody}
  */
+// @ts-ignore
 export function createMedianPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMedianPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMedianPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMedianPostRequestBody(medianPostRequestBody: Partial<MedianPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { medianPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface MedianRequestBuilder extends BaseRequestBuilder<MedianRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeMedianPostRequestBody(writer: SerializationWriter, medianPostRequestBody: Partial<MedianPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("values", medianPostRequestBody.values);
     writer.writeAdditionalData(medianPostRequestBody.additionalData);

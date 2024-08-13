@@ -71,6 +71,7 @@ export interface AmorLincRequestBuilder extends BaseRequestBuilder<AmorLincReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AmorLincPostRequestBody}
  */
+// @ts-ignore
 export function createAmorLincPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAmorLincPostRequestBody;
 }
@@ -78,6 +79,7 @@ export function createAmorLincPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAmorLincPostRequestBody(amorLincPostRequestBody: Partial<AmorLincPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { amorLincPostRequestBody.backingStoreEnabled = true; },
@@ -94,6 +96,7 @@ export function deserializeIntoAmorLincPostRequestBody(amorLincPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAmorLincPostRequestBody(writer: SerializationWriter, amorLincPostRequestBody: Partial<AmorLincPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("basis", amorLincPostRequestBody.basis);
     writer.writeObjectValue("cost", amorLincPostRequestBody.cost);

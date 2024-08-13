@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NpvPostRequestBody}
  */
+// @ts-ignore
 export function createNpvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNpvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNpvPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNpvPostRequestBody(npvPostRequestBody: Partial<NpvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { npvPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface NpvRequestBuilder extends BaseRequestBuilder<NpvRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeNpvPostRequestBody(writer: SerializationWriter, npvPostRequestBody: Partial<NpvPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("rate", npvPostRequestBody.rate);
     writer.writeObjectValue("values", npvPostRequestBody.values);

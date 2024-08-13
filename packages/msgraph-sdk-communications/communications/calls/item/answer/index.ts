@@ -63,6 +63,7 @@ export interface AnswerRequestBuilder extends BaseRequestBuilder<AnswerRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AnswerPostRequestBody}
  */
+// @ts-ignore
 export function createAnswerPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAnswerPostRequestBody;
 }
@@ -70,6 +71,7 @@ export function createAnswerPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "acceptedModalities": n => { answerPostRequestBody.acceptedModalities = n.getCollectionOfEnumValues<Modality>(ModalityObject); },
@@ -84,6 +86,7 @@ export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined = {}) : void {
     if(answerPostRequestBody.acceptedModalities)
     writer.writeEnumValue<Modality>("acceptedModalities", ...answerPostRequestBody.acceptedModalities);

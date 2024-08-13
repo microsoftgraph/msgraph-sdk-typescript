@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {WeekdayPostRequestBody}
  */
+// @ts-ignore
 export function createWeekdayPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWeekdayPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createWeekdayPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoWeekdayPostRequestBody(weekdayPostRequestBody: Partial<WeekdayPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { weekdayPostRequestBody.backingStoreEnabled = true; },
@@ -31,6 +33,7 @@ export function deserializeIntoWeekdayPostRequestBody(weekdayPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeWeekdayPostRequestBody(writer: SerializationWriter, weekdayPostRequestBody: Partial<WeekdayPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("returnType", weekdayPostRequestBody.returnType);
     writer.writeObjectValue("serialNumber", weekdayPostRequestBody.serialNumber);

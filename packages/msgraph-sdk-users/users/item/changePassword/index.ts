@@ -49,6 +49,7 @@ export interface ChangePasswordRequestBuilder extends BaseRequestBuilder<ChangeP
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ChangePasswordPostRequestBody}
  */
+// @ts-ignore
 export function createChangePasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChangePasswordPostRequestBody;
 }
@@ -56,6 +57,7 @@ export function createChangePasswordPostRequestBodyFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoChangePasswordPostRequestBody(changePasswordPostRequestBody: Partial<ChangePasswordPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { changePasswordPostRequestBody.backingStoreEnabled = true; },
@@ -67,6 +69,7 @@ export function deserializeIntoChangePasswordPostRequestBody(changePasswordPostR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeChangePasswordPostRequestBody(writer: SerializationWriter, changePasswordPostRequestBody: Partial<ChangePasswordPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("currentPassword", changePasswordPostRequestBody.currentPassword);
     writer.writeStringValue("newPassword", changePasswordPostRequestBody.newPassword);

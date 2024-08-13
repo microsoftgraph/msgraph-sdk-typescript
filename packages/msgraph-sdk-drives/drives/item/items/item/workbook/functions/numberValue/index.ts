@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NumberValuePostRequestBody}
  */
+// @ts-ignore
 export function createNumberValuePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNumberValuePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNumberValuePostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNumberValuePostRequestBody(numberValuePostRequestBody: Partial<NumberValuePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { numberValuePostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface NumberValueRequestBuilder extends BaseRequestBuilder<NumberValu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeNumberValuePostRequestBody(writer: SerializationWriter, numberValuePostRequestBody: Partial<NumberValuePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("decimalSeparator", numberValuePostRequestBody.decimalSeparator);
     writer.writeObjectValue("groupSeparator", numberValuePostRequestBody.groupSeparator);

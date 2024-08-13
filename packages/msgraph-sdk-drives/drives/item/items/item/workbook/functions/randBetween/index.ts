@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RandBetweenPostRequestBody}
  */
+// @ts-ignore
 export function createRandBetweenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRandBetweenPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRandBetweenPostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRandBetweenPostRequestBody(randBetweenPostRequestBody: Partial<RandBetweenPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { randBetweenPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface RandBetweenRequestBuilder extends BaseRequestBuilder<RandBetwee
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRandBetweenPostRequestBody(writer: SerializationWriter, randBetweenPostRequestBody: Partial<RandBetweenPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("bottom", randBetweenPostRequestBody.bottom);
     writer.writeObjectValue("top", randBetweenPostRequestBody.top);

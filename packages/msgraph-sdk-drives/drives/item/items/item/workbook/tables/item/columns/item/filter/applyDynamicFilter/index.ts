@@ -44,6 +44,7 @@ export interface ApplyDynamicFilterRequestBuilder extends BaseRequestBuilder<App
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyDynamicFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyDynamicFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyDynamicFilterPostRequestBody;
 }
@@ -51,6 +52,7 @@ export function createApplyDynamicFilterPostRequestBodyFromDiscriminatorValue(pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyDynamicFilterPostRequestBody(applyDynamicFilterPostRequestBody: Partial<ApplyDynamicFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyDynamicFilterPostRequestBody.backingStoreEnabled = true; },
@@ -61,6 +63,7 @@ export function deserializeIntoApplyDynamicFilterPostRequestBody(applyDynamicFil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeApplyDynamicFilterPostRequestBody(writer: SerializationWriter, applyDynamicFilterPostRequestBody: Partial<ApplyDynamicFilterPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("criteria", applyDynamicFilterPostRequestBody.criteria);
     writer.writeAdditionalData(applyDynamicFilterPostRequestBody.additionalData);

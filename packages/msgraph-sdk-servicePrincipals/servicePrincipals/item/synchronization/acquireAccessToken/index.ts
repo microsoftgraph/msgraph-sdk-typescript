@@ -47,6 +47,7 @@ export interface AcquireAccessTokenRequestBuilder extends BaseRequestBuilder<Acq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AcquireAccessTokenPostRequestBody}
  */
+// @ts-ignore
 export function createAcquireAccessTokenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAcquireAccessTokenPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createAcquireAccessTokenPostRequestBodyFromDiscriminatorValue(pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAcquireAccessTokenPostRequestBody(acquireAccessTokenPostRequestBody: Partial<AcquireAccessTokenPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { acquireAccessTokenPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export function deserializeIntoAcquireAccessTokenPostRequestBody(acquireAccessTo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAcquireAccessTokenPostRequestBody(writer: SerializationWriter, acquireAccessTokenPostRequestBody: Partial<AcquireAccessTokenPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", acquireAccessTokenPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
     writer.writeAdditionalData(acquireAccessTokenPostRequestBody.additionalData);

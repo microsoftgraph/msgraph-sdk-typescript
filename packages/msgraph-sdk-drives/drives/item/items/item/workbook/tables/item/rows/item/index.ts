@@ -25,7 +25,7 @@ export interface WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder<W
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents a collection of all the rows in the table. Read-only.
+     * The list of all the rows in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableRow>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder<W
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents a collection of all the rows in the table. Read-only.
+     * The list of all the rows in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder<W
      toPatchRequestInformation(body: WorkbookTableRow, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents a collection of all the rows in the table. Read-only.
+ * The list of all the rows in the table. Read-only.
  */
 export interface WorkbookTableRowItemRequestBuilderGetQueryParameters {
     /**

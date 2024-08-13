@@ -51,6 +51,7 @@ export interface CopyToDefaultContentLocationRequestBuilder extends BaseRequestB
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopyToDefaultContentLocationPostRequestBody}
  */
+// @ts-ignore
 export function createCopyToDefaultContentLocationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyToDefaultContentLocationPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createCopyToDefaultContentLocationPostRequestBodyFromDiscriminat
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCopyToDefaultContentLocationPostRequestBody(copyToDefaultContentLocationPostRequestBody: Partial<CopyToDefaultContentLocationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyToDefaultContentLocationPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export function deserializeIntoCopyToDefaultContentLocationPostRequestBody(copyT
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCopyToDefaultContentLocationPostRequestBody(writer: SerializationWriter, copyToDefaultContentLocationPostRequestBody: Partial<CopyToDefaultContentLocationPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("destinationFileName", copyToDefaultContentLocationPostRequestBody.destinationFileName);
     writer.writeObjectValue<ItemReference>("sourceFile", copyToDefaultContentLocationPostRequestBody.sourceFile, serializeItemReference);

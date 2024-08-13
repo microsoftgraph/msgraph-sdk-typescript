@@ -31,6 +31,7 @@ export interface AddToReviewSetPostRequestBody extends AdditionalDataHolder, Bac
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddToReviewSetPostRequestBody}
  */
+// @ts-ignore
 export function createAddToReviewSetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddToReviewSetPostRequestBody;
 }
@@ -38,6 +39,7 @@ export function createAddToReviewSetPostRequestBodyFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddToReviewSetPostRequestBody(addToReviewSetPostRequestBody: Partial<AddToReviewSetPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "additionalDataOptions": n => { addToReviewSetPostRequestBody.additionalDataOptions = n.getCollectionOfEnumValues<AdditionalDataOptions>(AdditionalDataOptionsObject); },
@@ -69,6 +71,7 @@ export interface MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends Base
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAddToReviewSetPostRequestBody(writer: SerializationWriter, addToReviewSetPostRequestBody: Partial<AddToReviewSetPostRequestBody> | undefined = {}) : void {
     writer.writeEnumValue<AdditionalDataOptions[]>("additionalDataOptions", addToReviewSetPostRequestBody.additionalDataOptions);
     writer.writeObjectValue<EdiscoverySearch>("search", addToReviewSetPostRequestBody.search, serializeEdiscoverySearch);

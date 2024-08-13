@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse}
  */
+// @ts-ignore
 export function createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse;
 }
@@ -18,6 +19,7 @@ export function createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetRespo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse: Partial<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.backingStoreEnabled = true; },
@@ -28,6 +30,7 @@ export function deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNam
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse(writer: SerializationWriter, verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse: Partial<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse> | undefined = {}) : void {
     writer.writeBooleanValue("value", verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.value);
     writer.writeAdditionalData(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.additionalData);

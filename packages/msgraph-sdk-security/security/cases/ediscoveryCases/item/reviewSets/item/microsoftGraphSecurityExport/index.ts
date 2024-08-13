@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExportPostRequestBody}
  */
+// @ts-ignore
 export function createExportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExportPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createExportPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExportPostRequestBody(exportPostRequestBody: Partial<ExportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { exportPostRequestBody.backingStoreEnabled = true; },
@@ -79,6 +81,7 @@ export interface MicrosoftGraphSecurityExportRequestBuilder extends BaseRequestB
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeExportPostRequestBody(writer: SerializationWriter, exportPostRequestBody: Partial<ExportPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("description", exportPostRequestBody.description);
     writer.writeEnumValue<ExportOptions[]>("exportOptions", exportPostRequestBody.exportOptions);

@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ProvisionOnDemandPostRequestBody}
  */
+// @ts-ignore
 export function createProvisionOnDemandPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProvisionOnDemandPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createProvisionOnDemandPostRequestBodyFromDiscriminatorValue(par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoProvisionOnDemandPostRequestBody(provisionOnDemandPostRequestBody: Partial<ProvisionOnDemandPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { provisionOnDemandPostRequestBody.backingStoreEnabled = true; },
@@ -65,6 +67,7 @@ export interface ProvisionOnDemandRequestBuilder extends BaseRequestBuilder<Prov
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeProvisionOnDemandPostRequestBody(writer: SerializationWriter, provisionOnDemandPostRequestBody: Partial<ProvisionOnDemandPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<SynchronizationJobApplicationParameters>("parameters", provisionOnDemandPostRequestBody.parameters, serializeSynchronizationJobApplicationParameters);
     writer.writeAdditionalData(provisionOnDemandPostRequestBody.additionalData);

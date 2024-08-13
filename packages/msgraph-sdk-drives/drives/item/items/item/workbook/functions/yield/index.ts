@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {YieldPostRequestBody}
  */
+// @ts-ignore
 export function createYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoYieldPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createYieldPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoYieldPostRequestBody(yieldPostRequestBody: Partial<YieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { yieldPostRequestBody.backingStoreEnabled = true; },
@@ -36,6 +38,7 @@ export function deserializeIntoYieldPostRequestBody(yieldPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeYieldPostRequestBody(writer: SerializationWriter, yieldPostRequestBody: Partial<YieldPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("basis", yieldPostRequestBody.basis);
     writer.writeObjectValue("frequency", yieldPostRequestBody.frequency);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PermutationaPostRequestBody}
  */
+// @ts-ignore
 export function createPermutationaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPermutationaPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPermutationaPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPermutationaPostRequestBody(permutationaPostRequestBody: Partial<PermutationaPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { permutationaPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface PermutationaRequestBuilder extends BaseRequestBuilder<Permutati
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializePermutationaPostRequestBody(writer: SerializationWriter, permutationaPostRequestBody: Partial<PermutationaPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", permutationaPostRequestBody.number);
     writer.writeObjectValue("numberChosen", permutationaPostRequestBody.numberChosen);

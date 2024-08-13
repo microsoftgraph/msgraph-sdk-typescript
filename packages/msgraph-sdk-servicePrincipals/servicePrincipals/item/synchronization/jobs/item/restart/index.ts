@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RestartPostRequestBody}
  */
+// @ts-ignore
 export function createRestartPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRestartPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRestartPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRestartPostRequestBody(restartPostRequestBody: Partial<RestartPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { restartPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface RestartRequestBuilder extends BaseRequestBuilder<RestartRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRestartPostRequestBody(writer: SerializationWriter, restartPostRequestBody: Partial<RestartPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<SynchronizationJobRestartCriteria>("criteria", restartPostRequestBody.criteria, serializeSynchronizationJobRestartCriteria);
     writer.writeAdditionalData(restartPostRequestBody.additionalData);

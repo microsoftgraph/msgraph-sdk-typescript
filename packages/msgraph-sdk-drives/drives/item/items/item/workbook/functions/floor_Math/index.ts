@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Floor_MathPostRequestBody}
  */
+// @ts-ignore
 export function createFloor_MathPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFloor_MathPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFloor_MathPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFloor_MathPostRequestBody(floor_MathPostRequestBody: Partial<Floor_MathPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { floor_MathPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface Floor_MathRequestBuilder extends BaseRequestBuilder<Floor_MathR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeFloor_MathPostRequestBody(writer: SerializationWriter, floor_MathPostRequestBody: Partial<Floor_MathPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("mode", floor_MathPostRequestBody.mode);
     writer.writeObjectValue("number", floor_MathPostRequestBody.number);

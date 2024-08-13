@@ -47,6 +47,7 @@ export interface AcotRequestBuilder extends BaseRequestBuilder<AcotRequestBuilde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AcotPostRequestBody}
  */
+// @ts-ignore
 export function createAcotPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAcotPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createAcotPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAcotPostRequestBody(acotPostRequestBody: Partial<AcotPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { acotPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export function deserializeIntoAcotPostRequestBody(acotPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAcotPostRequestBody(writer: SerializationWriter, acotPostRequestBody: Partial<AcotPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", acotPostRequestBody.number);
     writer.writeAdditionalData(acotPostRequestBody.additionalData);

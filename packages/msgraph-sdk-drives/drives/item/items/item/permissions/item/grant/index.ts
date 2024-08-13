@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GrantPostRequestBody}
  */
+// @ts-ignore
 export function createGrantPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGrantPostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createGrantPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GrantPostResponse}
  */
+// @ts-ignore
 export function createGrantPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGrantPostResponse;
 }
@@ -28,6 +30,7 @@ export function createGrantPostResponseFromDiscriminatorValue(parseNode: ParseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: Partial<GrantPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { grantPostRequestBody.backingStoreEnabled = true; },
@@ -39,6 +42,7 @@ export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: Partia
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGrantPostResponse(grantPostResponse: Partial<GrantPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(grantPostResponse),
@@ -94,6 +98,7 @@ export interface GrantRequestBuilder extends BaseRequestBuilder<GrantRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGrantPostRequestBody(writer: SerializationWriter, grantPostRequestBody: Partial<GrantPostRequestBody> | undefined = {}) : void {
     writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", grantPostRequestBody.recipients, serializeDriveRecipient);
     writer.writeCollectionOfPrimitiveValues<string>("roles", grantPostRequestBody.roles);
@@ -103,6 +108,7 @@ export function serializeGrantPostRequestBody(writer: SerializationWriter, grant
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGrantPostResponse(writer: SerializationWriter, grantPostResponse: Partial<GrantPostResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, grantPostResponse)
     writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, serializePermission);

@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LogTeleconferenceDeviceQualityPostRequestBody}
  */
+// @ts-ignore
 export function createLogTeleconferenceDeviceQualityPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLogTeleconferenceDeviceQualityPostRequestBodyFromDiscrimin
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody(logTeleconferenceDeviceQualityPostRequestBody: Partial<LogTeleconferenceDeviceQualityPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { logTeleconferenceDeviceQualityPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface LogTeleconferenceDeviceQualityRequestBuilder extends BaseReques
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeLogTeleconferenceDeviceQualityPostRequestBody(writer: SerializationWriter, logTeleconferenceDeviceQualityPostRequestBody: Partial<LogTeleconferenceDeviceQualityPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<TeleconferenceDeviceQuality>("quality", logTeleconferenceDeviceQualityPostRequestBody.quality, serializeTeleconferenceDeviceQuality);
     writer.writeAdditionalData(logTeleconferenceDeviceQualityPostRequestBody.additionalData);

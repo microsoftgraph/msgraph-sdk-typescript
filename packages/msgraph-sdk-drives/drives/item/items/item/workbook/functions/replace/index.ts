@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ReplacePostRequestBody}
  */
+// @ts-ignore
 export function createReplacePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReplacePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createReplacePostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoReplacePostRequestBody(replacePostRequestBody: Partial<ReplacePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replacePostRequestBody.backingStoreEnabled = true; },
@@ -79,6 +81,7 @@ export interface ReplaceRequestBuilder extends BaseRequestBuilder<ReplaceRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeReplacePostRequestBody(writer: SerializationWriter, replacePostRequestBody: Partial<ReplacePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("newText", replacePostRequestBody.newText);
     writer.writeObjectValue("numChars", replacePostRequestBody.numChars);

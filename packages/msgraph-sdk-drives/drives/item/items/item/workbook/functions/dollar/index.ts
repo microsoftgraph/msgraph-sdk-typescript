@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DollarPostRequestBody}
  */
+// @ts-ignore
 export function createDollarPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDollarPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDollarPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDollarPostRequestBody(dollarPostRequestBody: Partial<DollarPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dollarPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export interface DollarRequestBuilder extends BaseRequestBuilder<DollarRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDollarPostRequestBody(writer: SerializationWriter, dollarPostRequestBody: Partial<DollarPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("decimals", dollarPostRequestBody.decimals);
     writer.writeObjectValue("number", dollarPostRequestBody.number);

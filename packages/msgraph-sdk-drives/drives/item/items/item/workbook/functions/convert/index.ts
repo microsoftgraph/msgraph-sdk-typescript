@@ -55,6 +55,7 @@ export interface ConvertRequestBuilder extends BaseRequestBuilder<ConvertRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ConvertPostRequestBody}
  */
+// @ts-ignore
 export function createConvertPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConvertPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createConvertPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoConvertPostRequestBody(convertPostRequestBody: Partial<ConvertPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { convertPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export function deserializeIntoConvertPostRequestBody(convertPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeConvertPostRequestBody(writer: SerializationWriter, convertPostRequestBody: Partial<ConvertPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("fromUnit", convertPostRequestBody.fromUnit);
     writer.writeObjectValue("number", convertPostRequestBody.number);

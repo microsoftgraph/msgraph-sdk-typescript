@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MirrPostRequestBody}
  */
+// @ts-ignore
 export function createMirrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMirrPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMirrPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMirrPostRequestBody(mirrPostRequestBody: Partial<MirrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { mirrPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface MirrRequestBuilder extends BaseRequestBuilder<MirrRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeMirrPostRequestBody(writer: SerializationWriter, mirrPostRequestBody: Partial<MirrPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("financeRate", mirrPostRequestBody.financeRate);
     writer.writeObjectValue("reinvestRate", mirrPostRequestBody.reinvestRate);

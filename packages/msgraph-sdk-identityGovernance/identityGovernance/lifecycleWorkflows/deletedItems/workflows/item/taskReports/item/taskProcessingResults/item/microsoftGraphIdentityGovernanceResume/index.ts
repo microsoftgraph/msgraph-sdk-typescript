@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ResumePostRequestBody}
  */
+// @ts-ignore
 export function createResumePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoResumePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createResumePostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoResumePostRequestBody(resumePostRequestBody: Partial<ResumePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { resumePostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface ResumePostRequestBody extends AdditionalDataHolder, BackedModel
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: Partial<ResumePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<CustomTaskExtensionCallbackData>("data", resumePostRequestBody.data, serializeCustomTaskExtensionCallbackData);
     writer.writeStringValue("source", resumePostRequestBody.source);

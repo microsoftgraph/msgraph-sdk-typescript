@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImageWithWidthWithHeightGetResponse}
  */
+// @ts-ignore
 export function createImageWithWidthWithHeightGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImageWithWidthWithHeightGetResponse;
 }
@@ -18,6 +19,7 @@ export function createImageWithWidthWithHeightGetResponseFromDiscriminatorValue(
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImageWithWidthWithHeightGetResponse(imageWithWidthWithHeightGetResponse: Partial<ImageWithWidthWithHeightGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imageWithWidthWithHeightGetResponse.backingStoreEnabled = true; },
@@ -60,6 +62,7 @@ export interface ImageWithWidthWithHeightRequestBuilder extends BaseRequestBuild
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeImageWithWidthWithHeightGetResponse(writer: SerializationWriter, imageWithWidthWithHeightGetResponse: Partial<ImageWithWidthWithHeightGetResponse> | undefined = {}) : void {
     writer.writeStringValue("value", imageWithWidthWithHeightGetResponse.value);
     writer.writeAdditionalData(imageWithWidthWithHeightGetResponse.additionalData);

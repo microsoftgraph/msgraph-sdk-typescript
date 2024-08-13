@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {HypGeom_DistPostRequestBody}
  */
+// @ts-ignore
 export function createHypGeom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHypGeom_DistPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createHypGeom_DistPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoHypGeom_DistPostRequestBody(hypGeom_DistPostRequestBody: Partial<HypGeom_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hypGeom_DistPostRequestBody.backingStoreEnabled = true; },
@@ -84,6 +86,7 @@ export interface HypGeom_DistRequestBuilder extends BaseRequestBuilder<HypGeom_D
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeHypGeom_DistPostRequestBody(writer: SerializationWriter, hypGeom_DistPostRequestBody: Partial<HypGeom_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("cumulative", hypGeom_DistPostRequestBody.cumulative);
     writer.writeObjectValue("numberPop", hypGeom_DistPostRequestBody.numberPop);

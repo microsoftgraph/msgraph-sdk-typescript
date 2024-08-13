@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FactPostRequestBody}
  */
+// @ts-ignore
 export function createFactPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFactPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFactPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFactPostRequestBody(factPostRequestBody: Partial<FactPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { factPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface FactRequestBuilder extends BaseRequestBuilder<FactRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeFactPostRequestBody(writer: SerializationWriter, factPostRequestBody: Partial<FactPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", factPostRequestBody.number);
     writer.writeAdditionalData(factPostRequestBody.additionalData);

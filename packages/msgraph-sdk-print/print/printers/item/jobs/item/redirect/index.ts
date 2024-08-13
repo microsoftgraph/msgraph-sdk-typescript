@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RedirectPostRequestBody}
  */
+// @ts-ignore
 export function createRedirectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRedirectPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRedirectPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRedirectPostRequestBody(redirectPostRequestBody: Partial<RedirectPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { redirectPostRequestBody.backingStoreEnabled = true; },
@@ -70,6 +72,7 @@ export interface RedirectRequestBuilder extends BaseRequestBuilder<RedirectReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRedirectPostRequestBody(writer: SerializationWriter, redirectPostRequestBody: Partial<RedirectPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue<PrintJobConfiguration>("configuration", redirectPostRequestBody.configuration, serializePrintJobConfiguration);
     writer.writeStringValue("destinationPrinterId", redirectPostRequestBody.destinationPrinterId);

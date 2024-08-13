@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DmaxPostRequestBody}
  */
+// @ts-ignore
 export function createDmaxPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDmaxPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDmaxPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDmaxPostRequestBody(dmaxPostRequestBody: Partial<DmaxPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dmaxPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface DmaxRequestBuilder extends BaseRequestBuilder<DmaxRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDmaxPostRequestBody(writer: SerializationWriter, dmaxPostRequestBody: Partial<DmaxPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("criteria", dmaxPostRequestBody.criteria);
     writer.writeObjectValue("database", dmaxPostRequestBody.database);

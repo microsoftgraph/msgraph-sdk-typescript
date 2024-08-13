@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GaussPostRequestBody}
  */
+// @ts-ignore
 export function createGaussPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGaussPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createGaussPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGaussPostRequestBody(gaussPostRequestBody: Partial<GaussPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { gaussPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface GaussRequestBuilder extends BaseRequestBuilder<GaussRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGaussPostRequestBody(writer: SerializationWriter, gaussPostRequestBody: Partial<GaussPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("x", gaussPostRequestBody.x);
     writer.writeAdditionalData(gaussPostRequestBody.additionalData);

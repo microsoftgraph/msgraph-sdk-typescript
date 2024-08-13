@@ -73,6 +73,7 @@ export interface Blob extends AdditionalDataHolder, BackedModel, Parsable {
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AzureUsage}
  */
+// @ts-ignore
 export function createAzureUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAzureUsage;
 }
@@ -81,6 +82,7 @@ export function createAzureUsageFromDiscriminatorValue(parseNode: ParseNode | un
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BilledReconciliation}
  */
+// @ts-ignore
 export function createBilledReconciliationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBilledReconciliation;
 }
@@ -89,6 +91,7 @@ export function createBilledReconciliationFromDiscriminatorValue(parseNode: Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BilledUsage}
  */
+// @ts-ignore
 export function createBilledUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBilledUsage;
 }
@@ -97,6 +100,7 @@ export function createBilledUsageFromDiscriminatorValue(parseNode: ParseNode | u
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Billing}
  */
+// @ts-ignore
 export function createBillingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBilling;
 }
@@ -105,6 +109,7 @@ export function createBillingFromDiscriminatorValue(parseNode: ParseNode | undef
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BillingReconciliation}
  */
+// @ts-ignore
 export function createBillingReconciliationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBillingReconciliation;
 }
@@ -113,6 +118,7 @@ export function createBillingReconciliationFromDiscriminatorValue(parseNode: Par
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Blob}
  */
+// @ts-ignore
 export function createBlobFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBlob;
 }
@@ -121,6 +127,7 @@ export function createBlobFromDiscriminatorValue(parseNode: ParseNode | undefine
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExportSuccessOperation}
  */
+// @ts-ignore
 export function createExportSuccessOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExportSuccessOperation;
 }
@@ -129,6 +136,7 @@ export function createExportSuccessOperationFromDiscriminatorValue(parseNode: Pa
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FailedOperation}
  */
+// @ts-ignore
 export function createFailedOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFailedOperation;
 }
@@ -137,6 +145,7 @@ export function createFailedOperationFromDiscriminatorValue(parseNode: ParseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ManifestCollectionResponse}
  */
+// @ts-ignore
 export function createManifestCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoManifestCollectionResponse;
 }
@@ -145,6 +154,7 @@ export function createManifestCollectionResponseFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Manifest}
  */
+// @ts-ignore
 export function createManifestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoManifest;
 }
@@ -153,6 +163,7 @@ export function createManifestFromDiscriminatorValue(parseNode: ParseNode | unde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {OperationCollectionResponse}
  */
+// @ts-ignore
 export function createOperationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOperationCollectionResponse;
 }
@@ -161,6 +172,7 @@ export function createOperationCollectionResponseFromDiscriminatorValue(parseNod
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Operation}
  */
+// @ts-ignore
 export function createOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
@@ -184,6 +196,7 @@ export function createOperationFromDiscriminatorValue(parseNode: ParseNode | und
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RunningOperation}
  */
+// @ts-ignore
 export function createRunningOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRunningOperation;
 }
@@ -192,6 +205,7 @@ export function createRunningOperationFromDiscriminatorValue(parseNode: ParseNod
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnbilledUsage}
  */
+// @ts-ignore
 export function createUnbilledUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnbilledUsage;
 }
@@ -199,6 +213,7 @@ export function createUnbilledUsageFromDiscriminatorValue(parseNode: ParseNode |
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAzureUsage(azureUsage: Partial<AzureUsage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(azureUsage),
@@ -210,6 +225,7 @@ export function deserializeIntoAzureUsage(azureUsage: Partial<AzureUsage> | unde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBilledReconciliation(billedReconciliation: Partial<BilledReconciliation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(billedReconciliation),
@@ -219,6 +235,7 @@ export function deserializeIntoBilledReconciliation(billedReconciliation: Partia
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBilledUsage(billedUsage: Partial<BilledUsage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(billedUsage),
@@ -228,6 +245,7 @@ export function deserializeIntoBilledUsage(billedUsage: Partial<BilledUsage> | u
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBilling(billing: Partial<Billing> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(billing),
@@ -241,6 +259,7 @@ export function deserializeIntoBilling(billing: Partial<Billing> | undefined = {
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBillingReconciliation(billingReconciliation: Partial<BillingReconciliation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(billingReconciliation),
@@ -251,6 +270,7 @@ export function deserializeIntoBillingReconciliation(billingReconciliation: Part
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBlob(blob: Partial<Blob> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { blob.backingStoreEnabled = true; },
@@ -263,6 +283,7 @@ export function deserializeIntoBlob(blob: Partial<Blob> | undefined = {}) : Reco
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExportSuccessOperation(exportSuccessOperation: Partial<ExportSuccessOperation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoOperation(exportSuccessOperation),
@@ -273,6 +294,7 @@ export function deserializeIntoExportSuccessOperation(exportSuccessOperation: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFailedOperation(failedOperation: Partial<FailedOperation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoOperation(failedOperation),
@@ -283,6 +305,7 @@ export function deserializeIntoFailedOperation(failedOperation: Partial<FailedOp
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoManifest(manifest: Partial<Manifest> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(manifest),
@@ -302,6 +325,7 @@ export function deserializeIntoManifest(manifest: Partial<Manifest> | undefined 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoManifestCollectionResponse(manifestCollectionResponse: Partial<ManifestCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(manifestCollectionResponse),
@@ -312,6 +336,7 @@ export function deserializeIntoManifestCollectionResponse(manifestCollectionResp
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOperation(operation: Partial<Operation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(operation),
@@ -324,6 +349,7 @@ export function deserializeIntoOperation(operation: Partial<Operation> | undefin
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOperationCollectionResponse(operationCollectionResponse: Partial<OperationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(operationCollectionResponse),
@@ -334,6 +360,7 @@ export function deserializeIntoOperationCollectionResponse(operationCollectionRe
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRunningOperation(runningOperation: Partial<RunningOperation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoOperation(runningOperation),
@@ -343,6 +370,7 @@ export function deserializeIntoRunningOperation(runningOperation: Partial<Runnin
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnbilledUsage(unbilledUsage: Partial<UnbilledUsage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(unbilledUsage),
@@ -434,6 +462,7 @@ export interface RunningOperation extends Operation, Parsable {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAzureUsage(writer: SerializationWriter, azureUsage: Partial<AzureUsage> | undefined = {}) : void {
     serializeEntity(writer, azureUsage)
     writer.writeObjectValue<BilledUsage>("billed", azureUsage.billed, serializeBilledUsage);
@@ -443,6 +472,7 @@ export function serializeAzureUsage(writer: SerializationWriter, azureUsage: Par
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBilledReconciliation(writer: SerializationWriter, billedReconciliation: Partial<BilledReconciliation> | undefined = {}) : void {
     serializeEntity(writer, billedReconciliation)
 }
@@ -450,6 +480,7 @@ export function serializeBilledReconciliation(writer: SerializationWriter, bille
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBilledUsage(writer: SerializationWriter, billedUsage: Partial<BilledUsage> | undefined = {}) : void {
     serializeEntity(writer, billedUsage)
 }
@@ -457,6 +488,7 @@ export function serializeBilledUsage(writer: SerializationWriter, billedUsage: P
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBilling(writer: SerializationWriter, billing: Partial<Billing> | undefined = {}) : void {
     serializeEntity(writer, billing)
     writer.writeCollectionOfObjectValues<Manifest>("manifests", billing.manifests, serializeManifest);
@@ -468,6 +500,7 @@ export function serializeBilling(writer: SerializationWriter, billing: Partial<B
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBillingReconciliation(writer: SerializationWriter, billingReconciliation: Partial<BillingReconciliation> | undefined = {}) : void {
     serializeEntity(writer, billingReconciliation)
     writer.writeObjectValue<BilledReconciliation>("billed", billingReconciliation.billed, serializeBilledReconciliation);
@@ -476,6 +509,7 @@ export function serializeBillingReconciliation(writer: SerializationWriter, bill
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBlob(writer: SerializationWriter, blob: Partial<Blob> | undefined = {}) : void {
     writer.writeStringValue("name", blob.name);
     writer.writeStringValue("@odata.type", blob.odataType);
@@ -486,6 +520,7 @@ export function serializeBlob(writer: SerializationWriter, blob: Partial<Blob> |
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeExportSuccessOperation(writer: SerializationWriter, exportSuccessOperation: Partial<ExportSuccessOperation> | undefined = {}) : void {
     serializeOperation(writer, exportSuccessOperation)
     writer.writeObjectValue<Manifest>("resourceLocation", exportSuccessOperation.resourceLocation, serializeManifest);
@@ -494,6 +529,7 @@ export function serializeExportSuccessOperation(writer: SerializationWriter, exp
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeFailedOperation(writer: SerializationWriter, failedOperation: Partial<FailedOperation> | undefined = {}) : void {
     serializeOperation(writer, failedOperation)
     writer.writeObjectValue<PublicError>("error", failedOperation.errorEscaped, serializePublicError);
@@ -502,6 +538,7 @@ export function serializeFailedOperation(writer: SerializationWriter, failedOper
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeManifest(writer: SerializationWriter, manifest: Partial<Manifest> | undefined = {}) : void {
     serializeEntity(writer, manifest)
     writer.writeNumberValue("blobCount", manifest.blobCount);
@@ -519,6 +556,7 @@ export function serializeManifest(writer: SerializationWriter, manifest: Partial
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeManifestCollectionResponse(writer: SerializationWriter, manifestCollectionResponse: Partial<ManifestCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, manifestCollectionResponse)
     writer.writeCollectionOfObjectValues<Manifest>("value", manifestCollectionResponse.value, serializeManifest);
@@ -527,6 +565,7 @@ export function serializeManifestCollectionResponse(writer: SerializationWriter,
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeOperation(writer: SerializationWriter, operation: Partial<Operation> | undefined = {}) : void {
     serializeEntity(writer, operation)
     writer.writeDateValue("createdDateTime", operation.createdDateTime);
@@ -537,6 +576,7 @@ export function serializeOperation(writer: SerializationWriter, operation: Parti
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeOperationCollectionResponse(writer: SerializationWriter, operationCollectionResponse: Partial<OperationCollectionResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, operationCollectionResponse)
     writer.writeCollectionOfObjectValues<Operation>("value", operationCollectionResponse.value, serializeOperation);
@@ -545,6 +585,7 @@ export function serializeOperationCollectionResponse(writer: SerializationWriter
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeRunningOperation(writer: SerializationWriter, runningOperation: Partial<RunningOperation> | undefined = {}) : void {
     serializeOperation(writer, runningOperation)
 }
@@ -552,6 +593,7 @@ export function serializeRunningOperation(writer: SerializationWriter, runningOp
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeUnbilledUsage(writer: SerializationWriter, unbilledUsage: Partial<UnbilledUsage> | undefined = {}) : void {
     serializeEntity(writer, unbilledUsage)
 }

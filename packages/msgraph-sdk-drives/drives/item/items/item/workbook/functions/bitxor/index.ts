@@ -51,6 +51,7 @@ export interface BitxorRequestBuilder extends BaseRequestBuilder<BitxorRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BitxorPostRequestBody}
  */
+// @ts-ignore
 export function createBitxorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBitxorPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createBitxorPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBitxorPostRequestBody(bitxorPostRequestBody: Partial<BitxorPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bitxorPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export function deserializeIntoBitxorPostRequestBody(bitxorPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeBitxorPostRequestBody(writer: SerializationWriter, bitxorPostRequestBody: Partial<BitxorPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number1", bitxorPostRequestBody.number1);
     writer.writeObjectValue("number2", bitxorPostRequestBody.number2);

@@ -15,6 +15,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse}
  */
+// @ts-ignore
 export function createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse;
 }
@@ -22,6 +23,7 @@ export function createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResp
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse),
@@ -81,6 +83,7 @@ export interface MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeW
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined = {}) : void {
     serializeBaseCollectionPaginationCountResponse(writer, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse)
     writer.writeCollectionOfObjectValues<DirectRoutingLogRow>("value", getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializeDirectRoutingLogRow);

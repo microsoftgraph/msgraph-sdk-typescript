@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Dec2OctPostRequestBody}
  */
+// @ts-ignore
 export function createDec2OctPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDec2OctPostRequestBody;
 }
@@ -58,6 +59,7 @@ export interface Dec2OctRequestBuilder extends BaseRequestBuilder<Dec2OctRequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDec2OctPostRequestBody(dec2OctPostRequestBody: Partial<Dec2OctPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dec2OctPostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export function deserializeIntoDec2OctPostRequestBody(dec2OctPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeDec2OctPostRequestBody(writer: SerializationWriter, dec2OctPostRequestBody: Partial<Dec2OctPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", dec2OctPostRequestBody.number);
     writer.writeObjectValue("places", dec2OctPostRequestBody.places);

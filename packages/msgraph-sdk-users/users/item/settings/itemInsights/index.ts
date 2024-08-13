@@ -19,18 +19,19 @@ export interface ItemInsightsRequestBuilder extends BaseRequestBuilder<ItemInsig
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get itemInsights from users
+     * The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserInsightsSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ItemInsightsRequestBuilderGetQueryParameters> | undefined) : Promise<UserInsightsSettings | undefined>;
     /**
-     * Update the navigation property itemInsights in users
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserInsightsSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/userinsightssettings-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: UserInsightsSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UserInsightsSettings | undefined>;
     /**
@@ -40,13 +41,13 @@ export interface ItemInsightsRequestBuilder extends BaseRequestBuilder<ItemInsig
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get itemInsights from users
+     * The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ItemInsightsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property itemInsights in users
+     * Update the privacy settings for itemInsights and meeting hours insights of a user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +55,7 @@ export interface ItemInsightsRequestBuilder extends BaseRequestBuilder<ItemInsig
      toPatchRequestInformation(body: UserInsightsSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get itemInsights from users
+ * The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
  */
 export interface ItemInsightsRequestBuilderGetQueryParameters {
     /**

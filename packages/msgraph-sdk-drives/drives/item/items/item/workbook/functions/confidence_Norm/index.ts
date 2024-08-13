@@ -55,6 +55,7 @@ export interface Confidence_NormRequestBuilder extends BaseRequestBuilder<Confid
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Confidence_NormPostRequestBody}
  */
+// @ts-ignore
 export function createConfidence_NormPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConfidence_NormPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createConfidence_NormPostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoConfidence_NormPostRequestBody(confidence_NormPostRequestBody: Partial<Confidence_NormPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { confidence_NormPostRequestBody.alpha = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -74,6 +76,7 @@ export function deserializeIntoConfidence_NormPostRequestBody(confidence_NormPos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeConfidence_NormPostRequestBody(writer: SerializationWriter, confidence_NormPostRequestBody: Partial<Confidence_NormPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("alpha", confidence_NormPostRequestBody.alpha);
     writer.writeObjectValue("size", confidence_NormPostRequestBody.size);

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TimePostRequestBody}
  */
+// @ts-ignore
 export function createTimePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTimePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTimePostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTimePostRequestBody(timePostRequestBody: Partial<TimePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { timePostRequestBody.backingStoreEnabled = true; },
@@ -32,6 +34,7 @@ export function deserializeIntoTimePostRequestBody(timePostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeTimePostRequestBody(writer: SerializationWriter, timePostRequestBody: Partial<TimePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("hour", timePostRequestBody.hour);
     writer.writeObjectValue("minute", timePostRequestBody.minute);

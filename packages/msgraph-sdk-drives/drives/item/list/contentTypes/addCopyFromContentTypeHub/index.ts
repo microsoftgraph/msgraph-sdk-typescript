@@ -48,6 +48,7 @@ export interface AddCopyFromContentTypeHubRequestBuilder extends BaseRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddCopyFromContentTypeHubPostRequestBody}
  */
+// @ts-ignore
 export function createAddCopyFromContentTypeHubPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddCopyFromContentTypeHubPostRequestBody;
 }
@@ -55,6 +56,7 @@ export function createAddCopyFromContentTypeHubPostRequestBodyFromDiscriminatorV
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddCopyFromContentTypeHubPostRequestBody(addCopyFromContentTypeHubPostRequestBody: Partial<AddCopyFromContentTypeHubPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addCopyFromContentTypeHubPostRequestBody.backingStoreEnabled = true; },
@@ -65,6 +67,7 @@ export function deserializeIntoAddCopyFromContentTypeHubPostRequestBody(addCopyF
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAddCopyFromContentTypeHubPostRequestBody(writer: SerializationWriter, addCopyFromContentTypeHubPostRequestBody: Partial<AddCopyFromContentTypeHubPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("contentTypeId", addCopyFromContentTypeHubPostRequestBody.contentTypeId);
     writer.writeAdditionalData(addCopyFromContentTypeHubPostRequestBody.additionalData);

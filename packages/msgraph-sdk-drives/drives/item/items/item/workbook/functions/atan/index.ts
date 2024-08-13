@@ -47,6 +47,7 @@ export interface AtanRequestBuilder extends BaseRequestBuilder<AtanRequestBuilde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AtanPostRequestBody}
  */
+// @ts-ignore
 export function createAtanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAtanPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createAtanPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAtanPostRequestBody(atanPostRequestBody: Partial<AtanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { atanPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export function deserializeIntoAtanPostRequestBody(atanPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAtanPostRequestBody(writer: SerializationWriter, atanPostRequestBody: Partial<AtanPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", atanPostRequestBody.number);
     writer.writeAdditionalData(atanPostRequestBody.additionalData);

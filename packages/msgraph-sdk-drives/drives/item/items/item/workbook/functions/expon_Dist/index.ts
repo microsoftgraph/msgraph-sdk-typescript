@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Expon_DistPostRequestBody}
  */
+// @ts-ignore
 export function createExpon_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExpon_DistPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createExpon_DistPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExpon_DistPostRequestBody(expon_DistPostRequestBody: Partial<Expon_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { expon_DistPostRequestBody.backingStoreEnabled = true; },
@@ -74,6 +76,7 @@ export interface Expon_DistRequestBuilder extends BaseRequestBuilder<Expon_DistR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeExpon_DistPostRequestBody(writer: SerializationWriter, expon_DistPostRequestBody: Partial<Expon_DistPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("cumulative", expon_DistPostRequestBody.cumulative);
     writer.writeObjectValue("lambda", expon_DistPostRequestBody.lambda);

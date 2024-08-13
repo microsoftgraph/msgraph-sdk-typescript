@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ErfCPostRequestBody}
  */
+// @ts-ignore
 export function createErfCPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoErfCPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createErfCPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoErfCPostRequestBody(erfCPostRequestBody: Partial<ErfCPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { erfCPostRequestBody.backingStoreEnabled = true; },
@@ -64,6 +66,7 @@ export interface ErfCRequestBuilder extends BaseRequestBuilder<ErfCRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeErfCPostRequestBody(writer: SerializationWriter, erfCPostRequestBody: Partial<ErfCPostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("x", erfCPostRequestBody.x);
     writer.writeAdditionalData(erfCPostRequestBody.additionalData);

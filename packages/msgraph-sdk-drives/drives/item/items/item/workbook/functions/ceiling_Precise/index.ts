@@ -51,6 +51,7 @@ export interface Ceiling_PreciseRequestBuilder extends BaseRequestBuilder<Ceilin
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Ceiling_PrecisePostRequestBody}
  */
+// @ts-ignore
 export function createCeiling_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCeiling_PrecisePostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createCeiling_PrecisePostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCeiling_PrecisePostRequestBody(ceiling_PrecisePostRequestBody: Partial<Ceiling_PrecisePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ceiling_PrecisePostRequestBody.backingStoreEnabled = true; },
@@ -69,6 +71,7 @@ export function deserializeIntoCeiling_PrecisePostRequestBody(ceiling_PrecisePos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCeiling_PrecisePostRequestBody(writer: SerializationWriter, ceiling_PrecisePostRequestBody: Partial<Ceiling_PrecisePostRequestBody> | undefined = {}) : void {
     writer.writeObjectValue("number", ceiling_PrecisePostRequestBody.number);
     writer.writeObjectValue("significance", ceiling_PrecisePostRequestBody.significance);

@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreateDownloadUrlPostResponse}
  */
+// @ts-ignore
 export function createCreateDownloadUrlPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateDownloadUrlPostResponse;
 }
@@ -50,6 +51,7 @@ export interface CreateDownloadUrlRequestBuilder extends BaseRequestBuilder<Crea
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreateDownloadUrlPostResponse(createDownloadUrlPostResponse: Partial<CreateDownloadUrlPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createDownloadUrlPostResponse.backingStoreEnabled = true; },
@@ -60,6 +62,7 @@ export function deserializeIntoCreateDownloadUrlPostResponse(createDownloadUrlPo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeCreateDownloadUrlPostResponse(writer: SerializationWriter, createDownloadUrlPostResponse: Partial<CreateDownloadUrlPostResponse> | undefined = {}) : void {
     writer.writeStringValue("value", createDownloadUrlPostResponse.value);
     writer.writeAdditionalData(createDownloadUrlPostResponse.additionalData);

@@ -48,6 +48,7 @@ export interface AddLargeGalleryViewRequestBuilder extends BaseRequestBuilder<Ad
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddLargeGalleryViewPostRequestBody}
  */
+// @ts-ignore
 export function createAddLargeGalleryViewPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddLargeGalleryViewPostRequestBody;
 }
@@ -55,6 +56,7 @@ export function createAddLargeGalleryViewPostRequestBodyFromDiscriminatorValue(p
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddLargeGalleryViewPostRequestBody(addLargeGalleryViewPostRequestBody: Partial<AddLargeGalleryViewPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addLargeGalleryViewPostRequestBody.backingStoreEnabled = true; },
@@ -65,6 +67,7 @@ export function deserializeIntoAddLargeGalleryViewPostRequestBody(addLargeGaller
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
+// @ts-ignore
 export function serializeAddLargeGalleryViewPostRequestBody(writer: SerializationWriter, addLargeGalleryViewPostRequestBody: Partial<AddLargeGalleryViewPostRequestBody> | undefined = {}) : void {
     writer.writeStringValue("clientContext", addLargeGalleryViewPostRequestBody.clientContext);
     writer.writeAdditionalData(addLargeGalleryViewPostRequestBody.additionalData);
