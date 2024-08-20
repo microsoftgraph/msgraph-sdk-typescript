@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SmallPostRequestBody}
  */
+// @ts-ignore
 export function createSmallPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSmallPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSmallPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSmallPostRequestBody(smallPostRequestBody: Partial<SmallPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { smallPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -31,10 +33,13 @@ export function deserializeIntoSmallPostRequestBody(smallPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSmallPostRequestBody(writer: SerializationWriter, smallPostRequestBody: Partial<SmallPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("array", smallPostRequestBody.array);
-    writer.writeObjectValue("k", smallPostRequestBody.k);
-    writer.writeAdditionalData(smallPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSmallPostRequestBody(writer: SerializationWriter, smallPostRequestBody: Partial<SmallPostRequestBody> | undefined | null = {}) : void {
+    if (smallPostRequestBody) {
+        writer.writeObjectValue("array", smallPostRequestBody.array);
+        writer.writeObjectValue("k", smallPostRequestBody.k);
+        writer.writeAdditionalData(smallPostRequestBody.additionalData);
+    }
 }
 export interface SmallPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,15 +49,15 @@ export interface SmallPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * The array property
      */
-    array?: UntypedNode;
+    array?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The k property
      */
-    k?: UntypedNode;
+    k?: UntypedNode | null;
 }
 /**
  * Provides operations to call the small method.

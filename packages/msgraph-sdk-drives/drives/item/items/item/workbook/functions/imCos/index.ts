@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImCosPostRequestBody}
  */
+// @ts-ignore
 export function createImCosPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImCosPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImCosPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImCosPostRequestBody(imCosPostRequestBody: Partial<ImCosPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imCosPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImCosPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imCos method.
@@ -64,9 +66,12 @@ export interface ImCosRequestBuilder extends BaseRequestBuilder<ImCosRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImCosPostRequestBody(writer: SerializationWriter, imCosPostRequestBody: Partial<ImCosPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imCosPostRequestBody.inumber);
-    writer.writeAdditionalData(imCosPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImCosPostRequestBody(writer: SerializationWriter, imCosPostRequestBody: Partial<ImCosPostRequestBody> | undefined | null = {}) : void {
+    if (imCosPostRequestBody) {
+        writer.writeObjectValue("inumber", imCosPostRequestBody.inumber);
+        writer.writeAdditionalData(imCosPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

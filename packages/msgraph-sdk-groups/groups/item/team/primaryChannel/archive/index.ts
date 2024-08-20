@@ -14,11 +14,11 @@ export interface ArchivePostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The shouldSetSpoSiteReadOnlyForMembers property
      */
-    shouldSetSpoSiteReadOnlyForMembers?: boolean;
+    shouldSetSpoSiteReadOnlyForMembers?: boolean | null;
 }
 /**
  * Provides operations to call the archive method.
@@ -45,6 +45,7 @@ export interface ArchiveRequestBuilder extends BaseRequestBuilder<ArchiveRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ArchivePostRequestBody}
  */
+// @ts-ignore
 export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoArchivePostRequestBody;
 }
@@ -52,6 +53,7 @@ export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { archivePostRequestBody.backingStoreEnabled = true; },
@@ -62,9 +64,12 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : void {
-    writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers);
-    writer.writeAdditionalData(archivePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined | null = {}) : void {
+    if (archivePostRequestBody) {
+        writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers);
+        writer.writeAdditionalData(archivePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

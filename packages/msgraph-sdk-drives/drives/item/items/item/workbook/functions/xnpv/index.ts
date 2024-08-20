@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {XnpvPostRequestBody}
  */
+// @ts-ignore
 export function createXnpvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoXnpvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createXnpvPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoXnpvPostRequestBody(xnpvPostRequestBody: Partial<XnpvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { xnpvPostRequestBody.backingStoreEnabled = true; },
@@ -32,11 +34,14 @@ export function deserializeIntoXnpvPostRequestBody(xnpvPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeXnpvPostRequestBody(writer: SerializationWriter, xnpvPostRequestBody: Partial<XnpvPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("dates", xnpvPostRequestBody.dates);
-    writer.writeObjectValue("rate", xnpvPostRequestBody.rate);
-    writer.writeObjectValue("values", xnpvPostRequestBody.values);
-    writer.writeAdditionalData(xnpvPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeXnpvPostRequestBody(writer: SerializationWriter, xnpvPostRequestBody: Partial<XnpvPostRequestBody> | undefined | null = {}) : void {
+    if (xnpvPostRequestBody) {
+        writer.writeObjectValue("dates", xnpvPostRequestBody.dates);
+        writer.writeObjectValue("rate", xnpvPostRequestBody.rate);
+        writer.writeObjectValue("values", xnpvPostRequestBody.values);
+        writer.writeAdditionalData(xnpvPostRequestBody.additionalData);
+    }
 }
 export interface XnpvPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -46,19 +51,19 @@ export interface XnpvPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The dates property
      */
-    dates?: UntypedNode;
+    dates?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the xnpv method.

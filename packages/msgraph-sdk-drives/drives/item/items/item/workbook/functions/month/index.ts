@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MonthPostRequestBody}
  */
+// @ts-ignore
 export function createMonthPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMonthPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMonthPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMonthPostRequestBody(monthPostRequestBody: Partial<MonthPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { monthPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface MonthPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The serialNumber property
      */
-    serialNumber?: UntypedNode;
+    serialNumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the month method.
@@ -64,9 +66,12 @@ export interface MonthRequestBuilder extends BaseRequestBuilder<MonthRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMonthPostRequestBody(writer: SerializationWriter, monthPostRequestBody: Partial<MonthPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("serialNumber", monthPostRequestBody.serialNumber);
-    writer.writeAdditionalData(monthPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMonthPostRequestBody(writer: SerializationWriter, monthPostRequestBody: Partial<MonthPostRequestBody> | undefined | null = {}) : void {
+    if (monthPostRequestBody) {
+        writer.writeObjectValue("serialNumber", monthPostRequestBody.serialNumber);
+        writer.writeAdditionalData(monthPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Rank_AvgPostRequestBody}
  */
+// @ts-ignore
 export function createRank_AvgPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRank_AvgPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRank_AvgPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRank_AvgPostRequestBody(rank_AvgPostRequestBody: Partial<Rank_AvgPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rank_AvgPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface Rank_AvgPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The order property
      */
-    order?: UntypedNode;
+    order?: UntypedNode | null;
     /**
      * The ref property
      */
-    ref?: UntypedNode;
+    ref?: UntypedNode | null;
 }
 /**
  * Provides operations to call the rank_Avg method.
@@ -74,11 +76,14 @@ export interface Rank_AvgRequestBuilder extends BaseRequestBuilder<Rank_AvgReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRank_AvgPostRequestBody(writer: SerializationWriter, rank_AvgPostRequestBody: Partial<Rank_AvgPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", rank_AvgPostRequestBody.number);
-    writer.writeObjectValue("order", rank_AvgPostRequestBody.order);
-    writer.writeObjectValue("ref", rank_AvgPostRequestBody.ref);
-    writer.writeAdditionalData(rank_AvgPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeRank_AvgPostRequestBody(writer: SerializationWriter, rank_AvgPostRequestBody: Partial<Rank_AvgPostRequestBody> | undefined | null = {}) : void {
+    if (rank_AvgPostRequestBody) {
+        writer.writeObjectValue("number", rank_AvgPostRequestBody.number);
+        writer.writeObjectValue("order", rank_AvgPostRequestBody.order);
+        writer.writeObjectValue("ref", rank_AvgPostRequestBody.ref);
+        writer.writeAdditionalData(rank_AvgPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

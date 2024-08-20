@@ -19,21 +19,21 @@ export interface ConditionsRequestBuilder extends BaseRequestBuilder<ConditionsR
      */
     get applications(): ApplicationsRequestBuilder;
     /**
-     * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.
+     * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.  Supports $filter (eq). See support for filtering on user flows for syntax information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationConditions>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ConditionsRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationConditions | undefined>;
     /**
-     * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.
+     * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.  Supports $filter (eq). See support for filtering on user flows for syntax information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConditionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.
+ * The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.  Supports $filter (eq). See support for filtering on user flows for syntax information.
  */
 export interface ConditionsRequestBuilderGetQueryParameters {
     /**

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TanhPostRequestBody}
  */
+// @ts-ignore
 export function createTanhPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTanhPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTanhPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTanhPostRequestBody(tanhPostRequestBody: Partial<TanhPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { tanhPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoTanhPostRequestBody(tanhPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTanhPostRequestBody(writer: SerializationWriter, tanhPostRequestBody: Partial<TanhPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", tanhPostRequestBody.number);
-    writer.writeAdditionalData(tanhPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeTanhPostRequestBody(writer: SerializationWriter, tanhPostRequestBody: Partial<TanhPostRequestBody> | undefined | null = {}) : void {
+    if (tanhPostRequestBody) {
+        writer.writeObjectValue("number", tanhPostRequestBody.number);
+        writer.writeAdditionalData(tanhPostRequestBody.additionalData);
+    }
 }
 export interface TanhPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface TanhPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the tanh method.

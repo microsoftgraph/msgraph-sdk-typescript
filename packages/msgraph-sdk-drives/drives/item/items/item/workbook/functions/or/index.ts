@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {OrPostRequestBody}
  */
+// @ts-ignore
 export function createOrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOrPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOrPostRequestBody(orPostRequestBody: Partial<OrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { orPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface OrPostRequestBody extends AdditionalDataHolder, BackedModel, Pa
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the or method.
@@ -64,9 +66,12 @@ export interface OrRequestBuilder extends BaseRequestBuilder<OrRequestBuilder> {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOrPostRequestBody(writer: SerializationWriter, orPostRequestBody: Partial<OrPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", orPostRequestBody.values);
-    writer.writeAdditionalData(orPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeOrPostRequestBody(writer: SerializationWriter, orPostRequestBody: Partial<OrPostRequestBody> | undefined | null = {}) : void {
+    if (orPostRequestBody) {
+        writer.writeObjectValue("values", orPostRequestBody.values);
+        writer.writeAdditionalData(orPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

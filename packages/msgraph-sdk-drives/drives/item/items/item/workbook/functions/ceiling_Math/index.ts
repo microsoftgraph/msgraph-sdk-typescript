@@ -16,19 +16,19 @@ export interface Ceiling_MathPostRequestBody extends AdditionalDataHolder, Backe
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The mode property
      */
-    mode?: UntypedNode;
+    mode?: UntypedNode | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The significance property
      */
-    significance?: UntypedNode;
+    significance?: UntypedNode | null;
 }
 /**
  * Provides operations to call the ceiling_Math method.
@@ -55,6 +55,7 @@ export interface Ceiling_MathRequestBuilder extends BaseRequestBuilder<Ceiling_M
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Ceiling_MathPostRequestBody}
  */
+// @ts-ignore
 export function createCeiling_MathPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCeiling_MathPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createCeiling_MathPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCeiling_MathPostRequestBody(ceiling_MathPostRequestBody: Partial<Ceiling_MathPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ceiling_MathPostRequestBody.backingStoreEnabled = true; },
@@ -74,11 +76,14 @@ export function deserializeIntoCeiling_MathPostRequestBody(ceiling_MathPostReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCeiling_MathPostRequestBody(writer: SerializationWriter, ceiling_MathPostRequestBody: Partial<Ceiling_MathPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("mode", ceiling_MathPostRequestBody.mode);
-    writer.writeObjectValue("number", ceiling_MathPostRequestBody.number);
-    writer.writeObjectValue("significance", ceiling_MathPostRequestBody.significance);
-    writer.writeAdditionalData(ceiling_MathPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCeiling_MathPostRequestBody(writer: SerializationWriter, ceiling_MathPostRequestBody: Partial<Ceiling_MathPostRequestBody> | undefined | null = {}) : void {
+    if (ceiling_MathPostRequestBody) {
+        writer.writeObjectValue("mode", ceiling_MathPostRequestBody.mode);
+        writer.writeObjectValue("number", ceiling_MathPostRequestBody.number);
+        writer.writeObjectValue("significance", ceiling_MathPostRequestBody.significance);
+        writer.writeAdditionalData(ceiling_MathPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

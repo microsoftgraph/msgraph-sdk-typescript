@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImAbsPostRequestBody}
  */
+// @ts-ignore
 export function createImAbsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImAbsPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImAbsPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImAbsPostRequestBody(imAbsPostRequestBody: Partial<ImAbsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imAbsPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImAbsPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imAbs method.
@@ -64,9 +66,12 @@ export interface ImAbsRequestBuilder extends BaseRequestBuilder<ImAbsRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImAbsPostRequestBody(writer: SerializationWriter, imAbsPostRequestBody: Partial<ImAbsPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imAbsPostRequestBody.inumber);
-    writer.writeAdditionalData(imAbsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImAbsPostRequestBody(writer: SerializationWriter, imAbsPostRequestBody: Partial<ImAbsPostRequestBody> | undefined | null = {}) : void {
+    if (imAbsPostRequestBody) {
+        writer.writeObjectValue("inumber", imAbsPostRequestBody.inumber);
+        writer.writeAdditionalData(imAbsPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

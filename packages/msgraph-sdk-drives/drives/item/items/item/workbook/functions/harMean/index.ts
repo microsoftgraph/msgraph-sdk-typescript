@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {HarMeanPostRequestBody}
  */
+// @ts-ignore
 export function createHarMeanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHarMeanPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createHarMeanPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoHarMeanPostRequestBody(harMeanPostRequestBody: Partial<HarMeanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { harMeanPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface HarMeanPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the harMean method.
@@ -64,9 +66,12 @@ export interface HarMeanRequestBuilder extends BaseRequestBuilder<HarMeanRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHarMeanPostRequestBody(writer: SerializationWriter, harMeanPostRequestBody: Partial<HarMeanPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", harMeanPostRequestBody.values);
-    writer.writeAdditionalData(harMeanPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeHarMeanPostRequestBody(writer: SerializationWriter, harMeanPostRequestBody: Partial<HarMeanPostRequestBody> | undefined | null = {}) : void {
+    if (harMeanPostRequestBody) {
+        writer.writeObjectValue("values", harMeanPostRequestBody.values);
+        writer.writeAdditionalData(harMeanPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

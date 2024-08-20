@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Oct2DecPostRequestBody}
  */
+// @ts-ignore
 export function createOct2DecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOct2DecPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOct2DecPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOct2DecPostRequestBody(oct2DecPostRequestBody: Partial<Oct2DecPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oct2DecPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface Oct2DecPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the oct2Dec method.
@@ -64,9 +66,12 @@ export interface Oct2DecRequestBuilder extends BaseRequestBuilder<Oct2DecRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOct2DecPostRequestBody(writer: SerializationWriter, oct2DecPostRequestBody: Partial<Oct2DecPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", oct2DecPostRequestBody.number);
-    writer.writeAdditionalData(oct2DecPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeOct2DecPostRequestBody(writer: SerializationWriter, oct2DecPostRequestBody: Partial<Oct2DecPostRequestBody> | undefined | null = {}) : void {
+    if (oct2DecPostRequestBody) {
+        writer.writeObjectValue("number", oct2DecPostRequestBody.number);
+        writer.writeAdditionalData(oct2DecPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

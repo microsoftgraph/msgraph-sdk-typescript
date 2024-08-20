@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SendVirtualAppointmentReminderSmsPostRequestBody}
  */
+// @ts-ignore
 export function createSendVirtualAppointmentReminderSmsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendVirtualAppointmentReminderSmsPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSendVirtualAppointmentReminderSmsPostRequestBodyFromDiscri
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSendVirtualAppointmentReminderSmsPostRequestBody(sendVirtualAppointmentReminderSmsPostRequestBody: Partial<SendVirtualAppointmentReminderSmsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "attendees": n => { sendVirtualAppointmentReminderSmsPostRequestBody.attendees = n.getCollectionOfObjectValues<AttendeeNotificationInfo>(createAttendeeNotificationInfoFromDiscriminatorValue); },
@@ -35,15 +37,15 @@ export interface SendVirtualAppointmentReminderSmsPostRequestBody extends Additi
     /**
      * The attendees property
      */
-    attendees?: AttendeeNotificationInfo[];
+    attendees?: AttendeeNotificationInfo[] | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The remindBeforeTimeInMinutesType property
      */
-    remindBeforeTimeInMinutesType?: RemindBeforeTimeInMinutesType;
+    remindBeforeTimeInMinutesType?: RemindBeforeTimeInMinutesType | null;
 }
 /**
  * Provides operations to call the sendVirtualAppointmentReminderSms method.
@@ -69,10 +71,13 @@ export interface SendVirtualAppointmentReminderSmsRequestBuilder extends BaseReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSendVirtualAppointmentReminderSmsPostRequestBody(writer: SerializationWriter, sendVirtualAppointmentReminderSmsPostRequestBody: Partial<SendVirtualAppointmentReminderSmsPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfObjectValues<AttendeeNotificationInfo>("attendees", sendVirtualAppointmentReminderSmsPostRequestBody.attendees, serializeAttendeeNotificationInfo);
-    writer.writeEnumValue<RemindBeforeTimeInMinutesType>("remindBeforeTimeInMinutesType", sendVirtualAppointmentReminderSmsPostRequestBody.remindBeforeTimeInMinutesType);
-    writer.writeAdditionalData(sendVirtualAppointmentReminderSmsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSendVirtualAppointmentReminderSmsPostRequestBody(writer: SerializationWriter, sendVirtualAppointmentReminderSmsPostRequestBody: Partial<SendVirtualAppointmentReminderSmsPostRequestBody> | undefined | null = {}) : void {
+    if (sendVirtualAppointmentReminderSmsPostRequestBody) {
+        writer.writeCollectionOfObjectValues<AttendeeNotificationInfo>("attendees", sendVirtualAppointmentReminderSmsPostRequestBody.attendees, serializeAttendeeNotificationInfo);
+        writer.writeEnumValue<RemindBeforeTimeInMinutesType>("remindBeforeTimeInMinutesType", sendVirtualAppointmentReminderSmsPostRequestBody.remindBeforeTimeInMinutesType);
+        writer.writeAdditionalData(sendVirtualAppointmentReminderSmsPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

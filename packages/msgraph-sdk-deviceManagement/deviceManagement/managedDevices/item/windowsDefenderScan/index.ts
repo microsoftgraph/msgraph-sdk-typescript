@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {WindowsDefenderScanPostRequestBody}
  */
+// @ts-ignore
 export function createWindowsDefenderScanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWindowsDefenderScanPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createWindowsDefenderScanPostRequestBodyFromDiscriminatorValue(p
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoWindowsDefenderScanPostRequestBody(windowsDefenderScanPostRequestBody: Partial<WindowsDefenderScanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { windowsDefenderScanPostRequestBody.backingStoreEnabled = true; },
@@ -28,9 +30,12 @@ export function deserializeIntoWindowsDefenderScanPostRequestBody(windowsDefende
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWindowsDefenderScanPostRequestBody(writer: SerializationWriter, windowsDefenderScanPostRequestBody: Partial<WindowsDefenderScanPostRequestBody> | undefined = {}) : void {
-    writer.writeBooleanValue("quickScan", windowsDefenderScanPostRequestBody.quickScan);
-    writer.writeAdditionalData(windowsDefenderScanPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeWindowsDefenderScanPostRequestBody(writer: SerializationWriter, windowsDefenderScanPostRequestBody: Partial<WindowsDefenderScanPostRequestBody> | undefined | null = {}) : void {
+    if (windowsDefenderScanPostRequestBody) {
+        writer.writeBooleanValue("quickScan", windowsDefenderScanPostRequestBody.quickScan);
+        writer.writeAdditionalData(windowsDefenderScanPostRequestBody.additionalData);
+    }
 }
 export interface WindowsDefenderScanPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -40,11 +45,11 @@ export interface WindowsDefenderScanPostRequestBody extends AdditionalDataHolder
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The quickScan property
      */
-    quickScan?: boolean;
+    quickScan?: boolean | null;
 }
 /**
  * Provides operations to call the windowsDefenderScan method.

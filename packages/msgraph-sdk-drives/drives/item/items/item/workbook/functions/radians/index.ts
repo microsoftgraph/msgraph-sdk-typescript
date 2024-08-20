@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RadiansPostRequestBody}
  */
+// @ts-ignore
 export function createRadiansPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRadiansPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRadiansPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRadiansPostRequestBody(radiansPostRequestBody: Partial<RadiansPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "angle": n => { radiansPostRequestBody.angle = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -34,11 +36,11 @@ export interface RadiansPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * The angle property
      */
-    angle?: UntypedNode;
+    angle?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
 }
 /**
  * Provides operations to call the radians method.
@@ -64,9 +66,12 @@ export interface RadiansRequestBuilder extends BaseRequestBuilder<RadiansRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRadiansPostRequestBody(writer: SerializationWriter, radiansPostRequestBody: Partial<RadiansPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("angle", radiansPostRequestBody.angle);
-    writer.writeAdditionalData(radiansPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeRadiansPostRequestBody(writer: SerializationWriter, radiansPostRequestBody: Partial<RadiansPostRequestBody> | undefined | null = {}) : void {
+    if (radiansPostRequestBody) {
+        writer.writeObjectValue("angle", radiansPostRequestBody.angle);
+        writer.writeAdditionalData(radiansPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

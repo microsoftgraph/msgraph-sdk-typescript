@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Days360PostRequestBody}
  */
+// @ts-ignore
 export function createDays360PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDays360PostRequestBody;
 }
@@ -24,19 +25,19 @@ export interface Days360PostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The endDate property
      */
-    endDate?: UntypedNode;
+    endDate?: UntypedNode | null;
     /**
      * The method property
      */
-    method?: UntypedNode;
+    method?: UntypedNode | null;
     /**
      * The startDate property
      */
-    startDate?: UntypedNode;
+    startDate?: UntypedNode | null;
 }
 /**
  * Provides operations to call the days360 method.
@@ -62,6 +63,7 @@ export interface Days360RequestBuilder extends BaseRequestBuilder<Days360Request
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Partial<Days360PostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { days360PostRequestBody.backingStoreEnabled = true; },
@@ -74,11 +76,14 @@ export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDays360PostRequestBody(writer: SerializationWriter, days360PostRequestBody: Partial<Days360PostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("endDate", days360PostRequestBody.endDate);
-    writer.writeObjectValue("method", days360PostRequestBody.method);
-    writer.writeObjectValue("startDate", days360PostRequestBody.startDate);
-    writer.writeAdditionalData(days360PostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDays360PostRequestBody(writer: SerializationWriter, days360PostRequestBody: Partial<Days360PostRequestBody> | undefined | null = {}) : void {
+    if (days360PostRequestBody) {
+        writer.writeObjectValue("endDate", days360PostRequestBody.endDate);
+        writer.writeObjectValue("method", days360PostRequestBody.method);
+        writer.writeObjectValue("startDate", days360PostRequestBody.startDate);
+        writer.writeAdditionalData(days360PostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

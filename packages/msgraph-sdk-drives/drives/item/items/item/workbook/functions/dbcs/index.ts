@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DbcsPostRequestBody}
  */
+// @ts-ignore
 export function createDbcsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDbcsPostRequestBody;
 }
@@ -24,11 +25,11 @@ export interface DbcsPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the dbcs method.
@@ -54,6 +55,7 @@ export interface DbcsRequestBuilder extends BaseRequestBuilder<DbcsRequestBuilde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDbcsPostRequestBody(dbcsPostRequestBody: Partial<DbcsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dbcsPostRequestBody.backingStoreEnabled = true; },
@@ -64,9 +66,12 @@ export function deserializeIntoDbcsPostRequestBody(dbcsPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDbcsPostRequestBody(writer: SerializationWriter, dbcsPostRequestBody: Partial<DbcsPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("text", dbcsPostRequestBody.text);
-    writer.writeAdditionalData(dbcsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDbcsPostRequestBody(writer: SerializationWriter, dbcsPostRequestBody: Partial<DbcsPostRequestBody> | undefined | null = {}) : void {
+    if (dbcsPostRequestBody) {
+        writer.writeObjectValue("text", dbcsPostRequestBody.text);
+        writer.writeAdditionalData(dbcsPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

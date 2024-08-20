@@ -6,7 +6,7 @@ import { createWorkbookWorksheetFromDiscriminatorValue, serializeWorkbookWorkshe
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { CellWithRowWithColumnRequestBuilderRequestsMetadata, type CellWithRowWithColumnRequestBuilder } from './cellWithRowWithColumn/index.js';
+import { CellWithRowWithColumnRequestBuilderNavigationMetadata, CellWithRowWithColumnRequestBuilderRequestsMetadata, type CellWithRowWithColumnRequestBuilder } from './cellWithRowWithColumn/index.js';
 // @ts-ignore
 import { ChartsRequestBuilderNavigationMetadata, ChartsRequestBuilderRequestsMetadata, type ChartsRequestBuilder } from './charts/index.js';
 // @ts-ignore
@@ -16,15 +16,15 @@ import { PivotTablesRequestBuilderNavigationMetadata, PivotTablesRequestBuilderR
 // @ts-ignore
 import { ProtectionRequestBuilderNavigationMetadata, ProtectionRequestBuilderRequestsMetadata, type ProtectionRequestBuilder } from './protection/index.js';
 // @ts-ignore
-import { RangeRequestBuilderRequestsMetadata, type RangeRequestBuilder } from './range/index.js';
+import { RangeRequestBuilderNavigationMetadata, RangeRequestBuilderRequestsMetadata, type RangeRequestBuilder } from './range/index.js';
 // @ts-ignore
-import { RangeWithAddressRequestBuilderRequestsMetadata, type RangeWithAddressRequestBuilder } from './rangeWithAddress/index.js';
+import { RangeWithAddressRequestBuilderNavigationMetadata, RangeWithAddressRequestBuilderRequestsMetadata, type RangeWithAddressRequestBuilder } from './rangeWithAddress/index.js';
 // @ts-ignore
 import { TablesRequestBuilderNavigationMetadata, TablesRequestBuilderRequestsMetadata, type TablesRequestBuilder } from './tables/index.js';
 // @ts-ignore
-import { type UsedRangeRequestBuilder, UsedRangeRequestBuilderRequestsMetadata } from './usedRange/index.js';
+import { type UsedRangeRequestBuilder, UsedRangeRequestBuilderNavigationMetadata, UsedRangeRequestBuilderRequestsMetadata } from './usedRange/index.js';
 // @ts-ignore
-import { type UsedRangeWithValuesOnlyRequestBuilder, UsedRangeWithValuesOnlyRequestBuilderRequestsMetadata } from './usedRangeWithValuesOnly/index.js';
+import { type UsedRangeWithValuesOnlyRequestBuilder, UsedRangeWithValuesOnlyRequestBuilderNavigationMetadata, UsedRangeWithValuesOnlyRequestBuilderRequestsMetadata } from './usedRangeWithValuesOnly/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -150,12 +150,15 @@ const WorkbookWorksheetItemRequestBuilderGetQueryParametersMapper: Record<string
 export const WorkbookWorksheetItemRequestBuilderNavigationMetadata: Record<Exclude<keyof WorkbookWorksheetItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     cellWithRowWithColumn: {
         requestsMetadata: CellWithRowWithColumnRequestBuilderRequestsMetadata,
+        navigationMetadata: CellWithRowWithColumnRequestBuilderNavigationMetadata,
     },
     rangeWithAddress: {
         requestsMetadata: RangeWithAddressRequestBuilderRequestsMetadata,
+        navigationMetadata: RangeWithAddressRequestBuilderNavigationMetadata,
     },
     usedRangeWithValuesOnly: {
         requestsMetadata: UsedRangeWithValuesOnlyRequestBuilderRequestsMetadata,
+        navigationMetadata: UsedRangeWithValuesOnlyRequestBuilderNavigationMetadata,
     },
     charts: {
         requestsMetadata: ChartsRequestBuilderRequestsMetadata,
@@ -175,6 +178,7 @@ export const WorkbookWorksheetItemRequestBuilderNavigationMetadata: Record<Exclu
     },
     range: {
         requestsMetadata: RangeRequestBuilderRequestsMetadata,
+        navigationMetadata: RangeRequestBuilderNavigationMetadata,
     },
     tables: {
         requestsMetadata: TablesRequestBuilderRequestsMetadata,
@@ -182,6 +186,7 @@ export const WorkbookWorksheetItemRequestBuilderNavigationMetadata: Record<Exclu
     },
     usedRange: {
         requestsMetadata: UsedRangeRequestBuilderRequestsMetadata,
+        navigationMetadata: UsedRangeRequestBuilderNavigationMetadata,
     },
 };
 /**

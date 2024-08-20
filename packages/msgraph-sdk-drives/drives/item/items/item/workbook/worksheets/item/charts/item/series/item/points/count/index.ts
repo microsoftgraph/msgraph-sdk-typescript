@@ -14,11 +14,11 @@ export interface CountGetResponse extends AdditionalDataHolder, BackedModel, Par
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: number;
+    value?: number | null;
 }
 /**
  * Provides operations to call the count method.
@@ -43,6 +43,7 @@ export interface CountRequestBuilder extends BaseRequestBuilder<CountRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CountGetResponse}
  */
+// @ts-ignore
 export function createCountGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCountGetResponse;
 }
@@ -50,6 +51,7 @@ export function createCountGetResponseFromDiscriminatorValue(parseNode: ParseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCountGetResponse(countGetResponse: Partial<CountGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { countGetResponse.backingStoreEnabled = true; },
@@ -60,9 +62,12 @@ export function deserializeIntoCountGetResponse(countGetResponse: Partial<CountG
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCountGetResponse(writer: SerializationWriter, countGetResponse: Partial<CountGetResponse> | undefined = {}) : void {
-    writer.writeNumberValue("value", countGetResponse.value);
-    writer.writeAdditionalData(countGetResponse.additionalData);
+// @ts-ignore
+export function serializeCountGetResponse(writer: SerializationWriter, countGetResponse: Partial<CountGetResponse> | undefined | null = {}) : void {
+    if (countGetResponse) {
+        writer.writeNumberValue("value", countGetResponse.value);
+        writer.writeAdditionalData(countGetResponse.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {WeekNumPostRequestBody}
  */
+// @ts-ignore
 export function createWeekNumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWeekNumPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createWeekNumPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoWeekNumPostRequestBody(weekNumPostRequestBody: Partial<WeekNumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { weekNumPostRequestBody.backingStoreEnabled = true; },
@@ -31,10 +33,13 @@ export function deserializeIntoWeekNumPostRequestBody(weekNumPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWeekNumPostRequestBody(writer: SerializationWriter, weekNumPostRequestBody: Partial<WeekNumPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("returnType", weekNumPostRequestBody.returnType);
-    writer.writeObjectValue("serialNumber", weekNumPostRequestBody.serialNumber);
-    writer.writeAdditionalData(weekNumPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeWeekNumPostRequestBody(writer: SerializationWriter, weekNumPostRequestBody: Partial<WeekNumPostRequestBody> | undefined | null = {}) : void {
+    if (weekNumPostRequestBody) {
+        writer.writeObjectValue("returnType", weekNumPostRequestBody.returnType);
+        writer.writeObjectValue("serialNumber", weekNumPostRequestBody.serialNumber);
+        writer.writeAdditionalData(weekNumPostRequestBody.additionalData);
+    }
 }
 export interface WeekNumPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,15 +49,15 @@ export interface WeekNumPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The returnType property
      */
-    returnType?: UntypedNode;
+    returnType?: UntypedNode | null;
     /**
      * The serialNumber property
      */
-    serialNumber?: UntypedNode;
+    serialNumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the weekNum method.

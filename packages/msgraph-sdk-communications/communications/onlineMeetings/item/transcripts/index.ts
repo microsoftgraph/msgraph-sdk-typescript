@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
+import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from './delta/index.js';
+// @ts-ignore
 import { CallTranscriptItemRequestBuilderNavigationMetadata, CallTranscriptItemRequestBuilderRequestsMetadata, type CallTranscriptItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -20,6 +22,10 @@ export interface TranscriptsRequestBuilder extends BaseRequestBuilder<Transcript
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Provides operations to call the delta method.
+     */
+    get delta(): DeltaRequestBuilder;
     /**
      * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
      * @param callTranscriptId The unique identifier of callTranscript
@@ -120,6 +126,9 @@ export const TranscriptsRequestBuilderNavigationMetadata: Record<Exclude<keyof T
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    delta: {
+        requestsMetadata: DeltaRequestBuilderRequestsMetadata,
     },
 };
 /**

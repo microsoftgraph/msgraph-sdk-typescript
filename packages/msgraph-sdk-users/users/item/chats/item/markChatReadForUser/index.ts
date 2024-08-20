@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MarkChatReadForUserPostRequestBody}
  */
+// @ts-ignore
 export function createMarkChatReadForUserPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMarkChatReadForUserPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMarkChatReadForUserPostRequestBodyFromDiscriminatorValue(p
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMarkChatReadForUserPostRequestBody(markChatReadForUserPostRequestBody: Partial<MarkChatReadForUserPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markChatReadForUserPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface MarkChatReadForUserPostRequestBody extends AdditionalDataHolder
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The user property
      */
-    user?: TeamworkUserIdentity;
+    user?: TeamworkUserIdentity | null;
 }
 /**
  * Provides operations to call the markChatReadForUser method.
@@ -64,9 +66,12 @@ export interface MarkChatReadForUserRequestBuilder extends BaseRequestBuilder<Ma
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMarkChatReadForUserPostRequestBody(writer: SerializationWriter, markChatReadForUserPostRequestBody: Partial<MarkChatReadForUserPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<TeamworkUserIdentity>("user", markChatReadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
-    writer.writeAdditionalData(markChatReadForUserPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMarkChatReadForUserPostRequestBody(writer: SerializationWriter, markChatReadForUserPostRequestBody: Partial<MarkChatReadForUserPostRequestBody> | undefined | null = {}) : void {
+    if (markChatReadForUserPostRequestBody) {
+        writer.writeObjectValue<TeamworkUserIdentity>("user", markChatReadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
+        writer.writeAdditionalData(markChatReadForUserPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UsdollarPostRequestBody}
  */
+// @ts-ignore
 export function createUsdollarPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUsdollarPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createUsdollarPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUsdollarPostRequestBody(usdollarPostRequestBody: Partial<UsdollarPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { usdollarPostRequestBody.backingStoreEnabled = true; },
@@ -31,10 +33,13 @@ export function deserializeIntoUsdollarPostRequestBody(usdollarPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUsdollarPostRequestBody(writer: SerializationWriter, usdollarPostRequestBody: Partial<UsdollarPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("decimals", usdollarPostRequestBody.decimals);
-    writer.writeObjectValue("number", usdollarPostRequestBody.number);
-    writer.writeAdditionalData(usdollarPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeUsdollarPostRequestBody(writer: SerializationWriter, usdollarPostRequestBody: Partial<UsdollarPostRequestBody> | undefined | null = {}) : void {
+    if (usdollarPostRequestBody) {
+        writer.writeObjectValue("decimals", usdollarPostRequestBody.decimals);
+        writer.writeObjectValue("number", usdollarPostRequestBody.number);
+        writer.writeAdditionalData(usdollarPostRequestBody.additionalData);
+    }
 }
 export interface UsdollarPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,15 +49,15 @@ export interface UsdollarPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The decimals property
      */
-    decimals?: UntypedNode;
+    decimals?: UntypedNode | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the usdollar method.

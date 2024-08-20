@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetRelyingPartyDetailedSummaryWithPeriodGetResponse}
  */
+// @ts-ignore
 export function createGetRelyingPartyDetailedSummaryWithPeriodGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetRelyingPartyDetailedSummaryWithPeriodGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetRelyingPartyDetailedSummaryWithPeriodGetResponseFromDis
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetRelyingPartyDetailedSummaryWithPeriodGetResponse(getRelyingPartyDetailedSummaryWithPeriodGetResponse: Partial<GetRelyingPartyDetailedSummaryWithPeriodGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getRelyingPartyDetailedSummaryWithPeriodGetResponse),
@@ -30,7 +32,7 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodGetResponse extends Bas
     /**
      * The value property
      */
-    value?: RelyingPartyDetailedSummary[];
+    value?: RelyingPartyDetailedSummary[] | null;
 }
 /**
  * Provides operations to call the getRelyingPartyDetailedSummary method.
@@ -92,9 +94,12 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetRelyingPartyDetailedSummaryWithPeriodGetResponse(writer: SerializationWriter, getRelyingPartyDetailedSummaryWithPeriodGetResponse: Partial<GetRelyingPartyDetailedSummaryWithPeriodGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getRelyingPartyDetailedSummaryWithPeriodGetResponse)
-    writer.writeCollectionOfObjectValues<RelyingPartyDetailedSummary>("value", getRelyingPartyDetailedSummaryWithPeriodGetResponse.value, serializeRelyingPartyDetailedSummary);
+// @ts-ignore
+export function serializeGetRelyingPartyDetailedSummaryWithPeriodGetResponse(writer: SerializationWriter, getRelyingPartyDetailedSummaryWithPeriodGetResponse: Partial<GetRelyingPartyDetailedSummaryWithPeriodGetResponse> | undefined | null = {}) : void {
+    if (getRelyingPartyDetailedSummaryWithPeriodGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getRelyingPartyDetailedSummaryWithPeriodGetResponse)
+        writer.writeCollectionOfObjectValues<RelyingPartyDetailedSummary>("value", getRelyingPartyDetailedSummaryWithPeriodGetResponse.value, serializeRelyingPartyDetailedSummary);
+    }
 }
 /**
  * Uri template for the request builder.

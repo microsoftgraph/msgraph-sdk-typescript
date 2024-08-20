@@ -6,6 +6,10 @@ import { createEmployeeExperienceFromDiscriminatorValue, serializeEmployeeExperi
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { CommunitiesRequestBuilderNavigationMetadata, CommunitiesRequestBuilderRequestsMetadata, type CommunitiesRequestBuilder } from './communities/index.js';
+// @ts-ignore
+import { EngagementAsyncOperationsRequestBuilderNavigationMetadata, EngagementAsyncOperationsRequestBuilderRequestsMetadata, type EngagementAsyncOperationsRequestBuilder } from './engagementAsyncOperations/index.js';
+// @ts-ignore
 import { LearningCourseActivitiesRequestBuilderNavigationMetadata, LearningCourseActivitiesRequestBuilderRequestsMetadata, type LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/index.js';
 // @ts-ignore
 import { LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata, type LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder } from './learningCourseActivitiesWithExternalcourseActivityId/index.js';
@@ -18,6 +22,14 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the employeeExperience singleton.
  */
 export interface EmployeeExperienceRequestBuilder extends BaseRequestBuilder<EmployeeExperienceRequestBuilder> {
+    /**
+     * Provides operations to manage the communities property of the microsoft.graph.employeeExperience entity.
+     */
+    get communities(): CommunitiesRequestBuilder;
+    /**
+     * Provides operations to manage the engagementAsyncOperations property of the microsoft.graph.employeeExperience entity.
+     */
+    get engagementAsyncOperations(): EngagementAsyncOperationsRequestBuilder;
     /**
      * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
      */
@@ -86,6 +98,14 @@ const EmployeeExperienceRequestBuilderGetQueryParametersMapper: Record<string, s
 export const EmployeeExperienceRequestBuilderNavigationMetadata: Record<Exclude<keyof EmployeeExperienceRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     learningCourseActivitiesWithExternalcourseActivityId: {
         requestsMetadata: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata,
+    },
+    communities: {
+        requestsMetadata: CommunitiesRequestBuilderRequestsMetadata,
+        navigationMetadata: CommunitiesRequestBuilderNavigationMetadata,
+    },
+    engagementAsyncOperations: {
+        requestsMetadata: EngagementAsyncOperationsRequestBuilderRequestsMetadata,
+        navigationMetadata: EngagementAsyncOperationsRequestBuilderNavigationMetadata,
     },
     learningCourseActivities: {
         requestsMetadata: LearningCourseActivitiesRequestBuilderRequestsMetadata,

@@ -14,17 +14,18 @@ export interface ApplyHoldPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The ids property
      */
-    ids?: string[];
+    ids?: string[] | null;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyHoldPostRequestBody}
  */
+// @ts-ignore
 export function createApplyHoldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyHoldPostRequestBody;
 }
@@ -32,6 +33,7 @@ export function createApplyHoldPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyHoldPostRequestBody(applyHoldPostRequestBody: Partial<ApplyHoldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyHoldPostRequestBody.backingStoreEnabled = true; },
@@ -61,9 +63,12 @@ export interface MicrosoftGraphSecurityApplyHoldRequestBuilder extends BaseReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyHoldPostRequestBody(writer: SerializationWriter, applyHoldPostRequestBody: Partial<ApplyHoldPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("ids", applyHoldPostRequestBody.ids);
-    writer.writeAdditionalData(applyHoldPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeApplyHoldPostRequestBody(writer: SerializationWriter, applyHoldPostRequestBody: Partial<ApplyHoldPostRequestBody> | undefined | null = {}) : void {
+    if (applyHoldPostRequestBody) {
+        writer.writeCollectionOfPrimitiveValues<string>("ids", applyHoldPostRequestBody.ids);
+        writer.writeAdditionalData(applyHoldPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

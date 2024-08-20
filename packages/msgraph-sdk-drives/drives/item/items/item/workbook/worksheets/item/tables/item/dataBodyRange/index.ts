@@ -6,12 +6,181 @@ import { createWorkbookRangeFromDiscriminatorValue, type WorkbookRange } from '@
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { BoundingRectWithAnotherRangeRequestBuilderRequestsMetadata, type BoundingRectWithAnotherRangeRequestBuilder } from './boundingRectWithAnotherRange/index.js';
+// @ts-ignore
+import { CellWithRowWithColumnRequestBuilderRequestsMetadata, type CellWithRowWithColumnRequestBuilder } from './cellWithRowWithColumn/index.js';
+// @ts-ignore
+import { ClearRequestBuilderRequestsMetadata, type ClearRequestBuilder } from './clear/index.js';
+// @ts-ignore
+import { ColumnsAfterRequestBuilderRequestsMetadata, type ColumnsAfterRequestBuilder } from './columnsAfter/index.js';
+// @ts-ignore
+import { ColumnsAfterWithCountRequestBuilderRequestsMetadata, type ColumnsAfterWithCountRequestBuilder } from './columnsAfterWithCount/index.js';
+// @ts-ignore
+import { ColumnsBeforeRequestBuilderRequestsMetadata, type ColumnsBeforeRequestBuilder } from './columnsBefore/index.js';
+// @ts-ignore
+import { ColumnsBeforeWithCountRequestBuilderRequestsMetadata, type ColumnsBeforeWithCountRequestBuilder } from './columnsBeforeWithCount/index.js';
+// @ts-ignore
+import { ColumnWithColumnRequestBuilderRequestsMetadata, type ColumnWithColumnRequestBuilder } from './columnWithColumn/index.js';
+// @ts-ignore
+import { DeleteRequestBuilderRequestsMetadata, type DeleteRequestBuilder } from './delete/index.js';
+// @ts-ignore
+import { EntireColumnRequestBuilderRequestsMetadata, type EntireColumnRequestBuilder } from './entireColumn/index.js';
+// @ts-ignore
+import { EntireRowRequestBuilderRequestsMetadata, type EntireRowRequestBuilder } from './entireRow/index.js';
+// @ts-ignore
+import { FormatRequestBuilderRequestsMetadata, type FormatRequestBuilder } from './format/index.js';
+// @ts-ignore
+import { InsertRequestBuilderRequestsMetadata, type InsertRequestBuilder } from './insert/index.js';
+// @ts-ignore
+import { IntersectionWithAnotherRangeRequestBuilderRequestsMetadata, type IntersectionWithAnotherRangeRequestBuilder } from './intersectionWithAnotherRange/index.js';
+// @ts-ignore
+import { LastCellRequestBuilderRequestsMetadata, type LastCellRequestBuilder } from './lastCell/index.js';
+// @ts-ignore
+import { LastColumnRequestBuilderRequestsMetadata, type LastColumnRequestBuilder } from './lastColumn/index.js';
+// @ts-ignore
+import { LastRowRequestBuilderRequestsMetadata, type LastRowRequestBuilder } from './lastRow/index.js';
+// @ts-ignore
+import { MergeRequestBuilderRequestsMetadata, type MergeRequestBuilder } from './merge/index.js';
+// @ts-ignore
+import { OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilderRequestsMetadata, type OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder } from './offsetRangeWithRowOffsetWithColumnOffset/index.js';
+// @ts-ignore
+import { ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilderRequestsMetadata, type ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder } from './resizedRangeWithDeltaRowsWithDeltaColumns/index.js';
+// @ts-ignore
+import { RowsAboveRequestBuilderRequestsMetadata, type RowsAboveRequestBuilder } from './rowsAbove/index.js';
+// @ts-ignore
+import { RowsAboveWithCountRequestBuilderRequestsMetadata, type RowsAboveWithCountRequestBuilder } from './rowsAboveWithCount/index.js';
+// @ts-ignore
+import { RowsBelowRequestBuilderRequestsMetadata, type RowsBelowRequestBuilder } from './rowsBelow/index.js';
+// @ts-ignore
+import { RowsBelowWithCountRequestBuilderRequestsMetadata, type RowsBelowWithCountRequestBuilder } from './rowsBelowWithCount/index.js';
+// @ts-ignore
+import { RowWithRowRequestBuilderRequestsMetadata, type RowWithRowRequestBuilder } from './rowWithRow/index.js';
+// @ts-ignore
+import { SortRequestBuilderRequestsMetadata, type SortRequestBuilder } from './sort/index.js';
+// @ts-ignore
+import { type UnmergeRequestBuilder, UnmergeRequestBuilderRequestsMetadata } from './unmerge/index.js';
+// @ts-ignore
+import { type UsedRangeRequestBuilder, UsedRangeRequestBuilderRequestsMetadata } from './usedRange/index.js';
+// @ts-ignore
+import { type UsedRangeWithValuesOnlyRequestBuilder, UsedRangeWithValuesOnlyRequestBuilderRequestsMetadata } from './usedRangeWithValuesOnly/index.js';
+// @ts-ignore
+import { type VisibleViewRequestBuilder, VisibleViewRequestBuilderRequestsMetadata } from './visibleView/index.js';
+// @ts-ignore
+import { type WorksheetRequestBuilder, WorksheetRequestBuilderRequestsMetadata } from './worksheet/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dataBodyRange method.
  */
 export interface DataBodyRangeRequestBuilder extends BaseRequestBuilder<DataBodyRangeRequestBuilder> {
+    /**
+     * Provides operations to call the clear method.
+     */
+    get clear(): ClearRequestBuilder;
+    /**
+     * Provides operations to call the columnsAfter method.
+     */
+    get columnsAfter(): ColumnsAfterRequestBuilder;
+    /**
+     * Provides operations to call the columnsBefore method.
+     */
+    get columnsBefore(): ColumnsBeforeRequestBuilder;
+    /**
+     * Provides operations to call the delete method.
+     */
+    get deletePath(): DeleteRequestBuilder;
+    /**
+     * Provides operations to call the entireColumn method.
+     */
+    get entireColumn(): EntireColumnRequestBuilder;
+    /**
+     * Provides operations to call the entireRow method.
+     */
+    get entireRow(): EntireRowRequestBuilder;
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookRange entity.
+     */
+    get format(): FormatRequestBuilder;
+    /**
+     * Provides operations to call the insert method.
+     */
+    get insert(): InsertRequestBuilder;
+    /**
+     * Provides operations to call the lastCell method.
+     */
+    get lastCell(): LastCellRequestBuilder;
+    /**
+     * Provides operations to call the lastColumn method.
+     */
+    get lastColumn(): LastColumnRequestBuilder;
+    /**
+     * Provides operations to call the lastRow method.
+     */
+    get lastRow(): LastRowRequestBuilder;
+    /**
+     * Provides operations to call the merge method.
+     */
+    get merge(): MergeRequestBuilder;
+    /**
+     * Provides operations to call the rowsAbove method.
+     */
+    get rowsAbove(): RowsAboveRequestBuilder;
+    /**
+     * Provides operations to call the rowsBelow method.
+     */
+    get rowsBelow(): RowsBelowRequestBuilder;
+    /**
+     * Provides operations to manage the sort property of the microsoft.graph.workbookRange entity.
+     */
+    get sort(): SortRequestBuilder;
+    /**
+     * Provides operations to call the unmerge method.
+     */
+    get unmerge(): UnmergeRequestBuilder;
+    /**
+     * Provides operations to call the usedRange method.
+     */
+    get usedRange(): UsedRangeRequestBuilder;
+    /**
+     * Provides operations to call the visibleView method.
+     */
+    get visibleView(): VisibleViewRequestBuilder;
+    /**
+     * Provides operations to manage the worksheet property of the microsoft.graph.workbookRange entity.
+     */
+    get worksheet(): WorksheetRequestBuilder;
+    /**
+     * Provides operations to call the boundingRect method.
+     * @param anotherRange Usage: anotherRange='{anotherRange}'
+     * @returns {BoundingRectWithAnotherRangeRequestBuilder}
+     */
+     boundingRectWithAnotherRange(anotherRange: string | undefined) : BoundingRectWithAnotherRangeRequestBuilder;
+    /**
+     * Provides operations to call the cell method.
+     * @param column Usage: column={column}
+     * @param row Usage: row={row}
+     * @returns {CellWithRowWithColumnRequestBuilder}
+     */
+     cellWithRowWithColumn(column: number | undefined, row: number | undefined) : CellWithRowWithColumnRequestBuilder;
+    /**
+     * Provides operations to call the columnsAfter method.
+     * @param count Usage: count={count}
+     * @returns {ColumnsAfterWithCountRequestBuilder}
+     */
+     columnsAfterWithCount(count: number | undefined) : ColumnsAfterWithCountRequestBuilder;
+    /**
+     * Provides operations to call the columnsBefore method.
+     * @param count Usage: count={count}
+     * @returns {ColumnsBeforeWithCountRequestBuilder}
+     */
+     columnsBeforeWithCount(count: number | undefined) : ColumnsBeforeWithCountRequestBuilder;
+    /**
+     * Provides operations to call the column method.
+     * @param column Usage: column={column}
+     * @returns {ColumnWithColumnRequestBuilder}
+     */
+     columnWithColumn(column: number | undefined) : ColumnWithColumnRequestBuilder;
     /**
      * Gets the range object associated with the data body of the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -21,16 +190,158 @@ export interface DataBodyRangeRequestBuilder extends BaseRequestBuilder<DataBody
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookRange | undefined>;
     /**
+     * Provides operations to call the intersection method.
+     * @param anotherRange Usage: anotherRange='{anotherRange}'
+     * @returns {IntersectionWithAnotherRangeRequestBuilder}
+     */
+     intersectionWithAnotherRange(anotherRange: string | undefined) : IntersectionWithAnotherRangeRequestBuilder;
+    /**
+     * Provides operations to call the offsetRange method.
+     * @param columnOffset Usage: columnOffset={columnOffset}
+     * @param rowOffset Usage: rowOffset={rowOffset}
+     * @returns {OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder}
+     */
+     offsetRangeWithRowOffsetWithColumnOffset(columnOffset: number | undefined, rowOffset: number | undefined) : OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder;
+    /**
+     * Provides operations to call the resizedRange method.
+     * @param deltaColumns Usage: deltaColumns={deltaColumns}
+     * @param deltaRows Usage: deltaRows={deltaRows}
+     * @returns {ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder}
+     */
+     resizedRangeWithDeltaRowsWithDeltaColumns(deltaColumns: number | undefined, deltaRows: number | undefined) : ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder;
+    /**
+     * Provides operations to call the rowsAbove method.
+     * @param count Usage: count={count}
+     * @returns {RowsAboveWithCountRequestBuilder}
+     */
+     rowsAboveWithCount(count: number | undefined) : RowsAboveWithCountRequestBuilder;
+    /**
+     * Provides operations to call the rowsBelow method.
+     * @param count Usage: count={count}
+     * @returns {RowsBelowWithCountRequestBuilder}
+     */
+     rowsBelowWithCount(count: number | undefined) : RowsBelowWithCountRequestBuilder;
+    /**
+     * Provides operations to call the row method.
+     * @param row Usage: row={row}
+     * @returns {RowWithRowRequestBuilder}
+     */
+     rowWithRow(row: number | undefined) : RowWithRowRequestBuilder;
+    /**
      * Gets the range object associated with the data body of the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
+    /**
+     * Provides operations to call the usedRange method.
+     * @param valuesOnly Usage: valuesOnly={valuesOnly}
+     * @returns {UsedRangeWithValuesOnlyRequestBuilder}
+     */
+     usedRangeWithValuesOnly(valuesOnly: boolean | undefined) : UsedRangeWithValuesOnlyRequestBuilder;
 }
 /**
  * Uri template for the request builder.
  */
 export const DataBodyRangeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/{workbookTable%2Did}/dataBodyRange()";
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const DataBodyRangeRequestBuilderNavigationMetadata: Record<Exclude<keyof DataBodyRangeRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    boundingRectWithAnotherRange: {
+        requestsMetadata: BoundingRectWithAnotherRangeRequestBuilderRequestsMetadata,
+    },
+    cellWithRowWithColumn: {
+        requestsMetadata: CellWithRowWithColumnRequestBuilderRequestsMetadata,
+    },
+    columnsAfterWithCount: {
+        requestsMetadata: ColumnsAfterWithCountRequestBuilderRequestsMetadata,
+    },
+    columnsBeforeWithCount: {
+        requestsMetadata: ColumnsBeforeWithCountRequestBuilderRequestsMetadata,
+    },
+    columnWithColumn: {
+        requestsMetadata: ColumnWithColumnRequestBuilderRequestsMetadata,
+    },
+    intersectionWithAnotherRange: {
+        requestsMetadata: IntersectionWithAnotherRangeRequestBuilderRequestsMetadata,
+    },
+    offsetRangeWithRowOffsetWithColumnOffset: {
+        requestsMetadata: OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilderRequestsMetadata,
+    },
+    resizedRangeWithDeltaRowsWithDeltaColumns: {
+        requestsMetadata: ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilderRequestsMetadata,
+    },
+    rowsAboveWithCount: {
+        requestsMetadata: RowsAboveWithCountRequestBuilderRequestsMetadata,
+    },
+    rowsBelowWithCount: {
+        requestsMetadata: RowsBelowWithCountRequestBuilderRequestsMetadata,
+    },
+    rowWithRow: {
+        requestsMetadata: RowWithRowRequestBuilderRequestsMetadata,
+    },
+    usedRangeWithValuesOnly: {
+        requestsMetadata: UsedRangeWithValuesOnlyRequestBuilderRequestsMetadata,
+    },
+    clear: {
+        requestsMetadata: ClearRequestBuilderRequestsMetadata,
+    },
+    columnsAfter: {
+        requestsMetadata: ColumnsAfterRequestBuilderRequestsMetadata,
+    },
+    columnsBefore: {
+        requestsMetadata: ColumnsBeforeRequestBuilderRequestsMetadata,
+    },
+    deletePath: {
+        requestsMetadata: DeleteRequestBuilderRequestsMetadata,
+    },
+    entireColumn: {
+        requestsMetadata: EntireColumnRequestBuilderRequestsMetadata,
+    },
+    entireRow: {
+        requestsMetadata: EntireRowRequestBuilderRequestsMetadata,
+    },
+    format: {
+        requestsMetadata: FormatRequestBuilderRequestsMetadata,
+    },
+    insert: {
+        requestsMetadata: InsertRequestBuilderRequestsMetadata,
+    },
+    lastCell: {
+        requestsMetadata: LastCellRequestBuilderRequestsMetadata,
+    },
+    lastColumn: {
+        requestsMetadata: LastColumnRequestBuilderRequestsMetadata,
+    },
+    lastRow: {
+        requestsMetadata: LastRowRequestBuilderRequestsMetadata,
+    },
+    merge: {
+        requestsMetadata: MergeRequestBuilderRequestsMetadata,
+    },
+    rowsAbove: {
+        requestsMetadata: RowsAboveRequestBuilderRequestsMetadata,
+    },
+    rowsBelow: {
+        requestsMetadata: RowsBelowRequestBuilderRequestsMetadata,
+    },
+    sort: {
+        requestsMetadata: SortRequestBuilderRequestsMetadata,
+    },
+    unmerge: {
+        requestsMetadata: UnmergeRequestBuilderRequestsMetadata,
+    },
+    usedRange: {
+        requestsMetadata: UsedRangeRequestBuilderRequestsMetadata,
+    },
+    visibleView: {
+        requestsMetadata: VisibleViewRequestBuilderRequestsMetadata,
+    },
+    worksheet: {
+        requestsMetadata: WorksheetRequestBuilderRequestsMetadata,
+    },
+};
 /**
  * Metadata for all the requests in the request builder.
  */

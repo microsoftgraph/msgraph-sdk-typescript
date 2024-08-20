@@ -16,35 +16,35 @@ export interface AmorDegrcPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The cost property
      */
-    cost?: UntypedNode;
+    cost?: UntypedNode | null;
     /**
      * The datePurchased property
      */
-    datePurchased?: UntypedNode;
+    datePurchased?: UntypedNode | null;
     /**
      * The firstPeriod property
      */
-    firstPeriod?: UntypedNode;
+    firstPeriod?: UntypedNode | null;
     /**
      * The period property
      */
-    period?: UntypedNode;
+    period?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The salvage property
      */
-    salvage?: UntypedNode;
+    salvage?: UntypedNode | null;
 }
 /**
  * Provides operations to call the amorDegrc method.
@@ -71,6 +71,7 @@ export interface AmorDegrcRequestBuilder extends BaseRequestBuilder<AmorDegrcReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AmorDegrcPostRequestBody}
  */
+// @ts-ignore
 export function createAmorDegrcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAmorDegrcPostRequestBody;
 }
@@ -78,6 +79,7 @@ export function createAmorDegrcPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAmorDegrcPostRequestBody(amorDegrcPostRequestBody: Partial<AmorDegrcPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { amorDegrcPostRequestBody.backingStoreEnabled = true; },
@@ -94,15 +96,18 @@ export function deserializeIntoAmorDegrcPostRequestBody(amorDegrcPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAmorDegrcPostRequestBody(writer: SerializationWriter, amorDegrcPostRequestBody: Partial<AmorDegrcPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", amorDegrcPostRequestBody.basis);
-    writer.writeObjectValue("cost", amorDegrcPostRequestBody.cost);
-    writer.writeObjectValue("datePurchased", amorDegrcPostRequestBody.datePurchased);
-    writer.writeObjectValue("firstPeriod", amorDegrcPostRequestBody.firstPeriod);
-    writer.writeObjectValue("period", amorDegrcPostRequestBody.period);
-    writer.writeObjectValue("rate", amorDegrcPostRequestBody.rate);
-    writer.writeObjectValue("salvage", amorDegrcPostRequestBody.salvage);
-    writer.writeAdditionalData(amorDegrcPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAmorDegrcPostRequestBody(writer: SerializationWriter, amorDegrcPostRequestBody: Partial<AmorDegrcPostRequestBody> | undefined | null = {}) : void {
+    if (amorDegrcPostRequestBody) {
+        writer.writeObjectValue("basis", amorDegrcPostRequestBody.basis);
+        writer.writeObjectValue("cost", amorDegrcPostRequestBody.cost);
+        writer.writeObjectValue("datePurchased", amorDegrcPostRequestBody.datePurchased);
+        writer.writeObjectValue("firstPeriod", amorDegrcPostRequestBody.firstPeriod);
+        writer.writeObjectValue("period", amorDegrcPostRequestBody.period);
+        writer.writeObjectValue("rate", amorDegrcPostRequestBody.rate);
+        writer.writeObjectValue("salvage", amorDegrcPostRequestBody.salvage);
+        writer.writeAdditionalData(amorDegrcPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

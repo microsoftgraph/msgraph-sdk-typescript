@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FindPostRequestBody}
  */
+// @ts-ignore
 export function createFindPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFindPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFindPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFindPostRequestBody(findPostRequestBody: Partial<FindPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { findPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface FindPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The findText property
      */
-    findText?: UntypedNode;
+    findText?: UntypedNode | null;
     /**
      * The startNum property
      */
-    startNum?: UntypedNode;
+    startNum?: UntypedNode | null;
     /**
      * The withinText property
      */
-    withinText?: UntypedNode;
+    withinText?: UntypedNode | null;
 }
 /**
  * Provides operations to call the find method.
@@ -74,11 +76,14 @@ export interface FindRequestBuilder extends BaseRequestBuilder<FindRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFindPostRequestBody(writer: SerializationWriter, findPostRequestBody: Partial<FindPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("findText", findPostRequestBody.findText);
-    writer.writeObjectValue("startNum", findPostRequestBody.startNum);
-    writer.writeObjectValue("withinText", findPostRequestBody.withinText);
-    writer.writeAdditionalData(findPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeFindPostRequestBody(writer: SerializationWriter, findPostRequestBody: Partial<FindPostRequestBody> | undefined | null = {}) : void {
+    if (findPostRequestBody) {
+        writer.writeObjectValue("findText", findPostRequestBody.findText);
+        writer.writeObjectValue("startNum", findPostRequestBody.startNum);
+        writer.writeObjectValue("withinText", findPostRequestBody.withinText);
+        writer.writeAdditionalData(findPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

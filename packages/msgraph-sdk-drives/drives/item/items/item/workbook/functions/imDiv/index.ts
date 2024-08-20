@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImDivPostRequestBody}
  */
+// @ts-ignore
 export function createImDivPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImDivPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImDivPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImDivPostRequestBody(imDivPostRequestBody: Partial<ImDivPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imDivPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface ImDivPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber1 property
      */
-    inumber1?: UntypedNode;
+    inumber1?: UntypedNode | null;
     /**
      * The inumber2 property
      */
-    inumber2?: UntypedNode;
+    inumber2?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imDiv method.
@@ -69,10 +71,13 @@ export interface ImDivRequestBuilder extends BaseRequestBuilder<ImDivRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImDivPostRequestBody(writer: SerializationWriter, imDivPostRequestBody: Partial<ImDivPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber1", imDivPostRequestBody.inumber1);
-    writer.writeObjectValue("inumber2", imDivPostRequestBody.inumber2);
-    writer.writeAdditionalData(imDivPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImDivPostRequestBody(writer: SerializationWriter, imDivPostRequestBody: Partial<ImDivPostRequestBody> | undefined | null = {}) : void {
+    if (imDivPostRequestBody) {
+        writer.writeObjectValue("inumber1", imDivPostRequestBody.inumber1);
+        writer.writeObjectValue("inumber2", imDivPostRequestBody.inumber2);
+        writer.writeAdditionalData(imDivPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

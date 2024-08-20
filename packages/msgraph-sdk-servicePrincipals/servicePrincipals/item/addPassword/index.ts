@@ -16,11 +16,11 @@ export interface AddPasswordPostRequestBody extends AdditionalDataHolder, Backed
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The passwordCredential property
      */
-    passwordCredential?: PasswordCredential;
+    passwordCredential?: PasswordCredential | null;
 }
 /**
  * Provides operations to call the addPassword method.
@@ -48,6 +48,7 @@ export interface AddPasswordRequestBuilder extends BaseRequestBuilder<AddPasswor
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddPasswordPostRequestBody}
  */
+// @ts-ignore
 export function createAddPasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddPasswordPostRequestBody;
 }
@@ -55,6 +56,7 @@ export function createAddPasswordPostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddPasswordPostRequestBody(addPasswordPostRequestBody: Partial<AddPasswordPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addPasswordPostRequestBody.backingStoreEnabled = true; },
@@ -65,9 +67,12 @@ export function deserializeIntoAddPasswordPostRequestBody(addPasswordPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddPasswordPostRequestBody(writer: SerializationWriter, addPasswordPostRequestBody: Partial<AddPasswordPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<PasswordCredential>("passwordCredential", addPasswordPostRequestBody.passwordCredential, serializePasswordCredential);
-    writer.writeAdditionalData(addPasswordPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAddPasswordPostRequestBody(writer: SerializationWriter, addPasswordPostRequestBody: Partial<AddPasswordPostRequestBody> | undefined | null = {}) : void {
+    if (addPasswordPostRequestBody) {
+        writer.writeObjectValue<PasswordCredential>("passwordCredential", addPasswordPostRequestBody.passwordCredential, serializePasswordCredential);
+        writer.writeAdditionalData(addPasswordPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

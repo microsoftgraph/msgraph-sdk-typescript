@@ -12,7 +12,7 @@ export interface Beta_InvPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * The A property
      */
-    a?: UntypedNode;
+    a?: UntypedNode | null;
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -20,23 +20,23 @@ export interface Beta_InvPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * The alpha property
      */
-    alpha?: UntypedNode;
+    alpha?: UntypedNode | null;
     /**
      * The B property
      */
-    b?: UntypedNode;
+    b?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The beta property
      */
-    beta?: UntypedNode;
+    beta?: UntypedNode | null;
     /**
      * The probability property
      */
-    probability?: UntypedNode;
+    probability?: UntypedNode | null;
 }
 /**
  * Provides operations to call the beta_Inv method.
@@ -63,6 +63,7 @@ export interface Beta_InvRequestBuilder extends BaseRequestBuilder<Beta_InvReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Beta_InvPostRequestBody}
  */
+// @ts-ignore
 export function createBeta_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBeta_InvPostRequestBody;
 }
@@ -70,6 +71,7 @@ export function createBeta_InvPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBeta_InvPostRequestBody(beta_InvPostRequestBody: Partial<Beta_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "A": n => { beta_InvPostRequestBody.a = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -84,13 +86,16 @@ export function deserializeIntoBeta_InvPostRequestBody(beta_InvPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBeta_InvPostRequestBody(writer: SerializationWriter, beta_InvPostRequestBody: Partial<Beta_InvPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("A", beta_InvPostRequestBody.a);
-    writer.writeObjectValue("alpha", beta_InvPostRequestBody.alpha);
-    writer.writeObjectValue("B", beta_InvPostRequestBody.b);
-    writer.writeObjectValue("beta", beta_InvPostRequestBody.beta);
-    writer.writeObjectValue("probability", beta_InvPostRequestBody.probability);
-    writer.writeAdditionalData(beta_InvPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeBeta_InvPostRequestBody(writer: SerializationWriter, beta_InvPostRequestBody: Partial<Beta_InvPostRequestBody> | undefined | null = {}) : void {
+    if (beta_InvPostRequestBody) {
+        writer.writeObjectValue("A", beta_InvPostRequestBody.a);
+        writer.writeObjectValue("alpha", beta_InvPostRequestBody.alpha);
+        writer.writeObjectValue("B", beta_InvPostRequestBody.b);
+        writer.writeObjectValue("beta", beta_InvPostRequestBody.beta);
+        writer.writeObjectValue("probability", beta_InvPostRequestBody.probability);
+        writer.writeAdditionalData(beta_InvPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

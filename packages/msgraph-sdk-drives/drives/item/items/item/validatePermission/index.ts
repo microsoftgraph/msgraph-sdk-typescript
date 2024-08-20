@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ValidatePermissionPostRequestBody}
  */
+// @ts-ignore
 export function createValidatePermissionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoValidatePermissionPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createValidatePermissionPostRequestBodyFromDiscriminatorValue(pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoValidatePermissionPostRequestBody(validatePermissionPostRequestBody: Partial<ValidatePermissionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { validatePermissionPostRequestBody.backingStoreEnabled = true; },
@@ -29,10 +31,13 @@ export function deserializeIntoValidatePermissionPostRequestBody(validatePermiss
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeValidatePermissionPostRequestBody(writer: SerializationWriter, validatePermissionPostRequestBody: Partial<ValidatePermissionPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("challengeToken", validatePermissionPostRequestBody.challengeToken);
-    writer.writeStringValue("password", validatePermissionPostRequestBody.password);
-    writer.writeAdditionalData(validatePermissionPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeValidatePermissionPostRequestBody(writer: SerializationWriter, validatePermissionPostRequestBody: Partial<ValidatePermissionPostRequestBody> | undefined | null = {}) : void {
+    if (validatePermissionPostRequestBody) {
+        writer.writeStringValue("challengeToken", validatePermissionPostRequestBody.challengeToken);
+        writer.writeStringValue("password", validatePermissionPostRequestBody.password);
+        writer.writeAdditionalData(validatePermissionPostRequestBody.additionalData);
+    }
 }
 export interface ValidatePermissionPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,15 +47,15 @@ export interface ValidatePermissionPostRequestBody extends AdditionalDataHolder,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The challengeToken property
      */
-    challengeToken?: string;
+    challengeToken?: string | null;
     /**
      * The password property
      */
-    password?: string;
+    password?: string | null;
 }
 /**
  * Provides operations to call the validatePermission method.

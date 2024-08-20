@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UpperPostRequestBody}
  */
+// @ts-ignore
 export function createUpperPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUpperPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createUpperPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUpperPostRequestBody(upperPostRequestBody: Partial<UpperPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { upperPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoUpperPostRequestBody(upperPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUpperPostRequestBody(writer: SerializationWriter, upperPostRequestBody: Partial<UpperPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("text", upperPostRequestBody.text);
-    writer.writeAdditionalData(upperPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeUpperPostRequestBody(writer: SerializationWriter, upperPostRequestBody: Partial<UpperPostRequestBody> | undefined | null = {}) : void {
+    if (upperPostRequestBody) {
+        writer.writeObjectValue("text", upperPostRequestBody.text);
+        writer.writeAdditionalData(upperPostRequestBody.additionalData);
+    }
 }
 export interface UpperPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface UpperPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the upper method.

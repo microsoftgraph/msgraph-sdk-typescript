@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DiscPostRequestBody}
  */
+// @ts-ignore
 export function createDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDiscPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDiscPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDiscPostRequestBody(discPostRequestBody: Partial<DiscPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { discPostRequestBody.backingStoreEnabled = true; },
@@ -38,27 +40,27 @@ export interface DiscPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The pr property
      */
-    pr?: UntypedNode;
+    pr?: UntypedNode | null;
     /**
      * The redemption property
      */
-    redemption?: UntypedNode;
+    redemption?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the disc method.
@@ -84,13 +86,16 @@ export interface DiscRequestBuilder extends BaseRequestBuilder<DiscRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDiscPostRequestBody(writer: SerializationWriter, discPostRequestBody: Partial<DiscPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", discPostRequestBody.basis);
-    writer.writeObjectValue("maturity", discPostRequestBody.maturity);
-    writer.writeObjectValue("pr", discPostRequestBody.pr);
-    writer.writeObjectValue("redemption", discPostRequestBody.redemption);
-    writer.writeObjectValue("settlement", discPostRequestBody.settlement);
-    writer.writeAdditionalData(discPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDiscPostRequestBody(writer: SerializationWriter, discPostRequestBody: Partial<DiscPostRequestBody> | undefined | null = {}) : void {
+    if (discPostRequestBody) {
+        writer.writeObjectValue("basis", discPostRequestBody.basis);
+        writer.writeObjectValue("maturity", discPostRequestBody.maturity);
+        writer.writeObjectValue("pr", discPostRequestBody.pr);
+        writer.writeObjectValue("redemption", discPostRequestBody.redemption);
+        writer.writeObjectValue("settlement", discPostRequestBody.settlement);
+        writer.writeAdditionalData(discPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

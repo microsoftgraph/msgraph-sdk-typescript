@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {StartHoldMusicPostRequestBody}
  */
+// @ts-ignore
 export function createStartHoldMusicPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStartHoldMusicPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createStartHoldMusicPostRequestBodyFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoStartHoldMusicPostRequestBody(startHoldMusicPostRequestBody: Partial<StartHoldMusicPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { startHoldMusicPostRequestBody.backingStoreEnabled = true; },
@@ -31,10 +33,13 @@ export function deserializeIntoStartHoldMusicPostRequestBody(startHoldMusicPostR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeStartHoldMusicPostRequestBody(writer: SerializationWriter, startHoldMusicPostRequestBody: Partial<StartHoldMusicPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("clientContext", startHoldMusicPostRequestBody.clientContext);
-    writer.writeObjectValue<Prompt>("customPrompt", startHoldMusicPostRequestBody.customPrompt, serializePrompt);
-    writer.writeAdditionalData(startHoldMusicPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeStartHoldMusicPostRequestBody(writer: SerializationWriter, startHoldMusicPostRequestBody: Partial<StartHoldMusicPostRequestBody> | undefined | null = {}) : void {
+    if (startHoldMusicPostRequestBody) {
+        writer.writeStringValue("clientContext", startHoldMusicPostRequestBody.clientContext);
+        writer.writeObjectValue<Prompt>("customPrompt", startHoldMusicPostRequestBody.customPrompt, serializePrompt);
+        writer.writeAdditionalData(startHoldMusicPostRequestBody.additionalData);
+    }
 }
 export interface StartHoldMusicPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,15 +49,15 @@ export interface StartHoldMusicPostRequestBody extends AdditionalDataHolder, Bac
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The clientContext property
      */
-    clientContext?: string;
+    clientContext?: string | null;
     /**
      * The customPrompt property
      */
-    customPrompt?: Prompt;
+    customPrompt?: Prompt | null;
 }
 /**
  * Provides operations to call the startHoldMusic method.

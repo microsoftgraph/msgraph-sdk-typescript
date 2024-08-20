@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {HlookupPostRequestBody}
  */
+// @ts-ignore
 export function createHlookupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHlookupPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createHlookupPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoHlookupPostRequestBody(hlookupPostRequestBody: Partial<HlookupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hlookupPostRequestBody.backingStoreEnabled = true; },
@@ -37,23 +39,23 @@ export interface HlookupPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The lookupValue property
      */
-    lookupValue?: UntypedNode;
+    lookupValue?: UntypedNode | null;
     /**
      * The rangeLookup property
      */
-    rangeLookup?: UntypedNode;
+    rangeLookup?: UntypedNode | null;
     /**
      * The rowIndexNum property
      */
-    rowIndexNum?: UntypedNode;
+    rowIndexNum?: UntypedNode | null;
     /**
      * The tableArray property
      */
-    tableArray?: UntypedNode;
+    tableArray?: UntypedNode | null;
 }
 /**
  * Provides operations to call the hlookup method.
@@ -79,12 +81,15 @@ export interface HlookupRequestBuilder extends BaseRequestBuilder<HlookupRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHlookupPostRequestBody(writer: SerializationWriter, hlookupPostRequestBody: Partial<HlookupPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("lookupValue", hlookupPostRequestBody.lookupValue);
-    writer.writeObjectValue("rangeLookup", hlookupPostRequestBody.rangeLookup);
-    writer.writeObjectValue("rowIndexNum", hlookupPostRequestBody.rowIndexNum);
-    writer.writeObjectValue("tableArray", hlookupPostRequestBody.tableArray);
-    writer.writeAdditionalData(hlookupPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeHlookupPostRequestBody(writer: SerializationWriter, hlookupPostRequestBody: Partial<HlookupPostRequestBody> | undefined | null = {}) : void {
+    if (hlookupPostRequestBody) {
+        writer.writeObjectValue("lookupValue", hlookupPostRequestBody.lookupValue);
+        writer.writeObjectValue("rangeLookup", hlookupPostRequestBody.rangeLookup);
+        writer.writeObjectValue("rowIndexNum", hlookupPostRequestBody.rowIndexNum);
+        writer.writeObjectValue("tableArray", hlookupPostRequestBody.tableArray);
+        writer.writeAdditionalData(hlookupPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

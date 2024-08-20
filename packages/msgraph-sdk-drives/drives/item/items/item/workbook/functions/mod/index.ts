@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ModPostRequestBody}
  */
+// @ts-ignore
 export function createModPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoModPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createModPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoModPostRequestBody(modPostRequestBody: Partial<ModPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { modPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface ModPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The divisor property
      */
-    divisor?: UntypedNode;
+    divisor?: UntypedNode | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the mod method.
@@ -69,10 +71,13 @@ export interface ModRequestBuilder extends BaseRequestBuilder<ModRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeModPostRequestBody(writer: SerializationWriter, modPostRequestBody: Partial<ModPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("divisor", modPostRequestBody.divisor);
-    writer.writeObjectValue("number", modPostRequestBody.number);
-    writer.writeAdditionalData(modPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeModPostRequestBody(writer: SerializationWriter, modPostRequestBody: Partial<ModPostRequestBody> | undefined | null = {}) : void {
+    if (modPostRequestBody) {
+        writer.writeObjectValue("divisor", modPostRequestBody.divisor);
+        writer.writeObjectValue("number", modPostRequestBody.number);
+        writer.writeAdditionalData(modPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

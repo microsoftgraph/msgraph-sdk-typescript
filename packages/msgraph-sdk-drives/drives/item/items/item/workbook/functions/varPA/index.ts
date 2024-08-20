@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {VarPAPostRequestBody}
  */
+// @ts-ignore
 export function createVarPAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVarPAPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createVarPAPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoVarPAPostRequestBody(varPAPostRequestBody: Partial<VarPAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { varPAPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoVarPAPostRequestBody(varPAPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeVarPAPostRequestBody(writer: SerializationWriter, varPAPostRequestBody: Partial<VarPAPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", varPAPostRequestBody.values);
-    writer.writeAdditionalData(varPAPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeVarPAPostRequestBody(writer: SerializationWriter, varPAPostRequestBody: Partial<VarPAPostRequestBody> | undefined | null = {}) : void {
+    if (varPAPostRequestBody) {
+        writer.writeObjectValue("values", varPAPostRequestBody.values);
+        writer.writeAdditionalData(varPAPostRequestBody.additionalData);
+    }
 }
 export interface VarPAPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface VarPAPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the varPA method.

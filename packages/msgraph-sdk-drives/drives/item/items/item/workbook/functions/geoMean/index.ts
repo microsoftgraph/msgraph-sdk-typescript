@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GeoMeanPostRequestBody}
  */
+// @ts-ignore
 export function createGeoMeanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGeoMeanPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createGeoMeanPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGeoMeanPostRequestBody(geoMeanPostRequestBody: Partial<GeoMeanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { geoMeanPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface GeoMeanPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the geoMean method.
@@ -64,9 +66,12 @@ export interface GeoMeanRequestBuilder extends BaseRequestBuilder<GeoMeanRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGeoMeanPostRequestBody(writer: SerializationWriter, geoMeanPostRequestBody: Partial<GeoMeanPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", geoMeanPostRequestBody.values);
-    writer.writeAdditionalData(geoMeanPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGeoMeanPostRequestBody(writer: SerializationWriter, geoMeanPostRequestBody: Partial<GeoMeanPostRequestBody> | undefined | null = {}) : void {
+    if (geoMeanPostRequestBody) {
+        writer.writeObjectValue("values", geoMeanPostRequestBody.values);
+        writer.writeAdditionalData(geoMeanPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

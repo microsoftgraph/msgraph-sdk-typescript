@@ -6,7 +6,7 @@ import { createWorkbookNamedItemFromDiscriminatorValue, serializeWorkbookNamedIt
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { RangeRequestBuilderRequestsMetadata, type RangeRequestBuilder } from './range/index.js';
+import { RangeRequestBuilderNavigationMetadata, RangeRequestBuilderRequestsMetadata, type RangeRequestBuilder } from './range/index.js';
 // @ts-ignore
 import { type WorksheetRequestBuilder, WorksheetRequestBuilderRequestsMetadata } from './worksheet/index.js';
 // @ts-ignore
@@ -95,6 +95,7 @@ const WorkbookNamedItemItemRequestBuilderGetQueryParametersMapper: Record<string
 export const WorkbookNamedItemItemRequestBuilderNavigationMetadata: Record<Exclude<keyof WorkbookNamedItemItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     range: {
         requestsMetadata: RangeRequestBuilderRequestsMetadata,
+        navigationMetadata: RangeRequestBuilderNavigationMetadata,
     },
     worksheet: {
         requestsMetadata: WorksheetRequestBuilderRequestsMetadata,

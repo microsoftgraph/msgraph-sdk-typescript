@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ReplyPostRequestBody}
  */
+// @ts-ignore
 export function createReplyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReplyPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createReplyPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoReplyPostRequestBody(replyPostRequestBody: Partial<ReplyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replyPostRequestBody.backingStoreEnabled = true; },
@@ -34,26 +36,26 @@ export interface ReplyPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The Post property
      */
-    post?: Post;
+    post?: Post | null;
 }
 /**
  * Provides operations to call the reply method.
  */
 export interface ReplyRequestBuilder extends BaseRequestBuilder<ReplyRequestBuilder> {
     /**
-     * Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.
+     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/post-reply?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0|Find more info here}
      */
      post(body: ReplyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.
+     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. The table in the Permissions section lists the resources that support open extensions.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,9 +66,12 @@ export interface ReplyRequestBuilder extends BaseRequestBuilder<ReplyRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReplyPostRequestBody(writer: SerializationWriter, replyPostRequestBody: Partial<ReplyPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<Post>("Post", replyPostRequestBody.post, serializePost);
-    writer.writeAdditionalData(replyPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeReplyPostRequestBody(writer: SerializationWriter, replyPostRequestBody: Partial<ReplyPostRequestBody> | undefined | null = {}) : void {
+    if (replyPostRequestBody) {
+        writer.writeObjectValue<Post>("Post", replyPostRequestBody.post, serializePost);
+        writer.writeAdditionalData(replyPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

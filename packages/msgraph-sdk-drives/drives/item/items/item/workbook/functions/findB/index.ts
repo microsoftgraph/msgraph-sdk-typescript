@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FindBPostRequestBody}
  */
+// @ts-ignore
 export function createFindBPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFindBPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFindBPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFindBPostRequestBody(findBPostRequestBody: Partial<FindBPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { findBPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface FindBPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The findText property
      */
-    findText?: UntypedNode;
+    findText?: UntypedNode | null;
     /**
      * The startNum property
      */
-    startNum?: UntypedNode;
+    startNum?: UntypedNode | null;
     /**
      * The withinText property
      */
-    withinText?: UntypedNode;
+    withinText?: UntypedNode | null;
 }
 /**
  * Provides operations to call the findB method.
@@ -74,11 +76,14 @@ export interface FindBRequestBuilder extends BaseRequestBuilder<FindBRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFindBPostRequestBody(writer: SerializationWriter, findBPostRequestBody: Partial<FindBPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("findText", findBPostRequestBody.findText);
-    writer.writeObjectValue("startNum", findBPostRequestBody.startNum);
-    writer.writeObjectValue("withinText", findBPostRequestBody.withinText);
-    writer.writeAdditionalData(findBPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeFindBPostRequestBody(writer: SerializationWriter, findBPostRequestBody: Partial<FindBPostRequestBody> | undefined | null = {}) : void {
+    if (findBPostRequestBody) {
+        writer.writeObjectValue("findText", findBPostRequestBody.findText);
+        writer.writeObjectValue("startNum", findBPostRequestBody.startNum);
+        writer.writeObjectValue("withinText", findBPostRequestBody.withinText);
+        writer.writeAdditionalData(findBPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {WorkDayPostRequestBody}
  */
+// @ts-ignore
 export function createWorkDayPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWorkDayPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createWorkDayPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoWorkDayPostRequestBody(workDayPostRequestBody: Partial<WorkDayPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { workDayPostRequestBody.backingStoreEnabled = true; },
@@ -32,11 +34,14 @@ export function deserializeIntoWorkDayPostRequestBody(workDayPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeWorkDayPostRequestBody(writer: SerializationWriter, workDayPostRequestBody: Partial<WorkDayPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("days", workDayPostRequestBody.days);
-    writer.writeObjectValue("holidays", workDayPostRequestBody.holidays);
-    writer.writeObjectValue("startDate", workDayPostRequestBody.startDate);
-    writer.writeAdditionalData(workDayPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeWorkDayPostRequestBody(writer: SerializationWriter, workDayPostRequestBody: Partial<WorkDayPostRequestBody> | undefined | null = {}) : void {
+    if (workDayPostRequestBody) {
+        writer.writeObjectValue("days", workDayPostRequestBody.days);
+        writer.writeObjectValue("holidays", workDayPostRequestBody.holidays);
+        writer.writeObjectValue("startDate", workDayPostRequestBody.startDate);
+        writer.writeAdditionalData(workDayPostRequestBody.additionalData);
+    }
 }
 export interface WorkDayPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -46,19 +51,19 @@ export interface WorkDayPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The days property
      */
-    days?: UntypedNode;
+    days?: UntypedNode | null;
     /**
      * The holidays property
      */
-    holidays?: UntypedNode;
+    holidays?: UntypedNode | null;
     /**
      * The startDate property
      */
-    startDate?: UntypedNode;
+    startDate?: UntypedNode | null;
 }
 /**
  * Provides operations to call the workDay method.

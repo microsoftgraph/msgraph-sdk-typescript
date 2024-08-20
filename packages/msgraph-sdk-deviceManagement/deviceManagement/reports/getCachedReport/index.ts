@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetCachedReportPostRequestBody}
  */
+// @ts-ignore
 export function createGetCachedReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetCachedReportPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetCachedReportPostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetCachedReportPostRequestBody(getCachedReportPostRequestBody: Partial<GetCachedReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getCachedReportPostRequestBody.backingStoreEnabled = true; },
@@ -38,35 +40,35 @@ export interface GetCachedReportPostRequestBody extends AdditionalDataHolder, Ba
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The groupBy property
      */
-    groupBy?: string[];
+    groupBy?: string[] | null;
     /**
      * The id property
      */
-    id?: string;
+    id?: string | null;
     /**
      * The orderBy property
      */
-    orderBy?: string[];
+    orderBy?: string[] | null;
     /**
      * The search property
      */
-    search?: string;
+    search?: string | null;
     /**
      * The select property
      */
-    select?: string[];
+    select?: string[] | null;
     /**
      * The skip property
      */
-    skip?: number;
+    skip?: number | null;
     /**
      * The top property
      */
-    top?: number;
+    top?: number | null;
 }
 /**
  * Provides operations to call the getCachedReport method.
@@ -93,15 +95,18 @@ export interface GetCachedReportRequestBuilder extends BaseRequestBuilder<GetCac
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetCachedReportPostRequestBody(writer: SerializationWriter, getCachedReportPostRequestBody: Partial<GetCachedReportPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getCachedReportPostRequestBody.groupBy);
-    writer.writeStringValue("id", getCachedReportPostRequestBody.id);
-    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getCachedReportPostRequestBody.orderBy);
-    writer.writeStringValue("search", getCachedReportPostRequestBody.search);
-    writer.writeCollectionOfPrimitiveValues<string>("select", getCachedReportPostRequestBody.select);
-    writer.writeNumberValue("skip", getCachedReportPostRequestBody.skip);
-    writer.writeNumberValue("top", getCachedReportPostRequestBody.top);
-    writer.writeAdditionalData(getCachedReportPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetCachedReportPostRequestBody(writer: SerializationWriter, getCachedReportPostRequestBody: Partial<GetCachedReportPostRequestBody> | undefined | null = {}) : void {
+    if (getCachedReportPostRequestBody) {
+        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getCachedReportPostRequestBody.groupBy);
+        writer.writeStringValue("id", getCachedReportPostRequestBody.id);
+        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getCachedReportPostRequestBody.orderBy);
+        writer.writeStringValue("search", getCachedReportPostRequestBody.search);
+        writer.writeCollectionOfPrimitiveValues<string>("select", getCachedReportPostRequestBody.select);
+        writer.writeNumberValue("skip", getCachedReportPostRequestBody.skip);
+        writer.writeNumberValue("top", getCachedReportPostRequestBody.top);
+        writer.writeAdditionalData(getCachedReportPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

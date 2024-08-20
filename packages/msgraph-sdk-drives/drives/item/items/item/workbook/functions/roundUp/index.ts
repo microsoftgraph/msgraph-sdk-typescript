@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RoundUpPostRequestBody}
  */
+// @ts-ignore
 export function createRoundUpPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRoundUpPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRoundUpPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRoundUpPostRequestBody(roundUpPostRequestBody: Partial<RoundUpPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { roundUpPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface RoundUpPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The numDigits property
      */
-    numDigits?: UntypedNode;
+    numDigits?: UntypedNode | null;
 }
 /**
  * Provides operations to call the roundUp method.
@@ -69,10 +71,13 @@ export interface RoundUpRequestBuilder extends BaseRequestBuilder<RoundUpRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRoundUpPostRequestBody(writer: SerializationWriter, roundUpPostRequestBody: Partial<RoundUpPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", roundUpPostRequestBody.number);
-    writer.writeObjectValue("numDigits", roundUpPostRequestBody.numDigits);
-    writer.writeAdditionalData(roundUpPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeRoundUpPostRequestBody(writer: SerializationWriter, roundUpPostRequestBody: Partial<RoundUpPostRequestBody> | undefined | null = {}) : void {
+    if (roundUpPostRequestBody) {
+        writer.writeObjectValue("number", roundUpPostRequestBody.number);
+        writer.writeObjectValue("numDigits", roundUpPostRequestBody.numDigits);
+        writer.writeAdditionalData(roundUpPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
+import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from './delta/index.js';
+// @ts-ignore
 import { CallRecordingItemRequestBuilderNavigationMetadata, CallRecordingItemRequestBuilderRequestsMetadata, type CallRecordingItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -20,6 +22,10 @@ export interface RecordingsRequestBuilder extends BaseRequestBuilder<RecordingsR
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Provides operations to call the delta method.
+     */
+    get delta(): DeltaRequestBuilder;
     /**
      * Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.
      * @param callRecordingId The unique identifier of callRecording
@@ -120,6 +126,9 @@ export const RecordingsRequestBuilderNavigationMetadata: Record<Exclude<keyof Re
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    delta: {
+        requestsMetadata: DeltaRequestBuilderRequestsMetadata,
     },
 };
 /**

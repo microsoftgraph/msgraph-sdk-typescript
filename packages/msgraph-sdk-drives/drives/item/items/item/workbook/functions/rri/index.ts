@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RriPostRequestBody}
  */
+// @ts-ignore
 export function createRriPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRriPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRriPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRriPostRequestBody(rriPostRequestBody: Partial<RriPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rriPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface RriPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The fv property
      */
-    fv?: UntypedNode;
+    fv?: UntypedNode | null;
     /**
      * The nper property
      */
-    nper?: UntypedNode;
+    nper?: UntypedNode | null;
     /**
      * The pv property
      */
-    pv?: UntypedNode;
+    pv?: UntypedNode | null;
 }
 /**
  * Provides operations to call the rri method.
@@ -74,11 +76,14 @@ export interface RriRequestBuilder extends BaseRequestBuilder<RriRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRriPostRequestBody(writer: SerializationWriter, rriPostRequestBody: Partial<RriPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("fv", rriPostRequestBody.fv);
-    writer.writeObjectValue("nper", rriPostRequestBody.nper);
-    writer.writeObjectValue("pv", rriPostRequestBody.pv);
-    writer.writeAdditionalData(rriPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeRriPostRequestBody(writer: SerializationWriter, rriPostRequestBody: Partial<RriPostRequestBody> | undefined | null = {}) : void {
+    if (rriPostRequestBody) {
+        writer.writeObjectValue("fv", rriPostRequestBody.fv);
+        writer.writeObjectValue("nper", rriPostRequestBody.nper);
+        writer.writeObjectValue("pv", rriPostRequestBody.pv);
+        writer.writeAdditionalData(rriPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

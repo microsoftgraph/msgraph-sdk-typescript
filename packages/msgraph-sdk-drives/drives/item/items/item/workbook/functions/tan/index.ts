@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TanPostRequestBody}
  */
+// @ts-ignore
 export function createTanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTanPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTanPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTanPostRequestBody(tanPostRequestBody: Partial<TanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { tanPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoTanPostRequestBody(tanPostRequestBody: Partial<Ta
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTanPostRequestBody(writer: SerializationWriter, tanPostRequestBody: Partial<TanPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", tanPostRequestBody.number);
-    writer.writeAdditionalData(tanPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeTanPostRequestBody(writer: SerializationWriter, tanPostRequestBody: Partial<TanPostRequestBody> | undefined | null = {}) : void {
+    if (tanPostRequestBody) {
+        writer.writeObjectValue("number", tanPostRequestBody.number);
+        writer.writeAdditionalData(tanPostRequestBody.additionalData);
+    }
 }
 export interface TanPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface TanPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the tan method.

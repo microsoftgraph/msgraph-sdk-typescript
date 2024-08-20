@@ -10,6 +10,10 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 // @ts-ignore
 import { CreateOrGetRequestBuilderRequestsMetadata, type CreateOrGetRequestBuilder } from './createOrGet/index.js';
 // @ts-ignore
+import { GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime/index.js';
+// @ts-ignore
+import { GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime/index.js';
+// @ts-ignore
 import { OnlineMeetingItemRequestBuilderNavigationMetadata, OnlineMeetingItemRequestBuilderRequestsMetadata, type OnlineMeetingItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -26,6 +30,14 @@ export interface OnlineMeetingsRequestBuilder extends BaseRequestBuilder<OnlineM
      * Provides operations to call the createOrGet method.
      */
     get createOrGet(): CreateOrGetRequestBuilder;
+    /**
+     * Provides operations to call the getAllRecordings method.
+     */
+    get getAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime(): GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
+    /**
+     * Provides operations to call the getAllTranscripts method.
+     */
+    get getAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime(): GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
     /**
      * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
      * @param onlineMeetingId The unique identifier of onlineMeeting
@@ -130,6 +142,12 @@ export const OnlineMeetingsRequestBuilderNavigationMetadata: Record<Exclude<keyo
     },
     createOrGet: {
         requestsMetadata: CreateOrGetRequestBuilderRequestsMetadata,
+    },
+    getAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime: {
+        requestsMetadata: GetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+    },
+    getAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTime: {
+        requestsMetadata: GetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
     },
 };
 /**

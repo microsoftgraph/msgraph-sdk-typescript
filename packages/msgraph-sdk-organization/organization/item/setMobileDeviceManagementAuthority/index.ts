@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SetMobileDeviceManagementAuthorityPostResponse}
  */
+// @ts-ignore
 export function createSetMobileDeviceManagementAuthorityPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetMobileDeviceManagementAuthorityPostResponse;
 }
@@ -18,6 +19,7 @@ export function createSetMobileDeviceManagementAuthorityPostResponseFromDiscrimi
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSetMobileDeviceManagementAuthorityPostResponse(setMobileDeviceManagementAuthorityPostResponse: Partial<SetMobileDeviceManagementAuthorityPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setMobileDeviceManagementAuthorityPostResponse.backingStoreEnabled = true; },
@@ -28,9 +30,12 @@ export function deserializeIntoSetMobileDeviceManagementAuthorityPostResponse(se
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetMobileDeviceManagementAuthorityPostResponse(writer: SerializationWriter, setMobileDeviceManagementAuthorityPostResponse: Partial<SetMobileDeviceManagementAuthorityPostResponse> | undefined = {}) : void {
-    writer.writeNumberValue("value", setMobileDeviceManagementAuthorityPostResponse.value);
-    writer.writeAdditionalData(setMobileDeviceManagementAuthorityPostResponse.additionalData);
+// @ts-ignore
+export function serializeSetMobileDeviceManagementAuthorityPostResponse(writer: SerializationWriter, setMobileDeviceManagementAuthorityPostResponse: Partial<SetMobileDeviceManagementAuthorityPostResponse> | undefined | null = {}) : void {
+    if (setMobileDeviceManagementAuthorityPostResponse) {
+        writer.writeNumberValue("value", setMobileDeviceManagementAuthorityPostResponse.value);
+        writer.writeAdditionalData(setMobileDeviceManagementAuthorityPostResponse.additionalData);
+    }
 }
 export interface SetMobileDeviceManagementAuthorityPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -40,11 +45,11 @@ export interface SetMobileDeviceManagementAuthorityPostResponse extends Addition
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: number;
+    value?: number | null;
 }
 /**
  * Provides operations to call the setMobileDeviceManagementAuthority method.

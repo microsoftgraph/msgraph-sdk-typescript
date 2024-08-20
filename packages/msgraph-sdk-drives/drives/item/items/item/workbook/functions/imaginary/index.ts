@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImaginaryPostRequestBody}
  */
+// @ts-ignore
 export function createImaginaryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImaginaryPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImaginaryPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImaginaryPostRequestBody(imaginaryPostRequestBody: Partial<ImaginaryPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imaginaryPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImaginaryPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imaginary method.
@@ -64,9 +66,12 @@ export interface ImaginaryRequestBuilder extends BaseRequestBuilder<ImaginaryReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImaginaryPostRequestBody(writer: SerializationWriter, imaginaryPostRequestBody: Partial<ImaginaryPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imaginaryPostRequestBody.inumber);
-    writer.writeAdditionalData(imaginaryPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImaginaryPostRequestBody(writer: SerializationWriter, imaginaryPostRequestBody: Partial<ImaginaryPostRequestBody> | undefined | null = {}) : void {
+    if (imaginaryPostRequestBody) {
+        writer.writeObjectValue("inumber", imaginaryPostRequestBody.inumber);
+        writer.writeAdditionalData(imaginaryPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

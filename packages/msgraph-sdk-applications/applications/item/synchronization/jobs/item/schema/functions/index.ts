@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FunctionsGetResponse}
  */
+// @ts-ignore
 export function createFunctionsGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFunctionsGetResponse;
 }
@@ -20,6 +21,7 @@ export function createFunctionsGetResponseFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFunctionsGetResponse(functionsGetResponse: Partial<FunctionsGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(functionsGetResponse),
@@ -30,7 +32,7 @@ export interface FunctionsGetResponse extends BaseCollectionPaginationCountRespo
     /**
      * The value property
      */
-    value?: AttributeMappingFunctionSchema[];
+    value?: AttributeMappingFunctionSchema[] | null;
 }
 /**
  * Provides operations to call the functions method.
@@ -92,9 +94,12 @@ export interface FunctionsRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFunctionsGetResponse(writer: SerializationWriter, functionsGetResponse: Partial<FunctionsGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, functionsGetResponse)
-    writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsGetResponse.value, serializeAttributeMappingFunctionSchema);
+// @ts-ignore
+export function serializeFunctionsGetResponse(writer: SerializationWriter, functionsGetResponse: Partial<FunctionsGetResponse> | undefined | null = {}) : void {
+    if (functionsGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, functionsGetResponse)
+        writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsGetResponse.value, serializeAttributeMappingFunctionSchema);
+    }
 }
 /**
  * Uri template for the request builder.

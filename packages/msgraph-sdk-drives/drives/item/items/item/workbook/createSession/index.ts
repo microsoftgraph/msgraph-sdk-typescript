@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreateSessionPostRequestBody}
  */
+// @ts-ignore
 export function createCreateSessionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateSessionPostRequestBody;
 }
@@ -24,11 +25,11 @@ export interface CreateSessionPostRequestBody extends AdditionalDataHolder, Back
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The persistChanges property
      */
-    persistChanges?: boolean;
+    persistChanges?: boolean | null;
 }
 /**
  * Provides operations to call the createSession method.
@@ -55,6 +56,7 @@ export interface CreateSessionRequestBuilder extends BaseRequestBuilder<CreateSe
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreateSessionPostRequestBody(createSessionPostRequestBody: Partial<CreateSessionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createSessionPostRequestBody.backingStoreEnabled = true; },
@@ -65,9 +67,12 @@ export function deserializeIntoCreateSessionPostRequestBody(createSessionPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateSessionPostRequestBody(writer: SerializationWriter, createSessionPostRequestBody: Partial<CreateSessionPostRequestBody> | undefined = {}) : void {
-    writer.writeBooleanValue("persistChanges", createSessionPostRequestBody.persistChanges);
-    writer.writeAdditionalData(createSessionPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCreateSessionPostRequestBody(writer: SerializationWriter, createSessionPostRequestBody: Partial<CreateSessionPostRequestBody> | undefined | null = {}) : void {
+    if (createSessionPostRequestBody) {
+        writer.writeBooleanValue("persistChanges", createSessionPostRequestBody.persistChanges);
+        writer.writeAdditionalData(createSessionPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

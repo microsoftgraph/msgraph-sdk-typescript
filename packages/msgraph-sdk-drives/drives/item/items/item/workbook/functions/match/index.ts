@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MatchPostRequestBody}
  */
+// @ts-ignore
 export function createMatchPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMatchPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMatchPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMatchPostRequestBody(matchPostRequestBody: Partial<MatchPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { matchPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface MatchPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The lookupArray property
      */
-    lookupArray?: UntypedNode;
+    lookupArray?: UntypedNode | null;
     /**
      * The lookupValue property
      */
-    lookupValue?: UntypedNode;
+    lookupValue?: UntypedNode | null;
     /**
      * The matchType property
      */
-    matchType?: UntypedNode;
+    matchType?: UntypedNode | null;
 }
 /**
  * Provides operations to call the match method.
@@ -74,11 +76,14 @@ export interface MatchRequestBuilder extends BaseRequestBuilder<MatchRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMatchPostRequestBody(writer: SerializationWriter, matchPostRequestBody: Partial<MatchPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("lookupArray", matchPostRequestBody.lookupArray);
-    writer.writeObjectValue("lookupValue", matchPostRequestBody.lookupValue);
-    writer.writeObjectValue("matchType", matchPostRequestBody.matchType);
-    writer.writeAdditionalData(matchPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMatchPostRequestBody(writer: SerializationWriter, matchPostRequestBody: Partial<MatchPostRequestBody> | undefined | null = {}) : void {
+    if (matchPostRequestBody) {
+        writer.writeObjectValue("lookupArray", matchPostRequestBody.lookupArray);
+        writer.writeObjectValue("lookupValue", matchPostRequestBody.lookupValue);
+        writer.writeObjectValue("matchType", matchPostRequestBody.matchType);
+        writer.writeAdditionalData(matchPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ErfPostRequestBody}
  */
+// @ts-ignore
 export function createErfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoErfPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createErfPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoErfPostRequestBody(erfPostRequestBody: Partial<ErfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { erfPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface ErfPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The lowerLimit property
      */
-    lowerLimit?: UntypedNode;
+    lowerLimit?: UntypedNode | null;
     /**
      * The upperLimit property
      */
-    upperLimit?: UntypedNode;
+    upperLimit?: UntypedNode | null;
 }
 /**
  * Provides operations to call the erf method.
@@ -69,10 +71,13 @@ export interface ErfRequestBuilder extends BaseRequestBuilder<ErfRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeErfPostRequestBody(writer: SerializationWriter, erfPostRequestBody: Partial<ErfPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("lowerLimit", erfPostRequestBody.lowerLimit);
-    writer.writeObjectValue("upperLimit", erfPostRequestBody.upperLimit);
-    writer.writeAdditionalData(erfPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeErfPostRequestBody(writer: SerializationWriter, erfPostRequestBody: Partial<ErfPostRequestBody> | undefined | null = {}) : void {
+    if (erfPostRequestBody) {
+        writer.writeObjectValue("lowerLimit", erfPostRequestBody.lowerLimit);
+        writer.writeObjectValue("upperLimit", erfPostRequestBody.upperLimit);
+        writer.writeAdditionalData(erfPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

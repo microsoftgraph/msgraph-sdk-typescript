@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DcountAPostRequestBody}
  */
+// @ts-ignore
 export function createDcountAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDcountAPostRequestBody;
 }
@@ -24,19 +25,19 @@ export interface DcountAPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The database property
      */
-    database?: UntypedNode;
+    database?: UntypedNode | null;
     /**
      * The field property
      */
-    field?: UntypedNode;
+    field?: UntypedNode | null;
 }
 /**
  * Provides operations to call the dcountA method.
@@ -62,6 +63,7 @@ export interface DcountARequestBuilder extends BaseRequestBuilder<DcountARequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDcountAPostRequestBody(dcountAPostRequestBody: Partial<DcountAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dcountAPostRequestBody.backingStoreEnabled = true; },
@@ -74,11 +76,14 @@ export function deserializeIntoDcountAPostRequestBody(dcountAPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDcountAPostRequestBody(writer: SerializationWriter, dcountAPostRequestBody: Partial<DcountAPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("criteria", dcountAPostRequestBody.criteria);
-    writer.writeObjectValue("database", dcountAPostRequestBody.database);
-    writer.writeObjectValue("field", dcountAPostRequestBody.field);
-    writer.writeAdditionalData(dcountAPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDcountAPostRequestBody(writer: SerializationWriter, dcountAPostRequestBody: Partial<DcountAPostRequestBody> | undefined | null = {}) : void {
+    if (dcountAPostRequestBody) {
+        writer.writeObjectValue("criteria", dcountAPostRequestBody.criteria);
+        writer.writeObjectValue("database", dcountAPostRequestBody.database);
+        writer.writeObjectValue("field", dcountAPostRequestBody.field);
+        writer.writeAdditionalData(dcountAPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

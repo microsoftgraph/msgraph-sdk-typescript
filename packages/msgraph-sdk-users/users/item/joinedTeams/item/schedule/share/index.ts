@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SharePostRequestBody}
  */
+// @ts-ignore
 export function createSharePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSharePostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createSharePostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSharePostRequestBody(sharePostRequestBody: Partial<SharePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sharePostRequestBody.backingStoreEnabled = true; },
@@ -30,11 +32,14 @@ export function deserializeIntoSharePostRequestBody(sharePostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSharePostRequestBody(writer: SerializationWriter, sharePostRequestBody: Partial<SharePostRequestBody> | undefined = {}) : void {
-    writer.writeDateValue("endDateTime", sharePostRequestBody.endDateTime);
-    writer.writeBooleanValue("notifyTeam", sharePostRequestBody.notifyTeam);
-    writer.writeDateValue("startDateTime", sharePostRequestBody.startDateTime);
-    writer.writeAdditionalData(sharePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSharePostRequestBody(writer: SerializationWriter, sharePostRequestBody: Partial<SharePostRequestBody> | undefined | null = {}) : void {
+    if (sharePostRequestBody) {
+        writer.writeDateValue("endDateTime", sharePostRequestBody.endDateTime);
+        writer.writeBooleanValue("notifyTeam", sharePostRequestBody.notifyTeam);
+        writer.writeDateValue("startDateTime", sharePostRequestBody.startDateTime);
+        writer.writeAdditionalData(sharePostRequestBody.additionalData);
+    }
 }
 export interface SharePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,19 +49,19 @@ export interface SharePostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The endDateTime property
      */
-    endDateTime?: Date;
+    endDateTime?: Date | null;
     /**
      * The notifyTeam property
      */
-    notifyTeam?: boolean;
+    notifyTeam?: boolean | null;
     /**
      * The startDateTime property
      */
-    startDateTime?: Date;
+    startDateTime?: Date | null;
 }
 /**
  * Provides operations to call the share method.

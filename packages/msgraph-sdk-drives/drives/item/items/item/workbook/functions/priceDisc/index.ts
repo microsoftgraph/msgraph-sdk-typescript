@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PriceDiscPostRequestBody}
  */
+// @ts-ignore
 export function createPriceDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPriceDiscPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPriceDiscPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPriceDiscPostRequestBody(priceDiscPostRequestBody: Partial<PriceDiscPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { priceDiscPostRequestBody.backingStoreEnabled = true; },
@@ -38,27 +40,27 @@ export interface PriceDiscPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The discount property
      */
-    discount?: UntypedNode;
+    discount?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The redemption property
      */
-    redemption?: UntypedNode;
+    redemption?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the priceDisc method.
@@ -84,13 +86,16 @@ export interface PriceDiscRequestBuilder extends BaseRequestBuilder<PriceDiscReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePriceDiscPostRequestBody(writer: SerializationWriter, priceDiscPostRequestBody: Partial<PriceDiscPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", priceDiscPostRequestBody.basis);
-    writer.writeObjectValue("discount", priceDiscPostRequestBody.discount);
-    writer.writeObjectValue("maturity", priceDiscPostRequestBody.maturity);
-    writer.writeObjectValue("redemption", priceDiscPostRequestBody.redemption);
-    writer.writeObjectValue("settlement", priceDiscPostRequestBody.settlement);
-    writer.writeAdditionalData(priceDiscPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePriceDiscPostRequestBody(writer: SerializationWriter, priceDiscPostRequestBody: Partial<PriceDiscPostRequestBody> | undefined | null = {}) : void {
+    if (priceDiscPostRequestBody) {
+        writer.writeObjectValue("basis", priceDiscPostRequestBody.basis);
+        writer.writeObjectValue("discount", priceDiscPostRequestBody.discount);
+        writer.writeObjectValue("maturity", priceDiscPostRequestBody.maturity);
+        writer.writeObjectValue("redemption", priceDiscPostRequestBody.redemption);
+        writer.writeObjectValue("settlement", priceDiscPostRequestBody.settlement);
+        writer.writeAdditionalData(priceDiscPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

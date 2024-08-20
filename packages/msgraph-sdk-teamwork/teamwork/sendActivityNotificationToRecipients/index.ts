@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SendActivityNotificationToRecipientsPostRequestBody}
  */
+// @ts-ignore
 export function createSendActivityNotificationToRecipientsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendActivityNotificationToRecipientsPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSendActivityNotificationToRecipientsPostRequestBodyFromDis
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSendActivityNotificationToRecipientsPostRequestBody(sendActivityNotificationToRecipientsPostRequestBody: Partial<SendActivityNotificationToRecipientsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "activityType": n => { sendActivityNotificationToRecipientsPostRequestBody.activityType = n.getStringValue(); },
@@ -36,7 +38,7 @@ export interface SendActivityNotificationToRecipientsPostRequestBody extends Add
     /**
      * The activityType property
      */
-    activityType?: string;
+    activityType?: string | null;
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -44,31 +46,31 @@ export interface SendActivityNotificationToRecipientsPostRequestBody extends Add
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The chainId property
      */
-    chainId?: number;
+    chainId?: number | null;
     /**
      * The previewText property
      */
-    previewText?: ItemBody;
+    previewText?: ItemBody | null;
     /**
      * The recipients property
      */
-    recipients?: TeamworkNotificationRecipient[];
+    recipients?: TeamworkNotificationRecipient[] | null;
     /**
      * The teamsAppId property
      */
-    teamsAppId?: string;
+    teamsAppId?: string | null;
     /**
      * The templateParameters property
      */
-    templateParameters?: KeyValuePair[];
+    templateParameters?: KeyValuePair[] | null;
     /**
      * The topic property
      */
-    topic?: TeamworkActivityTopic;
+    topic?: TeamworkActivityTopic | null;
 }
 /**
  * Provides operations to call the sendActivityNotificationToRecipients method.
@@ -94,15 +96,18 @@ export interface SendActivityNotificationToRecipientsRequestBuilder extends Base
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSendActivityNotificationToRecipientsPostRequestBody(writer: SerializationWriter, sendActivityNotificationToRecipientsPostRequestBody: Partial<SendActivityNotificationToRecipientsPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("activityType", sendActivityNotificationToRecipientsPostRequestBody.activityType);
-    writer.writeNumberValue("chainId", sendActivityNotificationToRecipientsPostRequestBody.chainId);
-    writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationToRecipientsPostRequestBody.previewText, serializeItemBody);
-    writer.writeCollectionOfObjectValues<TeamworkNotificationRecipient>("recipients", sendActivityNotificationToRecipientsPostRequestBody.recipients, serializeTeamworkNotificationRecipient);
-    writer.writeStringValue("teamsAppId", sendActivityNotificationToRecipientsPostRequestBody.teamsAppId);
-    writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", sendActivityNotificationToRecipientsPostRequestBody.templateParameters, serializeKeyValuePair);
-    writer.writeObjectValue<TeamworkActivityTopic>("topic", sendActivityNotificationToRecipientsPostRequestBody.topic, serializeTeamworkActivityTopic);
-    writer.writeAdditionalData(sendActivityNotificationToRecipientsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSendActivityNotificationToRecipientsPostRequestBody(writer: SerializationWriter, sendActivityNotificationToRecipientsPostRequestBody: Partial<SendActivityNotificationToRecipientsPostRequestBody> | undefined | null = {}) : void {
+    if (sendActivityNotificationToRecipientsPostRequestBody) {
+        writer.writeStringValue("activityType", sendActivityNotificationToRecipientsPostRequestBody.activityType);
+        writer.writeNumberValue("chainId", sendActivityNotificationToRecipientsPostRequestBody.chainId);
+        writer.writeObjectValue<ItemBody>("previewText", sendActivityNotificationToRecipientsPostRequestBody.previewText, serializeItemBody);
+        writer.writeCollectionOfObjectValues<TeamworkNotificationRecipient>("recipients", sendActivityNotificationToRecipientsPostRequestBody.recipients, serializeTeamworkNotificationRecipient);
+        writer.writeStringValue("teamsAppId", sendActivityNotificationToRecipientsPostRequestBody.teamsAppId);
+        writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", sendActivityNotificationToRecipientsPostRequestBody.templateParameters, serializeKeyValuePair);
+        writer.writeObjectValue<TeamworkActivityTopic>("topic", sendActivityNotificationToRecipientsPostRequestBody.topic, serializeTeamworkActivityTopic);
+        writer.writeAdditionalData(sendActivityNotificationToRecipientsPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

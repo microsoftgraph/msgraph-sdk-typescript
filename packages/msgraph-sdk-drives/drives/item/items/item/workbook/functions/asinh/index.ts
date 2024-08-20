@@ -16,11 +16,11 @@ export interface AsinhPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the asinh method.
@@ -47,6 +47,7 @@ export interface AsinhRequestBuilder extends BaseRequestBuilder<AsinhRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AsinhPostRequestBody}
  */
+// @ts-ignore
 export function createAsinhPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAsinhPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createAsinhPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAsinhPostRequestBody(asinhPostRequestBody: Partial<AsinhPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { asinhPostRequestBody.backingStoreEnabled = true; },
@@ -64,9 +66,12 @@ export function deserializeIntoAsinhPostRequestBody(asinhPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAsinhPostRequestBody(writer: SerializationWriter, asinhPostRequestBody: Partial<AsinhPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", asinhPostRequestBody.number);
-    writer.writeAdditionalData(asinhPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAsinhPostRequestBody(writer: SerializationWriter, asinhPostRequestBody: Partial<AsinhPostRequestBody> | undefined | null = {}) : void {
+    if (asinhPostRequestBody) {
+        writer.writeObjectValue("number", asinhPostRequestBody.number);
+        writer.writeAdditionalData(asinhPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

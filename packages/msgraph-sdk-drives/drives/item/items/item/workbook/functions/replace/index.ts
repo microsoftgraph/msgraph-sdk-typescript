@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ReplacePostRequestBody}
  */
+// @ts-ignore
 export function createReplacePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReplacePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createReplacePostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoReplacePostRequestBody(replacePostRequestBody: Partial<ReplacePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replacePostRequestBody.backingStoreEnabled = true; },
@@ -37,23 +39,23 @@ export interface ReplacePostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The newText property
      */
-    newText?: UntypedNode;
+    newText?: UntypedNode | null;
     /**
      * The numChars property
      */
-    numChars?: UntypedNode;
+    numChars?: UntypedNode | null;
     /**
      * The oldText property
      */
-    oldText?: UntypedNode;
+    oldText?: UntypedNode | null;
     /**
      * The startNum property
      */
-    startNum?: UntypedNode;
+    startNum?: UntypedNode | null;
 }
 /**
  * Provides operations to call the replace method.
@@ -79,12 +81,15 @@ export interface ReplaceRequestBuilder extends BaseRequestBuilder<ReplaceRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReplacePostRequestBody(writer: SerializationWriter, replacePostRequestBody: Partial<ReplacePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("newText", replacePostRequestBody.newText);
-    writer.writeObjectValue("numChars", replacePostRequestBody.numChars);
-    writer.writeObjectValue("oldText", replacePostRequestBody.oldText);
-    writer.writeObjectValue("startNum", replacePostRequestBody.startNum);
-    writer.writeAdditionalData(replacePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeReplacePostRequestBody(writer: SerializationWriter, replacePostRequestBody: Partial<ReplacePostRequestBody> | undefined | null = {}) : void {
+    if (replacePostRequestBody) {
+        writer.writeObjectValue("newText", replacePostRequestBody.newText);
+        writer.writeObjectValue("numChars", replacePostRequestBody.numChars);
+        writer.writeObjectValue("oldText", replacePostRequestBody.oldText);
+        writer.writeObjectValue("startNum", replacePostRequestBody.startNum);
+        writer.writeAdditionalData(replacePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

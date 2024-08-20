@@ -11,6 +11,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SetPositionPostRequestBody}
  */
+// @ts-ignore
 export function createSetPositionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetPositionPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createSetPositionPostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSetPositionPostRequestBody(setPositionPostRequestBody: Partial<SetPositionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setPositionPostRequestBody.backingStoreEnabled = true; },
@@ -29,10 +31,13 @@ export function deserializeIntoSetPositionPostRequestBody(setPositionPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetPositionPostRequestBody(writer: SerializationWriter, setPositionPostRequestBody: Partial<SetPositionPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("endCell", setPositionPostRequestBody.endCell);
-    writer.writeObjectValue("startCell", setPositionPostRequestBody.startCell);
-    writer.writeAdditionalData(setPositionPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSetPositionPostRequestBody(writer: SerializationWriter, setPositionPostRequestBody: Partial<SetPositionPostRequestBody> | undefined | null = {}) : void {
+    if (setPositionPostRequestBody) {
+        writer.writeObjectValue("endCell", setPositionPostRequestBody.endCell);
+        writer.writeObjectValue("startCell", setPositionPostRequestBody.startCell);
+        writer.writeAdditionalData(setPositionPostRequestBody.additionalData);
+    }
 }
 export interface SetPositionPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,15 +47,15 @@ export interface SetPositionPostRequestBody extends AdditionalDataHolder, Backed
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The endCell property
      */
-    endCell?: UntypedNode;
+    endCell?: UntypedNode | null;
     /**
      * The startCell property
      */
-    startCell?: UntypedNode;
+    startCell?: UntypedNode | null;
 }
 /**
  * Provides operations to call the setPosition method.

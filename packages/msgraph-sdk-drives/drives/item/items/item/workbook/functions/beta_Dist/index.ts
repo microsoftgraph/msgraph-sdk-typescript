@@ -12,7 +12,7 @@ export interface Beta_DistPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * The A property
      */
-    a?: UntypedNode;
+    a?: UntypedNode | null;
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -20,27 +20,27 @@ export interface Beta_DistPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * The alpha property
      */
-    alpha?: UntypedNode;
+    alpha?: UntypedNode | null;
     /**
      * The B property
      */
-    b?: UntypedNode;
+    b?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The beta property
      */
-    beta?: UntypedNode;
+    beta?: UntypedNode | null;
     /**
      * The cumulative property
      */
-    cumulative?: UntypedNode;
+    cumulative?: UntypedNode | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the beta_Dist method.
@@ -67,6 +67,7 @@ export interface Beta_DistRequestBuilder extends BaseRequestBuilder<Beta_DistReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Beta_DistPostRequestBody}
  */
+// @ts-ignore
 export function createBeta_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBeta_DistPostRequestBody;
 }
@@ -74,6 +75,7 @@ export function createBeta_DistPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBeta_DistPostRequestBody(beta_DistPostRequestBody: Partial<Beta_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "A": n => { beta_DistPostRequestBody.a = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -89,14 +91,17 @@ export function deserializeIntoBeta_DistPostRequestBody(beta_DistPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBeta_DistPostRequestBody(writer: SerializationWriter, beta_DistPostRequestBody: Partial<Beta_DistPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("A", beta_DistPostRequestBody.a);
-    writer.writeObjectValue("alpha", beta_DistPostRequestBody.alpha);
-    writer.writeObjectValue("B", beta_DistPostRequestBody.b);
-    writer.writeObjectValue("beta", beta_DistPostRequestBody.beta);
-    writer.writeObjectValue("cumulative", beta_DistPostRequestBody.cumulative);
-    writer.writeObjectValue("x", beta_DistPostRequestBody.x);
-    writer.writeAdditionalData(beta_DistPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeBeta_DistPostRequestBody(writer: SerializationWriter, beta_DistPostRequestBody: Partial<Beta_DistPostRequestBody> | undefined | null = {}) : void {
+    if (beta_DistPostRequestBody) {
+        writer.writeObjectValue("A", beta_DistPostRequestBody.a);
+        writer.writeObjectValue("alpha", beta_DistPostRequestBody.alpha);
+        writer.writeObjectValue("B", beta_DistPostRequestBody.b);
+        writer.writeObjectValue("beta", beta_DistPostRequestBody.beta);
+        writer.writeObjectValue("cumulative", beta_DistPostRequestBody.cumulative);
+        writer.writeObjectValue("x", beta_DistPostRequestBody.x);
+        writer.writeAdditionalData(beta_DistPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

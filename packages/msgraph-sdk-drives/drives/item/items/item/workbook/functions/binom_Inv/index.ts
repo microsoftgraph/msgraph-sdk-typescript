@@ -16,19 +16,19 @@ export interface Binom_InvPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * The alpha property
      */
-    alpha?: UntypedNode;
+    alpha?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The probabilityS property
      */
-    probabilityS?: UntypedNode;
+    probabilityS?: UntypedNode | null;
     /**
      * The trials property
      */
-    trials?: UntypedNode;
+    trials?: UntypedNode | null;
 }
 /**
  * Provides operations to call the binom_Inv method.
@@ -55,6 +55,7 @@ export interface Binom_InvRequestBuilder extends BaseRequestBuilder<Binom_InvReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Binom_InvPostRequestBody}
  */
+// @ts-ignore
 export function createBinom_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBinom_InvPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createBinom_InvPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBinom_InvPostRequestBody(binom_InvPostRequestBody: Partial<Binom_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { binom_InvPostRequestBody.alpha = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -74,11 +76,14 @@ export function deserializeIntoBinom_InvPostRequestBody(binom_InvPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBinom_InvPostRequestBody(writer: SerializationWriter, binom_InvPostRequestBody: Partial<Binom_InvPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("alpha", binom_InvPostRequestBody.alpha);
-    writer.writeObjectValue("probabilityS", binom_InvPostRequestBody.probabilityS);
-    writer.writeObjectValue("trials", binom_InvPostRequestBody.trials);
-    writer.writeAdditionalData(binom_InvPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeBinom_InvPostRequestBody(writer: SerializationWriter, binom_InvPostRequestBody: Partial<Binom_InvPostRequestBody> | undefined | null = {}) : void {
+    if (binom_InvPostRequestBody) {
+        writer.writeObjectValue("alpha", binom_InvPostRequestBody.alpha);
+        writer.writeObjectValue("probabilityS", binom_InvPostRequestBody.probabilityS);
+        writer.writeObjectValue("trials", binom_InvPostRequestBody.trials);
+        writer.writeAdditionalData(binom_InvPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

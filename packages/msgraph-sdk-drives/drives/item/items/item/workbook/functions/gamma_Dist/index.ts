@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Gamma_DistPostRequestBody}
  */
+// @ts-ignore
 export function createGamma_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGamma_DistPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createGamma_DistPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGamma_DistPostRequestBody(gamma_DistPostRequestBody: Partial<Gamma_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { gamma_DistPostRequestBody.alpha = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -37,23 +39,23 @@ export interface Gamma_DistPostRequestBody extends AdditionalDataHolder, BackedM
     /**
      * The alpha property
      */
-    alpha?: UntypedNode;
+    alpha?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The beta property
      */
-    beta?: UntypedNode;
+    beta?: UntypedNode | null;
     /**
      * The cumulative property
      */
-    cumulative?: UntypedNode;
+    cumulative?: UntypedNode | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the gamma_Dist method.
@@ -79,12 +81,15 @@ export interface Gamma_DistRequestBuilder extends BaseRequestBuilder<Gamma_DistR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGamma_DistPostRequestBody(writer: SerializationWriter, gamma_DistPostRequestBody: Partial<Gamma_DistPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("alpha", gamma_DistPostRequestBody.alpha);
-    writer.writeObjectValue("beta", gamma_DistPostRequestBody.beta);
-    writer.writeObjectValue("cumulative", gamma_DistPostRequestBody.cumulative);
-    writer.writeObjectValue("x", gamma_DistPostRequestBody.x);
-    writer.writeAdditionalData(gamma_DistPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGamma_DistPostRequestBody(writer: SerializationWriter, gamma_DistPostRequestBody: Partial<Gamma_DistPostRequestBody> | undefined | null = {}) : void {
+    if (gamma_DistPostRequestBody) {
+        writer.writeObjectValue("alpha", gamma_DistPostRequestBody.alpha);
+        writer.writeObjectValue("beta", gamma_DistPostRequestBody.beta);
+        writer.writeObjectValue("cumulative", gamma_DistPostRequestBody.cumulative);
+        writer.writeObjectValue("x", gamma_DistPostRequestBody.x);
+        writer.writeAdditionalData(gamma_DistPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

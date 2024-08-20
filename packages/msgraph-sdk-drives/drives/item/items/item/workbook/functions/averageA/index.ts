@@ -16,11 +16,11 @@ export interface AverageAPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the averageA method.
@@ -47,6 +47,7 @@ export interface AverageARequestBuilder extends BaseRequestBuilder<AverageAReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AverageAPostRequestBody}
  */
+// @ts-ignore
 export function createAverageAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAverageAPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createAverageAPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAverageAPostRequestBody(averageAPostRequestBody: Partial<AverageAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { averageAPostRequestBody.backingStoreEnabled = true; },
@@ -64,9 +66,12 @@ export function deserializeIntoAverageAPostRequestBody(averageAPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAverageAPostRequestBody(writer: SerializationWriter, averageAPostRequestBody: Partial<AverageAPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", averageAPostRequestBody.values);
-    writer.writeAdditionalData(averageAPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAverageAPostRequestBody(writer: SerializationWriter, averageAPostRequestBody: Partial<AverageAPostRequestBody> | undefined | null = {}) : void {
+    if (averageAPostRequestBody) {
+        writer.writeObjectValue("values", averageAPostRequestBody.values);
+        writer.writeAdditionalData(averageAPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

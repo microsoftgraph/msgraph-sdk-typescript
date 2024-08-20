@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MroundPostRequestBody}
  */
+// @ts-ignore
 export function createMroundPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMroundPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMroundPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMroundPostRequestBody(mroundPostRequestBody: Partial<MroundPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { mroundPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface MroundPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The multiple property
      */
-    multiple?: UntypedNode;
+    multiple?: UntypedNode | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the mround method.
@@ -69,10 +71,13 @@ export interface MroundRequestBuilder extends BaseRequestBuilder<MroundRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMroundPostRequestBody(writer: SerializationWriter, mroundPostRequestBody: Partial<MroundPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("multiple", mroundPostRequestBody.multiple);
-    writer.writeObjectValue("number", mroundPostRequestBody.number);
-    writer.writeAdditionalData(mroundPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMroundPostRequestBody(writer: SerializationWriter, mroundPostRequestBody: Partial<MroundPostRequestBody> | undefined | null = {}) : void {
+    if (mroundPostRequestBody) {
+        writer.writeObjectValue("multiple", mroundPostRequestBody.multiple);
+        writer.writeObjectValue("number", mroundPostRequestBody.number);
+        writer.writeAdditionalData(mroundPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

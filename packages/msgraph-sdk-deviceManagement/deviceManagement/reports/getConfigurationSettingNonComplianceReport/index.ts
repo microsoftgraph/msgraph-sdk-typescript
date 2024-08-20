@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetConfigurationSettingNonComplianceReportPostRequestBody}
  */
+// @ts-ignore
 export function createGetConfigurationSettingNonComplianceReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetConfigurationSettingNonComplianceReportPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetConfigurationSettingNonComplianceReportPostRequestBodyF
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetConfigurationSettingNonComplianceReportPostRequestBody(getConfigurationSettingNonComplianceReportPostRequestBody: Partial<GetConfigurationSettingNonComplianceReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getConfigurationSettingNonComplianceReportPostRequestBody.backingStoreEnabled = true; },
@@ -40,43 +42,43 @@ export interface GetConfigurationSettingNonComplianceReportPostRequestBody exten
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The filter property
      */
-    filter?: string;
+    filter?: string | null;
     /**
      * The groupBy property
      */
-    groupBy?: string[];
+    groupBy?: string[] | null;
     /**
      * The name property
      */
-    name?: string;
+    name?: string | null;
     /**
      * The orderBy property
      */
-    orderBy?: string[];
+    orderBy?: string[] | null;
     /**
      * The search property
      */
-    search?: string;
+    search?: string | null;
     /**
      * The select property
      */
-    select?: string[];
+    select?: string[] | null;
     /**
      * The sessionId property
      */
-    sessionId?: string;
+    sessionId?: string | null;
     /**
      * The skip property
      */
-    skip?: number;
+    skip?: number | null;
     /**
      * The top property
      */
-    top?: number;
+    top?: number | null;
 }
 /**
  * Provides operations to call the getConfigurationSettingNonComplianceReport method.
@@ -103,17 +105,20 @@ export interface GetConfigurationSettingNonComplianceReportRequestBuilder extend
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetConfigurationSettingNonComplianceReportPostRequestBody(writer: SerializationWriter, getConfigurationSettingNonComplianceReportPostRequestBody: Partial<GetConfigurationSettingNonComplianceReportPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("filter", getConfigurationSettingNonComplianceReportPostRequestBody.filter);
-    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationSettingNonComplianceReportPostRequestBody.groupBy);
-    writer.writeStringValue("name", getConfigurationSettingNonComplianceReportPostRequestBody.name);
-    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getConfigurationSettingNonComplianceReportPostRequestBody.orderBy);
-    writer.writeStringValue("search", getConfigurationSettingNonComplianceReportPostRequestBody.search);
-    writer.writeCollectionOfPrimitiveValues<string>("select", getConfigurationSettingNonComplianceReportPostRequestBody.select);
-    writer.writeStringValue("sessionId", getConfigurationSettingNonComplianceReportPostRequestBody.sessionId);
-    writer.writeNumberValue("skip", getConfigurationSettingNonComplianceReportPostRequestBody.skip);
-    writer.writeNumberValue("top", getConfigurationSettingNonComplianceReportPostRequestBody.top);
-    writer.writeAdditionalData(getConfigurationSettingNonComplianceReportPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetConfigurationSettingNonComplianceReportPostRequestBody(writer: SerializationWriter, getConfigurationSettingNonComplianceReportPostRequestBody: Partial<GetConfigurationSettingNonComplianceReportPostRequestBody> | undefined | null = {}) : void {
+    if (getConfigurationSettingNonComplianceReportPostRequestBody) {
+        writer.writeStringValue("filter", getConfigurationSettingNonComplianceReportPostRequestBody.filter);
+        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationSettingNonComplianceReportPostRequestBody.groupBy);
+        writer.writeStringValue("name", getConfigurationSettingNonComplianceReportPostRequestBody.name);
+        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getConfigurationSettingNonComplianceReportPostRequestBody.orderBy);
+        writer.writeStringValue("search", getConfigurationSettingNonComplianceReportPostRequestBody.search);
+        writer.writeCollectionOfPrimitiveValues<string>("select", getConfigurationSettingNonComplianceReportPostRequestBody.select);
+        writer.writeStringValue("sessionId", getConfigurationSettingNonComplianceReportPostRequestBody.sessionId);
+        writer.writeNumberValue("skip", getConfigurationSettingNonComplianceReportPostRequestBody.skip);
+        writer.writeNumberValue("top", getConfigurationSettingNonComplianceReportPostRequestBody.top);
+        writer.writeAdditionalData(getConfigurationSettingNonComplianceReportPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NominalPostRequestBody}
  */
+// @ts-ignore
 export function createNominalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNominalPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNominalPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNominalPostRequestBody(nominalPostRequestBody: Partial<NominalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { nominalPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface NominalPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The effectRate property
      */
-    effectRate?: UntypedNode;
+    effectRate?: UntypedNode | null;
     /**
      * The npery property
      */
-    npery?: UntypedNode;
+    npery?: UntypedNode | null;
 }
 /**
  * Provides operations to call the nominal method.
@@ -69,10 +71,13 @@ export interface NominalRequestBuilder extends BaseRequestBuilder<NominalRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNominalPostRequestBody(writer: SerializationWriter, nominalPostRequestBody: Partial<NominalPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("effectRate", nominalPostRequestBody.effectRate);
-    writer.writeObjectValue("npery", nominalPostRequestBody.npery);
-    writer.writeAdditionalData(nominalPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeNominalPostRequestBody(writer: SerializationWriter, nominalPostRequestBody: Partial<NominalPostRequestBody> | undefined | null = {}) : void {
+    if (nominalPostRequestBody) {
+        writer.writeObjectValue("effectRate", nominalPostRequestBody.effectRate);
+        writer.writeObjectValue("npery", nominalPostRequestBody.npery);
+        writer.writeAdditionalData(nominalPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

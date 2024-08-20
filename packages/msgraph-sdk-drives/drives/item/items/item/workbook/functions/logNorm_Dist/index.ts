@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LogNorm_DistPostRequestBody}
  */
+// @ts-ignore
 export function createLogNorm_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLogNorm_DistPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLogNorm_DistPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLogNorm_DistPostRequestBody(logNorm_DistPostRequestBody: Partial<LogNorm_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { logNorm_DistPostRequestBody.backingStoreEnabled = true; },
@@ -37,23 +39,23 @@ export interface LogNorm_DistPostRequestBody extends AdditionalDataHolder, Backe
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The cumulative property
      */
-    cumulative?: UntypedNode;
+    cumulative?: UntypedNode | null;
     /**
      * The mean property
      */
-    mean?: UntypedNode;
+    mean?: UntypedNode | null;
     /**
      * The standardDev property
      */
-    standardDev?: UntypedNode;
+    standardDev?: UntypedNode | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the logNorm_Dist method.
@@ -79,12 +81,15 @@ export interface LogNorm_DistRequestBuilder extends BaseRequestBuilder<LogNorm_D
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLogNorm_DistPostRequestBody(writer: SerializationWriter, logNorm_DistPostRequestBody: Partial<LogNorm_DistPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("cumulative", logNorm_DistPostRequestBody.cumulative);
-    writer.writeObjectValue("mean", logNorm_DistPostRequestBody.mean);
-    writer.writeObjectValue("standardDev", logNorm_DistPostRequestBody.standardDev);
-    writer.writeObjectValue("x", logNorm_DistPostRequestBody.x);
-    writer.writeAdditionalData(logNorm_DistPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeLogNorm_DistPostRequestBody(writer: SerializationWriter, logNorm_DistPostRequestBody: Partial<LogNorm_DistPostRequestBody> | undefined | null = {}) : void {
+    if (logNorm_DistPostRequestBody) {
+        writer.writeObjectValue("cumulative", logNorm_DistPostRequestBody.cumulative);
+        writer.writeObjectValue("mean", logNorm_DistPostRequestBody.mean);
+        writer.writeObjectValue("standardDev", logNorm_DistPostRequestBody.standardDev);
+        writer.writeObjectValue("x", logNorm_DistPostRequestBody.x);
+        writer.writeAdditionalData(logNorm_DistPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

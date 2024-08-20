@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnicodePostRequestBody}
  */
+// @ts-ignore
 export function createUnicodePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnicodePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createUnicodePostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnicodePostRequestBody(unicodePostRequestBody: Partial<UnicodePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unicodePostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoUnicodePostRequestBody(unicodePostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnicodePostRequestBody(writer: SerializationWriter, unicodePostRequestBody: Partial<UnicodePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("text", unicodePostRequestBody.text);
-    writer.writeAdditionalData(unicodePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeUnicodePostRequestBody(writer: SerializationWriter, unicodePostRequestBody: Partial<UnicodePostRequestBody> | undefined | null = {}) : void {
+    if (unicodePostRequestBody) {
+        writer.writeObjectValue("text", unicodePostRequestBody.text);
+        writer.writeAdditionalData(unicodePostRequestBody.additionalData);
+    }
 }
 export interface UnicodePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface UnicodePostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the unicode method.

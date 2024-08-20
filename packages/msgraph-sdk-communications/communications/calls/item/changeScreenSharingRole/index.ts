@@ -16,11 +16,11 @@ export interface ChangeScreenSharingRolePostRequestBody extends AdditionalDataHo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The role property
      */
-    role?: ScreenSharingRole;
+    role?: ScreenSharingRole | null;
 }
 /**
  * Provides operations to call the changeScreenSharingRole method.
@@ -47,6 +47,7 @@ export interface ChangeScreenSharingRoleRequestBuilder extends BaseRequestBuilde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ChangeScreenSharingRolePostRequestBody}
  */
+// @ts-ignore
 export function createChangeScreenSharingRolePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChangeScreenSharingRolePostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createChangeScreenSharingRolePostRequestBodyFromDiscriminatorVal
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoChangeScreenSharingRolePostRequestBody(changeScreenSharingRolePostRequestBody: Partial<ChangeScreenSharingRolePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { changeScreenSharingRolePostRequestBody.backingStoreEnabled = true; },
@@ -64,9 +66,12 @@ export function deserializeIntoChangeScreenSharingRolePostRequestBody(changeScre
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeChangeScreenSharingRolePostRequestBody(writer: SerializationWriter, changeScreenSharingRolePostRequestBody: Partial<ChangeScreenSharingRolePostRequestBody> | undefined = {}) : void {
-    writer.writeEnumValue<ScreenSharingRole>("role", changeScreenSharingRolePostRequestBody.role);
-    writer.writeAdditionalData(changeScreenSharingRolePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeChangeScreenSharingRolePostRequestBody(writer: SerializationWriter, changeScreenSharingRolePostRequestBody: Partial<ChangeScreenSharingRolePostRequestBody> | undefined | null = {}) : void {
+    if (changeScreenSharingRolePostRequestBody) {
+        writer.writeEnumValue<ScreenSharingRole>("role", changeScreenSharingRolePostRequestBody.role);
+        writer.writeAdditionalData(changeScreenSharingRolePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ForwardPostRequestBody}
  */
+// @ts-ignore
 export function createForwardPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoForwardPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createForwardPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoForwardPostRequestBody(forwardPostRequestBody: Partial<ForwardPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { forwardPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface ForwardPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The Comment property
      */
-    comment?: string;
+    comment?: string | null;
     /**
      * The ToRecipients property
      */
-    toRecipients?: Recipient[];
+    toRecipients?: Recipient[] | null;
 }
 /**
  * Provides operations to call the forward method.
@@ -69,10 +71,13 @@ export interface ForwardRequestBuilder extends BaseRequestBuilder<ForwardRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeForwardPostRequestBody(writer: SerializationWriter, forwardPostRequestBody: Partial<ForwardPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("Comment", forwardPostRequestBody.comment);
-    writer.writeCollectionOfObjectValues<Recipient>("ToRecipients", forwardPostRequestBody.toRecipients, serializeRecipient);
-    writer.writeAdditionalData(forwardPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeForwardPostRequestBody(writer: SerializationWriter, forwardPostRequestBody: Partial<ForwardPostRequestBody> | undefined | null = {}) : void {
+    if (forwardPostRequestBody) {
+        writer.writeStringValue("Comment", forwardPostRequestBody.comment);
+        writer.writeCollectionOfObjectValues<Recipient>("ToRecipients", forwardPostRequestBody.toRecipients, serializeRecipient);
+        writer.writeAdditionalData(forwardPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

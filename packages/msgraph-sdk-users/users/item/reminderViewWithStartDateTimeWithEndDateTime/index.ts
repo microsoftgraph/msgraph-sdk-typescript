@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ReminderViewWithStartDateTimeWithEndDateTimeGetResponse}
  */
+// @ts-ignore
 export function createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReminderViewWithStartDateTimeWithEndDateTimeGetResponse;
 }
@@ -20,6 +21,7 @@ export function createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFro
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoReminderViewWithStartDateTimeWithEndDateTimeGetResponse(reminderViewWithStartDateTimeWithEndDateTimeGetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(reminderViewWithStartDateTimeWithEndDateTimeGetResponse),
@@ -30,7 +32,7 @@ export interface ReminderViewWithStartDateTimeWithEndDateTimeGetResponse extends
     /**
      * The value property
      */
-    value?: Reminder[];
+    value?: Reminder[] | null;
 }
 /**
  * Provides operations to call the reminderView method.
@@ -80,9 +82,12 @@ export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReminderViewWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, reminderViewWithStartDateTimeWithEndDateTimeGetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, reminderViewWithStartDateTimeWithEndDateTimeGetResponse)
-    writer.writeCollectionOfObjectValues<Reminder>("value", reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value, serializeReminder);
+// @ts-ignore
+export function serializeReminderViewWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, reminderViewWithStartDateTimeWithEndDateTimeGetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
+    if (reminderViewWithStartDateTimeWithEndDateTimeGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, reminderViewWithStartDateTimeWithEndDateTimeGetResponse)
+        writer.writeCollectionOfObjectValues<Reminder>("value", reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value, serializeReminder);
+    }
 }
 /**
  * Uri template for the request builder.

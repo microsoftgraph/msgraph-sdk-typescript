@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ScheduleActionsForRulesPostRequestBody}
  */
+// @ts-ignore
 export function createScheduleActionsForRulesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoScheduleActionsForRulesPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createScheduleActionsForRulesPostRequestBodyFromDiscriminatorVal
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoScheduleActionsForRulesPostRequestBody(scheduleActionsForRulesPostRequestBody: Partial<ScheduleActionsForRulesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { scheduleActionsForRulesPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ScheduleActionsForRulesPostRequestBody extends AdditionalDataHo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The deviceComplianceScheduledActionForRules property
      */
-    deviceComplianceScheduledActionForRules?: DeviceComplianceScheduledActionForRule[];
+    deviceComplianceScheduledActionForRules?: DeviceComplianceScheduledActionForRule[] | null;
 }
 /**
  * Provides operations to call the scheduleActionsForRules method.
@@ -64,9 +66,12 @@ export interface ScheduleActionsForRulesRequestBuilder extends BaseRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeScheduleActionsForRulesPostRequestBody(writer: SerializationWriter, scheduleActionsForRulesPostRequestBody: Partial<ScheduleActionsForRulesPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("deviceComplianceScheduledActionForRules", scheduleActionsForRulesPostRequestBody.deviceComplianceScheduledActionForRules, serializeDeviceComplianceScheduledActionForRule);
-    writer.writeAdditionalData(scheduleActionsForRulesPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeScheduleActionsForRulesPostRequestBody(writer: SerializationWriter, scheduleActionsForRulesPostRequestBody: Partial<ScheduleActionsForRulesPostRequestBody> | undefined | null = {}) : void {
+    if (scheduleActionsForRulesPostRequestBody) {
+        writer.writeCollectionOfObjectValues<DeviceComplianceScheduledActionForRule>("deviceComplianceScheduledActionForRules", scheduleActionsForRulesPostRequestBody.deviceComplianceScheduledActionForRules, serializeDeviceComplianceScheduledActionForRule);
+        writer.writeAdditionalData(scheduleActionsForRulesPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

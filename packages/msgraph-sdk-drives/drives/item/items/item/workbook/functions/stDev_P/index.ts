@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {StDev_PPostRequestBody}
  */
+// @ts-ignore
 export function createStDev_PPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStDev_PPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createStDev_PPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoStDev_PPostRequestBody(stDev_PPostRequestBody: Partial<StDev_PPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { stDev_PPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoStDev_PPostRequestBody(stDev_PPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeStDev_PPostRequestBody(writer: SerializationWriter, stDev_PPostRequestBody: Partial<StDev_PPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", stDev_PPostRequestBody.values);
-    writer.writeAdditionalData(stDev_PPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeStDev_PPostRequestBody(writer: SerializationWriter, stDev_PPostRequestBody: Partial<StDev_PPostRequestBody> | undefined | null = {}) : void {
+    if (stDev_PPostRequestBody) {
+        writer.writeObjectValue("values", stDev_PPostRequestBody.values);
+        writer.writeAdditionalData(stDev_PPostRequestBody.additionalData);
+    }
 }
 export interface StDev_PPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface StDev_PPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the stDev_P method.

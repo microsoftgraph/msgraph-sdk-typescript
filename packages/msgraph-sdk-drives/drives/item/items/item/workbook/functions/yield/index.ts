@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {YieldPostRequestBody}
  */
+// @ts-ignore
 export function createYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoYieldPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createYieldPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoYieldPostRequestBody(yieldPostRequestBody: Partial<YieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { yieldPostRequestBody.backingStoreEnabled = true; },
@@ -36,15 +38,18 @@ export function deserializeIntoYieldPostRequestBody(yieldPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeYieldPostRequestBody(writer: SerializationWriter, yieldPostRequestBody: Partial<YieldPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", yieldPostRequestBody.basis);
-    writer.writeObjectValue("frequency", yieldPostRequestBody.frequency);
-    writer.writeObjectValue("maturity", yieldPostRequestBody.maturity);
-    writer.writeObjectValue("pr", yieldPostRequestBody.pr);
-    writer.writeObjectValue("rate", yieldPostRequestBody.rate);
-    writer.writeObjectValue("redemption", yieldPostRequestBody.redemption);
-    writer.writeObjectValue("settlement", yieldPostRequestBody.settlement);
-    writer.writeAdditionalData(yieldPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeYieldPostRequestBody(writer: SerializationWriter, yieldPostRequestBody: Partial<YieldPostRequestBody> | undefined | null = {}) : void {
+    if (yieldPostRequestBody) {
+        writer.writeObjectValue("basis", yieldPostRequestBody.basis);
+        writer.writeObjectValue("frequency", yieldPostRequestBody.frequency);
+        writer.writeObjectValue("maturity", yieldPostRequestBody.maturity);
+        writer.writeObjectValue("pr", yieldPostRequestBody.pr);
+        writer.writeObjectValue("rate", yieldPostRequestBody.rate);
+        writer.writeObjectValue("redemption", yieldPostRequestBody.redemption);
+        writer.writeObjectValue("settlement", yieldPostRequestBody.settlement);
+        writer.writeAdditionalData(yieldPostRequestBody.additionalData);
+    }
 }
 export interface YieldPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -54,35 +59,35 @@ export interface YieldPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The pr property
      */
-    pr?: UntypedNode;
+    pr?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The redemption property
      */
-    redemption?: UntypedNode;
+    redemption?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the yield method.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SumPostRequestBody}
  */
+// @ts-ignore
 export function createSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSumPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSumPostRequestBody(sumPostRequestBody: Partial<SumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sumPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoSumPostRequestBody(sumPostRequestBody: Partial<Su
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSumPostRequestBody(writer: SerializationWriter, sumPostRequestBody: Partial<SumPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", sumPostRequestBody.values);
-    writer.writeAdditionalData(sumPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSumPostRequestBody(writer: SerializationWriter, sumPostRequestBody: Partial<SumPostRequestBody> | undefined | null = {}) : void {
+    if (sumPostRequestBody) {
+        writer.writeObjectValue("values", sumPostRequestBody.values);
+        writer.writeAdditionalData(sumPostRequestBody.additionalData);
+    }
 }
 export interface SumPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface SumPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the sum method.

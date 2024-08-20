@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SheetsPostRequestBody}
  */
+// @ts-ignore
 export function createSheetsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSheetsPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSheetsPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSheetsPostRequestBody(sheetsPostRequestBody: Partial<SheetsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sheetsPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoSheetsPostRequestBody(sheetsPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSheetsPostRequestBody(writer: SerializationWriter, sheetsPostRequestBody: Partial<SheetsPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("reference", sheetsPostRequestBody.reference);
-    writer.writeAdditionalData(sheetsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSheetsPostRequestBody(writer: SerializationWriter, sheetsPostRequestBody: Partial<SheetsPostRequestBody> | undefined | null = {}) : void {
+    if (sheetsPostRequestBody) {
+        writer.writeObjectValue("reference", sheetsPostRequestBody.reference);
+        writer.writeAdditionalData(sheetsPostRequestBody.additionalData);
+    }
 }
 export interface SheetsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface SheetsPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The reference property
      */
-    reference?: UntypedNode;
+    reference?: UntypedNode | null;
 }
 /**
  * Provides operations to call the sheets method.

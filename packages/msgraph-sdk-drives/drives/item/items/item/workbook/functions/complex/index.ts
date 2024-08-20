@@ -16,19 +16,19 @@ export interface ComplexPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The iNum property
      */
-    iNum?: UntypedNode;
+    iNum?: UntypedNode | null;
     /**
      * The realNum property
      */
-    realNum?: UntypedNode;
+    realNum?: UntypedNode | null;
     /**
      * The suffix property
      */
-    suffix?: UntypedNode;
+    suffix?: UntypedNode | null;
 }
 /**
  * Provides operations to call the complex method.
@@ -55,6 +55,7 @@ export interface ComplexRequestBuilder extends BaseRequestBuilder<ComplexRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ComplexPostRequestBody}
  */
+// @ts-ignore
 export function createComplexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoComplexPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createComplexPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoComplexPostRequestBody(complexPostRequestBody: Partial<ComplexPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { complexPostRequestBody.backingStoreEnabled = true; },
@@ -74,11 +76,14 @@ export function deserializeIntoComplexPostRequestBody(complexPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeComplexPostRequestBody(writer: SerializationWriter, complexPostRequestBody: Partial<ComplexPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("iNum", complexPostRequestBody.iNum);
-    writer.writeObjectValue("realNum", complexPostRequestBody.realNum);
-    writer.writeObjectValue("suffix", complexPostRequestBody.suffix);
-    writer.writeAdditionalData(complexPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeComplexPostRequestBody(writer: SerializationWriter, complexPostRequestBody: Partial<ComplexPostRequestBody> | undefined | null = {}) : void {
+    if (complexPostRequestBody) {
+        writer.writeObjectValue("iNum", complexPostRequestBody.iNum);
+        writer.writeObjectValue("realNum", complexPostRequestBody.realNum);
+        writer.writeObjectValue("suffix", complexPostRequestBody.suffix);
+        writer.writeAdditionalData(complexPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

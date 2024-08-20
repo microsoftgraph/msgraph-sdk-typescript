@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetCompatibleHubContentTypesGetResponse}
  */
+// @ts-ignore
 export function createGetCompatibleHubContentTypesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetCompatibleHubContentTypesGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetCompatibleHubContentTypesGetResponseFromDiscriminatorVa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetCompatibleHubContentTypesGetResponse(getCompatibleHubContentTypesGetResponse: Partial<GetCompatibleHubContentTypesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getCompatibleHubContentTypesGetResponse),
@@ -30,7 +32,7 @@ export interface GetCompatibleHubContentTypesGetResponse extends BaseCollectionP
     /**
      * The value property
      */
-    value?: ContentType[];
+    value?: ContentType[] | null;
 }
 /**
  * Provides operations to call the getCompatibleHubContentTypes method.
@@ -92,9 +94,12 @@ export interface GetCompatibleHubContentTypesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetCompatibleHubContentTypesGetResponse(writer: SerializationWriter, getCompatibleHubContentTypesGetResponse: Partial<GetCompatibleHubContentTypesGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getCompatibleHubContentTypesGetResponse)
-    writer.writeCollectionOfObjectValues<ContentType>("value", getCompatibleHubContentTypesGetResponse.value, serializeContentType);
+// @ts-ignore
+export function serializeGetCompatibleHubContentTypesGetResponse(writer: SerializationWriter, getCompatibleHubContentTypesGetResponse: Partial<GetCompatibleHubContentTypesGetResponse> | undefined | null = {}) : void {
+    if (getCompatibleHubContentTypesGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getCompatibleHubContentTypesGetResponse)
+        writer.writeCollectionOfObjectValues<ContentType>("value", getCompatibleHubContentTypesGetResponse.value, serializeContentType);
+    }
 }
 /**
  * Uri template for the request builder.

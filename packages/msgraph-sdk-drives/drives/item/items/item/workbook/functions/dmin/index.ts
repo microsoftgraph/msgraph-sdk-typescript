@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DminPostRequestBody}
  */
+// @ts-ignore
 export function createDminPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDminPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDminPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDminPostRequestBody(dminPostRequestBody: Partial<DminPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dminPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface DminPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The database property
      */
-    database?: UntypedNode;
+    database?: UntypedNode | null;
     /**
      * The field property
      */
-    field?: UntypedNode;
+    field?: UntypedNode | null;
 }
 /**
  * Provides operations to call the dmin method.
@@ -74,11 +76,14 @@ export interface DminRequestBuilder extends BaseRequestBuilder<DminRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDminPostRequestBody(writer: SerializationWriter, dminPostRequestBody: Partial<DminPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("criteria", dminPostRequestBody.criteria);
-    writer.writeObjectValue("database", dminPostRequestBody.database);
-    writer.writeObjectValue("field", dminPostRequestBody.field);
-    writer.writeAdditionalData(dminPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDminPostRequestBody(writer: SerializationWriter, dminPostRequestBody: Partial<DminPostRequestBody> | undefined | null = {}) : void {
+    if (dminPostRequestBody) {
+        writer.writeObjectValue("criteria", dminPostRequestBody.criteria);
+        writer.writeObjectValue("database", dminPostRequestBody.database);
+        writer.writeObjectValue("field", dminPostRequestBody.field);
+        writer.writeAdditionalData(dminPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

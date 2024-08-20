@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MdurationPostRequestBody}
  */
+// @ts-ignore
 export function createMdurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMdurationPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMdurationPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMdurationPostRequestBody(mdurationPostRequestBody: Partial<MdurationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { mdurationPostRequestBody.backingStoreEnabled = true; },
@@ -39,31 +41,31 @@ export interface MdurationPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The coupon property
      */
-    coupon?: UntypedNode;
+    coupon?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
     /**
      * The yld property
      */
-    yld?: UntypedNode;
+    yld?: UntypedNode | null;
 }
 /**
  * Provides operations to call the mduration method.
@@ -89,14 +91,17 @@ export interface MdurationRequestBuilder extends BaseRequestBuilder<MdurationReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMdurationPostRequestBody(writer: SerializationWriter, mdurationPostRequestBody: Partial<MdurationPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", mdurationPostRequestBody.basis);
-    writer.writeObjectValue("coupon", mdurationPostRequestBody.coupon);
-    writer.writeObjectValue("frequency", mdurationPostRequestBody.frequency);
-    writer.writeObjectValue("maturity", mdurationPostRequestBody.maturity);
-    writer.writeObjectValue("settlement", mdurationPostRequestBody.settlement);
-    writer.writeObjectValue("yld", mdurationPostRequestBody.yld);
-    writer.writeAdditionalData(mdurationPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMdurationPostRequestBody(writer: SerializationWriter, mdurationPostRequestBody: Partial<MdurationPostRequestBody> | undefined | null = {}) : void {
+    if (mdurationPostRequestBody) {
+        writer.writeObjectValue("basis", mdurationPostRequestBody.basis);
+        writer.writeObjectValue("coupon", mdurationPostRequestBody.coupon);
+        writer.writeObjectValue("frequency", mdurationPostRequestBody.frequency);
+        writer.writeObjectValue("maturity", mdurationPostRequestBody.maturity);
+        writer.writeObjectValue("settlement", mdurationPostRequestBody.settlement);
+        writer.writeObjectValue("yld", mdurationPostRequestBody.yld);
+        writer.writeAdditionalData(mdurationPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

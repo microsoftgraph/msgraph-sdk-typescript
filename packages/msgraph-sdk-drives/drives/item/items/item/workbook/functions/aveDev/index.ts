@@ -16,11 +16,11 @@ export interface AveDevPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the aveDev method.
@@ -47,6 +47,7 @@ export interface AveDevRequestBuilder extends BaseRequestBuilder<AveDevRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AveDevPostRequestBody}
  */
+// @ts-ignore
 export function createAveDevPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAveDevPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createAveDevPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAveDevPostRequestBody(aveDevPostRequestBody: Partial<AveDevPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { aveDevPostRequestBody.backingStoreEnabled = true; },
@@ -64,9 +66,12 @@ export function deserializeIntoAveDevPostRequestBody(aveDevPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAveDevPostRequestBody(writer: SerializationWriter, aveDevPostRequestBody: Partial<AveDevPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", aveDevPostRequestBody.values);
-    writer.writeAdditionalData(aveDevPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAveDevPostRequestBody(writer: SerializationWriter, aveDevPostRequestBody: Partial<AveDevPostRequestBody> | undefined | null = {}) : void {
+    if (aveDevPostRequestBody) {
+        writer.writeObjectValue("values", aveDevPostRequestBody.values);
+        writer.writeAdditionalData(aveDevPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

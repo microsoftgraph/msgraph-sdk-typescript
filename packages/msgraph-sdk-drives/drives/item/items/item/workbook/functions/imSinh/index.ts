@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImSinhPostRequestBody}
  */
+// @ts-ignore
 export function createImSinhPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImSinhPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImSinhPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImSinhPostRequestBody(imSinhPostRequestBody: Partial<ImSinhPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imSinhPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImSinhPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imSinh method.
@@ -64,9 +66,12 @@ export interface ImSinhRequestBuilder extends BaseRequestBuilder<ImSinhRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImSinhPostRequestBody(writer: SerializationWriter, imSinhPostRequestBody: Partial<ImSinhPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imSinhPostRequestBody.inumber);
-    writer.writeAdditionalData(imSinhPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImSinhPostRequestBody(writer: SerializationWriter, imSinhPostRequestBody: Partial<ImSinhPostRequestBody> | undefined | null = {}) : void {
+    if (imSinhPostRequestBody) {
+        writer.writeObjectValue("inumber", imSinhPostRequestBody.inumber);
+        writer.writeAdditionalData(imSinhPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

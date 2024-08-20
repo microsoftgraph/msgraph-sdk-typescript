@@ -37,7 +37,7 @@ export interface InsightsRequestBuilder extends BaseRequestBuilder<InsightsReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get insights from users
+     * Represents relationships between a user and items such as OneDrive for work or school documents, calculated using advanced analytics and machine learning techniques. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ItemInsights>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -58,7 +58,7 @@ export interface InsightsRequestBuilder extends BaseRequestBuilder<InsightsReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get insights from users
+     * Represents relationships between a user and items such as OneDrive for work or school documents, calculated using advanced analytics and machine learning techniques. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -72,7 +72,7 @@ export interface InsightsRequestBuilder extends BaseRequestBuilder<InsightsReque
      toPatchRequestInformation(body: ItemInsights, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get insights from users
+ * Represents relationships between a user and items such as OneDrive for work or school documents, calculated using advanced analytics and machine learning techniques. Read-only. Nullable.
  */
 export interface InsightsRequestBuilderGetQueryParameters {
     /**

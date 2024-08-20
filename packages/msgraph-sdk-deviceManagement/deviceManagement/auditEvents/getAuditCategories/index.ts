@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetAuditCategoriesGetResponse}
  */
+// @ts-ignore
 export function createGetAuditCategoriesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAuditCategoriesGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetAuditCategoriesGetResponseFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetAuditCategoriesGetResponse(getAuditCategoriesGetResponse: Partial<GetAuditCategoriesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAuditCategoriesGetResponse),
@@ -30,7 +32,7 @@ export interface GetAuditCategoriesGetResponse extends BaseCollectionPaginationC
     /**
      * The value property
      */
-    value?: string[];
+    value?: string[] | null;
 }
 /**
  * Provides operations to call the getAuditCategories method.
@@ -80,9 +82,12 @@ export interface GetAuditCategoriesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAuditCategoriesGetResponse(writer: SerializationWriter, getAuditCategoriesGetResponse: Partial<GetAuditCategoriesGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getAuditCategoriesGetResponse)
-    writer.writeCollectionOfPrimitiveValues<string>("value", getAuditCategoriesGetResponse.value);
+// @ts-ignore
+export function serializeGetAuditCategoriesGetResponse(writer: SerializationWriter, getAuditCategoriesGetResponse: Partial<GetAuditCategoriesGetResponse> | undefined | null = {}) : void {
+    if (getAuditCategoriesGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAuditCategoriesGetResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", getAuditCategoriesGetResponse.value);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnarchivePostRequestBody}
  */
+// @ts-ignore
 export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnarchivePostRequestBody;
 }
@@ -19,6 +20,7 @@ export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnarchivePostResponse}
  */
+// @ts-ignore
 export function createUnarchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnarchivePostResponse;
 }
@@ -26,6 +28,7 @@ export function createUnarchivePostResponseFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody: Partial<UnarchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unarchivePostRequestBody.backingStoreEnabled = true; },
@@ -36,6 +39,7 @@ export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Partial<UnarchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unarchivePostResponse.backingStoreEnabled = true; },
@@ -46,17 +50,23 @@ export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnarchivePostRequestBody(writer: SerializationWriter, unarchivePostRequestBody: Partial<UnarchivePostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("messageIds", unarchivePostRequestBody.messageIds);
-    writer.writeAdditionalData(unarchivePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeUnarchivePostRequestBody(writer: SerializationWriter, unarchivePostRequestBody: Partial<UnarchivePostRequestBody> | undefined | null = {}) : void {
+    if (unarchivePostRequestBody) {
+        writer.writeCollectionOfPrimitiveValues<string>("messageIds", unarchivePostRequestBody.messageIds);
+        writer.writeAdditionalData(unarchivePostRequestBody.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: Partial<UnarchivePostResponse> | undefined = {}) : void {
-    writer.writeBooleanValue("value", unarchivePostResponse.value);
-    writer.writeAdditionalData(unarchivePostResponse.additionalData);
+// @ts-ignore
+export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: Partial<UnarchivePostResponse> | undefined | null = {}) : void {
+    if (unarchivePostResponse) {
+        writer.writeBooleanValue("value", unarchivePostResponse.value);
+        writer.writeAdditionalData(unarchivePostResponse.additionalData);
+    }
 }
 export interface UnarchivePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -66,11 +76,11 @@ export interface UnarchivePostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The messageIds property
      */
-    messageIds?: string[];
+    messageIds?: string[] | null;
 }
 export interface UnarchivePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -80,11 +90,11 @@ export interface UnarchivePostResponse extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: boolean;
+    value?: boolean | null;
 }
 /**
  * Provides operations to call the unarchive method.

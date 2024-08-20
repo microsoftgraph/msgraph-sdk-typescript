@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DurationPostRequestBody}
  */
+// @ts-ignore
 export function createDurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDurationPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDurationPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDurationPostRequestBody(durationPostRequestBody: Partial<DurationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { durationPostRequestBody.backingStoreEnabled = true; },
@@ -39,31 +41,31 @@ export interface DurationPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The coupon property
      */
-    coupon?: UntypedNode;
+    coupon?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
     /**
      * The yld property
      */
-    yld?: UntypedNode;
+    yld?: UntypedNode | null;
 }
 /**
  * Provides operations to call the duration method.
@@ -89,14 +91,17 @@ export interface DurationRequestBuilder extends BaseRequestBuilder<DurationReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDurationPostRequestBody(writer: SerializationWriter, durationPostRequestBody: Partial<DurationPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", durationPostRequestBody.basis);
-    writer.writeObjectValue("coupon", durationPostRequestBody.coupon);
-    writer.writeObjectValue("frequency", durationPostRequestBody.frequency);
-    writer.writeObjectValue("maturity", durationPostRequestBody.maturity);
-    writer.writeObjectValue("settlement", durationPostRequestBody.settlement);
-    writer.writeObjectValue("yld", durationPostRequestBody.yld);
-    writer.writeAdditionalData(durationPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDurationPostRequestBody(writer: SerializationWriter, durationPostRequestBody: Partial<DurationPostRequestBody> | undefined | null = {}) : void {
+    if (durationPostRequestBody) {
+        writer.writeObjectValue("basis", durationPostRequestBody.basis);
+        writer.writeObjectValue("coupon", durationPostRequestBody.coupon);
+        writer.writeObjectValue("frequency", durationPostRequestBody.frequency);
+        writer.writeObjectValue("maturity", durationPostRequestBody.maturity);
+        writer.writeObjectValue("settlement", durationPostRequestBody.settlement);
+        writer.writeObjectValue("yld", durationPostRequestBody.yld);
+        writer.writeAdditionalData(durationPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

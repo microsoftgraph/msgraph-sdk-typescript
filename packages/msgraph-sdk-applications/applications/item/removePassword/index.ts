@@ -13,6 +13,7 @@ import { type Guid } from 'guid-typescript';
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RemovePasswordPostRequestBody}
  */
+// @ts-ignore
 export function createRemovePasswordPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRemovePasswordPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRemovePasswordPostRequestBodyFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRemovePasswordPostRequestBody(removePasswordPostRequestBody: Partial<RemovePasswordPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removePasswordPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface RemovePasswordPostRequestBody extends AdditionalDataHolder, Bac
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The keyId property
      */
-    keyId?: Guid;
+    keyId?: Guid | null;
 }
 /**
  * Provides operations to call the removePassword method.
@@ -64,9 +66,12 @@ export interface RemovePasswordRequestBuilder extends BaseRequestBuilder<RemoveP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRemovePasswordPostRequestBody(writer: SerializationWriter, removePasswordPostRequestBody: Partial<RemovePasswordPostRequestBody> | undefined = {}) : void {
-    writer.writeGuidValue("keyId", removePasswordPostRequestBody.keyId);
-    writer.writeAdditionalData(removePasswordPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeRemovePasswordPostRequestBody(writer: SerializationWriter, removePasswordPostRequestBody: Partial<RemovePasswordPostRequestBody> | undefined | null = {}) : void {
+    if (removePasswordPostRequestBody) {
+        writer.writeGuidValue("keyId", removePasswordPostRequestBody.keyId);
+        writer.writeAdditionalData(removePasswordPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

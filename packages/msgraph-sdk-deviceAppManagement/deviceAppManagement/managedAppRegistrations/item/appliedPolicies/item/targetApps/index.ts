@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TargetAppsPostRequestBody}
  */
+// @ts-ignore
 export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTargetAppsPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "apps": n => { targetAppsPostRequestBody.apps = n.getCollectionOfObjectValues<ManagedMobileApp>(createManagedMobileAppFromDiscriminatorValue); },
@@ -30,9 +32,12 @@ export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);
-    writer.writeAdditionalData(targetAppsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined | null = {}) : void {
+    if (targetAppsPostRequestBody) {
+        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);
+        writer.writeAdditionalData(targetAppsPostRequestBody.additionalData);
+    }
 }
 export interface TargetAppsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface TargetAppsPostRequestBody extends AdditionalDataHolder, BackedM
     /**
      * The apps property
      */
-    apps?: ManagedMobileApp[];
+    apps?: ManagedMobileApp[] | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
 }
 /**
  * Provides operations to call the targetApps method.

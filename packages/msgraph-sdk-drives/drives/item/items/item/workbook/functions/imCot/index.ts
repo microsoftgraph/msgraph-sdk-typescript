@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImCotPostRequestBody}
  */
+// @ts-ignore
 export function createImCotPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImCotPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImCotPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImCotPostRequestBody(imCotPostRequestBody: Partial<ImCotPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imCotPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImCotPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imCot method.
@@ -64,9 +66,12 @@ export interface ImCotRequestBuilder extends BaseRequestBuilder<ImCotRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImCotPostRequestBody(writer: SerializationWriter, imCotPostRequestBody: Partial<ImCotPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imCotPostRequestBody.inumber);
-    writer.writeAdditionalData(imCotPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImCotPostRequestBody(writer: SerializationWriter, imCotPostRequestBody: Partial<ImCotPostRequestBody> | undefined | null = {}) : void {
+    if (imCotPostRequestBody) {
+        writer.writeObjectValue("inumber", imCotPostRequestBody.inumber);
+        writer.writeAdditionalData(imCotPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Percentile_IncPostRequestBody}
  */
+// @ts-ignore
 export function createPercentile_IncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPercentile_IncPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPercentile_IncPostRequestBodyFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPercentile_IncPostRequestBody(percentile_IncPostRequestBody: Partial<Percentile_IncPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { percentile_IncPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -35,15 +37,15 @@ export interface Percentile_IncPostRequestBody extends AdditionalDataHolder, Bac
     /**
      * The array property
      */
-    array?: UntypedNode;
+    array?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The k property
      */
-    k?: UntypedNode;
+    k?: UntypedNode | null;
 }
 /**
  * Provides operations to call the percentile_Inc method.
@@ -69,10 +71,13 @@ export interface Percentile_IncRequestBuilder extends BaseRequestBuilder<Percent
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePercentile_IncPostRequestBody(writer: SerializationWriter, percentile_IncPostRequestBody: Partial<Percentile_IncPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("array", percentile_IncPostRequestBody.array);
-    writer.writeObjectValue("k", percentile_IncPostRequestBody.k);
-    writer.writeAdditionalData(percentile_IncPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePercentile_IncPostRequestBody(writer: SerializationWriter, percentile_IncPostRequestBody: Partial<Percentile_IncPostRequestBody> | undefined | null = {}) : void {
+    if (percentile_IncPostRequestBody) {
+        writer.writeObjectValue("array", percentile_IncPostRequestBody.array);
+        writer.writeObjectValue("k", percentile_IncPostRequestBody.k);
+        writer.writeAdditionalData(percentile_IncPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

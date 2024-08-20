@@ -16,15 +16,15 @@ export interface BesselYPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The n property
      */
-    n?: UntypedNode;
+    n?: UntypedNode | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the besselY method.
@@ -51,6 +51,7 @@ export interface BesselYRequestBuilder extends BaseRequestBuilder<BesselYRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BesselYPostRequestBody}
  */
+// @ts-ignore
 export function createBesselYPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBesselYPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createBesselYPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBesselYPostRequestBody(besselYPostRequestBody: Partial<BesselYPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { besselYPostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoBesselYPostRequestBody(besselYPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBesselYPostRequestBody(writer: SerializationWriter, besselYPostRequestBody: Partial<BesselYPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("n", besselYPostRequestBody.n);
-    writer.writeObjectValue("x", besselYPostRequestBody.x);
-    writer.writeAdditionalData(besselYPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeBesselYPostRequestBody(writer: SerializationWriter, besselYPostRequestBody: Partial<BesselYPostRequestBody> | undefined | null = {}) : void {
+    if (besselYPostRequestBody) {
+        writer.writeObjectValue("n", besselYPostRequestBody.n);
+        writer.writeObjectValue("x", besselYPostRequestBody.x);
+        writer.writeAdditionalData(besselYPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

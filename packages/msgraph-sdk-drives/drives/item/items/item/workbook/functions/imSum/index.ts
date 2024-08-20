@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImSumPostRequestBody}
  */
+// @ts-ignore
 export function createImSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImSumPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImSumPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImSumPostRequestBody(imSumPostRequestBody: Partial<ImSumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imSumPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImSumPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imSum method.
@@ -64,9 +66,12 @@ export interface ImSumRequestBuilder extends BaseRequestBuilder<ImSumRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImSumPostRequestBody(writer: SerializationWriter, imSumPostRequestBody: Partial<ImSumPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", imSumPostRequestBody.values);
-    writer.writeAdditionalData(imSumPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImSumPostRequestBody(writer: SerializationWriter, imSumPostRequestBody: Partial<ImSumPostRequestBody> | undefined | null = {}) : void {
+    if (imSumPostRequestBody) {
+        writer.writeObjectValue("values", imSumPostRequestBody.values);
+        writer.writeAdditionalData(imSumPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

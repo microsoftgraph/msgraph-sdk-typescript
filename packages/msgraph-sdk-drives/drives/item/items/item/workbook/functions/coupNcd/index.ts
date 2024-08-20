@@ -16,23 +16,23 @@ export interface CoupNcdPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the coupNcd method.
@@ -59,6 +59,7 @@ export interface CoupNcdRequestBuilder extends BaseRequestBuilder<CoupNcdRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CoupNcdPostRequestBody}
  */
+// @ts-ignore
 export function createCoupNcdPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupNcdPostRequestBody;
 }
@@ -66,6 +67,7 @@ export function createCoupNcdPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCoupNcdPostRequestBody(coupNcdPostRequestBody: Partial<CoupNcdPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { coupNcdPostRequestBody.backingStoreEnabled = true; },
@@ -79,12 +81,15 @@ export function deserializeIntoCoupNcdPostRequestBody(coupNcdPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCoupNcdPostRequestBody(writer: SerializationWriter, coupNcdPostRequestBody: Partial<CoupNcdPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", coupNcdPostRequestBody.basis);
-    writer.writeObjectValue("frequency", coupNcdPostRequestBody.frequency);
-    writer.writeObjectValue("maturity", coupNcdPostRequestBody.maturity);
-    writer.writeObjectValue("settlement", coupNcdPostRequestBody.settlement);
-    writer.writeAdditionalData(coupNcdPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCoupNcdPostRequestBody(writer: SerializationWriter, coupNcdPostRequestBody: Partial<CoupNcdPostRequestBody> | undefined | null = {}) : void {
+    if (coupNcdPostRequestBody) {
+        writer.writeObjectValue("basis", coupNcdPostRequestBody.basis);
+        writer.writeObjectValue("frequency", coupNcdPostRequestBody.frequency);
+        writer.writeObjectValue("maturity", coupNcdPostRequestBody.maturity);
+        writer.writeObjectValue("settlement", coupNcdPostRequestBody.settlement);
+        writer.writeAdditionalData(coupNcdPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

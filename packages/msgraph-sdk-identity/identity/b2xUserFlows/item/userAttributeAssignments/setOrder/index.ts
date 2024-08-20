@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SetOrderPostRequestBody}
  */
+// @ts-ignore
 export function createSetOrderPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetOrderPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSetOrderPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSetOrderPostRequestBody(setOrderPostRequestBody: Partial<SetOrderPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setOrderPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoSetOrderPostRequestBody(setOrderPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetOrderPostRequestBody(writer: SerializationWriter, setOrderPostRequestBody: Partial<SetOrderPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<AssignmentOrder>("newAssignmentOrder", setOrderPostRequestBody.newAssignmentOrder, serializeAssignmentOrder);
-    writer.writeAdditionalData(setOrderPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSetOrderPostRequestBody(writer: SerializationWriter, setOrderPostRequestBody: Partial<SetOrderPostRequestBody> | undefined | null = {}) : void {
+    if (setOrderPostRequestBody) {
+        writer.writeObjectValue<AssignmentOrder>("newAssignmentOrder", setOrderPostRequestBody.newAssignmentOrder, serializeAssignmentOrder);
+        writer.writeAdditionalData(setOrderPostRequestBody.additionalData);
+    }
 }
 export interface SetOrderPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface SetOrderPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The newAssignmentOrder property
      */
-    newAssignmentOrder?: AssignmentOrder;
+    newAssignmentOrder?: AssignmentOrder | null;
 }
 /**
  * Provides operations to call the setOrder method.

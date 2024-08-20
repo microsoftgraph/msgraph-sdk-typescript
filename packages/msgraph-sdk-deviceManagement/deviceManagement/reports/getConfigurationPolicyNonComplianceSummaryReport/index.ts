@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody}
  */
+// @ts-ignore
 export function createGetConfigurationPolicyNonComplianceSummaryReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetConfigurationPolicyNonComplianceSummaryReportPostReques
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody(getConfigurationPolicyNonComplianceSummaryReportPostRequestBody: Partial<GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.backingStoreEnabled = true; },
@@ -40,43 +42,43 @@ export interface GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The filter property
      */
-    filter?: string;
+    filter?: string | null;
     /**
      * The groupBy property
      */
-    groupBy?: string[];
+    groupBy?: string[] | null;
     /**
      * The name property
      */
-    name?: string;
+    name?: string | null;
     /**
      * The orderBy property
      */
-    orderBy?: string[];
+    orderBy?: string[] | null;
     /**
      * The search property
      */
-    search?: string;
+    search?: string | null;
     /**
      * The select property
      */
-    select?: string[];
+    select?: string[] | null;
     /**
      * The sessionId property
      */
-    sessionId?: string;
+    sessionId?: string | null;
     /**
      * The skip property
      */
-    skip?: number;
+    skip?: number | null;
     /**
      * The top property
      */
-    top?: number;
+    top?: number | null;
 }
 /**
  * Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method.
@@ -103,17 +105,20 @@ export interface GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody(writer: SerializationWriter, getConfigurationPolicyNonComplianceSummaryReportPostRequestBody: Partial<GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("filter", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.filter);
-    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.groupBy);
-    writer.writeStringValue("name", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.name);
-    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.orderBy);
-    writer.writeStringValue("search", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.search);
-    writer.writeCollectionOfPrimitiveValues<string>("select", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.select);
-    writer.writeStringValue("sessionId", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.sessionId);
-    writer.writeNumberValue("skip", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.skip);
-    writer.writeNumberValue("top", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.top);
-    writer.writeAdditionalData(getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody(writer: SerializationWriter, getConfigurationPolicyNonComplianceSummaryReportPostRequestBody: Partial<GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody> | undefined | null = {}) : void {
+    if (getConfigurationPolicyNonComplianceSummaryReportPostRequestBody) {
+        writer.writeStringValue("filter", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.filter);
+        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.groupBy);
+        writer.writeStringValue("name", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.name);
+        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.orderBy);
+        writer.writeStringValue("search", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.search);
+        writer.writeCollectionOfPrimitiveValues<string>("select", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.select);
+        writer.writeStringValue("sessionId", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.sessionId);
+        writer.writeNumberValue("skip", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.skip);
+        writer.writeNumberValue("top", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.top);
+        writer.writeAdditionalData(getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

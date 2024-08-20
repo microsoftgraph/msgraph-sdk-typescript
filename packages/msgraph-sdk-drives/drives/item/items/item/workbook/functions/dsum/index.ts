@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DsumPostRequestBody}
  */
+// @ts-ignore
 export function createDsumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDsumPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDsumPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDsumPostRequestBody(dsumPostRequestBody: Partial<DsumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dsumPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface DsumPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The database property
      */
-    database?: UntypedNode;
+    database?: UntypedNode | null;
     /**
      * The field property
      */
-    field?: UntypedNode;
+    field?: UntypedNode | null;
 }
 /**
  * Provides operations to call the dsum method.
@@ -74,11 +76,14 @@ export interface DsumRequestBuilder extends BaseRequestBuilder<DsumRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDsumPostRequestBody(writer: SerializationWriter, dsumPostRequestBody: Partial<DsumPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("criteria", dsumPostRequestBody.criteria);
-    writer.writeObjectValue("database", dsumPostRequestBody.database);
-    writer.writeObjectValue("field", dsumPostRequestBody.field);
-    writer.writeAdditionalData(dsumPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDsumPostRequestBody(writer: SerializationWriter, dsumPostRequestBody: Partial<DsumPostRequestBody> | undefined | null = {}) : void {
+    if (dsumPostRequestBody) {
+        writer.writeObjectValue("criteria", dsumPostRequestBody.criteria);
+        writer.writeObjectValue("database", dsumPostRequestBody.database);
+        writer.writeObjectValue("field", dsumPostRequestBody.field);
+        writer.writeAdditionalData(dsumPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

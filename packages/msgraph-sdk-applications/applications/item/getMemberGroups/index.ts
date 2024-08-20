@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetMemberGroupsPostRequestBody}
  */
+// @ts-ignore
 export function createGetMemberGroupsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMemberGroupsPostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createGetMemberGroupsPostRequestBodyFromDiscriminatorValue(parse
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetMemberGroupsPostResponse}
  */
+// @ts-ignore
 export function createGetMemberGroupsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMemberGroupsPostResponse;
 }
@@ -28,6 +30,7 @@ export function createGetMemberGroupsPostResponseFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetMemberGroupsPostRequestBody(getMemberGroupsPostRequestBody: Partial<GetMemberGroupsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getMemberGroupsPostRequestBody.backingStoreEnabled = true; },
@@ -38,6 +41,7 @@ export function deserializeIntoGetMemberGroupsPostRequestBody(getMemberGroupsPos
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetMemberGroupsPostResponse(getMemberGroupsPostResponse: Partial<GetMemberGroupsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getMemberGroupsPostResponse),
@@ -52,17 +56,17 @@ export interface GetMemberGroupsPostRequestBody extends AdditionalDataHolder, Ba
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The securityEnabledOnly property
      */
-    securityEnabledOnly?: boolean;
+    securityEnabledOnly?: boolean | null;
 }
 export interface GetMemberGroupsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: string[];
+    value?: string[] | null;
 }
 /**
  * Provides operations to call the getMemberGroups method.
@@ -89,17 +93,23 @@ export interface GetMemberGroupsRequestBuilder extends BaseRequestBuilder<GetMem
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetMemberGroupsPostRequestBody(writer: SerializationWriter, getMemberGroupsPostRequestBody: Partial<GetMemberGroupsPostRequestBody> | undefined = {}) : void {
-    writer.writeBooleanValue("securityEnabledOnly", getMemberGroupsPostRequestBody.securityEnabledOnly);
-    writer.writeAdditionalData(getMemberGroupsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetMemberGroupsPostRequestBody(writer: SerializationWriter, getMemberGroupsPostRequestBody: Partial<GetMemberGroupsPostRequestBody> | undefined | null = {}) : void {
+    if (getMemberGroupsPostRequestBody) {
+        writer.writeBooleanValue("securityEnabledOnly", getMemberGroupsPostRequestBody.securityEnabledOnly);
+        writer.writeAdditionalData(getMemberGroupsPostRequestBody.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetMemberGroupsPostResponse(writer: SerializationWriter, getMemberGroupsPostResponse: Partial<GetMemberGroupsPostResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getMemberGroupsPostResponse)
-    writer.writeCollectionOfPrimitiveValues<string>("value", getMemberGroupsPostResponse.value);
+// @ts-ignore
+export function serializeGetMemberGroupsPostResponse(writer: SerializationWriter, getMemberGroupsPostResponse: Partial<GetMemberGroupsPostResponse> | undefined | null = {}) : void {
+    if (getMemberGroupsPostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getMemberGroupsPostResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", getMemberGroupsPostResponse.value);
+    }
 }
 /**
  * Uri template for the request builder.

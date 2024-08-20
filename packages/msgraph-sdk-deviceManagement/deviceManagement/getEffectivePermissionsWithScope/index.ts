@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetEffectivePermissionsWithScopeGetResponse}
  */
+// @ts-ignore
 export function createGetEffectivePermissionsWithScopeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetEffectivePermissionsWithScopeGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetEffectivePermissionsWithScopeGetResponseFromDiscriminat
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetEffectivePermissionsWithScopeGetResponse(getEffectivePermissionsWithScopeGetResponse: Partial<GetEffectivePermissionsWithScopeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getEffectivePermissionsWithScopeGetResponse),
@@ -30,7 +32,7 @@ export interface GetEffectivePermissionsWithScopeGetResponse extends BaseCollect
     /**
      * The value property
      */
-    value?: RolePermission[];
+    value?: RolePermission[] | null;
 }
 /**
  * Provides operations to call the getEffectivePermissions method.
@@ -80,9 +82,12 @@ export interface GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameter
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetEffectivePermissionsWithScopeGetResponse(writer: SerializationWriter, getEffectivePermissionsWithScopeGetResponse: Partial<GetEffectivePermissionsWithScopeGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getEffectivePermissionsWithScopeGetResponse)
-    writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopeGetResponse.value, serializeRolePermission);
+// @ts-ignore
+export function serializeGetEffectivePermissionsWithScopeGetResponse(writer: SerializationWriter, getEffectivePermissionsWithScopeGetResponse: Partial<GetEffectivePermissionsWithScopeGetResponse> | undefined | null = {}) : void {
+    if (getEffectivePermissionsWithScopeGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getEffectivePermissionsWithScopeGetResponse)
+        writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopeGetResponse.value, serializeRolePermission);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreateUploadSessionPostRequestBody}
  */
+// @ts-ignore
 export function createCreateUploadSessionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateUploadSessionPostRequestBody;
 }
@@ -24,11 +25,11 @@ export interface CreateUploadSessionPostRequestBody extends AdditionalDataHolder
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The properties property
      */
-    properties?: PrintDocumentUploadProperties;
+    properties?: PrintDocumentUploadProperties | null;
 }
 /**
  * Provides operations to call the createUploadSession method.
@@ -55,6 +56,7 @@ export interface CreateUploadSessionRequestBuilder extends BaseRequestBuilder<Cr
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreateUploadSessionPostRequestBody(createUploadSessionPostRequestBody: Partial<CreateUploadSessionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createUploadSessionPostRequestBody.backingStoreEnabled = true; },
@@ -65,9 +67,12 @@ export function deserializeIntoCreateUploadSessionPostRequestBody(createUploadSe
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateUploadSessionPostRequestBody(writer: SerializationWriter, createUploadSessionPostRequestBody: Partial<CreateUploadSessionPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<PrintDocumentUploadProperties>("properties", createUploadSessionPostRequestBody.properties, serializePrintDocumentUploadProperties);
-    writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCreateUploadSessionPostRequestBody(writer: SerializationWriter, createUploadSessionPostRequestBody: Partial<CreateUploadSessionPostRequestBody> | undefined | null = {}) : void {
+    if (createUploadSessionPostRequestBody) {
+        writer.writeObjectValue<PrintDocumentUploadProperties>("properties", createUploadSessionPostRequestBody.properties, serializePrintDocumentUploadProperties);
+        writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

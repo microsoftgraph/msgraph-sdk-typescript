@@ -12,7 +12,7 @@ export interface AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackag
     /**
      * The value property
      */
-    value?: AccessPackageAssignment[];
+    value?: AccessPackageAssignment[] | null;
 }
 /**
  * Provides operations to call the additionalAccess method.
@@ -74,6 +74,7 @@ export interface AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackag
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse}
  */
+// @ts-ignore
 export function createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse;
 }
@@ -81,6 +82,7 @@ export function createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessP
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse),
@@ -91,9 +93,12 @@ export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatib
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse)
-    writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value, serializeAccessPackageAssignment);
+// @ts-ignore
+export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse> | undefined | null = {}) : void {
+    if (additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse)
+        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value, serializeAccessPackageAssignment);
+    }
 }
 /**
  * Uri template for the request builder.

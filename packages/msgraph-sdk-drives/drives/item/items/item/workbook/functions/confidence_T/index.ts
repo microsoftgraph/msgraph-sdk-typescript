@@ -16,19 +16,19 @@ export interface Confidence_TPostRequestBody extends AdditionalDataHolder, Backe
     /**
      * The alpha property
      */
-    alpha?: UntypedNode;
+    alpha?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The size property
      */
-    size?: UntypedNode;
+    size?: UntypedNode | null;
     /**
      * The standardDev property
      */
-    standardDev?: UntypedNode;
+    standardDev?: UntypedNode | null;
 }
 /**
  * Provides operations to call the confidence_T method.
@@ -55,6 +55,7 @@ export interface Confidence_TRequestBuilder extends BaseRequestBuilder<Confidenc
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Confidence_TPostRequestBody}
  */
+// @ts-ignore
 export function createConfidence_TPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConfidence_TPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createConfidence_TPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoConfidence_TPostRequestBody(confidence_TPostRequestBody: Partial<Confidence_TPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "alpha": n => { confidence_TPostRequestBody.alpha = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -74,11 +76,14 @@ export function deserializeIntoConfidence_TPostRequestBody(confidence_TPostReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeConfidence_TPostRequestBody(writer: SerializationWriter, confidence_TPostRequestBody: Partial<Confidence_TPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("alpha", confidence_TPostRequestBody.alpha);
-    writer.writeObjectValue("size", confidence_TPostRequestBody.size);
-    writer.writeObjectValue("standardDev", confidence_TPostRequestBody.standardDev);
-    writer.writeAdditionalData(confidence_TPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeConfidence_TPostRequestBody(writer: SerializationWriter, confidence_TPostRequestBody: Partial<Confidence_TPostRequestBody> | undefined | null = {}) : void {
+    if (confidence_TPostRequestBody) {
+        writer.writeObjectValue("alpha", confidence_TPostRequestBody.alpha);
+        writer.writeObjectValue("size", confidence_TPostRequestBody.size);
+        writer.writeObjectValue("standardDev", confidence_TPostRequestBody.standardDev);
+        writer.writeAdditionalData(confidence_TPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

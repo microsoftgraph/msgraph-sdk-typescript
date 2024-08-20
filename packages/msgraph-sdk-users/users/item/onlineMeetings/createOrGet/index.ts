@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreateOrGetPostRequestBody}
  */
+// @ts-ignore
 export function createCreateOrGetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateOrGetPostRequestBody;
 }
@@ -24,31 +25,31 @@ export interface CreateOrGetPostRequestBody extends AdditionalDataHolder, Backed
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The chatInfo property
      */
-    chatInfo?: ChatInfo;
+    chatInfo?: ChatInfo | null;
     /**
      * The endDateTime property
      */
-    endDateTime?: Date;
+    endDateTime?: Date | null;
     /**
      * The externalId property
      */
-    externalId?: string;
+    externalId?: string | null;
     /**
      * The participants property
      */
-    participants?: MeetingParticipants;
+    participants?: MeetingParticipants | null;
     /**
      * The startDateTime property
      */
-    startDateTime?: Date;
+    startDateTime?: Date | null;
     /**
      * The subject property
      */
-    subject?: string;
+    subject?: string | null;
 }
 /**
  * Provides operations to call the createOrGet method.
@@ -75,6 +76,7 @@ export interface CreateOrGetRequestBuilder extends BaseRequestBuilder<CreateOrGe
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createOrGetPostRequestBody.backingStoreEnabled = true; },
@@ -90,14 +92,17 @@ export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);
-    writer.writeDateValue("endDateTime", createOrGetPostRequestBody.endDateTime);
-    writer.writeStringValue("externalId", createOrGetPostRequestBody.externalId);
-    writer.writeObjectValue<MeetingParticipants>("participants", createOrGetPostRequestBody.participants, serializeMeetingParticipants);
-    writer.writeDateValue("startDateTime", createOrGetPostRequestBody.startDateTime);
-    writer.writeStringValue("subject", createOrGetPostRequestBody.subject);
-    writer.writeAdditionalData(createOrGetPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined | null = {}) : void {
+    if (createOrGetPostRequestBody) {
+        writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);
+        writer.writeDateValue("endDateTime", createOrGetPostRequestBody.endDateTime);
+        writer.writeStringValue("externalId", createOrGetPostRequestBody.externalId);
+        writer.writeObjectValue<MeetingParticipants>("participants", createOrGetPostRequestBody.participants, serializeMeetingParticipants);
+        writer.writeDateValue("startDateTime", createOrGetPostRequestBody.startDateTime);
+        writer.writeStringValue("subject", createOrGetPostRequestBody.subject);
+        writer.writeAdditionalData(createOrGetPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

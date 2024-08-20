@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FindMeetingTimesPostRequestBody}
  */
+// @ts-ignore
 export function createFindMeetingTimesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFindMeetingTimesPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFindMeetingTimesPostRequestBodyFromDiscriminatorValue(pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFindMeetingTimesPostRequestBody(findMeetingTimesPostRequestBody: Partial<FindMeetingTimesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "attendees": n => { findMeetingTimesPostRequestBody.attendees = n.getCollectionOfObjectValues<AttendeeBase>(createAttendeeBaseFromDiscriminatorValue); },
@@ -41,39 +43,39 @@ export interface FindMeetingTimesPostRequestBody extends AdditionalDataHolder, B
     /**
      * The attendees property
      */
-    attendees?: AttendeeBase[];
+    attendees?: AttendeeBase[] | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The isOrganizerOptional property
      */
-    isOrganizerOptional?: boolean;
+    isOrganizerOptional?: boolean | null;
     /**
      * The locationConstraint property
      */
-    locationConstraint?: LocationConstraint;
+    locationConstraint?: LocationConstraint | null;
     /**
      * The maxCandidates property
      */
-    maxCandidates?: number;
+    maxCandidates?: number | null;
     /**
      * The meetingDuration property
      */
-    meetingDuration?: Duration;
+    meetingDuration?: Duration | null;
     /**
      * The minimumAttendeePercentage property
      */
-    minimumAttendeePercentage?: number;
+    minimumAttendeePercentage?: number | null;
     /**
      * The returnSuggestionReasons property
      */
-    returnSuggestionReasons?: boolean;
+    returnSuggestionReasons?: boolean | null;
     /**
      * The timeConstraint property
      */
-    timeConstraint?: TimeConstraint;
+    timeConstraint?: TimeConstraint | null;
 }
 /**
  * Provides operations to call the findMeetingTimes method.
@@ -100,16 +102,19 @@ export interface FindMeetingTimesRequestBuilder extends BaseRequestBuilder<FindM
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFindMeetingTimesPostRequestBody(writer: SerializationWriter, findMeetingTimesPostRequestBody: Partial<FindMeetingTimesPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfObjectValues<AttendeeBase>("attendees", findMeetingTimesPostRequestBody.attendees, serializeAttendeeBase);
-    writer.writeBooleanValue("isOrganizerOptional", findMeetingTimesPostRequestBody.isOrganizerOptional);
-    writer.writeObjectValue<LocationConstraint>("locationConstraint", findMeetingTimesPostRequestBody.locationConstraint, serializeLocationConstraint);
-    writer.writeNumberValue("maxCandidates", findMeetingTimesPostRequestBody.maxCandidates);
-    writer.writeDurationValue("meetingDuration", findMeetingTimesPostRequestBody.meetingDuration);
-    writer.writeNumberValue("minimumAttendeePercentage", findMeetingTimesPostRequestBody.minimumAttendeePercentage);
-    writer.writeBooleanValue("returnSuggestionReasons", findMeetingTimesPostRequestBody.returnSuggestionReasons);
-    writer.writeObjectValue<TimeConstraint>("timeConstraint", findMeetingTimesPostRequestBody.timeConstraint, serializeTimeConstraint);
-    writer.writeAdditionalData(findMeetingTimesPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeFindMeetingTimesPostRequestBody(writer: SerializationWriter, findMeetingTimesPostRequestBody: Partial<FindMeetingTimesPostRequestBody> | undefined | null = {}) : void {
+    if (findMeetingTimesPostRequestBody) {
+        writer.writeCollectionOfObjectValues<AttendeeBase>("attendees", findMeetingTimesPostRequestBody.attendees, serializeAttendeeBase);
+        writer.writeBooleanValue("isOrganizerOptional", findMeetingTimesPostRequestBody.isOrganizerOptional);
+        writer.writeObjectValue<LocationConstraint>("locationConstraint", findMeetingTimesPostRequestBody.locationConstraint, serializeLocationConstraint);
+        writer.writeNumberValue("maxCandidates", findMeetingTimesPostRequestBody.maxCandidates);
+        writer.writeDurationValue("meetingDuration", findMeetingTimesPostRequestBody.meetingDuration);
+        writer.writeNumberValue("minimumAttendeePercentage", findMeetingTimesPostRequestBody.minimumAttendeePercentage);
+        writer.writeBooleanValue("returnSuggestionReasons", findMeetingTimesPostRequestBody.returnSuggestionReasons);
+        writer.writeObjectValue<TimeConstraint>("timeConstraint", findMeetingTimesPostRequestBody.timeConstraint, serializeTimeConstraint);
+        writer.writeAdditionalData(findMeetingTimesPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

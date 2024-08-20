@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Skew_pPostRequestBody}
  */
+// @ts-ignore
 export function createSkew_pPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSkew_pPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSkew_pPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSkew_pPostRequestBody(skew_pPostRequestBody: Partial<Skew_pPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { skew_pPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoSkew_pPostRequestBody(skew_pPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSkew_pPostRequestBody(writer: SerializationWriter, skew_pPostRequestBody: Partial<Skew_pPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", skew_pPostRequestBody.values);
-    writer.writeAdditionalData(skew_pPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSkew_pPostRequestBody(writer: SerializationWriter, skew_pPostRequestBody: Partial<Skew_pPostRequestBody> | undefined | null = {}) : void {
+    if (skew_pPostRequestBody) {
+        writer.writeObjectValue("values", skew_pPostRequestBody.values);
+        writer.writeAdditionalData(skew_pPostRequestBody.additionalData);
+    }
 }
 export interface Skew_pPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface Skew_pPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the skew_p method.

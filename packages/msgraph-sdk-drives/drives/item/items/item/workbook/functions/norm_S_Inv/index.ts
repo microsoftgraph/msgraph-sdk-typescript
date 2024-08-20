@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Norm_S_InvPostRequestBody}
  */
+// @ts-ignore
 export function createNorm_S_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNorm_S_InvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNorm_S_InvPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNorm_S_InvPostRequestBody(norm_S_InvPostRequestBody: Partial<Norm_S_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { norm_S_InvPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface Norm_S_InvPostRequestBody extends AdditionalDataHolder, BackedM
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The probability property
      */
-    probability?: UntypedNode;
+    probability?: UntypedNode | null;
 }
 /**
  * Provides operations to call the norm_S_Inv method.
@@ -64,9 +66,12 @@ export interface Norm_S_InvRequestBuilder extends BaseRequestBuilder<Norm_S_InvR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNorm_S_InvPostRequestBody(writer: SerializationWriter, norm_S_InvPostRequestBody: Partial<Norm_S_InvPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("probability", norm_S_InvPostRequestBody.probability);
-    writer.writeAdditionalData(norm_S_InvPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeNorm_S_InvPostRequestBody(writer: SerializationWriter, norm_S_InvPostRequestBody: Partial<Norm_S_InvPostRequestBody> | undefined | null = {}) : void {
+    if (norm_S_InvPostRequestBody) {
+        writer.writeObjectValue("probability", norm_S_InvPostRequestBody.probability);
+        writer.writeAdditionalData(norm_S_InvPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

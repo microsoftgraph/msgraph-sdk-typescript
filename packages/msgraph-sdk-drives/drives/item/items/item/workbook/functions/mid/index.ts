@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MidPostRequestBody}
  */
+// @ts-ignore
 export function createMidPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMidPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMidPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMidPostRequestBody(midPostRequestBody: Partial<MidPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { midPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface MidPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The numChars property
      */
-    numChars?: UntypedNode;
+    numChars?: UntypedNode | null;
     /**
      * The startNum property
      */
-    startNum?: UntypedNode;
+    startNum?: UntypedNode | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the mid method.
@@ -74,11 +76,14 @@ export interface MidRequestBuilder extends BaseRequestBuilder<MidRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMidPostRequestBody(writer: SerializationWriter, midPostRequestBody: Partial<MidPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("numChars", midPostRequestBody.numChars);
-    writer.writeObjectValue("startNum", midPostRequestBody.startNum);
-    writer.writeObjectValue("text", midPostRequestBody.text);
-    writer.writeAdditionalData(midPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMidPostRequestBody(writer: SerializationWriter, midPostRequestBody: Partial<MidPostRequestBody> | undefined | null = {}) : void {
+    if (midPostRequestBody) {
+        writer.writeObjectValue("numChars", midPostRequestBody.numChars);
+        writer.writeObjectValue("startNum", midPostRequestBody.startNum);
+        writer.writeObjectValue("text", midPostRequestBody.text);
+        writer.writeAdditionalData(midPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

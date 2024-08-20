@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NetworkDaysPostRequestBody}
  */
+// @ts-ignore
 export function createNetworkDaysPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNetworkDaysPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNetworkDaysPostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNetworkDaysPostRequestBody(networkDaysPostRequestBody: Partial<NetworkDaysPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { networkDaysPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface NetworkDaysPostRequestBody extends AdditionalDataHolder, Backed
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The endDate property
      */
-    endDate?: UntypedNode;
+    endDate?: UntypedNode | null;
     /**
      * The holidays property
      */
-    holidays?: UntypedNode;
+    holidays?: UntypedNode | null;
     /**
      * The startDate property
      */
-    startDate?: UntypedNode;
+    startDate?: UntypedNode | null;
 }
 /**
  * Provides operations to call the networkDays method.
@@ -74,11 +76,14 @@ export interface NetworkDaysRequestBuilder extends BaseRequestBuilder<NetworkDay
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNetworkDaysPostRequestBody(writer: SerializationWriter, networkDaysPostRequestBody: Partial<NetworkDaysPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("endDate", networkDaysPostRequestBody.endDate);
-    writer.writeObjectValue("holidays", networkDaysPostRequestBody.holidays);
-    writer.writeObjectValue("startDate", networkDaysPostRequestBody.startDate);
-    writer.writeAdditionalData(networkDaysPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeNetworkDaysPostRequestBody(writer: SerializationWriter, networkDaysPostRequestBody: Partial<NetworkDaysPostRequestBody> | undefined | null = {}) : void {
+    if (networkDaysPostRequestBody) {
+        writer.writeObjectValue("endDate", networkDaysPostRequestBody.endDate);
+        writer.writeObjectValue("holidays", networkDaysPostRequestBody.holidays);
+        writer.writeObjectValue("startDate", networkDaysPostRequestBody.startDate);
+        writer.writeAdditionalData(networkDaysPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

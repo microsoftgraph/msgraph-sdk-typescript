@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DownloadApplePushNotificationCertificateSigningRequestGetResponse}
  */
+// @ts-ignore
 export function createDownloadApplePushNotificationCertificateSigningRequestGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDownloadApplePushNotificationCertificateSigningRequestGetResponse;
 }
@@ -18,6 +19,7 @@ export function createDownloadApplePushNotificationCertificateSigningRequestGetR
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDownloadApplePushNotificationCertificateSigningRequestGetResponse(downloadApplePushNotificationCertificateSigningRequestGetResponse: Partial<DownloadApplePushNotificationCertificateSigningRequestGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { downloadApplePushNotificationCertificateSigningRequestGetResponse.backingStoreEnabled = true; },
@@ -32,11 +34,11 @@ export interface DownloadApplePushNotificationCertificateSigningRequestGetRespon
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: string;
+    value?: string | null;
 }
 /**
  * Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.
@@ -61,9 +63,12 @@ export interface DownloadApplePushNotificationCertificateSigningRequestRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDownloadApplePushNotificationCertificateSigningRequestGetResponse(writer: SerializationWriter, downloadApplePushNotificationCertificateSigningRequestGetResponse: Partial<DownloadApplePushNotificationCertificateSigningRequestGetResponse> | undefined = {}) : void {
-    writer.writeStringValue("value", downloadApplePushNotificationCertificateSigningRequestGetResponse.value);
-    writer.writeAdditionalData(downloadApplePushNotificationCertificateSigningRequestGetResponse.additionalData);
+// @ts-ignore
+export function serializeDownloadApplePushNotificationCertificateSigningRequestGetResponse(writer: SerializationWriter, downloadApplePushNotificationCertificateSigningRequestGetResponse: Partial<DownloadApplePushNotificationCertificateSigningRequestGetResponse> | undefined | null = {}) : void {
+    if (downloadApplePushNotificationCertificateSigningRequestGetResponse) {
+        writer.writeStringValue("value", downloadApplePushNotificationCertificateSigningRequestGetResponse.value);
+        writer.writeAdditionalData(downloadApplePushNotificationCertificateSigningRequestGetResponse.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

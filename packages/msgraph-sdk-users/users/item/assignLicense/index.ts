@@ -18,15 +18,15 @@ export interface AssignLicensePostRequestBody extends AdditionalDataHolder, Back
     /**
      * The addLicenses property
      */
-    addLicenses?: AssignedLicense[];
+    addLicenses?: AssignedLicense[] | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The removeLicenses property
      */
-    removeLicenses?: Guid[];
+    removeLicenses?: Guid[] | null;
 }
 /**
  * Provides operations to call the assignLicense method.
@@ -54,6 +54,7 @@ export interface AssignLicenseRequestBuilder extends BaseRequestBuilder<AssignLi
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AssignLicensePostRequestBody}
  */
+// @ts-ignore
 export function createAssignLicensePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignLicensePostRequestBody;
 }
@@ -61,6 +62,7 @@ export function createAssignLicensePostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostRequestBody: Partial<AssignLicensePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "addLicenses": n => { assignLicensePostRequestBody.addLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
@@ -72,10 +74,13 @@ export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAssignLicensePostRequestBody(writer: SerializationWriter, assignLicensePostRequestBody: Partial<AssignLicensePostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", assignLicensePostRequestBody.addLicenses, serializeAssignedLicense);
-    writer.writeCollectionOfPrimitiveValues<Guid>("removeLicenses", assignLicensePostRequestBody.removeLicenses);
-    writer.writeAdditionalData(assignLicensePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAssignLicensePostRequestBody(writer: SerializationWriter, assignLicensePostRequestBody: Partial<AssignLicensePostRequestBody> | undefined | null = {}) : void {
+    if (assignLicensePostRequestBody) {
+        writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", assignLicensePostRequestBody.addLicenses, serializeAssignedLicense);
+        writer.writeCollectionOfPrimitiveValues<Guid>("removeLicenses", assignLicensePostRequestBody.removeLicenses);
+        writer.writeAdditionalData(assignLicensePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

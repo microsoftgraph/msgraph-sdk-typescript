@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MaxAPostRequestBody}
  */
+// @ts-ignore
 export function createMaxAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMaxAPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMaxAPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMaxAPostRequestBody(maxAPostRequestBody: Partial<MaxAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { maxAPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface MaxAPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the maxA method.
@@ -64,9 +66,12 @@ export interface MaxARequestBuilder extends BaseRequestBuilder<MaxARequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMaxAPostRequestBody(writer: SerializationWriter, maxAPostRequestBody: Partial<MaxAPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", maxAPostRequestBody.values);
-    writer.writeAdditionalData(maxAPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMaxAPostRequestBody(writer: SerializationWriter, maxAPostRequestBody: Partial<MaxAPostRequestBody> | undefined | null = {}) : void {
+    if (maxAPostRequestBody) {
+        writer.writeObjectValue("values", maxAPostRequestBody.values);
+        writer.writeAdditionalData(maxAPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

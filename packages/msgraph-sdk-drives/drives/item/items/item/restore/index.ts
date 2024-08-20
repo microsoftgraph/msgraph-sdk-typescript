@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RestorePostRequestBody}
  */
+// @ts-ignore
 export function createRestorePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRestorePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRestorePostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRestorePostRequestBody(restorePostRequestBody: Partial<RestorePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { restorePostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface RestorePostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The name property
      */
-    name?: string;
+    name?: string | null;
     /**
      * The parentReference property
      */
-    parentReference?: ItemReference;
+    parentReference?: ItemReference | null;
 }
 /**
  * Provides operations to call the restore method.
@@ -70,10 +72,13 @@ export interface RestoreRequestBuilder extends BaseRequestBuilder<RestoreRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRestorePostRequestBody(writer: SerializationWriter, restorePostRequestBody: Partial<RestorePostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("name", restorePostRequestBody.name);
-    writer.writeObjectValue<ItemReference>("parentReference", restorePostRequestBody.parentReference, serializeItemReference);
-    writer.writeAdditionalData(restorePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeRestorePostRequestBody(writer: SerializationWriter, restorePostRequestBody: Partial<RestorePostRequestBody> | undefined | null = {}) : void {
+    if (restorePostRequestBody) {
+        writer.writeStringValue("name", restorePostRequestBody.name);
+        writer.writeObjectValue<ItemReference>("parentReference", restorePostRequestBody.parentReference, serializeItemReference);
+        writer.writeAdditionalData(restorePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

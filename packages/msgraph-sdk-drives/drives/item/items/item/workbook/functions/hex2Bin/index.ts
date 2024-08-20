@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Hex2BinPostRequestBody}
  */
+// @ts-ignore
 export function createHex2BinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHex2BinPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createHex2BinPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoHex2BinPostRequestBody(hex2BinPostRequestBody: Partial<Hex2BinPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hex2BinPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface Hex2BinPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The places property
      */
-    places?: UntypedNode;
+    places?: UntypedNode | null;
 }
 /**
  * Provides operations to call the hex2Bin method.
@@ -69,10 +71,13 @@ export interface Hex2BinRequestBuilder extends BaseRequestBuilder<Hex2BinRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHex2BinPostRequestBody(writer: SerializationWriter, hex2BinPostRequestBody: Partial<Hex2BinPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", hex2BinPostRequestBody.number);
-    writer.writeObjectValue("places", hex2BinPostRequestBody.places);
-    writer.writeAdditionalData(hex2BinPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeHex2BinPostRequestBody(writer: SerializationWriter, hex2BinPostRequestBody: Partial<Hex2BinPostRequestBody> | undefined | null = {}) : void {
+    if (hex2BinPostRequestBody) {
+        writer.writeObjectValue("number", hex2BinPostRequestBody.number);
+        writer.writeObjectValue("places", hex2BinPostRequestBody.places);
+        writer.writeAdditionalData(hex2BinPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

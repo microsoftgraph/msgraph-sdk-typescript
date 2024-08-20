@@ -16,21 +16,22 @@ export interface AddToReviewSetPostRequestBody extends AdditionalDataHolder, Bac
     /**
      * The additionalDataOptions property
      */
-    additionalDataOptions?: AdditionalDataOptions[];
+    additionalDataOptions?: AdditionalDataOptions[] | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The search property
      */
-    search?: EdiscoverySearch;
+    search?: EdiscoverySearch | null;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddToReviewSetPostRequestBody}
  */
+// @ts-ignore
 export function createAddToReviewSetPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddToReviewSetPostRequestBody;
 }
@@ -38,6 +39,7 @@ export function createAddToReviewSetPostRequestBodyFromDiscriminatorValue(parseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddToReviewSetPostRequestBody(addToReviewSetPostRequestBody: Partial<AddToReviewSetPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "additionalDataOptions": n => { addToReviewSetPostRequestBody.additionalDataOptions = n.getCollectionOfEnumValues<AdditionalDataOptions>(AdditionalDataOptionsObject); },
@@ -69,10 +71,13 @@ export interface MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends Base
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddToReviewSetPostRequestBody(writer: SerializationWriter, addToReviewSetPostRequestBody: Partial<AddToReviewSetPostRequestBody> | undefined = {}) : void {
-    writer.writeEnumValue<AdditionalDataOptions[]>("additionalDataOptions", addToReviewSetPostRequestBody.additionalDataOptions);
-    writer.writeObjectValue<EdiscoverySearch>("search", addToReviewSetPostRequestBody.search, serializeEdiscoverySearch);
-    writer.writeAdditionalData(addToReviewSetPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAddToReviewSetPostRequestBody(writer: SerializationWriter, addToReviewSetPostRequestBody: Partial<AddToReviewSetPostRequestBody> | undefined | null = {}) : void {
+    if (addToReviewSetPostRequestBody) {
+        writer.writeEnumValue<AdditionalDataOptions[]>("additionalDataOptions", addToReviewSetPostRequestBody.additionalDataOptions);
+        writer.writeObjectValue<EdiscoverySearch>("search", addToReviewSetPostRequestBody.search, serializeEdiscoverySearch);
+        writer.writeAdditionalData(addToReviewSetPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

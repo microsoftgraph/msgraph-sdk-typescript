@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SydPostRequestBody}
  */
+// @ts-ignore
 export function createSydPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSydPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSydPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSydPostRequestBody(sydPostRequestBody: Partial<SydPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sydPostRequestBody.backingStoreEnabled = true; },
@@ -33,12 +35,15 @@ export function deserializeIntoSydPostRequestBody(sydPostRequestBody: Partial<Sy
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSydPostRequestBody(writer: SerializationWriter, sydPostRequestBody: Partial<SydPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("cost", sydPostRequestBody.cost);
-    writer.writeObjectValue("life", sydPostRequestBody.life);
-    writer.writeObjectValue("per", sydPostRequestBody.per);
-    writer.writeObjectValue("salvage", sydPostRequestBody.salvage);
-    writer.writeAdditionalData(sydPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSydPostRequestBody(writer: SerializationWriter, sydPostRequestBody: Partial<SydPostRequestBody> | undefined | null = {}) : void {
+    if (sydPostRequestBody) {
+        writer.writeObjectValue("cost", sydPostRequestBody.cost);
+        writer.writeObjectValue("life", sydPostRequestBody.life);
+        writer.writeObjectValue("per", sydPostRequestBody.per);
+        writer.writeObjectValue("salvage", sydPostRequestBody.salvage);
+        writer.writeAdditionalData(sydPostRequestBody.additionalData);
+    }
 }
 export interface SydPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -48,23 +53,23 @@ export interface SydPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The cost property
      */
-    cost?: UntypedNode;
+    cost?: UntypedNode | null;
     /**
      * The life property
      */
-    life?: UntypedNode;
+    life?: UntypedNode | null;
     /**
      * The per property
      */
-    per?: UntypedNode;
+    per?: UntypedNode | null;
     /**
      * The salvage property
      */
-    salvage?: UntypedNode;
+    salvage?: UntypedNode | null;
 }
 /**
  * Provides operations to call the syd method.

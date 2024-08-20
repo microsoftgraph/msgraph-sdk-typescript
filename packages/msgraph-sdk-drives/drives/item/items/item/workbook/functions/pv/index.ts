@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PvPostRequestBody}
  */
+// @ts-ignore
 export function createPvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPvPostRequestBody(pvPostRequestBody: Partial<PvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { pvPostRequestBody.backingStoreEnabled = true; },
@@ -38,27 +40,27 @@ export interface PvPostRequestBody extends AdditionalDataHolder, BackedModel, Pa
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The fv property
      */
-    fv?: UntypedNode;
+    fv?: UntypedNode | null;
     /**
      * The nper property
      */
-    nper?: UntypedNode;
+    nper?: UntypedNode | null;
     /**
      * The pmt property
      */
-    pmt?: UntypedNode;
+    pmt?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The type property
      */
-    type?: UntypedNode;
+    type?: UntypedNode | null;
 }
 /**
  * Provides operations to call the pv method.
@@ -84,13 +86,16 @@ export interface PvRequestBuilder extends BaseRequestBuilder<PvRequestBuilder> {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePvPostRequestBody(writer: SerializationWriter, pvPostRequestBody: Partial<PvPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("fv", pvPostRequestBody.fv);
-    writer.writeObjectValue("nper", pvPostRequestBody.nper);
-    writer.writeObjectValue("pmt", pvPostRequestBody.pmt);
-    writer.writeObjectValue("rate", pvPostRequestBody.rate);
-    writer.writeObjectValue("type", pvPostRequestBody.type);
-    writer.writeAdditionalData(pvPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePvPostRequestBody(writer: SerializationWriter, pvPostRequestBody: Partial<PvPostRequestBody> | undefined | null = {}) : void {
+    if (pvPostRequestBody) {
+        writer.writeObjectValue("fv", pvPostRequestBody.fv);
+        writer.writeObjectValue("nper", pvPostRequestBody.nper);
+        writer.writeObjectValue("pmt", pvPostRequestBody.pmt);
+        writer.writeObjectValue("rate", pvPostRequestBody.rate);
+        writer.writeObjectValue("type", pvPostRequestBody.type);
+        writer.writeAdditionalData(pvPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

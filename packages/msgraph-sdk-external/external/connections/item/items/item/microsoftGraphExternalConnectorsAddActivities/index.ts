@@ -14,7 +14,7 @@ export interface AddActivitiesPostRequestBody extends AdditionalDataHolder, Back
     /**
      * The activities property
      */
-    activities?: ExternalActivity[];
+    activities?: ExternalActivity[] | null;
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -22,19 +22,20 @@ export interface AddActivitiesPostRequestBody extends AdditionalDataHolder, Back
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
 }
 export interface AddActivitiesPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: ExternalActivityResult[];
+    value?: ExternalActivityResult[] | null;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddActivitiesPostRequestBody}
  */
+// @ts-ignore
 export function createAddActivitiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddActivitiesPostRequestBody;
 }
@@ -43,6 +44,7 @@ export function createAddActivitiesPostRequestBodyFromDiscriminatorValue(parseNo
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddActivitiesPostResponse}
  */
+// @ts-ignore
 export function createAddActivitiesPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddActivitiesPostResponse;
 }
@@ -50,6 +52,7 @@ export function createAddActivitiesPostResponseFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddActivitiesPostRequestBody(addActivitiesPostRequestBody: Partial<AddActivitiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "activities": n => { addActivitiesPostRequestBody.activities = n.getCollectionOfObjectValues<ExternalActivity>(createExternalActivityFromDiscriminatorValue); },
@@ -60,6 +63,7 @@ export function deserializeIntoAddActivitiesPostRequestBody(addActivitiesPostReq
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddActivitiesPostResponse(addActivitiesPostResponse: Partial<AddActivitiesPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(addActivitiesPostResponse),
@@ -90,17 +94,23 @@ export interface MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder ext
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddActivitiesPostRequestBody(writer: SerializationWriter, addActivitiesPostRequestBody: Partial<AddActivitiesPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfObjectValues<ExternalActivity>("activities", addActivitiesPostRequestBody.activities, serializeExternalActivity);
-    writer.writeAdditionalData(addActivitiesPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAddActivitiesPostRequestBody(writer: SerializationWriter, addActivitiesPostRequestBody: Partial<AddActivitiesPostRequestBody> | undefined | null = {}) : void {
+    if (addActivitiesPostRequestBody) {
+        writer.writeCollectionOfObjectValues<ExternalActivity>("activities", addActivitiesPostRequestBody.activities, serializeExternalActivity);
+        writer.writeAdditionalData(addActivitiesPostRequestBody.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddActivitiesPostResponse(writer: SerializationWriter, addActivitiesPostResponse: Partial<AddActivitiesPostResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, addActivitiesPostResponse)
-    writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiesPostResponse.value, serializeExternalActivityResult);
+// @ts-ignore
+export function serializeAddActivitiesPostResponse(writer: SerializationWriter, addActivitiesPostResponse: Partial<AddActivitiesPostResponse> | undefined | null = {}) : void {
+    if (addActivitiesPostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, addActivitiesPostResponse)
+        writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiesPostResponse.value, serializeExternalActivityResult);
+    }
 }
 /**
  * Uri template for the request builder.

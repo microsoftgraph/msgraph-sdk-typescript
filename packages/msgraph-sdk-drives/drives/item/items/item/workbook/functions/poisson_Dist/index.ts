@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Poisson_DistPostRequestBody}
  */
+// @ts-ignore
 export function createPoisson_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPoisson_DistPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPoisson_DistPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPoisson_DistPostRequestBody(poisson_DistPostRequestBody: Partial<Poisson_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { poisson_DistPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface Poisson_DistPostRequestBody extends AdditionalDataHolder, Backe
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The cumulative property
      */
-    cumulative?: UntypedNode;
+    cumulative?: UntypedNode | null;
     /**
      * The mean property
      */
-    mean?: UntypedNode;
+    mean?: UntypedNode | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the poisson_Dist method.
@@ -74,11 +76,14 @@ export interface Poisson_DistRequestBuilder extends BaseRequestBuilder<Poisson_D
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePoisson_DistPostRequestBody(writer: SerializationWriter, poisson_DistPostRequestBody: Partial<Poisson_DistPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("cumulative", poisson_DistPostRequestBody.cumulative);
-    writer.writeObjectValue("mean", poisson_DistPostRequestBody.mean);
-    writer.writeObjectValue("x", poisson_DistPostRequestBody.x);
-    writer.writeAdditionalData(poisson_DistPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePoisson_DistPostRequestBody(writer: SerializationWriter, poisson_DistPostRequestBody: Partial<Poisson_DistPostRequestBody> | undefined | null = {}) : void {
+    if (poisson_DistPostRequestBody) {
+        writer.writeObjectValue("cumulative", poisson_DistPostRequestBody.cumulative);
+        writer.writeObjectValue("mean", poisson_DistPostRequestBody.mean);
+        writer.writeObjectValue("x", poisson_DistPostRequestBody.x);
+        writer.writeAdditionalData(poisson_DistPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

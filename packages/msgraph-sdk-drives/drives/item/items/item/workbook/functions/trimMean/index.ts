@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TrimMeanPostRequestBody}
  */
+// @ts-ignore
 export function createTrimMeanPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTrimMeanPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTrimMeanPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTrimMeanPostRequestBody(trimMeanPostRequestBody: Partial<TrimMeanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { trimMeanPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -31,10 +33,13 @@ export function deserializeIntoTrimMeanPostRequestBody(trimMeanPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTrimMeanPostRequestBody(writer: SerializationWriter, trimMeanPostRequestBody: Partial<TrimMeanPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("array", trimMeanPostRequestBody.array);
-    writer.writeObjectValue("percent", trimMeanPostRequestBody.percent);
-    writer.writeAdditionalData(trimMeanPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeTrimMeanPostRequestBody(writer: SerializationWriter, trimMeanPostRequestBody: Partial<TrimMeanPostRequestBody> | undefined | null = {}) : void {
+    if (trimMeanPostRequestBody) {
+        writer.writeObjectValue("array", trimMeanPostRequestBody.array);
+        writer.writeObjectValue("percent", trimMeanPostRequestBody.percent);
+        writer.writeAdditionalData(trimMeanPostRequestBody.additionalData);
+    }
 }
 export interface TrimMeanPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,15 +49,15 @@ export interface TrimMeanPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * The array property
      */
-    array?: UntypedNode;
+    array?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The percent property
      */
-    percent?: UntypedNode;
+    percent?: UntypedNode | null;
 }
 /**
  * Provides operations to call the trimMean method.

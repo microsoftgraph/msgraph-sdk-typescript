@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {YieldMatPostRequestBody}
  */
+// @ts-ignore
 export function createYieldMatPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoYieldMatPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createYieldMatPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoYieldMatPostRequestBody(yieldMatPostRequestBody: Partial<YieldMatPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { yieldMatPostRequestBody.backingStoreEnabled = true; },
@@ -35,14 +37,17 @@ export function deserializeIntoYieldMatPostRequestBody(yieldMatPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeYieldMatPostRequestBody(writer: SerializationWriter, yieldMatPostRequestBody: Partial<YieldMatPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", yieldMatPostRequestBody.basis);
-    writer.writeObjectValue("issue", yieldMatPostRequestBody.issue);
-    writer.writeObjectValue("maturity", yieldMatPostRequestBody.maturity);
-    writer.writeObjectValue("pr", yieldMatPostRequestBody.pr);
-    writer.writeObjectValue("rate", yieldMatPostRequestBody.rate);
-    writer.writeObjectValue("settlement", yieldMatPostRequestBody.settlement);
-    writer.writeAdditionalData(yieldMatPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeYieldMatPostRequestBody(writer: SerializationWriter, yieldMatPostRequestBody: Partial<YieldMatPostRequestBody> | undefined | null = {}) : void {
+    if (yieldMatPostRequestBody) {
+        writer.writeObjectValue("basis", yieldMatPostRequestBody.basis);
+        writer.writeObjectValue("issue", yieldMatPostRequestBody.issue);
+        writer.writeObjectValue("maturity", yieldMatPostRequestBody.maturity);
+        writer.writeObjectValue("pr", yieldMatPostRequestBody.pr);
+        writer.writeObjectValue("rate", yieldMatPostRequestBody.rate);
+        writer.writeObjectValue("settlement", yieldMatPostRequestBody.settlement);
+        writer.writeAdditionalData(yieldMatPostRequestBody.additionalData);
+    }
 }
 export interface YieldMatPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -52,31 +57,31 @@ export interface YieldMatPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The issue property
      */
-    issue?: UntypedNode;
+    issue?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The pr property
      */
-    pr?: UntypedNode;
+    pr?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the yieldMat method.

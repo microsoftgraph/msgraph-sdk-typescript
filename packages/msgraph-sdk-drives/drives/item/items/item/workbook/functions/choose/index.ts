@@ -16,15 +16,15 @@ export interface ChoosePostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The indexNum property
      */
-    indexNum?: UntypedNode;
+    indexNum?: UntypedNode | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the choose method.
@@ -51,6 +51,7 @@ export interface ChooseRequestBuilder extends BaseRequestBuilder<ChooseRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ChoosePostRequestBody}
  */
+// @ts-ignore
 export function createChoosePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChoosePostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createChoosePostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoChoosePostRequestBody(choosePostRequestBody: Partial<ChoosePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { choosePostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoChoosePostRequestBody(choosePostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeChoosePostRequestBody(writer: SerializationWriter, choosePostRequestBody: Partial<ChoosePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("indexNum", choosePostRequestBody.indexNum);
-    writer.writeObjectValue("values", choosePostRequestBody.values);
-    writer.writeAdditionalData(choosePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeChoosePostRequestBody(writer: SerializationWriter, choosePostRequestBody: Partial<ChoosePostRequestBody> | undefined | null = {}) : void {
+    if (choosePostRequestBody) {
+        writer.writeObjectValue("indexNum", choosePostRequestBody.indexNum);
+        writer.writeObjectValue("values", choosePostRequestBody.values);
+        writer.writeAdditionalData(choosePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

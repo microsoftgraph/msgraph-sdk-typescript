@@ -12,6 +12,8 @@ import { Microsoft365AppsRequestBuilderNavigationMetadata, Microsoft365AppsReque
 // @ts-ignore
 import { PeopleRequestBuilderNavigationMetadata, PeopleRequestBuilderRequestsMetadata, type PeopleRequestBuilder } from './people/index.js';
 // @ts-ignore
+import { ReportSettingsRequestBuilderRequestsMetadata, type ReportSettingsRequestBuilder } from './reportSettings/index.js';
+// @ts-ignore
 import { ServiceAnnouncementRequestBuilderNavigationMetadata, ServiceAnnouncementRequestBuilderRequestsMetadata, type ServiceAnnouncementRequestBuilder } from './serviceAnnouncement/index.js';
 // @ts-ignore
 import { SharepointRequestBuilderNavigationMetadata, SharepointRequestBuilderRequestsMetadata, type SharepointRequestBuilder } from './sharepoint/index.js';
@@ -34,6 +36,10 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      * Provides operations to manage the people property of the microsoft.graph.admin entity.
      */
     get people(): PeopleRequestBuilder;
+    /**
+     * Provides operations to manage the reportSettings property of the microsoft.graph.admin entity.
+     */
+    get reportSettings(): ReportSettingsRequestBuilder;
     /**
      * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.
      */
@@ -110,6 +116,9 @@ export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRe
     people: {
         requestsMetadata: PeopleRequestBuilderRequestsMetadata,
         navigationMetadata: PeopleRequestBuilderNavigationMetadata,
+    },
+    reportSettings: {
+        requestsMetadata: ReportSettingsRequestBuilderRequestsMetadata,
     },
     serviceAnnouncement: {
         requestsMetadata: ServiceAnnouncementRequestBuilderRequestsMetadata,

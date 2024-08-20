@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MinutePostRequestBody}
  */
+// @ts-ignore
 export function createMinutePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMinutePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMinutePostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMinutePostRequestBody(minutePostRequestBody: Partial<MinutePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { minutePostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface MinutePostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The serialNumber property
      */
-    serialNumber?: UntypedNode;
+    serialNumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the minute method.
@@ -64,9 +66,12 @@ export interface MinuteRequestBuilder extends BaseRequestBuilder<MinuteRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMinutePostRequestBody(writer: SerializationWriter, minutePostRequestBody: Partial<MinutePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("serialNumber", minutePostRequestBody.serialNumber);
-    writer.writeAdditionalData(minutePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMinutePostRequestBody(writer: SerializationWriter, minutePostRequestBody: Partial<MinutePostRequestBody> | undefined | null = {}) : void {
+    if (minutePostRequestBody) {
+        writer.writeObjectValue("serialNumber", minutePostRequestBody.serialNumber);
+        writer.writeAdditionalData(minutePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {OddLPricePostRequestBody}
  */
+// @ts-ignore
 export function createOddLPricePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOddLPricePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOddLPricePostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOddLPricePostRequestBody(oddLPricePostRequestBody: Partial<OddLPricePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oddLPricePostRequestBody.backingStoreEnabled = true; },
@@ -41,39 +43,39 @@ export interface OddLPricePostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The lastInterest property
      */
-    lastInterest?: UntypedNode;
+    lastInterest?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The redemption property
      */
-    redemption?: UntypedNode;
+    redemption?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
     /**
      * The yld property
      */
-    yld?: UntypedNode;
+    yld?: UntypedNode | null;
 }
 /**
  * Provides operations to call the oddLPrice method.
@@ -99,16 +101,19 @@ export interface OddLPriceRequestBuilder extends BaseRequestBuilder<OddLPriceReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOddLPricePostRequestBody(writer: SerializationWriter, oddLPricePostRequestBody: Partial<OddLPricePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", oddLPricePostRequestBody.basis);
-    writer.writeObjectValue("frequency", oddLPricePostRequestBody.frequency);
-    writer.writeObjectValue("lastInterest", oddLPricePostRequestBody.lastInterest);
-    writer.writeObjectValue("maturity", oddLPricePostRequestBody.maturity);
-    writer.writeObjectValue("rate", oddLPricePostRequestBody.rate);
-    writer.writeObjectValue("redemption", oddLPricePostRequestBody.redemption);
-    writer.writeObjectValue("settlement", oddLPricePostRequestBody.settlement);
-    writer.writeObjectValue("yld", oddLPricePostRequestBody.yld);
-    writer.writeAdditionalData(oddLPricePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeOddLPricePostRequestBody(writer: SerializationWriter, oddLPricePostRequestBody: Partial<OddLPricePostRequestBody> | undefined | null = {}) : void {
+    if (oddLPricePostRequestBody) {
+        writer.writeObjectValue("basis", oddLPricePostRequestBody.basis);
+        writer.writeObjectValue("frequency", oddLPricePostRequestBody.frequency);
+        writer.writeObjectValue("lastInterest", oddLPricePostRequestBody.lastInterest);
+        writer.writeObjectValue("maturity", oddLPricePostRequestBody.maturity);
+        writer.writeObjectValue("rate", oddLPricePostRequestBody.rate);
+        writer.writeObjectValue("redemption", oddLPricePostRequestBody.redemption);
+        writer.writeObjectValue("settlement", oddLPricePostRequestBody.settlement);
+        writer.writeObjectValue("yld", oddLPricePostRequestBody.yld);
+        writer.writeAdditionalData(oddLPricePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

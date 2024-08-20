@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PdurationPostRequestBody}
  */
+// @ts-ignore
 export function createPdurationPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPdurationPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPdurationPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPdurationPostRequestBody(pdurationPostRequestBody: Partial<PdurationPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { pdurationPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface PdurationPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The fv property
      */
-    fv?: UntypedNode;
+    fv?: UntypedNode | null;
     /**
      * The pv property
      */
-    pv?: UntypedNode;
+    pv?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
 }
 /**
  * Provides operations to call the pduration method.
@@ -74,11 +76,14 @@ export interface PdurationRequestBuilder extends BaseRequestBuilder<PdurationReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePdurationPostRequestBody(writer: SerializationWriter, pdurationPostRequestBody: Partial<PdurationPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("fv", pdurationPostRequestBody.fv);
-    writer.writeObjectValue("pv", pdurationPostRequestBody.pv);
-    writer.writeObjectValue("rate", pdurationPostRequestBody.rate);
-    writer.writeAdditionalData(pdurationPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePdurationPostRequestBody(writer: SerializationWriter, pdurationPostRequestBody: Partial<PdurationPostRequestBody> | undefined | null = {}) : void {
+    if (pdurationPostRequestBody) {
+        writer.writeObjectValue("fv", pdurationPostRequestBody.fv);
+        writer.writeObjectValue("pv", pdurationPostRequestBody.pv);
+        writer.writeObjectValue("rate", pdurationPostRequestBody.rate);
+        writer.writeAdditionalData(pdurationPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

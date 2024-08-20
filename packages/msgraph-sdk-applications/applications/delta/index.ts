@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DeltaGetResponse}
  */
+// @ts-ignore
 export function createDeltaGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeltaGetResponse;
 }
@@ -20,7 +21,7 @@ export interface DeltaGetResponse extends BaseDeltaFunctionResponse, Parsable {
     /**
      * The value property
      */
-    value?: Application[];
+    value?: Application[] | null;
 }
 /**
  * Provides operations to call the delta method.
@@ -82,6 +83,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseDeltaFunctionResponse(deltaGetResponse),
@@ -92,9 +94,12 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: Partial<DeltaGetResponse> | undefined = {}) : void {
-    serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-    writer.writeCollectionOfObjectValues<Application>("value", deltaGetResponse.value, serializeApplication);
+// @ts-ignore
+export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: Partial<DeltaGetResponse> | undefined | null = {}) : void {
+    if (deltaGetResponse) {
+        serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
+        writer.writeCollectionOfObjectValues<Application>("value", deltaGetResponse.value, serializeApplication);
+    }
 }
 /**
  * Uri template for the request builder.

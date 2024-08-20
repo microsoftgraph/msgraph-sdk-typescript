@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PricePostRequestBody}
  */
+// @ts-ignore
 export function createPricePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPricePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPricePostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPricePostRequestBody(pricePostRequestBody: Partial<PricePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { pricePostRequestBody.backingStoreEnabled = true; },
@@ -40,35 +42,35 @@ export interface PricePostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The redemption property
      */
-    redemption?: UntypedNode;
+    redemption?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
     /**
      * The yld property
      */
-    yld?: UntypedNode;
+    yld?: UntypedNode | null;
 }
 /**
  * Provides operations to call the price method.
@@ -94,15 +96,18 @@ export interface PriceRequestBuilder extends BaseRequestBuilder<PriceRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePricePostRequestBody(writer: SerializationWriter, pricePostRequestBody: Partial<PricePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", pricePostRequestBody.basis);
-    writer.writeObjectValue("frequency", pricePostRequestBody.frequency);
-    writer.writeObjectValue("maturity", pricePostRequestBody.maturity);
-    writer.writeObjectValue("rate", pricePostRequestBody.rate);
-    writer.writeObjectValue("redemption", pricePostRequestBody.redemption);
-    writer.writeObjectValue("settlement", pricePostRequestBody.settlement);
-    writer.writeObjectValue("yld", pricePostRequestBody.yld);
-    writer.writeAdditionalData(pricePostRequestBody.additionalData);
+// @ts-ignore
+export function serializePricePostRequestBody(writer: SerializationWriter, pricePostRequestBody: Partial<PricePostRequestBody> | undefined | null = {}) : void {
+    if (pricePostRequestBody) {
+        writer.writeObjectValue("basis", pricePostRequestBody.basis);
+        writer.writeObjectValue("frequency", pricePostRequestBody.frequency);
+        writer.writeObjectValue("maturity", pricePostRequestBody.maturity);
+        writer.writeObjectValue("rate", pricePostRequestBody.rate);
+        writer.writeObjectValue("redemption", pricePostRequestBody.redemption);
+        writer.writeObjectValue("settlement", pricePostRequestBody.settlement);
+        writer.writeObjectValue("yld", pricePostRequestBody.yld);
+        writer.writeAdditionalData(pricePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

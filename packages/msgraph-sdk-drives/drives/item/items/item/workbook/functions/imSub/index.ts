@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImSubPostRequestBody}
  */
+// @ts-ignore
 export function createImSubPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImSubPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImSubPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImSubPostRequestBody(imSubPostRequestBody: Partial<ImSubPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imSubPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface ImSubPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber1 property
      */
-    inumber1?: UntypedNode;
+    inumber1?: UntypedNode | null;
     /**
      * The inumber2 property
      */
-    inumber2?: UntypedNode;
+    inumber2?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imSub method.
@@ -69,10 +71,13 @@ export interface ImSubRequestBuilder extends BaseRequestBuilder<ImSubRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImSubPostRequestBody(writer: SerializationWriter, imSubPostRequestBody: Partial<ImSubPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber1", imSubPostRequestBody.inumber1);
-    writer.writeObjectValue("inumber2", imSubPostRequestBody.inumber2);
-    writer.writeAdditionalData(imSubPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImSubPostRequestBody(writer: SerializationWriter, imSubPostRequestBody: Partial<ImSubPostRequestBody> | undefined | null = {}) : void {
+    if (imSubPostRequestBody) {
+        writer.writeObjectValue("inumber1", imSubPostRequestBody.inumber1);
+        writer.writeObjectValue("inumber2", imSubPostRequestBody.inumber2);
+        writer.writeAdditionalData(imSubPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

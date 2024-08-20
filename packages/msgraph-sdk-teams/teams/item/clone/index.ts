@@ -16,31 +16,31 @@ export interface ClonePostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The classification property
      */
-    classification?: string;
+    classification?: string | null;
     /**
      * The description property
      */
-    description?: string;
+    description?: string | null;
     /**
      * The displayName property
      */
-    displayName?: string;
+    displayName?: string | null;
     /**
      * The mailNickname property
      */
-    mailNickname?: string;
+    mailNickname?: string | null;
     /**
      * The partsToClone property
      */
-    partsToClone?: ClonableTeamParts[];
+    partsToClone?: ClonableTeamParts[] | null;
     /**
      * The visibility property
      */
-    visibility?: TeamVisibilityType;
+    visibility?: TeamVisibilityType | null;
 }
 /**
  * Provides operations to call the clone method.
@@ -67,6 +67,7 @@ export interface CloneRequestBuilder extends BaseRequestBuilder<CloneRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ClonePostRequestBody}
  */
+// @ts-ignore
 export function createClonePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoClonePostRequestBody;
 }
@@ -74,6 +75,7 @@ export function createClonePostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoClonePostRequestBody(clonePostRequestBody: Partial<ClonePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { clonePostRequestBody.backingStoreEnabled = true; },
@@ -89,14 +91,17 @@ export function deserializeIntoClonePostRequestBody(clonePostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeClonePostRequestBody(writer: SerializationWriter, clonePostRequestBody: Partial<ClonePostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("classification", clonePostRequestBody.classification);
-    writer.writeStringValue("description", clonePostRequestBody.description);
-    writer.writeStringValue("displayName", clonePostRequestBody.displayName);
-    writer.writeStringValue("mailNickname", clonePostRequestBody.mailNickname);
-    writer.writeEnumValue<ClonableTeamParts[]>("partsToClone", clonePostRequestBody.partsToClone);
-    writer.writeEnumValue<TeamVisibilityType>("visibility", clonePostRequestBody.visibility);
-    writer.writeAdditionalData(clonePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeClonePostRequestBody(writer: SerializationWriter, clonePostRequestBody: Partial<ClonePostRequestBody> | undefined | null = {}) : void {
+    if (clonePostRequestBody) {
+        writer.writeStringValue("classification", clonePostRequestBody.classification);
+        writer.writeStringValue("description", clonePostRequestBody.description);
+        writer.writeStringValue("displayName", clonePostRequestBody.displayName);
+        writer.writeStringValue("mailNickname", clonePostRequestBody.mailNickname);
+        writer.writeEnumValue<ClonableTeamParts[]>("partsToClone", clonePostRequestBody.partsToClone);
+        writer.writeEnumValue<TeamVisibilityType>("visibility", clonePostRequestBody.visibility);
+        writer.writeAdditionalData(clonePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

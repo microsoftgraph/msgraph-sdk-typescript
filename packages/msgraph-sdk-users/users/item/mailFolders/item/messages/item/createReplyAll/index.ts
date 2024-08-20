@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreateReplyAllPostRequestBody}
  */
+// @ts-ignore
 export function createCreateReplyAllPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateReplyAllPostRequestBody;
 }
@@ -24,15 +25,15 @@ export interface CreateReplyAllPostRequestBody extends AdditionalDataHolder, Bac
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The Comment property
      */
-    comment?: string;
+    comment?: string | null;
     /**
      * The Message property
      */
-    message?: Message;
+    message?: Message | null;
 }
 /**
  * Provides operations to call the createReplyAll method.
@@ -59,6 +60,7 @@ export interface CreateReplyAllRequestBuilder extends BaseRequestBuilder<CreateR
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreateReplyAllPostRequestBody(createReplyAllPostRequestBody: Partial<CreateReplyAllPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createReplyAllPostRequestBody.backingStoreEnabled = true; },
@@ -70,10 +72,13 @@ export function deserializeIntoCreateReplyAllPostRequestBody(createReplyAllPostR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateReplyAllPostRequestBody(writer: SerializationWriter, createReplyAllPostRequestBody: Partial<CreateReplyAllPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("Comment", createReplyAllPostRequestBody.comment);
-    writer.writeObjectValue<Message>("Message", createReplyAllPostRequestBody.message, serializeMessage);
-    writer.writeAdditionalData(createReplyAllPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCreateReplyAllPostRequestBody(writer: SerializationWriter, createReplyAllPostRequestBody: Partial<CreateReplyAllPostRequestBody> | undefined | null = {}) : void {
+    if (createReplyAllPostRequestBody) {
+        writer.writeStringValue("Comment", createReplyAllPostRequestBody.comment);
+        writer.writeObjectValue<Message>("Message", createReplyAllPostRequestBody.message, serializeMessage);
+        writer.writeAdditionalData(createReplyAllPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

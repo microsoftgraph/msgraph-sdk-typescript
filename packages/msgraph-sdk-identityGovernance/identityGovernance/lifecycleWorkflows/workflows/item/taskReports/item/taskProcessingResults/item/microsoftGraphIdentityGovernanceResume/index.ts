@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ResumePostRequestBody}
  */
+// @ts-ignore
 export function createResumePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoResumePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createResumePostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoResumePostRequestBody(resumePostRequestBody: Partial<ResumePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { resumePostRequestBody.backingStoreEnabled = true; },
@@ -56,29 +58,32 @@ export interface ResumePostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The data property
      */
-    data?: CustomTaskExtensionCallbackData;
+    data?: CustomTaskExtensionCallbackData | null;
     /**
      * The source property
      */
-    source?: string;
+    source?: string | null;
     /**
      * The type property
      */
-    type?: string;
+    type?: string | null;
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: Partial<ResumePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<CustomTaskExtensionCallbackData>("data", resumePostRequestBody.data, serializeCustomTaskExtensionCallbackData);
-    writer.writeStringValue("source", resumePostRequestBody.source);
-    writer.writeStringValue("type", resumePostRequestBody.type);
-    writer.writeAdditionalData(resumePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: Partial<ResumePostRequestBody> | undefined | null = {}) : void {
+    if (resumePostRequestBody) {
+        writer.writeObjectValue<CustomTaskExtensionCallbackData>("data", resumePostRequestBody.data, serializeCustomTaskExtensionCallbackData);
+        writer.writeStringValue("source", resumePostRequestBody.source);
+        writer.writeStringValue("type", resumePostRequestBody.type);
+        writer.writeAdditionalData(resumePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

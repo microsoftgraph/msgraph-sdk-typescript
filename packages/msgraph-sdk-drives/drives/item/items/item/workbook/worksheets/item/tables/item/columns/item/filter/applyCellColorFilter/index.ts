@@ -14,11 +14,11 @@ export interface ApplyCellColorFilterPostRequestBody extends AdditionalDataHolde
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The color property
      */
-    color?: string;
+    color?: string | null;
 }
 /**
  * Provides operations to call the applyCellColorFilter method.
@@ -44,6 +44,7 @@ export interface ApplyCellColorFilterRequestBuilder extends BaseRequestBuilder<A
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyCellColorFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyCellColorFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyCellColorFilterPostRequestBody;
 }
@@ -51,6 +52,7 @@ export function createApplyCellColorFilterPostRequestBodyFromDiscriminatorValue(
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyCellColorFilterPostRequestBody(applyCellColorFilterPostRequestBody: Partial<ApplyCellColorFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyCellColorFilterPostRequestBody.backingStoreEnabled = true; },
@@ -61,9 +63,12 @@ export function deserializeIntoApplyCellColorFilterPostRequestBody(applyCellColo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyCellColorFilterPostRequestBody(writer: SerializationWriter, applyCellColorFilterPostRequestBody: Partial<ApplyCellColorFilterPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("color", applyCellColorFilterPostRequestBody.color);
-    writer.writeAdditionalData(applyCellColorFilterPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeApplyCellColorFilterPostRequestBody(writer: SerializationWriter, applyCellColorFilterPostRequestBody: Partial<ApplyCellColorFilterPostRequestBody> | undefined | null = {}) : void {
+    if (applyCellColorFilterPostRequestBody) {
+        writer.writeStringValue("color", applyCellColorFilterPostRequestBody.color);
+        writer.writeAdditionalData(applyCellColorFilterPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

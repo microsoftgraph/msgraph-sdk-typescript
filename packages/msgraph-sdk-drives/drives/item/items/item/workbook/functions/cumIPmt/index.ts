@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CumIPmtPostRequestBody}
  */
+// @ts-ignore
 export function createCumIPmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCumIPmtPostRequestBody;
 }
@@ -24,31 +25,31 @@ export interface CumIPmtPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The endPeriod property
      */
-    endPeriod?: UntypedNode;
+    endPeriod?: UntypedNode | null;
     /**
      * The nper property
      */
-    nper?: UntypedNode;
+    nper?: UntypedNode | null;
     /**
      * The pv property
      */
-    pv?: UntypedNode;
+    pv?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The startPeriod property
      */
-    startPeriod?: UntypedNode;
+    startPeriod?: UntypedNode | null;
     /**
      * The type property
      */
-    type?: UntypedNode;
+    type?: UntypedNode | null;
 }
 /**
  * Provides operations to call the cumIPmt method.
@@ -74,6 +75,7 @@ export interface CumIPmtRequestBuilder extends BaseRequestBuilder<CumIPmtRequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCumIPmtPostRequestBody(cumIPmtPostRequestBody: Partial<CumIPmtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cumIPmtPostRequestBody.backingStoreEnabled = true; },
@@ -89,14 +91,17 @@ export function deserializeIntoCumIPmtPostRequestBody(cumIPmtPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCumIPmtPostRequestBody(writer: SerializationWriter, cumIPmtPostRequestBody: Partial<CumIPmtPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("endPeriod", cumIPmtPostRequestBody.endPeriod);
-    writer.writeObjectValue("nper", cumIPmtPostRequestBody.nper);
-    writer.writeObjectValue("pv", cumIPmtPostRequestBody.pv);
-    writer.writeObjectValue("rate", cumIPmtPostRequestBody.rate);
-    writer.writeObjectValue("startPeriod", cumIPmtPostRequestBody.startPeriod);
-    writer.writeObjectValue("type", cumIPmtPostRequestBody.type);
-    writer.writeAdditionalData(cumIPmtPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCumIPmtPostRequestBody(writer: SerializationWriter, cumIPmtPostRequestBody: Partial<CumIPmtPostRequestBody> | undefined | null = {}) : void {
+    if (cumIPmtPostRequestBody) {
+        writer.writeObjectValue("endPeriod", cumIPmtPostRequestBody.endPeriod);
+        writer.writeObjectValue("nper", cumIPmtPostRequestBody.nper);
+        writer.writeObjectValue("pv", cumIPmtPostRequestBody.pv);
+        writer.writeObjectValue("rate", cumIPmtPostRequestBody.rate);
+        writer.writeObjectValue("startPeriod", cumIPmtPostRequestBody.startPeriod);
+        writer.writeObjectValue("type", cumIPmtPostRequestBody.type);
+        writer.writeAdditionalData(cumIPmtPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

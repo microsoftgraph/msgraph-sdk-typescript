@@ -14,19 +14,19 @@ export interface ApplyCustomFilterPostRequestBody extends AdditionalDataHolder, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria1 property
      */
-    criteria1?: string;
+    criteria1?: string | null;
     /**
      * The criteria2 property
      */
-    criteria2?: string;
+    criteria2?: string | null;
     /**
      * The oper property
      */
-    oper?: string;
+    oper?: string | null;
 }
 /**
  * Provides operations to call the applyCustomFilter method.
@@ -52,6 +52,7 @@ export interface ApplyCustomFilterRequestBuilder extends BaseRequestBuilder<Appl
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyCustomFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyCustomFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyCustomFilterPostRequestBody;
 }
@@ -59,6 +60,7 @@ export function createApplyCustomFilterPostRequestBodyFromDiscriminatorValue(par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyCustomFilterPostRequestBody(applyCustomFilterPostRequestBody: Partial<ApplyCustomFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyCustomFilterPostRequestBody.backingStoreEnabled = true; },
@@ -71,11 +73,14 @@ export function deserializeIntoApplyCustomFilterPostRequestBody(applyCustomFilte
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyCustomFilterPostRequestBody(writer: SerializationWriter, applyCustomFilterPostRequestBody: Partial<ApplyCustomFilterPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("criteria1", applyCustomFilterPostRequestBody.criteria1);
-    writer.writeStringValue("criteria2", applyCustomFilterPostRequestBody.criteria2);
-    writer.writeStringValue("oper", applyCustomFilterPostRequestBody.oper);
-    writer.writeAdditionalData(applyCustomFilterPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeApplyCustomFilterPostRequestBody(writer: SerializationWriter, applyCustomFilterPostRequestBody: Partial<ApplyCustomFilterPostRequestBody> | undefined | null = {}) : void {
+    if (applyCustomFilterPostRequestBody) {
+        writer.writeStringValue("criteria1", applyCustomFilterPostRequestBody.criteria1);
+        writer.writeStringValue("criteria2", applyCustomFilterPostRequestBody.criteria2);
+        writer.writeStringValue("oper", applyCustomFilterPostRequestBody.oper);
+        writer.writeAdditionalData(applyCustomFilterPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

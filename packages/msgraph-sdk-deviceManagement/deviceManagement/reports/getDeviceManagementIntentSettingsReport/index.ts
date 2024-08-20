@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetDeviceManagementIntentSettingsReportPostRequestBody}
  */
+// @ts-ignore
 export function createGetDeviceManagementIntentSettingsReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetDeviceManagementIntentSettingsReportPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetDeviceManagementIntentSettingsReportPostRequestBodyFrom
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetDeviceManagementIntentSettingsReportPostRequestBody(getDeviceManagementIntentSettingsReportPostRequestBody: Partial<GetDeviceManagementIntentSettingsReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getDeviceManagementIntentSettingsReportPostRequestBody.backingStoreEnabled = true; },
@@ -40,43 +42,43 @@ export interface GetDeviceManagementIntentSettingsReportPostRequestBody extends 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The filter property
      */
-    filter?: string;
+    filter?: string | null;
     /**
      * The groupBy property
      */
-    groupBy?: string[];
+    groupBy?: string[] | null;
     /**
      * The name property
      */
-    name?: string;
+    name?: string | null;
     /**
      * The orderBy property
      */
-    orderBy?: string[];
+    orderBy?: string[] | null;
     /**
      * The search property
      */
-    search?: string;
+    search?: string | null;
     /**
      * The select property
      */
-    select?: string[];
+    select?: string[] | null;
     /**
      * The sessionId property
      */
-    sessionId?: string;
+    sessionId?: string | null;
     /**
      * The skip property
      */
-    skip?: number;
+    skip?: number | null;
     /**
      * The top property
      */
-    top?: number;
+    top?: number | null;
 }
 /**
  * Provides operations to call the getDeviceManagementIntentSettingsReport method.
@@ -103,17 +105,20 @@ export interface GetDeviceManagementIntentSettingsReportRequestBuilder extends B
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetDeviceManagementIntentSettingsReportPostRequestBody(writer: SerializationWriter, getDeviceManagementIntentSettingsReportPostRequestBody: Partial<GetDeviceManagementIntentSettingsReportPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("filter", getDeviceManagementIntentSettingsReportPostRequestBody.filter);
-    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceManagementIntentSettingsReportPostRequestBody.groupBy);
-    writer.writeStringValue("name", getDeviceManagementIntentSettingsReportPostRequestBody.name);
-    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDeviceManagementIntentSettingsReportPostRequestBody.orderBy);
-    writer.writeStringValue("search", getDeviceManagementIntentSettingsReportPostRequestBody.search);
-    writer.writeCollectionOfPrimitiveValues<string>("select", getDeviceManagementIntentSettingsReportPostRequestBody.select);
-    writer.writeStringValue("sessionId", getDeviceManagementIntentSettingsReportPostRequestBody.sessionId);
-    writer.writeNumberValue("skip", getDeviceManagementIntentSettingsReportPostRequestBody.skip);
-    writer.writeNumberValue("top", getDeviceManagementIntentSettingsReportPostRequestBody.top);
-    writer.writeAdditionalData(getDeviceManagementIntentSettingsReportPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetDeviceManagementIntentSettingsReportPostRequestBody(writer: SerializationWriter, getDeviceManagementIntentSettingsReportPostRequestBody: Partial<GetDeviceManagementIntentSettingsReportPostRequestBody> | undefined | null = {}) : void {
+    if (getDeviceManagementIntentSettingsReportPostRequestBody) {
+        writer.writeStringValue("filter", getDeviceManagementIntentSettingsReportPostRequestBody.filter);
+        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceManagementIntentSettingsReportPostRequestBody.groupBy);
+        writer.writeStringValue("name", getDeviceManagementIntentSettingsReportPostRequestBody.name);
+        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDeviceManagementIntentSettingsReportPostRequestBody.orderBy);
+        writer.writeStringValue("search", getDeviceManagementIntentSettingsReportPostRequestBody.search);
+        writer.writeCollectionOfPrimitiveValues<string>("select", getDeviceManagementIntentSettingsReportPostRequestBody.select);
+        writer.writeStringValue("sessionId", getDeviceManagementIntentSettingsReportPostRequestBody.sessionId);
+        writer.writeNumberValue("skip", getDeviceManagementIntentSettingsReportPostRequestBody.skip);
+        writer.writeNumberValue("top", getDeviceManagementIntentSettingsReportPostRequestBody.top);
+        writer.writeAdditionalData(getDeviceManagementIntentSettingsReportPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

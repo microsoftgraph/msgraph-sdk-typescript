@@ -16,15 +16,15 @@ export interface CopyPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The name property
      */
-    name?: string;
+    name?: string | null;
     /**
      * The parentReference property
      */
-    parentReference?: ItemReference;
+    parentReference?: ItemReference | null;
 }
 /**
  * Provides operations to call the copy method.
@@ -52,6 +52,7 @@ export interface CopyRequestBuilder extends BaseRequestBuilder<CopyRequestBuilde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopyPostRequestBody}
  */
+// @ts-ignore
 export function createCopyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyPostRequestBody;
 }
@@ -59,6 +60,7 @@ export function createCopyPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: Partial<CopyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyPostRequestBody.backingStoreEnabled = true; },
@@ -70,10 +72,13 @@ export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCopyPostRequestBody(writer: SerializationWriter, copyPostRequestBody: Partial<CopyPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("name", copyPostRequestBody.name);
-    writer.writeObjectValue<ItemReference>("parentReference", copyPostRequestBody.parentReference, serializeItemReference);
-    writer.writeAdditionalData(copyPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCopyPostRequestBody(writer: SerializationWriter, copyPostRequestBody: Partial<CopyPostRequestBody> | undefined | null = {}) : void {
+    if (copyPostRequestBody) {
+        writer.writeStringValue("name", copyPostRequestBody.name);
+        writer.writeObjectValue<ItemReference>("parentReference", copyPostRequestBody.parentReference, serializeItemReference);
+        writer.writeAdditionalData(copyPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

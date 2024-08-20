@@ -11,6 +11,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SetDataPostRequestBody}
  */
+// @ts-ignore
 export function createSetDataPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetDataPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createSetDataPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSetDataPostRequestBody(setDataPostRequestBody: Partial<SetDataPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setDataPostRequestBody.backingStoreEnabled = true; },
@@ -29,10 +31,13 @@ export function deserializeIntoSetDataPostRequestBody(setDataPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetDataPostRequestBody(writer: SerializationWriter, setDataPostRequestBody: Partial<SetDataPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("seriesBy", setDataPostRequestBody.seriesBy);
-    writer.writeObjectValue("sourceData", setDataPostRequestBody.sourceData);
-    writer.writeAdditionalData(setDataPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSetDataPostRequestBody(writer: SerializationWriter, setDataPostRequestBody: Partial<SetDataPostRequestBody> | undefined | null = {}) : void {
+    if (setDataPostRequestBody) {
+        writer.writeStringValue("seriesBy", setDataPostRequestBody.seriesBy);
+        writer.writeObjectValue("sourceData", setDataPostRequestBody.sourceData);
+        writer.writeAdditionalData(setDataPostRequestBody.additionalData);
+    }
 }
 export interface SetDataPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,15 +47,15 @@ export interface SetDataPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The seriesBy property
      */
-    seriesBy?: string;
+    seriesBy?: string | null;
     /**
      * The sourceData property
      */
-    sourceData?: UntypedNode;
+    sourceData?: UntypedNode | null;
 }
 /**
  * Provides operations to call the setData method.

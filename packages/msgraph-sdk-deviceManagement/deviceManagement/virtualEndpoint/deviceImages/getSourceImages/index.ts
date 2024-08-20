@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetSourceImagesGetResponse}
  */
+// @ts-ignore
 export function createGetSourceImagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetSourceImagesGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetSourceImagesGetResponseFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetSourceImagesGetResponse(getSourceImagesGetResponse: Partial<GetSourceImagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getSourceImagesGetResponse),
@@ -30,7 +32,7 @@ export interface GetSourceImagesGetResponse extends BaseCollectionPaginationCoun
     /**
      * The value property
      */
-    value?: CloudPcSourceDeviceImage[];
+    value?: CloudPcSourceDeviceImage[] | null;
 }
 /**
  * Provides operations to call the getSourceImages method.
@@ -80,9 +82,12 @@ export interface GetSourceImagesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetSourceImagesGetResponse(writer: SerializationWriter, getSourceImagesGetResponse: Partial<GetSourceImagesGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getSourceImagesGetResponse)
-    writer.writeCollectionOfObjectValues<CloudPcSourceDeviceImage>("value", getSourceImagesGetResponse.value, serializeCloudPcSourceDeviceImage);
+// @ts-ignore
+export function serializeGetSourceImagesGetResponse(writer: SerializationWriter, getSourceImagesGetResponse: Partial<GetSourceImagesGetResponse> | undefined | null = {}) : void {
+    if (getSourceImagesGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getSourceImagesGetResponse)
+        writer.writeCollectionOfObjectValues<CloudPcSourceDeviceImage>("value", getSourceImagesGetResponse.value, serializeCloudPcSourceDeviceImage);
+    }
 }
 /**
  * Uri template for the request builder.

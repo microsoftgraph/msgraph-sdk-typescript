@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TransferPostRequestBody}
  */
+// @ts-ignore
 export function createTransferPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTransferPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTransferPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTransferPostRequestBody(transferPostRequestBody: Partial<TransferPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { transferPostRequestBody.backingStoreEnabled = true; },
@@ -31,10 +33,13 @@ export function deserializeIntoTransferPostRequestBody(transferPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTransferPostRequestBody(writer: SerializationWriter, transferPostRequestBody: Partial<TransferPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<ParticipantInfo>("transferee", transferPostRequestBody.transferee, serializeParticipantInfo);
-    writer.writeObjectValue<InvitationParticipantInfo>("transferTarget", transferPostRequestBody.transferTarget, serializeInvitationParticipantInfo);
-    writer.writeAdditionalData(transferPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeTransferPostRequestBody(writer: SerializationWriter, transferPostRequestBody: Partial<TransferPostRequestBody> | undefined | null = {}) : void {
+    if (transferPostRequestBody) {
+        writer.writeObjectValue<ParticipantInfo>("transferee", transferPostRequestBody.transferee, serializeParticipantInfo);
+        writer.writeObjectValue<InvitationParticipantInfo>("transferTarget", transferPostRequestBody.transferTarget, serializeInvitationParticipantInfo);
+        writer.writeAdditionalData(transferPostRequestBody.additionalData);
+    }
 }
 export interface TransferPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,15 +49,15 @@ export interface TransferPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The transferee property
      */
-    transferee?: ParticipantInfo;
+    transferee?: ParticipantInfo | null;
     /**
      * The transferTarget property
      */
-    transferTarget?: InvitationParticipantInfo;
+    transferTarget?: InvitationParticipantInfo | null;
 }
 /**
  * Provides operations to call the transfer method.

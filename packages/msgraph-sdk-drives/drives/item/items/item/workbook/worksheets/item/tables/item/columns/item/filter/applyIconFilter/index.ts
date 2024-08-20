@@ -16,11 +16,11 @@ export interface ApplyIconFilterPostRequestBody extends AdditionalDataHolder, Ba
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The icon property
      */
-    icon?: WorkbookIcon;
+    icon?: WorkbookIcon | null;
 }
 /**
  * Provides operations to call the applyIconFilter method.
@@ -46,6 +46,7 @@ export interface ApplyIconFilterRequestBuilder extends BaseRequestBuilder<ApplyI
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyIconFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyIconFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyIconFilterPostRequestBody;
 }
@@ -53,6 +54,7 @@ export function createApplyIconFilterPostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyIconFilterPostRequestBody(applyIconFilterPostRequestBody: Partial<ApplyIconFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyIconFilterPostRequestBody.backingStoreEnabled = true; },
@@ -63,9 +65,12 @@ export function deserializeIntoApplyIconFilterPostRequestBody(applyIconFilterPos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyIconFilterPostRequestBody(writer: SerializationWriter, applyIconFilterPostRequestBody: Partial<ApplyIconFilterPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<WorkbookIcon>("icon", applyIconFilterPostRequestBody.icon, serializeWorkbookIcon);
-    writer.writeAdditionalData(applyIconFilterPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeApplyIconFilterPostRequestBody(writer: SerializationWriter, applyIconFilterPostRequestBody: Partial<ApplyIconFilterPostRequestBody> | undefined | null = {}) : void {
+    if (applyIconFilterPostRequestBody) {
+        writer.writeObjectValue<WorkbookIcon>("icon", applyIconFilterPostRequestBody.icon, serializeWorkbookIcon);
+        writer.writeAdditionalData(applyIconFilterPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

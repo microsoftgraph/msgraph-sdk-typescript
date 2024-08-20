@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IsLogicalPostRequestBody}
  */
+// @ts-ignore
 export function createIsLogicalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsLogicalPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIsLogicalPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIsLogicalPostRequestBody(isLogicalPostRequestBody: Partial<IsLogicalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isLogicalPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface IsLogicalPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: UntypedNode;
+    value?: UntypedNode | null;
 }
 /**
  * Provides operations to call the isLogical method.
@@ -64,9 +66,12 @@ export interface IsLogicalRequestBuilder extends BaseRequestBuilder<IsLogicalReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsLogicalPostRequestBody(writer: SerializationWriter, isLogicalPostRequestBody: Partial<IsLogicalPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("value", isLogicalPostRequestBody.value);
-    writer.writeAdditionalData(isLogicalPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeIsLogicalPostRequestBody(writer: SerializationWriter, isLogicalPostRequestBody: Partial<IsLogicalPostRequestBody> | undefined | null = {}) : void {
+    if (isLogicalPostRequestBody) {
+        writer.writeObjectValue("value", isLogicalPostRequestBody.value);
+        writer.writeAdditionalData(isLogicalPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

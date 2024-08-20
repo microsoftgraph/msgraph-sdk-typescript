@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NumberValuePostRequestBody}
  */
+// @ts-ignore
 export function createNumberValuePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNumberValuePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNumberValuePostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNumberValuePostRequestBody(numberValuePostRequestBody: Partial<NumberValuePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { numberValuePostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface NumberValuePostRequestBody extends AdditionalDataHolder, Backed
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The decimalSeparator property
      */
-    decimalSeparator?: UntypedNode;
+    decimalSeparator?: UntypedNode | null;
     /**
      * The groupSeparator property
      */
-    groupSeparator?: UntypedNode;
+    groupSeparator?: UntypedNode | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the numberValue method.
@@ -74,11 +76,14 @@ export interface NumberValueRequestBuilder extends BaseRequestBuilder<NumberValu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNumberValuePostRequestBody(writer: SerializationWriter, numberValuePostRequestBody: Partial<NumberValuePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("decimalSeparator", numberValuePostRequestBody.decimalSeparator);
-    writer.writeObjectValue("groupSeparator", numberValuePostRequestBody.groupSeparator);
-    writer.writeObjectValue("text", numberValuePostRequestBody.text);
-    writer.writeAdditionalData(numberValuePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeNumberValuePostRequestBody(writer: SerializationWriter, numberValuePostRequestBody: Partial<NumberValuePostRequestBody> | undefined | null = {}) : void {
+    if (numberValuePostRequestBody) {
+        writer.writeObjectValue("decimalSeparator", numberValuePostRequestBody.decimalSeparator);
+        writer.writeObjectValue("groupSeparator", numberValuePostRequestBody.groupSeparator);
+        writer.writeObjectValue("text", numberValuePostRequestBody.text);
+        writer.writeAdditionalData(numberValuePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

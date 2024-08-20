@@ -14,11 +14,11 @@ export interface ClearPresencePostRequestBody extends AdditionalDataHolder, Back
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The sessionId property
      */
-    sessionId?: string;
+    sessionId?: string | null;
 }
 /**
  * Provides operations to call the clearPresence method.
@@ -45,6 +45,7 @@ export interface ClearPresenceRequestBuilder extends BaseRequestBuilder<ClearPre
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ClearPresencePostRequestBody}
  */
+// @ts-ignore
 export function createClearPresencePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoClearPresencePostRequestBody;
 }
@@ -52,6 +53,7 @@ export function createClearPresencePostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoClearPresencePostRequestBody(clearPresencePostRequestBody: Partial<ClearPresencePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { clearPresencePostRequestBody.backingStoreEnabled = true; },
@@ -62,9 +64,12 @@ export function deserializeIntoClearPresencePostRequestBody(clearPresencePostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeClearPresencePostRequestBody(writer: SerializationWriter, clearPresencePostRequestBody: Partial<ClearPresencePostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("sessionId", clearPresencePostRequestBody.sessionId);
-    writer.writeAdditionalData(clearPresencePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeClearPresencePostRequestBody(writer: SerializationWriter, clearPresencePostRequestBody: Partial<ClearPresencePostRequestBody> | undefined | null = {}) : void {
+    if (clearPresencePostRequestBody) {
+        writer.writeStringValue("sessionId", clearPresencePostRequestBody.sessionId);
+        writer.writeAdditionalData(clearPresencePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

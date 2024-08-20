@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PhiPostRequestBody}
  */
+// @ts-ignore
 export function createPhiPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPhiPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPhiPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPhiPostRequestBody(phiPostRequestBody: Partial<PhiPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { phiPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface PhiPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the phi method.
@@ -64,9 +66,12 @@ export interface PhiRequestBuilder extends BaseRequestBuilder<PhiRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePhiPostRequestBody(writer: SerializationWriter, phiPostRequestBody: Partial<PhiPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("x", phiPostRequestBody.x);
-    writer.writeAdditionalData(phiPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePhiPostRequestBody(writer: SerializationWriter, phiPostRequestBody: Partial<PhiPostRequestBody> | undefined | null = {}) : void {
+    if (phiPostRequestBody) {
+        writer.writeObjectValue("x", phiPostRequestBody.x);
+        writer.writeAdditionalData(phiPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

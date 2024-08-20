@@ -16,23 +16,23 @@ export interface CopyToSectionPostRequestBody extends AdditionalDataHolder, Back
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The groupId property
      */
-    groupId?: string;
+    groupId?: string | null;
     /**
      * The id property
      */
-    id?: string;
+    id?: string | null;
     /**
      * The siteCollectionId property
      */
-    siteCollectionId?: string;
+    siteCollectionId?: string | null;
     /**
      * The siteId property
      */
-    siteId?: string;
+    siteId?: string | null;
 }
 /**
  * Provides operations to call the copyToSection method.
@@ -60,6 +60,7 @@ export interface CopyToSectionRequestBuilder extends BaseRequestBuilder<CopyToSe
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopyToSectionPostRequestBody}
  */
+// @ts-ignore
 export function createCopyToSectionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCopyToSectionPostRequestBody;
 }
@@ -67,6 +68,7 @@ export function createCopyToSectionPostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCopyToSectionPostRequestBody(copyToSectionPostRequestBody: Partial<CopyToSectionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyToSectionPostRequestBody.backingStoreEnabled = true; },
@@ -80,12 +82,15 @@ export function deserializeIntoCopyToSectionPostRequestBody(copyToSectionPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCopyToSectionPostRequestBody(writer: SerializationWriter, copyToSectionPostRequestBody: Partial<CopyToSectionPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("groupId", copyToSectionPostRequestBody.groupId);
-    writer.writeStringValue("id", copyToSectionPostRequestBody.id);
-    writer.writeStringValue("siteCollectionId", copyToSectionPostRequestBody.siteCollectionId);
-    writer.writeStringValue("siteId", copyToSectionPostRequestBody.siteId);
-    writer.writeAdditionalData(copyToSectionPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCopyToSectionPostRequestBody(writer: SerializationWriter, copyToSectionPostRequestBody: Partial<CopyToSectionPostRequestBody> | undefined | null = {}) : void {
+    if (copyToSectionPostRequestBody) {
+        writer.writeStringValue("groupId", copyToSectionPostRequestBody.groupId);
+        writer.writeStringValue("id", copyToSectionPostRequestBody.id);
+        writer.writeStringValue("siteCollectionId", copyToSectionPostRequestBody.siteCollectionId);
+        writer.writeStringValue("siteId", copyToSectionPostRequestBody.siteId);
+        writer.writeAdditionalData(copyToSectionPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

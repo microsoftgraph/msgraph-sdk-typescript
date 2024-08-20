@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NotPostRequestBody}
  */
+// @ts-ignore
 export function createNotPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNotPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNotPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNotPostRequestBody(notPostRequestBody: Partial<NotPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { notPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface NotPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The logical property
      */
-    logical?: UntypedNode;
+    logical?: UntypedNode | null;
 }
 /**
  * Provides operations to call the not method.
@@ -64,9 +66,12 @@ export interface NotRequestBuilder extends BaseRequestBuilder<NotRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNotPostRequestBody(writer: SerializationWriter, notPostRequestBody: Partial<NotPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("logical", notPostRequestBody.logical);
-    writer.writeAdditionalData(notPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeNotPostRequestBody(writer: SerializationWriter, notPostRequestBody: Partial<NotPostRequestBody> | undefined | null = {}) : void {
+    if (notPostRequestBody) {
+        writer.writeObjectValue("logical", notPostRequestBody.logical);
+        writer.writeAdditionalData(notPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

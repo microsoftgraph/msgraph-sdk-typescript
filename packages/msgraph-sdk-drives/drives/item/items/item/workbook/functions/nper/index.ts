@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NperPostRequestBody}
  */
+// @ts-ignore
 export function createNperPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNperPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNperPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNperPostRequestBody(nperPostRequestBody: Partial<NperPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { nperPostRequestBody.backingStoreEnabled = true; },
@@ -38,27 +40,27 @@ export interface NperPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The fv property
      */
-    fv?: UntypedNode;
+    fv?: UntypedNode | null;
     /**
      * The pmt property
      */
-    pmt?: UntypedNode;
+    pmt?: UntypedNode | null;
     /**
      * The pv property
      */
-    pv?: UntypedNode;
+    pv?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The type property
      */
-    type?: UntypedNode;
+    type?: UntypedNode | null;
 }
 /**
  * Provides operations to call the nper method.
@@ -84,13 +86,16 @@ export interface NperRequestBuilder extends BaseRequestBuilder<NperRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNperPostRequestBody(writer: SerializationWriter, nperPostRequestBody: Partial<NperPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("fv", nperPostRequestBody.fv);
-    writer.writeObjectValue("pmt", nperPostRequestBody.pmt);
-    writer.writeObjectValue("pv", nperPostRequestBody.pv);
-    writer.writeObjectValue("rate", nperPostRequestBody.rate);
-    writer.writeObjectValue("type", nperPostRequestBody.type);
-    writer.writeAdditionalData(nperPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeNperPostRequestBody(writer: SerializationWriter, nperPostRequestBody: Partial<NperPostRequestBody> | undefined | null = {}) : void {
+    if (nperPostRequestBody) {
+        writer.writeObjectValue("fv", nperPostRequestBody.fv);
+        writer.writeObjectValue("pmt", nperPostRequestBody.pmt);
+        writer.writeObjectValue("pv", nperPostRequestBody.pv);
+        writer.writeObjectValue("rate", nperPostRequestBody.rate);
+        writer.writeObjectValue("type", nperPostRequestBody.type);
+        writer.writeAdditionalData(nperPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

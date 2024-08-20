@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SumIfPostRequestBody}
  */
+// @ts-ignore
 export function createSumIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSumIfPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSumIfPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSumIfPostRequestBody(sumIfPostRequestBody: Partial<SumIfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sumIfPostRequestBody.backingStoreEnabled = true; },
@@ -32,11 +34,14 @@ export function deserializeIntoSumIfPostRequestBody(sumIfPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSumIfPostRequestBody(writer: SerializationWriter, sumIfPostRequestBody: Partial<SumIfPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("criteria", sumIfPostRequestBody.criteria);
-    writer.writeObjectValue("range", sumIfPostRequestBody.range);
-    writer.writeObjectValue("sumRange", sumIfPostRequestBody.sumRange);
-    writer.writeAdditionalData(sumIfPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSumIfPostRequestBody(writer: SerializationWriter, sumIfPostRequestBody: Partial<SumIfPostRequestBody> | undefined | null = {}) : void {
+    if (sumIfPostRequestBody) {
+        writer.writeObjectValue("criteria", sumIfPostRequestBody.criteria);
+        writer.writeObjectValue("range", sumIfPostRequestBody.range);
+        writer.writeObjectValue("sumRange", sumIfPostRequestBody.sumRange);
+        writer.writeAdditionalData(sumIfPostRequestBody.additionalData);
+    }
 }
 export interface SumIfPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -46,19 +51,19 @@ export interface SumIfPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The range property
      */
-    range?: UntypedNode;
+    range?: UntypedNode | null;
     /**
      * The sumRange property
      */
-    sumRange?: UntypedNode;
+    sumRange?: UntypedNode | null;
 }
 /**
  * Provides operations to call the sumIf method.

@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MutePostRequestBody}
  */
+// @ts-ignore
 export function createMutePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMutePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMutePostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMutePostRequestBody(mutePostRequestBody: Partial<MutePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { mutePostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface MutePostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The clientContext property
      */
-    clientContext?: string;
+    clientContext?: string | null;
 }
 /**
  * Provides operations to call the mute method.
@@ -65,9 +67,12 @@ export interface MuteRequestBuilder extends BaseRequestBuilder<MuteRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMutePostRequestBody(writer: SerializationWriter, mutePostRequestBody: Partial<MutePostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("clientContext", mutePostRequestBody.clientContext);
-    writer.writeAdditionalData(mutePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMutePostRequestBody(writer: SerializationWriter, mutePostRequestBody: Partial<MutePostRequestBody> | undefined | null = {}) : void {
+    if (mutePostRequestBody) {
+        writer.writeStringValue("clientContext", mutePostRequestBody.clientContext);
+        writer.writeAdditionalData(mutePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

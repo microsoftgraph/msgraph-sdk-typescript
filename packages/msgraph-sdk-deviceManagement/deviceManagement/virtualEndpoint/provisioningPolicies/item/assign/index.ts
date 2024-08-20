@@ -16,11 +16,11 @@ export interface AssignPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * The assignments property
      */
-    assignments?: CloudPcProvisioningPolicyAssignment[];
+    assignments?: CloudPcProvisioningPolicyAssignment[] | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
 }
 /**
  * Provides operations to call the assign method.
@@ -47,6 +47,7 @@ export interface AssignRequestBuilder extends BaseRequestBuilder<AssignRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AssignPostRequestBody}
  */
+// @ts-ignore
 export function createAssignPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssignPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createAssignPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Partial<AssignPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "assignments": n => { assignPostRequestBody.assignments = n.getCollectionOfObjectValues<CloudPcProvisioningPolicyAssignment>(createCloudPcProvisioningPolicyAssignmentFromDiscriminatorValue); },
@@ -64,9 +66,12 @@ export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: Partial<AssignPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfObjectValues<CloudPcProvisioningPolicyAssignment>("assignments", assignPostRequestBody.assignments, serializeCloudPcProvisioningPolicyAssignment);
-    writer.writeAdditionalData(assignPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: Partial<AssignPostRequestBody> | undefined | null = {}) : void {
+    if (assignPostRequestBody) {
+        writer.writeCollectionOfObjectValues<CloudPcProvisioningPolicyAssignment>("assignments", assignPostRequestBody.assignments, serializeCloudPcProvisioningPolicyAssignment);
+        writer.writeAdditionalData(assignPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

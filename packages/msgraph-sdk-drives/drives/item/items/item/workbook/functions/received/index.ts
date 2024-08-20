@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ReceivedPostRequestBody}
  */
+// @ts-ignore
 export function createReceivedPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReceivedPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createReceivedPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoReceivedPostRequestBody(receivedPostRequestBody: Partial<ReceivedPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { receivedPostRequestBody.backingStoreEnabled = true; },
@@ -38,27 +40,27 @@ export interface ReceivedPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The discount property
      */
-    discount?: UntypedNode;
+    discount?: UntypedNode | null;
     /**
      * The investment property
      */
-    investment?: UntypedNode;
+    investment?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the received method.
@@ -84,13 +86,16 @@ export interface ReceivedRequestBuilder extends BaseRequestBuilder<ReceivedReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReceivedPostRequestBody(writer: SerializationWriter, receivedPostRequestBody: Partial<ReceivedPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", receivedPostRequestBody.basis);
-    writer.writeObjectValue("discount", receivedPostRequestBody.discount);
-    writer.writeObjectValue("investment", receivedPostRequestBody.investment);
-    writer.writeObjectValue("maturity", receivedPostRequestBody.maturity);
-    writer.writeObjectValue("settlement", receivedPostRequestBody.settlement);
-    writer.writeAdditionalData(receivedPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeReceivedPostRequestBody(writer: SerializationWriter, receivedPostRequestBody: Partial<ReceivedPostRequestBody> | undefined | null = {}) : void {
+    if (receivedPostRequestBody) {
+        writer.writeObjectValue("basis", receivedPostRequestBody.basis);
+        writer.writeObjectValue("discount", receivedPostRequestBody.discount);
+        writer.writeObjectValue("investment", receivedPostRequestBody.investment);
+        writer.writeObjectValue("maturity", receivedPostRequestBody.maturity);
+        writer.writeObjectValue("settlement", receivedPostRequestBody.settlement);
+        writer.writeAdditionalData(receivedPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.
