@@ -12,7 +12,7 @@ export interface AvailableProviderTypesGetResponse extends BaseCollectionPaginat
     /**
      * The value property
      */
-    value?: string[];
+    value?: string[] | null;
 }
 /**
  * Provides operations to call the availableProviderTypes method.
@@ -63,6 +63,7 @@ export interface AvailableProviderTypesRequestBuilderGetQueryParameters {
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AvailableProviderTypesGetResponse}
  */
+// @ts-ignore
 export function createAvailableProviderTypesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAvailableProviderTypesGetResponse;
 }
@@ -70,6 +71,7 @@ export function createAvailableProviderTypesGetResponseFromDiscriminatorValue(pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAvailableProviderTypesGetResponse(availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(availableProviderTypesGetResponse),
@@ -80,9 +82,12 @@ export function deserializeIntoAvailableProviderTypesGetResponse(availableProvid
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAvailableProviderTypesGetResponse(writer: SerializationWriter, availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesGetResponse)
-    writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesGetResponse.value);
+// @ts-ignore
+export function serializeAvailableProviderTypesGetResponse(writer: SerializationWriter, availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined | null = {}) : void {
+    if (availableProviderTypesGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesGetResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesGetResponse.value);
+    }
 }
 /**
  * Uri template for the request builder.

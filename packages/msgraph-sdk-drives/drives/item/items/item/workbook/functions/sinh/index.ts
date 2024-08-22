@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SinhPostRequestBody}
  */
+// @ts-ignore
 export function createSinhPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSinhPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSinhPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSinhPostRequestBody(sinhPostRequestBody: Partial<SinhPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sinhPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoSinhPostRequestBody(sinhPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSinhPostRequestBody(writer: SerializationWriter, sinhPostRequestBody: Partial<SinhPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", sinhPostRequestBody.number);
-    writer.writeAdditionalData(sinhPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSinhPostRequestBody(writer: SerializationWriter, sinhPostRequestBody: Partial<SinhPostRequestBody> | undefined | null = {}) : void {
+    if (sinhPostRequestBody) {
+        writer.writeObjectValue("number", sinhPostRequestBody.number);
+        writer.writeAdditionalData(sinhPostRequestBody.additionalData);
+    }
 }
 export interface SinhPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface SinhPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the sinh method.

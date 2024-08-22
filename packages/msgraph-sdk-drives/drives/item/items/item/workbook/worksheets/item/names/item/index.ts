@@ -6,7 +6,7 @@ import { createWorkbookNamedItemFromDiscriminatorValue, serializeWorkbookNamedIt
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { RangeRequestBuilderRequestsMetadata, type RangeRequestBuilder } from './range/index.js';
+import { RangeRequestBuilderNavigationMetadata, RangeRequestBuilderRequestsMetadata, type RangeRequestBuilder } from './range/index.js';
 // @ts-ignore
 import { type WorksheetRequestBuilder, WorksheetRequestBuilderRequestsMetadata } from './worksheet/index.js';
 // @ts-ignore
@@ -31,7 +31,7 @@ export interface WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder<
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Returns collection of names that are associated with the worksheet. Read-only.
+     * The list of names that are associated with the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookNamedItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder<
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Returns collection of names that are associated with the worksheet. Read-only.
+     * The list of names that are associated with the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: WorkbookNamedItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Returns collection of names that are associated with the worksheet. Read-only.
+ * The list of names that are associated with the worksheet. Read-only.
  */
 export interface WorkbookNamedItemItemRequestBuilderGetQueryParameters {
     /**
@@ -95,6 +95,7 @@ const WorkbookNamedItemItemRequestBuilderGetQueryParametersMapper: Record<string
 export const WorkbookNamedItemItemRequestBuilderNavigationMetadata: Record<Exclude<keyof WorkbookNamedItemItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     range: {
         requestsMetadata: RangeRequestBuilderRequestsMetadata,
+        navigationMetadata: RangeRequestBuilderNavigationMetadata,
     },
     worksheet: {
         requestsMetadata: WorksheetRequestBuilderRequestsMetadata,

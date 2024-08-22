@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SecPostRequestBody}
  */
+// @ts-ignore
 export function createSecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSecPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSecPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSecPostRequestBody(secPostRequestBody: Partial<SecPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { secPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface SecPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the sec method.
@@ -64,9 +66,12 @@ export interface SecRequestBuilder extends BaseRequestBuilder<SecRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSecPostRequestBody(writer: SerializationWriter, secPostRequestBody: Partial<SecPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", secPostRequestBody.number);
-    writer.writeAdditionalData(secPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSecPostRequestBody(writer: SerializationWriter, secPostRequestBody: Partial<SecPostRequestBody> | undefined | null = {}) : void {
+    if (secPostRequestBody) {
+        writer.writeObjectValue("number", secPostRequestBody.number);
+        writer.writeAdditionalData(secPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

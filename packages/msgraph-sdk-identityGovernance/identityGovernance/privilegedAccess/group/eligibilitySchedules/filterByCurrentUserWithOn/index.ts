@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FilterByCurrentUserWithOnGetResponse}
  */
+// @ts-ignore
 export function createFilterByCurrentUserWithOnGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFilterByCurrentUserWithOnGetResponse;
 }
@@ -20,6 +21,7 @@ export function createFilterByCurrentUserWithOnGetResponseFromDiscriminatorValue
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFilterByCurrentUserWithOnGetResponse(filterByCurrentUserWithOnGetResponse: Partial<FilterByCurrentUserWithOnGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(filterByCurrentUserWithOnGetResponse),
@@ -30,7 +32,7 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
     /**
      * The value property
      */
-    value?: PrivilegedAccessGroupEligibilitySchedule[];
+    value?: PrivilegedAccessGroupEligibilitySchedule[] | null;
 }
 /**
  * Provides operations to call the filterByCurrentUser method.
@@ -92,9 +94,12 @@ export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: Partial<FilterByCurrentUserWithOnGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
-    writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilitySchedule>("value", filterByCurrentUserWithOnGetResponse.value, serializePrivilegedAccessGroupEligibilitySchedule);
+// @ts-ignore
+export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: Partial<FilterByCurrentUserWithOnGetResponse> | undefined | null = {}) : void {
+    if (filterByCurrentUserWithOnGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
+        writer.writeCollectionOfObjectValues<PrivilegedAccessGroupEligibilitySchedule>("value", filterByCurrentUserWithOnGetResponse.value, serializePrivilegedAccessGroupEligibilitySchedule);
+    }
 }
 /**
  * Uri template for the request builder.

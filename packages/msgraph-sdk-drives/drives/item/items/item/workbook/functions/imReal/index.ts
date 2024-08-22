@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImRealPostRequestBody}
  */
+// @ts-ignore
 export function createImRealPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImRealPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImRealPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImRealPostRequestBody(imRealPostRequestBody: Partial<ImRealPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imRealPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImRealPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imReal method.
@@ -64,9 +66,12 @@ export interface ImRealRequestBuilder extends BaseRequestBuilder<ImRealRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImRealPostRequestBody(writer: SerializationWriter, imRealPostRequestBody: Partial<ImRealPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imRealPostRequestBody.inumber);
-    writer.writeAdditionalData(imRealPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImRealPostRequestBody(writer: SerializationWriter, imRealPostRequestBody: Partial<ImRealPostRequestBody> | undefined | null = {}) : void {
+    if (imRealPostRequestBody) {
+        writer.writeObjectValue("inumber", imRealPostRequestBody.inumber);
+        writer.writeAdditionalData(imRealPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

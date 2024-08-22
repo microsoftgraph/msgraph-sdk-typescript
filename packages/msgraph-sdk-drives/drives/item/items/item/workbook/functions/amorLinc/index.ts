@@ -16,35 +16,35 @@ export interface AmorLincPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The cost property
      */
-    cost?: UntypedNode;
+    cost?: UntypedNode | null;
     /**
      * The datePurchased property
      */
-    datePurchased?: UntypedNode;
+    datePurchased?: UntypedNode | null;
     /**
      * The firstPeriod property
      */
-    firstPeriod?: UntypedNode;
+    firstPeriod?: UntypedNode | null;
     /**
      * The period property
      */
-    period?: UntypedNode;
+    period?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The salvage property
      */
-    salvage?: UntypedNode;
+    salvage?: UntypedNode | null;
 }
 /**
  * Provides operations to call the amorLinc method.
@@ -71,6 +71,7 @@ export interface AmorLincRequestBuilder extends BaseRequestBuilder<AmorLincReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AmorLincPostRequestBody}
  */
+// @ts-ignore
 export function createAmorLincPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAmorLincPostRequestBody;
 }
@@ -78,6 +79,7 @@ export function createAmorLincPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAmorLincPostRequestBody(amorLincPostRequestBody: Partial<AmorLincPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { amorLincPostRequestBody.backingStoreEnabled = true; },
@@ -94,15 +96,18 @@ export function deserializeIntoAmorLincPostRequestBody(amorLincPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAmorLincPostRequestBody(writer: SerializationWriter, amorLincPostRequestBody: Partial<AmorLincPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", amorLincPostRequestBody.basis);
-    writer.writeObjectValue("cost", amorLincPostRequestBody.cost);
-    writer.writeObjectValue("datePurchased", amorLincPostRequestBody.datePurchased);
-    writer.writeObjectValue("firstPeriod", amorLincPostRequestBody.firstPeriod);
-    writer.writeObjectValue("period", amorLincPostRequestBody.period);
-    writer.writeObjectValue("rate", amorLincPostRequestBody.rate);
-    writer.writeObjectValue("salvage", amorLincPostRequestBody.salvage);
-    writer.writeAdditionalData(amorLincPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAmorLincPostRequestBody(writer: SerializationWriter, amorLincPostRequestBody: Partial<AmorLincPostRequestBody> | undefined | null = {}) : void {
+    if (amorLincPostRequestBody) {
+        writer.writeObjectValue("basis", amorLincPostRequestBody.basis);
+        writer.writeObjectValue("cost", amorLincPostRequestBody.cost);
+        writer.writeObjectValue("datePurchased", amorLincPostRequestBody.datePurchased);
+        writer.writeObjectValue("firstPeriod", amorLincPostRequestBody.firstPeriod);
+        writer.writeObjectValue("period", amorLincPostRequestBody.period);
+        writer.writeObjectValue("rate", amorLincPostRequestBody.rate);
+        writer.writeObjectValue("salvage", amorLincPostRequestBody.salvage);
+        writer.writeAdditionalData(amorLincPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

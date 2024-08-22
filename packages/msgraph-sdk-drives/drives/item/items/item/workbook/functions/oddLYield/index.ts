@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {OddLYieldPostRequestBody}
  */
+// @ts-ignore
 export function createOddLYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOddLYieldPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOddLYieldPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOddLYieldPostRequestBody(oddLYieldPostRequestBody: Partial<OddLYieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oddLYieldPostRequestBody.backingStoreEnabled = true; },
@@ -41,39 +43,39 @@ export interface OddLYieldPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The lastInterest property
      */
-    lastInterest?: UntypedNode;
+    lastInterest?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The pr property
      */
-    pr?: UntypedNode;
+    pr?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The redemption property
      */
-    redemption?: UntypedNode;
+    redemption?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the oddLYield method.
@@ -99,16 +101,19 @@ export interface OddLYieldRequestBuilder extends BaseRequestBuilder<OddLYieldReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOddLYieldPostRequestBody(writer: SerializationWriter, oddLYieldPostRequestBody: Partial<OddLYieldPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", oddLYieldPostRequestBody.basis);
-    writer.writeObjectValue("frequency", oddLYieldPostRequestBody.frequency);
-    writer.writeObjectValue("lastInterest", oddLYieldPostRequestBody.lastInterest);
-    writer.writeObjectValue("maturity", oddLYieldPostRequestBody.maturity);
-    writer.writeObjectValue("pr", oddLYieldPostRequestBody.pr);
-    writer.writeObjectValue("rate", oddLYieldPostRequestBody.rate);
-    writer.writeObjectValue("redemption", oddLYieldPostRequestBody.redemption);
-    writer.writeObjectValue("settlement", oddLYieldPostRequestBody.settlement);
-    writer.writeAdditionalData(oddLYieldPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeOddLYieldPostRequestBody(writer: SerializationWriter, oddLYieldPostRequestBody: Partial<OddLYieldPostRequestBody> | undefined | null = {}) : void {
+    if (oddLYieldPostRequestBody) {
+        writer.writeObjectValue("basis", oddLYieldPostRequestBody.basis);
+        writer.writeObjectValue("frequency", oddLYieldPostRequestBody.frequency);
+        writer.writeObjectValue("lastInterest", oddLYieldPostRequestBody.lastInterest);
+        writer.writeObjectValue("maturity", oddLYieldPostRequestBody.maturity);
+        writer.writeObjectValue("pr", oddLYieldPostRequestBody.pr);
+        writer.writeObjectValue("rate", oddLYieldPostRequestBody.rate);
+        writer.writeObjectValue("redemption", oddLYieldPostRequestBody.redemption);
+        writer.writeObjectValue("settlement", oddLYieldPostRequestBody.settlement);
+        writer.writeAdditionalData(oddLYieldPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

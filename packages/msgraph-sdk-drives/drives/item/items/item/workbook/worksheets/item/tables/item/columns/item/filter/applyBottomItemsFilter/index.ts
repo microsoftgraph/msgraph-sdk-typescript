@@ -14,11 +14,11 @@ export interface ApplyBottomItemsFilterPostRequestBody extends AdditionalDataHol
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The count property
      */
-    count?: number;
+    count?: number | null;
 }
 /**
  * Provides operations to call the applyBottomItemsFilter method.
@@ -44,6 +44,7 @@ export interface ApplyBottomItemsFilterRequestBuilder extends BaseRequestBuilder
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyBottomItemsFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyBottomItemsFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyBottomItemsFilterPostRequestBody;
 }
@@ -51,6 +52,7 @@ export function createApplyBottomItemsFilterPostRequestBodyFromDiscriminatorValu
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyBottomItemsFilterPostRequestBody(applyBottomItemsFilterPostRequestBody: Partial<ApplyBottomItemsFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyBottomItemsFilterPostRequestBody.backingStoreEnabled = true; },
@@ -61,9 +63,12 @@ export function deserializeIntoApplyBottomItemsFilterPostRequestBody(applyBottom
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyBottomItemsFilterPostRequestBody(writer: SerializationWriter, applyBottomItemsFilterPostRequestBody: Partial<ApplyBottomItemsFilterPostRequestBody> | undefined = {}) : void {
-    writer.writeNumberValue("count", applyBottomItemsFilterPostRequestBody.count);
-    writer.writeAdditionalData(applyBottomItemsFilterPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeApplyBottomItemsFilterPostRequestBody(writer: SerializationWriter, applyBottomItemsFilterPostRequestBody: Partial<ApplyBottomItemsFilterPostRequestBody> | undefined | null = {}) : void {
+    if (applyBottomItemsFilterPostRequestBody) {
+        writer.writeNumberValue("count", applyBottomItemsFilterPostRequestBody.count);
+        writer.writeAdditionalData(applyBottomItemsFilterPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

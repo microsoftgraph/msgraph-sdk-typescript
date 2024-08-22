@@ -57,7 +57,7 @@ export interface OwnersRequestBuilder extends BaseRequestBuilder<OwnersRequestBu
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Retrieve a list of owners for an application that are directoryObject objects.
+     * Retrieve a list of owners for an application that are directoryObject types.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -65,14 +65,14 @@ export interface OwnersRequestBuilder extends BaseRequestBuilder<OwnersRequestBu
      */
      get(requestConfiguration?: RequestConfiguration<OwnersRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Retrieve a list of owners for an application that are directoryObject objects.
+     * Retrieve a list of owners for an application that are directoryObject types.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OwnersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of owners for an application that are directoryObject objects.
+ * Retrieve a list of owners for an application that are directoryObject types.
  */
 export interface OwnersRequestBuilderGetQueryParameters {
     /**

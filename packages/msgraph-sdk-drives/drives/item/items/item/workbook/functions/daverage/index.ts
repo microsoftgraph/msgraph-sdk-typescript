@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DaveragePostRequestBody}
  */
+// @ts-ignore
 export function createDaveragePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDaveragePostRequestBody;
 }
@@ -24,19 +25,19 @@ export interface DaveragePostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The database property
      */
-    database?: UntypedNode;
+    database?: UntypedNode | null;
     /**
      * The field property
      */
-    field?: UntypedNode;
+    field?: UntypedNode | null;
 }
 /**
  * Provides operations to call the daverage method.
@@ -62,6 +63,7 @@ export interface DaverageRequestBuilder extends BaseRequestBuilder<DaverageReque
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDaveragePostRequestBody(daveragePostRequestBody: Partial<DaveragePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { daveragePostRequestBody.backingStoreEnabled = true; },
@@ -74,11 +76,14 @@ export function deserializeIntoDaveragePostRequestBody(daveragePostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDaveragePostRequestBody(writer: SerializationWriter, daveragePostRequestBody: Partial<DaveragePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("criteria", daveragePostRequestBody.criteria);
-    writer.writeObjectValue("database", daveragePostRequestBody.database);
-    writer.writeObjectValue("field", daveragePostRequestBody.field);
-    writer.writeAdditionalData(daveragePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDaveragePostRequestBody(writer: SerializationWriter, daveragePostRequestBody: Partial<DaveragePostRequestBody> | undefined | null = {}) : void {
+    if (daveragePostRequestBody) {
+        writer.writeObjectValue("criteria", daveragePostRequestBody.criteria);
+        writer.writeObjectValue("database", daveragePostRequestBody.database);
+        writer.writeObjectValue("field", daveragePostRequestBody.field);
+        writer.writeAdditionalData(daveragePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

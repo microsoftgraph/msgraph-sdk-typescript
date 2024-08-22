@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Norm_InvPostRequestBody}
  */
+// @ts-ignore
 export function createNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNorm_InvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNorm_InvPostRequestBody(norm_InvPostRequestBody: Partial<Norm_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { norm_InvPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface Norm_InvPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The mean property
      */
-    mean?: UntypedNode;
+    mean?: UntypedNode | null;
     /**
      * The probability property
      */
-    probability?: UntypedNode;
+    probability?: UntypedNode | null;
     /**
      * The standardDev property
      */
-    standardDev?: UntypedNode;
+    standardDev?: UntypedNode | null;
 }
 /**
  * Provides operations to call the norm_Inv method.
@@ -74,11 +76,14 @@ export interface Norm_InvRequestBuilder extends BaseRequestBuilder<Norm_InvReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNorm_InvPostRequestBody(writer: SerializationWriter, norm_InvPostRequestBody: Partial<Norm_InvPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("mean", norm_InvPostRequestBody.mean);
-    writer.writeObjectValue("probability", norm_InvPostRequestBody.probability);
-    writer.writeObjectValue("standardDev", norm_InvPostRequestBody.standardDev);
-    writer.writeAdditionalData(norm_InvPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeNorm_InvPostRequestBody(writer: SerializationWriter, norm_InvPostRequestBody: Partial<Norm_InvPostRequestBody> | undefined | null = {}) : void {
+    if (norm_InvPostRequestBody) {
+        writer.writeObjectValue("mean", norm_InvPostRequestBody.mean);
+        writer.writeObjectValue("probability", norm_InvPostRequestBody.probability);
+        writer.writeObjectValue("standardDev", norm_InvPostRequestBody.standardDev);
+        writer.writeAdditionalData(norm_InvPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

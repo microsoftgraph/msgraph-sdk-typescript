@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IfPostRequestBody}
  */
+// @ts-ignore
 export function createIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIfPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIfPostRequestBody(ifPostRequestBody: Partial<IfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ifPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface IfPostRequestBody extends AdditionalDataHolder, BackedModel, Pa
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The logicalTest property
      */
-    logicalTest?: UntypedNode;
+    logicalTest?: UntypedNode | null;
     /**
      * The valueIfFalse property
      */
-    valueIfFalse?: UntypedNode;
+    valueIfFalse?: UntypedNode | null;
     /**
      * The valueIfTrue property
      */
-    valueIfTrue?: UntypedNode;
+    valueIfTrue?: UntypedNode | null;
 }
 /**
  * Provides operations to call the if method.
@@ -74,11 +76,14 @@ export interface IfRequestBuilder extends BaseRequestBuilder<IfRequestBuilder> {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIfPostRequestBody(writer: SerializationWriter, ifPostRequestBody: Partial<IfPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("logicalTest", ifPostRequestBody.logicalTest);
-    writer.writeObjectValue("valueIfFalse", ifPostRequestBody.valueIfFalse);
-    writer.writeObjectValue("valueIfTrue", ifPostRequestBody.valueIfTrue);
-    writer.writeAdditionalData(ifPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeIfPostRequestBody(writer: SerializationWriter, ifPostRequestBody: Partial<IfPostRequestBody> | undefined | null = {}) : void {
+    if (ifPostRequestBody) {
+        writer.writeObjectValue("logicalTest", ifPostRequestBody.logicalTest);
+        writer.writeObjectValue("valueIfFalse", ifPostRequestBody.valueIfFalse);
+        writer.writeObjectValue("valueIfTrue", ifPostRequestBody.valueIfTrue);
+        writer.writeAdditionalData(ifPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {KurtPostRequestBody}
  */
+// @ts-ignore
 export function createKurtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoKurtPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createKurtPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoKurtPostRequestBody(kurtPostRequestBody: Partial<KurtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { kurtPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface KurtPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the kurt method.
@@ -64,9 +66,12 @@ export interface KurtRequestBuilder extends BaseRequestBuilder<KurtRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeKurtPostRequestBody(writer: SerializationWriter, kurtPostRequestBody: Partial<KurtPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", kurtPostRequestBody.values);
-    writer.writeAdditionalData(kurtPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeKurtPostRequestBody(writer: SerializationWriter, kurtPostRequestBody: Partial<KurtPostRequestBody> | undefined | null = {}) : void {
+    if (kurtPostRequestBody) {
+        writer.writeObjectValue("values", kurtPostRequestBody.values);
+        writer.writeAdditionalData(kurtPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

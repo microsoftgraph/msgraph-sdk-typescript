@@ -16,19 +16,19 @@ export interface AddKeyPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The keyCredential property
      */
-    keyCredential?: KeyCredential;
+    keyCredential?: KeyCredential | null;
     /**
      * The passwordCredential property
      */
-    passwordCredential?: PasswordCredential;
+    passwordCredential?: PasswordCredential | null;
     /**
      * The proof property
      */
-    proof?: string;
+    proof?: string | null;
 }
 /**
  * Provides operations to call the addKey method.
@@ -56,6 +56,7 @@ export interface AddKeyRequestBuilder extends BaseRequestBuilder<AddKeyRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddKeyPostRequestBody}
  */
+// @ts-ignore
 export function createAddKeyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddKeyPostRequestBody;
 }
@@ -63,6 +64,7 @@ export function createAddKeyPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addKeyPostRequestBody.backingStoreEnabled = true; },
@@ -75,11 +77,14 @@ export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
-    writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);
-    writer.writeStringValue("proof", addKeyPostRequestBody.proof);
-    writer.writeAdditionalData(addKeyPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined | null = {}) : void {
+    if (addKeyPostRequestBody) {
+        writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
+        writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);
+        writer.writeStringValue("proof", addKeyPostRequestBody.proof);
+        writer.writeAdditionalData(addKeyPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

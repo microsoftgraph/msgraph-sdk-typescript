@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DaysPostRequestBody}
  */
+// @ts-ignore
 export function createDaysPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDaysPostRequestBody;
 }
@@ -24,15 +25,15 @@ export interface DaysPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The endDate property
      */
-    endDate?: UntypedNode;
+    endDate?: UntypedNode | null;
     /**
      * The startDate property
      */
-    startDate?: UntypedNode;
+    startDate?: UntypedNode | null;
 }
 /**
  * Provides operations to call the days method.
@@ -58,6 +59,7 @@ export interface DaysRequestBuilder extends BaseRequestBuilder<DaysRequestBuilde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDaysPostRequestBody(daysPostRequestBody: Partial<DaysPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { daysPostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoDaysPostRequestBody(daysPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDaysPostRequestBody(writer: SerializationWriter, daysPostRequestBody: Partial<DaysPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("endDate", daysPostRequestBody.endDate);
-    writer.writeObjectValue("startDate", daysPostRequestBody.startDate);
-    writer.writeAdditionalData(daysPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDaysPostRequestBody(writer: SerializationWriter, daysPostRequestBody: Partial<DaysPostRequestBody> | undefined | null = {}) : void {
+    if (daysPostRequestBody) {
+        writer.writeObjectValue("endDate", daysPostRequestBody.endDate);
+        writer.writeObjectValue("startDate", daysPostRequestBody.startDate);
+        writer.writeAdditionalData(daysPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

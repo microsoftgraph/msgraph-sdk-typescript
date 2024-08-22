@@ -14,15 +14,15 @@ export interface AssociateWithHubSitesPostRequestBody extends AdditionalDataHold
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The hubSiteUrls property
      */
-    hubSiteUrls?: string[];
+    hubSiteUrls?: string[] | null;
     /**
      * The propagateToExistingLists property
      */
-    propagateToExistingLists?: boolean;
+    propagateToExistingLists?: boolean | null;
 }
 /**
  * Provides operations to call the associateWithHubSites method.
@@ -49,6 +49,7 @@ export interface AssociateWithHubSitesRequestBuilder extends BaseRequestBuilder<
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AssociateWithHubSitesPostRequestBody}
  */
+// @ts-ignore
 export function createAssociateWithHubSitesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAssociateWithHubSitesPostRequestBody;
 }
@@ -56,6 +57,7 @@ export function createAssociateWithHubSitesPostRequestBodyFromDiscriminatorValue
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAssociateWithHubSitesPostRequestBody(associateWithHubSitesPostRequestBody: Partial<AssociateWithHubSitesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { associateWithHubSitesPostRequestBody.backingStoreEnabled = true; },
@@ -67,10 +69,13 @@ export function deserializeIntoAssociateWithHubSitesPostRequestBody(associateWit
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAssociateWithHubSitesPostRequestBody(writer: SerializationWriter, associateWithHubSitesPostRequestBody: Partial<AssociateWithHubSitesPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("hubSiteUrls", associateWithHubSitesPostRequestBody.hubSiteUrls);
-    writer.writeBooleanValue("propagateToExistingLists", associateWithHubSitesPostRequestBody.propagateToExistingLists);
-    writer.writeAdditionalData(associateWithHubSitesPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAssociateWithHubSitesPostRequestBody(writer: SerializationWriter, associateWithHubSitesPostRequestBody: Partial<AssociateWithHubSitesPostRequestBody> | undefined | null = {}) : void {
+    if (associateWithHubSitesPostRequestBody) {
+        writer.writeCollectionOfPrimitiveValues<string>("hubSiteUrls", associateWithHubSitesPostRequestBody.hubSiteUrls);
+        writer.writeBooleanValue("propagateToExistingLists", associateWithHubSitesPostRequestBody.propagateToExistingLists);
+        writer.writeAdditionalData(associateWithHubSitesPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

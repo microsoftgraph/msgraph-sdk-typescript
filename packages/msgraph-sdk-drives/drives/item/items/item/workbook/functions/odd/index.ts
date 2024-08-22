@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {OddPostRequestBody}
  */
+// @ts-ignore
 export function createOddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOddPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOddPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOddPostRequestBody(oddPostRequestBody: Partial<OddPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oddPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface OddPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the odd method.
@@ -64,9 +66,12 @@ export interface OddRequestBuilder extends BaseRequestBuilder<OddRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOddPostRequestBody(writer: SerializationWriter, oddPostRequestBody: Partial<OddPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", oddPostRequestBody.number);
-    writer.writeAdditionalData(oddPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeOddPostRequestBody(writer: SerializationWriter, oddPostRequestBody: Partial<OddPostRequestBody> | undefined | null = {}) : void {
+    if (oddPostRequestBody) {
+        writer.writeObjectValue("number", oddPostRequestBody.number);
+        writer.writeAdditionalData(oddPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

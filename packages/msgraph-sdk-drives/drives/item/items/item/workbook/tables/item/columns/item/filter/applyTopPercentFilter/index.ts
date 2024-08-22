@@ -14,11 +14,11 @@ export interface ApplyTopPercentFilterPostRequestBody extends AdditionalDataHold
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The percent property
      */
-    percent?: number;
+    percent?: number | null;
 }
 /**
  * Provides operations to call the applyTopPercentFilter method.
@@ -44,6 +44,7 @@ export interface ApplyTopPercentFilterRequestBuilder extends BaseRequestBuilder<
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ApplyTopPercentFilterPostRequestBody}
  */
+// @ts-ignore
 export function createApplyTopPercentFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoApplyTopPercentFilterPostRequestBody;
 }
@@ -51,6 +52,7 @@ export function createApplyTopPercentFilterPostRequestBodyFromDiscriminatorValue
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoApplyTopPercentFilterPostRequestBody(applyTopPercentFilterPostRequestBody: Partial<ApplyTopPercentFilterPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyTopPercentFilterPostRequestBody.backingStoreEnabled = true; },
@@ -61,9 +63,12 @@ export function deserializeIntoApplyTopPercentFilterPostRequestBody(applyTopPerc
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeApplyTopPercentFilterPostRequestBody(writer: SerializationWriter, applyTopPercentFilterPostRequestBody: Partial<ApplyTopPercentFilterPostRequestBody> | undefined = {}) : void {
-    writer.writeNumberValue("percent", applyTopPercentFilterPostRequestBody.percent);
-    writer.writeAdditionalData(applyTopPercentFilterPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeApplyTopPercentFilterPostRequestBody(writer: SerializationWriter, applyTopPercentFilterPostRequestBody: Partial<ApplyTopPercentFilterPostRequestBody> | undefined | null = {}) : void {
+    if (applyTopPercentFilterPostRequestBody) {
+        writer.writeNumberValue("percent", applyTopPercentFilterPostRequestBody.percent);
+        writer.writeAdditionalData(applyTopPercentFilterPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

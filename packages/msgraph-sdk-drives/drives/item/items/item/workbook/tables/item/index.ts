@@ -12,11 +12,11 @@ import { ColumnsRequestBuilderNavigationMetadata, ColumnsRequestBuilderRequestsM
 // @ts-ignore
 import { ConvertToRangeRequestBuilderRequestsMetadata, type ConvertToRangeRequestBuilder } from './convertToRange/index.js';
 // @ts-ignore
-import { DataBodyRangeRequestBuilderRequestsMetadata, type DataBodyRangeRequestBuilder } from './dataBodyRange/index.js';
+import { DataBodyRangeRequestBuilderNavigationMetadata, DataBodyRangeRequestBuilderRequestsMetadata, type DataBodyRangeRequestBuilder } from './dataBodyRange/index.js';
 // @ts-ignore
-import { HeaderRowRangeRequestBuilderRequestsMetadata, type HeaderRowRangeRequestBuilder } from './headerRowRange/index.js';
+import { HeaderRowRangeRequestBuilderNavigationMetadata, HeaderRowRangeRequestBuilderRequestsMetadata, type HeaderRowRangeRequestBuilder } from './headerRowRange/index.js';
 // @ts-ignore
-import { RangeRequestBuilderRequestsMetadata, type RangeRequestBuilder } from './range/index.js';
+import { RangeRequestBuilderNavigationMetadata, RangeRequestBuilderRequestsMetadata, type RangeRequestBuilder } from './range/index.js';
 // @ts-ignore
 import { ReapplyFiltersRequestBuilderRequestsMetadata, type ReapplyFiltersRequestBuilder } from './reapplyFilters/index.js';
 // @ts-ignore
@@ -24,7 +24,7 @@ import { RowsRequestBuilderNavigationMetadata, RowsRequestBuilderRequestsMetadat
 // @ts-ignore
 import { SortRequestBuilderNavigationMetadata, SortRequestBuilderRequestsMetadata, type SortRequestBuilder } from './sort/index.js';
 // @ts-ignore
-import { TotalRowRangeRequestBuilderRequestsMetadata, type TotalRowRangeRequestBuilder } from './totalRowRange/index.js';
+import { TotalRowRangeRequestBuilderNavigationMetadata, TotalRowRangeRequestBuilderRequestsMetadata, type TotalRowRangeRequestBuilder } from './totalRowRange/index.js';
 // @ts-ignore
 import { type WorksheetRequestBuilder, WorksheetRequestBuilderRequestsMetadata } from './worksheet/index.js';
 // @ts-ignore
@@ -159,12 +159,15 @@ export const WorkbookTableItemRequestBuilderNavigationMetadata: Record<Exclude<k
     },
     dataBodyRange: {
         requestsMetadata: DataBodyRangeRequestBuilderRequestsMetadata,
+        navigationMetadata: DataBodyRangeRequestBuilderNavigationMetadata,
     },
     headerRowRange: {
         requestsMetadata: HeaderRowRangeRequestBuilderRequestsMetadata,
+        navigationMetadata: HeaderRowRangeRequestBuilderNavigationMetadata,
     },
     range: {
         requestsMetadata: RangeRequestBuilderRequestsMetadata,
+        navigationMetadata: RangeRequestBuilderNavigationMetadata,
     },
     reapplyFilters: {
         requestsMetadata: ReapplyFiltersRequestBuilderRequestsMetadata,
@@ -179,6 +182,7 @@ export const WorkbookTableItemRequestBuilderNavigationMetadata: Record<Exclude<k
     },
     totalRowRange: {
         requestsMetadata: TotalRowRangeRequestBuilderRequestsMetadata,
+        navigationMetadata: TotalRowRangeRequestBuilderNavigationMetadata,
     },
     worksheet: {
         requestsMetadata: WorksheetRequestBuilderRequestsMetadata,

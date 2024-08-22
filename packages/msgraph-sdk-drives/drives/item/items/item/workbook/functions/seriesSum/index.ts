@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SeriesSumPostRequestBody}
  */
+// @ts-ignore
 export function createSeriesSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSeriesSumPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSeriesSumPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSeriesSumPostRequestBody(seriesSumPostRequestBody: Partial<SeriesSumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { seriesSumPostRequestBody.backingStoreEnabled = true; },
@@ -33,12 +35,15 @@ export function deserializeIntoSeriesSumPostRequestBody(seriesSumPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSeriesSumPostRequestBody(writer: SerializationWriter, seriesSumPostRequestBody: Partial<SeriesSumPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("coefficients", seriesSumPostRequestBody.coefficients);
-    writer.writeObjectValue("m", seriesSumPostRequestBody.m);
-    writer.writeObjectValue("n", seriesSumPostRequestBody.n);
-    writer.writeObjectValue("x", seriesSumPostRequestBody.x);
-    writer.writeAdditionalData(seriesSumPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSeriesSumPostRequestBody(writer: SerializationWriter, seriesSumPostRequestBody: Partial<SeriesSumPostRequestBody> | undefined | null = {}) : void {
+    if (seriesSumPostRequestBody) {
+        writer.writeObjectValue("coefficients", seriesSumPostRequestBody.coefficients);
+        writer.writeObjectValue("m", seriesSumPostRequestBody.m);
+        writer.writeObjectValue("n", seriesSumPostRequestBody.n);
+        writer.writeObjectValue("x", seriesSumPostRequestBody.x);
+        writer.writeAdditionalData(seriesSumPostRequestBody.additionalData);
+    }
 }
 export interface SeriesSumPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -48,23 +53,23 @@ export interface SeriesSumPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The coefficients property
      */
-    coefficients?: UntypedNode;
+    coefficients?: UntypedNode | null;
     /**
      * The m property
      */
-    m?: UntypedNode;
+    m?: UntypedNode | null;
     /**
      * The n property
      */
-    n?: UntypedNode;
+    n?: UntypedNode | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the seriesSum method.

@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnfavoritePostRequestBody}
  */
+// @ts-ignore
 export function createUnfavoritePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnfavoritePostRequestBody;
 }
@@ -19,6 +20,7 @@ export function createUnfavoritePostRequestBodyFromDiscriminatorValue(parseNode:
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnfavoritePostResponse}
  */
+// @ts-ignore
 export function createUnfavoritePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnfavoritePostResponse;
 }
@@ -26,6 +28,7 @@ export function createUnfavoritePostResponseFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBody: Partial<UnfavoritePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unfavoritePostRequestBody.backingStoreEnabled = true; },
@@ -36,6 +39,7 @@ export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unfavoritePostResponse.backingStoreEnabled = true; },
@@ -46,17 +50,23 @@ export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, unfavoritePostRequestBody: Partial<UnfavoritePostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("messageIds", unfavoritePostRequestBody.messageIds);
-    writer.writeAdditionalData(unfavoritePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, unfavoritePostRequestBody: Partial<UnfavoritePostRequestBody> | undefined | null = {}) : void {
+    if (unfavoritePostRequestBody) {
+        writer.writeCollectionOfPrimitiveValues<string>("messageIds", unfavoritePostRequestBody.messageIds);
+        writer.writeAdditionalData(unfavoritePostRequestBody.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined = {}) : void {
-    writer.writeBooleanValue("value", unfavoritePostResponse.value);
-    writer.writeAdditionalData(unfavoritePostResponse.additionalData);
+// @ts-ignore
+export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined | null = {}) : void {
+    if (unfavoritePostResponse) {
+        writer.writeBooleanValue("value", unfavoritePostResponse.value);
+        writer.writeAdditionalData(unfavoritePostResponse.additionalData);
+    }
 }
 export interface UnfavoritePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -66,11 +76,11 @@ export interface UnfavoritePostRequestBody extends AdditionalDataHolder, BackedM
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The messageIds property
      */
-    messageIds?: string[];
+    messageIds?: string[] | null;
 }
 export interface UnfavoritePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -80,11 +90,11 @@ export interface UnfavoritePostResponse extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: boolean;
+    value?: boolean | null;
 }
 /**
  * Provides operations to call the unfavorite method.

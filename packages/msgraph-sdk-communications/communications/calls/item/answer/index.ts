@@ -12,7 +12,7 @@ export interface AnswerPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * The acceptedModalities property
      */
-    acceptedModalities?: Modality[];
+    acceptedModalities?: Modality[] | null;
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -20,30 +20,30 @@ export interface AnswerPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The callbackUri property
      */
-    callbackUri?: string;
+    callbackUri?: string | null;
     /**
      * The callOptions property
      */
-    callOptions?: IncomingCallOptions;
+    callOptions?: IncomingCallOptions | null;
     /**
      * The mediaConfig property
      */
-    mediaConfig?: MediaConfig;
+    mediaConfig?: MediaConfig | null;
     /**
      * The participantCapacity property
      */
-    participantCapacity?: number;
+    participantCapacity?: number | null;
 }
 /**
  * Provides operations to call the answer method.
  */
 export interface AnswerRequestBuilder extends BaseRequestBuilder<AnswerRequestBuilder> {
     /**
-     * Enable a bot to answer an incoming call. The incoming call request can be an invite from a participant in a group call or a peer-to-peer call. If an invite to a group call is received, the notification will contain the chatInfo and meetingInfo parameters. The bot is expected to answer, reject, or redirect the call before the call times out. The current timeout value is 15 seconds for regular scenarios, and 5 seconds for policy-based recording scenarios.
+     * Enable a bot to answer an incoming call. The incoming call request can be an invitation from a participant in a group call or a peer-to-peer call. If an invitation to a group call is received, the notification will contain the chatInfo and meetingInfo parameters. The bot is expected to answer, reject, or redirect the call before the call times out. The current timeout value is 15 seconds for regular scenarios, and 5 seconds for policy-based recording scenarios. This API supports the following PSTN scenarios:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -51,7 +51,7 @@ export interface AnswerRequestBuilder extends BaseRequestBuilder<AnswerRequestBu
      */
      post(body: AnswerPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Enable a bot to answer an incoming call. The incoming call request can be an invite from a participant in a group call or a peer-to-peer call. If an invite to a group call is received, the notification will contain the chatInfo and meetingInfo parameters. The bot is expected to answer, reject, or redirect the call before the call times out. The current timeout value is 15 seconds for regular scenarios, and 5 seconds for policy-based recording scenarios.
+     * Enable a bot to answer an incoming call. The incoming call request can be an invitation from a participant in a group call or a peer-to-peer call. If an invitation to a group call is received, the notification will contain the chatInfo and meetingInfo parameters. The bot is expected to answer, reject, or redirect the call before the call times out. The current timeout value is 15 seconds for regular scenarios, and 5 seconds for policy-based recording scenarios. This API supports the following PSTN scenarios:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,6 +63,7 @@ export interface AnswerRequestBuilder extends BaseRequestBuilder<AnswerRequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AnswerPostRequestBody}
  */
+// @ts-ignore
 export function createAnswerPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAnswerPostRequestBody;
 }
@@ -70,6 +71,7 @@ export function createAnswerPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "acceptedModalities": n => { answerPostRequestBody.acceptedModalities = n.getCollectionOfEnumValues<Modality>(ModalityObject); },
@@ -84,14 +86,17 @@ export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined = {}) : void {
-    if(answerPostRequestBody.acceptedModalities)
-    writer.writeEnumValue<Modality>("acceptedModalities", ...answerPostRequestBody.acceptedModalities);
-    writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);
-    writer.writeObjectValue<IncomingCallOptions>("callOptions", answerPostRequestBody.callOptions, serializeIncomingCallOptions);
-    writer.writeObjectValue<MediaConfig>("mediaConfig", answerPostRequestBody.mediaConfig, serializeMediaConfig);
-    writer.writeNumberValue("participantCapacity", answerPostRequestBody.participantCapacity);
-    writer.writeAdditionalData(answerPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined | null = {}) : void {
+    if (answerPostRequestBody) {
+        if(answerPostRequestBody.acceptedModalities)
+        writer.writeEnumValue<Modality>("acceptedModalities", ...answerPostRequestBody.acceptedModalities);
+        writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);
+        writer.writeObjectValue<IncomingCallOptions>("callOptions", answerPostRequestBody.callOptions, serializeIncomingCallOptions);
+        writer.writeObjectValue<MediaConfig>("mediaConfig", answerPostRequestBody.mediaConfig, serializeMediaConfig);
+        writer.writeNumberValue("participantCapacity", answerPostRequestBody.participantCapacity);
+        writer.writeAdditionalData(answerPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

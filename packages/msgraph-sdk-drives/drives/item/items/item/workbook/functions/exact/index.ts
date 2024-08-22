@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExactPostRequestBody}
  */
+// @ts-ignore
 export function createExactPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExactPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createExactPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExactPostRequestBody(exactPostRequestBody: Partial<ExactPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { exactPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface ExactPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The text1 property
      */
-    text1?: UntypedNode;
+    text1?: UntypedNode | null;
     /**
      * The text2 property
      */
-    text2?: UntypedNode;
+    text2?: UntypedNode | null;
 }
 /**
  * Provides operations to call the exact method.
@@ -69,10 +71,13 @@ export interface ExactRequestBuilder extends BaseRequestBuilder<ExactRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExactPostRequestBody(writer: SerializationWriter, exactPostRequestBody: Partial<ExactPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("text1", exactPostRequestBody.text1);
-    writer.writeObjectValue("text2", exactPostRequestBody.text2);
-    writer.writeAdditionalData(exactPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeExactPostRequestBody(writer: SerializationWriter, exactPostRequestBody: Partial<ExactPostRequestBody> | undefined | null = {}) : void {
+    if (exactPostRequestBody) {
+        writer.writeObjectValue("text1", exactPostRequestBody.text1);
+        writer.writeObjectValue("text2", exactPostRequestBody.text2);
+        writer.writeAdditionalData(exactPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

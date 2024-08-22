@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnmutePostRequestBody}
  */
+// @ts-ignore
 export function createUnmutePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnmutePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createUnmutePostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnmutePostRequestBody(unmutePostRequestBody: Partial<UnmutePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unmutePostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoUnmutePostRequestBody(unmutePostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnmutePostRequestBody(writer: SerializationWriter, unmutePostRequestBody: Partial<UnmutePostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("clientContext", unmutePostRequestBody.clientContext);
-    writer.writeAdditionalData(unmutePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeUnmutePostRequestBody(writer: SerializationWriter, unmutePostRequestBody: Partial<UnmutePostRequestBody> | undefined | null = {}) : void {
+    if (unmutePostRequestBody) {
+        writer.writeStringValue("clientContext", unmutePostRequestBody.clientContext);
+        writer.writeAdditionalData(unmutePostRequestBody.additionalData);
+    }
 }
 export interface UnmutePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface UnmutePostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The clientContext property
      */
-    clientContext?: string;
+    clientContext?: string | null;
 }
 /**
  * Provides operations to call the unmute method.

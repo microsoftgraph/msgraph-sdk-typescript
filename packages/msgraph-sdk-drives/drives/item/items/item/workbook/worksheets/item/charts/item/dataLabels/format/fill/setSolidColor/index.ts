@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SetSolidColorPostRequestBody}
  */
+// @ts-ignore
 export function createSetSolidColorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSetSolidColorPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createSetSolidColorPostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSetSolidColorPostRequestBody(setSolidColorPostRequestBody: Partial<SetSolidColorPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { setSolidColorPostRequestBody.backingStoreEnabled = true; },
@@ -28,9 +30,12 @@ export function deserializeIntoSetSolidColorPostRequestBody(setSolidColorPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSetSolidColorPostRequestBody(writer: SerializationWriter, setSolidColorPostRequestBody: Partial<SetSolidColorPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("color", setSolidColorPostRequestBody.color);
-    writer.writeAdditionalData(setSolidColorPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSetSolidColorPostRequestBody(writer: SerializationWriter, setSolidColorPostRequestBody: Partial<SetSolidColorPostRequestBody> | undefined | null = {}) : void {
+    if (setSolidColorPostRequestBody) {
+        writer.writeStringValue("color", setSolidColorPostRequestBody.color);
+        writer.writeAdditionalData(setSolidColorPostRequestBody.additionalData);
+    }
 }
 export interface SetSolidColorPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -40,11 +45,11 @@ export interface SetSolidColorPostRequestBody extends AdditionalDataHolder, Back
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The color property
      */
-    color?: string;
+    color?: string | null;
 }
 /**
  * Provides operations to call the setSolidColor method.

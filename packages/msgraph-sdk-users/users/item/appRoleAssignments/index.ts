@@ -35,7 +35,7 @@ export interface AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder<App
      */
      get(requestConfiguration?: RequestConfiguration<AppRoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<AppRoleAssignmentCollectionResponse | undefined>;
     /**
-     * Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers:
+     * Assign an app role to a user, creating an appRoleAssignment object. To grant an app role assignment to a user, you need three identifiers:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppRoleAssignment>}
@@ -50,7 +50,7 @@ export interface AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder<App
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppRoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers:
+     * Assign an app role to a user, creating an appRoleAssignment object. To grant an app role assignment to a user, you need three identifiers:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

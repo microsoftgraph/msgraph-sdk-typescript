@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PpmtPostRequestBody}
  */
+// @ts-ignore
 export function createPpmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPpmtPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPpmtPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPpmtPostRequestBody(ppmtPostRequestBody: Partial<PpmtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ppmtPostRequestBody.backingStoreEnabled = true; },
@@ -39,31 +41,31 @@ export interface PpmtPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The fv property
      */
-    fv?: UntypedNode;
+    fv?: UntypedNode | null;
     /**
      * The nper property
      */
-    nper?: UntypedNode;
+    nper?: UntypedNode | null;
     /**
      * The per property
      */
-    per?: UntypedNode;
+    per?: UntypedNode | null;
     /**
      * The pv property
      */
-    pv?: UntypedNode;
+    pv?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The type property
      */
-    type?: UntypedNode;
+    type?: UntypedNode | null;
 }
 /**
  * Provides operations to call the ppmt method.
@@ -89,14 +91,17 @@ export interface PpmtRequestBuilder extends BaseRequestBuilder<PpmtRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePpmtPostRequestBody(writer: SerializationWriter, ppmtPostRequestBody: Partial<PpmtPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("fv", ppmtPostRequestBody.fv);
-    writer.writeObjectValue("nper", ppmtPostRequestBody.nper);
-    writer.writeObjectValue("per", ppmtPostRequestBody.per);
-    writer.writeObjectValue("pv", ppmtPostRequestBody.pv);
-    writer.writeObjectValue("rate", ppmtPostRequestBody.rate);
-    writer.writeObjectValue("type", ppmtPostRequestBody.type);
-    writer.writeAdditionalData(ppmtPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePpmtPostRequestBody(writer: SerializationWriter, ppmtPostRequestBody: Partial<PpmtPostRequestBody> | undefined | null = {}) : void {
+    if (ppmtPostRequestBody) {
+        writer.writeObjectValue("fv", ppmtPostRequestBody.fv);
+        writer.writeObjectValue("nper", ppmtPostRequestBody.nper);
+        writer.writeObjectValue("per", ppmtPostRequestBody.per);
+        writer.writeObjectValue("pv", ppmtPostRequestBody.pv);
+        writer.writeObjectValue("rate", ppmtPostRequestBody.rate);
+        writer.writeObjectValue("type", ppmtPostRequestBody.type);
+        writer.writeAdditionalData(ppmtPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

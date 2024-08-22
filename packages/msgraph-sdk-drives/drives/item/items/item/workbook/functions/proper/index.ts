@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ProperPostRequestBody}
  */
+// @ts-ignore
 export function createProperPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProperPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createProperPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoProperPostRequestBody(properPostRequestBody: Partial<ProperPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { properPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ProperPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the proper method.
@@ -64,9 +66,12 @@ export interface ProperRequestBuilder extends BaseRequestBuilder<ProperRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeProperPostRequestBody(writer: SerializationWriter, properPostRequestBody: Partial<ProperPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("text", properPostRequestBody.text);
-    writer.writeAdditionalData(properPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeProperPostRequestBody(writer: SerializationWriter, properPostRequestBody: Partial<ProperPostRequestBody> | undefined | null = {}) : void {
+    if (properPostRequestBody) {
+        writer.writeObjectValue("text", properPostRequestBody.text);
+        writer.writeAdditionalData(properPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

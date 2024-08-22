@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LenPostRequestBody}
  */
+// @ts-ignore
 export function createLenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLenPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLenPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLenPostRequestBody(lenPostRequestBody: Partial<LenPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lenPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface LenPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the len method.
@@ -64,9 +66,12 @@ export interface LenRequestBuilder extends BaseRequestBuilder<LenRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLenPostRequestBody(writer: SerializationWriter, lenPostRequestBody: Partial<LenPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("text", lenPostRequestBody.text);
-    writer.writeAdditionalData(lenPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeLenPostRequestBody(writer: SerializationWriter, lenPostRequestBody: Partial<LenPostRequestBody> | undefined | null = {}) : void {
+    if (lenPostRequestBody) {
+        writer.writeObjectValue("text", lenPostRequestBody.text);
+        writer.writeAdditionalData(lenPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

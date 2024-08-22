@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FisherPostRequestBody}
  */
+// @ts-ignore
 export function createFisherPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFisherPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFisherPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFisherPostRequestBody(fisherPostRequestBody: Partial<FisherPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { fisherPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface FisherPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the fisher method.
@@ -64,9 +66,12 @@ export interface FisherRequestBuilder extends BaseRequestBuilder<FisherRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFisherPostRequestBody(writer: SerializationWriter, fisherPostRequestBody: Partial<FisherPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("x", fisherPostRequestBody.x);
-    writer.writeAdditionalData(fisherPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeFisherPostRequestBody(writer: SerializationWriter, fisherPostRequestBody: Partial<FisherPostRequestBody> | undefined | null = {}) : void {
+    if (fisherPostRequestBody) {
+        writer.writeObjectValue("x", fisherPostRequestBody.x);
+        writer.writeAdditionalData(fisherPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

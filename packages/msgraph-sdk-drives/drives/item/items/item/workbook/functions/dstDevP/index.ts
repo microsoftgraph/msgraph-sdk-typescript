@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DstDevPPostRequestBody}
  */
+// @ts-ignore
 export function createDstDevPPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDstDevPPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDstDevPPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDstDevPPostRequestBody(dstDevPPostRequestBody: Partial<DstDevPPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dstDevPPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface DstDevPPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The database property
      */
-    database?: UntypedNode;
+    database?: UntypedNode | null;
     /**
      * The field property
      */
-    field?: UntypedNode;
+    field?: UntypedNode | null;
 }
 /**
  * Provides operations to call the dstDevP method.
@@ -74,11 +76,14 @@ export interface DstDevPRequestBuilder extends BaseRequestBuilder<DstDevPRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDstDevPPostRequestBody(writer: SerializationWriter, dstDevPPostRequestBody: Partial<DstDevPPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("criteria", dstDevPPostRequestBody.criteria);
-    writer.writeObjectValue("database", dstDevPPostRequestBody.database);
-    writer.writeObjectValue("field", dstDevPPostRequestBody.field);
-    writer.writeAdditionalData(dstDevPPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDstDevPPostRequestBody(writer: SerializationWriter, dstDevPPostRequestBody: Partial<DstDevPPostRequestBody> | undefined | null = {}) : void {
+    if (dstDevPPostRequestBody) {
+        writer.writeObjectValue("criteria", dstDevPPostRequestBody.criteria);
+        writer.writeObjectValue("database", dstDevPPostRequestBody.database);
+        writer.writeObjectValue("field", dstDevPPostRequestBody.field);
+        writer.writeAdditionalData(dstDevPPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

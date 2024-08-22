@@ -16,11 +16,11 @@ export interface CountAPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the countA method.
@@ -47,6 +47,7 @@ export interface CountARequestBuilder extends BaseRequestBuilder<CountARequestBu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CountAPostRequestBody}
  */
+// @ts-ignore
 export function createCountAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCountAPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createCountAPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCountAPostRequestBody(countAPostRequestBody: Partial<CountAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { countAPostRequestBody.backingStoreEnabled = true; },
@@ -64,9 +66,12 @@ export function deserializeIntoCountAPostRequestBody(countAPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCountAPostRequestBody(writer: SerializationWriter, countAPostRequestBody: Partial<CountAPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", countAPostRequestBody.values);
-    writer.writeAdditionalData(countAPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCountAPostRequestBody(writer: SerializationWriter, countAPostRequestBody: Partial<CountAPostRequestBody> | undefined | null = {}) : void {
+    if (countAPostRequestBody) {
+        writer.writeObjectValue("values", countAPostRequestBody.values);
+        writer.writeAdditionalData(countAPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

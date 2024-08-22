@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetAllMessagesGetResponse}
  */
+// @ts-ignore
 export function createGetAllMessagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAllMessagesGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetAllMessagesGetResponseFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetAllMessagesGetResponse(getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAllMessagesGetResponse),
@@ -30,7 +32,7 @@ export interface GetAllMessagesGetResponse extends BaseCollectionPaginationCount
     /**
      * The value property
      */
-    value?: ChatMessage[];
+    value?: ChatMessage[] | null;
 }
 /**
  * Provides operations to call the getAllMessages method.
@@ -95,9 +97,12 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesGetResponse)
-    writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
+// @ts-ignore
+export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined | null = {}) : void {
+    if (getAllMessagesGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesGetResponse)
+        writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
+    }
 }
 /**
  * Uri template for the request builder.

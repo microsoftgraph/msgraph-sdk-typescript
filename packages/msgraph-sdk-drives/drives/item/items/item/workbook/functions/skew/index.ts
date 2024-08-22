@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SkewPostRequestBody}
  */
+// @ts-ignore
 export function createSkewPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSkewPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSkewPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSkewPostRequestBody(skewPostRequestBody: Partial<SkewPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { skewPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoSkewPostRequestBody(skewPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSkewPostRequestBody(writer: SerializationWriter, skewPostRequestBody: Partial<SkewPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", skewPostRequestBody.values);
-    writer.writeAdditionalData(skewPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSkewPostRequestBody(writer: SerializationWriter, skewPostRequestBody: Partial<SkewPostRequestBody> | undefined | null = {}) : void {
+    if (skewPostRequestBody) {
+        writer.writeObjectValue("values", skewPostRequestBody.values);
+        writer.writeAdditionalData(skewPostRequestBody.additionalData);
+    }
 }
 export interface SkewPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface SkewPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the skew method.

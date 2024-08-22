@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SendDtmfTonesPostRequestBody}
  */
+// @ts-ignore
 export function createSendDtmfTonesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSendDtmfTonesPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSendDtmfTonesPostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSendDtmfTonesPostRequestBody(sendDtmfTonesPostRequestBody: Partial<SendDtmfTonesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sendDtmfTonesPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface SendDtmfTonesPostRequestBody extends AdditionalDataHolder, Back
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The clientContext property
      */
-    clientContext?: string;
+    clientContext?: string | null;
     /**
      * The delayBetweenTonesMs property
      */
-    delayBetweenTonesMs?: number;
+    delayBetweenTonesMs?: number | null;
     /**
      * The tones property
      */
-    tones?: Tone[];
+    tones?: Tone[] | null;
 }
 /**
  * Provides operations to call the sendDtmfTones method.
@@ -74,12 +76,15 @@ export interface SendDtmfTonesRequestBuilder extends BaseRequestBuilder<SendDtmf
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSendDtmfTonesPostRequestBody(writer: SerializationWriter, sendDtmfTonesPostRequestBody: Partial<SendDtmfTonesPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("clientContext", sendDtmfTonesPostRequestBody.clientContext);
-    writer.writeNumberValue("delayBetweenTonesMs", sendDtmfTonesPostRequestBody.delayBetweenTonesMs);
-    if(sendDtmfTonesPostRequestBody.tones)
-    writer.writeEnumValue<Tone>("tones", ...sendDtmfTonesPostRequestBody.tones);
-    writer.writeAdditionalData(sendDtmfTonesPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSendDtmfTonesPostRequestBody(writer: SerializationWriter, sendDtmfTonesPostRequestBody: Partial<SendDtmfTonesPostRequestBody> | undefined | null = {}) : void {
+    if (sendDtmfTonesPostRequestBody) {
+        writer.writeStringValue("clientContext", sendDtmfTonesPostRequestBody.clientContext);
+        writer.writeNumberValue("delayBetweenTonesMs", sendDtmfTonesPostRequestBody.delayBetweenTonesMs);
+        if(sendDtmfTonesPostRequestBody.tones)
+        writer.writeEnumValue<Tone>("tones", ...sendDtmfTonesPostRequestBody.tones);
+        writer.writeAdditionalData(sendDtmfTonesPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

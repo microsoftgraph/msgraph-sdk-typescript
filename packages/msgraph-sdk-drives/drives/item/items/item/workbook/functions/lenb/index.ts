@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LenbPostRequestBody}
  */
+// @ts-ignore
 export function createLenbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLenbPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLenbPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLenbPostRequestBody(lenbPostRequestBody: Partial<LenbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lenbPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface LenbPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the lenb method.
@@ -64,9 +66,12 @@ export interface LenbRequestBuilder extends BaseRequestBuilder<LenbRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLenbPostRequestBody(writer: SerializationWriter, lenbPostRequestBody: Partial<LenbPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("text", lenbPostRequestBody.text);
-    writer.writeAdditionalData(lenbPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeLenbPostRequestBody(writer: SerializationWriter, lenbPostRequestBody: Partial<LenbPostRequestBody> | undefined | null = {}) : void {
+    if (lenbPostRequestBody) {
+        writer.writeObjectValue("text", lenbPostRequestBody.text);
+        writer.writeAdditionalData(lenbPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

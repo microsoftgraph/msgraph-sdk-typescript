@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreateForwardPostRequestBody}
  */
+// @ts-ignore
 export function createCreateForwardPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreateForwardPostRequestBody;
 }
@@ -24,19 +25,19 @@ export interface CreateForwardPostRequestBody extends AdditionalDataHolder, Back
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The Comment property
      */
-    comment?: string;
+    comment?: string | null;
     /**
      * The Message property
      */
-    message?: Message;
+    message?: Message | null;
     /**
      * The ToRecipients property
      */
-    toRecipients?: Recipient[];
+    toRecipients?: Recipient[] | null;
 }
 /**
  * Provides operations to call the createForward method.
@@ -63,6 +64,7 @@ export interface CreateForwardRequestBuilder extends BaseRequestBuilder<CreateFo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreateForwardPostRequestBody(createForwardPostRequestBody: Partial<CreateForwardPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createForwardPostRequestBody.backingStoreEnabled = true; },
@@ -75,11 +77,14 @@ export function deserializeIntoCreateForwardPostRequestBody(createForwardPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreateForwardPostRequestBody(writer: SerializationWriter, createForwardPostRequestBody: Partial<CreateForwardPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("Comment", createForwardPostRequestBody.comment);
-    writer.writeObjectValue<Message>("Message", createForwardPostRequestBody.message, serializeMessage);
-    writer.writeCollectionOfObjectValues<Recipient>("ToRecipients", createForwardPostRequestBody.toRecipients, serializeRecipient);
-    writer.writeAdditionalData(createForwardPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCreateForwardPostRequestBody(writer: SerializationWriter, createForwardPostRequestBody: Partial<CreateForwardPostRequestBody> | undefined | null = {}) : void {
+    if (createForwardPostRequestBody) {
+        writer.writeStringValue("Comment", createForwardPostRequestBody.comment);
+        writer.writeObjectValue<Message>("Message", createForwardPostRequestBody.message, serializeMessage);
+        writer.writeCollectionOfObjectValues<Recipient>("ToRecipients", createForwardPostRequestBody.toRecipients, serializeRecipient);
+        writer.writeAdditionalData(createForwardPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

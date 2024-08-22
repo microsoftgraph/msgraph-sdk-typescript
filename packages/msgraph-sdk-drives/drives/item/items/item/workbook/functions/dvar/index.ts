@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DvarPostRequestBody}
  */
+// @ts-ignore
 export function createDvarPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDvarPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDvarPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDvarPostRequestBody(dvarPostRequestBody: Partial<DvarPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dvarPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface DvarPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The database property
      */
-    database?: UntypedNode;
+    database?: UntypedNode | null;
     /**
      * The field property
      */
-    field?: UntypedNode;
+    field?: UntypedNode | null;
 }
 /**
  * Provides operations to call the dvar method.
@@ -74,11 +76,14 @@ export interface DvarRequestBuilder extends BaseRequestBuilder<DvarRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDvarPostRequestBody(writer: SerializationWriter, dvarPostRequestBody: Partial<DvarPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("criteria", dvarPostRequestBody.criteria);
-    writer.writeObjectValue("database", dvarPostRequestBody.database);
-    writer.writeObjectValue("field", dvarPostRequestBody.field);
-    writer.writeAdditionalData(dvarPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDvarPostRequestBody(writer: SerializationWriter, dvarPostRequestBody: Partial<DvarPostRequestBody> | undefined | null = {}) : void {
+    if (dvarPostRequestBody) {
+        writer.writeObjectValue("criteria", dvarPostRequestBody.criteria);
+        writer.writeObjectValue("database", dvarPostRequestBody.database);
+        writer.writeObjectValue("field", dvarPostRequestBody.field);
+        writer.writeAdditionalData(dvarPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -19,7 +19,7 @@ export interface FormatRequestBuilder extends BaseRequestBuilder<FormatRequestBu
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Encapsulates the format properties chart point. Read-only.
+     * The format properties of the chart point. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookChartPointFormat>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -40,7 +40,7 @@ export interface FormatRequestBuilder extends BaseRequestBuilder<FormatRequestBu
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Encapsulates the format properties chart point. Read-only.
+     * The format properties of the chart point. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface FormatRequestBuilder extends BaseRequestBuilder<FormatRequestBu
      toPatchRequestInformation(body: WorkbookChartPointFormat, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Encapsulates the format properties chart point. Read-only.
+ * The format properties of the chart point. Read-only.
  */
 export interface FormatRequestBuilderGetQueryParameters {
     /**

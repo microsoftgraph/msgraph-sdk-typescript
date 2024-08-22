@@ -16,19 +16,19 @@ export interface AddFormulaLocalPostRequestBody extends AdditionalDataHolder, Ba
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The comment property
      */
-    comment?: string;
+    comment?: string | null;
     /**
      * The formula property
      */
-    formula?: string;
+    formula?: string | null;
     /**
      * The name property
      */
-    name?: string;
+    name?: string | null;
 }
 /**
  * Provides operations to call the addFormulaLocal method.
@@ -56,6 +56,7 @@ export interface AddFormulaLocalRequestBuilder extends BaseRequestBuilder<AddFor
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddFormulaLocalPostRequestBody}
  */
+// @ts-ignore
 export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddFormulaLocalPostRequestBody;
 }
@@ -63,6 +64,7 @@ export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPostRequestBody: Partial<AddFormulaLocalPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addFormulaLocalPostRequestBody.backingStoreEnabled = true; },
@@ -75,11 +77,14 @@ export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPos
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWriter, addFormulaLocalPostRequestBody: Partial<AddFormulaLocalPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("comment", addFormulaLocalPostRequestBody.comment);
-    writer.writeStringValue("formula", addFormulaLocalPostRequestBody.formula);
-    writer.writeStringValue("name", addFormulaLocalPostRequestBody.name);
-    writer.writeAdditionalData(addFormulaLocalPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWriter, addFormulaLocalPostRequestBody: Partial<AddFormulaLocalPostRequestBody> | undefined | null = {}) : void {
+    if (addFormulaLocalPostRequestBody) {
+        writer.writeStringValue("comment", addFormulaLocalPostRequestBody.comment);
+        writer.writeStringValue("formula", addFormulaLocalPostRequestBody.formula);
+        writer.writeStringValue("name", addFormulaLocalPostRequestBody.name);
+        writer.writeAdditionalData(addFormulaLocalPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

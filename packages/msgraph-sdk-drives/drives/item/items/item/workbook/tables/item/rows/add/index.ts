@@ -16,15 +16,15 @@ export interface AddPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The index property
      */
-    index?: number;
+    index?: number | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the add method.
@@ -52,6 +52,7 @@ export interface AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder>
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddPostRequestBody}
  */
+// @ts-ignore
 export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddPostRequestBody;
 }
@@ -59,6 +60,7 @@ export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<AddPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addPostRequestBody.backingStoreEnabled = true; },
@@ -70,10 +72,13 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<Ad
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined = {}) : void {
-    writer.writeNumberValue("index", addPostRequestBody.index);
-    writer.writeObjectValue("values", addPostRequestBody.values);
-    writer.writeAdditionalData(addPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined | null = {}) : void {
+    if (addPostRequestBody) {
+        writer.writeNumberValue("index", addPostRequestBody.index);
+        writer.writeObjectValue("values", addPostRequestBody.values);
+        writer.writeAdditionalData(addPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

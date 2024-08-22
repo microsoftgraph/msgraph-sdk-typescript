@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TypePostRequestBody}
  */
+// @ts-ignore
 export function createTypePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTypePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTypePostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTypePostRequestBody(typePostRequestBody: Partial<TypePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { typePostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoTypePostRequestBody(typePostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTypePostRequestBody(writer: SerializationWriter, typePostRequestBody: Partial<TypePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("value", typePostRequestBody.value);
-    writer.writeAdditionalData(typePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeTypePostRequestBody(writer: SerializationWriter, typePostRequestBody: Partial<TypePostRequestBody> | undefined | null = {}) : void {
+    if (typePostRequestBody) {
+        writer.writeObjectValue("value", typePostRequestBody.value);
+        writer.writeAdditionalData(typePostRequestBody.additionalData);
+    }
 }
 export interface TypePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface TypePostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: UntypedNode;
+    value?: UntypedNode | null;
 }
 /**
  * Provides operations to call the type method.

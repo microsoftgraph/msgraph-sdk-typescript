@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DeltaPostRequestBody}
  */
+// @ts-ignore
 export function createDeltaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeltaPostRequestBody;
 }
@@ -24,15 +25,15 @@ export interface DeltaPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number1 property
      */
-    number1?: UntypedNode;
+    number1?: UntypedNode | null;
     /**
      * The number2 property
      */
-    number2?: UntypedNode;
+    number2?: UntypedNode | null;
 }
 /**
  * Provides operations to call the delta method.
@@ -58,6 +59,7 @@ export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuil
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDeltaPostRequestBody(deltaPostRequestBody: Partial<DeltaPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { deltaPostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoDeltaPostRequestBody(deltaPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDeltaPostRequestBody(writer: SerializationWriter, deltaPostRequestBody: Partial<DeltaPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number1", deltaPostRequestBody.number1);
-    writer.writeObjectValue("number2", deltaPostRequestBody.number2);
-    writer.writeAdditionalData(deltaPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDeltaPostRequestBody(writer: SerializationWriter, deltaPostRequestBody: Partial<DeltaPostRequestBody> | undefined | null = {}) : void {
+    if (deltaPostRequestBody) {
+        writer.writeObjectValue("number1", deltaPostRequestBody.number1);
+        writer.writeObjectValue("number2", deltaPostRequestBody.number2);
+        writer.writeAdditionalData(deltaPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IsFormulaPostRequestBody}
  */
+// @ts-ignore
 export function createIsFormulaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsFormulaPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIsFormulaPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIsFormulaPostRequestBody(isFormulaPostRequestBody: Partial<IsFormulaPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isFormulaPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface IsFormulaPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The reference property
      */
-    reference?: UntypedNode;
+    reference?: UntypedNode | null;
 }
 /**
  * Provides operations to call the isFormula method.
@@ -64,9 +66,12 @@ export interface IsFormulaRequestBuilder extends BaseRequestBuilder<IsFormulaReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsFormulaPostRequestBody(writer: SerializationWriter, isFormulaPostRequestBody: Partial<IsFormulaPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("reference", isFormulaPostRequestBody.reference);
-    writer.writeAdditionalData(isFormulaPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeIsFormulaPostRequestBody(writer: SerializationWriter, isFormulaPostRequestBody: Partial<IsFormulaPostRequestBody> | undefined | null = {}) : void {
+    if (isFormulaPostRequestBody) {
+        writer.writeObjectValue("reference", isFormulaPostRequestBody.reference);
+        writer.writeAdditionalData(isFormulaPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

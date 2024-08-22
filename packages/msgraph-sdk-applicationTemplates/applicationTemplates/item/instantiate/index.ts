@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {InstantiatePostRequestBody}
  */
+// @ts-ignore
 export function createInstantiatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoInstantiatePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createInstantiatePostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoInstantiatePostRequestBody(instantiatePostRequestBody: Partial<InstantiatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { instantiatePostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface InstantiatePostRequestBody extends AdditionalDataHolder, Backed
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The displayName property
      */
-    displayName?: string;
+    displayName?: string | null;
 }
 /**
  * Provides operations to call the instantiate method.
@@ -65,9 +67,12 @@ export interface InstantiateRequestBuilder extends BaseRequestBuilder<Instantiat
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeInstantiatePostRequestBody(writer: SerializationWriter, instantiatePostRequestBody: Partial<InstantiatePostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("displayName", instantiatePostRequestBody.displayName);
-    writer.writeAdditionalData(instantiatePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeInstantiatePostRequestBody(writer: SerializationWriter, instantiatePostRequestBody: Partial<InstantiatePostRequestBody> | undefined | null = {}) : void {
+    if (instantiatePostRequestBody) {
+        writer.writeStringValue("displayName", instantiatePostRequestBody.displayName);
+        writer.writeAdditionalData(instantiatePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ProductPostRequestBody}
  */
+// @ts-ignore
 export function createProductPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProductPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createProductPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoProductPostRequestBody(productPostRequestBody: Partial<ProductPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { productPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ProductPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the product method.
@@ -64,9 +66,12 @@ export interface ProductRequestBuilder extends BaseRequestBuilder<ProductRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeProductPostRequestBody(writer: SerializationWriter, productPostRequestBody: Partial<ProductPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", productPostRequestBody.values);
-    writer.writeAdditionalData(productPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeProductPostRequestBody(writer: SerializationWriter, productPostRequestBody: Partial<ProductPostRequestBody> | undefined | null = {}) : void {
+    if (productPostRequestBody) {
+        writer.writeObjectValue("values", productPostRequestBody.values);
+        writer.writeAdditionalData(productPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Quartile_ExcPostRequestBody}
  */
+// @ts-ignore
 export function createQuartile_ExcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQuartile_ExcPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createQuartile_ExcPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoQuartile_ExcPostRequestBody(quartile_ExcPostRequestBody: Partial<Quartile_ExcPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { quartile_ExcPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -35,15 +37,15 @@ export interface Quartile_ExcPostRequestBody extends AdditionalDataHolder, Backe
     /**
      * The array property
      */
-    array?: UntypedNode;
+    array?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The quart property
      */
-    quart?: UntypedNode;
+    quart?: UntypedNode | null;
 }
 /**
  * Provides operations to call the quartile_Exc method.
@@ -69,10 +71,13 @@ export interface Quartile_ExcRequestBuilder extends BaseRequestBuilder<Quartile_
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeQuartile_ExcPostRequestBody(writer: SerializationWriter, quartile_ExcPostRequestBody: Partial<Quartile_ExcPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("array", quartile_ExcPostRequestBody.array);
-    writer.writeObjectValue("quart", quartile_ExcPostRequestBody.quart);
-    writer.writeAdditionalData(quartile_ExcPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeQuartile_ExcPostRequestBody(writer: SerializationWriter, quartile_ExcPostRequestBody: Partial<Quartile_ExcPostRequestBody> | undefined | null = {}) : void {
+    if (quartile_ExcPostRequestBody) {
+        writer.writeObjectValue("array", quartile_ExcPostRequestBody.array);
+        writer.writeObjectValue("quart", quartile_ExcPostRequestBody.quart);
+        writer.writeAdditionalData(quartile_ExcPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

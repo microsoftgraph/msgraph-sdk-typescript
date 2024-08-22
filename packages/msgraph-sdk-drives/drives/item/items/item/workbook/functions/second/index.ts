@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SecondPostRequestBody}
  */
+// @ts-ignore
 export function createSecondPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSecondPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSecondPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSecondPostRequestBody(secondPostRequestBody: Partial<SecondPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { secondPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface SecondPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The serialNumber property
      */
-    serialNumber?: UntypedNode;
+    serialNumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the second method.
@@ -64,9 +66,12 @@ export interface SecondRequestBuilder extends BaseRequestBuilder<SecondRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSecondPostRequestBody(writer: SerializationWriter, secondPostRequestBody: Partial<SecondPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("serialNumber", secondPostRequestBody.serialNumber);
-    writer.writeAdditionalData(secondPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSecondPostRequestBody(writer: SerializationWriter, secondPostRequestBody: Partial<SecondPostRequestBody> | undefined | null = {}) : void {
+    if (secondPostRequestBody) {
+        writer.writeObjectValue("serialNumber", secondPostRequestBody.serialNumber);
+        writer.writeAdditionalData(secondPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

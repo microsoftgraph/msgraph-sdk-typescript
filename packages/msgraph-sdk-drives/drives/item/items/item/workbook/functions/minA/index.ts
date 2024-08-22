@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MinAPostRequestBody}
  */
+// @ts-ignore
 export function createMinAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMinAPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createMinAPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMinAPostRequestBody(minAPostRequestBody: Partial<MinAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { minAPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface MinAPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the minA method.
@@ -64,9 +66,12 @@ export interface MinARequestBuilder extends BaseRequestBuilder<MinARequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMinAPostRequestBody(writer: SerializationWriter, minAPostRequestBody: Partial<MinAPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", minAPostRequestBody.values);
-    writer.writeAdditionalData(minAPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeMinAPostRequestBody(writer: SerializationWriter, minAPostRequestBody: Partial<MinAPostRequestBody> | undefined | null = {}) : void {
+    if (minAPostRequestBody) {
+        writer.writeObjectValue("values", minAPostRequestBody.values);
+        writer.writeAdditionalData(minAPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

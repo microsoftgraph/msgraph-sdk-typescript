@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImLnPostRequestBody}
  */
+// @ts-ignore
 export function createImLnPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImLnPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImLnPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImLnPostRequestBody(imLnPostRequestBody: Partial<ImLnPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imLnPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImLnPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imLn method.
@@ -64,9 +66,12 @@ export interface ImLnRequestBuilder extends BaseRequestBuilder<ImLnRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImLnPostRequestBody(writer: SerializationWriter, imLnPostRequestBody: Partial<ImLnPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imLnPostRequestBody.inumber);
-    writer.writeAdditionalData(imLnPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImLnPostRequestBody(writer: SerializationWriter, imLnPostRequestBody: Partial<ImLnPostRequestBody> | undefined | null = {}) : void {
+    if (imLnPostRequestBody) {
+        writer.writeObjectValue("inumber", imLnPostRequestBody.inumber);
+        writer.writeAdditionalData(imLnPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

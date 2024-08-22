@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {QueryPostRequestBody}
  */
+// @ts-ignore
 export function createQueryPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQueryPostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createQueryPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {QueryPostResponse}
  */
+// @ts-ignore
 export function createQueryPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQueryPostResponse;
 }
@@ -28,6 +30,7 @@ export function createQueryPostResponseFromDiscriminatorValue(parseNode: ParseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoQueryPostRequestBody(queryPostRequestBody: Partial<QueryPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { queryPostRequestBody.backingStoreEnabled = true; },
@@ -38,6 +41,7 @@ export function deserializeIntoQueryPostRequestBody(queryPostRequestBody: Partia
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoQueryPostResponse(queryPostResponse: Partial<QueryPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(queryPostResponse),
@@ -52,17 +56,17 @@ export interface QueryPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The requests property
      */
-    requests?: SearchRequest[];
+    requests?: SearchRequest[] | null;
 }
 export interface QueryPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: SearchResponse[];
+    value?: SearchResponse[] | null;
 }
 /**
  * Provides operations to call the query method.
@@ -89,17 +93,23 @@ export interface QueryRequestBuilder extends BaseRequestBuilder<QueryRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeQueryPostRequestBody(writer: SerializationWriter, queryPostRequestBody: Partial<QueryPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfObjectValues<SearchRequest>("requests", queryPostRequestBody.requests, serializeSearchRequest);
-    writer.writeAdditionalData(queryPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeQueryPostRequestBody(writer: SerializationWriter, queryPostRequestBody: Partial<QueryPostRequestBody> | undefined | null = {}) : void {
+    if (queryPostRequestBody) {
+        writer.writeCollectionOfObjectValues<SearchRequest>("requests", queryPostRequestBody.requests, serializeSearchRequest);
+        writer.writeAdditionalData(queryPostRequestBody.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeQueryPostResponse(writer: SerializationWriter, queryPostResponse: Partial<QueryPostResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, queryPostResponse)
-    writer.writeCollectionOfObjectValues<SearchResponse>("value", queryPostResponse.value, serializeSearchResponse);
+// @ts-ignore
+export function serializeQueryPostResponse(writer: SerializationWriter, queryPostResponse: Partial<QueryPostResponse> | undefined | null = {}) : void {
+    if (queryPostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, queryPostResponse)
+        writer.writeCollectionOfObjectValues<SearchResponse>("value", queryPostResponse.value, serializeSearchResponse);
+    }
 }
 /**
  * Uri template for the request builder.

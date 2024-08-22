@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DismissPostRequestBody}
  */
+// @ts-ignore
 export function createDismissPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDismissPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createDismissPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDismissPostRequestBody(dismissPostRequestBody: Partial<DismissPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dismissPostRequestBody.backingStoreEnabled = true; },
@@ -32,11 +34,11 @@ export interface DismissPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The servicePrincipalIds property
      */
-    servicePrincipalIds?: string[];
+    servicePrincipalIds?: string[] | null;
 }
 /**
  * Provides operations to call the dismiss method.
@@ -62,9 +64,12 @@ export interface DismissRequestBuilder extends BaseRequestBuilder<DismissRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDismissPostRequestBody(writer: SerializationWriter, dismissPostRequestBody: Partial<DismissPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalIds", dismissPostRequestBody.servicePrincipalIds);
-    writer.writeAdditionalData(dismissPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDismissPostRequestBody(writer: SerializationWriter, dismissPostRequestBody: Partial<DismissPostRequestBody> | undefined | null = {}) : void {
+    if (dismissPostRequestBody) {
+        writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalIds", dismissPostRequestBody.servicePrincipalIds);
+        writer.writeAdditionalData(dismissPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -6,6 +6,8 @@ import { createSolutionsRootFromDiscriminatorValue, serializeSolutionsRoot, type
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { BackupRestoreRequestBuilderNavigationMetadata, BackupRestoreRequestBuilderRequestsMetadata, type BackupRestoreRequestBuilder } from './backupRestore/index.js';
+// @ts-ignore
 import { BookingBusinessesRequestBuilderNavigationMetadata, BookingBusinessesRequestBuilderRequestsMetadata, type BookingBusinessesRequestBuilder } from './bookingBusinesses/index.js';
 // @ts-ignore
 import { BookingCurrenciesRequestBuilderNavigationMetadata, BookingCurrenciesRequestBuilderRequestsMetadata, type BookingCurrenciesRequestBuilder } from './bookingCurrencies/index.js';
@@ -18,6 +20,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the solutionsRoot singleton.
  */
 export interface SolutionsRequestBuilder extends BaseRequestBuilder<SolutionsRequestBuilder> {
+    /**
+     * Provides operations to manage the backupRestore property of the microsoft.graph.solutionsRoot entity.
+     */
+    get backupRestore(): BackupRestoreRequestBuilder;
     /**
      * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
      */
@@ -87,6 +93,10 @@ const SolutionsRequestBuilderGetQueryParametersMapper: Record<string, string> = 
  * Metadata for all the navigation properties in the request builder.
  */
 export const SolutionsRequestBuilderNavigationMetadata: Record<Exclude<keyof SolutionsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    backupRestore: {
+        requestsMetadata: BackupRestoreRequestBuilderRequestsMetadata,
+        navigationMetadata: BackupRestoreRequestBuilderNavigationMetadata,
+    },
     bookingBusinesses: {
         requestsMetadata: BookingBusinessesRequestBuilderRequestsMetadata,
         navigationMetadata: BookingBusinessesRequestBuilderNavigationMetadata,

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GcdPostRequestBody}
  */
+// @ts-ignore
 export function createGcdPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGcdPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createGcdPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGcdPostRequestBody(gcdPostRequestBody: Partial<GcdPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { gcdPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface GcdPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the gcd method.
@@ -64,9 +66,12 @@ export interface GcdRequestBuilder extends BaseRequestBuilder<GcdRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGcdPostRequestBody(writer: SerializationWriter, gcdPostRequestBody: Partial<GcdPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", gcdPostRequestBody.values);
-    writer.writeAdditionalData(gcdPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGcdPostRequestBody(writer: SerializationWriter, gcdPostRequestBody: Partial<GcdPostRequestBody> | undefined | null = {}) : void {
+    if (gcdPostRequestBody) {
+        writer.writeObjectValue("values", gcdPostRequestBody.values);
+        writer.writeAdditionalData(gcdPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

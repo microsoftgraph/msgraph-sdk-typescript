@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SumIfsPostRequestBody}
  */
+// @ts-ignore
 export function createSumIfsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSumIfsPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSumIfsPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSumIfsPostRequestBody(sumIfsPostRequestBody: Partial<SumIfsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sumIfsPostRequestBody.backingStoreEnabled = true; },
@@ -31,10 +33,13 @@ export function deserializeIntoSumIfsPostRequestBody(sumIfsPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSumIfsPostRequestBody(writer: SerializationWriter, sumIfsPostRequestBody: Partial<SumIfsPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("sumRange", sumIfsPostRequestBody.sumRange);
-    writer.writeObjectValue("values", sumIfsPostRequestBody.values);
-    writer.writeAdditionalData(sumIfsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSumIfsPostRequestBody(writer: SerializationWriter, sumIfsPostRequestBody: Partial<SumIfsPostRequestBody> | undefined | null = {}) : void {
+    if (sumIfsPostRequestBody) {
+        writer.writeObjectValue("sumRange", sumIfsPostRequestBody.sumRange);
+        writer.writeObjectValue("values", sumIfsPostRequestBody.values);
+        writer.writeAdditionalData(sumIfsPostRequestBody.additionalData);
+    }
 }
 export interface SumIfsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,15 +49,15 @@ export interface SumIfsPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The sumRange property
      */
-    sumRange?: UntypedNode;
+    sumRange?: UntypedNode | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the sumIfs method.

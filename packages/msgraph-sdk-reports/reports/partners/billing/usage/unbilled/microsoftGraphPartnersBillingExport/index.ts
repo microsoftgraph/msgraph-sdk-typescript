@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExportPostRequestBody}
  */
+// @ts-ignore
 export function createExportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExportPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createExportPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExportPostRequestBody(exportPostRequestBody: Partial<ExportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "attributeSet": n => { exportPostRequestBody.attributeSet = n.getEnumValue<AttributeSet>(AttributeSetObject); },
@@ -36,19 +38,19 @@ export interface ExportPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * The attributeSet property
      */
-    attributeSet?: AttributeSet;
+    attributeSet?: AttributeSet | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The billingPeriod property
      */
-    billingPeriod?: BillingPeriod;
+    billingPeriod?: BillingPeriod | null;
     /**
      * The currencyCode property
      */
-    currencyCode?: string;
+    currencyCode?: string | null;
 }
 /**
  * Provides operations to call the export method.
@@ -75,11 +77,14 @@ export interface MicrosoftGraphPartnersBillingExportRequestBuilder extends BaseR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExportPostRequestBody(writer: SerializationWriter, exportPostRequestBody: Partial<ExportPostRequestBody> | undefined = {}) : void {
-    writer.writeEnumValue<AttributeSet>("attributeSet", exportPostRequestBody.attributeSet);
-    writer.writeEnumValue<BillingPeriod>("billingPeriod", exportPostRequestBody.billingPeriod);
-    writer.writeStringValue("currencyCode", exportPostRequestBody.currencyCode);
-    writer.writeAdditionalData(exportPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeExportPostRequestBody(writer: SerializationWriter, exportPostRequestBody: Partial<ExportPostRequestBody> | undefined | null = {}) : void {
+    if (exportPostRequestBody) {
+        writer.writeEnumValue<AttributeSet>("attributeSet", exportPostRequestBody.attributeSet);
+        writer.writeEnumValue<BillingPeriod>("billingPeriod", exportPostRequestBody.billingPeriod);
+        writer.writeStringValue("currencyCode", exportPostRequestBody.currencyCode);
+        writer.writeAdditionalData(exportPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

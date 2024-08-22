@@ -16,15 +16,15 @@ export interface BitlshiftPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The shiftAmount property
      */
-    shiftAmount?: UntypedNode;
+    shiftAmount?: UntypedNode | null;
 }
 /**
  * Provides operations to call the bitlshift method.
@@ -51,6 +51,7 @@ export interface BitlshiftRequestBuilder extends BaseRequestBuilder<BitlshiftReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BitlshiftPostRequestBody}
  */
+// @ts-ignore
 export function createBitlshiftPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBitlshiftPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createBitlshiftPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBitlshiftPostRequestBody(bitlshiftPostRequestBody: Partial<BitlshiftPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bitlshiftPostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoBitlshiftPostRequestBody(bitlshiftPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBitlshiftPostRequestBody(writer: SerializationWriter, bitlshiftPostRequestBody: Partial<BitlshiftPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", bitlshiftPostRequestBody.number);
-    writer.writeObjectValue("shiftAmount", bitlshiftPostRequestBody.shiftAmount);
-    writer.writeAdditionalData(bitlshiftPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeBitlshiftPostRequestBody(writer: SerializationWriter, bitlshiftPostRequestBody: Partial<BitlshiftPostRequestBody> | undefined | null = {}) : void {
+    if (bitlshiftPostRequestBody) {
+        writer.writeObjectValue("number", bitlshiftPostRequestBody.number);
+        writer.writeObjectValue("shiftAmount", bitlshiftPostRequestBody.shiftAmount);
+        writer.writeAdditionalData(bitlshiftPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

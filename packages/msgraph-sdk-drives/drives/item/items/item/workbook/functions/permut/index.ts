@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PermutPostRequestBody}
  */
+// @ts-ignore
 export function createPermutPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPermutPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPermutPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPermutPostRequestBody(permutPostRequestBody: Partial<PermutPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { permutPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface PermutPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The numberChosen property
      */
-    numberChosen?: UntypedNode;
+    numberChosen?: UntypedNode | null;
 }
 /**
  * Provides operations to call the permut method.
@@ -69,10 +71,13 @@ export interface PermutRequestBuilder extends BaseRequestBuilder<PermutRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePermutPostRequestBody(writer: SerializationWriter, permutPostRequestBody: Partial<PermutPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", permutPostRequestBody.number);
-    writer.writeObjectValue("numberChosen", permutPostRequestBody.numberChosen);
-    writer.writeAdditionalData(permutPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePermutPostRequestBody(writer: SerializationWriter, permutPostRequestBody: Partial<PermutPostRequestBody> | undefined | null = {}) : void {
+    if (permutPostRequestBody) {
+        writer.writeObjectValue("number", permutPostRequestBody.number);
+        writer.writeObjectValue("numberChosen", permutPostRequestBody.numberChosen);
+        writer.writeAdditionalData(permutPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

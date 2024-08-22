@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetMemberObjectsPostRequestBody}
  */
+// @ts-ignore
 export function createGetMemberObjectsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMemberObjectsPostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createGetMemberObjectsPostRequestBodyFromDiscriminatorValue(pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetMemberObjectsPostResponse}
  */
+// @ts-ignore
 export function createGetMemberObjectsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMemberObjectsPostResponse;
 }
@@ -28,6 +30,7 @@ export function createGetMemberObjectsPostResponseFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetMemberObjectsPostRequestBody(getMemberObjectsPostRequestBody: Partial<GetMemberObjectsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getMemberObjectsPostRequestBody.backingStoreEnabled = true; },
@@ -38,6 +41,7 @@ export function deserializeIntoGetMemberObjectsPostRequestBody(getMemberObjectsP
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetMemberObjectsPostResponse(getMemberObjectsPostResponse: Partial<GetMemberObjectsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getMemberObjectsPostResponse),
@@ -52,17 +56,17 @@ export interface GetMemberObjectsPostRequestBody extends AdditionalDataHolder, B
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The securityEnabledOnly property
      */
-    securityEnabledOnly?: boolean;
+    securityEnabledOnly?: boolean | null;
 }
 export interface GetMemberObjectsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: string[];
+    value?: string[] | null;
 }
 /**
  * Provides operations to call the getMemberObjects method.
@@ -89,17 +93,23 @@ export interface GetMemberObjectsRequestBuilder extends BaseRequestBuilder<GetMe
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetMemberObjectsPostRequestBody(writer: SerializationWriter, getMemberObjectsPostRequestBody: Partial<GetMemberObjectsPostRequestBody> | undefined = {}) : void {
-    writer.writeBooleanValue("securityEnabledOnly", getMemberObjectsPostRequestBody.securityEnabledOnly);
-    writer.writeAdditionalData(getMemberObjectsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetMemberObjectsPostRequestBody(writer: SerializationWriter, getMemberObjectsPostRequestBody: Partial<GetMemberObjectsPostRequestBody> | undefined | null = {}) : void {
+    if (getMemberObjectsPostRequestBody) {
+        writer.writeBooleanValue("securityEnabledOnly", getMemberObjectsPostRequestBody.securityEnabledOnly);
+        writer.writeAdditionalData(getMemberObjectsPostRequestBody.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetMemberObjectsPostResponse(writer: SerializationWriter, getMemberObjectsPostResponse: Partial<GetMemberObjectsPostResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getMemberObjectsPostResponse)
-    writer.writeCollectionOfPrimitiveValues<string>("value", getMemberObjectsPostResponse.value);
+// @ts-ignore
+export function serializeGetMemberObjectsPostResponse(writer: SerializationWriter, getMemberObjectsPostResponse: Partial<GetMemberObjectsPostResponse> | undefined | null = {}) : void {
+    if (getMemberObjectsPostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getMemberObjectsPostResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", getMemberObjectsPostResponse.value);
+    }
 }
 /**
  * Uri template for the request builder.

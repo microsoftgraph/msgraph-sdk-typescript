@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImConjugatePostRequestBody}
  */
+// @ts-ignore
 export function createImConjugatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImConjugatePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImConjugatePostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImConjugatePostRequestBody(imConjugatePostRequestBody: Partial<ImConjugatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imConjugatePostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImConjugatePostRequestBody extends AdditionalDataHolder, Backed
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imConjugate method.
@@ -64,9 +66,12 @@ export interface ImConjugateRequestBuilder extends BaseRequestBuilder<ImConjugat
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImConjugatePostRequestBody(writer: SerializationWriter, imConjugatePostRequestBody: Partial<ImConjugatePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imConjugatePostRequestBody.inumber);
-    writer.writeAdditionalData(imConjugatePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImConjugatePostRequestBody(writer: SerializationWriter, imConjugatePostRequestBody: Partial<ImConjugatePostRequestBody> | undefined | null = {}) : void {
+    if (imConjugatePostRequestBody) {
+        writer.writeObjectValue("inumber", imConjugatePostRequestBody.inumber);
+        writer.writeAdditionalData(imConjugatePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

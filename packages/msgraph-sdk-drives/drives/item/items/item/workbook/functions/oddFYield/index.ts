@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {OddFYieldPostRequestBody}
  */
+// @ts-ignore
 export function createOddFYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOddFYieldPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOddFYieldPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOddFYieldPostRequestBody(oddFYieldPostRequestBody: Partial<OddFYieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oddFYieldPostRequestBody.backingStoreEnabled = true; },
@@ -42,43 +44,43 @@ export interface OddFYieldPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The firstCoupon property
      */
-    firstCoupon?: UntypedNode;
+    firstCoupon?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The issue property
      */
-    issue?: UntypedNode;
+    issue?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The pr property
      */
-    pr?: UntypedNode;
+    pr?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The redemption property
      */
-    redemption?: UntypedNode;
+    redemption?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the oddFYield method.
@@ -104,17 +106,20 @@ export interface OddFYieldRequestBuilder extends BaseRequestBuilder<OddFYieldReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOddFYieldPostRequestBody(writer: SerializationWriter, oddFYieldPostRequestBody: Partial<OddFYieldPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", oddFYieldPostRequestBody.basis);
-    writer.writeObjectValue("firstCoupon", oddFYieldPostRequestBody.firstCoupon);
-    writer.writeObjectValue("frequency", oddFYieldPostRequestBody.frequency);
-    writer.writeObjectValue("issue", oddFYieldPostRequestBody.issue);
-    writer.writeObjectValue("maturity", oddFYieldPostRequestBody.maturity);
-    writer.writeObjectValue("pr", oddFYieldPostRequestBody.pr);
-    writer.writeObjectValue("rate", oddFYieldPostRequestBody.rate);
-    writer.writeObjectValue("redemption", oddFYieldPostRequestBody.redemption);
-    writer.writeObjectValue("settlement", oddFYieldPostRequestBody.settlement);
-    writer.writeAdditionalData(oddFYieldPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeOddFYieldPostRequestBody(writer: SerializationWriter, oddFYieldPostRequestBody: Partial<OddFYieldPostRequestBody> | undefined | null = {}) : void {
+    if (oddFYieldPostRequestBody) {
+        writer.writeObjectValue("basis", oddFYieldPostRequestBody.basis);
+        writer.writeObjectValue("firstCoupon", oddFYieldPostRequestBody.firstCoupon);
+        writer.writeObjectValue("frequency", oddFYieldPostRequestBody.frequency);
+        writer.writeObjectValue("issue", oddFYieldPostRequestBody.issue);
+        writer.writeObjectValue("maturity", oddFYieldPostRequestBody.maturity);
+        writer.writeObjectValue("pr", oddFYieldPostRequestBody.pr);
+        writer.writeObjectValue("rate", oddFYieldPostRequestBody.rate);
+        writer.writeObjectValue("redemption", oddFYieldPostRequestBody.redemption);
+        writer.writeObjectValue("settlement", oddFYieldPostRequestBody.settlement);
+        writer.writeAdditionalData(oddFYieldPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

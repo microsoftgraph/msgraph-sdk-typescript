@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IsoWeekNumPostRequestBody}
  */
+// @ts-ignore
 export function createIsoWeekNumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsoWeekNumPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIsoWeekNumPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIsoWeekNumPostRequestBody(isoWeekNumPostRequestBody: Partial<IsoWeekNumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isoWeekNumPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface IsoWeekNumPostRequestBody extends AdditionalDataHolder, BackedM
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The date property
      */
-    date?: UntypedNode;
+    date?: UntypedNode | null;
 }
 /**
  * Provides operations to call the isoWeekNum method.
@@ -64,9 +66,12 @@ export interface IsoWeekNumRequestBuilder extends BaseRequestBuilder<IsoWeekNumR
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsoWeekNumPostRequestBody(writer: SerializationWriter, isoWeekNumPostRequestBody: Partial<IsoWeekNumPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("date", isoWeekNumPostRequestBody.date);
-    writer.writeAdditionalData(isoWeekNumPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeIsoWeekNumPostRequestBody(writer: SerializationWriter, isoWeekNumPostRequestBody: Partial<IsoWeekNumPostRequestBody> | undefined | null = {}) : void {
+    if (isoWeekNumPostRequestBody) {
+        writer.writeObjectValue("date", isoWeekNumPostRequestBody.date);
+        writer.writeAdditionalData(isoWeekNumPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

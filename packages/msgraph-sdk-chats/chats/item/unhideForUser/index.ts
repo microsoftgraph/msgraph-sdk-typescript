@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnhideForUserPostRequestBody}
  */
+// @ts-ignore
 export function createUnhideForUserPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUnhideForUserPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createUnhideForUserPostRequestBodyFromDiscriminatorValue(parseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUnhideForUserPostRequestBody(unhideForUserPostRequestBody: Partial<UnhideForUserPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unhideForUserPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoUnhideForUserPostRequestBody(unhideForUserPostReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUnhideForUserPostRequestBody(writer: SerializationWriter, unhideForUserPostRequestBody: Partial<UnhideForUserPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<TeamworkUserIdentity>("user", unhideForUserPostRequestBody.user, serializeTeamworkUserIdentity);
-    writer.writeAdditionalData(unhideForUserPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeUnhideForUserPostRequestBody(writer: SerializationWriter, unhideForUserPostRequestBody: Partial<UnhideForUserPostRequestBody> | undefined | null = {}) : void {
+    if (unhideForUserPostRequestBody) {
+        writer.writeObjectValue<TeamworkUserIdentity>("user", unhideForUserPostRequestBody.user, serializeTeamworkUserIdentity);
+        writer.writeAdditionalData(unhideForUserPostRequestBody.additionalData);
+    }
 }
 export interface UnhideForUserPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface UnhideForUserPostRequestBody extends AdditionalDataHolder, Back
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The user property
      */
-    user?: TeamworkUserIdentity;
+    user?: TeamworkUserIdentity | null;
 }
 /**
  * Provides operations to call the unhideForUser method.

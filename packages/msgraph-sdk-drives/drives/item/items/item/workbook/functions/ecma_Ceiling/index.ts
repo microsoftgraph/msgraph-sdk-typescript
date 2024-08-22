@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Ecma_CeilingPostRequestBody}
  */
+// @ts-ignore
 export function createEcma_CeilingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoEcma_CeilingPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createEcma_CeilingPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoEcma_CeilingPostRequestBody(ecma_CeilingPostRequestBody: Partial<Ecma_CeilingPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ecma_CeilingPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface Ecma_CeilingPostRequestBody extends AdditionalDataHolder, Backe
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The significance property
      */
-    significance?: UntypedNode;
+    significance?: UntypedNode | null;
 }
 /**
  * Provides operations to call the ecma_Ceiling method.
@@ -69,10 +71,13 @@ export interface Ecma_CeilingRequestBuilder extends BaseRequestBuilder<Ecma_Ceil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeEcma_CeilingPostRequestBody(writer: SerializationWriter, ecma_CeilingPostRequestBody: Partial<Ecma_CeilingPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", ecma_CeilingPostRequestBody.number);
-    writer.writeObjectValue("significance", ecma_CeilingPostRequestBody.significance);
-    writer.writeAdditionalData(ecma_CeilingPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeEcma_CeilingPostRequestBody(writer: SerializationWriter, ecma_CeilingPostRequestBody: Partial<Ecma_CeilingPostRequestBody> | undefined | null = {}) : void {
+    if (ecma_CeilingPostRequestBody) {
+        writer.writeObjectValue("number", ecma_CeilingPostRequestBody.number);
+        writer.writeObjectValue("significance", ecma_CeilingPostRequestBody.significance);
+        writer.writeAdditionalData(ecma_CeilingPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

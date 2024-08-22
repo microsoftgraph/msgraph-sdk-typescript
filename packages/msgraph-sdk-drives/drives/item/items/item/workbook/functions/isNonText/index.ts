@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IsNonTextPostRequestBody}
  */
+// @ts-ignore
 export function createIsNonTextPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsNonTextPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIsNonTextPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIsNonTextPostRequestBody(isNonTextPostRequestBody: Partial<IsNonTextPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isNonTextPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface IsNonTextPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: UntypedNode;
+    value?: UntypedNode | null;
 }
 /**
  * Provides operations to call the isNonText method.
@@ -64,9 +66,12 @@ export interface IsNonTextRequestBuilder extends BaseRequestBuilder<IsNonTextReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsNonTextPostRequestBody(writer: SerializationWriter, isNonTextPostRequestBody: Partial<IsNonTextPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("value", isNonTextPostRequestBody.value);
-    writer.writeAdditionalData(isNonTextPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeIsNonTextPostRequestBody(writer: SerializationWriter, isNonTextPostRequestBody: Partial<IsNonTextPostRequestBody> | undefined | null = {}) : void {
+    if (isNonTextPostRequestBody) {
+        writer.writeObjectValue("value", isNonTextPostRequestBody.value);
+        writer.writeAdditionalData(isNonTextPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

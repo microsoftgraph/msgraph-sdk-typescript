@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DeltaWithTokenGetResponse}
  */
+// @ts-ignore
 export function createDeltaWithTokenGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeltaWithTokenGetResponse;
 }
@@ -20,7 +21,7 @@ export interface DeltaWithTokenGetResponse extends BaseDeltaFunctionResponse, Pa
     /**
      * The value property
      */
-    value?: ListItem[];
+    value?: ListItem[] | null;
 }
 /**
  * Provides operations to call the delta method.
@@ -81,6 +82,7 @@ export interface DeltaWithTokenRequestBuilderGetQueryParameters {
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetResponse: Partial<DeltaWithTokenGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseDeltaFunctionResponse(deltaWithTokenGetResponse),
@@ -91,9 +93,12 @@ export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetRespon
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDeltaWithTokenGetResponse(writer: SerializationWriter, deltaWithTokenGetResponse: Partial<DeltaWithTokenGetResponse> | undefined = {}) : void {
-    serializeBaseDeltaFunctionResponse(writer, deltaWithTokenGetResponse)
-    writer.writeCollectionOfObjectValues<ListItem>("value", deltaWithTokenGetResponse.value, serializeListItem);
+// @ts-ignore
+export function serializeDeltaWithTokenGetResponse(writer: SerializationWriter, deltaWithTokenGetResponse: Partial<DeltaWithTokenGetResponse> | undefined | null = {}) : void {
+    if (deltaWithTokenGetResponse) {
+        serializeBaseDeltaFunctionResponse(writer, deltaWithTokenGetResponse)
+        writer.writeCollectionOfObjectValues<ListItem>("value", deltaWithTokenGetResponse.value, serializeListItem);
+    }
 }
 /**
  * Uri template for the request builder.

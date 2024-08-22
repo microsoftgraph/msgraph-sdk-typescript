@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {XorPostRequestBody}
  */
+// @ts-ignore
 export function createXorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoXorPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createXorPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoXorPostRequestBody(xorPostRequestBody: Partial<XorPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { xorPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoXorPostRequestBody(xorPostRequestBody: Partial<Xo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeXorPostRequestBody(writer: SerializationWriter, xorPostRequestBody: Partial<XorPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", xorPostRequestBody.values);
-    writer.writeAdditionalData(xorPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeXorPostRequestBody(writer: SerializationWriter, xorPostRequestBody: Partial<XorPostRequestBody> | undefined | null = {}) : void {
+    if (xorPostRequestBody) {
+        writer.writeObjectValue("values", xorPostRequestBody.values);
+        writer.writeAdditionalData(xorPostRequestBody.additionalData);
+    }
 }
 export interface XorPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface XorPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the xor method.

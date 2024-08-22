@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetAttackSimulationSimulationUserCoverageGetResponse}
  */
+// @ts-ignore
 export function createGetAttackSimulationSimulationUserCoverageGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAttackSimulationSimulationUserCoverageGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetAttackSimulationSimulationUserCoverageGetResponseFromDi
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetAttackSimulationSimulationUserCoverageGetResponse(getAttackSimulationSimulationUserCoverageGetResponse: Partial<GetAttackSimulationSimulationUserCoverageGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAttackSimulationSimulationUserCoverageGetResponse),
@@ -30,7 +32,7 @@ export interface GetAttackSimulationSimulationUserCoverageGetResponse extends Ba
     /**
      * The value property
      */
-    value?: AttackSimulationSimulationUserCoverage[];
+    value?: AttackSimulationSimulationUserCoverage[] | null;
 }
 /**
  * Provides operations to call the getAttackSimulationSimulationUserCoverage method.
@@ -80,9 +82,12 @@ export interface GetAttackSimulationSimulationUserCoverageRequestBuilderGetQuery
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAttackSimulationSimulationUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageGetResponse: Partial<GetAttackSimulationSimulationUserCoverageGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageGetResponse)
-    writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, serializeAttackSimulationSimulationUserCoverage);
+// @ts-ignore
+export function serializeGetAttackSimulationSimulationUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageGetResponse: Partial<GetAttackSimulationSimulationUserCoverageGetResponse> | undefined | null = {}) : void {
+    if (getAttackSimulationSimulationUserCoverageGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageGetResponse)
+        writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, serializeAttackSimulationSimulationUserCoverage);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Var_PPostRequestBody}
  */
+// @ts-ignore
 export function createVar_PPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVar_PPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createVar_PPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoVar_PPostRequestBody(var_PPostRequestBody: Partial<Var_PPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { var_PPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoVar_PPostRequestBody(var_PPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeVar_PPostRequestBody(writer: SerializationWriter, var_PPostRequestBody: Partial<Var_PPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", var_PPostRequestBody.values);
-    writer.writeAdditionalData(var_PPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeVar_PPostRequestBody(writer: SerializationWriter, var_PPostRequestBody: Partial<Var_PPostRequestBody> | undefined | null = {}) : void {
+    if (var_PPostRequestBody) {
+        writer.writeObjectValue("values", var_PPostRequestBody.values);
+        writer.writeAdditionalData(var_PPostRequestBody.additionalData);
+    }
 }
 export interface Var_PPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface Var_PPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the var_P method.

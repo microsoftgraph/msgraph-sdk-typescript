@@ -35,7 +35,7 @@ export interface TablesRequestBuilder extends BaseRequestBuilder<TablesRequestBu
      */
      byWorkbookTableId(workbookTableId: string) : WorkbookTableItemRequestBuilder;
     /**
-     * Collection of tables that are part of the worksheet. Read-only.
+     * The list of tables that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -56,7 +56,7 @@ export interface TablesRequestBuilder extends BaseRequestBuilder<TablesRequestBu
      */
      post(body: WorkbookTable, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTable | undefined>;
     /**
-     * Collection of tables that are part of the worksheet. Read-only.
+     * The list of tables that are part of the worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -70,7 +70,7 @@ export interface TablesRequestBuilder extends BaseRequestBuilder<TablesRequestBu
      toPostRequestInformation(body: WorkbookTable, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Collection of tables that are part of the worksheet. Read-only.
+ * The list of tables that are part of the worksheet. Read-only.
  */
 export interface TablesRequestBuilderGetQueryParameters {
     /**

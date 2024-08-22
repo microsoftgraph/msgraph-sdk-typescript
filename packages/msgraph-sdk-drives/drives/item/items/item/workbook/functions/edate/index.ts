@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {EdatePostRequestBody}
  */
+// @ts-ignore
 export function createEdatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoEdatePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createEdatePostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoEdatePostRequestBody(edatePostRequestBody: Partial<EdatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { edatePostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface EdatePostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The months property
      */
-    months?: UntypedNode;
+    months?: UntypedNode | null;
     /**
      * The startDate property
      */
-    startDate?: UntypedNode;
+    startDate?: UntypedNode | null;
 }
 /**
  * Provides operations to call the edate method.
@@ -69,10 +71,13 @@ export interface EdateRequestBuilder extends BaseRequestBuilder<EdateRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeEdatePostRequestBody(writer: SerializationWriter, edatePostRequestBody: Partial<EdatePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("months", edatePostRequestBody.months);
-    writer.writeObjectValue("startDate", edatePostRequestBody.startDate);
-    writer.writeAdditionalData(edatePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeEdatePostRequestBody(writer: SerializationWriter, edatePostRequestBody: Partial<EdatePostRequestBody> | undefined | null = {}) : void {
+    if (edatePostRequestBody) {
+        writer.writeObjectValue("months", edatePostRequestBody.months);
+        writer.writeObjectValue("startDate", edatePostRequestBody.startDate);
+        writer.writeAdditionalData(edatePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

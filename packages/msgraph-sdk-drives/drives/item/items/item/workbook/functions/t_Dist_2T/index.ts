@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {T_Dist_2TPostRequestBody}
  */
+// @ts-ignore
 export function createT_Dist_2TPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoT_Dist_2TPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createT_Dist_2TPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoT_Dist_2TPostRequestBody(t_Dist_2TPostRequestBody: Partial<T_Dist_2TPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { t_Dist_2TPostRequestBody.backingStoreEnabled = true; },
@@ -31,10 +33,13 @@ export function deserializeIntoT_Dist_2TPostRequestBody(t_Dist_2TPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeT_Dist_2TPostRequestBody(writer: SerializationWriter, t_Dist_2TPostRequestBody: Partial<T_Dist_2TPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("degFreedom", t_Dist_2TPostRequestBody.degFreedom);
-    writer.writeObjectValue("x", t_Dist_2TPostRequestBody.x);
-    writer.writeAdditionalData(t_Dist_2TPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeT_Dist_2TPostRequestBody(writer: SerializationWriter, t_Dist_2TPostRequestBody: Partial<T_Dist_2TPostRequestBody> | undefined | null = {}) : void {
+    if (t_Dist_2TPostRequestBody) {
+        writer.writeObjectValue("degFreedom", t_Dist_2TPostRequestBody.degFreedom);
+        writer.writeObjectValue("x", t_Dist_2TPostRequestBody.x);
+        writer.writeAdditionalData(t_Dist_2TPostRequestBody.additionalData);
+    }
 }
 export interface T_Dist_2TPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,15 +49,15 @@ export interface T_Dist_2TPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The degFreedom property
      */
-    degFreedom?: UntypedNode;
+    degFreedom?: UntypedNode | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the t_Dist_2T method.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NetworkDays_IntlPostRequestBody}
  */
+// @ts-ignore
 export function createNetworkDays_IntlPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNetworkDays_IntlPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createNetworkDays_IntlPostRequestBodyFromDiscriminatorValue(pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNetworkDays_IntlPostRequestBody(networkDays_IntlPostRequestBody: Partial<NetworkDays_IntlPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { networkDays_IntlPostRequestBody.backingStoreEnabled = true; },
@@ -37,23 +39,23 @@ export interface NetworkDays_IntlPostRequestBody extends AdditionalDataHolder, B
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The endDate property
      */
-    endDate?: UntypedNode;
+    endDate?: UntypedNode | null;
     /**
      * The holidays property
      */
-    holidays?: UntypedNode;
+    holidays?: UntypedNode | null;
     /**
      * The startDate property
      */
-    startDate?: UntypedNode;
+    startDate?: UntypedNode | null;
     /**
      * The weekend property
      */
-    weekend?: UntypedNode;
+    weekend?: UntypedNode | null;
 }
 /**
  * Provides operations to call the networkDays_Intl method.
@@ -79,12 +81,15 @@ export interface NetworkDays_IntlRequestBuilder extends BaseRequestBuilder<Netwo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNetworkDays_IntlPostRequestBody(writer: SerializationWriter, networkDays_IntlPostRequestBody: Partial<NetworkDays_IntlPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("endDate", networkDays_IntlPostRequestBody.endDate);
-    writer.writeObjectValue("holidays", networkDays_IntlPostRequestBody.holidays);
-    writer.writeObjectValue("startDate", networkDays_IntlPostRequestBody.startDate);
-    writer.writeObjectValue("weekend", networkDays_IntlPostRequestBody.weekend);
-    writer.writeAdditionalData(networkDays_IntlPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeNetworkDays_IntlPostRequestBody(writer: SerializationWriter, networkDays_IntlPostRequestBody: Partial<NetworkDays_IntlPostRequestBody> | undefined | null = {}) : void {
+    if (networkDays_IntlPostRequestBody) {
+        writer.writeObjectValue("endDate", networkDays_IntlPostRequestBody.endDate);
+        writer.writeObjectValue("holidays", networkDays_IntlPostRequestBody.holidays);
+        writer.writeObjectValue("startDate", networkDays_IntlPostRequestBody.startDate);
+        writer.writeObjectValue("weekend", networkDays_IntlPostRequestBody.weekend);
+        writer.writeAdditionalData(networkDays_IntlPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

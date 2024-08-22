@@ -16,15 +16,15 @@ export interface CombinaPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The numberChosen property
      */
-    numberChosen?: UntypedNode;
+    numberChosen?: UntypedNode | null;
 }
 /**
  * Provides operations to call the combina method.
@@ -51,6 +51,7 @@ export interface CombinaRequestBuilder extends BaseRequestBuilder<CombinaRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CombinaPostRequestBody}
  */
+// @ts-ignore
 export function createCombinaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCombinaPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createCombinaPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCombinaPostRequestBody(combinaPostRequestBody: Partial<CombinaPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { combinaPostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoCombinaPostRequestBody(combinaPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCombinaPostRequestBody(writer: SerializationWriter, combinaPostRequestBody: Partial<CombinaPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", combinaPostRequestBody.number);
-    writer.writeObjectValue("numberChosen", combinaPostRequestBody.numberChosen);
-    writer.writeAdditionalData(combinaPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCombinaPostRequestBody(writer: SerializationWriter, combinaPostRequestBody: Partial<CombinaPostRequestBody> | undefined | null = {}) : void {
+    if (combinaPostRequestBody) {
+        writer.writeObjectValue("number", combinaPostRequestBody.number);
+        writer.writeObjectValue("numberChosen", combinaPostRequestBody.numberChosen);
+        writer.writeAdditionalData(combinaPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

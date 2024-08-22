@@ -16,19 +16,19 @@ export interface ConvertPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The fromUnit property
      */
-    fromUnit?: UntypedNode;
+    fromUnit?: UntypedNode | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The toUnit property
      */
-    toUnit?: UntypedNode;
+    toUnit?: UntypedNode | null;
 }
 /**
  * Provides operations to call the convert method.
@@ -55,6 +55,7 @@ export interface ConvertRequestBuilder extends BaseRequestBuilder<ConvertRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ConvertPostRequestBody}
  */
+// @ts-ignore
 export function createConvertPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConvertPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createConvertPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoConvertPostRequestBody(convertPostRequestBody: Partial<ConvertPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { convertPostRequestBody.backingStoreEnabled = true; },
@@ -74,11 +76,14 @@ export function deserializeIntoConvertPostRequestBody(convertPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeConvertPostRequestBody(writer: SerializationWriter, convertPostRequestBody: Partial<ConvertPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("fromUnit", convertPostRequestBody.fromUnit);
-    writer.writeObjectValue("number", convertPostRequestBody.number);
-    writer.writeObjectValue("toUnit", convertPostRequestBody.toUnit);
-    writer.writeAdditionalData(convertPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeConvertPostRequestBody(writer: SerializationWriter, convertPostRequestBody: Partial<ConvertPostRequestBody> | undefined | null = {}) : void {
+    if (convertPostRequestBody) {
+        writer.writeObjectValue("fromUnit", convertPostRequestBody.fromUnit);
+        writer.writeObjectValue("number", convertPostRequestBody.number);
+        writer.writeObjectValue("toUnit", convertPostRequestBody.toUnit);
+        writer.writeAdditionalData(convertPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

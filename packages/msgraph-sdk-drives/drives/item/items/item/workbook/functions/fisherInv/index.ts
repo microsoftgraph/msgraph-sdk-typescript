@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FisherInvPostRequestBody}
  */
+// @ts-ignore
 export function createFisherInvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFisherInvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createFisherInvPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFisherInvPostRequestBody(fisherInvPostRequestBody: Partial<FisherInvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { fisherInvPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface FisherInvPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The y property
      */
-    y?: UntypedNode;
+    y?: UntypedNode | null;
 }
 /**
  * Provides operations to call the fisherInv method.
@@ -64,9 +66,12 @@ export interface FisherInvRequestBuilder extends BaseRequestBuilder<FisherInvReq
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFisherInvPostRequestBody(writer: SerializationWriter, fisherInvPostRequestBody: Partial<FisherInvPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("y", fisherInvPostRequestBody.y);
-    writer.writeAdditionalData(fisherInvPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeFisherInvPostRequestBody(writer: SerializationWriter, fisherInvPostRequestBody: Partial<FisherInvPostRequestBody> | undefined | null = {}) : void {
+    if (fisherInvPostRequestBody) {
+        writer.writeObjectValue("y", fisherInvPostRequestBody.y);
+        writer.writeAdditionalData(fisherInvPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

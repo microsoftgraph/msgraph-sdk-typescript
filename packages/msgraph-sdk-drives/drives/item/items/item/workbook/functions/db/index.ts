@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DbPostRequestBody}
  */
+// @ts-ignore
 export function createDbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDbPostRequestBody;
 }
@@ -24,27 +25,27 @@ export interface DbPostRequestBody extends AdditionalDataHolder, BackedModel, Pa
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The cost property
      */
-    cost?: UntypedNode;
+    cost?: UntypedNode | null;
     /**
      * The life property
      */
-    life?: UntypedNode;
+    life?: UntypedNode | null;
     /**
      * The month property
      */
-    month?: UntypedNode;
+    month?: UntypedNode | null;
     /**
      * The period property
      */
-    period?: UntypedNode;
+    period?: UntypedNode | null;
     /**
      * The salvage property
      */
-    salvage?: UntypedNode;
+    salvage?: UntypedNode | null;
 }
 /**
  * Provides operations to call the db method.
@@ -70,6 +71,7 @@ export interface DbRequestBuilder extends BaseRequestBuilder<DbRequestBuilder> {
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDbPostRequestBody(dbPostRequestBody: Partial<DbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dbPostRequestBody.backingStoreEnabled = true; },
@@ -84,13 +86,16 @@ export function deserializeIntoDbPostRequestBody(dbPostRequestBody: Partial<DbPo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDbPostRequestBody(writer: SerializationWriter, dbPostRequestBody: Partial<DbPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("cost", dbPostRequestBody.cost);
-    writer.writeObjectValue("life", dbPostRequestBody.life);
-    writer.writeObjectValue("month", dbPostRequestBody.month);
-    writer.writeObjectValue("period", dbPostRequestBody.period);
-    writer.writeObjectValue("salvage", dbPostRequestBody.salvage);
-    writer.writeAdditionalData(dbPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDbPostRequestBody(writer: SerializationWriter, dbPostRequestBody: Partial<DbPostRequestBody> | undefined | null = {}) : void {
+    if (dbPostRequestBody) {
+        writer.writeObjectValue("cost", dbPostRequestBody.cost);
+        writer.writeObjectValue("life", dbPostRequestBody.life);
+        writer.writeObjectValue("month", dbPostRequestBody.month);
+        writer.writeObjectValue("period", dbPostRequestBody.period);
+        writer.writeObjectValue("salvage", dbPostRequestBody.salvage);
+        writer.writeAdditionalData(dbPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

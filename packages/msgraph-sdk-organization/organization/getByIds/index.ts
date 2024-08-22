@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetByIdsPostRequestBody}
  */
+// @ts-ignore
 export function createGetByIdsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetByIdsPostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createGetByIdsPostRequestBodyFromDiscriminatorValue(parseNode: P
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetByIdsPostResponse}
  */
+// @ts-ignore
 export function createGetByIdsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetByIdsPostResponse;
 }
@@ -28,6 +30,7 @@ export function createGetByIdsPostResponseFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetByIdsPostRequestBody(getByIdsPostRequestBody: Partial<GetByIdsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getByIdsPostRequestBody.backingStoreEnabled = true; },
@@ -39,6 +42,7 @@ export function deserializeIntoGetByIdsPostRequestBody(getByIdsPostRequestBody: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetByIdsPostResponse(getByIdsPostResponse: Partial<GetByIdsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getByIdsPostResponse),
@@ -53,21 +57,21 @@ export interface GetByIdsPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The ids property
      */
-    ids?: string[];
+    ids?: string[] | null;
     /**
      * The types property
      */
-    types?: string[];
+    types?: string[] | null;
 }
 export interface GetByIdsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: DirectoryObject[];
+    value?: DirectoryObject[] | null;
 }
 /**
  * Provides operations to call the getByIds method.
@@ -94,18 +98,24 @@ export interface GetByIdsRequestBuilder extends BaseRequestBuilder<GetByIdsReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, getByIdsPostRequestBody: Partial<GetByIdsPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("ids", getByIdsPostRequestBody.ids);
-    writer.writeCollectionOfPrimitiveValues<string>("types", getByIdsPostRequestBody.types);
-    writer.writeAdditionalData(getByIdsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, getByIdsPostRequestBody: Partial<GetByIdsPostRequestBody> | undefined | null = {}) : void {
+    if (getByIdsPostRequestBody) {
+        writer.writeCollectionOfPrimitiveValues<string>("ids", getByIdsPostRequestBody.ids);
+        writer.writeCollectionOfPrimitiveValues<string>("types", getByIdsPostRequestBody.types);
+        writer.writeAdditionalData(getByIdsPostRequestBody.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetByIdsPostResponse(writer: SerializationWriter, getByIdsPostResponse: Partial<GetByIdsPostResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getByIdsPostResponse)
-    writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, serializeDirectoryObject);
+// @ts-ignore
+export function serializeGetByIdsPostResponse(writer: SerializationWriter, getByIdsPostResponse: Partial<GetByIdsPostResponse> | undefined | null = {}) : void {
+    if (getByIdsPostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getByIdsPostResponse)
+        writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, serializeDirectoryObject);
+    }
 }
 /**
  * Uri template for the request builder.

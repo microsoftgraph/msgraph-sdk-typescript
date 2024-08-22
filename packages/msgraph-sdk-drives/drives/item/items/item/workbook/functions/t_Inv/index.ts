@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {T_InvPostRequestBody}
  */
+// @ts-ignore
 export function createT_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoT_InvPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createT_InvPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoT_InvPostRequestBody(t_InvPostRequestBody: Partial<T_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { t_InvPostRequestBody.backingStoreEnabled = true; },
@@ -31,10 +33,13 @@ export function deserializeIntoT_InvPostRequestBody(t_InvPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeT_InvPostRequestBody(writer: SerializationWriter, t_InvPostRequestBody: Partial<T_InvPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("degFreedom", t_InvPostRequestBody.degFreedom);
-    writer.writeObjectValue("probability", t_InvPostRequestBody.probability);
-    writer.writeAdditionalData(t_InvPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeT_InvPostRequestBody(writer: SerializationWriter, t_InvPostRequestBody: Partial<T_InvPostRequestBody> | undefined | null = {}) : void {
+    if (t_InvPostRequestBody) {
+        writer.writeObjectValue("degFreedom", t_InvPostRequestBody.degFreedom);
+        writer.writeObjectValue("probability", t_InvPostRequestBody.probability);
+        writer.writeAdditionalData(t_InvPostRequestBody.additionalData);
+    }
 }
 export interface T_InvPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -44,15 +49,15 @@ export interface T_InvPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The degFreedom property
      */
-    degFreedom?: UntypedNode;
+    degFreedom?: UntypedNode | null;
     /**
      * The probability property
      */
-    probability?: UntypedNode;
+    probability?: UntypedNode | null;
 }
 /**
  * Provides operations to call the t_Inv method.

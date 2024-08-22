@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RejectPostRequestBody}
  */
+// @ts-ignore
 export function createRejectPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRejectPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRejectPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRejectPostRequestBody(rejectPostRequestBody: Partial<RejectPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rejectPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface RejectPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The callbackUri property
      */
-    callbackUri?: string;
+    callbackUri?: string | null;
     /**
      * The reason property
      */
-    reason?: RejectReason;
+    reason?: RejectReason | null;
 }
 /**
  * Provides operations to call the reject method.
@@ -69,10 +71,13 @@ export interface RejectRequestBuilder extends BaseRequestBuilder<RejectRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRejectPostRequestBody(writer: SerializationWriter, rejectPostRequestBody: Partial<RejectPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("callbackUri", rejectPostRequestBody.callbackUri);
-    writer.writeEnumValue<RejectReason>("reason", rejectPostRequestBody.reason);
-    writer.writeAdditionalData(rejectPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeRejectPostRequestBody(writer: SerializationWriter, rejectPostRequestBody: Partial<RejectPostRequestBody> | undefined | null = {}) : void {
+    if (rejectPostRequestBody) {
+        writer.writeStringValue("callbackUri", rejectPostRequestBody.callbackUri);
+        writer.writeEnumValue<RejectReason>("reason", rejectPostRequestBody.reason);
+        writer.writeAdditionalData(rejectPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

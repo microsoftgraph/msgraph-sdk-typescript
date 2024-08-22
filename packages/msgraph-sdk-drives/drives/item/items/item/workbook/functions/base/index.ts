@@ -16,19 +16,19 @@ export interface BasePostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The minLength property
      */
-    minLength?: UntypedNode;
+    minLength?: UntypedNode | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The radix property
      */
-    radix?: UntypedNode;
+    radix?: UntypedNode | null;
 }
 /**
  * Provides operations to call the base method.
@@ -55,6 +55,7 @@ export interface BaseRequestBuilderEscaped extends BaseRequestBuilder<BaseReques
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BasePostRequestBody}
  */
+// @ts-ignore
 export function createBasePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBasePostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createBasePostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBasePostRequestBody(basePostRequestBody: Partial<BasePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { basePostRequestBody.backingStoreEnabled = true; },
@@ -74,11 +76,14 @@ export function deserializeIntoBasePostRequestBody(basePostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBasePostRequestBody(writer: SerializationWriter, basePostRequestBody: Partial<BasePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("minLength", basePostRequestBody.minLength);
-    writer.writeObjectValue("number", basePostRequestBody.number);
-    writer.writeObjectValue("radix", basePostRequestBody.radix);
-    writer.writeAdditionalData(basePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeBasePostRequestBody(writer: SerializationWriter, basePostRequestBody: Partial<BasePostRequestBody> | undefined | null = {}) : void {
+    if (basePostRequestBody) {
+        writer.writeObjectValue("minLength", basePostRequestBody.minLength);
+        writer.writeObjectValue("number", basePostRequestBody.number);
+        writer.writeObjectValue("radix", basePostRequestBody.radix);
+        writer.writeAdditionalData(basePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

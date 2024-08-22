@@ -16,11 +16,11 @@ export interface AddCopyPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The contentType property
      */
-    contentType?: string;
+    contentType?: string | null;
 }
 /**
  * Provides operations to call the addCopy method.
@@ -48,6 +48,7 @@ export interface AddCopyRequestBuilder extends BaseRequestBuilder<AddCopyRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddCopyPostRequestBody}
  */
+// @ts-ignore
 export function createAddCopyPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddCopyPostRequestBody;
 }
@@ -55,6 +56,7 @@ export function createAddCopyPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddCopyPostRequestBody(addCopyPostRequestBody: Partial<AddCopyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addCopyPostRequestBody.backingStoreEnabled = true; },
@@ -65,9 +67,12 @@ export function deserializeIntoAddCopyPostRequestBody(addCopyPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddCopyPostRequestBody(writer: SerializationWriter, addCopyPostRequestBody: Partial<AddCopyPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("contentType", addCopyPostRequestBody.contentType);
-    writer.writeAdditionalData(addCopyPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAddCopyPostRequestBody(writer: SerializationWriter, addCopyPostRequestBody: Partial<AddCopyPostRequestBody> | undefined | null = {}) : void {
+    if (addCopyPostRequestBody) {
+        writer.writeStringValue("contentType", addCopyPostRequestBody.contentType);
+        writer.writeAdditionalData(addCopyPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

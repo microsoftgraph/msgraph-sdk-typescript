@@ -16,15 +16,15 @@ export interface Atan2PostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The xNum property
      */
-    xNum?: UntypedNode;
+    xNum?: UntypedNode | null;
     /**
      * The yNum property
      */
-    yNum?: UntypedNode;
+    yNum?: UntypedNode | null;
 }
 /**
  * Provides operations to call the atan2 method.
@@ -51,6 +51,7 @@ export interface Atan2RequestBuilder extends BaseRequestBuilder<Atan2RequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Atan2PostRequestBody}
  */
+// @ts-ignore
 export function createAtan2PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAtan2PostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createAtan2PostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAtan2PostRequestBody(atan2PostRequestBody: Partial<Atan2PostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { atan2PostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoAtan2PostRequestBody(atan2PostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAtan2PostRequestBody(writer: SerializationWriter, atan2PostRequestBody: Partial<Atan2PostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("xNum", atan2PostRequestBody.xNum);
-    writer.writeObjectValue("yNum", atan2PostRequestBody.yNum);
-    writer.writeAdditionalData(atan2PostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAtan2PostRequestBody(writer: SerializationWriter, atan2PostRequestBody: Partial<Atan2PostRequestBody> | undefined | null = {}) : void {
+    if (atan2PostRequestBody) {
+        writer.writeObjectValue("xNum", atan2PostRequestBody.xNum);
+        writer.writeObjectValue("yNum", atan2PostRequestBody.yNum);
+        writer.writeAdditionalData(atan2PostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

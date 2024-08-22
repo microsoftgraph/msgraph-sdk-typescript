@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IsNAPostRequestBody}
  */
+// @ts-ignore
 export function createIsNAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsNAPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIsNAPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIsNAPostRequestBody(isNAPostRequestBody: Partial<IsNAPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isNAPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface IsNAPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: UntypedNode;
+    value?: UntypedNode | null;
 }
 /**
  * Provides operations to call the isNA method.
@@ -64,9 +66,12 @@ export interface IsNARequestBuilder extends BaseRequestBuilder<IsNARequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsNAPostRequestBody(writer: SerializationWriter, isNAPostRequestBody: Partial<IsNAPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("value", isNAPostRequestBody.value);
-    writer.writeAdditionalData(isNAPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeIsNAPostRequestBody(writer: SerializationWriter, isNAPostRequestBody: Partial<IsNAPostRequestBody> | undefined | null = {}) : void {
+    if (isNAPostRequestBody) {
+        writer.writeObjectValue("value", isNAPostRequestBody.value);
+        writer.writeAdditionalData(isNAPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

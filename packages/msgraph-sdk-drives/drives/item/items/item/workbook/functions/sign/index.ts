@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SignPostRequestBody}
  */
+// @ts-ignore
 export function createSignPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSignPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSignPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSignPostRequestBody(signPostRequestBody: Partial<SignPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { signPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoSignPostRequestBody(signPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSignPostRequestBody(writer: SerializationWriter, signPostRequestBody: Partial<SignPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", signPostRequestBody.number);
-    writer.writeAdditionalData(signPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSignPostRequestBody(writer: SerializationWriter, signPostRequestBody: Partial<SignPostRequestBody> | undefined | null = {}) : void {
+    if (signPostRequestBody) {
+        writer.writeObjectValue("number", signPostRequestBody.number);
+        writer.writeAdditionalData(signPostRequestBody.additionalData);
+    }
 }
 export interface SignPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface SignPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the sign method.

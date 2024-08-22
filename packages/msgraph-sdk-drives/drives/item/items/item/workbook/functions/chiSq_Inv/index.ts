@@ -16,15 +16,15 @@ export interface ChiSq_InvPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The degFreedom property
      */
-    degFreedom?: UntypedNode;
+    degFreedom?: UntypedNode | null;
     /**
      * The probability property
      */
-    probability?: UntypedNode;
+    probability?: UntypedNode | null;
 }
 /**
  * Provides operations to call the chiSq_Inv method.
@@ -51,6 +51,7 @@ export interface ChiSq_InvRequestBuilder extends BaseRequestBuilder<ChiSq_InvReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ChiSq_InvPostRequestBody}
  */
+// @ts-ignore
 export function createChiSq_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoChiSq_InvPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createChiSq_InvPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoChiSq_InvPostRequestBody(chiSq_InvPostRequestBody: Partial<ChiSq_InvPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { chiSq_InvPostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoChiSq_InvPostRequestBody(chiSq_InvPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeChiSq_InvPostRequestBody(writer: SerializationWriter, chiSq_InvPostRequestBody: Partial<ChiSq_InvPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("degFreedom", chiSq_InvPostRequestBody.degFreedom);
-    writer.writeObjectValue("probability", chiSq_InvPostRequestBody.probability);
-    writer.writeAdditionalData(chiSq_InvPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeChiSq_InvPostRequestBody(writer: SerializationWriter, chiSq_InvPostRequestBody: Partial<ChiSq_InvPostRequestBody> | undefined | null = {}) : void {
+    if (chiSq_InvPostRequestBody) {
+        writer.writeObjectValue("degFreedom", chiSq_InvPostRequestBody.degFreedom);
+        writer.writeObjectValue("probability", chiSq_InvPostRequestBody.probability);
+        writer.writeAdditionalData(chiSq_InvPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

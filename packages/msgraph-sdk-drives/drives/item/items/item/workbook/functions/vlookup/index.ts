@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {VlookupPostRequestBody}
  */
+// @ts-ignore
 export function createVlookupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVlookupPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createVlookupPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoVlookupPostRequestBody(vlookupPostRequestBody: Partial<VlookupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { vlookupPostRequestBody.backingStoreEnabled = true; },
@@ -33,12 +35,15 @@ export function deserializeIntoVlookupPostRequestBody(vlookupPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeVlookupPostRequestBody(writer: SerializationWriter, vlookupPostRequestBody: Partial<VlookupPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("colIndexNum", vlookupPostRequestBody.colIndexNum);
-    writer.writeObjectValue("lookupValue", vlookupPostRequestBody.lookupValue);
-    writer.writeObjectValue("rangeLookup", vlookupPostRequestBody.rangeLookup);
-    writer.writeObjectValue("tableArray", vlookupPostRequestBody.tableArray);
-    writer.writeAdditionalData(vlookupPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeVlookupPostRequestBody(writer: SerializationWriter, vlookupPostRequestBody: Partial<VlookupPostRequestBody> | undefined | null = {}) : void {
+    if (vlookupPostRequestBody) {
+        writer.writeObjectValue("colIndexNum", vlookupPostRequestBody.colIndexNum);
+        writer.writeObjectValue("lookupValue", vlookupPostRequestBody.lookupValue);
+        writer.writeObjectValue("rangeLookup", vlookupPostRequestBody.rangeLookup);
+        writer.writeObjectValue("tableArray", vlookupPostRequestBody.tableArray);
+        writer.writeAdditionalData(vlookupPostRequestBody.additionalData);
+    }
 }
 export interface VlookupPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -48,23 +53,23 @@ export interface VlookupPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The colIndexNum property
      */
-    colIndexNum?: UntypedNode;
+    colIndexNum?: UntypedNode | null;
     /**
      * The lookupValue property
      */
-    lookupValue?: UntypedNode;
+    lookupValue?: UntypedNode | null;
     /**
      * The rangeLookup property
      */
-    rangeLookup?: UntypedNode;
+    rangeLookup?: UntypedNode | null;
     /**
      * The tableArray property
      */
-    tableArray?: UntypedNode;
+    tableArray?: UntypedNode | null;
 }
 /**
  * Provides operations to call the vlookup method.

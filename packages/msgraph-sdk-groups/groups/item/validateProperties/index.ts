@@ -13,6 +13,7 @@ import { type Guid } from 'guid-typescript';
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ValidatePropertiesPostRequestBody}
  */
+// @ts-ignore
 export function createValidatePropertiesPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoValidatePropertiesPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createValidatePropertiesPostRequestBodyFromDiscriminatorValue(pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoValidatePropertiesPostRequestBody(validatePropertiesPostRequestBody: Partial<ValidatePropertiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { validatePropertiesPostRequestBody.backingStoreEnabled = true; },
@@ -32,11 +34,14 @@ export function deserializeIntoValidatePropertiesPostRequestBody(validatePropert
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeValidatePropertiesPostRequestBody(writer: SerializationWriter, validatePropertiesPostRequestBody: Partial<ValidatePropertiesPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("displayName", validatePropertiesPostRequestBody.displayName);
-    writer.writeStringValue("mailNickname", validatePropertiesPostRequestBody.mailNickname);
-    writer.writeGuidValue("onBehalfOfUserId", validatePropertiesPostRequestBody.onBehalfOfUserId);
-    writer.writeAdditionalData(validatePropertiesPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeValidatePropertiesPostRequestBody(writer: SerializationWriter, validatePropertiesPostRequestBody: Partial<ValidatePropertiesPostRequestBody> | undefined | null = {}) : void {
+    if (validatePropertiesPostRequestBody) {
+        writer.writeStringValue("displayName", validatePropertiesPostRequestBody.displayName);
+        writer.writeStringValue("mailNickname", validatePropertiesPostRequestBody.mailNickname);
+        writer.writeGuidValue("onBehalfOfUserId", validatePropertiesPostRequestBody.onBehalfOfUserId);
+        writer.writeAdditionalData(validatePropertiesPostRequestBody.additionalData);
+    }
 }
 export interface ValidatePropertiesPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -46,19 +51,19 @@ export interface ValidatePropertiesPostRequestBody extends AdditionalDataHolder,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The displayName property
      */
-    displayName?: string;
+    displayName?: string | null;
     /**
      * The mailNickname property
      */
-    mailNickname?: string;
+    mailNickname?: string | null;
     /**
      * The onBehalfOfUserId property
      */
-    onBehalfOfUserId?: Guid;
+    onBehalfOfUserId?: Guid | null;
 }
 /**
  * Provides operations to call the validateProperties method.

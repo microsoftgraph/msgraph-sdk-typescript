@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {QuotientPostRequestBody}
  */
+// @ts-ignore
 export function createQuotientPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoQuotientPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createQuotientPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoQuotientPostRequestBody(quotientPostRequestBody: Partial<QuotientPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { quotientPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface QuotientPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The denominator property
      */
-    denominator?: UntypedNode;
+    denominator?: UntypedNode | null;
     /**
      * The numerator property
      */
-    numerator?: UntypedNode;
+    numerator?: UntypedNode | null;
 }
 /**
  * Provides operations to call the quotient method.
@@ -69,10 +71,13 @@ export interface QuotientRequestBuilder extends BaseRequestBuilder<QuotientReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeQuotientPostRequestBody(writer: SerializationWriter, quotientPostRequestBody: Partial<QuotientPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("denominator", quotientPostRequestBody.denominator);
-    writer.writeObjectValue("numerator", quotientPostRequestBody.numerator);
-    writer.writeAdditionalData(quotientPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeQuotientPostRequestBody(writer: SerializationWriter, quotientPostRequestBody: Partial<QuotientPostRequestBody> | undefined | null = {}) : void {
+    if (quotientPostRequestBody) {
+        writer.writeObjectValue("denominator", quotientPostRequestBody.denominator);
+        writer.writeObjectValue("numerator", quotientPostRequestBody.numerator);
+        writer.writeAdditionalData(quotientPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

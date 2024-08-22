@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetReportFiltersPostRequestBody}
  */
+// @ts-ignore
 export function createGetReportFiltersPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetReportFiltersPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetReportFiltersPostRequestBodyFromDiscriminatorValue(pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetReportFiltersPostRequestBody(getReportFiltersPostRequestBody: Partial<GetReportFiltersPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getReportFiltersPostRequestBody.backingStoreEnabled = true; },
@@ -40,43 +42,43 @@ export interface GetReportFiltersPostRequestBody extends AdditionalDataHolder, B
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The filter property
      */
-    filter?: string;
+    filter?: string | null;
     /**
      * The groupBy property
      */
-    groupBy?: string[];
+    groupBy?: string[] | null;
     /**
      * The name property
      */
-    name?: string;
+    name?: string | null;
     /**
      * The orderBy property
      */
-    orderBy?: string[];
+    orderBy?: string[] | null;
     /**
      * The search property
      */
-    search?: string;
+    search?: string | null;
     /**
      * The select property
      */
-    select?: string[];
+    select?: string[] | null;
     /**
      * The sessionId property
      */
-    sessionId?: string;
+    sessionId?: string | null;
     /**
      * The skip property
      */
-    skip?: number;
+    skip?: number | null;
     /**
      * The top property
      */
-    top?: number;
+    top?: number | null;
 }
 /**
  * Provides operations to call the getReportFilters method.
@@ -103,17 +105,20 @@ export interface GetReportFiltersRequestBuilder extends BaseRequestBuilder<GetRe
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetReportFiltersPostRequestBody(writer: SerializationWriter, getReportFiltersPostRequestBody: Partial<GetReportFiltersPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("filter", getReportFiltersPostRequestBody.filter);
-    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getReportFiltersPostRequestBody.groupBy);
-    writer.writeStringValue("name", getReportFiltersPostRequestBody.name);
-    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getReportFiltersPostRequestBody.orderBy);
-    writer.writeStringValue("search", getReportFiltersPostRequestBody.search);
-    writer.writeCollectionOfPrimitiveValues<string>("select", getReportFiltersPostRequestBody.select);
-    writer.writeStringValue("sessionId", getReportFiltersPostRequestBody.sessionId);
-    writer.writeNumberValue("skip", getReportFiltersPostRequestBody.skip);
-    writer.writeNumberValue("top", getReportFiltersPostRequestBody.top);
-    writer.writeAdditionalData(getReportFiltersPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetReportFiltersPostRequestBody(writer: SerializationWriter, getReportFiltersPostRequestBody: Partial<GetReportFiltersPostRequestBody> | undefined | null = {}) : void {
+    if (getReportFiltersPostRequestBody) {
+        writer.writeStringValue("filter", getReportFiltersPostRequestBody.filter);
+        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getReportFiltersPostRequestBody.groupBy);
+        writer.writeStringValue("name", getReportFiltersPostRequestBody.name);
+        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getReportFiltersPostRequestBody.orderBy);
+        writer.writeStringValue("search", getReportFiltersPostRequestBody.search);
+        writer.writeCollectionOfPrimitiveValues<string>("select", getReportFiltersPostRequestBody.select);
+        writer.writeStringValue("sessionId", getReportFiltersPostRequestBody.sessionId);
+        writer.writeNumberValue("skip", getReportFiltersPostRequestBody.skip);
+        writer.writeNumberValue("top", getReportFiltersPostRequestBody.top);
+        writer.writeAdditionalData(getReportFiltersPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

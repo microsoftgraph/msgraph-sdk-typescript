@@ -16,23 +16,23 @@ export interface Binom_DistPostRequestBody extends AdditionalDataHolder, BackedM
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The cumulative property
      */
-    cumulative?: UntypedNode;
+    cumulative?: UntypedNode | null;
     /**
      * The numberS property
      */
-    numberS?: UntypedNode;
+    numberS?: UntypedNode | null;
     /**
      * The probabilityS property
      */
-    probabilityS?: UntypedNode;
+    probabilityS?: UntypedNode | null;
     /**
      * The trials property
      */
-    trials?: UntypedNode;
+    trials?: UntypedNode | null;
 }
 /**
  * Provides operations to call the binom_Dist method.
@@ -59,6 +59,7 @@ export interface Binom_DistRequestBuilder extends BaseRequestBuilder<Binom_DistR
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Binom_DistPostRequestBody}
  */
+// @ts-ignore
 export function createBinom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBinom_DistPostRequestBody;
 }
@@ -66,6 +67,7 @@ export function createBinom_DistPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBinom_DistPostRequestBody(binom_DistPostRequestBody: Partial<Binom_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { binom_DistPostRequestBody.backingStoreEnabled = true; },
@@ -79,12 +81,15 @@ export function deserializeIntoBinom_DistPostRequestBody(binom_DistPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBinom_DistPostRequestBody(writer: SerializationWriter, binom_DistPostRequestBody: Partial<Binom_DistPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("cumulative", binom_DistPostRequestBody.cumulative);
-    writer.writeObjectValue("numberS", binom_DistPostRequestBody.numberS);
-    writer.writeObjectValue("probabilityS", binom_DistPostRequestBody.probabilityS);
-    writer.writeObjectValue("trials", binom_DistPostRequestBody.trials);
-    writer.writeAdditionalData(binom_DistPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeBinom_DistPostRequestBody(writer: SerializationWriter, binom_DistPostRequestBody: Partial<Binom_DistPostRequestBody> | undefined | null = {}) : void {
+    if (binom_DistPostRequestBody) {
+        writer.writeObjectValue("cumulative", binom_DistPostRequestBody.cumulative);
+        writer.writeObjectValue("numberS", binom_DistPostRequestBody.numberS);
+        writer.writeObjectValue("probabilityS", binom_DistPostRequestBody.probabilityS);
+        writer.writeObjectValue("trials", binom_DistPostRequestBody.trials);
+        writer.writeAdditionalData(binom_DistPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

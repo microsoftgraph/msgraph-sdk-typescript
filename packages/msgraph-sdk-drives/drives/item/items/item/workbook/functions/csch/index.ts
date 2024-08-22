@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CschPostRequestBody}
  */
+// @ts-ignore
 export function createCschPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCschPostRequestBody;
 }
@@ -24,11 +25,11 @@ export interface CschPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the csch method.
@@ -54,6 +55,7 @@ export interface CschRequestBuilder extends BaseRequestBuilder<CschRequestBuilde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCschPostRequestBody(cschPostRequestBody: Partial<CschPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cschPostRequestBody.backingStoreEnabled = true; },
@@ -64,9 +66,12 @@ export function deserializeIntoCschPostRequestBody(cschPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCschPostRequestBody(writer: SerializationWriter, cschPostRequestBody: Partial<CschPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", cschPostRequestBody.number);
-    writer.writeAdditionalData(cschPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCschPostRequestBody(writer: SerializationWriter, cschPostRequestBody: Partial<CschPostRequestBody> | undefined | null = {}) : void {
+    if (cschPostRequestBody) {
+        writer.writeObjectValue("number", cschPostRequestBody.number);
+        writer.writeAdditionalData(cschPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {HourPostRequestBody}
  */
+// @ts-ignore
 export function createHourPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHourPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createHourPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoHourPostRequestBody(hourPostRequestBody: Partial<HourPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hourPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface HourPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The serialNumber property
      */
-    serialNumber?: UntypedNode;
+    serialNumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the hour method.
@@ -64,9 +66,12 @@ export interface HourRequestBuilder extends BaseRequestBuilder<HourRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHourPostRequestBody(writer: SerializationWriter, hourPostRequestBody: Partial<HourPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("serialNumber", hourPostRequestBody.serialNumber);
-    writer.writeAdditionalData(hourPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeHourPostRequestBody(writer: SerializationWriter, hourPostRequestBody: Partial<HourPostRequestBody> | undefined | null = {}) : void {
+    if (hourPostRequestBody) {
+        writer.writeObjectValue("serialNumber", hourPostRequestBody.serialNumber);
+        writer.writeAdditionalData(hourPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

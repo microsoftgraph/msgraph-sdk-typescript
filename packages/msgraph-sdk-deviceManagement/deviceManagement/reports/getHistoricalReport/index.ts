@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetHistoricalReportPostRequestBody}
  */
+// @ts-ignore
 export function createGetHistoricalReportPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetHistoricalReportPostRequestBody;
 }
@@ -18,6 +19,7 @@ export function createGetHistoricalReportPostRequestBodyFromDiscriminatorValue(p
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetHistoricalReportPostRequestBody(getHistoricalReportPostRequestBody: Partial<GetHistoricalReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getHistoricalReportPostRequestBody.backingStoreEnabled = true; },
@@ -39,39 +41,39 @@ export interface GetHistoricalReportPostRequestBody extends AdditionalDataHolder
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The filter property
      */
-    filter?: string;
+    filter?: string | null;
     /**
      * The groupBy property
      */
-    groupBy?: string[];
+    groupBy?: string[] | null;
     /**
      * The name property
      */
-    name?: string;
+    name?: string | null;
     /**
      * The orderBy property
      */
-    orderBy?: string[];
+    orderBy?: string[] | null;
     /**
      * The search property
      */
-    search?: string;
+    search?: string | null;
     /**
      * The select property
      */
-    select?: string[];
+    select?: string[] | null;
     /**
      * The skip property
      */
-    skip?: number;
+    skip?: number | null;
     /**
      * The top property
      */
-    top?: number;
+    top?: number | null;
 }
 /**
  * Provides operations to call the getHistoricalReport method.
@@ -98,16 +100,19 @@ export interface GetHistoricalReportRequestBuilder extends BaseRequestBuilder<Ge
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetHistoricalReportPostRequestBody(writer: SerializationWriter, getHistoricalReportPostRequestBody: Partial<GetHistoricalReportPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("filter", getHistoricalReportPostRequestBody.filter);
-    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getHistoricalReportPostRequestBody.groupBy);
-    writer.writeStringValue("name", getHistoricalReportPostRequestBody.name);
-    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getHistoricalReportPostRequestBody.orderBy);
-    writer.writeStringValue("search", getHistoricalReportPostRequestBody.search);
-    writer.writeCollectionOfPrimitiveValues<string>("select", getHistoricalReportPostRequestBody.select);
-    writer.writeNumberValue("skip", getHistoricalReportPostRequestBody.skip);
-    writer.writeNumberValue("top", getHistoricalReportPostRequestBody.top);
-    writer.writeAdditionalData(getHistoricalReportPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetHistoricalReportPostRequestBody(writer: SerializationWriter, getHistoricalReportPostRequestBody: Partial<GetHistoricalReportPostRequestBody> | undefined | null = {}) : void {
+    if (getHistoricalReportPostRequestBody) {
+        writer.writeStringValue("filter", getHistoricalReportPostRequestBody.filter);
+        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getHistoricalReportPostRequestBody.groupBy);
+        writer.writeStringValue("name", getHistoricalReportPostRequestBody.name);
+        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getHistoricalReportPostRequestBody.orderBy);
+        writer.writeStringValue("search", getHistoricalReportPostRequestBody.search);
+        writer.writeCollectionOfPrimitiveValues<string>("select", getHistoricalReportPostRequestBody.select);
+        writer.writeNumberValue("skip", getHistoricalReportPostRequestBody.skip);
+        writer.writeNumberValue("top", getHistoricalReportPostRequestBody.top);
+        writer.writeAdditionalData(getHistoricalReportPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

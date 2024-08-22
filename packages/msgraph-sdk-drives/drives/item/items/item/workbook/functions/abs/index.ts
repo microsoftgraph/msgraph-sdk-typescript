@@ -16,11 +16,11 @@ export interface AbsPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the abs method.
@@ -47,6 +47,7 @@ export interface AbsRequestBuilder extends BaseRequestBuilder<AbsRequestBuilder>
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AbsPostRequestBody}
  */
+// @ts-ignore
 export function createAbsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAbsPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createAbsPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAbsPostRequestBody(absPostRequestBody: Partial<AbsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { absPostRequestBody.backingStoreEnabled = true; },
@@ -64,9 +66,12 @@ export function deserializeIntoAbsPostRequestBody(absPostRequestBody: Partial<Ab
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAbsPostRequestBody(writer: SerializationWriter, absPostRequestBody: Partial<AbsPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", absPostRequestBody.number);
-    writer.writeAdditionalData(absPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAbsPostRequestBody(writer: SerializationWriter, absPostRequestBody: Partial<AbsPostRequestBody> | undefined | null = {}) : void {
+    if (absPostRequestBody) {
+        writer.writeObjectValue("number", absPostRequestBody.number);
+        writer.writeAdditionalData(absPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

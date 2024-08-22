@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetMailTipsPostRequestBody}
  */
+// @ts-ignore
 export function createGetMailTipsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMailTipsPostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createGetMailTipsPostRequestBodyFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetMailTipsPostResponse}
  */
+// @ts-ignore
 export function createGetMailTipsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetMailTipsPostResponse;
 }
@@ -28,6 +30,7 @@ export function createGetMailTipsPostResponseFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequestBody: Partial<GetMailTipsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getMailTipsPostRequestBody.backingStoreEnabled = true; },
@@ -39,6 +42,7 @@ export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetMailTipsPostResponse(getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getMailTipsPostResponse),
@@ -53,21 +57,21 @@ export interface GetMailTipsPostRequestBody extends AdditionalDataHolder, Backed
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The EmailAddresses property
      */
-    emailAddresses?: string[];
+    emailAddresses?: string[] | null;
     /**
      * The MailTipsOptions property
      */
-    mailTipsOptions?: MailTipsType[];
+    mailTipsOptions?: MailTipsType[] | null;
 }
 export interface GetMailTipsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: MailTips[];
+    value?: MailTips[] | null;
 }
 /**
  * Provides operations to call the getMailTips method.
@@ -94,18 +98,24 @@ export interface GetMailTipsRequestBuilder extends BaseRequestBuilder<GetMailTip
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter, getMailTipsPostRequestBody: Partial<GetMailTipsPostRequestBody> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("EmailAddresses", getMailTipsPostRequestBody.emailAddresses);
-    writer.writeEnumValue<MailTipsType[]>("MailTipsOptions", getMailTipsPostRequestBody.mailTipsOptions);
-    writer.writeAdditionalData(getMailTipsPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter, getMailTipsPostRequestBody: Partial<GetMailTipsPostRequestBody> | undefined | null = {}) : void {
+    if (getMailTipsPostRequestBody) {
+        writer.writeCollectionOfPrimitiveValues<string>("EmailAddresses", getMailTipsPostRequestBody.emailAddresses);
+        writer.writeEnumValue<MailTipsType[]>("MailTipsOptions", getMailTipsPostRequestBody.mailTipsOptions);
+        writer.writeAdditionalData(getMailTipsPostRequestBody.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetMailTipsPostResponse(writer: SerializationWriter, getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getMailTipsPostResponse)
-    writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
+// @ts-ignore
+export function serializeGetMailTipsPostResponse(writer: SerializationWriter, getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined | null = {}) : void {
+    if (getMailTipsPostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getMailTipsPostResponse)
+        writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
+    }
 }
 /**
  * Uri template for the request builder.

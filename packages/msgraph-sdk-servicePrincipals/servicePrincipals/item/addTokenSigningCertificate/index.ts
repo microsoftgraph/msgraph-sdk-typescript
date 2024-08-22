@@ -16,15 +16,15 @@ export interface AddTokenSigningCertificatePostRequestBody extends AdditionalDat
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The displayName property
      */
-    displayName?: string;
+    displayName?: string | null;
     /**
      * The endDateTime property
      */
-    endDateTime?: Date;
+    endDateTime?: Date | null;
 }
 /**
  * Provides operations to call the addTokenSigningCertificate method.
@@ -52,6 +52,7 @@ export interface AddTokenSigningCertificateRequestBuilder extends BaseRequestBui
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AddTokenSigningCertificatePostRequestBody}
  */
+// @ts-ignore
 export function createAddTokenSigningCertificatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAddTokenSigningCertificatePostRequestBody;
 }
@@ -59,6 +60,7 @@ export function createAddTokenSigningCertificatePostRequestBodyFromDiscriminator
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAddTokenSigningCertificatePostRequestBody(addTokenSigningCertificatePostRequestBody: Partial<AddTokenSigningCertificatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addTokenSigningCertificatePostRequestBody.backingStoreEnabled = true; },
@@ -70,10 +72,13 @@ export function deserializeIntoAddTokenSigningCertificatePostRequestBody(addToke
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAddTokenSigningCertificatePostRequestBody(writer: SerializationWriter, addTokenSigningCertificatePostRequestBody: Partial<AddTokenSigningCertificatePostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("displayName", addTokenSigningCertificatePostRequestBody.displayName);
-    writer.writeDateValue("endDateTime", addTokenSigningCertificatePostRequestBody.endDateTime);
-    writer.writeAdditionalData(addTokenSigningCertificatePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAddTokenSigningCertificatePostRequestBody(writer: SerializationWriter, addTokenSigningCertificatePostRequestBody: Partial<AddTokenSigningCertificatePostRequestBody> | undefined | null = {}) : void {
+    if (addTokenSigningCertificatePostRequestBody) {
+        writer.writeStringValue("displayName", addTokenSigningCertificatePostRequestBody.displayName);
+        writer.writeDateValue("endDateTime", addTokenSigningCertificatePostRequestBody.endDateTime);
+        writer.writeAdditionalData(addTokenSigningCertificatePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

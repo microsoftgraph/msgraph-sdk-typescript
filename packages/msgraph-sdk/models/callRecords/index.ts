@@ -11,57 +11,57 @@ export interface CallRecord extends Entity, Parsable {
     /**
      * UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      */
-    endDateTime?: Date;
+    endDateTime?: Date | null;
     /**
      * Meeting URL associated to the call. May not be available for a peerToPeer call record type.
      */
-    joinWebUrl?: string;
+    joinWebUrl?: string | null;
     /**
      * UTC time when the call record was created. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      */
-    lastModifiedDateTime?: Date;
+    lastModifiedDateTime?: Date | null;
     /**
      * List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
      */
-    modalities?: Modality[];
+    modalities?: Modality[] | null;
     /**
      * The organizing party's identity. The organizer property is deprecated and will stop returning data on June 30, 2026. Going forward, use the organizer_v2 relationship.
      */
-    organizer?: IdentitySet;
+    organizer?: IdentitySet | null;
     /**
      * Identity of the organizer of the call. This relationship is expanded by default in callRecord methods.
      */
-    organizer_v2?: Organizer;
+    organizer_v2?: Organizer | null;
     /**
      * List of distinct identities involved in the call. Limited to 130 entries. The participants property is deprecated and will stop returning data on June 30, 2026. Going forward, use the participants_v2 relationship.
      */
-    participants?: IdentitySet[];
+    participants?: IdentitySet[] | null;
     /**
      * List of distinct participants in the call.
      */
-    participants_v2?: Participant[];
+    participants_v2?: Participant[] | null;
     /**
      * List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.
      */
-    sessions?: Session[];
+    sessions?: Session[] | null;
     /**
      * UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
-    startDateTime?: Date;
+    startDateTime?: Date | null;
     /**
      * The type property
      */
-    type?: CallType;
+    type?: CallType | null;
     /**
      * Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version.
      */
-    version?: number;
+    version?: number | null;
 }
 export interface CallRecordCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: CallRecord[];
+    value?: CallRecord[] | null;
 }
 export type CallType = (typeof CallTypeObject)[keyof typeof CallTypeObject];
 export type ClientPlatform = (typeof ClientPlatformObject)[keyof typeof ClientPlatformObject];
@@ -69,25 +69,26 @@ export interface ClientUserAgent extends Parsable, UserAgent {
     /**
      * The unique identifier of the Microsoft Entra application used by this endpoint.
      */
-    azureADAppId?: string;
+    azureADAppId?: string | null;
     /**
      * Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs.
      */
-    communicationServiceId?: string;
+    communicationServiceId?: string | null;
     /**
      * The platform property
      */
-    platform?: ClientPlatform;
+    platform?: ClientPlatform | null;
     /**
      * The productFamily property
      */
-    productFamily?: ProductFamily;
+    productFamily?: ProductFamily | null;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CallRecordCollectionResponse}
  */
+// @ts-ignore
 export function createCallRecordCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCallRecordCollectionResponse;
 }
@@ -96,6 +97,7 @@ export function createCallRecordCollectionResponseFromDiscriminatorValue(parseNo
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CallRecord}
  */
+// @ts-ignore
 export function createCallRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCallRecord;
 }
@@ -104,6 +106,7 @@ export function createCallRecordFromDiscriminatorValue(parseNode: ParseNode | un
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ClientUserAgent}
  */
+// @ts-ignore
 export function createClientUserAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoClientUserAgent;
 }
@@ -112,6 +115,7 @@ export function createClientUserAgentFromDiscriminatorValue(parseNode: ParseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DeviceInfo}
  */
+// @ts-ignore
 export function createDeviceInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDeviceInfo;
 }
@@ -120,6 +124,7 @@ export function createDeviceInfoFromDiscriminatorValue(parseNode: ParseNode | un
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DirectRoutingLogRow}
  */
+// @ts-ignore
 export function createDirectRoutingLogRowFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDirectRoutingLogRow;
 }
@@ -128,6 +133,7 @@ export function createDirectRoutingLogRowFromDiscriminatorValue(parseNode: Parse
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Endpoint}
  */
+// @ts-ignore
 export function createEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
@@ -149,6 +155,7 @@ export function createEndpointFromDiscriminatorValue(parseNode: ParseNode | unde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FailureInfo}
  */
+// @ts-ignore
 export function createFailureInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFailureInfo;
 }
@@ -157,6 +164,7 @@ export function createFailureInfoFromDiscriminatorValue(parseNode: ParseNode | u
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {FeedbackTokenSet}
  */
+// @ts-ignore
 export function createFeedbackTokenSetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoFeedbackTokenSet;
 }
@@ -165,6 +173,7 @@ export function createFeedbackTokenSetFromDiscriminatorValue(parseNode: ParseNod
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Media}
  */
+// @ts-ignore
 export function createMediaFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMedia;
 }
@@ -173,6 +182,7 @@ export function createMediaFromDiscriminatorValue(parseNode: ParseNode | undefin
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MediaStream}
  */
+// @ts-ignore
 export function createMediaStreamFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMediaStream;
 }
@@ -181,6 +191,7 @@ export function createMediaStreamFromDiscriminatorValue(parseNode: ParseNode | u
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {NetworkInfo}
  */
+// @ts-ignore
 export function createNetworkInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoNetworkInfo;
 }
@@ -189,6 +200,7 @@ export function createNetworkInfoFromDiscriminatorValue(parseNode: ParseNode | u
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Organizer}
  */
+// @ts-ignore
 export function createOrganizerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOrganizer;
 }
@@ -197,6 +209,7 @@ export function createOrganizerFromDiscriminatorValue(parseNode: ParseNode | und
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ParticipantBase}
  */
+// @ts-ignore
 export function createParticipantBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
@@ -218,6 +231,7 @@ export function createParticipantBaseFromDiscriminatorValue(parseNode: ParseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ParticipantCollectionResponse}
  */
+// @ts-ignore
 export function createParticipantCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoParticipantCollectionResponse;
 }
@@ -226,6 +240,7 @@ export function createParticipantCollectionResponseFromDiscriminatorValue(parseN
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ParticipantEndpoint}
  */
+// @ts-ignore
 export function createParticipantEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoParticipantEndpoint;
 }
@@ -234,6 +249,7 @@ export function createParticipantEndpointFromDiscriminatorValue(parseNode: Parse
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Participant}
  */
+// @ts-ignore
 export function createParticipantFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoParticipant;
 }
@@ -242,6 +258,7 @@ export function createParticipantFromDiscriminatorValue(parseNode: ParseNode | u
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PstnCallLogRow}
  */
+// @ts-ignore
 export function createPstnCallLogRowFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPstnCallLogRow;
 }
@@ -250,6 +267,7 @@ export function createPstnCallLogRowFromDiscriminatorValue(parseNode: ParseNode 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SegmentCollectionResponse}
  */
+// @ts-ignore
 export function createSegmentCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSegmentCollectionResponse;
 }
@@ -258,6 +276,7 @@ export function createSegmentCollectionResponseFromDiscriminatorValue(parseNode:
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Segment}
  */
+// @ts-ignore
 export function createSegmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSegment;
 }
@@ -266,6 +285,7 @@ export function createSegmentFromDiscriminatorValue(parseNode: ParseNode | undef
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ServiceEndpoint}
  */
+// @ts-ignore
 export function createServiceEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoServiceEndpoint;
 }
@@ -274,6 +294,7 @@ export function createServiceEndpointFromDiscriminatorValue(parseNode: ParseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ServiceUserAgent}
  */
+// @ts-ignore
 export function createServiceUserAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoServiceUserAgent;
 }
@@ -282,6 +303,7 @@ export function createServiceUserAgentFromDiscriminatorValue(parseNode: ParseNod
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SessionCollectionResponse}
  */
+// @ts-ignore
 export function createSessionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSessionCollectionResponse;
 }
@@ -290,6 +312,7 @@ export function createSessionCollectionResponseFromDiscriminatorValue(parseNode:
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Session}
  */
+// @ts-ignore
 export function createSessionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSession;
 }
@@ -298,6 +321,7 @@ export function createSessionFromDiscriminatorValue(parseNode: ParseNode | undef
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TraceRouteHop}
  */
+// @ts-ignore
 export function createTraceRouteHopFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTraceRouteHop;
 }
@@ -306,6 +330,7 @@ export function createTraceRouteHopFromDiscriminatorValue(parseNode: ParseNode |
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UserAgent}
  */
+// @ts-ignore
 export function createUserAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
@@ -327,6 +352,7 @@ export function createUserAgentFromDiscriminatorValue(parseNode: ParseNode | und
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UserFeedback}
  */
+// @ts-ignore
 export function createUserFeedbackFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUserFeedback;
 }
@@ -335,6 +361,7 @@ export function createUserFeedbackFromDiscriminatorValue(parseNode: ParseNode | 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UserIdentity}
  */
+// @ts-ignore
 export function createUserIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUserIdentity;
 }
@@ -342,6 +369,7 @@ export function createUserIdentityFromDiscriminatorValue(parseNode: ParseNode | 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCallRecord(callRecord: Partial<CallRecord> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(callRecord),
@@ -363,6 +391,7 @@ export function deserializeIntoCallRecord(callRecord: Partial<CallRecord> | unde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCallRecordCollectionResponse(callRecordCollectionResponse: Partial<CallRecordCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(callRecordCollectionResponse),
@@ -373,6 +402,7 @@ export function deserializeIntoCallRecordCollectionResponse(callRecordCollection
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoClientUserAgent(clientUserAgent: Partial<ClientUserAgent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoUserAgent(clientUserAgent),
@@ -386,6 +416,7 @@ export function deserializeIntoClientUserAgent(clientUserAgent: Partial<ClientUs
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDeviceInfo(deviceInfo: Partial<DeviceInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { deviceInfo.backingStoreEnabled = true; },
@@ -417,6 +448,7 @@ export function deserializeIntoDeviceInfo(deviceInfo: Partial<DeviceInfo> | unde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDirectRoutingLogRow(directRoutingLogRow: Partial<DirectRoutingLogRow> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { directRoutingLogRow.backingStoreEnabled = true; },
@@ -448,6 +480,7 @@ export function deserializeIntoDirectRoutingLogRow(directRoutingLogRow: Partial<
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoEndpoint(endpoint: Partial<Endpoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { endpoint.backingStoreEnabled = true; },
@@ -459,6 +492,7 @@ export function deserializeIntoEndpoint(endpoint: Partial<Endpoint> | undefined 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFailureInfo(failureInfo: Partial<FailureInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { failureInfo.backingStoreEnabled = true; },
@@ -471,6 +505,7 @@ export function deserializeIntoFailureInfo(failureInfo: Partial<FailureInfo> | u
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoFeedbackTokenSet(feedbackTokenSet: Partial<FeedbackTokenSet> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { feedbackTokenSet.backingStoreEnabled = true; },
@@ -481,6 +516,7 @@ export function deserializeIntoFeedbackTokenSet(feedbackTokenSet: Partial<Feedba
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMedia(media: Partial<Media> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { media.backingStoreEnabled = true; },
@@ -497,6 +533,7 @@ export function deserializeIntoMedia(media: Partial<Media> | undefined = {}) : R
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoMediaStream(mediaStream: Partial<MediaStream> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "audioCodec": n => { mediaStream.audioCodec = n.getEnumValue<AudioCodec>(AudioCodecObject); },
@@ -537,6 +574,7 @@ export function deserializeIntoMediaStream(mediaStream: Partial<MediaStream> | u
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoNetworkInfo(networkInfo: Partial<NetworkInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { networkInfo.backingStoreEnabled = true; },
@@ -573,6 +611,7 @@ export function deserializeIntoNetworkInfo(networkInfo: Partial<NetworkInfo> | u
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOrganizer(organizer: Partial<Organizer> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoParticipantBase(organizer),
@@ -582,6 +621,7 @@ export function deserializeIntoOrganizer(organizer: Partial<Organizer> | undefin
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoParticipant(participant: Partial<Participant> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoParticipantBase(participant),
@@ -591,6 +631,7 @@ export function deserializeIntoParticipant(participant: Partial<Participant> | u
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoParticipantBase(participantBase: Partial<ParticipantBase> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(participantBase),
@@ -601,6 +642,7 @@ export function deserializeIntoParticipantBase(participantBase: Partial<Particip
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoParticipantCollectionResponse(participantCollectionResponse: Partial<ParticipantCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(participantCollectionResponse),
@@ -611,6 +653,7 @@ export function deserializeIntoParticipantCollectionResponse(participantCollecti
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoParticipantEndpoint(participantEndpoint: Partial<ParticipantEndpoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEndpoint(participantEndpoint),
@@ -627,6 +670,7 @@ export function deserializeIntoParticipantEndpoint(participantEndpoint: Partial<
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPstnCallLogRow(pstnCallLogRow: Partial<PstnCallLogRow> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { pstnCallLogRow.backingStoreEnabled = true; },
@@ -660,6 +704,7 @@ export function deserializeIntoPstnCallLogRow(pstnCallLogRow: Partial<PstnCallLo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSegment(segment: Partial<Segment> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(segment),
@@ -675,6 +720,7 @@ export function deserializeIntoSegment(segment: Partial<Segment> | undefined = {
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSegmentCollectionResponse(segmentCollectionResponse: Partial<SegmentCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(segmentCollectionResponse),
@@ -685,6 +731,7 @@ export function deserializeIntoSegmentCollectionResponse(segmentCollectionRespon
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoServiceEndpoint(serviceEndpoint: Partial<ServiceEndpoint> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEndpoint(serviceEndpoint),
@@ -694,6 +741,7 @@ export function deserializeIntoServiceEndpoint(serviceEndpoint: Partial<ServiceE
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoServiceUserAgent(serviceUserAgent: Partial<ServiceUserAgent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoUserAgent(serviceUserAgent),
@@ -704,6 +752,7 @@ export function deserializeIntoServiceUserAgent(serviceUserAgent: Partial<Servic
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSession(session: Partial<Session> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(session),
@@ -721,6 +770,7 @@ export function deserializeIntoSession(session: Partial<Session> | undefined = {
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSessionCollectionResponse(sessionCollectionResponse: Partial<SessionCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(sessionCollectionResponse),
@@ -731,6 +781,7 @@ export function deserializeIntoSessionCollectionResponse(sessionCollectionRespon
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTraceRouteHop(traceRouteHop: Partial<TraceRouteHop> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { traceRouteHop.backingStoreEnabled = true; },
@@ -744,6 +795,7 @@ export function deserializeIntoTraceRouteHop(traceRouteHop: Partial<TraceRouteHo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUserAgent(userAgent: Partial<UserAgent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "applicationVersion": n => { userAgent.applicationVersion = n.getStringValue(); },
@@ -756,6 +808,7 @@ export function deserializeIntoUserAgent(userAgent: Partial<UserAgent> | undefin
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUserFeedback(userFeedback: Partial<UserFeedback> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { userFeedback.backingStoreEnabled = true; },
@@ -769,6 +822,7 @@ export function deserializeIntoUserFeedback(userFeedback: Partial<UserFeedback> 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUserIdentity(userIdentity: Partial<UserIdentity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoIdentity(userIdentity),
@@ -783,95 +837,95 @@ export interface DeviceInfo extends AdditionalDataHolder, BackedModel, Parsable 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * Name of the capture device driver used by the media endpoint.
      */
-    captureDeviceDriver?: string;
+    captureDeviceDriver?: string | null;
     /**
      * Name of the capture device used by the media endpoint.
      */
-    captureDeviceName?: string;
+    captureDeviceName?: string | null;
     /**
      * Fraction of the call that the media endpoint detected the capture device was not working properly.
      */
-    captureNotFunctioningEventRatio?: number;
+    captureNotFunctioningEventRatio?: number | null;
     /**
      * Fraction of the call that the media endpoint detected the CPU resources available were insufficient and caused poor quality of the audio sent and received.
      */
-    cpuInsufficentEventRatio?: number;
+    cpuInsufficentEventRatio?: number | null;
     /**
      * Fraction of the call that the media endpoint detected clipping in the captured audio that caused poor quality of the audio being sent.
      */
-    deviceClippingEventRatio?: number;
+    deviceClippingEventRatio?: number | null;
     /**
      * Fraction of the call that the media endpoint detected glitches or gaps in the audio played or captured that caused poor quality of the audio being sent or received.
      */
-    deviceGlitchEventRatio?: number;
+    deviceGlitchEventRatio?: number | null;
     /**
      * Number of times during the call that the media endpoint detected howling or screeching audio.
      */
-    howlingEventCount?: number;
+    howlingEventCount?: number | null;
     /**
      * The root mean square (RMS) of the incoming signal of up to the first 30 seconds of the call.
      */
-    initialSignalLevelRootMeanSquare?: number;
+    initialSignalLevelRootMeanSquare?: number | null;
     /**
      * Fraction of the call that the media endpoint detected low speech level that caused poor quality of the audio being sent.
      */
-    lowSpeechLevelEventRatio?: number;
+    lowSpeechLevelEventRatio?: number | null;
     /**
      * Fraction of the call that the media endpoint detected low speech to noise level that caused poor quality of the audio being sent.
      */
-    lowSpeechToNoiseEventRatio?: number;
+    lowSpeechToNoiseEventRatio?: number | null;
     /**
      * Glitches per 5 minute interval for the media endpoint's microphone.
      */
-    micGlitchRate?: number;
+    micGlitchRate?: number | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * Average energy level of received audio for audio classified as mono noise or left channel of stereo noise by the media endpoint.
      */
-    receivedNoiseLevel?: number;
+    receivedNoiseLevel?: number | null;
     /**
      * Average energy level of received audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint.
      */
-    receivedSignalLevel?: number;
+    receivedSignalLevel?: number | null;
     /**
      * Name of the render device driver used by the media endpoint.
      */
-    renderDeviceDriver?: string;
+    renderDeviceDriver?: string | null;
     /**
      * Name of the render device used by the media endpoint.
      */
-    renderDeviceName?: string;
+    renderDeviceName?: string | null;
     /**
      * Fraction of the call that media endpoint detected device render is muted.
      */
-    renderMuteEventRatio?: number;
+    renderMuteEventRatio?: number | null;
     /**
      * Fraction of the call that the media endpoint detected the render device was not working properly.
      */
-    renderNotFunctioningEventRatio?: number;
+    renderNotFunctioningEventRatio?: number | null;
     /**
      * Fraction of the call that media endpoint detected device render volume is set to 0.
      */
-    renderZeroVolumeEventRatio?: number;
+    renderZeroVolumeEventRatio?: number | null;
     /**
      * Average energy level of sent audio for audio classified as mono noise or left channel of stereo noise by the media endpoint.
      */
-    sentNoiseLevel?: number;
+    sentNoiseLevel?: number | null;
     /**
      * Average energy level of sent audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint.
      */
-    sentSignalLevel?: number;
+    sentSignalLevel?: number | null;
     /**
      * Glitches per 5 minute internal for the media endpoint's loudspeaker.
      */
-    speakerGlitchRate?: number;
+    speakerGlitchRate?: number | null;
 }
 export interface DirectRoutingLogRow extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -881,95 +935,95 @@ export interface DirectRoutingLogRow extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * Number of the user or bot who received the call. E.164 format, but might include other data.
      */
-    calleeNumber?: string;
+    calleeNumber?: string | null;
     /**
      * In addition to the SIP codes, Microsoft has subcodes that indicate the specific issue.
      */
-    callEndSubReason?: number;
+    callEndSubReason?: number | null;
     /**
      * Number of the user or bot who made the call. E.164 format, but might include other data.
      */
-    callerNumber?: string;
+    callerNumber?: string | null;
     /**
      * Call type and direction.
      */
-    callType?: string;
+    callType?: string | null;
     /**
      * Identifier for the call that you can use when calling Microsoft Support. GUID.
      */
-    correlationId?: string;
+    correlationId?: string | null;
     /**
      * Duration of the call in seconds.
      */
-    duration?: number;
+    duration?: number | null;
     /**
      * Only exists for successful (fully established) calls. Time when call ended.
      */
-    endDateTime?: Date;
+    endDateTime?: Date | null;
     /**
      * Only exists for failed (not fully established) calls.
      */
-    failureDateTime?: Date;
+    failureDateTime?: Date | null;
     /**
      * The final response code with which the call ended. For more information, see RFC 3261.
      */
-    finalSipCode?: number;
+    finalSipCode?: number | null;
     /**
      * Description of the SIP code and Microsoft subcode.
      */
-    finalSipCodePhrase?: string;
+    finalSipCodePhrase?: string | null;
     /**
      * Unique call identifier. GUID.
      */
-    id?: string;
+    id?: string | null;
     /**
      * The date and time when the initial invite was sent.
      */
-    inviteDateTime?: Date;
+    inviteDateTime?: Date | null;
     /**
      * Indicates whether the trunk was enabled for media bypass.
      */
-    mediaBypassEnabled?: boolean;
+    mediaBypassEnabled?: boolean | null;
     /**
      * The datacenter used for media path in a nonbypass call.
      */
-    mediaPathLocation?: string;
+    mediaPathLocation?: string | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * The datacenter used for signaling for both bypass and nonbypass calls.
      */
-    signalingLocation?: string;
+    signalingLocation?: string | null;
     /**
      * Call start time.For failed and unanswered calls, this value can be equal to the invite or failure time.
      */
-    startDateTime?: Date;
+    startDateTime?: Date | null;
     /**
      * Success or attempt.
      */
-    successfulCall?: boolean;
+    successfulCall?: boolean | null;
     /**
      * Fully qualified domain name of the session border controller.
      */
-    trunkFullyQualifiedDomainName?: string;
+    trunkFullyQualifiedDomainName?: string | null;
     /**
      * Display name of the user.
      */
-    userDisplayName?: string;
+    userDisplayName?: string | null;
     /**
      * Calling user's ID in Microsoft Graph. This and other user information is null/empty for bot call types. GUID.
      */
-    userId?: string;
+    userId?: string | null;
     /**
      * UserPrincipalName (sign-in name) in Microsoft Entra ID. This value is usually the same as the user's SIP Address, and can be the same as the user's email address.
      */
-    userPrincipalName?: string;
+    userPrincipalName?: string | null;
 }
 export interface Endpoint extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -979,15 +1033,15 @@ export interface Endpoint extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * User-agent reported by this endpoint.
      */
-    userAgent?: UserAgent;
+    userAgent?: UserAgent | null;
 }
 export interface FailureInfo extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -997,19 +1051,19 @@ export interface FailureInfo extends AdditionalDataHolder, BackedModel, Parsable
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * Classification of why a call or portion of a call failed.
      */
-    reason?: string;
+    reason?: string | null;
     /**
      * The stage property
      */
-    stage?: FailureStage;
+    stage?: FailureStage | null;
 }
 export type FailureStage = (typeof FailureStageObject)[keyof typeof FailureStageObject];
 export interface FeedbackTokenSet extends AdditionalDataHolder, BackedModel, Parsable {
@@ -1020,11 +1074,11 @@ export interface FeedbackTokenSet extends AdditionalDataHolder, BackedModel, Par
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
 }
 export interface Media extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -1034,35 +1088,35 @@ export interface Media extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * Device information associated with the callee endpoint of this media.
      */
-    calleeDevice?: DeviceInfo;
+    calleeDevice?: DeviceInfo | null;
     /**
      * Network information associated with the callee endpoint of this media.
      */
-    calleeNetwork?: NetworkInfo;
+    calleeNetwork?: NetworkInfo | null;
     /**
      * Device information associated with the caller endpoint of this media.
      */
-    callerDevice?: DeviceInfo;
+    callerDevice?: DeviceInfo | null;
     /**
      * Network information associated with the caller endpoint of this media.
      */
-    callerNetwork?: NetworkInfo;
+    callerNetwork?: NetworkInfo | null;
     /**
      * How the media was identified during media negotiation stage.
      */
-    label?: string;
+    label?: string | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * Network streams associated with this media.
      */
-    streams?: MediaStream[];
+    streams?: MediaStream[] | null;
 }
 export interface MediaStream extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -1072,131 +1126,131 @@ export interface MediaStream extends AdditionalDataHolder, BackedModel, Parsable
     /**
      * Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRta, unknownFutureValue.
      */
-    audioCodec?: AudioCodec;
+    audioCodec?: AudioCodec | null;
     /**
      * Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio.
      */
-    averageAudioDegradation?: number;
+    averageAudioDegradation?: number | null;
     /**
      * Average jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
-    averageAudioNetworkJitter?: Duration;
+    averageAudioNetworkJitter?: Duration | null;
     /**
      * Average estimated bandwidth available between two endpoints in bits per second.
      */
-    averageBandwidthEstimate?: number;
+    averageBandwidthEstimate?: number | null;
     /**
      * Average duration of the received freezing time in the video stream.
      */
-    averageFreezeDuration?: Duration;
+    averageFreezeDuration?: Duration | null;
     /**
      * Average jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
-    averageJitter?: Duration;
+    averageJitter?: Duration | null;
     /**
      * Average packet loss rate for stream.
      */
-    averagePacketLossRate?: number;
+    averagePacketLossRate?: number | null;
     /**
      * Ratio of the number of audio frames with samples generated by packet loss concealment to the total number of audio frames.
      */
-    averageRatioOfConcealedSamples?: number;
+    averageRatioOfConcealedSamples?: number | null;
     /**
      * Average frames per second received for all video streams computed over the duration of the session.
      */
-    averageReceivedFrameRate?: number;
+    averageReceivedFrameRate?: number | null;
     /**
      * Average network propagation round-trip time computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
-    averageRoundTripTime?: Duration;
+    averageRoundTripTime?: Duration | null;
     /**
      * Average percentage of video frames lost as displayed to the user.
      */
-    averageVideoFrameLossPercentage?: number;
+    averageVideoFrameLossPercentage?: number | null;
     /**
      * Average frames per second received for a video stream, computed over the duration of the session.
      */
-    averageVideoFrameRate?: number;
+    averageVideoFrameRate?: number | null;
     /**
      * Average fraction of packets lost, as specified in RFC 3550, computed over the duration of the session.
      */
-    averageVideoPacketLossRate?: number;
+    averageVideoPacketLossRate?: number | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * UTC time when the stream ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. This field is only available for streams that use the SIP protocol.
      */
-    endDateTime?: Date;
+    endDateTime?: Date | null;
     /**
      * Indicates whether the forward error correction (FEC) was used at some point during the session. The default value is null.
      */
-    isAudioForwardErrorCorrectionUsed?: boolean;
+    isAudioForwardErrorCorrectionUsed?: boolean | null;
     /**
      * Fraction of the call where frame rate is less than 7.5 frames per second.
      */
-    lowFrameRateRatio?: number;
+    lowFrameRateRatio?: number | null;
     /**
      * Fraction of the call that the client is running less than 70% expected video processing capability.
      */
-    lowVideoProcessingCapabilityRatio?: number;
+    lowVideoProcessingCapabilityRatio?: number | null;
     /**
      * Maximum of audio network jitter computed over each of the 20 second windows during the session, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
-    maxAudioNetworkJitter?: Duration;
+    maxAudioNetworkJitter?: Duration | null;
     /**
      * Maximum jitter for the stream computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
-    maxJitter?: Duration;
+    maxJitter?: Duration | null;
     /**
      * Maximum packet loss rate for the stream.
      */
-    maxPacketLossRate?: number;
+    maxPacketLossRate?: number | null;
     /**
      * Maximum ratio of packets concealed by the healer.
      */
-    maxRatioOfConcealedSamples?: number;
+    maxRatioOfConcealedSamples?: number | null;
     /**
      * Maximum network propagation round-trip time computed as specified in RFC 3550, denoted in ISO 8601 format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator.
      */
-    maxRoundTripTime?: Duration;
+    maxRoundTripTime?: Duration | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * Packet count for the stream.
      */
-    packetUtilization?: number;
+    packetUtilization?: number | null;
     /**
      * Packet loss rate after FEC has been applied aggregated across all video streams and codecs.
      */
-    postForwardErrorCorrectionPacketLossRate?: number;
+    postForwardErrorCorrectionPacketLossRate?: number | null;
     /**
      * Average duration of the received freezing time in the video stream represented in root mean square.
      */
-    rmsFreezeDuration?: Duration;
+    rmsFreezeDuration?: Duration | null;
     /**
      * UTC time when the stream started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. This field is only available for streams that use the SIP protocol.
      */
-    startDateTime?: Date;
+    startDateTime?: Date | null;
     /**
      * The streamDirection property
      */
-    streamDirection?: MediaStreamDirection;
+    streamDirection?: MediaStreamDirection | null;
     /**
      * Unique identifier for the stream.
      */
-    streamId?: string;
+    streamId?: string | null;
     /**
      * Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue.
      */
-    videoCodec?: VideoCodec;
+    videoCodec?: VideoCodec | null;
     /**
      * True if the media stream bypassed the Mediation Server and went straight between client and PSTN Gateway/PBX, false otherwise.
      */
-    wasMediaBypassed?: boolean;
+    wasMediaBypassed?: boolean | null;
 }
 export type MediaStreamDirection = (typeof MediaStreamDirectionObject)[keyof typeof MediaStreamDirectionObject];
 export type Modality = (typeof ModalityObject)[keyof typeof ModalityObject];
@@ -1209,115 +1263,115 @@ export interface NetworkInfo extends AdditionalDataHolder, BackedModel, Parsable
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent.
      */
-    bandwidthLowEventRatio?: number;
+    bandwidthLowEventRatio?: number | null;
     /**
      * The wireless LAN basic service set identifier of the media endpoint used to connect to the network.
      */
-    basicServiceSetIdentifier?: string;
+    basicServiceSetIdentifier?: string | null;
     /**
      * The connectionType property
      */
-    connectionType?: NetworkConnectionType;
+    connectionType?: NetworkConnectionType | null;
     /**
      * Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication.
      */
-    delayEventRatio?: number;
+    delayEventRatio?: number | null;
     /**
      * DNS suffix associated with the network adapter of the media endpoint.
      */
-    dnsSuffix?: string;
+    dnsSuffix?: string | null;
     /**
      * IP address of the media endpoint.
      */
-    ipAddress?: string;
+    ipAddress?: string | null;
     /**
      * Link speed in bits per second reported by the network adapter used by the media endpoint.
      */
-    linkSpeed?: number;
+    linkSpeed?: number | null;
     /**
      * The media access control (MAC) address of the media endpoint's network device. This value may be missing or shown as 02:00:00:00:00:00 due to operating system privacy policies.
      */
-    macAddress?: string;
+    macAddress?: string | null;
     /**
      * The networkTransportProtocol property
      */
-    networkTransportProtocol?: NetworkTransportProtocol;
+    networkTransportProtocol?: NetworkTransportProtocol | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * Network port number used by media endpoint.
      */
-    port?: number;
+    port?: number | null;
     /**
      * Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received.
      */
-    receivedQualityEventRatio?: number;
+    receivedQualityEventRatio?: number | null;
     /**
      * IP address of the media endpoint as seen by the media relay server. This is typically the public internet IP address associated to the endpoint.
      */
-    reflexiveIPAddress?: string;
+    reflexiveIPAddress?: string | null;
     /**
      * IP address of the media relay server allocated by the media endpoint.
      */
-    relayIPAddress?: string;
+    relayIPAddress?: string | null;
     /**
      * Network port number allocated on the media relay server by the media endpoint.
      */
-    relayPort?: number;
+    relayPort?: number | null;
     /**
      * Fraction of the call that the media endpoint detected the network was causing poor quality of the audio sent.
      */
-    sentQualityEventRatio?: number;
+    sentQualityEventRatio?: number | null;
     /**
      * Subnet used for media stream by the media endpoint.
      */
-    subnet?: string;
+    subnet?: string | null;
     /**
      * List of network trace route hops collected for this media stream.*
      */
-    traceRouteHops?: TraceRouteHop[];
+    traceRouteHops?: TraceRouteHop[] | null;
     /**
      * The wifiBand property
      */
-    wifiBand?: WifiBand;
+    wifiBand?: WifiBand | null;
     /**
      * Estimated remaining battery charge in percentage reported by the media endpoint.
      */
-    wifiBatteryCharge?: number;
+    wifiBatteryCharge?: number | null;
     /**
      * WiFi channel used by the media endpoint.
      */
-    wifiChannel?: number;
+    wifiChannel?: number | null;
     /**
      * Name of the Microsoft WiFi driver used by the media endpoint. Value may be localized based on the language used by endpoint.
      */
-    wifiMicrosoftDriver?: string;
+    wifiMicrosoftDriver?: string | null;
     /**
      * Version of the Microsoft WiFi driver used by the media endpoint.
      */
-    wifiMicrosoftDriverVersion?: string;
+    wifiMicrosoftDriverVersion?: string | null;
     /**
      * The wifiRadioType property
      */
-    wifiRadioType?: WifiRadioType;
+    wifiRadioType?: WifiRadioType | null;
     /**
      * WiFi signal strength in percentage reported by the media endpoint.
      */
-    wifiSignalStrength?: number;
+    wifiSignalStrength?: number | null;
     /**
      * Name of the WiFi driver used by the media endpoint. Value may be localized based on the language used by endpoint.
      */
-    wifiVendorDriver?: string;
+    wifiVendorDriver?: string | null;
     /**
      * Version of the WiFi driver used by the media endpoint.
      */
-    wifiVendorDriverVersion?: string;
+    wifiVendorDriverVersion?: string | null;
 }
 export type NetworkTransportProtocol = (typeof NetworkTransportProtocolObject)[keyof typeof NetworkTransportProtocolObject];
 export interface Organizer extends Parsable, ParticipantBase {
@@ -1328,43 +1382,43 @@ export interface ParticipantBase extends Entity, Parsable {
     /**
      * The identity of the call participant.
      */
-    identity?: CommunicationsIdentitySet;
+    identity?: CommunicationsIdentitySet | null;
 }
 export interface ParticipantCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: Participant[];
+    value?: Participant[] | null;
 }
 export interface ParticipantEndpoint extends Endpoint, Parsable {
     /**
      * Identity associated with the endpoint.
      */
-    associatedIdentity?: Identity;
+    associatedIdentity?: Identity | null;
     /**
      * CPU number of cores used by the media endpoint.
      */
-    cpuCoresCount?: number;
+    cpuCoresCount?: number | null;
     /**
      * CPU name used by the media endpoint.
      */
-    cpuName?: string;
+    cpuName?: string | null;
     /**
      * CPU processor speed used by the media endpoint.
      */
-    cpuProcessorSpeedInMhz?: number;
+    cpuProcessorSpeedInMhz?: number | null;
     /**
      * The feedback provided by the user of this endpoint about the quality of the session.
      */
-    feedback?: UserFeedback;
+    feedback?: UserFeedback | null;
     /**
      * Identity associated with the endpoint. The identity property is deprecated and will stop returning data on June 30, 2026. Going forward, use the associatedIdentity property.
      */
-    identity?: IdentitySet;
+    identity?: IdentitySet | null;
     /**
      * Name of the device used by the media endpoint.
      */
-    name?: string;
+    name?: string | null;
 }
 export type ProductFamily = (typeof ProductFamilyObject)[keyof typeof ProductFamilyObject];
 export type PstnCallDurationSource = (typeof PstnCallDurationSourceObject)[keyof typeof PstnCallDurationSourceObject];
@@ -1376,520 +1430,601 @@ export interface PstnCallLogRow extends AdditionalDataHolder, BackedModel, Parsa
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The source of the call duration data. If the call uses a third-party telecommunications operator via the Operator Connect Program, the operator can provide their own call duration data. In this case, the property value is operator. Otherwise, the value is microsoft.
      */
-    callDurationSource?: PstnCallDurationSource;
+    callDurationSource?: PstnCallDurationSource | null;
     /**
      * Number dialed in E.164 format.
      */
-    calleeNumber?: string;
+    calleeNumber?: string | null;
     /**
      * Number that received the call for inbound calls or the number dialed for outbound calls. E.164 format.
      */
-    callerNumber?: string;
+    callerNumber?: string | null;
     /**
      * Call identifier. Not guaranteed to be unique.
      */
-    callId?: string;
+    callId?: string | null;
     /**
      * Indicates whether the call was a PSTN outbound or inbound call and the type of call, such as a call placed by a user or an audio conference.
      */
-    callType?: string;
+    callType?: string | null;
     /**
      * Amount of money or cost of the call that is charged to your account.
      */
-    charge?: number;
+    charge?: number | null;
     /**
      * ID of the audio conference.
      */
-    conferenceId?: string;
+    conferenceId?: string | null;
     /**
      * Connection fee price.
      */
-    connectionCharge?: number;
+    connectionCharge?: number | null;
     /**
      * Type of currency used to calculate the cost of the call. For details, see (ISO 4217.
      */
-    currency?: string;
+    currency?: string | null;
     /**
      * Whether the call was domestic (within a country or region) or international (outside a country or region), based on the user's location.
      */
-    destinationContext?: string;
+    destinationContext?: string | null;
     /**
      * Country or region dialed.
      */
-    destinationName?: string;
+    destinationName?: string | null;
     /**
      * How long the call was connected, in seconds.
      */
-    duration?: number;
+    duration?: number | null;
     /**
      * Call end time.
      */
-    endDateTime?: Date;
+    endDateTime?: Date | null;
     /**
      * Unique call identifier. GUID.
      */
-    id?: string;
+    id?: string | null;
     /**
      * User's phone number type, such as a service of toll-free number.
      */
-    inventoryType?: string;
+    inventoryType?: string | null;
     /**
      * The license used for the call.
      */
-    licenseCapability?: string;
+    licenseCapability?: string | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * The telecommunications operator which provided PSTN services for this call. This might be Microsoft, or it might be a third-party operator via the Operator Connect Program.
      */
-    operator?: string;
+    operator?: string | null;
     /**
      * Call start time.
      */
-    startDateTime?: Date;
+    startDateTime?: Date | null;
     /**
      * Country code of the tenant. For details, see ISO 3166-1 alpha-2.
      */
-    tenantCountryCode?: string;
+    tenantCountryCode?: string | null;
     /**
      * Country code of the user. For details, see ISO 3166-1 alpha-2.
      */
-    usageCountryCode?: string;
+    usageCountryCode?: string | null;
     /**
      * Display name of the user.
      */
-    userDisplayName?: string;
+    userDisplayName?: string | null;
     /**
      * Calling user's ID in Microsoft Graph. GUID. This and other user info will be null/empty for bot call types (ucapin, ucapout).
      */
-    userId?: string;
+    userId?: string | null;
     /**
      * The user principal name (sign-in name) in Microsoft Entra ID. This is usually the same as the user's SIP address, and can be the same as the user's email address.
      */
-    userPrincipalName?: string;
+    userPrincipalName?: string | null;
 }
 export interface Segment extends Entity, Parsable {
     /**
      * Endpoint that answered this segment.
      */
-    callee?: Endpoint;
+    callee?: Endpoint | null;
     /**
      * Endpoint that initiated this segment.
      */
-    caller?: Endpoint;
+    caller?: Endpoint | null;
     /**
      * UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      */
-    endDateTime?: Date;
+    endDateTime?: Date | null;
     /**
      * Failure information associated with the segment if it failed.
      */
-    failureInfo?: FailureInfo;
+    failureInfo?: FailureInfo | null;
     /**
      * Media associated with this segment.
      */
-    media?: Media[];
+    media?: Media[] | null;
     /**
      * UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      */
-    startDateTime?: Date;
+    startDateTime?: Date | null;
 }
 export interface SegmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: Segment[];
+    value?: Segment[] | null;
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCallRecord(writer: SerializationWriter, callRecord: Partial<CallRecord> | undefined = {}) : void {
-    serializeEntity(writer, callRecord)
-    writer.writeDateValue("endDateTime", callRecord.endDateTime);
-    writer.writeStringValue("joinWebUrl", callRecord.joinWebUrl);
-    writer.writeDateValue("lastModifiedDateTime", callRecord.lastModifiedDateTime);
-    if(callRecord.modalities)
-    writer.writeEnumValue<Modality>("modalities", ...callRecord.modalities);
-    writer.writeObjectValue<IdentitySet>("organizer", callRecord.organizer, serializeIdentitySet);
-    writer.writeObjectValue<Organizer>("organizer_v2", callRecord.organizer_v2, serializeOrganizer);
-    writer.writeCollectionOfObjectValues<IdentitySet>("participants", callRecord.participants, serializeIdentitySet);
-    writer.writeCollectionOfObjectValues<Participant>("participants_v2", callRecord.participants_v2, serializeParticipant);
-    writer.writeCollectionOfObjectValues<Session>("sessions", callRecord.sessions, serializeSession);
-    writer.writeDateValue("startDateTime", callRecord.startDateTime);
-    writer.writeEnumValue<CallType>("type", callRecord.type);
-    writer.writeNumberValue("version", callRecord.version);
+// @ts-ignore
+export function serializeCallRecord(writer: SerializationWriter, callRecord: Partial<CallRecord> | undefined | null = {}) : void {
+    if (callRecord) {
+        serializeEntity(writer, callRecord)
+        writer.writeDateValue("endDateTime", callRecord.endDateTime);
+        writer.writeStringValue("joinWebUrl", callRecord.joinWebUrl);
+        writer.writeDateValue("lastModifiedDateTime", callRecord.lastModifiedDateTime);
+        if(callRecord.modalities)
+        writer.writeEnumValue<Modality>("modalities", ...callRecord.modalities);
+        writer.writeObjectValue<IdentitySet>("organizer", callRecord.organizer, serializeIdentitySet);
+        writer.writeObjectValue<Organizer>("organizer_v2", callRecord.organizer_v2, serializeOrganizer);
+        writer.writeCollectionOfObjectValues<IdentitySet>("participants", callRecord.participants, serializeIdentitySet);
+        writer.writeCollectionOfObjectValues<Participant>("participants_v2", callRecord.participants_v2, serializeParticipant);
+        writer.writeCollectionOfObjectValues<Session>("sessions", callRecord.sessions, serializeSession);
+        writer.writeDateValue("startDateTime", callRecord.startDateTime);
+        writer.writeEnumValue<CallType>("type", callRecord.type);
+        writer.writeNumberValue("version", callRecord.version);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCallRecordCollectionResponse(writer: SerializationWriter, callRecordCollectionResponse: Partial<CallRecordCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, callRecordCollectionResponse)
-    writer.writeCollectionOfObjectValues<CallRecord>("value", callRecordCollectionResponse.value, serializeCallRecord);
+// @ts-ignore
+export function serializeCallRecordCollectionResponse(writer: SerializationWriter, callRecordCollectionResponse: Partial<CallRecordCollectionResponse> | undefined | null = {}) : void {
+    if (callRecordCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, callRecordCollectionResponse)
+        writer.writeCollectionOfObjectValues<CallRecord>("value", callRecordCollectionResponse.value, serializeCallRecord);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeClientUserAgent(writer: SerializationWriter, clientUserAgent: Partial<ClientUserAgent> | undefined = {}) : void {
-    serializeUserAgent(writer, clientUserAgent)
-    writer.writeStringValue("azureADAppId", clientUserAgent.azureADAppId);
-    writer.writeStringValue("communicationServiceId", clientUserAgent.communicationServiceId);
-    writer.writeEnumValue<ClientPlatform>("platform", clientUserAgent.platform);
-    writer.writeEnumValue<ProductFamily>("productFamily", clientUserAgent.productFamily);
+// @ts-ignore
+export function serializeClientUserAgent(writer: SerializationWriter, clientUserAgent: Partial<ClientUserAgent> | undefined | null = {}) : void {
+    if (clientUserAgent) {
+        serializeUserAgent(writer, clientUserAgent)
+        writer.writeStringValue("azureADAppId", clientUserAgent.azureADAppId);
+        writer.writeStringValue("communicationServiceId", clientUserAgent.communicationServiceId);
+        writer.writeEnumValue<ClientPlatform>("platform", clientUserAgent.platform);
+        writer.writeEnumValue<ProductFamily>("productFamily", clientUserAgent.productFamily);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDeviceInfo(writer: SerializationWriter, deviceInfo: Partial<DeviceInfo> | undefined = {}) : void {
-    writer.writeStringValue("captureDeviceDriver", deviceInfo.captureDeviceDriver);
-    writer.writeStringValue("captureDeviceName", deviceInfo.captureDeviceName);
-    writer.writeNumberValue("captureNotFunctioningEventRatio", deviceInfo.captureNotFunctioningEventRatio);
-    writer.writeNumberValue("cpuInsufficentEventRatio", deviceInfo.cpuInsufficentEventRatio);
-    writer.writeNumberValue("deviceClippingEventRatio", deviceInfo.deviceClippingEventRatio);
-    writer.writeNumberValue("deviceGlitchEventRatio", deviceInfo.deviceGlitchEventRatio);
-    writer.writeNumberValue("howlingEventCount", deviceInfo.howlingEventCount);
-    writer.writeNumberValue("initialSignalLevelRootMeanSquare", deviceInfo.initialSignalLevelRootMeanSquare);
-    writer.writeNumberValue("lowSpeechLevelEventRatio", deviceInfo.lowSpeechLevelEventRatio);
-    writer.writeNumberValue("lowSpeechToNoiseEventRatio", deviceInfo.lowSpeechToNoiseEventRatio);
-    writer.writeNumberValue("micGlitchRate", deviceInfo.micGlitchRate);
-    writer.writeStringValue("@odata.type", deviceInfo.odataType);
-    writer.writeNumberValue("receivedNoiseLevel", deviceInfo.receivedNoiseLevel);
-    writer.writeNumberValue("receivedSignalLevel", deviceInfo.receivedSignalLevel);
-    writer.writeStringValue("renderDeviceDriver", deviceInfo.renderDeviceDriver);
-    writer.writeStringValue("renderDeviceName", deviceInfo.renderDeviceName);
-    writer.writeNumberValue("renderMuteEventRatio", deviceInfo.renderMuteEventRatio);
-    writer.writeNumberValue("renderNotFunctioningEventRatio", deviceInfo.renderNotFunctioningEventRatio);
-    writer.writeNumberValue("renderZeroVolumeEventRatio", deviceInfo.renderZeroVolumeEventRatio);
-    writer.writeNumberValue("sentNoiseLevel", deviceInfo.sentNoiseLevel);
-    writer.writeNumberValue("sentSignalLevel", deviceInfo.sentSignalLevel);
-    writer.writeNumberValue("speakerGlitchRate", deviceInfo.speakerGlitchRate);
-    writer.writeAdditionalData(deviceInfo.additionalData);
+// @ts-ignore
+export function serializeDeviceInfo(writer: SerializationWriter, deviceInfo: Partial<DeviceInfo> | undefined | null = {}) : void {
+    if (deviceInfo) {
+        writer.writeStringValue("captureDeviceDriver", deviceInfo.captureDeviceDriver);
+        writer.writeStringValue("captureDeviceName", deviceInfo.captureDeviceName);
+        writer.writeNumberValue("captureNotFunctioningEventRatio", deviceInfo.captureNotFunctioningEventRatio);
+        writer.writeNumberValue("cpuInsufficentEventRatio", deviceInfo.cpuInsufficentEventRatio);
+        writer.writeNumberValue("deviceClippingEventRatio", deviceInfo.deviceClippingEventRatio);
+        writer.writeNumberValue("deviceGlitchEventRatio", deviceInfo.deviceGlitchEventRatio);
+        writer.writeNumberValue("howlingEventCount", deviceInfo.howlingEventCount);
+        writer.writeNumberValue("initialSignalLevelRootMeanSquare", deviceInfo.initialSignalLevelRootMeanSquare);
+        writer.writeNumberValue("lowSpeechLevelEventRatio", deviceInfo.lowSpeechLevelEventRatio);
+        writer.writeNumberValue("lowSpeechToNoiseEventRatio", deviceInfo.lowSpeechToNoiseEventRatio);
+        writer.writeNumberValue("micGlitchRate", deviceInfo.micGlitchRate);
+        writer.writeStringValue("@odata.type", deviceInfo.odataType);
+        writer.writeNumberValue("receivedNoiseLevel", deviceInfo.receivedNoiseLevel);
+        writer.writeNumberValue("receivedSignalLevel", deviceInfo.receivedSignalLevel);
+        writer.writeStringValue("renderDeviceDriver", deviceInfo.renderDeviceDriver);
+        writer.writeStringValue("renderDeviceName", deviceInfo.renderDeviceName);
+        writer.writeNumberValue("renderMuteEventRatio", deviceInfo.renderMuteEventRatio);
+        writer.writeNumberValue("renderNotFunctioningEventRatio", deviceInfo.renderNotFunctioningEventRatio);
+        writer.writeNumberValue("renderZeroVolumeEventRatio", deviceInfo.renderZeroVolumeEventRatio);
+        writer.writeNumberValue("sentNoiseLevel", deviceInfo.sentNoiseLevel);
+        writer.writeNumberValue("sentSignalLevel", deviceInfo.sentSignalLevel);
+        writer.writeNumberValue("speakerGlitchRate", deviceInfo.speakerGlitchRate);
+        writer.writeAdditionalData(deviceInfo.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDirectRoutingLogRow(writer: SerializationWriter, directRoutingLogRow: Partial<DirectRoutingLogRow> | undefined = {}) : void {
-    writer.writeStringValue("calleeNumber", directRoutingLogRow.calleeNumber);
-    writer.writeNumberValue("callEndSubReason", directRoutingLogRow.callEndSubReason);
-    writer.writeStringValue("callerNumber", directRoutingLogRow.callerNumber);
-    writer.writeStringValue("callType", directRoutingLogRow.callType);
-    writer.writeStringValue("correlationId", directRoutingLogRow.correlationId);
-    writer.writeNumberValue("duration", directRoutingLogRow.duration);
-    writer.writeDateValue("endDateTime", directRoutingLogRow.endDateTime);
-    writer.writeDateValue("failureDateTime", directRoutingLogRow.failureDateTime);
-    writer.writeNumberValue("finalSipCode", directRoutingLogRow.finalSipCode);
-    writer.writeStringValue("finalSipCodePhrase", directRoutingLogRow.finalSipCodePhrase);
-    writer.writeStringValue("id", directRoutingLogRow.id);
-    writer.writeDateValue("inviteDateTime", directRoutingLogRow.inviteDateTime);
-    writer.writeBooleanValue("mediaBypassEnabled", directRoutingLogRow.mediaBypassEnabled);
-    writer.writeStringValue("mediaPathLocation", directRoutingLogRow.mediaPathLocation);
-    writer.writeStringValue("@odata.type", directRoutingLogRow.odataType);
-    writer.writeStringValue("signalingLocation", directRoutingLogRow.signalingLocation);
-    writer.writeDateValue("startDateTime", directRoutingLogRow.startDateTime);
-    writer.writeBooleanValue("successfulCall", directRoutingLogRow.successfulCall);
-    writer.writeStringValue("trunkFullyQualifiedDomainName", directRoutingLogRow.trunkFullyQualifiedDomainName);
-    writer.writeStringValue("userDisplayName", directRoutingLogRow.userDisplayName);
-    writer.writeStringValue("userId", directRoutingLogRow.userId);
-    writer.writeStringValue("userPrincipalName", directRoutingLogRow.userPrincipalName);
-    writer.writeAdditionalData(directRoutingLogRow.additionalData);
+// @ts-ignore
+export function serializeDirectRoutingLogRow(writer: SerializationWriter, directRoutingLogRow: Partial<DirectRoutingLogRow> | undefined | null = {}) : void {
+    if (directRoutingLogRow) {
+        writer.writeStringValue("calleeNumber", directRoutingLogRow.calleeNumber);
+        writer.writeNumberValue("callEndSubReason", directRoutingLogRow.callEndSubReason);
+        writer.writeStringValue("callerNumber", directRoutingLogRow.callerNumber);
+        writer.writeStringValue("callType", directRoutingLogRow.callType);
+        writer.writeStringValue("correlationId", directRoutingLogRow.correlationId);
+        writer.writeNumberValue("duration", directRoutingLogRow.duration);
+        writer.writeDateValue("endDateTime", directRoutingLogRow.endDateTime);
+        writer.writeDateValue("failureDateTime", directRoutingLogRow.failureDateTime);
+        writer.writeNumberValue("finalSipCode", directRoutingLogRow.finalSipCode);
+        writer.writeStringValue("finalSipCodePhrase", directRoutingLogRow.finalSipCodePhrase);
+        writer.writeStringValue("id", directRoutingLogRow.id);
+        writer.writeDateValue("inviteDateTime", directRoutingLogRow.inviteDateTime);
+        writer.writeBooleanValue("mediaBypassEnabled", directRoutingLogRow.mediaBypassEnabled);
+        writer.writeStringValue("mediaPathLocation", directRoutingLogRow.mediaPathLocation);
+        writer.writeStringValue("@odata.type", directRoutingLogRow.odataType);
+        writer.writeStringValue("signalingLocation", directRoutingLogRow.signalingLocation);
+        writer.writeDateValue("startDateTime", directRoutingLogRow.startDateTime);
+        writer.writeBooleanValue("successfulCall", directRoutingLogRow.successfulCall);
+        writer.writeStringValue("trunkFullyQualifiedDomainName", directRoutingLogRow.trunkFullyQualifiedDomainName);
+        writer.writeStringValue("userDisplayName", directRoutingLogRow.userDisplayName);
+        writer.writeStringValue("userId", directRoutingLogRow.userId);
+        writer.writeStringValue("userPrincipalName", directRoutingLogRow.userPrincipalName);
+        writer.writeAdditionalData(directRoutingLogRow.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeEndpoint(writer: SerializationWriter, endpoint: Partial<Endpoint> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", endpoint.odataType);
-    writer.writeObjectValue<UserAgent>("userAgent", endpoint.userAgent, serializeUserAgent);
-    writer.writeAdditionalData(endpoint.additionalData);
+// @ts-ignore
+export function serializeEndpoint(writer: SerializationWriter, endpoint: Partial<Endpoint> | undefined | null = {}) : void {
+    if (endpoint) {
+        writer.writeStringValue("@odata.type", endpoint.odataType);
+        writer.writeObjectValue<UserAgent>("userAgent", endpoint.userAgent, serializeUserAgent);
+        writer.writeAdditionalData(endpoint.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFailureInfo(writer: SerializationWriter, failureInfo: Partial<FailureInfo> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", failureInfo.odataType);
-    writer.writeStringValue("reason", failureInfo.reason);
-    writer.writeEnumValue<FailureStage>("stage", failureInfo.stage);
-    writer.writeAdditionalData(failureInfo.additionalData);
+// @ts-ignore
+export function serializeFailureInfo(writer: SerializationWriter, failureInfo: Partial<FailureInfo> | undefined | null = {}) : void {
+    if (failureInfo) {
+        writer.writeStringValue("@odata.type", failureInfo.odataType);
+        writer.writeStringValue("reason", failureInfo.reason);
+        writer.writeEnumValue<FailureStage>("stage", failureInfo.stage);
+        writer.writeAdditionalData(failureInfo.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeFeedbackTokenSet(writer: SerializationWriter, feedbackTokenSet: Partial<FeedbackTokenSet> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", feedbackTokenSet.odataType);
-    writer.writeAdditionalData(feedbackTokenSet.additionalData);
+// @ts-ignore
+export function serializeFeedbackTokenSet(writer: SerializationWriter, feedbackTokenSet: Partial<FeedbackTokenSet> | undefined | null = {}) : void {
+    if (feedbackTokenSet) {
+        writer.writeStringValue("@odata.type", feedbackTokenSet.odataType);
+        writer.writeAdditionalData(feedbackTokenSet.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMedia(writer: SerializationWriter, media: Partial<Media> | undefined = {}) : void {
-    writer.writeObjectValue<DeviceInfo>("calleeDevice", media.calleeDevice, serializeDeviceInfo);
-    writer.writeObjectValue<NetworkInfo>("calleeNetwork", media.calleeNetwork, serializeNetworkInfo);
-    writer.writeObjectValue<DeviceInfo>("callerDevice", media.callerDevice, serializeDeviceInfo);
-    writer.writeObjectValue<NetworkInfo>("callerNetwork", media.callerNetwork, serializeNetworkInfo);
-    writer.writeStringValue("label", media.label);
-    writer.writeStringValue("@odata.type", media.odataType);
-    writer.writeCollectionOfObjectValues<MediaStream>("streams", media.streams, serializeMediaStream);
-    writer.writeAdditionalData(media.additionalData);
+// @ts-ignore
+export function serializeMedia(writer: SerializationWriter, media: Partial<Media> | undefined | null = {}) : void {
+    if (media) {
+        writer.writeObjectValue<DeviceInfo>("calleeDevice", media.calleeDevice, serializeDeviceInfo);
+        writer.writeObjectValue<NetworkInfo>("calleeNetwork", media.calleeNetwork, serializeNetworkInfo);
+        writer.writeObjectValue<DeviceInfo>("callerDevice", media.callerDevice, serializeDeviceInfo);
+        writer.writeObjectValue<NetworkInfo>("callerNetwork", media.callerNetwork, serializeNetworkInfo);
+        writer.writeStringValue("label", media.label);
+        writer.writeStringValue("@odata.type", media.odataType);
+        writer.writeCollectionOfObjectValues<MediaStream>("streams", media.streams, serializeMediaStream);
+        writer.writeAdditionalData(media.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeMediaStream(writer: SerializationWriter, mediaStream: Partial<MediaStream> | undefined = {}) : void {
-    writer.writeEnumValue<AudioCodec>("audioCodec", mediaStream.audioCodec);
-    writer.writeNumberValue("averageAudioDegradation", mediaStream.averageAudioDegradation);
-    writer.writeDurationValue("averageAudioNetworkJitter", mediaStream.averageAudioNetworkJitter);
-    writer.writeNumberValue("averageBandwidthEstimate", mediaStream.averageBandwidthEstimate);
-    writer.writeDurationValue("averageFreezeDuration", mediaStream.averageFreezeDuration);
-    writer.writeDurationValue("averageJitter", mediaStream.averageJitter);
-    writer.writeNumberValue("averagePacketLossRate", mediaStream.averagePacketLossRate);
-    writer.writeNumberValue("averageRatioOfConcealedSamples", mediaStream.averageRatioOfConcealedSamples);
-    writer.writeNumberValue("averageReceivedFrameRate", mediaStream.averageReceivedFrameRate);
-    writer.writeDurationValue("averageRoundTripTime", mediaStream.averageRoundTripTime);
-    writer.writeNumberValue("averageVideoFrameLossPercentage", mediaStream.averageVideoFrameLossPercentage);
-    writer.writeNumberValue("averageVideoFrameRate", mediaStream.averageVideoFrameRate);
-    writer.writeNumberValue("averageVideoPacketLossRate", mediaStream.averageVideoPacketLossRate);
-    writer.writeDateValue("endDateTime", mediaStream.endDateTime);
-    writer.writeBooleanValue("isAudioForwardErrorCorrectionUsed", mediaStream.isAudioForwardErrorCorrectionUsed);
-    writer.writeNumberValue("lowFrameRateRatio", mediaStream.lowFrameRateRatio);
-    writer.writeNumberValue("lowVideoProcessingCapabilityRatio", mediaStream.lowVideoProcessingCapabilityRatio);
-    writer.writeDurationValue("maxAudioNetworkJitter", mediaStream.maxAudioNetworkJitter);
-    writer.writeDurationValue("maxJitter", mediaStream.maxJitter);
-    writer.writeNumberValue("maxPacketLossRate", mediaStream.maxPacketLossRate);
-    writer.writeNumberValue("maxRatioOfConcealedSamples", mediaStream.maxRatioOfConcealedSamples);
-    writer.writeDurationValue("maxRoundTripTime", mediaStream.maxRoundTripTime);
-    writer.writeStringValue("@odata.type", mediaStream.odataType);
-    writer.writeNumberValue("packetUtilization", mediaStream.packetUtilization);
-    writer.writeNumberValue("postForwardErrorCorrectionPacketLossRate", mediaStream.postForwardErrorCorrectionPacketLossRate);
-    writer.writeDurationValue("rmsFreezeDuration", mediaStream.rmsFreezeDuration);
-    writer.writeDateValue("startDateTime", mediaStream.startDateTime);
-    writer.writeEnumValue<MediaStreamDirection>("streamDirection", mediaStream.streamDirection);
-    writer.writeStringValue("streamId", mediaStream.streamId);
-    writer.writeEnumValue<VideoCodec>("videoCodec", mediaStream.videoCodec);
-    writer.writeBooleanValue("wasMediaBypassed", mediaStream.wasMediaBypassed);
-    writer.writeAdditionalData(mediaStream.additionalData);
+// @ts-ignore
+export function serializeMediaStream(writer: SerializationWriter, mediaStream: Partial<MediaStream> | undefined | null = {}) : void {
+    if (mediaStream) {
+        writer.writeEnumValue<AudioCodec>("audioCodec", mediaStream.audioCodec);
+        writer.writeNumberValue("averageAudioDegradation", mediaStream.averageAudioDegradation);
+        writer.writeDurationValue("averageAudioNetworkJitter", mediaStream.averageAudioNetworkJitter);
+        writer.writeNumberValue("averageBandwidthEstimate", mediaStream.averageBandwidthEstimate);
+        writer.writeDurationValue("averageFreezeDuration", mediaStream.averageFreezeDuration);
+        writer.writeDurationValue("averageJitter", mediaStream.averageJitter);
+        writer.writeNumberValue("averagePacketLossRate", mediaStream.averagePacketLossRate);
+        writer.writeNumberValue("averageRatioOfConcealedSamples", mediaStream.averageRatioOfConcealedSamples);
+        writer.writeNumberValue("averageReceivedFrameRate", mediaStream.averageReceivedFrameRate);
+        writer.writeDurationValue("averageRoundTripTime", mediaStream.averageRoundTripTime);
+        writer.writeNumberValue("averageVideoFrameLossPercentage", mediaStream.averageVideoFrameLossPercentage);
+        writer.writeNumberValue("averageVideoFrameRate", mediaStream.averageVideoFrameRate);
+        writer.writeNumberValue("averageVideoPacketLossRate", mediaStream.averageVideoPacketLossRate);
+        writer.writeDateValue("endDateTime", mediaStream.endDateTime);
+        writer.writeBooleanValue("isAudioForwardErrorCorrectionUsed", mediaStream.isAudioForwardErrorCorrectionUsed);
+        writer.writeNumberValue("lowFrameRateRatio", mediaStream.lowFrameRateRatio);
+        writer.writeNumberValue("lowVideoProcessingCapabilityRatio", mediaStream.lowVideoProcessingCapabilityRatio);
+        writer.writeDurationValue("maxAudioNetworkJitter", mediaStream.maxAudioNetworkJitter);
+        writer.writeDurationValue("maxJitter", mediaStream.maxJitter);
+        writer.writeNumberValue("maxPacketLossRate", mediaStream.maxPacketLossRate);
+        writer.writeNumberValue("maxRatioOfConcealedSamples", mediaStream.maxRatioOfConcealedSamples);
+        writer.writeDurationValue("maxRoundTripTime", mediaStream.maxRoundTripTime);
+        writer.writeStringValue("@odata.type", mediaStream.odataType);
+        writer.writeNumberValue("packetUtilization", mediaStream.packetUtilization);
+        writer.writeNumberValue("postForwardErrorCorrectionPacketLossRate", mediaStream.postForwardErrorCorrectionPacketLossRate);
+        writer.writeDurationValue("rmsFreezeDuration", mediaStream.rmsFreezeDuration);
+        writer.writeDateValue("startDateTime", mediaStream.startDateTime);
+        writer.writeEnumValue<MediaStreamDirection>("streamDirection", mediaStream.streamDirection);
+        writer.writeStringValue("streamId", mediaStream.streamId);
+        writer.writeEnumValue<VideoCodec>("videoCodec", mediaStream.videoCodec);
+        writer.writeBooleanValue("wasMediaBypassed", mediaStream.wasMediaBypassed);
+        writer.writeAdditionalData(mediaStream.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeNetworkInfo(writer: SerializationWriter, networkInfo: Partial<NetworkInfo> | undefined = {}) : void {
-    writer.writeNumberValue("bandwidthLowEventRatio", networkInfo.bandwidthLowEventRatio);
-    writer.writeStringValue("basicServiceSetIdentifier", networkInfo.basicServiceSetIdentifier);
-    writer.writeEnumValue<NetworkConnectionType>("connectionType", networkInfo.connectionType);
-    writer.writeNumberValue("delayEventRatio", networkInfo.delayEventRatio);
-    writer.writeStringValue("dnsSuffix", networkInfo.dnsSuffix);
-    writer.writeStringValue("ipAddress", networkInfo.ipAddress);
-    writer.writeNumberValue("linkSpeed", networkInfo.linkSpeed);
-    writer.writeStringValue("macAddress", networkInfo.macAddress);
-    writer.writeEnumValue<NetworkTransportProtocol>("networkTransportProtocol", networkInfo.networkTransportProtocol);
-    writer.writeStringValue("@odata.type", networkInfo.odataType);
-    writer.writeNumberValue("port", networkInfo.port);
-    writer.writeNumberValue("receivedQualityEventRatio", networkInfo.receivedQualityEventRatio);
-    writer.writeStringValue("reflexiveIPAddress", networkInfo.reflexiveIPAddress);
-    writer.writeStringValue("relayIPAddress", networkInfo.relayIPAddress);
-    writer.writeNumberValue("relayPort", networkInfo.relayPort);
-    writer.writeNumberValue("sentQualityEventRatio", networkInfo.sentQualityEventRatio);
-    writer.writeStringValue("subnet", networkInfo.subnet);
-    writer.writeCollectionOfObjectValues<TraceRouteHop>("traceRouteHops", networkInfo.traceRouteHops, serializeTraceRouteHop);
-    writer.writeEnumValue<WifiBand>("wifiBand", networkInfo.wifiBand);
-    writer.writeNumberValue("wifiBatteryCharge", networkInfo.wifiBatteryCharge);
-    writer.writeNumberValue("wifiChannel", networkInfo.wifiChannel);
-    writer.writeStringValue("wifiMicrosoftDriver", networkInfo.wifiMicrosoftDriver);
-    writer.writeStringValue("wifiMicrosoftDriverVersion", networkInfo.wifiMicrosoftDriverVersion);
-    writer.writeEnumValue<WifiRadioType>("wifiRadioType", networkInfo.wifiRadioType);
-    writer.writeNumberValue("wifiSignalStrength", networkInfo.wifiSignalStrength);
-    writer.writeStringValue("wifiVendorDriver", networkInfo.wifiVendorDriver);
-    writer.writeStringValue("wifiVendorDriverVersion", networkInfo.wifiVendorDriverVersion);
-    writer.writeAdditionalData(networkInfo.additionalData);
+// @ts-ignore
+export function serializeNetworkInfo(writer: SerializationWriter, networkInfo: Partial<NetworkInfo> | undefined | null = {}) : void {
+    if (networkInfo) {
+        writer.writeNumberValue("bandwidthLowEventRatio", networkInfo.bandwidthLowEventRatio);
+        writer.writeStringValue("basicServiceSetIdentifier", networkInfo.basicServiceSetIdentifier);
+        writer.writeEnumValue<NetworkConnectionType>("connectionType", networkInfo.connectionType);
+        writer.writeNumberValue("delayEventRatio", networkInfo.delayEventRatio);
+        writer.writeStringValue("dnsSuffix", networkInfo.dnsSuffix);
+        writer.writeStringValue("ipAddress", networkInfo.ipAddress);
+        writer.writeNumberValue("linkSpeed", networkInfo.linkSpeed);
+        writer.writeStringValue("macAddress", networkInfo.macAddress);
+        writer.writeEnumValue<NetworkTransportProtocol>("networkTransportProtocol", networkInfo.networkTransportProtocol);
+        writer.writeStringValue("@odata.type", networkInfo.odataType);
+        writer.writeNumberValue("port", networkInfo.port);
+        writer.writeNumberValue("receivedQualityEventRatio", networkInfo.receivedQualityEventRatio);
+        writer.writeStringValue("reflexiveIPAddress", networkInfo.reflexiveIPAddress);
+        writer.writeStringValue("relayIPAddress", networkInfo.relayIPAddress);
+        writer.writeNumberValue("relayPort", networkInfo.relayPort);
+        writer.writeNumberValue("sentQualityEventRatio", networkInfo.sentQualityEventRatio);
+        writer.writeStringValue("subnet", networkInfo.subnet);
+        writer.writeCollectionOfObjectValues<TraceRouteHop>("traceRouteHops", networkInfo.traceRouteHops, serializeTraceRouteHop);
+        writer.writeEnumValue<WifiBand>("wifiBand", networkInfo.wifiBand);
+        writer.writeNumberValue("wifiBatteryCharge", networkInfo.wifiBatteryCharge);
+        writer.writeNumberValue("wifiChannel", networkInfo.wifiChannel);
+        writer.writeStringValue("wifiMicrosoftDriver", networkInfo.wifiMicrosoftDriver);
+        writer.writeStringValue("wifiMicrosoftDriverVersion", networkInfo.wifiMicrosoftDriverVersion);
+        writer.writeEnumValue<WifiRadioType>("wifiRadioType", networkInfo.wifiRadioType);
+        writer.writeNumberValue("wifiSignalStrength", networkInfo.wifiSignalStrength);
+        writer.writeStringValue("wifiVendorDriver", networkInfo.wifiVendorDriver);
+        writer.writeStringValue("wifiVendorDriverVersion", networkInfo.wifiVendorDriverVersion);
+        writer.writeAdditionalData(networkInfo.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOrganizer(writer: SerializationWriter, organizer: Partial<Organizer> | undefined = {}) : void {
-    serializeParticipantBase(writer, organizer)
+// @ts-ignore
+export function serializeOrganizer(writer: SerializationWriter, organizer: Partial<Organizer> | undefined | null = {}) : void {
+    if (organizer) {
+        serializeParticipantBase(writer, organizer)
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeParticipant(writer: SerializationWriter, participant: Partial<Participant> | undefined = {}) : void {
-    serializeParticipantBase(writer, participant)
+// @ts-ignore
+export function serializeParticipant(writer: SerializationWriter, participant: Partial<Participant> | undefined | null = {}) : void {
+    if (participant) {
+        serializeParticipantBase(writer, participant)
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeParticipantBase(writer: SerializationWriter, participantBase: Partial<ParticipantBase> | undefined = {}) : void {
-    serializeEntity(writer, participantBase)
-    writer.writeObjectValue<CommunicationsIdentitySet>("identity", participantBase.identity, serializeCommunicationsIdentitySet);
+// @ts-ignore
+export function serializeParticipantBase(writer: SerializationWriter, participantBase: Partial<ParticipantBase> | undefined | null = {}) : void {
+    if (participantBase) {
+        serializeEntity(writer, participantBase)
+        writer.writeObjectValue<CommunicationsIdentitySet>("identity", participantBase.identity, serializeCommunicationsIdentitySet);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeParticipantCollectionResponse(writer: SerializationWriter, participantCollectionResponse: Partial<ParticipantCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, participantCollectionResponse)
-    writer.writeCollectionOfObjectValues<Participant>("value", participantCollectionResponse.value, serializeParticipant);
+// @ts-ignore
+export function serializeParticipantCollectionResponse(writer: SerializationWriter, participantCollectionResponse: Partial<ParticipantCollectionResponse> | undefined | null = {}) : void {
+    if (participantCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, participantCollectionResponse)
+        writer.writeCollectionOfObjectValues<Participant>("value", participantCollectionResponse.value, serializeParticipant);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeParticipantEndpoint(writer: SerializationWriter, participantEndpoint: Partial<ParticipantEndpoint> | undefined = {}) : void {
-    serializeEndpoint(writer, participantEndpoint)
-    writer.writeObjectValue<Identity>("associatedIdentity", participantEndpoint.associatedIdentity, serializeIdentity);
-    writer.writeNumberValue("cpuCoresCount", participantEndpoint.cpuCoresCount);
-    writer.writeStringValue("cpuName", participantEndpoint.cpuName);
-    writer.writeNumberValue("cpuProcessorSpeedInMhz", participantEndpoint.cpuProcessorSpeedInMhz);
-    writer.writeObjectValue<UserFeedback>("feedback", participantEndpoint.feedback, serializeUserFeedback);
-    writer.writeObjectValue<IdentitySet>("identity", participantEndpoint.identity, serializeIdentitySet);
-    writer.writeStringValue("name", participantEndpoint.name);
+// @ts-ignore
+export function serializeParticipantEndpoint(writer: SerializationWriter, participantEndpoint: Partial<ParticipantEndpoint> | undefined | null = {}) : void {
+    if (participantEndpoint) {
+        serializeEndpoint(writer, participantEndpoint)
+        writer.writeObjectValue<Identity>("associatedIdentity", participantEndpoint.associatedIdentity, serializeIdentity);
+        writer.writeNumberValue("cpuCoresCount", participantEndpoint.cpuCoresCount);
+        writer.writeStringValue("cpuName", participantEndpoint.cpuName);
+        writer.writeNumberValue("cpuProcessorSpeedInMhz", participantEndpoint.cpuProcessorSpeedInMhz);
+        writer.writeObjectValue<UserFeedback>("feedback", participantEndpoint.feedback, serializeUserFeedback);
+        writer.writeObjectValue<IdentitySet>("identity", participantEndpoint.identity, serializeIdentitySet);
+        writer.writeStringValue("name", participantEndpoint.name);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePstnCallLogRow(writer: SerializationWriter, pstnCallLogRow: Partial<PstnCallLogRow> | undefined = {}) : void {
-    writer.writeEnumValue<PstnCallDurationSource>("callDurationSource", pstnCallLogRow.callDurationSource);
-    writer.writeStringValue("calleeNumber", pstnCallLogRow.calleeNumber);
-    writer.writeStringValue("callerNumber", pstnCallLogRow.callerNumber);
-    writer.writeStringValue("callId", pstnCallLogRow.callId);
-    writer.writeStringValue("callType", pstnCallLogRow.callType);
-    writer.writeNumberValue("charge", pstnCallLogRow.charge);
-    writer.writeStringValue("conferenceId", pstnCallLogRow.conferenceId);
-    writer.writeNumberValue("connectionCharge", pstnCallLogRow.connectionCharge);
-    writer.writeStringValue("currency", pstnCallLogRow.currency);
-    writer.writeStringValue("destinationContext", pstnCallLogRow.destinationContext);
-    writer.writeStringValue("destinationName", pstnCallLogRow.destinationName);
-    writer.writeNumberValue("duration", pstnCallLogRow.duration);
-    writer.writeDateValue("endDateTime", pstnCallLogRow.endDateTime);
-    writer.writeStringValue("id", pstnCallLogRow.id);
-    writer.writeStringValue("inventoryType", pstnCallLogRow.inventoryType);
-    writer.writeStringValue("licenseCapability", pstnCallLogRow.licenseCapability);
-    writer.writeStringValue("@odata.type", pstnCallLogRow.odataType);
-    writer.writeStringValue("operator", pstnCallLogRow.operator);
-    writer.writeDateValue("startDateTime", pstnCallLogRow.startDateTime);
-    writer.writeStringValue("tenantCountryCode", pstnCallLogRow.tenantCountryCode);
-    writer.writeStringValue("usageCountryCode", pstnCallLogRow.usageCountryCode);
-    writer.writeStringValue("userDisplayName", pstnCallLogRow.userDisplayName);
-    writer.writeStringValue("userId", pstnCallLogRow.userId);
-    writer.writeStringValue("userPrincipalName", pstnCallLogRow.userPrincipalName);
-    writer.writeAdditionalData(pstnCallLogRow.additionalData);
+// @ts-ignore
+export function serializePstnCallLogRow(writer: SerializationWriter, pstnCallLogRow: Partial<PstnCallLogRow> | undefined | null = {}) : void {
+    if (pstnCallLogRow) {
+        writer.writeEnumValue<PstnCallDurationSource>("callDurationSource", pstnCallLogRow.callDurationSource);
+        writer.writeStringValue("calleeNumber", pstnCallLogRow.calleeNumber);
+        writer.writeStringValue("callerNumber", pstnCallLogRow.callerNumber);
+        writer.writeStringValue("callId", pstnCallLogRow.callId);
+        writer.writeStringValue("callType", pstnCallLogRow.callType);
+        writer.writeNumberValue("charge", pstnCallLogRow.charge);
+        writer.writeStringValue("conferenceId", pstnCallLogRow.conferenceId);
+        writer.writeNumberValue("connectionCharge", pstnCallLogRow.connectionCharge);
+        writer.writeStringValue("currency", pstnCallLogRow.currency);
+        writer.writeStringValue("destinationContext", pstnCallLogRow.destinationContext);
+        writer.writeStringValue("destinationName", pstnCallLogRow.destinationName);
+        writer.writeNumberValue("duration", pstnCallLogRow.duration);
+        writer.writeDateValue("endDateTime", pstnCallLogRow.endDateTime);
+        writer.writeStringValue("id", pstnCallLogRow.id);
+        writer.writeStringValue("inventoryType", pstnCallLogRow.inventoryType);
+        writer.writeStringValue("licenseCapability", pstnCallLogRow.licenseCapability);
+        writer.writeStringValue("@odata.type", pstnCallLogRow.odataType);
+        writer.writeStringValue("operator", pstnCallLogRow.operator);
+        writer.writeDateValue("startDateTime", pstnCallLogRow.startDateTime);
+        writer.writeStringValue("tenantCountryCode", pstnCallLogRow.tenantCountryCode);
+        writer.writeStringValue("usageCountryCode", pstnCallLogRow.usageCountryCode);
+        writer.writeStringValue("userDisplayName", pstnCallLogRow.userDisplayName);
+        writer.writeStringValue("userId", pstnCallLogRow.userId);
+        writer.writeStringValue("userPrincipalName", pstnCallLogRow.userPrincipalName);
+        writer.writeAdditionalData(pstnCallLogRow.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSegment(writer: SerializationWriter, segment: Partial<Segment> | undefined = {}) : void {
-    serializeEntity(writer, segment)
-    writer.writeObjectValue<Endpoint>("callee", segment.callee, serializeEndpoint);
-    writer.writeObjectValue<Endpoint>("caller", segment.caller, serializeEndpoint);
-    writer.writeDateValue("endDateTime", segment.endDateTime);
-    writer.writeObjectValue<FailureInfo>("failureInfo", segment.failureInfo, serializeFailureInfo);
-    writer.writeCollectionOfObjectValues<Media>("media", segment.media, serializeMedia);
-    writer.writeDateValue("startDateTime", segment.startDateTime);
+// @ts-ignore
+export function serializeSegment(writer: SerializationWriter, segment: Partial<Segment> | undefined | null = {}) : void {
+    if (segment) {
+        serializeEntity(writer, segment)
+        writer.writeObjectValue<Endpoint>("callee", segment.callee, serializeEndpoint);
+        writer.writeObjectValue<Endpoint>("caller", segment.caller, serializeEndpoint);
+        writer.writeDateValue("endDateTime", segment.endDateTime);
+        writer.writeObjectValue<FailureInfo>("failureInfo", segment.failureInfo, serializeFailureInfo);
+        writer.writeCollectionOfObjectValues<Media>("media", segment.media, serializeMedia);
+        writer.writeDateValue("startDateTime", segment.startDateTime);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSegmentCollectionResponse(writer: SerializationWriter, segmentCollectionResponse: Partial<SegmentCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, segmentCollectionResponse)
-    writer.writeCollectionOfObjectValues<Segment>("value", segmentCollectionResponse.value, serializeSegment);
+// @ts-ignore
+export function serializeSegmentCollectionResponse(writer: SerializationWriter, segmentCollectionResponse: Partial<SegmentCollectionResponse> | undefined | null = {}) : void {
+    if (segmentCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, segmentCollectionResponse)
+        writer.writeCollectionOfObjectValues<Segment>("value", segmentCollectionResponse.value, serializeSegment);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeServiceEndpoint(writer: SerializationWriter, serviceEndpoint: Partial<ServiceEndpoint> | undefined = {}) : void {
-    serializeEndpoint(writer, serviceEndpoint)
+// @ts-ignore
+export function serializeServiceEndpoint(writer: SerializationWriter, serviceEndpoint: Partial<ServiceEndpoint> | undefined | null = {}) : void {
+    if (serviceEndpoint) {
+        serializeEndpoint(writer, serviceEndpoint)
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeServiceUserAgent(writer: SerializationWriter, serviceUserAgent: Partial<ServiceUserAgent> | undefined = {}) : void {
-    serializeUserAgent(writer, serviceUserAgent)
-    writer.writeEnumValue<ServiceRole>("role", serviceUserAgent.role);
+// @ts-ignore
+export function serializeServiceUserAgent(writer: SerializationWriter, serviceUserAgent: Partial<ServiceUserAgent> | undefined | null = {}) : void {
+    if (serviceUserAgent) {
+        serializeUserAgent(writer, serviceUserAgent)
+        writer.writeEnumValue<ServiceRole>("role", serviceUserAgent.role);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSession(writer: SerializationWriter, session: Partial<Session> | undefined = {}) : void {
-    serializeEntity(writer, session)
-    writer.writeObjectValue<Endpoint>("callee", session.callee, serializeEndpoint);
-    writer.writeObjectValue<Endpoint>("caller", session.caller, serializeEndpoint);
-    writer.writeDateValue("endDateTime", session.endDateTime);
-    writer.writeObjectValue<FailureInfo>("failureInfo", session.failureInfo, serializeFailureInfo);
-    writer.writeBooleanValue("isTest", session.isTest);
-    if(session.modalities)
-    writer.writeEnumValue<Modality>("modalities", ...session.modalities);
-    writer.writeCollectionOfObjectValues<Segment>("segments", session.segments, serializeSegment);
-    writer.writeDateValue("startDateTime", session.startDateTime);
+// @ts-ignore
+export function serializeSession(writer: SerializationWriter, session: Partial<Session> | undefined | null = {}) : void {
+    if (session) {
+        serializeEntity(writer, session)
+        writer.writeObjectValue<Endpoint>("callee", session.callee, serializeEndpoint);
+        writer.writeObjectValue<Endpoint>("caller", session.caller, serializeEndpoint);
+        writer.writeDateValue("endDateTime", session.endDateTime);
+        writer.writeObjectValue<FailureInfo>("failureInfo", session.failureInfo, serializeFailureInfo);
+        writer.writeBooleanValue("isTest", session.isTest);
+        if(session.modalities)
+        writer.writeEnumValue<Modality>("modalities", ...session.modalities);
+        writer.writeCollectionOfObjectValues<Segment>("segments", session.segments, serializeSegment);
+        writer.writeDateValue("startDateTime", session.startDateTime);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSessionCollectionResponse(writer: SerializationWriter, sessionCollectionResponse: Partial<SessionCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, sessionCollectionResponse)
-    writer.writeCollectionOfObjectValues<Session>("value", sessionCollectionResponse.value, serializeSession);
+// @ts-ignore
+export function serializeSessionCollectionResponse(writer: SerializationWriter, sessionCollectionResponse: Partial<SessionCollectionResponse> | undefined | null = {}) : void {
+    if (sessionCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, sessionCollectionResponse)
+        writer.writeCollectionOfObjectValues<Session>("value", sessionCollectionResponse.value, serializeSession);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTraceRouteHop(writer: SerializationWriter, traceRouteHop: Partial<TraceRouteHop> | undefined = {}) : void {
-    writer.writeNumberValue("hopCount", traceRouteHop.hopCount);
-    writer.writeStringValue("ipAddress", traceRouteHop.ipAddress);
-    writer.writeStringValue("@odata.type", traceRouteHop.odataType);
-    writer.writeDurationValue("roundTripTime", traceRouteHop.roundTripTime);
-    writer.writeAdditionalData(traceRouteHop.additionalData);
+// @ts-ignore
+export function serializeTraceRouteHop(writer: SerializationWriter, traceRouteHop: Partial<TraceRouteHop> | undefined | null = {}) : void {
+    if (traceRouteHop) {
+        writer.writeNumberValue("hopCount", traceRouteHop.hopCount);
+        writer.writeStringValue("ipAddress", traceRouteHop.ipAddress);
+        writer.writeStringValue("@odata.type", traceRouteHop.odataType);
+        writer.writeDurationValue("roundTripTime", traceRouteHop.roundTripTime);
+        writer.writeAdditionalData(traceRouteHop.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUserAgent(writer: SerializationWriter, userAgent: Partial<UserAgent> | undefined = {}) : void {
-    writer.writeStringValue("applicationVersion", userAgent.applicationVersion);
-    writer.writeStringValue("headerValue", userAgent.headerValue);
-    writer.writeStringValue("@odata.type", userAgent.odataType);
-    writer.writeAdditionalData(userAgent.additionalData);
+// @ts-ignore
+export function serializeUserAgent(writer: SerializationWriter, userAgent: Partial<UserAgent> | undefined | null = {}) : void {
+    if (userAgent) {
+        writer.writeStringValue("applicationVersion", userAgent.applicationVersion);
+        writer.writeStringValue("headerValue", userAgent.headerValue);
+        writer.writeStringValue("@odata.type", userAgent.odataType);
+        writer.writeAdditionalData(userAgent.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUserFeedback(writer: SerializationWriter, userFeedback: Partial<UserFeedback> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", userFeedback.odataType);
-    writer.writeEnumValue<UserFeedbackRating>("rating", userFeedback.rating);
-    writer.writeStringValue("text", userFeedback.text);
-    writer.writeObjectValue<FeedbackTokenSet>("tokens", userFeedback.tokens, serializeFeedbackTokenSet);
-    writer.writeAdditionalData(userFeedback.additionalData);
+// @ts-ignore
+export function serializeUserFeedback(writer: SerializationWriter, userFeedback: Partial<UserFeedback> | undefined | null = {}) : void {
+    if (userFeedback) {
+        writer.writeStringValue("@odata.type", userFeedback.odataType);
+        writer.writeEnumValue<UserFeedbackRating>("rating", userFeedback.rating);
+        writer.writeStringValue("text", userFeedback.text);
+        writer.writeObjectValue<FeedbackTokenSet>("tokens", userFeedback.tokens, serializeFeedbackTokenSet);
+        writer.writeAdditionalData(userFeedback.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUserIdentity(writer: SerializationWriter, userIdentity: Partial<UserIdentity> | undefined = {}) : void {
-    serializeIdentity(writer, userIdentity)
-    writer.writeStringValue("userPrincipalName", userIdentity.userPrincipalName);
+// @ts-ignore
+export function serializeUserIdentity(writer: SerializationWriter, userIdentity: Partial<UserIdentity> | undefined | null = {}) : void {
+    if (userIdentity) {
+        serializeIdentity(writer, userIdentity)
+        writer.writeStringValue("userPrincipalName", userIdentity.userPrincipalName);
+    }
 }
 export interface ServiceEndpoint extends Endpoint, Parsable {
 }
@@ -1898,47 +2033,47 @@ export interface ServiceUserAgent extends Parsable, UserAgent {
     /**
      * The role property
      */
-    role?: ServiceRole;
+    role?: ServiceRole | null;
 }
 export interface Session extends Entity, Parsable {
     /**
      * Endpoint that answered the session.
      */
-    callee?: Endpoint;
+    callee?: Endpoint | null;
     /**
      * Endpoint that initiated the session.
      */
-    caller?: Endpoint;
+    caller?: Endpoint | null;
     /**
      * UTC time when the last user left the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      */
-    endDateTime?: Date;
+    endDateTime?: Date | null;
     /**
      * Failure information associated with the session if the session failed.
      */
-    failureInfo?: FailureInfo;
+    failureInfo?: FailureInfo | null;
     /**
      * Specifies whether the session is a test.
      */
-    isTest?: boolean;
+    isTest?: boolean | null;
     /**
      * List of modalities present in the session. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
      */
-    modalities?: Modality[];
+    modalities?: Modality[] | null;
     /**
      * The list of segments involved in the session. Read-only. Nullable.
      */
-    segments?: Segment[];
+    segments?: Segment[] | null;
     /**
      * UTC time when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      */
-    startDateTime?: Date;
+    startDateTime?: Date | null;
 }
 export interface SessionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: Session[];
+    value?: Session[] | null;
 }
 export interface TraceRouteHop extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -1948,23 +2083,23 @@ export interface TraceRouteHop extends AdditionalDataHolder, BackedModel, Parsab
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The network path count of this hop that was used to compute the RTT.
      */
-    hopCount?: number;
+    hopCount?: number | null;
     /**
      * IP address used for this hop in the network trace.
      */
-    ipAddress?: string;
+    ipAddress?: string | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * The time from when the trace route packet was sent from the client to this hop and back to the client, denoted in ISO 8601 format. For example, 1 second is denoted as PT1S, where P is the duration designator, T is the time designator, and S is the second designator.
      */
-    roundTripTime?: Duration;
+    roundTripTime?: Duration | null;
 }
 export interface UserAgent extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -1974,19 +2109,19 @@ export interface UserAgent extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Identifies the version of application software used by this endpoint.
      */
-    applicationVersion?: string;
+    applicationVersion?: string | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * User-agent header value reported by this endpoint.
      */
-    headerValue?: string;
+    headerValue?: string | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
 }
 export interface UserFeedback extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -1996,30 +2131,30 @@ export interface UserFeedback extends AdditionalDataHolder, BackedModel, Parsabl
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * The rating property
      */
-    rating?: UserFeedbackRating;
+    rating?: UserFeedbackRating | null;
     /**
      * The feedback text provided by the user of this endpoint for the session.
      */
-    text?: string;
+    text?: string | null;
     /**
      * The set of feedback tokens provided by the user of this endpoint for the session. This is a set of Boolean properties. The property names should not be relied upon since they may change depending on what tokens are offered to the user.
      */
-    tokens?: FeedbackTokenSet;
+    tokens?: FeedbackTokenSet | null;
 }
 export type UserFeedbackRating = (typeof UserFeedbackRatingObject)[keyof typeof UserFeedbackRatingObject];
 export interface UserIdentity extends Identity, Parsable {
     /**
      * The userPrincipalName property
      */
-    userPrincipalName?: string;
+    userPrincipalName?: string | null;
 }
 export type VideoCodec = (typeof VideoCodecObject)[keyof typeof VideoCodecObject];
 export type WifiBand = (typeof WifiBandObject)[keyof typeof WifiBandObject];

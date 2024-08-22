@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LcmPostRequestBody}
  */
+// @ts-ignore
 export function createLcmPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLcmPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLcmPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLcmPostRequestBody(lcmPostRequestBody: Partial<LcmPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lcmPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface LcmPostRequestBody extends AdditionalDataHolder, BackedModel, P
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the lcm method.
@@ -64,9 +66,12 @@ export interface LcmRequestBuilder extends BaseRequestBuilder<LcmRequestBuilder>
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLcmPostRequestBody(writer: SerializationWriter, lcmPostRequestBody: Partial<LcmPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", lcmPostRequestBody.values);
-    writer.writeAdditionalData(lcmPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeLcmPostRequestBody(writer: SerializationWriter, lcmPostRequestBody: Partial<LcmPostRequestBody> | undefined | null = {}) : void {
+    if (lcmPostRequestBody) {
+        writer.writeObjectValue("values", lcmPostRequestBody.values);
+        writer.writeAdditionalData(lcmPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RandBetweenPostRequestBody}
  */
+// @ts-ignore
 export function createRandBetweenPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRandBetweenPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRandBetweenPostRequestBodyFromDiscriminatorValue(parseNode
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRandBetweenPostRequestBody(randBetweenPostRequestBody: Partial<RandBetweenPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { randBetweenPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface RandBetweenPostRequestBody extends AdditionalDataHolder, Backed
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The bottom property
      */
-    bottom?: UntypedNode;
+    bottom?: UntypedNode | null;
     /**
      * The top property
      */
-    top?: UntypedNode;
+    top?: UntypedNode | null;
 }
 /**
  * Provides operations to call the randBetween method.
@@ -69,10 +71,13 @@ export interface RandBetweenRequestBuilder extends BaseRequestBuilder<RandBetwee
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRandBetweenPostRequestBody(writer: SerializationWriter, randBetweenPostRequestBody: Partial<RandBetweenPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("bottom", randBetweenPostRequestBody.bottom);
-    writer.writeObjectValue("top", randBetweenPostRequestBody.top);
-    writer.writeAdditionalData(randBetweenPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeRandBetweenPostRequestBody(writer: SerializationWriter, randBetweenPostRequestBody: Partial<RandBetweenPostRequestBody> | undefined | null = {}) : void {
+    if (randBetweenPostRequestBody) {
+        writer.writeObjectValue("bottom", randBetweenPostRequestBody.bottom);
+        writer.writeObjectValue("top", randBetweenPostRequestBody.top);
+        writer.writeAdditionalData(randBetweenPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

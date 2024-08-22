@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Oct2HexPostRequestBody}
  */
+// @ts-ignore
 export function createOct2HexPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoOct2HexPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createOct2HexPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoOct2HexPostRequestBody(oct2HexPostRequestBody: Partial<Oct2HexPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { oct2HexPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface Oct2HexPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
     /**
      * The places property
      */
-    places?: UntypedNode;
+    places?: UntypedNode | null;
 }
 /**
  * Provides operations to call the oct2Hex method.
@@ -69,10 +71,13 @@ export interface Oct2HexRequestBuilder extends BaseRequestBuilder<Oct2HexRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeOct2HexPostRequestBody(writer: SerializationWriter, oct2HexPostRequestBody: Partial<Oct2HexPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", oct2HexPostRequestBody.number);
-    writer.writeObjectValue("places", oct2HexPostRequestBody.places);
-    writer.writeAdditionalData(oct2HexPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeOct2HexPostRequestBody(writer: SerializationWriter, oct2HexPostRequestBody: Partial<Oct2HexPostRequestBody> | undefined | null = {}) : void {
+    if (oct2HexPostRequestBody) {
+        writer.writeObjectValue("number", oct2HexPostRequestBody.number);
+        writer.writeObjectValue("places", oct2HexPostRequestBody.places);
+        writer.writeAdditionalData(oct2HexPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

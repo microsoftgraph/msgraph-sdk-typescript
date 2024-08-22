@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetActivitiesByIntervalGetResponse}
  */
+// @ts-ignore
 export function createGetActivitiesByIntervalGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetActivitiesByIntervalGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetActivitiesByIntervalGetResponseFromDiscriminatorValue(p
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetActivitiesByIntervalGetResponse(getActivitiesByIntervalGetResponse: Partial<GetActivitiesByIntervalGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getActivitiesByIntervalGetResponse),
@@ -30,7 +32,7 @@ export interface GetActivitiesByIntervalGetResponse extends BaseCollectionPagina
     /**
      * The value property
      */
-    value?: ItemActivityStat[];
+    value?: ItemActivityStat[] | null;
 }
 /**
  * Provides operations to call the getActivitiesByInterval method.
@@ -91,9 +93,12 @@ export interface GetActivitiesByIntervalRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetActivitiesByIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalGetResponse: Partial<GetActivitiesByIntervalGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalGetResponse)
-    writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalGetResponse.value, serializeItemActivityStat);
+// @ts-ignore
+export function serializeGetActivitiesByIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalGetResponse: Partial<GetActivitiesByIntervalGetResponse> | undefined | null = {}) : void {
+    if (getActivitiesByIntervalGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalGetResponse)
+        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalGetResponse.value, serializeItemActivityStat);
+    }
 }
 /**
  * Uri template for the request builder.

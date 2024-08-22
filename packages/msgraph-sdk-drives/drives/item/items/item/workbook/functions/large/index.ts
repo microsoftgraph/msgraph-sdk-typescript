@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LargePostRequestBody}
  */
+// @ts-ignore
 export function createLargePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLargePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLargePostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLargePostRequestBody(largePostRequestBody: Partial<LargePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { largePostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -35,15 +37,15 @@ export interface LargePostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * The array property
      */
-    array?: UntypedNode;
+    array?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The k property
      */
-    k?: UntypedNode;
+    k?: UntypedNode | null;
 }
 /**
  * Provides operations to call the large method.
@@ -69,10 +71,13 @@ export interface LargeRequestBuilder extends BaseRequestBuilder<LargeRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLargePostRequestBody(writer: SerializationWriter, largePostRequestBody: Partial<LargePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("array", largePostRequestBody.array);
-    writer.writeObjectValue("k", largePostRequestBody.k);
-    writer.writeAdditionalData(largePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeLargePostRequestBody(writer: SerializationWriter, largePostRequestBody: Partial<LargePostRequestBody> | undefined | null = {}) : void {
+    if (largePostRequestBody) {
+        writer.writeObjectValue("array", largePostRequestBody.array);
+        writer.writeObjectValue("k", largePostRequestBody.k);
+        writer.writeAdditionalData(largePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

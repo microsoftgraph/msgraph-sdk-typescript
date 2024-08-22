@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetSchedulePostRequestBody}
  */
+// @ts-ignore
 export function createGetSchedulePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetSchedulePostRequestBody;
 }
@@ -21,6 +22,7 @@ export function createGetSchedulePostRequestBodyFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetSchedulePostResponse}
  */
+// @ts-ignore
 export function createGetSchedulePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetSchedulePostResponse;
 }
@@ -28,6 +30,7 @@ export function createGetSchedulePostResponseFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequestBody: Partial<GetSchedulePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "AvailabilityViewInterval": n => { getSchedulePostRequestBody.availabilityViewInterval = n.getNumberValue(); },
@@ -41,6 +44,7 @@ export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequest
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetSchedulePostResponse(getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getSchedulePostResponse),
@@ -55,29 +59,29 @@ export interface GetSchedulePostRequestBody extends AdditionalDataHolder, Backed
     /**
      * The AvailabilityViewInterval property
      */
-    availabilityViewInterval?: number;
+    availabilityViewInterval?: number | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The EndTime property
      */
-    endTime?: DateTimeTimeZone;
+    endTime?: DateTimeTimeZone | null;
     /**
      * The Schedules property
      */
-    schedules?: string[];
+    schedules?: string[] | null;
     /**
      * The StartTime property
      */
-    startTime?: DateTimeTimeZone;
+    startTime?: DateTimeTimeZone | null;
 }
 export interface GetSchedulePostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: ScheduleInformation[];
+    value?: ScheduleInformation[] | null;
 }
 /**
  * Provides operations to call the getSchedule method.
@@ -104,20 +108,26 @@ export interface GetScheduleRequestBuilder extends BaseRequestBuilder<GetSchedul
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetSchedulePostRequestBody(writer: SerializationWriter, getSchedulePostRequestBody: Partial<GetSchedulePostRequestBody> | undefined = {}) : void {
-    writer.writeNumberValue("AvailabilityViewInterval", getSchedulePostRequestBody.availabilityViewInterval);
-    writer.writeObjectValue<DateTimeTimeZone>("EndTime", getSchedulePostRequestBody.endTime, serializeDateTimeTimeZone);
-    writer.writeCollectionOfPrimitiveValues<string>("Schedules", getSchedulePostRequestBody.schedules);
-    writer.writeObjectValue<DateTimeTimeZone>("StartTime", getSchedulePostRequestBody.startTime, serializeDateTimeTimeZone);
-    writer.writeAdditionalData(getSchedulePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeGetSchedulePostRequestBody(writer: SerializationWriter, getSchedulePostRequestBody: Partial<GetSchedulePostRequestBody> | undefined | null = {}) : void {
+    if (getSchedulePostRequestBody) {
+        writer.writeNumberValue("AvailabilityViewInterval", getSchedulePostRequestBody.availabilityViewInterval);
+        writer.writeObjectValue<DateTimeTimeZone>("EndTime", getSchedulePostRequestBody.endTime, serializeDateTimeTimeZone);
+        writer.writeCollectionOfPrimitiveValues<string>("Schedules", getSchedulePostRequestBody.schedules);
+        writer.writeObjectValue<DateTimeTimeZone>("StartTime", getSchedulePostRequestBody.startTime, serializeDateTimeTimeZone);
+        writer.writeAdditionalData(getSchedulePostRequestBody.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetSchedulePostResponse(writer: SerializationWriter, getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getSchedulePostResponse)
-    writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulePostResponse.value, serializeScheduleInformation);
+// @ts-ignore
+export function serializeGetSchedulePostResponse(writer: SerializationWriter, getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined | null = {}) : void {
+    if (getSchedulePostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getSchedulePostResponse)
+        writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulePostResponse.value, serializeScheduleInformation);
+    }
 }
 /**
  * Uri template for the request builder.

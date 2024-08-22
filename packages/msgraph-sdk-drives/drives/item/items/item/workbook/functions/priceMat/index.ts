@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PriceMatPostRequestBody}
  */
+// @ts-ignore
 export function createPriceMatPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPriceMatPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPriceMatPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPriceMatPostRequestBody(priceMatPostRequestBody: Partial<PriceMatPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { priceMatPostRequestBody.backingStoreEnabled = true; },
@@ -39,31 +41,31 @@ export interface PriceMatPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The issue property
      */
-    issue?: UntypedNode;
+    issue?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
     /**
      * The yld property
      */
-    yld?: UntypedNode;
+    yld?: UntypedNode | null;
 }
 /**
  * Provides operations to call the priceMat method.
@@ -89,14 +91,17 @@ export interface PriceMatRequestBuilder extends BaseRequestBuilder<PriceMatReque
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePriceMatPostRequestBody(writer: SerializationWriter, priceMatPostRequestBody: Partial<PriceMatPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", priceMatPostRequestBody.basis);
-    writer.writeObjectValue("issue", priceMatPostRequestBody.issue);
-    writer.writeObjectValue("maturity", priceMatPostRequestBody.maturity);
-    writer.writeObjectValue("rate", priceMatPostRequestBody.rate);
-    writer.writeObjectValue("settlement", priceMatPostRequestBody.settlement);
-    writer.writeObjectValue("yld", priceMatPostRequestBody.yld);
-    writer.writeAdditionalData(priceMatPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePriceMatPostRequestBody(writer: SerializationWriter, priceMatPostRequestBody: Partial<PriceMatPostRequestBody> | undefined | null = {}) : void {
+    if (priceMatPostRequestBody) {
+        writer.writeObjectValue("basis", priceMatPostRequestBody.basis);
+        writer.writeObjectValue("issue", priceMatPostRequestBody.issue);
+        writer.writeObjectValue("maturity", priceMatPostRequestBody.maturity);
+        writer.writeObjectValue("rate", priceMatPostRequestBody.rate);
+        writer.writeObjectValue("settlement", priceMatPostRequestBody.settlement);
+        writer.writeObjectValue("yld", priceMatPostRequestBody.yld);
+        writer.writeAdditionalData(priceMatPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

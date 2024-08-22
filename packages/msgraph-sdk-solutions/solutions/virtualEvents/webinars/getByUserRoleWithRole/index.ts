@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetByUserRoleWithRoleGetResponse}
  */
+// @ts-ignore
 export function createGetByUserRoleWithRoleGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetByUserRoleWithRoleGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetByUserRoleWithRoleGetResponseFromDiscriminatorValue(par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetByUserRoleWithRoleGetResponse(getByUserRoleWithRoleGetResponse: Partial<GetByUserRoleWithRoleGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getByUserRoleWithRoleGetResponse),
@@ -30,7 +32,7 @@ export interface GetByUserRoleWithRoleGetResponse extends BaseCollectionPaginati
     /**
      * The value property
      */
-    value?: VirtualEventWebinar[];
+    value?: VirtualEventWebinar[] | null;
 }
 /**
  * Provides operations to call the getByUserRole method.
@@ -92,9 +94,12 @@ export interface GetByUserRoleWithRoleRequestBuilderGetQueryParameters {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetByUserRoleWithRoleGetResponse(writer: SerializationWriter, getByUserRoleWithRoleGetResponse: Partial<GetByUserRoleWithRoleGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getByUserRoleWithRoleGetResponse)
-    writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserRoleWithRoleGetResponse.value, serializeVirtualEventWebinar);
+// @ts-ignore
+export function serializeGetByUserRoleWithRoleGetResponse(writer: SerializationWriter, getByUserRoleWithRoleGetResponse: Partial<GetByUserRoleWithRoleGetResponse> | undefined | null = {}) : void {
+    if (getByUserRoleWithRoleGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getByUserRoleWithRoleGetResponse)
+        writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserRoleWithRoleGetResponse.value, serializeVirtualEventWebinar);
+    }
 }
 /**
  * Uri template for the request builder.

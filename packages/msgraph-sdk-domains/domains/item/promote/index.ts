@@ -11,6 +11,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PromotePostResponse}
  */
+// @ts-ignore
 export function createPromotePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPromotePostResponse;
 }
@@ -18,6 +19,7 @@ export function createPromotePostResponseFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPromotePostResponse(promotePostResponse: Partial<PromotePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { promotePostResponse.backingStoreEnabled = true; },
@@ -32,11 +34,11 @@ export interface PromotePostResponse extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: boolean;
+    value?: boolean | null;
 }
 /**
  * Provides operations to call the promote method.
@@ -61,9 +63,12 @@ export interface PromoteRequestBuilder extends BaseRequestBuilder<PromoteRequest
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePromotePostResponse(writer: SerializationWriter, promotePostResponse: Partial<PromotePostResponse> | undefined = {}) : void {
-    writer.writeBooleanValue("value", promotePostResponse.value);
-    writer.writeAdditionalData(promotePostResponse.additionalData);
+// @ts-ignore
+export function serializePromotePostResponse(writer: SerializationWriter, promotePostResponse: Partial<PromotePostResponse> | undefined | null = {}) : void {
+    if (promotePostResponse) {
+        writer.writeBooleanValue("value", promotePostResponse.value);
+        writer.writeAdditionalData(promotePostResponse.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

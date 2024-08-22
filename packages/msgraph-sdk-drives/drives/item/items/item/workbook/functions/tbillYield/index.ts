@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TbillYieldPostRequestBody}
  */
+// @ts-ignore
 export function createTbillYieldPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTbillYieldPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createTbillYieldPostRequestBodyFromDiscriminatorValue(parseNode:
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoTbillYieldPostRequestBody(tbillYieldPostRequestBody: Partial<TbillYieldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { tbillYieldPostRequestBody.backingStoreEnabled = true; },
@@ -32,11 +34,14 @@ export function deserializeIntoTbillYieldPostRequestBody(tbillYieldPostRequestBo
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeTbillYieldPostRequestBody(writer: SerializationWriter, tbillYieldPostRequestBody: Partial<TbillYieldPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("maturity", tbillYieldPostRequestBody.maturity);
-    writer.writeObjectValue("pr", tbillYieldPostRequestBody.pr);
-    writer.writeObjectValue("settlement", tbillYieldPostRequestBody.settlement);
-    writer.writeAdditionalData(tbillYieldPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeTbillYieldPostRequestBody(writer: SerializationWriter, tbillYieldPostRequestBody: Partial<TbillYieldPostRequestBody> | undefined | null = {}) : void {
+    if (tbillYieldPostRequestBody) {
+        writer.writeObjectValue("maturity", tbillYieldPostRequestBody.maturity);
+        writer.writeObjectValue("pr", tbillYieldPostRequestBody.pr);
+        writer.writeObjectValue("settlement", tbillYieldPostRequestBody.settlement);
+        writer.writeAdditionalData(tbillYieldPostRequestBody.additionalData);
+    }
 }
 export interface TbillYieldPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -46,19 +51,19 @@ export interface TbillYieldPostRequestBody extends AdditionalDataHolder, BackedM
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The pr property
      */
-    pr?: UntypedNode;
+    pr?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the tbillYield method.

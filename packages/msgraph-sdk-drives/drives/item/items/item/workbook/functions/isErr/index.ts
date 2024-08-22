@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IsErrPostRequestBody}
  */
+// @ts-ignore
 export function createIsErrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsErrPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIsErrPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIsErrPostRequestBody(isErrPostRequestBody: Partial<IsErrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isErrPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface IsErrPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The value property
      */
-    value?: UntypedNode;
+    value?: UntypedNode | null;
 }
 /**
  * Provides operations to call the isErr method.
@@ -64,9 +66,12 @@ export interface IsErrRequestBuilder extends BaseRequestBuilder<IsErrRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsErrPostRequestBody(writer: SerializationWriter, isErrPostRequestBody: Partial<IsErrPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("value", isErrPostRequestBody.value);
-    writer.writeAdditionalData(isErrPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeIsErrPostRequestBody(writer: SerializationWriter, isErrPostRequestBody: Partial<IsErrPostRequestBody> | undefined | null = {}) : void {
+    if (isErrPostRequestBody) {
+        writer.writeObjectValue("value", isErrPostRequestBody.value);
+        writer.writeAdditionalData(isErrPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

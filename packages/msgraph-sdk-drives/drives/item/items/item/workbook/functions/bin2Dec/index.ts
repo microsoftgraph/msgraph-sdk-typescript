@@ -16,11 +16,11 @@ export interface Bin2DecPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the bin2Dec method.
@@ -47,6 +47,7 @@ export interface Bin2DecRequestBuilder extends BaseRequestBuilder<Bin2DecRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Bin2DecPostRequestBody}
  */
+// @ts-ignore
 export function createBin2DecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBin2DecPostRequestBody;
 }
@@ -54,6 +55,7 @@ export function createBin2DecPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBin2DecPostRequestBody(bin2DecPostRequestBody: Partial<Bin2DecPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bin2DecPostRequestBody.backingStoreEnabled = true; },
@@ -64,9 +66,12 @@ export function deserializeIntoBin2DecPostRequestBody(bin2DecPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBin2DecPostRequestBody(writer: SerializationWriter, bin2DecPostRequestBody: Partial<Bin2DecPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", bin2DecPostRequestBody.number);
-    writer.writeAdditionalData(bin2DecPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeBin2DecPostRequestBody(writer: SerializationWriter, bin2DecPostRequestBody: Partial<Bin2DecPostRequestBody> | undefined | null = {}) : void {
+    if (bin2DecPostRequestBody) {
+        writer.writeObjectValue("number", bin2DecPostRequestBody.number);
+        writer.writeAdditionalData(bin2DecPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

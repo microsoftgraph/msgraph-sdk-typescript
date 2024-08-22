@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetByUserIdAndRoleWithUserIdWithRoleGetResponse}
  */
+// @ts-ignore
 export function createGetByUserIdAndRoleWithUserIdWithRoleGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetByUserIdAndRoleWithUserIdWithRoleGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetByUserIdAndRoleWithUserIdWithRoleGetResponseFromDiscrim
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetByUserIdAndRoleWithUserIdWithRoleGetResponse(getByUserIdAndRoleWithUserIdWithRoleGetResponse: Partial<GetByUserIdAndRoleWithUserIdWithRoleGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getByUserIdAndRoleWithUserIdWithRoleGetResponse),
@@ -30,7 +32,7 @@ export interface GetByUserIdAndRoleWithUserIdWithRoleGetResponse extends BaseCol
     /**
      * The value property
      */
-    value?: VirtualEventWebinar[];
+    value?: VirtualEventWebinar[] | null;
 }
 /**
  * Provides operations to call the getByUserIdAndRole method.
@@ -92,9 +94,12 @@ export interface GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParam
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetByUserIdAndRoleWithUserIdWithRoleGetResponse(writer: SerializationWriter, getByUserIdAndRoleWithUserIdWithRoleGetResponse: Partial<GetByUserIdAndRoleWithUserIdWithRoleGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getByUserIdAndRoleWithUserIdWithRoleGetResponse)
-    writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserIdAndRoleWithUserIdWithRoleGetResponse.value, serializeVirtualEventWebinar);
+// @ts-ignore
+export function serializeGetByUserIdAndRoleWithUserIdWithRoleGetResponse(writer: SerializationWriter, getByUserIdAndRoleWithUserIdWithRoleGetResponse: Partial<GetByUserIdAndRoleWithUserIdWithRoleGetResponse> | undefined | null = {}) : void {
+    if (getByUserIdAndRoleWithUserIdWithRoleGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getByUserIdAndRoleWithUserIdWithRoleGetResponse)
+        writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserIdAndRoleWithUserIdWithRoleGetResponse.value, serializeVirtualEventWebinar);
+    }
 }
 /**
  * Uri template for the request builder.

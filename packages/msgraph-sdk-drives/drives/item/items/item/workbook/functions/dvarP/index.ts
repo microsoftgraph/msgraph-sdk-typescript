@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DvarPPostRequestBody}
  */
+// @ts-ignore
 export function createDvarPPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDvarPPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createDvarPPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDvarPPostRequestBody(dvarPPostRequestBody: Partial<DvarPPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dvarPPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface DvarPPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The database property
      */
-    database?: UntypedNode;
+    database?: UntypedNode | null;
     /**
      * The field property
      */
-    field?: UntypedNode;
+    field?: UntypedNode | null;
 }
 /**
  * Provides operations to call the dvarP method.
@@ -74,11 +76,14 @@ export interface DvarPRequestBuilder extends BaseRequestBuilder<DvarPRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDvarPPostRequestBody(writer: SerializationWriter, dvarPPostRequestBody: Partial<DvarPPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("criteria", dvarPPostRequestBody.criteria);
-    writer.writeObjectValue("database", dvarPPostRequestBody.database);
-    writer.writeObjectValue("field", dvarPPostRequestBody.field);
-    writer.writeAdditionalData(dvarPPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeDvarPPostRequestBody(writer: SerializationWriter, dvarPPostRequestBody: Partial<DvarPPostRequestBody> | undefined | null = {}) : void {
+    if (dvarPPostRequestBody) {
+        writer.writeObjectValue("criteria", dvarPPostRequestBody.criteria);
+        writer.writeObjectValue("database", dvarPPostRequestBody.database);
+        writer.writeObjectValue("field", dvarPPostRequestBody.field);
+        writer.writeAdditionalData(dvarPPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

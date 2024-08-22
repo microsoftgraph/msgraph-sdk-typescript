@@ -16,11 +16,11 @@ export interface CancelMediaProcessingPostRequestBody extends AdditionalDataHold
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The clientContext property
      */
-    clientContext?: string;
+    clientContext?: string | null;
 }
 /**
  * Provides operations to call the cancelMediaProcessing method.
@@ -48,6 +48,7 @@ export interface CancelMediaProcessingRequestBuilder extends BaseRequestBuilder<
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CancelMediaProcessingPostRequestBody}
  */
+// @ts-ignore
 export function createCancelMediaProcessingPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCancelMediaProcessingPostRequestBody;
 }
@@ -55,6 +56,7 @@ export function createCancelMediaProcessingPostRequestBodyFromDiscriminatorValue
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCancelMediaProcessingPostRequestBody(cancelMediaProcessingPostRequestBody: Partial<CancelMediaProcessingPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cancelMediaProcessingPostRequestBody.backingStoreEnabled = true; },
@@ -65,9 +67,12 @@ export function deserializeIntoCancelMediaProcessingPostRequestBody(cancelMediaP
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCancelMediaProcessingPostRequestBody(writer: SerializationWriter, cancelMediaProcessingPostRequestBody: Partial<CancelMediaProcessingPostRequestBody> | undefined = {}) : void {
-    writer.writeStringValue("clientContext", cancelMediaProcessingPostRequestBody.clientContext);
-    writer.writeAdditionalData(cancelMediaProcessingPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCancelMediaProcessingPostRequestBody(writer: SerializationWriter, cancelMediaProcessingPostRequestBody: Partial<CancelMediaProcessingPostRequestBody> | undefined | null = {}) : void {
+    if (cancelMediaProcessingPostRequestBody) {
+        writer.writeStringValue("clientContext", cancelMediaProcessingPostRequestBody.clientContext);
+        writer.writeAdditionalData(cancelMediaProcessingPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

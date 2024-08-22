@@ -13,6 +13,7 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreatePostRequestBody}
  */
+// @ts-ignore
 export function createCreatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCreatePostRequestBody;
 }
@@ -24,35 +25,35 @@ export interface CreatePostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The certificateSigningRequest property
      */
-    certificateSigningRequest?: PrintCertificateSigningRequest;
+    certificateSigningRequest?: PrintCertificateSigningRequest | null;
     /**
      * The connectorId property
      */
-    connectorId?: string;
+    connectorId?: string | null;
     /**
      * The displayName property
      */
-    displayName?: string;
+    displayName?: string | null;
     /**
      * The hasPhysicalDevice property
      */
-    hasPhysicalDevice?: boolean;
+    hasPhysicalDevice?: boolean | null;
     /**
      * The manufacturer property
      */
-    manufacturer?: string;
+    manufacturer?: string | null;
     /**
      * The model property
      */
-    model?: string;
+    model?: string | null;
     /**
      * The physicalDeviceId property
      */
-    physicalDeviceId?: string;
+    physicalDeviceId?: string | null;
 }
 /**
  * Provides operations to call the create method.
@@ -78,6 +79,7 @@ export interface CreateRequestBuilder extends BaseRequestBuilder<CreateRequestBu
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Partial<CreatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createPostRequestBody.backingStoreEnabled = true; },
@@ -94,15 +96,18 @@ export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Part
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: Partial<CreatePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);
-    writer.writeStringValue("connectorId", createPostRequestBody.connectorId);
-    writer.writeStringValue("displayName", createPostRequestBody.displayName);
-    writer.writeBooleanValue("hasPhysicalDevice", createPostRequestBody.hasPhysicalDevice);
-    writer.writeStringValue("manufacturer", createPostRequestBody.manufacturer);
-    writer.writeStringValue("model", createPostRequestBody.model);
-    writer.writeStringValue("physicalDeviceId", createPostRequestBody.physicalDeviceId);
-    writer.writeAdditionalData(createPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: Partial<CreatePostRequestBody> | undefined | null = {}) : void {
+    if (createPostRequestBody) {
+        writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);
+        writer.writeStringValue("connectorId", createPostRequestBody.connectorId);
+        writer.writeStringValue("displayName", createPostRequestBody.displayName);
+        writer.writeBooleanValue("hasPhysicalDevice", createPostRequestBody.hasPhysicalDevice);
+        writer.writeStringValue("manufacturer", createPostRequestBody.manufacturer);
+        writer.writeStringValue("model", createPostRequestBody.model);
+        writer.writeStringValue("physicalDeviceId", createPostRequestBody.physicalDeviceId);
+        writer.writeAdditionalData(createPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -16,23 +16,23 @@ export interface CoupNumPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the coupNum method.
@@ -59,6 +59,7 @@ export interface CoupNumRequestBuilder extends BaseRequestBuilder<CoupNumRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CoupNumPostRequestBody}
  */
+// @ts-ignore
 export function createCoupNumPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupNumPostRequestBody;
 }
@@ -66,6 +67,7 @@ export function createCoupNumPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCoupNumPostRequestBody(coupNumPostRequestBody: Partial<CoupNumPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { coupNumPostRequestBody.backingStoreEnabled = true; },
@@ -79,12 +81,15 @@ export function deserializeIntoCoupNumPostRequestBody(coupNumPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCoupNumPostRequestBody(writer: SerializationWriter, coupNumPostRequestBody: Partial<CoupNumPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", coupNumPostRequestBody.basis);
-    writer.writeObjectValue("frequency", coupNumPostRequestBody.frequency);
-    writer.writeObjectValue("maturity", coupNumPostRequestBody.maturity);
-    writer.writeObjectValue("settlement", coupNumPostRequestBody.settlement);
-    writer.writeAdditionalData(coupNumPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCoupNumPostRequestBody(writer: SerializationWriter, coupNumPostRequestBody: Partial<CoupNumPostRequestBody> | undefined | null = {}) : void {
+    if (coupNumPostRequestBody) {
+        writer.writeObjectValue("basis", coupNumPostRequestBody.basis);
+        writer.writeObjectValue("frequency", coupNumPostRequestBody.frequency);
+        writer.writeObjectValue("maturity", coupNumPostRequestBody.maturity);
+        writer.writeObjectValue("settlement", coupNumPostRequestBody.settlement);
+        writer.writeAdditionalData(coupNumPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

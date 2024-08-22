@@ -16,15 +16,15 @@ export interface CountIfPostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The range property
      */
-    range?: UntypedNode;
+    range?: UntypedNode | null;
 }
 /**
  * Provides operations to call the countIf method.
@@ -51,6 +51,7 @@ export interface CountIfRequestBuilder extends BaseRequestBuilder<CountIfRequest
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CountIfPostRequestBody}
  */
+// @ts-ignore
 export function createCountIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCountIfPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createCountIfPostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCountIfPostRequestBody(countIfPostRequestBody: Partial<CountIfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { countIfPostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoCountIfPostRequestBody(countIfPostRequestBody: Pa
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCountIfPostRequestBody(writer: SerializationWriter, countIfPostRequestBody: Partial<CountIfPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("criteria", countIfPostRequestBody.criteria);
-    writer.writeObjectValue("range", countIfPostRequestBody.range);
-    writer.writeAdditionalData(countIfPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCountIfPostRequestBody(writer: SerializationWriter, countIfPostRequestBody: Partial<CountIfPostRequestBody> | undefined | null = {}) : void {
+    if (countIfPostRequestBody) {
+        writer.writeObjectValue("criteria", countIfPostRequestBody.criteria);
+        writer.writeObjectValue("range", countIfPostRequestBody.range);
+        writer.writeAdditionalData(countIfPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

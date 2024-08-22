@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImCoshPostRequestBody}
  */
+// @ts-ignore
 export function createImCoshPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImCoshPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImCoshPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImCoshPostRequestBody(imCoshPostRequestBody: Partial<ImCoshPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imCoshPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImCoshPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imCosh method.
@@ -64,9 +66,12 @@ export interface ImCoshRequestBuilder extends BaseRequestBuilder<ImCoshRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImCoshPostRequestBody(writer: SerializationWriter, imCoshPostRequestBody: Partial<ImCoshPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imCoshPostRequestBody.inumber);
-    writer.writeAdditionalData(imCoshPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImCoshPostRequestBody(writer: SerializationWriter, imCoshPostRequestBody: Partial<ImCoshPostRequestBody> | undefined | null = {}) : void {
+    if (imCoshPostRequestBody) {
+        writer.writeObjectValue("inumber", imCoshPostRequestBody.inumber);
+        writer.writeAdditionalData(imCoshPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

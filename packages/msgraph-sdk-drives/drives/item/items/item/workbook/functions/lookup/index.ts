@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LookupPostRequestBody}
  */
+// @ts-ignore
 export function createLookupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLookupPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLookupPostRequestBodyFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLookupPostRequestBody(lookupPostRequestBody: Partial<LookupPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lookupPostRequestBody.backingStoreEnabled = true; },
@@ -36,19 +38,19 @@ export interface LookupPostRequestBody extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The lookupValue property
      */
-    lookupValue?: UntypedNode;
+    lookupValue?: UntypedNode | null;
     /**
      * The lookupVector property
      */
-    lookupVector?: UntypedNode;
+    lookupVector?: UntypedNode | null;
     /**
      * The resultVector property
      */
-    resultVector?: UntypedNode;
+    resultVector?: UntypedNode | null;
 }
 /**
  * Provides operations to call the lookup method.
@@ -74,11 +76,14 @@ export interface LookupRequestBuilder extends BaseRequestBuilder<LookupRequestBu
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLookupPostRequestBody(writer: SerializationWriter, lookupPostRequestBody: Partial<LookupPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("lookupValue", lookupPostRequestBody.lookupValue);
-    writer.writeObjectValue("lookupVector", lookupPostRequestBody.lookupVector);
-    writer.writeObjectValue("resultVector", lookupPostRequestBody.resultVector);
-    writer.writeAdditionalData(lookupPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeLookupPostRequestBody(writer: SerializationWriter, lookupPostRequestBody: Partial<LookupPostRequestBody> | undefined | null = {}) : void {
+    if (lookupPostRequestBody) {
+        writer.writeObjectValue("lookupValue", lookupPostRequestBody.lookupValue);
+        writer.writeObjectValue("lookupVector", lookupPostRequestBody.lookupVector);
+        writer.writeObjectValue("resultVector", lookupPostRequestBody.resultVector);
+        writer.writeAdditionalData(lookupPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

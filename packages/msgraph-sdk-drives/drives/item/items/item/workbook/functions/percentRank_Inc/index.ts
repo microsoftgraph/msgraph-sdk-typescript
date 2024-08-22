@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PercentRank_IncPostRequestBody}
  */
+// @ts-ignore
 export function createPercentRank_IncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPercentRank_IncPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createPercentRank_IncPostRequestBodyFromDiscriminatorValue(parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPercentRank_IncPostRequestBody(percentRank_IncPostRequestBody: Partial<PercentRank_IncPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "array": n => { percentRank_IncPostRequestBody.array = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -36,19 +38,19 @@ export interface PercentRank_IncPostRequestBody extends AdditionalDataHolder, Ba
     /**
      * The array property
      */
-    array?: UntypedNode;
+    array?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The significance property
      */
-    significance?: UntypedNode;
+    significance?: UntypedNode | null;
     /**
      * The x property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the percentRank_Inc method.
@@ -74,11 +76,14 @@ export interface PercentRank_IncRequestBuilder extends BaseRequestBuilder<Percen
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePercentRank_IncPostRequestBody(writer: SerializationWriter, percentRank_IncPostRequestBody: Partial<PercentRank_IncPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("array", percentRank_IncPostRequestBody.array);
-    writer.writeObjectValue("significance", percentRank_IncPostRequestBody.significance);
-    writer.writeObjectValue("x", percentRank_IncPostRequestBody.x);
-    writer.writeAdditionalData(percentRank_IncPostRequestBody.additionalData);
+// @ts-ignore
+export function serializePercentRank_IncPostRequestBody(writer: SerializationWriter, percentRank_IncPostRequestBody: Partial<PercentRank_IncPostRequestBody> | undefined | null = {}) : void {
+    if (percentRank_IncPostRequestBody) {
+        writer.writeObjectValue("array", percentRank_IncPostRequestBody.array);
+        writer.writeObjectValue("significance", percentRank_IncPostRequestBody.significance);
+        writer.writeObjectValue("x", percentRank_IncPostRequestBody.x);
+        writer.writeAdditionalData(percentRank_IncPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -16,19 +16,19 @@ export interface AverageIfPostRequestBody extends AdditionalDataHolder, BackedMo
     /**
      * The averageRange property
      */
-    averageRange?: UntypedNode;
+    averageRange?: UntypedNode | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The criteria property
      */
-    criteria?: UntypedNode;
+    criteria?: UntypedNode | null;
     /**
      * The range property
      */
-    range?: UntypedNode;
+    range?: UntypedNode | null;
 }
 /**
  * Provides operations to call the averageIf method.
@@ -55,6 +55,7 @@ export interface AverageIfRequestBuilder extends BaseRequestBuilder<AverageIfReq
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AverageIfPostRequestBody}
  */
+// @ts-ignore
 export function createAverageIfPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAverageIfPostRequestBody;
 }
@@ -62,6 +63,7 @@ export function createAverageIfPostRequestBodyFromDiscriminatorValue(parseNode: 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAverageIfPostRequestBody(averageIfPostRequestBody: Partial<AverageIfPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "averageRange": n => { averageIfPostRequestBody.averageRange = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
@@ -74,11 +76,14 @@ export function deserializeIntoAverageIfPostRequestBody(averageIfPostRequestBody
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAverageIfPostRequestBody(writer: SerializationWriter, averageIfPostRequestBody: Partial<AverageIfPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("averageRange", averageIfPostRequestBody.averageRange);
-    writer.writeObjectValue("criteria", averageIfPostRequestBody.criteria);
-    writer.writeObjectValue("range", averageIfPostRequestBody.range);
-    writer.writeAdditionalData(averageIfPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeAverageIfPostRequestBody(writer: SerializationWriter, averageIfPostRequestBody: Partial<AverageIfPostRequestBody> | undefined | null = {}) : void {
+    if (averageIfPostRequestBody) {
+        writer.writeObjectValue("averageRange", averageIfPostRequestBody.averageRange);
+        writer.writeObjectValue("criteria", averageIfPostRequestBody.criteria);
+        writer.writeObjectValue("range", averageIfPostRequestBody.range);
+        writer.writeAdditionalData(averageIfPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

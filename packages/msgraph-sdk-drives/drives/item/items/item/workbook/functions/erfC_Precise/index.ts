@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ErfC_PrecisePostRequestBody}
  */
+// @ts-ignore
 export function createErfC_PrecisePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoErfC_PrecisePostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createErfC_PrecisePostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoErfC_PrecisePostRequestBody(erfC_PrecisePostRequestBody: Partial<ErfC_PrecisePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { erfC_PrecisePostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ErfC_PrecisePostRequestBody extends AdditionalDataHolder, Backe
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The X property
      */
-    x?: UntypedNode;
+    x?: UntypedNode | null;
 }
 /**
  * Provides operations to call the erfC_Precise method.
@@ -64,9 +66,12 @@ export interface ErfC_PreciseRequestBuilder extends BaseRequestBuilder<ErfC_Prec
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeErfC_PrecisePostRequestBody(writer: SerializationWriter, erfC_PrecisePostRequestBody: Partial<ErfC_PrecisePostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("X", erfC_PrecisePostRequestBody.x);
-    writer.writeAdditionalData(erfC_PrecisePostRequestBody.additionalData);
+// @ts-ignore
+export function serializeErfC_PrecisePostRequestBody(writer: SerializationWriter, erfC_PrecisePostRequestBody: Partial<ErfC_PrecisePostRequestBody> | undefined | null = {}) : void {
+    if (erfC_PrecisePostRequestBody) {
+        writer.writeObjectValue("X", erfC_PrecisePostRequestBody.x);
+        writer.writeAdditionalData(erfC_PrecisePostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

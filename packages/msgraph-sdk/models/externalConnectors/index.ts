@@ -11,7 +11,7 @@ export interface Acl extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * The accessType property
      */
-    accessType?: AccessType;
+    accessType?: AccessType | null;
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -19,19 +19,19 @@ export interface Acl extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * The type property
      */
-    type?: AclType;
+    type?: AclType | null;
     /**
      * The unique identifer of the identity. For Microsoft Entra identities, value is set to the object identifier of the user, group or tenant for types user, group and everyone (and everyoneExceptGuests) respectively. For external groups value is set to the ID of the externalGroup
      */
-    value?: string;
+    value?: string | null;
 }
 export type AclType = (typeof AclTypeObject)[keyof typeof AclTypeObject];
 export interface ActivitySettings extends AdditionalDataHolder, BackedModel, Parsable {
@@ -42,15 +42,15 @@ export interface ActivitySettings extends AdditionalDataHolder, BackedModel, Par
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * Specifies configurations to identify an externalItem based on a shared URL.
      */
-    urlToItemResolvers?: UrlToItemResolverBase[];
+    urlToItemResolvers?: UrlToItemResolverBase[] | null;
 }
 export interface Configuration extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -60,31 +60,31 @@ export interface Configuration extends AdditionalDataHolder, BackedModel, Parsab
     /**
      * A collection of application IDs for registered Microsoft Entra apps that are allowed to manage the externalConnection and to index content in the externalConnection.
      */
-    authorizedAppIds?: string[];
+    authorizedAppIds?: string[] | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
 }
 export interface ConnectionOperation extends Entity, Parsable {
     /**
      * If status is failed, provides more information about the error that caused the failure.
      */
-    errorEscaped?: PublicError;
+    errorEscaped?: PublicError | null;
     /**
      * Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.
      */
-    status?: ConnectionOperationStatus;
+    status?: ConnectionOperationStatus | null;
 }
 export interface ConnectionOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: ConnectionOperation[];
+    value?: ConnectionOperation[] | null;
 }
 export type ConnectionOperationStatus = (typeof ConnectionOperationStatusObject)[keyof typeof ConnectionOperationStatusObject];
 export type ConnectionState = (typeof ConnectionStateObject)[keyof typeof ConnectionStateObject];
@@ -93,6 +93,7 @@ export type ConnectionState = (typeof ConnectionStateObject)[keyof typeof Connec
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Acl}
  */
+// @ts-ignore
 export function createAclFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAcl;
 }
@@ -101,6 +102,7 @@ export function createAclFromDiscriminatorValue(parseNode: ParseNode | undefined
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ActivitySettings}
  */
+// @ts-ignore
 export function createActivitySettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoActivitySettings;
 }
@@ -109,6 +111,7 @@ export function createActivitySettingsFromDiscriminatorValue(parseNode: ParseNod
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Configuration}
  */
+// @ts-ignore
 export function createConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConfiguration;
 }
@@ -117,6 +120,7 @@ export function createConfigurationFromDiscriminatorValue(parseNode: ParseNode |
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ConnectionOperationCollectionResponse}
  */
+// @ts-ignore
 export function createConnectionOperationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConnectionOperationCollectionResponse;
 }
@@ -125,6 +129,7 @@ export function createConnectionOperationCollectionResponseFromDiscriminatorValu
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ConnectionOperation}
  */
+// @ts-ignore
 export function createConnectionOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoConnectionOperation;
 }
@@ -133,6 +138,7 @@ export function createConnectionOperationFromDiscriminatorValue(parseNode: Parse
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DisplayTemplate}
  */
+// @ts-ignore
 export function createDisplayTemplateFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDisplayTemplate;
 }
@@ -141,6 +147,7 @@ export function createDisplayTemplateFromDiscriminatorValue(parseNode: ParseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalActivityCollectionResponse}
  */
+// @ts-ignore
 export function createExternalActivityCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalActivityCollectionResponse;
 }
@@ -149,6 +156,7 @@ export function createExternalActivityCollectionResponseFromDiscriminatorValue(p
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalActivity}
  */
+// @ts-ignore
 export function createExternalActivityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
@@ -168,6 +176,7 @@ export function createExternalActivityFromDiscriminatorValue(parseNode: ParseNod
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalActivityResult}
  */
+// @ts-ignore
 export function createExternalActivityResultFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalActivityResult;
 }
@@ -176,6 +185,7 @@ export function createExternalActivityResultFromDiscriminatorValue(parseNode: Pa
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalConnectionCollectionResponse}
  */
+// @ts-ignore
 export function createExternalConnectionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalConnectionCollectionResponse;
 }
@@ -184,6 +194,7 @@ export function createExternalConnectionCollectionResponseFromDiscriminatorValue
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalConnection}
  */
+// @ts-ignore
 export function createExternalConnectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalConnection;
 }
@@ -192,6 +203,7 @@ export function createExternalConnectionFromDiscriminatorValue(parseNode: ParseN
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {External}
  */
+// @ts-ignore
 export function createExternalFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternal;
 }
@@ -200,6 +212,7 @@ export function createExternalFromDiscriminatorValue(parseNode: ParseNode | unde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalGroupCollectionResponse}
  */
+// @ts-ignore
 export function createExternalGroupCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalGroupCollectionResponse;
 }
@@ -208,6 +221,7 @@ export function createExternalGroupCollectionResponseFromDiscriminatorValue(pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalGroup}
  */
+// @ts-ignore
 export function createExternalGroupFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalGroup;
 }
@@ -216,6 +230,7 @@ export function createExternalGroupFromDiscriminatorValue(parseNode: ParseNode |
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalItemCollectionResponse}
  */
+// @ts-ignore
 export function createExternalItemCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalItemCollectionResponse;
 }
@@ -224,6 +239,7 @@ export function createExternalItemCollectionResponseFromDiscriminatorValue(parse
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalItemContent}
  */
+// @ts-ignore
 export function createExternalItemContentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalItemContent;
 }
@@ -232,6 +248,7 @@ export function createExternalItemContentFromDiscriminatorValue(parseNode: Parse
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ExternalItem}
  */
+// @ts-ignore
 export function createExternalItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExternalItem;
 }
@@ -240,6 +257,7 @@ export function createExternalItemFromDiscriminatorValue(parseNode: ParseNode | 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IdentityCollectionResponse}
  */
+// @ts-ignore
 export function createIdentityCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIdentityCollectionResponse;
 }
@@ -248,6 +266,7 @@ export function createIdentityCollectionResponseFromDiscriminatorValue(parseNode
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Identity}
  */
+// @ts-ignore
 export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIdentity;
 }
@@ -256,6 +275,7 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ItemIdResolver}
  */
+// @ts-ignore
 export function createItemIdResolverFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoItemIdResolver;
 }
@@ -264,6 +284,7 @@ export function createItemIdResolverFromDiscriminatorValue(parseNode: ParseNode 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Properties}
  */
+// @ts-ignore
 export function createPropertiesFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProperties;
 }
@@ -272,6 +293,7 @@ export function createPropertiesFromDiscriminatorValue(parseNode: ParseNode | un
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Property}
  */
+// @ts-ignore
 export function createPropertyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProperty;
 }
@@ -280,6 +302,7 @@ export function createPropertyFromDiscriminatorValue(parseNode: ParseNode | unde
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PropertyRule}
  */
+// @ts-ignore
 export function createPropertyRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoPropertyRule;
 }
@@ -288,6 +311,7 @@ export function createPropertyRuleFromDiscriminatorValue(parseNode: ParseNode | 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Schema}
  */
+// @ts-ignore
 export function createSchemaFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSchema;
 }
@@ -296,6 +320,7 @@ export function createSchemaFromDiscriminatorValue(parseNode: ParseNode | undefi
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SearchSettings}
  */
+// @ts-ignore
 export function createSearchSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSearchSettings;
 }
@@ -304,6 +329,7 @@ export function createSearchSettingsFromDiscriminatorValue(parseNode: ParseNode 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UrlMatchInfo}
  */
+// @ts-ignore
 export function createUrlMatchInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoUrlMatchInfo;
 }
@@ -312,6 +338,7 @@ export function createUrlMatchInfoFromDiscriminatorValue(parseNode: ParseNode | 
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UrlToItemResolverBase}
  */
+// @ts-ignore
 export function createUrlToItemResolverBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
@@ -330,6 +357,7 @@ export function createUrlToItemResolverBaseFromDiscriminatorValue(parseNode: Par
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoAcl(acl: Partial<Acl> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "accessType": n => { acl.accessType = n.getEnumValue<AccessType>(AccessTypeObject); },
@@ -343,6 +371,7 @@ export function deserializeIntoAcl(acl: Partial<Acl> | undefined = {}) : Record<
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoActivitySettings(activitySettings: Partial<ActivitySettings> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { activitySettings.backingStoreEnabled = true; },
@@ -354,6 +383,7 @@ export function deserializeIntoActivitySettings(activitySettings: Partial<Activi
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoConfiguration(configuration: Partial<Configuration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "authorizedAppIds": n => { configuration.authorizedAppIds = n.getCollectionOfPrimitiveValues<string>(); },
@@ -365,6 +395,7 @@ export function deserializeIntoConfiguration(configuration: Partial<Configuratio
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoConnectionOperation(connectionOperation: Partial<ConnectionOperation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(connectionOperation),
@@ -376,6 +407,7 @@ export function deserializeIntoConnectionOperation(connectionOperation: Partial<
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoConnectionOperationCollectionResponse(connectionOperationCollectionResponse: Partial<ConnectionOperationCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(connectionOperationCollectionResponse),
@@ -386,6 +418,7 @@ export function deserializeIntoConnectionOperationCollectionResponse(connectionO
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoDisplayTemplate(displayTemplate: Partial<DisplayTemplate> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { displayTemplate.backingStoreEnabled = true; },
@@ -400,6 +433,7 @@ export function deserializeIntoDisplayTemplate(displayTemplate: Partial<DisplayT
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternal(external: Partial<External> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { external.backingStoreEnabled = true; },
@@ -411,6 +445,7 @@ export function deserializeIntoExternal(external: Partial<External> | undefined 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalActivity(externalActivity: Partial<ExternalActivity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(externalActivity),
@@ -423,6 +458,7 @@ export function deserializeIntoExternalActivity(externalActivity: Partial<Extern
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalActivityCollectionResponse(externalActivityCollectionResponse: Partial<ExternalActivityCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(externalActivityCollectionResponse),
@@ -433,6 +469,7 @@ export function deserializeIntoExternalActivityCollectionResponse(externalActivi
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalActivityResult(externalActivityResult: Partial<ExternalActivityResult> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoExternalActivity(externalActivityResult),
@@ -443,6 +480,7 @@ export function deserializeIntoExternalActivityResult(externalActivityResult: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalConnection(externalConnection: Partial<ExternalConnection> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(externalConnection),
@@ -463,6 +501,7 @@ export function deserializeIntoExternalConnection(externalConnection: Partial<Ex
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalConnectionCollectionResponse(externalConnectionCollectionResponse: Partial<ExternalConnectionCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(externalConnectionCollectionResponse),
@@ -473,6 +512,7 @@ export function deserializeIntoExternalConnectionCollectionResponse(externalConn
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalGroup(externalGroup: Partial<ExternalGroup> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(externalGroup),
@@ -485,6 +525,7 @@ export function deserializeIntoExternalGroup(externalGroup: Partial<ExternalGrou
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalGroupCollectionResponse(externalGroupCollectionResponse: Partial<ExternalGroupCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(externalGroupCollectionResponse),
@@ -495,6 +536,7 @@ export function deserializeIntoExternalGroupCollectionResponse(externalGroupColl
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalItem(externalItem: Partial<ExternalItem> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(externalItem),
@@ -508,6 +550,7 @@ export function deserializeIntoExternalItem(externalItem: Partial<ExternalItem> 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalItemCollectionResponse(externalItemCollectionResponse: Partial<ExternalItemCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(externalItemCollectionResponse),
@@ -518,6 +561,7 @@ export function deserializeIntoExternalItemCollectionResponse(externalItemCollec
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoExternalItemContent(externalItemContent: Partial<ExternalItemContent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { externalItemContent.backingStoreEnabled = true; },
@@ -530,6 +574,7 @@ export function deserializeIntoExternalItemContent(externalItemContent: Partial<
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIdentity(identity: Partial<Identity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(identity),
@@ -540,6 +585,7 @@ export function deserializeIntoIdentity(identity: Partial<Identity> | undefined 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIdentityCollectionResponse(identityCollectionResponse: Partial<IdentityCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(identityCollectionResponse),
@@ -550,6 +596,7 @@ export function deserializeIntoIdentityCollectionResponse(identityCollectionResp
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoItemIdResolver(itemIdResolver: Partial<ItemIdResolver> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoUrlToItemResolverBase(itemIdResolver),
@@ -561,6 +608,7 @@ export function deserializeIntoItemIdResolver(itemIdResolver: Partial<ItemIdReso
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoProperties(properties: Partial<Properties> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { properties.backingStoreEnabled = true; },
@@ -571,6 +619,7 @@ export function deserializeIntoProperties(properties: Partial<Properties> | unde
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoProperty(property: Partial<Property> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "aliases": n => { property.aliases = n.getCollectionOfPrimitiveValues<string>(); },
@@ -589,6 +638,7 @@ export function deserializeIntoProperty(property: Partial<Property> | undefined 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoPropertyRule(propertyRule: Partial<PropertyRule> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { propertyRule.backingStoreEnabled = true; },
@@ -603,6 +653,7 @@ export function deserializeIntoPropertyRule(propertyRule: Partial<PropertyRule> 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSchema(schema: Partial<Schema> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(schema),
@@ -614,6 +665,7 @@ export function deserializeIntoSchema(schema: Partial<Schema> | undefined = {}) 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSearchSettings(searchSettings: Partial<SearchSettings> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { searchSettings.backingStoreEnabled = true; },
@@ -625,6 +677,7 @@ export function deserializeIntoSearchSettings(searchSettings: Partial<SearchSett
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUrlMatchInfo(urlMatchInfo: Partial<UrlMatchInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { urlMatchInfo.backingStoreEnabled = true; },
@@ -637,6 +690,7 @@ export function deserializeIntoUrlMatchInfo(urlMatchInfo: Partial<UrlMatchInfo> 
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoUrlToItemResolverBase(urlToItemResolverBase: Partial<UrlToItemResolverBase> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { urlToItemResolverBase.backingStoreEnabled = true; },
@@ -652,27 +706,27 @@ export interface DisplayTemplate extends AdditionalDataHolder, BackedModel, Pars
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The text identifier for the display template; for example, contosoTickets. Maximum 16 characters. Only alphanumeric characters allowed.
      */
-    id?: string;
+    id?: string | null;
     /**
      * The definition of the content's appearance, represented by an Adaptive Card, which is a JSON-serialized card object model.
      */
-    layout?: UntypedNode;
+    layout?: UntypedNode | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported. Must be positive value.
      */
-    priority?: number;
+    priority?: number | null;
     /**
      * Specifies additional rules for selecting this display template based on the item schema. Optional.
      */
-    rules?: PropertyRule[];
+    rules?: PropertyRule[] | null;
 }
 export interface External extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -682,138 +736,138 @@ export interface External extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The connections property
      */
-    connections?: ExternalConnection[];
+    connections?: ExternalConnection[] | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
 }
 export interface ExternalActivity extends Entity, Parsable {
     /**
      * Represents an identity used to identify who is responsible for the activity.
      */
-    performedBy?: Identity;
+    performedBy?: Identity | null;
     /**
      * The date and time when the particular activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
-    startDateTime?: Date;
+    startDateTime?: Date | null;
     /**
      * The type property
      */
-    type?: ExternalActivityType;
+    type?: ExternalActivityType | null;
 }
 export interface ExternalActivityCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: ExternalActivity[];
+    value?: ExternalActivity[] | null;
 }
 export interface ExternalActivityResult extends ExternalActivity, Parsable {
     /**
      * Error information that explains the failure to process an external activity.
      */
-    errorEscaped?: PublicError;
+    errorEscaped?: PublicError | null;
 }
 export type ExternalActivityType = (typeof ExternalActivityTypeObject)[keyof typeof ExternalActivityTypeObject];
 export interface ExternalConnection extends Entity, Parsable {
     /**
      * Collects configurable settings related to activities involving connector content.
      */
-    activitySettings?: ActivitySettings;
+    activitySettings?: ActivitySettings | null;
     /**
      * Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
      */
-    configuration?: Configuration;
+    configuration?: Configuration | null;
     /**
      * The Teams app ID. Optional.
      */
-    connectorId?: string;
+    connectorId?: string | null;
     /**
      * Description of the connection displayed in the Microsoft 365 admin center. Optional.
      */
-    description?: string;
+    description?: string | null;
     /**
      * The groups property
      */
-    groups?: ExternalGroup[];
+    groups?: ExternalGroup[] | null;
     /**
      * The items property
      */
-    items?: ExternalItem[];
+    items?: ExternalItem[] | null;
     /**
      * The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required.
      */
-    name?: string;
+    name?: string | null;
     /**
      * The operations property
      */
-    operations?: ConnectionOperation[];
+    operations?: ConnectionOperation[] | null;
     /**
      * The schema property
      */
-    schema?: Schema;
+    schema?: Schema | null;
     /**
      * The settings configuring the search experience for content in this connection, such as the display templates for search results.
      */
-    searchSettings?: SearchSettings;
+    searchSettings?: SearchSettings | null;
     /**
      * Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
      */
-    state?: ConnectionState;
+    state?: ConnectionState | null;
 }
 export interface ExternalConnectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: ExternalConnection[];
+    value?: ExternalConnection[] | null;
 }
 export interface ExternalGroup extends Entity, Parsable {
     /**
      * The description of the external group. Optional.
      */
-    description?: string;
+    description?: string | null;
     /**
      * The friendly name of the external group. Optional.
      */
-    displayName?: string;
+    displayName?: string | null;
     /**
      * A member added to an externalGroup. You can add Microsoft Entra users, Microsoft Entra groups, or an externalGroup as members.
      */
-    members?: Identity[];
+    members?: Identity[] | null;
 }
 export interface ExternalGroupCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: ExternalGroup[];
+    value?: ExternalGroup[] | null;
 }
 export interface ExternalItem extends Entity, Parsable {
     /**
      * An array of access control entries. Each entry specifies the access granted to a user or group. Required.
      */
-    acl?: Acl[];
+    acl?: Acl[] | null;
     /**
      * Returns a list of activities performed on the item. Write-only.
      */
-    activities?: ExternalActivity[];
+    activities?: ExternalActivity[] | null;
     /**
      * A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
      */
-    content?: ExternalItemContent;
+    content?: ExternalItemContent | null;
     /**
      * A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.
      */
-    properties?: Properties;
+    properties?: Properties | null;
 }
 export interface ExternalItemCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: ExternalItem[];
+    value?: ExternalItem[] | null;
 }
 export interface ExternalItemContent extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -823,43 +877,43 @@ export interface ExternalItemContent extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * The type property
      */
-    type?: ExternalItemContentType;
+    type?: ExternalItemContentType | null;
     /**
      * The content for the externalItem. Required.
      */
-    value?: string;
+    value?: string | null;
 }
 export type ExternalItemContentType = (typeof ExternalItemContentTypeObject)[keyof typeof ExternalItemContentTypeObject];
 export interface Identity extends Entity, Parsable {
     /**
      * The type of identity. Possible values are: user or group for Microsoft Entra identities and externalgroup for groups in an external system.
      */
-    type?: IdentityType;
+    type?: IdentityType | null;
 }
 export interface IdentityCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
-    value?: Identity[];
+    value?: Identity[] | null;
 }
 export type IdentityType = (typeof IdentityTypeObject)[keyof typeof IdentityTypeObject];
 export interface ItemIdResolver extends Parsable, UrlToItemResolverBase {
     /**
      * Pattern that specifies how to form the ID of the external item that the URL represents. The named groups from the regular expression in urlPattern within the urlMatchInfo can be referenced by inserting the group name inside curly brackets.
      */
-    itemId?: string;
+    itemId?: string | null;
     /**
      * Configurations to match and resolve URL.
      */
-    urlMatchInfo?: UrlMatchInfo;
+    urlMatchInfo?: UrlMatchInfo | null;
 }
 export type Label = (typeof LabelObject)[keyof typeof LabelObject];
 export interface Properties extends AdditionalDataHolder, BackedModel, Parsable {
@@ -870,11 +924,11 @@ export interface Properties extends AdditionalDataHolder, BackedModel, Parsable 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
 }
 export interface Property extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -884,43 +938,43 @@ export interface Property extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * A set of aliases or a friendly name for the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^. Optional.
      */
-    aliases?: string[];
+    aliases?: string[] | null;
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * Specifies if the property is queryable. Queryable properties can be used in Keyword Query Language (KQL) queries. Optional.
      */
-    isQueryable?: boolean;
+    isQueryable?: boolean | null;
     /**
      * Specifies if the property is refinable.  Refinable properties can be used to filter search results in the Search API and add a refiner control in the Microsoft Search user experience. Optional.
      */
-    isRefinable?: boolean;
+    isRefinable?: boolean | null;
     /**
      * Specifies if the property is retrievable. Retrievable properties are returned in the result set when items are returned by the search API. Retrievable properties are also available to add to the display template used to render search results. Optional.
      */
-    isRetrievable?: boolean;
+    isRetrievable?: boolean | null;
     /**
      * Specifies if the property is searchable. Only properties of type String or StringCollection can be searchable. Nonsearchable properties aren't added to the search index. Optional.
      */
-    isSearchable?: boolean;
+    isSearchable?: boolean | null;
     /**
      * Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (for example, better relevance). Optional.The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, unknownFutureValue, iconUrl. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: iconUrl.
      */
-    labels?: Label[];
+    labels?: Label[] | null;
     /**
      * The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^.  Required.
      */
-    name?: string;
+    name?: string | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * The type property
      */
-    type?: PropertyType;
+    type?: PropertyType | null;
 }
 export interface PropertyRule extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -930,27 +984,27 @@ export interface PropertyRule extends AdditionalDataHolder, BackedModel, Parsabl
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * The operation property
      */
-    operation?: RuleOperation;
+    operation?: RuleOperation | null;
     /**
      * The property from the externalItem schema. Required.
      */
-    property?: string;
+    property?: string | null;
     /**
      * A collection with one or many strings. One or more specified strings are matched with the specified property using the specified operation. Required.
      */
-    values?: string[];
+    values?: string[] | null;
     /**
      * The valuesJoinedBy property
      */
-    valuesJoinedBy?: BinaryOperator;
+    valuesJoinedBy?: BinaryOperator | null;
 }
 export type PropertyType = (typeof PropertyTypeObject)[keyof typeof PropertyTypeObject];
 export type RuleOperation = (typeof RuleOperationObject)[keyof typeof RuleOperationObject];
@@ -958,11 +1012,11 @@ export interface Schema extends Entity, Parsable {
     /**
      * Must be set to microsoft.graph.externalConnector.externalItem. Required.
      */
-    baseType?: string;
+    baseType?: string | null;
     /**
      * The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.
      */
-    properties?: Property[];
+    properties?: Property[] | null;
 }
 export interface SearchSettings extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -972,279 +1026,360 @@ export interface SearchSettings extends AdditionalDataHolder, BackedModel, Parsa
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed. Maximum of 2 search result templates per connection.
      */
-    searchResultTemplates?: DisplayTemplate[];
+    searchResultTemplates?: DisplayTemplate[] | null;
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeAcl(writer: SerializationWriter, acl: Partial<Acl> | undefined = {}) : void {
-    writer.writeEnumValue<AccessType>("accessType", acl.accessType);
-    writer.writeStringValue("@odata.type", acl.odataType);
-    writer.writeEnumValue<AclType>("type", acl.type);
-    writer.writeStringValue("value", acl.value);
-    writer.writeAdditionalData(acl.additionalData);
+// @ts-ignore
+export function serializeAcl(writer: SerializationWriter, acl: Partial<Acl> | undefined | null = {}) : void {
+    if (acl) {
+        writer.writeEnumValue<AccessType>("accessType", acl.accessType);
+        writer.writeStringValue("@odata.type", acl.odataType);
+        writer.writeEnumValue<AclType>("type", acl.type);
+        writer.writeStringValue("value", acl.value);
+        writer.writeAdditionalData(acl.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeActivitySettings(writer: SerializationWriter, activitySettings: Partial<ActivitySettings> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", activitySettings.odataType);
-    writer.writeCollectionOfObjectValues<UrlToItemResolverBase>("urlToItemResolvers", activitySettings.urlToItemResolvers, serializeUrlToItemResolverBase);
-    writer.writeAdditionalData(activitySettings.additionalData);
+// @ts-ignore
+export function serializeActivitySettings(writer: SerializationWriter, activitySettings: Partial<ActivitySettings> | undefined | null = {}) : void {
+    if (activitySettings) {
+        writer.writeStringValue("@odata.type", activitySettings.odataType);
+        writer.writeCollectionOfObjectValues<UrlToItemResolverBase>("urlToItemResolvers", activitySettings.urlToItemResolvers, serializeUrlToItemResolverBase);
+        writer.writeAdditionalData(activitySettings.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeConfiguration(writer: SerializationWriter, configuration: Partial<Configuration> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("authorizedAppIds", configuration.authorizedAppIds);
-    writer.writeStringValue("@odata.type", configuration.odataType);
-    writer.writeAdditionalData(configuration.additionalData);
+// @ts-ignore
+export function serializeConfiguration(writer: SerializationWriter, configuration: Partial<Configuration> | undefined | null = {}) : void {
+    if (configuration) {
+        writer.writeCollectionOfPrimitiveValues<string>("authorizedAppIds", configuration.authorizedAppIds);
+        writer.writeStringValue("@odata.type", configuration.odataType);
+        writer.writeAdditionalData(configuration.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeConnectionOperation(writer: SerializationWriter, connectionOperation: Partial<ConnectionOperation> | undefined = {}) : void {
-    serializeEntity(writer, connectionOperation)
-    writer.writeObjectValue<PublicError>("error", connectionOperation.errorEscaped, serializePublicError);
-    writer.writeEnumValue<ConnectionOperationStatus>("status", connectionOperation.status);
+// @ts-ignore
+export function serializeConnectionOperation(writer: SerializationWriter, connectionOperation: Partial<ConnectionOperation> | undefined | null = {}) : void {
+    if (connectionOperation) {
+        serializeEntity(writer, connectionOperation)
+        writer.writeObjectValue<PublicError>("error", connectionOperation.errorEscaped, serializePublicError);
+        writer.writeEnumValue<ConnectionOperationStatus>("status", connectionOperation.status);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeConnectionOperationCollectionResponse(writer: SerializationWriter, connectionOperationCollectionResponse: Partial<ConnectionOperationCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, connectionOperationCollectionResponse)
-    writer.writeCollectionOfObjectValues<ConnectionOperation>("value", connectionOperationCollectionResponse.value, serializeConnectionOperation);
+// @ts-ignore
+export function serializeConnectionOperationCollectionResponse(writer: SerializationWriter, connectionOperationCollectionResponse: Partial<ConnectionOperationCollectionResponse> | undefined | null = {}) : void {
+    if (connectionOperationCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, connectionOperationCollectionResponse)
+        writer.writeCollectionOfObjectValues<ConnectionOperation>("value", connectionOperationCollectionResponse.value, serializeConnectionOperation);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeDisplayTemplate(writer: SerializationWriter, displayTemplate: Partial<DisplayTemplate> | undefined = {}) : void {
-    writer.writeStringValue("id", displayTemplate.id);
-    writer.writeObjectValue("layout", displayTemplate.layout);
-    writer.writeStringValue("@odata.type", displayTemplate.odataType);
-    writer.writeNumberValue("priority", displayTemplate.priority);
-    writer.writeCollectionOfObjectValues<PropertyRule>("rules", displayTemplate.rules, serializePropertyRule);
-    writer.writeAdditionalData(displayTemplate.additionalData);
+// @ts-ignore
+export function serializeDisplayTemplate(writer: SerializationWriter, displayTemplate: Partial<DisplayTemplate> | undefined | null = {}) : void {
+    if (displayTemplate) {
+        writer.writeStringValue("id", displayTemplate.id);
+        writer.writeObjectValue("layout", displayTemplate.layout);
+        writer.writeStringValue("@odata.type", displayTemplate.odataType);
+        writer.writeNumberValue("priority", displayTemplate.priority);
+        writer.writeCollectionOfObjectValues<PropertyRule>("rules", displayTemplate.rules, serializePropertyRule);
+        writer.writeAdditionalData(displayTemplate.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternal(writer: SerializationWriter, external: Partial<External> | undefined = {}) : void {
-    writer.writeCollectionOfObjectValues<ExternalConnection>("connections", external.connections, serializeExternalConnection);
-    writer.writeStringValue("@odata.type", external.odataType);
-    writer.writeAdditionalData(external.additionalData);
+// @ts-ignore
+export function serializeExternal(writer: SerializationWriter, external: Partial<External> | undefined | null = {}) : void {
+    if (external) {
+        writer.writeCollectionOfObjectValues<ExternalConnection>("connections", external.connections, serializeExternalConnection);
+        writer.writeStringValue("@odata.type", external.odataType);
+        writer.writeAdditionalData(external.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalActivity(writer: SerializationWriter, externalActivity: Partial<ExternalActivity> | undefined = {}) : void {
-    serializeEntity(writer, externalActivity)
-    writer.writeObjectValue<Identity>("performedBy", externalActivity.performedBy, serializeIdentity);
-    writer.writeDateValue("startDateTime", externalActivity.startDateTime);
-    writer.writeEnumValue<ExternalActivityType>("type", externalActivity.type);
+// @ts-ignore
+export function serializeExternalActivity(writer: SerializationWriter, externalActivity: Partial<ExternalActivity> | undefined | null = {}) : void {
+    if (externalActivity) {
+        serializeEntity(writer, externalActivity)
+        writer.writeObjectValue<Identity>("performedBy", externalActivity.performedBy, serializeIdentity);
+        writer.writeDateValue("startDateTime", externalActivity.startDateTime);
+        writer.writeEnumValue<ExternalActivityType>("type", externalActivity.type);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalActivityCollectionResponse(writer: SerializationWriter, externalActivityCollectionResponse: Partial<ExternalActivityCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, externalActivityCollectionResponse)
-    writer.writeCollectionOfObjectValues<ExternalActivity>("value", externalActivityCollectionResponse.value, serializeExternalActivity);
+// @ts-ignore
+export function serializeExternalActivityCollectionResponse(writer: SerializationWriter, externalActivityCollectionResponse: Partial<ExternalActivityCollectionResponse> | undefined | null = {}) : void {
+    if (externalActivityCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, externalActivityCollectionResponse)
+        writer.writeCollectionOfObjectValues<ExternalActivity>("value", externalActivityCollectionResponse.value, serializeExternalActivity);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalActivityResult(writer: SerializationWriter, externalActivityResult: Partial<ExternalActivityResult> | undefined = {}) : void {
-    serializeExternalActivity(writer, externalActivityResult)
-    writer.writeObjectValue<PublicError>("error", externalActivityResult.errorEscaped, serializePublicError);
+// @ts-ignore
+export function serializeExternalActivityResult(writer: SerializationWriter, externalActivityResult: Partial<ExternalActivityResult> | undefined | null = {}) : void {
+    if (externalActivityResult) {
+        serializeExternalActivity(writer, externalActivityResult)
+        writer.writeObjectValue<PublicError>("error", externalActivityResult.errorEscaped, serializePublicError);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalConnection(writer: SerializationWriter, externalConnection: Partial<ExternalConnection> | undefined = {}) : void {
-    serializeEntity(writer, externalConnection)
-    writer.writeObjectValue<ActivitySettings>("activitySettings", externalConnection.activitySettings, serializeActivitySettings);
-    writer.writeObjectValue<Configuration>("configuration", externalConnection.configuration, serializeConfiguration);
-    writer.writeStringValue("connectorId", externalConnection.connectorId);
-    writer.writeStringValue("description", externalConnection.description);
-    writer.writeCollectionOfObjectValues<ExternalGroup>("groups", externalConnection.groups, serializeExternalGroup);
-    writer.writeCollectionOfObjectValues<ExternalItem>("items", externalConnection.items, serializeExternalItem);
-    writer.writeStringValue("name", externalConnection.name);
-    writer.writeCollectionOfObjectValues<ConnectionOperation>("operations", externalConnection.operations, serializeConnectionOperation);
-    writer.writeObjectValue<Schema>("schema", externalConnection.schema, serializeSchema);
-    writer.writeObjectValue<SearchSettings>("searchSettings", externalConnection.searchSettings, serializeSearchSettings);
+// @ts-ignore
+export function serializeExternalConnection(writer: SerializationWriter, externalConnection: Partial<ExternalConnection> | undefined | null = {}) : void {
+    if (externalConnection) {
+        serializeEntity(writer, externalConnection)
+        writer.writeObjectValue<ActivitySettings>("activitySettings", externalConnection.activitySettings, serializeActivitySettings);
+        writer.writeObjectValue<Configuration>("configuration", externalConnection.configuration, serializeConfiguration);
+        writer.writeStringValue("connectorId", externalConnection.connectorId);
+        writer.writeStringValue("description", externalConnection.description);
+        writer.writeCollectionOfObjectValues<ExternalGroup>("groups", externalConnection.groups, serializeExternalGroup);
+        writer.writeCollectionOfObjectValues<ExternalItem>("items", externalConnection.items, serializeExternalItem);
+        writer.writeStringValue("name", externalConnection.name);
+        writer.writeCollectionOfObjectValues<ConnectionOperation>("operations", externalConnection.operations, serializeConnectionOperation);
+        writer.writeObjectValue<Schema>("schema", externalConnection.schema, serializeSchema);
+        writer.writeObjectValue<SearchSettings>("searchSettings", externalConnection.searchSettings, serializeSearchSettings);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalConnectionCollectionResponse(writer: SerializationWriter, externalConnectionCollectionResponse: Partial<ExternalConnectionCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, externalConnectionCollectionResponse)
-    writer.writeCollectionOfObjectValues<ExternalConnection>("value", externalConnectionCollectionResponse.value, serializeExternalConnection);
+// @ts-ignore
+export function serializeExternalConnectionCollectionResponse(writer: SerializationWriter, externalConnectionCollectionResponse: Partial<ExternalConnectionCollectionResponse> | undefined | null = {}) : void {
+    if (externalConnectionCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, externalConnectionCollectionResponse)
+        writer.writeCollectionOfObjectValues<ExternalConnection>("value", externalConnectionCollectionResponse.value, serializeExternalConnection);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalGroup(writer: SerializationWriter, externalGroup: Partial<ExternalGroup> | undefined = {}) : void {
-    serializeEntity(writer, externalGroup)
-    writer.writeStringValue("description", externalGroup.description);
-    writer.writeStringValue("displayName", externalGroup.displayName);
-    writer.writeCollectionOfObjectValues<Identity>("members", externalGroup.members, serializeIdentity);
+// @ts-ignore
+export function serializeExternalGroup(writer: SerializationWriter, externalGroup: Partial<ExternalGroup> | undefined | null = {}) : void {
+    if (externalGroup) {
+        serializeEntity(writer, externalGroup)
+        writer.writeStringValue("description", externalGroup.description);
+        writer.writeStringValue("displayName", externalGroup.displayName);
+        writer.writeCollectionOfObjectValues<Identity>("members", externalGroup.members, serializeIdentity);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalGroupCollectionResponse(writer: SerializationWriter, externalGroupCollectionResponse: Partial<ExternalGroupCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, externalGroupCollectionResponse)
-    writer.writeCollectionOfObjectValues<ExternalGroup>("value", externalGroupCollectionResponse.value, serializeExternalGroup);
+// @ts-ignore
+export function serializeExternalGroupCollectionResponse(writer: SerializationWriter, externalGroupCollectionResponse: Partial<ExternalGroupCollectionResponse> | undefined | null = {}) : void {
+    if (externalGroupCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, externalGroupCollectionResponse)
+        writer.writeCollectionOfObjectValues<ExternalGroup>("value", externalGroupCollectionResponse.value, serializeExternalGroup);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalItem(writer: SerializationWriter, externalItem: Partial<ExternalItem> | undefined = {}) : void {
-    serializeEntity(writer, externalItem)
-    writer.writeCollectionOfObjectValues<Acl>("acl", externalItem.acl, serializeAcl);
-    writer.writeCollectionOfObjectValues<ExternalActivity>("activities", externalItem.activities, serializeExternalActivity);
-    writer.writeObjectValue<ExternalItemContent>("content", externalItem.content, serializeExternalItemContent);
-    writer.writeObjectValue<Properties>("properties", externalItem.properties, serializeProperties);
+// @ts-ignore
+export function serializeExternalItem(writer: SerializationWriter, externalItem: Partial<ExternalItem> | undefined | null = {}) : void {
+    if (externalItem) {
+        serializeEntity(writer, externalItem)
+        writer.writeCollectionOfObjectValues<Acl>("acl", externalItem.acl, serializeAcl);
+        writer.writeCollectionOfObjectValues<ExternalActivity>("activities", externalItem.activities, serializeExternalActivity);
+        writer.writeObjectValue<ExternalItemContent>("content", externalItem.content, serializeExternalItemContent);
+        writer.writeObjectValue<Properties>("properties", externalItem.properties, serializeProperties);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalItemCollectionResponse(writer: SerializationWriter, externalItemCollectionResponse: Partial<ExternalItemCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, externalItemCollectionResponse)
-    writer.writeCollectionOfObjectValues<ExternalItem>("value", externalItemCollectionResponse.value, serializeExternalItem);
+// @ts-ignore
+export function serializeExternalItemCollectionResponse(writer: SerializationWriter, externalItemCollectionResponse: Partial<ExternalItemCollectionResponse> | undefined | null = {}) : void {
+    if (externalItemCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, externalItemCollectionResponse)
+        writer.writeCollectionOfObjectValues<ExternalItem>("value", externalItemCollectionResponse.value, serializeExternalItem);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeExternalItemContent(writer: SerializationWriter, externalItemContent: Partial<ExternalItemContent> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", externalItemContent.odataType);
-    writer.writeEnumValue<ExternalItemContentType>("type", externalItemContent.type);
-    writer.writeStringValue("value", externalItemContent.value);
-    writer.writeAdditionalData(externalItemContent.additionalData);
+// @ts-ignore
+export function serializeExternalItemContent(writer: SerializationWriter, externalItemContent: Partial<ExternalItemContent> | undefined | null = {}) : void {
+    if (externalItemContent) {
+        writer.writeStringValue("@odata.type", externalItemContent.odataType);
+        writer.writeEnumValue<ExternalItemContentType>("type", externalItemContent.type);
+        writer.writeStringValue("value", externalItemContent.value);
+        writer.writeAdditionalData(externalItemContent.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIdentity(writer: SerializationWriter, identity: Partial<Identity> | undefined = {}) : void {
-    serializeEntity(writer, identity)
-    writer.writeEnumValue<IdentityType>("type", identity.type);
+// @ts-ignore
+export function serializeIdentity(writer: SerializationWriter, identity: Partial<Identity> | undefined | null = {}) : void {
+    if (identity) {
+        serializeEntity(writer, identity)
+        writer.writeEnumValue<IdentityType>("type", identity.type);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIdentityCollectionResponse(writer: SerializationWriter, identityCollectionResponse: Partial<IdentityCollectionResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, identityCollectionResponse)
-    writer.writeCollectionOfObjectValues<Identity>("value", identityCollectionResponse.value, serializeIdentity);
+// @ts-ignore
+export function serializeIdentityCollectionResponse(writer: SerializationWriter, identityCollectionResponse: Partial<IdentityCollectionResponse> | undefined | null = {}) : void {
+    if (identityCollectionResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, identityCollectionResponse)
+        writer.writeCollectionOfObjectValues<Identity>("value", identityCollectionResponse.value, serializeIdentity);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeItemIdResolver(writer: SerializationWriter, itemIdResolver: Partial<ItemIdResolver> | undefined = {}) : void {
-    serializeUrlToItemResolverBase(writer, itemIdResolver)
-    writer.writeStringValue("itemId", itemIdResolver.itemId);
-    writer.writeObjectValue<UrlMatchInfo>("urlMatchInfo", itemIdResolver.urlMatchInfo, serializeUrlMatchInfo);
+// @ts-ignore
+export function serializeItemIdResolver(writer: SerializationWriter, itemIdResolver: Partial<ItemIdResolver> | undefined | null = {}) : void {
+    if (itemIdResolver) {
+        serializeUrlToItemResolverBase(writer, itemIdResolver)
+        writer.writeStringValue("itemId", itemIdResolver.itemId);
+        writer.writeObjectValue<UrlMatchInfo>("urlMatchInfo", itemIdResolver.urlMatchInfo, serializeUrlMatchInfo);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeProperties(writer: SerializationWriter, properties: Partial<Properties> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", properties.odataType);
-    writer.writeAdditionalData(properties.additionalData);
+// @ts-ignore
+export function serializeProperties(writer: SerializationWriter, properties: Partial<Properties> | undefined | null = {}) : void {
+    if (properties) {
+        writer.writeStringValue("@odata.type", properties.odataType);
+        writer.writeAdditionalData(properties.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeProperty(writer: SerializationWriter, property: Partial<Property> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("aliases", property.aliases);
-    writer.writeBooleanValue("isQueryable", property.isQueryable);
-    writer.writeBooleanValue("isRefinable", property.isRefinable);
-    writer.writeBooleanValue("isRetrievable", property.isRetrievable);
-    writer.writeBooleanValue("isSearchable", property.isSearchable);
-    if(property.labels)
-    writer.writeEnumValue<Label>("labels", ...property.labels);
-    writer.writeStringValue("name", property.name);
-    writer.writeStringValue("@odata.type", property.odataType);
-    writer.writeEnumValue<PropertyType>("type", property.type);
-    writer.writeAdditionalData(property.additionalData);
+// @ts-ignore
+export function serializeProperty(writer: SerializationWriter, property: Partial<Property> | undefined | null = {}) : void {
+    if (property) {
+        writer.writeCollectionOfPrimitiveValues<string>("aliases", property.aliases);
+        writer.writeBooleanValue("isQueryable", property.isQueryable);
+        writer.writeBooleanValue("isRefinable", property.isRefinable);
+        writer.writeBooleanValue("isRetrievable", property.isRetrievable);
+        writer.writeBooleanValue("isSearchable", property.isSearchable);
+        if(property.labels)
+        writer.writeEnumValue<Label>("labels", ...property.labels);
+        writer.writeStringValue("name", property.name);
+        writer.writeStringValue("@odata.type", property.odataType);
+        writer.writeEnumValue<PropertyType>("type", property.type);
+        writer.writeAdditionalData(property.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializePropertyRule(writer: SerializationWriter, propertyRule: Partial<PropertyRule> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", propertyRule.odataType);
-    writer.writeEnumValue<RuleOperation>("operation", propertyRule.operation);
-    writer.writeStringValue("property", propertyRule.property);
-    writer.writeCollectionOfPrimitiveValues<string>("values", propertyRule.values);
-    writer.writeEnumValue<BinaryOperator>("valuesJoinedBy", propertyRule.valuesJoinedBy);
-    writer.writeAdditionalData(propertyRule.additionalData);
+// @ts-ignore
+export function serializePropertyRule(writer: SerializationWriter, propertyRule: Partial<PropertyRule> | undefined | null = {}) : void {
+    if (propertyRule) {
+        writer.writeStringValue("@odata.type", propertyRule.odataType);
+        writer.writeEnumValue<RuleOperation>("operation", propertyRule.operation);
+        writer.writeStringValue("property", propertyRule.property);
+        writer.writeCollectionOfPrimitiveValues<string>("values", propertyRule.values);
+        writer.writeEnumValue<BinaryOperator>("valuesJoinedBy", propertyRule.valuesJoinedBy);
+        writer.writeAdditionalData(propertyRule.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSchema(writer: SerializationWriter, schema: Partial<Schema> | undefined = {}) : void {
-    serializeEntity(writer, schema)
-    writer.writeStringValue("baseType", schema.baseType);
-    writer.writeCollectionOfObjectValues<Property>("properties", schema.properties, serializeProperty);
+// @ts-ignore
+export function serializeSchema(writer: SerializationWriter, schema: Partial<Schema> | undefined | null = {}) : void {
+    if (schema) {
+        serializeEntity(writer, schema)
+        writer.writeStringValue("baseType", schema.baseType);
+        writer.writeCollectionOfObjectValues<Property>("properties", schema.properties, serializeProperty);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSearchSettings(writer: SerializationWriter, searchSettings: Partial<SearchSettings> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", searchSettings.odataType);
-    writer.writeCollectionOfObjectValues<DisplayTemplate>("searchResultTemplates", searchSettings.searchResultTemplates, serializeDisplayTemplate);
-    writer.writeAdditionalData(searchSettings.additionalData);
+// @ts-ignore
+export function serializeSearchSettings(writer: SerializationWriter, searchSettings: Partial<SearchSettings> | undefined | null = {}) : void {
+    if (searchSettings) {
+        writer.writeStringValue("@odata.type", searchSettings.odataType);
+        writer.writeCollectionOfObjectValues<DisplayTemplate>("searchResultTemplates", searchSettings.searchResultTemplates, serializeDisplayTemplate);
+        writer.writeAdditionalData(searchSettings.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUrlMatchInfo(writer: SerializationWriter, urlMatchInfo: Partial<UrlMatchInfo> | undefined = {}) : void {
-    writer.writeCollectionOfPrimitiveValues<string>("baseUrls", urlMatchInfo.baseUrls);
-    writer.writeStringValue("@odata.type", urlMatchInfo.odataType);
-    writer.writeStringValue("urlPattern", urlMatchInfo.urlPattern);
-    writer.writeAdditionalData(urlMatchInfo.additionalData);
+// @ts-ignore
+export function serializeUrlMatchInfo(writer: SerializationWriter, urlMatchInfo: Partial<UrlMatchInfo> | undefined | null = {}) : void {
+    if (urlMatchInfo) {
+        writer.writeCollectionOfPrimitiveValues<string>("baseUrls", urlMatchInfo.baseUrls);
+        writer.writeStringValue("@odata.type", urlMatchInfo.odataType);
+        writer.writeStringValue("urlPattern", urlMatchInfo.urlPattern);
+        writer.writeAdditionalData(urlMatchInfo.additionalData);
+    }
 }
 /**
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeUrlToItemResolverBase(writer: SerializationWriter, urlToItemResolverBase: Partial<UrlToItemResolverBase> | undefined = {}) : void {
-    writer.writeStringValue("@odata.type", urlToItemResolverBase.odataType);
-    writer.writeNumberValue("priority", urlToItemResolverBase.priority);
-    writer.writeAdditionalData(urlToItemResolverBase.additionalData);
+// @ts-ignore
+export function serializeUrlToItemResolverBase(writer: SerializationWriter, urlToItemResolverBase: Partial<UrlToItemResolverBase> | undefined | null = {}) : void {
+    if (urlToItemResolverBase) {
+        writer.writeStringValue("@odata.type", urlToItemResolverBase.odataType);
+        writer.writeNumberValue("priority", urlToItemResolverBase.priority);
+        writer.writeAdditionalData(urlToItemResolverBase.additionalData);
+    }
 }
 export interface UrlMatchInfo extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -1254,19 +1389,19 @@ export interface UrlMatchInfo extends AdditionalDataHolder, BackedModel, Parsabl
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * A list of the URL prefixes that must match URLs to be processed by this URL-to-item-resolver.
      */
-    baseUrls?: string[];
+    baseUrls?: string[] | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * A regular expression that will be matched towards the URL that is processed by this URL-to-item-resolver. The ECMAScript specification for regular expressions (ECMA-262) is used for the evaluation. The named groups defined by the regular expression will be used later to extract values from the URL.
      */
-    urlPattern?: string;
+    urlPattern?: string | null;
 }
 export interface UrlToItemResolverBase extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -1276,15 +1411,15 @@ export interface UrlToItemResolverBase extends AdditionalDataHolder, BackedModel
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The OdataType property
      */
-    odataType?: string;
+    odataType?: string | null;
     /**
      * The priority which defines the sequence in which the urlToItemResolverBase instances are evaluated.
      */
-    priority?: number;
+    priority?: number | null;
 }
 export const AccessTypeObject = {
     Grant: "grant",

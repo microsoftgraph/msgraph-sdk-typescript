@@ -16,15 +16,15 @@ export interface BitorPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number1 property
      */
-    number1?: UntypedNode;
+    number1?: UntypedNode | null;
     /**
      * The number2 property
      */
-    number2?: UntypedNode;
+    number2?: UntypedNode | null;
 }
 /**
  * Provides operations to call the bitor method.
@@ -51,6 +51,7 @@ export interface BitorRequestBuilder extends BaseRequestBuilder<BitorRequestBuil
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BitorPostRequestBody}
  */
+// @ts-ignore
 export function createBitorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoBitorPostRequestBody;
 }
@@ -58,6 +59,7 @@ export function createBitorPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoBitorPostRequestBody(bitorPostRequestBody: Partial<BitorPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { bitorPostRequestBody.backingStoreEnabled = true; },
@@ -69,10 +71,13 @@ export function deserializeIntoBitorPostRequestBody(bitorPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeBitorPostRequestBody(writer: SerializationWriter, bitorPostRequestBody: Partial<BitorPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number1", bitorPostRequestBody.number1);
-    writer.writeObjectValue("number2", bitorPostRequestBody.number2);
-    writer.writeAdditionalData(bitorPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeBitorPostRequestBody(writer: SerializationWriter, bitorPostRequestBody: Partial<BitorPostRequestBody> | undefined | null = {}) : void {
+    if (bitorPostRequestBody) {
+        writer.writeObjectValue("number1", bitorPostRequestBody.number1);
+        writer.writeObjectValue("number2", bitorPostRequestBody.number2);
+        writer.writeAdditionalData(bitorPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

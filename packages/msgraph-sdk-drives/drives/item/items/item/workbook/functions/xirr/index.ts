@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {XirrPostRequestBody}
  */
+// @ts-ignore
 export function createXirrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoXirrPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createXirrPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoXirrPostRequestBody(xirrPostRequestBody: Partial<XirrPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { xirrPostRequestBody.backingStoreEnabled = true; },
@@ -32,11 +34,14 @@ export function deserializeIntoXirrPostRequestBody(xirrPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeXirrPostRequestBody(writer: SerializationWriter, xirrPostRequestBody: Partial<XirrPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("dates", xirrPostRequestBody.dates);
-    writer.writeObjectValue("guess", xirrPostRequestBody.guess);
-    writer.writeObjectValue("values", xirrPostRequestBody.values);
-    writer.writeAdditionalData(xirrPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeXirrPostRequestBody(writer: SerializationWriter, xirrPostRequestBody: Partial<XirrPostRequestBody> | undefined | null = {}) : void {
+    if (xirrPostRequestBody) {
+        writer.writeObjectValue("dates", xirrPostRequestBody.dates);
+        writer.writeObjectValue("guess", xirrPostRequestBody.guess);
+        writer.writeObjectValue("values", xirrPostRequestBody.values);
+        writer.writeAdditionalData(xirrPostRequestBody.additionalData);
+    }
 }
 export interface XirrPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -46,19 +51,19 @@ export interface XirrPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The dates property
      */
-    dates?: UntypedNode;
+    dates?: UntypedNode | null;
     /**
      * The guess property
      */
-    guess?: UntypedNode;
+    guess?: UntypedNode | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the xirr method.

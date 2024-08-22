@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IspmtPostRequestBody}
  */
+// @ts-ignore
 export function createIspmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIspmtPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIspmtPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIspmtPostRequestBody(ispmtPostRequestBody: Partial<IspmtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { ispmtPostRequestBody.backingStoreEnabled = true; },
@@ -37,23 +39,23 @@ export interface IspmtPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The nper property
      */
-    nper?: UntypedNode;
+    nper?: UntypedNode | null;
     /**
      * The per property
      */
-    per?: UntypedNode;
+    per?: UntypedNode | null;
     /**
      * The pv property
      */
-    pv?: UntypedNode;
+    pv?: UntypedNode | null;
     /**
      * The rate property
      */
-    rate?: UntypedNode;
+    rate?: UntypedNode | null;
 }
 /**
  * Provides operations to call the ispmt method.
@@ -79,12 +81,15 @@ export interface IspmtRequestBuilder extends BaseRequestBuilder<IspmtRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIspmtPostRequestBody(writer: SerializationWriter, ispmtPostRequestBody: Partial<IspmtPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("nper", ispmtPostRequestBody.nper);
-    writer.writeObjectValue("per", ispmtPostRequestBody.per);
-    writer.writeObjectValue("pv", ispmtPostRequestBody.pv);
-    writer.writeObjectValue("rate", ispmtPostRequestBody.rate);
-    writer.writeAdditionalData(ispmtPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeIspmtPostRequestBody(writer: SerializationWriter, ispmtPostRequestBody: Partial<IspmtPostRequestBody> | undefined | null = {}) : void {
+    if (ispmtPostRequestBody) {
+        writer.writeObjectValue("nper", ispmtPostRequestBody.nper);
+        writer.writeObjectValue("per", ispmtPostRequestBody.per);
+        writer.writeObjectValue("pv", ispmtPostRequestBody.pv);
+        writer.writeObjectValue("rate", ispmtPostRequestBody.rate);
+        writer.writeAdditionalData(ispmtPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

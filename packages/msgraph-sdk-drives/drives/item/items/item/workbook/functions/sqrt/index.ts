@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SqrtPostRequestBody}
  */
+// @ts-ignore
 export function createSqrtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSqrtPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSqrtPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSqrtPostRequestBody(sqrtPostRequestBody: Partial<SqrtPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sqrtPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoSqrtPostRequestBody(sqrtPostRequestBody: Partial<
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSqrtPostRequestBody(writer: SerializationWriter, sqrtPostRequestBody: Partial<SqrtPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", sqrtPostRequestBody.number);
-    writer.writeAdditionalData(sqrtPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSqrtPostRequestBody(writer: SerializationWriter, sqrtPostRequestBody: Partial<SqrtPostRequestBody> | undefined | null = {}) : void {
+    if (sqrtPostRequestBody) {
+        writer.writeObjectValue("number", sqrtPostRequestBody.number);
+        writer.writeAdditionalData(sqrtPostRequestBody.additionalData);
+    }
 }
 export interface SqrtPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface SqrtPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the sqrt method.

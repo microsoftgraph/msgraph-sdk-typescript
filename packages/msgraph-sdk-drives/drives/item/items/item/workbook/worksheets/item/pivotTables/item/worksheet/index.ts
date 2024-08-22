@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface WorksheetRequestBuilder extends BaseRequestBuilder<WorksheetRequestBuilder> {
     /**
-     * The worksheet containing the current PivotTable. Read-only.
+     * The worksheet that contains the current pivot table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookWorksheet>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<WorksheetRequestBuilderGetQueryParameters> | undefined) : Promise<WorkbookWorksheet | undefined>;
     /**
-     * The worksheet containing the current PivotTable. Read-only.
+     * The worksheet that contains the current pivot table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorksheetRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The worksheet containing the current PivotTable. Read-only.
+ * The worksheet that contains the current pivot table. Read-only.
  */
 export interface WorksheetRequestBuilderGetQueryParameters {
     /**

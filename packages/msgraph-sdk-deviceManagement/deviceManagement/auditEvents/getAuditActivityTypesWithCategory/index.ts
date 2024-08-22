@@ -13,6 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetAuditActivityTypesWithCategoryGetResponse}
  */
+// @ts-ignore
 export function createGetAuditActivityTypesWithCategoryGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoGetAuditActivityTypesWithCategoryGetResponse;
 }
@@ -20,6 +21,7 @@ export function createGetAuditActivityTypesWithCategoryGetResponseFromDiscrimina
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoGetAuditActivityTypesWithCategoryGetResponse(getAuditActivityTypesWithCategoryGetResponse: Partial<GetAuditActivityTypesWithCategoryGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAuditActivityTypesWithCategoryGetResponse),
@@ -30,7 +32,7 @@ export interface GetAuditActivityTypesWithCategoryGetResponse extends BaseCollec
     /**
      * The value property
      */
-    value?: string[];
+    value?: string[] | null;
 }
 /**
  * Provides operations to call the getAuditActivityTypes method.
@@ -79,9 +81,12 @@ export interface GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParamete
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeGetAuditActivityTypesWithCategoryGetResponse(writer: SerializationWriter, getAuditActivityTypesWithCategoryGetResponse: Partial<GetAuditActivityTypesWithCategoryGetResponse> | undefined = {}) : void {
-    serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesWithCategoryGetResponse)
-    writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesWithCategoryGetResponse.value);
+// @ts-ignore
+export function serializeGetAuditActivityTypesWithCategoryGetResponse(writer: SerializationWriter, getAuditActivityTypesWithCategoryGetResponse: Partial<GetAuditActivityTypesWithCategoryGetResponse> | undefined | null = {}) : void {
+    if (getAuditActivityTypesWithCategoryGetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesWithCategoryGetResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesWithCategoryGetResponse.value);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IsOddPostRequestBody}
  */
+// @ts-ignore
 export function createIsOddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoIsOddPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createIsOddPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoIsOddPostRequestBody(isOddPostRequestBody: Partial<IsOddPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isOddPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface IsOddPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the isOdd method.
@@ -64,9 +66,12 @@ export interface IsOddRequestBuilder extends BaseRequestBuilder<IsOddRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeIsOddPostRequestBody(writer: SerializationWriter, isOddPostRequestBody: Partial<IsOddPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", isOddPostRequestBody.number);
-    writer.writeAdditionalData(isOddPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeIsOddPostRequestBody(writer: SerializationWriter, isOddPostRequestBody: Partial<IsOddPostRequestBody> | undefined | null = {}) : void {
+    if (isOddPostRequestBody) {
+        writer.writeObjectValue("number", isOddPostRequestBody.number);
+        writer.writeAdditionalData(isOddPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

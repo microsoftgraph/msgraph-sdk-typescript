@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SumSqPostRequestBody}
  */
+// @ts-ignore
 export function createSumSqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoSumSqPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createSumSqPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoSumSqPostRequestBody(sumSqPostRequestBody: Partial<SumSqPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { sumSqPostRequestBody.backingStoreEnabled = true; },
@@ -30,9 +32,12 @@ export function deserializeIntoSumSqPostRequestBody(sumSqPostRequestBody: Partia
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeSumSqPostRequestBody(writer: SerializationWriter, sumSqPostRequestBody: Partial<SumSqPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("values", sumSqPostRequestBody.values);
-    writer.writeAdditionalData(sumSqPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeSumSqPostRequestBody(writer: SerializationWriter, sumSqPostRequestBody: Partial<SumSqPostRequestBody> | undefined | null = {}) : void {
+    if (sumSqPostRequestBody) {
+        writer.writeObjectValue("values", sumSqPostRequestBody.values);
+        writer.writeAdditionalData(sumSqPostRequestBody.additionalData);
+    }
 }
 export interface SumSqPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -42,11 +47,11 @@ export interface SumSqPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The values property
      */
-    values?: UntypedNode;
+    values?: UntypedNode | null;
 }
 /**
  * Provides operations to call the sumSq method.

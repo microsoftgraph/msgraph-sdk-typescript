@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LnPostRequestBody}
  */
+// @ts-ignore
 export function createLnPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLnPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLnPostRequestBodyFromDiscriminatorValue(parseNode: ParseNo
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLnPostRequestBody(lnPostRequestBody: Partial<LnPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { lnPostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface LnPostRequestBody extends AdditionalDataHolder, BackedModel, Pa
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The number property
      */
-    number?: UntypedNode;
+    number?: UntypedNode | null;
 }
 /**
  * Provides operations to call the ln method.
@@ -64,9 +66,12 @@ export interface LnRequestBuilder extends BaseRequestBuilder<LnRequestBuilder> {
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLnPostRequestBody(writer: SerializationWriter, lnPostRequestBody: Partial<LnPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("number", lnPostRequestBody.number);
-    writer.writeAdditionalData(lnPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeLnPostRequestBody(writer: SerializationWriter, lnPostRequestBody: Partial<LnPostRequestBody> | undefined | null = {}) : void {
+    if (lnPostRequestBody) {
+        writer.writeObjectValue("number", lnPostRequestBody.number);
+        writer.writeAdditionalData(lnPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

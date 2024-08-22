@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ReptPostRequestBody}
  */
+// @ts-ignore
 export function createReptPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoReptPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createReptPostRequestBodyFromDiscriminatorValue(parseNode: Parse
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoReptPostRequestBody(reptPostRequestBody: Partial<ReptPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { reptPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface ReptPostRequestBody extends AdditionalDataHolder, BackedModel, 
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The numberTimes property
      */
-    numberTimes?: UntypedNode;
+    numberTimes?: UntypedNode | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the rept method.
@@ -69,10 +71,13 @@ export interface ReptRequestBuilder extends BaseRequestBuilder<ReptRequestBuilde
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeReptPostRequestBody(writer: SerializationWriter, reptPostRequestBody: Partial<ReptPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("numberTimes", reptPostRequestBody.numberTimes);
-    writer.writeObjectValue("text", reptPostRequestBody.text);
-    writer.writeAdditionalData(reptPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeReptPostRequestBody(writer: SerializationWriter, reptPostRequestBody: Partial<ReptPostRequestBody> | undefined | null = {}) : void {
+    if (reptPostRequestBody) {
+        writer.writeObjectValue("numberTimes", reptPostRequestBody.numberTimes);
+        writer.writeObjectValue("text", reptPostRequestBody.text);
+        writer.writeAdditionalData(reptPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

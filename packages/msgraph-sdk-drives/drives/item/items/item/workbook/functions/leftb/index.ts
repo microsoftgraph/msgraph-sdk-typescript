@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {LeftbPostRequestBody}
  */
+// @ts-ignore
 export function createLeftbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoLeftbPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createLeftbPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoLeftbPostRequestBody(leftbPostRequestBody: Partial<LeftbPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { leftbPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface LeftbPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The numBytes property
      */
-    numBytes?: UntypedNode;
+    numBytes?: UntypedNode | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the leftb method.
@@ -69,10 +71,13 @@ export interface LeftbRequestBuilder extends BaseRequestBuilder<LeftbRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeLeftbPostRequestBody(writer: SerializationWriter, leftbPostRequestBody: Partial<LeftbPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("numBytes", leftbPostRequestBody.numBytes);
-    writer.writeObjectValue("text", leftbPostRequestBody.text);
-    writer.writeAdditionalData(leftbPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeLeftbPostRequestBody(writer: SerializationWriter, leftbPostRequestBody: Partial<LeftbPostRequestBody> | undefined | null = {}) : void {
+    if (leftbPostRequestBody) {
+        writer.writeObjectValue("numBytes", leftbPostRequestBody.numBytes);
+        writer.writeObjectValue("text", leftbPostRequestBody.text);
+        writer.writeAdditionalData(leftbPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

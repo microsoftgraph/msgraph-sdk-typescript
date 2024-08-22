@@ -16,23 +16,23 @@ export interface CoupDaysPostRequestBody extends AdditionalDataHolder, BackedMod
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The basis property
      */
-    basis?: UntypedNode;
+    basis?: UntypedNode | null;
     /**
      * The frequency property
      */
-    frequency?: UntypedNode;
+    frequency?: UntypedNode | null;
     /**
      * The maturity property
      */
-    maturity?: UntypedNode;
+    maturity?: UntypedNode | null;
     /**
      * The settlement property
      */
-    settlement?: UntypedNode;
+    settlement?: UntypedNode | null;
 }
 /**
  * Provides operations to call the coupDays method.
@@ -59,6 +59,7 @@ export interface CoupDaysRequestBuilder extends BaseRequestBuilder<CoupDaysReque
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CoupDaysPostRequestBody}
  */
+// @ts-ignore
 export function createCoupDaysPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCoupDaysPostRequestBody;
 }
@@ -66,6 +67,7 @@ export function createCoupDaysPostRequestBodyFromDiscriminatorValue(parseNode: P
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoCoupDaysPostRequestBody(coupDaysPostRequestBody: Partial<CoupDaysPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { coupDaysPostRequestBody.backingStoreEnabled = true; },
@@ -79,12 +81,15 @@ export function deserializeIntoCoupDaysPostRequestBody(coupDaysPostRequestBody: 
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeCoupDaysPostRequestBody(writer: SerializationWriter, coupDaysPostRequestBody: Partial<CoupDaysPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("basis", coupDaysPostRequestBody.basis);
-    writer.writeObjectValue("frequency", coupDaysPostRequestBody.frequency);
-    writer.writeObjectValue("maturity", coupDaysPostRequestBody.maturity);
-    writer.writeObjectValue("settlement", coupDaysPostRequestBody.settlement);
-    writer.writeAdditionalData(coupDaysPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeCoupDaysPostRequestBody(writer: SerializationWriter, coupDaysPostRequestBody: Partial<CoupDaysPostRequestBody> | undefined | null = {}) : void {
+    if (coupDaysPostRequestBody) {
+        writer.writeObjectValue("basis", coupDaysPostRequestBody.basis);
+        writer.writeObjectValue("frequency", coupDaysPostRequestBody.frequency);
+        writer.writeObjectValue("maturity", coupDaysPostRequestBody.maturity);
+        writer.writeObjectValue("settlement", coupDaysPostRequestBody.settlement);
+        writer.writeAdditionalData(coupDaysPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

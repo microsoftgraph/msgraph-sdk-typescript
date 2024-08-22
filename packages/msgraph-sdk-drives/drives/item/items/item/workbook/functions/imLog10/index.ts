@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ImLog10PostRequestBody}
  */
+// @ts-ignore
 export function createImLog10PostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoImLog10PostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createImLog10PostRequestBodyFromDiscriminatorValue(parseNode: Pa
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoImLog10PostRequestBody(imLog10PostRequestBody: Partial<ImLog10PostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { imLog10PostRequestBody.backingStoreEnabled = true; },
@@ -34,11 +36,11 @@ export interface ImLog10PostRequestBody extends AdditionalDataHolder, BackedMode
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The inumber property
      */
-    inumber?: UntypedNode;
+    inumber?: UntypedNode | null;
 }
 /**
  * Provides operations to call the imLog10 method.
@@ -64,9 +66,12 @@ export interface ImLog10RequestBuilder extends BaseRequestBuilder<ImLog10Request
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeImLog10PostRequestBody(writer: SerializationWriter, imLog10PostRequestBody: Partial<ImLog10PostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("inumber", imLog10PostRequestBody.inumber);
-    writer.writeAdditionalData(imLog10PostRequestBody.additionalData);
+// @ts-ignore
+export function serializeImLog10PostRequestBody(writer: SerializationWriter, imLog10PostRequestBody: Partial<ImLog10PostRequestBody> | undefined | null = {}) : void {
+    if (imLog10PostRequestBody) {
+        writer.writeObjectValue("inumber", imLog10PostRequestBody.inumber);
+        writer.writeAdditionalData(imLog10PostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {HypGeom_DistPostRequestBody}
  */
+// @ts-ignore
 export function createHypGeom_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoHypGeom_DistPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createHypGeom_DistPostRequestBodyFromDiscriminatorValue(parseNod
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoHypGeom_DistPostRequestBody(hypGeom_DistPostRequestBody: Partial<HypGeom_DistPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { hypGeom_DistPostRequestBody.backingStoreEnabled = true; },
@@ -38,27 +40,27 @@ export interface HypGeom_DistPostRequestBody extends AdditionalDataHolder, Backe
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The cumulative property
      */
-    cumulative?: UntypedNode;
+    cumulative?: UntypedNode | null;
     /**
      * The numberPop property
      */
-    numberPop?: UntypedNode;
+    numberPop?: UntypedNode | null;
     /**
      * The numberSample property
      */
-    numberSample?: UntypedNode;
+    numberSample?: UntypedNode | null;
     /**
      * The populationS property
      */
-    populationS?: UntypedNode;
+    populationS?: UntypedNode | null;
     /**
      * The sampleS property
      */
-    sampleS?: UntypedNode;
+    sampleS?: UntypedNode | null;
 }
 /**
  * Provides operations to call the hypGeom_Dist method.
@@ -84,13 +86,16 @@ export interface HypGeom_DistRequestBuilder extends BaseRequestBuilder<HypGeom_D
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeHypGeom_DistPostRequestBody(writer: SerializationWriter, hypGeom_DistPostRequestBody: Partial<HypGeom_DistPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("cumulative", hypGeom_DistPostRequestBody.cumulative);
-    writer.writeObjectValue("numberPop", hypGeom_DistPostRequestBody.numberPop);
-    writer.writeObjectValue("numberSample", hypGeom_DistPostRequestBody.numberSample);
-    writer.writeObjectValue("populationS", hypGeom_DistPostRequestBody.populationS);
-    writer.writeObjectValue("sampleS", hypGeom_DistPostRequestBody.sampleS);
-    writer.writeAdditionalData(hypGeom_DistPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeHypGeom_DistPostRequestBody(writer: SerializationWriter, hypGeom_DistPostRequestBody: Partial<HypGeom_DistPostRequestBody> | undefined | null = {}) : void {
+    if (hypGeom_DistPostRequestBody) {
+        writer.writeObjectValue("cumulative", hypGeom_DistPostRequestBody.cumulative);
+        writer.writeObjectValue("numberPop", hypGeom_DistPostRequestBody.numberPop);
+        writer.writeObjectValue("numberSample", hypGeom_DistPostRequestBody.numberSample);
+        writer.writeObjectValue("populationS", hypGeom_DistPostRequestBody.populationS);
+        writer.writeObjectValue("sampleS", hypGeom_DistPostRequestBody.sampleS);
+        writer.writeAdditionalData(hypGeom_DistPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.

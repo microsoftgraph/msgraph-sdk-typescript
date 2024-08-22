@@ -13,6 +13,7 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
  * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RightPostRequestBody}
  */
+// @ts-ignore
 export function createRightPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRightPostRequestBody;
 }
@@ -20,6 +21,7 @@ export function createRightPostRequestBodyFromDiscriminatorValue(parseNode: Pars
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
+// @ts-ignore
 export function deserializeIntoRightPostRequestBody(rightPostRequestBody: Partial<RightPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { rightPostRequestBody.backingStoreEnabled = true; },
@@ -35,15 +37,15 @@ export interface RightPostRequestBody extends AdditionalDataHolder, BackedModel,
     /**
      * Stores model information.
      */
-    backingStoreEnabled?: boolean;
+    backingStoreEnabled?: boolean | null;
     /**
      * The numChars property
      */
-    numChars?: UntypedNode;
+    numChars?: UntypedNode | null;
     /**
      * The text property
      */
-    text?: UntypedNode;
+    text?: UntypedNode | null;
 }
 /**
  * Provides operations to call the right method.
@@ -69,10 +71,13 @@ export interface RightRequestBuilder extends BaseRequestBuilder<RightRequestBuil
  * Serializes information the current object
  * @param writer Serialization writer to use to serialize this model
  */
-export function serializeRightPostRequestBody(writer: SerializationWriter, rightPostRequestBody: Partial<RightPostRequestBody> | undefined = {}) : void {
-    writer.writeObjectValue("numChars", rightPostRequestBody.numChars);
-    writer.writeObjectValue("text", rightPostRequestBody.text);
-    writer.writeAdditionalData(rightPostRequestBody.additionalData);
+// @ts-ignore
+export function serializeRightPostRequestBody(writer: SerializationWriter, rightPostRequestBody: Partial<RightPostRequestBody> | undefined | null = {}) : void {
+    if (rightPostRequestBody) {
+        writer.writeObjectValue("numChars", rightPostRequestBody.numChars);
+        writer.writeObjectValue("text", rightPostRequestBody.text);
+        writer.writeAdditionalData(rightPostRequestBody.additionalData);
+    }
 }
 /**
  * Uri template for the request builder.
