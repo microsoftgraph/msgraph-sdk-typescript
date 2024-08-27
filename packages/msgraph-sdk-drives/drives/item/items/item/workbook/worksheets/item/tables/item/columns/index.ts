@@ -135,6 +135,7 @@ export const ColumnsRequestBuilderNavigationMetadata: Record<Exclude<keyof Colum
     itemAtWithIndex: {
         requestsMetadata: ItemAtWithIndexRequestBuilderRequestsMetadata,
         navigationMetadata: ItemAtWithIndexRequestBuilderNavigationMetadata,
+        pathParametersMappings: ["index"],
     },
     add: {
         requestsMetadata: AddRequestBuilderRequestsMetadata,

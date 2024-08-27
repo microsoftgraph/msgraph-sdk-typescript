@@ -147,6 +147,7 @@ const ListItemItemRequestBuilderGetQueryParametersMapper: Record<string, string>
 export const ListItemItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ListItemItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval: {
         requestsMetadata: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "interval", "startDateTime"],
     },
     analytics: {
         requestsMetadata: AnalyticsRequestBuilderRequestsMetadata,

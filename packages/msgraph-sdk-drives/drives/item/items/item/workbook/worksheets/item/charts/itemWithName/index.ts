@@ -123,12 +123,15 @@ export const ItemWithNameRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2
 export const ItemWithNameRequestBuilderNavigationMetadata: Record<Exclude<keyof ItemWithNameRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     imageWithWidth: {
         requestsMetadata: ImageWithWidthRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["width"],
     },
     imageWithWidthWithHeight: {
         requestsMetadata: ImageWithWidthWithHeightRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["height", "width"],
     },
     imageWithWidthWithHeightWithFittingMode: {
         requestsMetadata: ImageWithWidthWithHeightWithFittingModeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["fittingMode", "height", "width"],
     },
     axes: {
         requestsMetadata: AxesRequestBuilderRequestsMetadata,

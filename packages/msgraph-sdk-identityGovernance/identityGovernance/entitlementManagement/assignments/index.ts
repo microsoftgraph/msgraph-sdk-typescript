@@ -139,6 +139,7 @@ const AssignmentsRequestBuilderGetQueryParametersMapper: Record<string, string> 
 export const AssignmentsRequestBuilderNavigationMetadata: Record<Exclude<keyof AssignmentsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId: {
         requestsMetadata: AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["accessPackageId", "incompatibleAccessPackageId"],
     },
     byAccessPackageAssignmentId: {
         requestsMetadata: AccessPackageAssignmentItemRequestBuilderRequestsMetadata,
@@ -147,6 +148,7 @@ export const AssignmentsRequestBuilderNavigationMetadata: Record<Exclude<keyof A
     },
     filterByCurrentUserWithOn: {
         requestsMetadata: FilterByCurrentUserWithOnRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["on"],
     },
     additionalAccess: {
         requestsMetadata: AdditionalAccessRequestBuilderRequestsMetadata,

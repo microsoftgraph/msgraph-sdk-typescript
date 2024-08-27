@@ -130,6 +130,7 @@ export const DefinitionsRequestBuilderNavigationMetadata: Record<Exclude<keyof D
     },
     filterByCurrentUserWithOn: {
         requestsMetadata: FilterByCurrentUserWithOnRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["on"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

@@ -134,6 +134,7 @@ export const NotebooksRequestBuilderNavigationMetadata: Record<Exclude<keyof Not
     },
     getRecentNotebooksWithIncludePersonalNotebooks: {
         requestsMetadata: GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["includePersonalNotebooks"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

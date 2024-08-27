@@ -134,6 +134,7 @@ export const ItemsRequestBuilderNavigationMetadata: Record<Exclude<keyof ItemsRe
     },
     deltaWithToken: {
         requestsMetadata: DeltaWithTokenRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["token"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

@@ -52,11 +52,12 @@ export interface AccessPackageAssignmentPolicyItemRequestBuilder extends BaseReq
      */
      get(requestConfiguration?: RequestConfiguration<AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageAssignmentPolicy | undefined>;
     /**
-     * Update the navigation property assignmentPolicies in identityGovernance
+     * Update an existing accessPackageAssignmentPolicy object to change one or more of its properties, such as the display name or description.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageAssignmentPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-update?view=graph-rest-1.0|Find more info here}
      */
      put(body: AccessPackageAssignmentPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageAssignmentPolicy | undefined>;
     /**
@@ -72,7 +73,7 @@ export interface AccessPackageAssignmentPolicyItemRequestBuilder extends BaseReq
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property assignmentPolicies in identityGovernance
+     * Update an existing accessPackageAssignmentPolicy object to change one or more of its properties, such as the display name or description.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

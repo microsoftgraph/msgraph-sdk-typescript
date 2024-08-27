@@ -127,10 +127,10 @@ export interface MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAp
      */
     get graphWindowsWebApp(): GraphWindowsWebAppRequestBuilder;
     /**
-     * Deletes a windowsAppX.
+     * Deletes a managedIOSLobApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsappx-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedioslobapp-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -142,16 +142,16 @@ export interface MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAp
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * Update the properties of a iosLobApp object.
+     * Update the properties of a win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-ioslobapp-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * Deletes a windowsAppX.
+     * Deletes a managedIOSLobApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -163,7 +163,7 @@ export interface MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAp
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a iosLobApp object.
+     * Update the properties of a win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

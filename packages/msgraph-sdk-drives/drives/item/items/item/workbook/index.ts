@@ -159,9 +159,11 @@ const WorkbookRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const WorkbookRequestBuilderNavigationMetadata: Record<Exclude<keyof WorkbookRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     sessionInfoResourceWithKey: {
         requestsMetadata: SessionInfoResourceWithKeyRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["key"],
     },
     tableRowOperationResultWithKey: {
         requestsMetadata: TableRowOperationResultWithKeyRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["key"],
     },
     application: {
         requestsMetadata: ApplicationRequestBuilderRequestsMetadata,

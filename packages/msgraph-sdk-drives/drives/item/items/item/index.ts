@@ -277,12 +277,15 @@ const DriveItemItemRequestBuilderGetQueryParametersMapper: Record<string, string
 export const DriveItemItemRequestBuilderNavigationMetadata: Record<Exclude<keyof DriveItemItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     deltaWithToken: {
         requestsMetadata: DeltaWithTokenRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["token"],
     },
     getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval: {
         requestsMetadata: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "interval", "startDateTime"],
     },
     searchWithQ: {
         requestsMetadata: SearchWithQRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["q"],
     },
     analytics: {
         requestsMetadata: AnalyticsRequestBuilderRequestsMetadata,

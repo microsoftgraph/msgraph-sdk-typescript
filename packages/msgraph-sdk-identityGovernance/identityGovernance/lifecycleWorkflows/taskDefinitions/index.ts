@@ -27,7 +27,7 @@ export interface TaskDefinitionsRequestBuilder extends BaseRequestBuilder<TaskDe
      */
      byTaskDefinitionId(taskDefinitionId: string) : TaskDefinitionItemRequestBuilder;
     /**
-     * Get a list of the taskDefinition objects and their properties.
+     * Get a list of built-in tasks in Lifecycle Workflows. A task is represented by the taskDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TaskDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,14 +35,14 @@ export interface TaskDefinitionsRequestBuilder extends BaseRequestBuilder<TaskDe
      */
      get(requestConfiguration?: RequestConfiguration<TaskDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<TaskDefinitionCollectionResponse | undefined>;
     /**
-     * Get a list of the taskDefinition objects and their properties.
+     * Get a list of built-in tasks in Lifecycle Workflows. A task is represented by the taskDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the taskDefinition objects and their properties.
+ * Get a list of built-in tasks in Lifecycle Workflows. A task is represented by the taskDefinition object.
  */
 export interface TaskDefinitionsRequestBuilderGetQueryParameters {
     /**

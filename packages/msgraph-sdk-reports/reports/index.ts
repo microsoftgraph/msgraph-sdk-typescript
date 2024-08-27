@@ -926,288 +926,383 @@ const ReportsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof ReportsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     getEmailActivityCountsWithPeriod: {
         requestsMetadata: GetEmailActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getEmailActivityUserCountsWithPeriod: {
         requestsMetadata: GetEmailActivityUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getEmailActivityUserDetailWithDate: {
         requestsMetadata: GetEmailActivityUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getEmailActivityUserDetailWithPeriod: {
         requestsMetadata: GetEmailActivityUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getEmailAppUsageAppsUserCountsWithPeriod: {
         requestsMetadata: GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getEmailAppUsageUserCountsWithPeriod: {
         requestsMetadata: GetEmailAppUsageUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getEmailAppUsageUserDetailWithDate: {
         requestsMetadata: GetEmailAppUsageUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getEmailAppUsageUserDetailWithPeriod: {
         requestsMetadata: GetEmailAppUsageUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getEmailAppUsageVersionsUserCountsWithPeriod: {
         requestsMetadata: GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime: {
         requestsMetadata: GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "groupId", "startDateTime"],
     },
     getM365AppPlatformUserCountsWithPeriod: {
         requestsMetadata: GetM365AppPlatformUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getM365AppUserCountsWithPeriod: {
         requestsMetadata: GetM365AppUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getM365AppUserDetailWithDate: {
         requestsMetadata: GetM365AppUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getM365AppUserDetailWithPeriod: {
         requestsMetadata: GetM365AppUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getMailboxUsageDetailWithPeriod: {
         requestsMetadata: GetMailboxUsageDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getMailboxUsageMailboxCountsWithPeriod: {
         requestsMetadata: GetMailboxUsageMailboxCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getMailboxUsageQuotaStatusMailboxCountsWithPeriod: {
         requestsMetadata: GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getMailboxUsageStorageWithPeriod: {
         requestsMetadata: GetMailboxUsageStorageWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOffice365ActiveUserCountsWithPeriod: {
         requestsMetadata: GetOffice365ActiveUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOffice365ActiveUserDetailWithDate: {
         requestsMetadata: GetOffice365ActiveUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getOffice365ActiveUserDetailWithPeriod: {
         requestsMetadata: GetOffice365ActiveUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOffice365GroupsActivityCountsWithPeriod: {
         requestsMetadata: GetOffice365GroupsActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOffice365GroupsActivityDetailWithDate: {
         requestsMetadata: GetOffice365GroupsActivityDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getOffice365GroupsActivityDetailWithPeriod: {
         requestsMetadata: GetOffice365GroupsActivityDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOffice365GroupsActivityFileCountsWithPeriod: {
         requestsMetadata: GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOffice365GroupsActivityGroupCountsWithPeriod: {
         requestsMetadata: GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOffice365GroupsActivityStorageWithPeriod: {
         requestsMetadata: GetOffice365GroupsActivityStorageWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOffice365ServicesUserCountsWithPeriod: {
         requestsMetadata: GetOffice365ServicesUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOneDriveActivityFileCountsWithPeriod: {
         requestsMetadata: GetOneDriveActivityFileCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOneDriveActivityUserCountsWithPeriod: {
         requestsMetadata: GetOneDriveActivityUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOneDriveActivityUserDetailWithDate: {
         requestsMetadata: GetOneDriveActivityUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getOneDriveActivityUserDetailWithPeriod: {
         requestsMetadata: GetOneDriveActivityUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOneDriveUsageAccountCountsWithPeriod: {
         requestsMetadata: GetOneDriveUsageAccountCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOneDriveUsageAccountDetailWithDate: {
         requestsMetadata: GetOneDriveUsageAccountDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getOneDriveUsageAccountDetailWithPeriod: {
         requestsMetadata: GetOneDriveUsageAccountDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOneDriveUsageFileCountsWithPeriod: {
         requestsMetadata: GetOneDriveUsageFileCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getOneDriveUsageStorageWithPeriod: {
         requestsMetadata: GetOneDriveUsageStorageWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime: {
         requestsMetadata: GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "printerId", "startDateTime"],
     },
     getRelyingPartyDetailedSummaryWithPeriod: {
         requestsMetadata: GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSharePointActivityFileCountsWithPeriod: {
         requestsMetadata: GetSharePointActivityFileCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSharePointActivityPagesWithPeriod: {
         requestsMetadata: GetSharePointActivityPagesWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSharePointActivityUserCountsWithPeriod: {
         requestsMetadata: GetSharePointActivityUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSharePointActivityUserDetailWithDate: {
         requestsMetadata: GetSharePointActivityUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getSharePointActivityUserDetailWithPeriod: {
         requestsMetadata: GetSharePointActivityUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSharePointSiteUsageDetailWithDate: {
         requestsMetadata: GetSharePointSiteUsageDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getSharePointSiteUsageDetailWithPeriod: {
         requestsMetadata: GetSharePointSiteUsageDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSharePointSiteUsageFileCountsWithPeriod: {
         requestsMetadata: GetSharePointSiteUsageFileCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSharePointSiteUsagePagesWithPeriod: {
         requestsMetadata: GetSharePointSiteUsagePagesWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSharePointSiteUsageSiteCountsWithPeriod: {
         requestsMetadata: GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSharePointSiteUsageStorageWithPeriod: {
         requestsMetadata: GetSharePointSiteUsageStorageWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessActivityCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessActivityUserCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessActivityUserDetailWithDate: {
         requestsMetadata: GetSkypeForBusinessActivityUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getSkypeForBusinessActivityUserDetailWithPeriod: {
         requestsMetadata: GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessDeviceUsageUserCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessDeviceUsageUserDetailWithDate: {
         requestsMetadata: GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getSkypeForBusinessDeviceUsageUserDetailWithPeriod: {
         requestsMetadata: GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessOrganizerActivityCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessOrganizerActivityUserCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessParticipantActivityCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessParticipantActivityMinuteCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessParticipantActivityUserCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessPeerToPeerActivityCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod: {
         requestsMetadata: GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsDeviceUsageDistributionUserCountsWithPeriod: {
         requestsMetadata: GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsDeviceUsageUserCountsWithPeriod: {
         requestsMetadata: GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsDeviceUsageUserDetailWithDate: {
         requestsMetadata: GetTeamsDeviceUsageUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getTeamsDeviceUsageUserDetailWithPeriod: {
         requestsMetadata: GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsTeamActivityCountsWithPeriod: {
         requestsMetadata: GetTeamsTeamActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsTeamActivityDetailWithDate: {
         requestsMetadata: GetTeamsTeamActivityDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getTeamsTeamActivityDetailWithPeriod: {
         requestsMetadata: GetTeamsTeamActivityDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsTeamActivityDistributionCountsWithPeriod: {
         requestsMetadata: GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsTeamCountsWithPeriod: {
         requestsMetadata: GetTeamsTeamCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsUserActivityCountsWithPeriod: {
         requestsMetadata: GetTeamsUserActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsUserActivityUserCountsWithPeriod: {
         requestsMetadata: GetTeamsUserActivityUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getTeamsUserActivityUserDetailWithDate: {
         requestsMetadata: GetTeamsUserActivityUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getTeamsUserActivityUserDetailWithPeriod: {
         requestsMetadata: GetTeamsUserActivityUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime: {
         requestsMetadata: GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "startDateTime", "userId"],
     },
     getYammerActivityCountsWithPeriod: {
         requestsMetadata: GetYammerActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getYammerActivityUserCountsWithPeriod: {
         requestsMetadata: GetYammerActivityUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getYammerActivityUserDetailWithDate: {
         requestsMetadata: GetYammerActivityUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getYammerActivityUserDetailWithPeriod: {
         requestsMetadata: GetYammerActivityUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getYammerDeviceUsageDistributionUserCountsWithPeriod: {
         requestsMetadata: GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getYammerDeviceUsageUserCountsWithPeriod: {
         requestsMetadata: GetYammerDeviceUsageUserCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getYammerDeviceUsageUserDetailWithDate: {
         requestsMetadata: GetYammerDeviceUsageUserDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getYammerDeviceUsageUserDetailWithPeriod: {
         requestsMetadata: GetYammerDeviceUsageUserDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getYammerGroupsActivityCountsWithPeriod: {
         requestsMetadata: GetYammerGroupsActivityCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getYammerGroupsActivityDetailWithDate: {
         requestsMetadata: GetYammerGroupsActivityDetailWithDateRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["date"],
     },
     getYammerGroupsActivityDetailWithPeriod: {
         requestsMetadata: GetYammerGroupsActivityDetailWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     getYammerGroupsActivityGroupCountsWithPeriod: {
         requestsMetadata: GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken: {
         requestsMetadata: ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["filter", "skip", "skipToken", "top"],
     },
     managedDeviceEnrollmentTopFailuresWithPeriod: {
         requestsMetadata: ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["period"],
     },
     authenticationMethods: {
         requestsMetadata: AuthenticationMethodsRequestBuilderRequestsMetadata,

@@ -57,18 +57,18 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      */
     get userStatusOverview(): UserStatusOverviewRequestBuilder;
     /**
-     * Deletes a iosUpdateConfiguration.
+     * Deletes a windowsUpdateForBusinessConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdateconfiguration-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsupdateforbusinessconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the sharedPCConfiguration object.
+     * Read properties and relationships of the editionUpgradeConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-sharedpcconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-editionupgradeconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
@@ -78,28 +78,28 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      */
      getOmaSettingPlainTextValueWithSecretReferenceValueId(secretReferenceValueId: string | undefined) : GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder;
     /**
-     * Update the properties of a windowsUpdateForBusinessConfiguration object.
+     * Update the properties of a androidGeneralDeviceConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsupdateforbusinessconfiguration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidgeneraldeviceconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
-     * Deletes a iosUpdateConfiguration.
+     * Deletes a windowsUpdateForBusinessConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the sharedPCConfiguration object.
+     * Read properties and relationships of the editionUpgradeConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a windowsUpdateForBusinessConfiguration object.
+     * Update the properties of a androidGeneralDeviceConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -107,7 +107,7 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the sharedPCConfiguration object.
+ * Read properties and relationships of the editionUpgradeConfiguration object.
  */
 export interface DeviceConfigurationItemRequestBuilderGetQueryParameters {
     /**
@@ -136,6 +136,7 @@ const DeviceConfigurationItemRequestBuilderGetQueryParametersMapper: Record<stri
 export const DeviceConfigurationItemRequestBuilderNavigationMetadata: Record<Exclude<keyof DeviceConfigurationItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     getOmaSettingPlainTextValueWithSecretReferenceValueId: {
         requestsMetadata: GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["secretReferenceValueId"],
     },
     assign: {
         requestsMetadata: AssignRequestBuilderRequestsMetadata,

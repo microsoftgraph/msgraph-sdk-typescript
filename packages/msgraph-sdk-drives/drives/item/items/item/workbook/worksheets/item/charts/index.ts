@@ -143,10 +143,12 @@ export const ChartsRequestBuilderNavigationMetadata: Record<Exclude<keyof Charts
     itemAtWithIndex: {
         requestsMetadata: ItemAtWithIndexRequestBuilderRequestsMetadata,
         navigationMetadata: ItemAtWithIndexRequestBuilderNavigationMetadata,
+        pathParametersMappings: ["index"],
     },
     itemWithName: {
         requestsMetadata: ItemWithNameRequestBuilderRequestsMetadata,
         navigationMetadata: ItemWithNameRequestBuilderNavigationMetadata,
+        pathParametersMappings: ["name"],
     },
     add: {
         requestsMetadata: AddRequestBuilderRequestsMetadata,
