@@ -114,6 +114,7 @@ export const TaskReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof T
     },
     microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "startDateTime"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

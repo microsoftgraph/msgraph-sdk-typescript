@@ -82,6 +82,7 @@ const OutlookRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const OutlookRequestBuilderNavigationMetadata: Record<Exclude<keyof OutlookRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     supportedTimeZonesWithTimeZoneStandard: {
         requestsMetadata: SupportedTimeZonesWithTimeZoneStandardRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["TimeZoneStandard"],
     },
     masterCategories: {
         requestsMetadata: MasterCategoriesRequestBuilderRequestsMetadata,

@@ -124,12 +124,15 @@ export const ItemAtWithIndexRequestBuilderUriTemplate = "{+baseurl}/drives/{driv
 export const ItemAtWithIndexRequestBuilderNavigationMetadata: Record<Exclude<keyof ItemAtWithIndexRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     imageWithWidth: {
         requestsMetadata: ImageWithWidthRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["width"],
     },
     imageWithWidthWithHeight: {
         requestsMetadata: ImageWithWidthWithHeightRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["height", "width"],
     },
     imageWithWidthWithHeightWithFittingMode: {
         requestsMetadata: ImageWithWidthWithHeightWithFittingModeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["fittingMode", "height", "width"],
     },
     axes: {
         requestsMetadata: AxesRequestBuilderRequestsMetadata,

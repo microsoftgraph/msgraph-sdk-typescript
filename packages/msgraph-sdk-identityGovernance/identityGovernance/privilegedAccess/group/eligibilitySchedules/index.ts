@@ -129,6 +129,7 @@ export const EligibilitySchedulesRequestBuilderNavigationMetadata: Record<Exclud
     },
     filterByCurrentUserWithOn: {
         requestsMetadata: FilterByCurrentUserWithOnRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["on"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

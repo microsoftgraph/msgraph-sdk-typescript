@@ -220,6 +220,7 @@ const ApplicationItemRequestBuilderGetQueryParametersMapper: Record<string, stri
 export const ApplicationItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ApplicationItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     federatedIdentityCredentialsWithName: {
         requestsMetadata: FederatedIdentityCredentialsWithNameRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["name"],
     },
     addKey: {
         requestsMetadata: AddKeyRequestBuilderRequestsMetadata,

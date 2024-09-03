@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ActivateRequestBuilder extends BaseRequestBuilder<ActivateRequestBuilder> {
     /**
-     * Activate a protectionPolicyBase.
+     * Activate a protectionPolicyBase. Currently, only one active backup policy per underlying service is supported (that is, one for OneDrive accounts, one for SharePoint sites, and one for Exchange Online users). You can add or remove artifacts (sites or user accounts) to or from each active policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ProtectionPolicyBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -21,7 +21,7 @@ export interface ActivateRequestBuilder extends BaseRequestBuilder<ActivateReque
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProtectionPolicyBase | undefined>;
     /**
-     * Activate a protectionPolicyBase.
+     * Activate a protectionPolicyBase. Currently, only one active backup policy per underlying service is supported (that is, one for OneDrive accounts, one for SharePoint sites, and one for Exchange Online users). You can add or remove artifacts (sites or user accounts) to or from each active policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

@@ -128,6 +128,7 @@ export const AccessPackageAssignmentApprovalsRequestBuilderNavigationMetadata: R
     },
     filterByCurrentUserWithOn: {
         requestsMetadata: FilterByCurrentUserWithOnRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["on"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

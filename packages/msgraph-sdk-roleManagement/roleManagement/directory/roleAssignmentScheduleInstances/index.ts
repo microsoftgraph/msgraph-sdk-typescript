@@ -129,6 +129,7 @@ export const RoleAssignmentScheduleInstancesRequestBuilderNavigationMetadata: Re
     },
     filterByCurrentUserWithOn: {
         requestsMetadata: FilterByCurrentUserWithOnRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["on"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

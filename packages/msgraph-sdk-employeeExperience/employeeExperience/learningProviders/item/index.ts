@@ -114,9 +114,11 @@ const LearningProviderItemRequestBuilderGetQueryParametersMapper: Record<string,
 export const LearningProviderItemRequestBuilderNavigationMetadata: Record<Exclude<keyof LearningProviderItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     learningContentsWithExternalId: {
         requestsMetadata: LearningContentsWithExternalIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["externalId"],
     },
     learningCourseActivitiesWithExternalcourseActivityId: {
         requestsMetadata: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["externalcourseActivityId"],
     },
     learningContents: {
         requestsMetadata: LearningContentsRequestBuilderRequestsMetadata,

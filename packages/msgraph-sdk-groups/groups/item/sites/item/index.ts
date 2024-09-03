@@ -205,13 +205,16 @@ const SiteItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const SiteItemRequestBuilderNavigationMetadata: Record<Exclude<keyof SiteItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval: {
         requestsMetadata: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "interval", "startDateTime"],
     },
     getApplicableContentTypesForListWithListId: {
         requestsMetadata: GetApplicableContentTypesForListWithListIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["listId"],
     },
     getByPathWithPath: {
         requestsMetadata: GetByPathWithPathRequestBuilderRequestsMetadata,
         navigationMetadata: GetByPathWithPathRequestBuilderNavigationMetadata,
+        pathParametersMappings: ["path"],
     },
     analytics: {
         requestsMetadata: AnalyticsRequestBuilderRequestsMetadata,

@@ -139,9 +139,11 @@ export const WebinarsRequestBuilderNavigationMetadata: Record<Exclude<keyof Webi
     },
     getByUserIdAndRoleWithUserIdWithRole: {
         requestsMetadata: GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["role", "userId"],
     },
     getByUserRoleWithRole: {
         requestsMetadata: GetByUserRoleWithRoleRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["role"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

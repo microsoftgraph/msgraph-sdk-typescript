@@ -135,6 +135,7 @@ export const AuditEventsRequestBuilderNavigationMetadata: Record<Exclude<keyof A
     },
     getAuditActivityTypesWithCategory: {
         requestsMetadata: GetAuditActivityTypesWithCategoryRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["category"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

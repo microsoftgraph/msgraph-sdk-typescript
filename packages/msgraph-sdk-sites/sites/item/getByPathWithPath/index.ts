@@ -162,9 +162,11 @@ export const GetByPathWithPathRequestBuilderUriTemplate = "{+baseurl}/sites/{sit
 export const GetByPathWithPathRequestBuilderNavigationMetadata: Record<Exclude<keyof GetByPathWithPathRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval: {
         requestsMetadata: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "interval", "startDateTime"],
     },
     getApplicableContentTypesForListWithListId: {
         requestsMetadata: GetApplicableContentTypesForListWithListIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["listId"],
     },
     analytics: {
         requestsMetadata: AnalyticsRequestBuilderRequestsMetadata,

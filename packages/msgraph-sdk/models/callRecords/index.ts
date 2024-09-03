@@ -31,7 +31,7 @@ export interface CallRecord extends Entity, Parsable {
     /**
      * Identity of the organizer of the call. This relationship is expanded by default in callRecord methods.
      */
-    organizer_v2?: Organizer | null;
+    organizerV2?: Organizer | null;
     /**
      * List of distinct identities involved in the call. Limited to 130 entries. The participants property is deprecated and will stop returning data on June 30, 2026. Going forward, use the participants_v2 relationship.
      */
@@ -39,7 +39,7 @@ export interface CallRecord extends Entity, Parsable {
     /**
      * List of distinct participants in the call.
      */
-    participants_v2?: Participant[] | null;
+    participantsV2?: Participant[] | null;
     /**
      * List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.
      */
@@ -136,7 +136,7 @@ export function createDirectRoutingLogRowFromDiscriminatorValue(parseNode: Parse
 // @ts-ignore
 export function createEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -212,7 +212,7 @@ export function createOrganizerFromDiscriminatorValue(parseNode: ParseNode | und
 // @ts-ignore
 export function createParticipantBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -333,7 +333,7 @@ export function createTraceRouteHopFromDiscriminatorValue(parseNode: ParseNode |
 // @ts-ignore
 export function createUserAgentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -378,9 +378,9 @@ export function deserializeIntoCallRecord(callRecord: Partial<CallRecord> | unde
         "lastModifiedDateTime": n => { callRecord.lastModifiedDateTime = n.getDateValue(); },
         "modalities": n => { callRecord.modalities = n.getCollectionOfEnumValues<Modality>(ModalityObject); },
         "organizer": n => { callRecord.organizer = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-        "organizer_v2": n => { callRecord.organizer_v2 = n.getObjectValue<Organizer>(createOrganizerFromDiscriminatorValue); },
+        "organizer_v2": n => { callRecord.organizerV2 = n.getObjectValue<Organizer>(createOrganizerFromDiscriminatorValue); },
         "participants": n => { callRecord.participants = n.getCollectionOfObjectValues<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-        "participants_v2": n => { callRecord.participants_v2 = n.getCollectionOfObjectValues<Participant>(createParticipantFromDiscriminatorValue); },
+        "participants_v2": n => { callRecord.participantsV2 = n.getCollectionOfObjectValues<Participant>(createParticipantFromDiscriminatorValue); },
         "sessions": n => { callRecord.sessions = n.getCollectionOfObjectValues<Session>(createSessionFromDiscriminatorValue); },
         "startDateTime": n => { callRecord.startDateTime = n.getDateValue(); },
         "type": n => { callRecord.type = n.getEnumValue<CallType>(CallTypeObject); },
@@ -1574,9 +1574,9 @@ export function serializeCallRecord(writer: SerializationWriter, callRecord: Par
         if(callRecord.modalities)
         writer.writeEnumValue<Modality>("modalities", ...callRecord.modalities);
         writer.writeObjectValue<IdentitySet>("organizer", callRecord.organizer, serializeIdentitySet);
-        writer.writeObjectValue<Organizer>("organizer_v2", callRecord.organizer_v2, serializeOrganizer);
+        writer.writeObjectValue<Organizer>("organizer_v2", callRecord.organizerV2, serializeOrganizer);
         writer.writeCollectionOfObjectValues<IdentitySet>("participants", callRecord.participants, serializeIdentitySet);
-        writer.writeCollectionOfObjectValues<Participant>("participants_v2", callRecord.participants_v2, serializeParticipant);
+        writer.writeCollectionOfObjectValues<Participant>("participants_v2", callRecord.participantsV2, serializeParticipant);
         writer.writeCollectionOfObjectValues<Session>("sessions", callRecord.sessions, serializeSession);
         writer.writeDateValue("startDateTime", callRecord.startDateTime);
         writer.writeEnumValue<CallType>("type", callRecord.type);

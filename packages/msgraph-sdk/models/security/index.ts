@@ -701,7 +701,7 @@ export function createAlertCommentFromDiscriminatorValue(parseNode: ParseNode | 
 // @ts-ignore
 export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -872,7 +872,7 @@ export function createArticleIndicatorFromDiscriminatorValue(parseNode: ParseNod
 // @ts-ignore
 export function createArtifactFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -964,7 +964,7 @@ export function createBlobEvidenceFromDiscriminatorValue(parseNode: ParseNode | 
 // @ts-ignore
 export function createCaseEscapedFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -993,7 +993,7 @@ export function createCaseOperationCollectionResponseFromDiscriminatorValue(pars
 // @ts-ignore
 export function createCaseOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -1133,7 +1133,7 @@ export function createCvssSummaryFromDiscriminatorValue(parseNode: ParseNode | u
 // @ts-ignore
 export function createDataSetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -1162,7 +1162,7 @@ export function createDataSourceCollectionResponseFromDiscriminatorValue(parseNo
 // @ts-ignore
 export function createDataSourceContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -1184,7 +1184,7 @@ export function createDataSourceContainerFromDiscriminatorValue(parseNode: Parse
 // @ts-ignore
 export function createDataSourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -1577,7 +1577,7 @@ export function createFilePlanDepartmentFromDiscriminatorValue(parseNode: ParseN
 // @ts-ignore
 export function createFilePlanDescriptorBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -1616,7 +1616,7 @@ export function createFilePlanDescriptorFromDiscriminatorValue(parseNode: ParseN
 // @ts-ignore
 export function createFilePlanDescriptorTemplateFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -1799,7 +1799,7 @@ export function createHostCookieFromDiscriminatorValue(parseNode: ParseNode | un
 // @ts-ignore
 export function createHostFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -2010,7 +2010,7 @@ export function createIncidentFromDiscriminatorValue(parseNode: ParseNode | unde
 // @ts-ignore
 export function createIndicatorFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -2329,7 +2329,7 @@ export function createRetentionDurationForeverFromDiscriminatorValue(parseNode: 
 // @ts-ignore
 export function createRetentionDurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -2432,7 +2432,7 @@ export function createSasTokenEvidenceFromDiscriminatorValue(parseNode: ParseNod
 // @ts-ignore
 export function createSearchFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -2580,7 +2580,7 @@ export function createSubmissionMailEvidenceFromDiscriminatorValue(parseNode: Pa
 // @ts-ignore
 export function createTagFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -2753,7 +2753,7 @@ export function createVulnerabilityFromDiscriminatorValue(parseNode: ParseNode |
 // @ts-ignore
 export function createWhoisBaseRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {

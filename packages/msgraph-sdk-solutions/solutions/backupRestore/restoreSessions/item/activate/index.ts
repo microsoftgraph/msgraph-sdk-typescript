@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ActivateRequestBuilder extends BaseRequestBuilder<ActivateRequestBuilder> {
     /**
-     * Activate a draft restoreSessionBase object.
+     * Activate a draft restoreSessionBase object. The following points apply to restoring a protection unit:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RestoreSessionBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -21,7 +21,7 @@ export interface ActivateRequestBuilder extends BaseRequestBuilder<ActivateReque
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RestoreSessionBase | undefined>;
     /**
-     * Activate a draft restoreSessionBase object.
+     * Activate a draft restoreSessionBase object. The following points apply to restoring a protection unit:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

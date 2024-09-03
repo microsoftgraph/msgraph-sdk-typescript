@@ -130,6 +130,7 @@ export const ItemsRequestBuilderNavigationMetadata: Record<Exclude<keyof ItemsRe
     },
     deltaWithToken: {
         requestsMetadata: DeltaWithTokenRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["token"],
     },
     delta: {
         requestsMetadata: DeltaRequestBuilderRequestsMetadata,
