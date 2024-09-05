@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface TaskDefinitionItemRequestBuilder extends BaseRequestBuilder<TaskDefinitionItemRequestBuilder> {
     /**
-     * Read the details of a built-in workflow task.
+     * Read the details of a built-in workflow task in Lifecycle Workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TaskDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -21,14 +21,14 @@ export interface TaskDefinitionItemRequestBuilder extends BaseRequestBuilder<Tas
      */
      get(requestConfiguration?: RequestConfiguration<TaskDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<TaskDefinition | undefined>;
     /**
-     * Read the details of a built-in workflow task.
+     * Read the details of a built-in workflow task in Lifecycle Workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TaskDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Read the details of a built-in workflow task.
+ * Read the details of a built-in workflow task in Lifecycle Workflows.
  */
 export interface TaskDefinitionItemRequestBuilderGetQueryParameters {
     /**

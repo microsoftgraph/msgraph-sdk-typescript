@@ -241,36 +241,47 @@ export const CellWithRowWithColumnRequestBuilderUriTemplate = "{+baseurl}/drives
 export const CellWithRowWithColumnRequestBuilderNavigationMetadata: Record<Exclude<keyof CellWithRowWithColumnRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     boundingRectWithAnotherRange: {
         requestsMetadata: BoundingRectWithAnotherRangeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["anotherRange"],
     },
     columnsAfterWithCount: {
         requestsMetadata: ColumnsAfterWithCountRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["count"],
     },
     columnsBeforeWithCount: {
         requestsMetadata: ColumnsBeforeWithCountRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["count"],
     },
     columnWithColumn1: {
         requestsMetadata: ColumnWithColumn1RequestBuilderRequestsMetadata,
+        pathParametersMappings: ["column1"],
     },
     intersectionWithAnotherRange: {
         requestsMetadata: IntersectionWithAnotherRangeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["anotherRange"],
     },
     offsetRangeWithRowOffsetWithColumnOffset: {
         requestsMetadata: OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["columnOffset", "rowOffset"],
     },
     resizedRangeWithDeltaRowsWithDeltaColumns: {
         requestsMetadata: ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["deltaColumns", "deltaRows"],
     },
     rowsAboveWithCount: {
         requestsMetadata: RowsAboveWithCountRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["count"],
     },
     rowsBelowWithCount: {
         requestsMetadata: RowsBelowWithCountRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["count"],
     },
     rowWithRow1: {
         requestsMetadata: RowWithRow1RequestBuilderRequestsMetadata,
+        pathParametersMappings: ["row1"],
     },
     usedRangeWithValuesOnly: {
         requestsMetadata: UsedRangeWithValuesOnlyRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["valuesOnly"],
     },
     clear: {
         requestsMetadata: ClearRequestBuilderRequestsMetadata,

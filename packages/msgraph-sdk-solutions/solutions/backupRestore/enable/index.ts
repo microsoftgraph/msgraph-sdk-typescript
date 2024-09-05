@@ -47,7 +47,7 @@ export interface EnablePostRequestBody extends AdditionalDataHolder, BackedModel
  */
 export interface EnableRequestBuilder extends BaseRequestBuilder<EnableRequestBuilder> {
     /**
-     * Enable the Microsoft 365 Backup Storage service for a tenant.
+     * Enable the Microsoft 365 Backup Storage service for a tenant. Before you call this API, call List protection policies to initialize the data store in the tenant. Data store initialization takes about 5 minutes. If you call this API before the data store is initialized, the call results in an error.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceStatus>}
@@ -56,7 +56,7 @@ export interface EnableRequestBuilder extends BaseRequestBuilder<EnableRequestBu
      */
      post(body: EnablePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServiceStatus | undefined>;
     /**
-     * Enable the Microsoft 365 Backup Storage service for a tenant.
+     * Enable the Microsoft 365 Backup Storage service for a tenant. Before you call this API, call List protection policies to initialize the data store in the tenant. Data store initialization takes about 5 minutes. If you call this API before the data store is initialized, the call results in an error.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

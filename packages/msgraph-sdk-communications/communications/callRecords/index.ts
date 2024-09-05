@@ -139,9 +139,11 @@ export const CallRecordsRequestBuilderNavigationMetadata: Record<Exclude<keyof C
     },
     microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime: {
         requestsMetadata: MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["fromDateTime", "toDateTime"],
     },
     microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime: {
         requestsMetadata: MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["fromDateTime", "toDateTime"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

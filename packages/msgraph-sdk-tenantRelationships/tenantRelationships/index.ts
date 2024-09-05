@@ -105,9 +105,11 @@ const TenantRelationshipsRequestBuilderGetQueryParametersMapper: Record<string, 
 export const TenantRelationshipsRequestBuilderNavigationMetadata: Record<Exclude<keyof TenantRelationshipsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     findTenantInformationByDomainNameWithDomainName: {
         requestsMetadata: FindTenantInformationByDomainNameWithDomainNameRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["domainName"],
     },
     findTenantInformationByTenantIdWithTenantId: {
         requestsMetadata: FindTenantInformationByTenantIdWithTenantIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["tenantId"],
     },
     delegatedAdminCustomers: {
         requestsMetadata: DelegatedAdminCustomersRequestBuilderRequestsMetadata,

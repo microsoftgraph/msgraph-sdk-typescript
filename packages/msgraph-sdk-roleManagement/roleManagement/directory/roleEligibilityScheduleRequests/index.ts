@@ -130,6 +130,7 @@ export const RoleEligibilityScheduleRequestsRequestBuilderNavigationMetadata: Re
     },
     filterByCurrentUserWithOn: {
         requestsMetadata: FilterByCurrentUserWithOnRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["on"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

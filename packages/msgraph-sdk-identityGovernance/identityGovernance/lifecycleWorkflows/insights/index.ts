@@ -119,15 +119,19 @@ const InsightsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const InsightsRequestBuilderNavigationMetadata: Record<Exclude<keyof InsightsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     microsoftGraphIdentityGovernanceTopTasksProcessedSummaryWithStartDateTimeWithEndDateTime: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "startDateTime"],
     },
     microsoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTime: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "startDateTime"],
     },
     microsoftGraphIdentityGovernanceWorkflowsProcessedByCategoryWithStartDateTimeWithEndDateTime: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceWorkflowsProcessedByCategoryWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "startDateTime"],
     },
     microsoftGraphIdentityGovernanceWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTime: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["endDateTime", "startDateTime"],
     },
 };
 /**

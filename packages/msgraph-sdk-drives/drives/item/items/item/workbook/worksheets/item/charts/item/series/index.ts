@@ -129,6 +129,7 @@ export const SeriesRequestBuilderNavigationMetadata: Record<Exclude<keyof Series
     itemAtWithIndex: {
         requestsMetadata: ItemAtWithIndexRequestBuilderRequestsMetadata,
         navigationMetadata: ItemAtWithIndexRequestBuilderNavigationMetadata,
+        pathParametersMappings: ["index"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

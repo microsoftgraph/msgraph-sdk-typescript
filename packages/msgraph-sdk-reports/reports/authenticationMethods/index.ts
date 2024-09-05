@@ -119,9 +119,11 @@ const AuthenticationMethodsRequestBuilderGetQueryParametersMapper: Record<string
 export const AuthenticationMethodsRequestBuilderNavigationMetadata: Record<Exclude<keyof AuthenticationMethodsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles: {
         requestsMetadata: UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["includedUserRoles", "includedUserTypes"],
     },
     usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles: {
         requestsMetadata: UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["includedUserRoles", "includedUserTypes"],
     },
     userRegistrationDetails: {
         requestsMetadata: UserRegistrationDetailsRequestBuilderRequestsMetadata,

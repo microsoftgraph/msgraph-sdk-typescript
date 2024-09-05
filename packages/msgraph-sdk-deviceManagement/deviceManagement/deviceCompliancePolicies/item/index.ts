@@ -67,43 +67,43 @@ export interface DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBui
      */
     get userStatusOverview(): UserStatusOverviewRequestBuilder;
     /**
-     * Deletes a androidWorkProfileCompliancePolicy.
+     * Deletes a windows10MobileCompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecompliancepolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10mobilecompliancepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the windows10CompliancePolicy object.
+     * Read properties and relationships of the androidCompliancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10compliancepolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcompliancepolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicy | undefined>;
     /**
-     * Update the properties of a macOSCompliancePolicy object.
+     * Update the properties of a windows81CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macoscompliancepolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81compliancepolicy-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicy | undefined>;
     /**
-     * Deletes a androidWorkProfileCompliancePolicy.
+     * Deletes a windows10MobileCompliancePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the windows10CompliancePolicy object.
+     * Read properties and relationships of the androidCompliancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a macOSCompliancePolicy object.
+     * Update the properties of a windows81CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -111,7 +111,7 @@ export interface DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the windows10CompliancePolicy object.
+ * Read properties and relationships of the androidCompliancePolicy object.
  */
 export interface DeviceCompliancePolicyItemRequestBuilderGetQueryParameters {
     /**

@@ -326,7 +326,7 @@ export function createUserSummaryFromDiscriminatorValue(parseNode: ParseNode | u
 // @ts-ignore
 export function createWorkflowBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -357,7 +357,7 @@ export function createWorkflowCollectionResponseFromDiscriminatorValue(parseNode
 // @ts-ignore
 export function createWorkflowExecutionConditionsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
@@ -379,7 +379,7 @@ export function createWorkflowExecutionConditionsFromDiscriminatorValue(parseNod
 // @ts-ignore
 export function createWorkflowExecutionTriggerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    const mappingValueNode = parseNode.getChildNode("@odata.type");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
     if (mappingValueNode) {
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {

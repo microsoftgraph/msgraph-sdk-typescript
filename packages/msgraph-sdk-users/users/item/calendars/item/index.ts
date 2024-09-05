@@ -115,6 +115,7 @@ const CalendarItemRequestBuilderGetQueryParametersMapper: Record<string, string>
 export const CalendarItemRequestBuilderNavigationMetadata: Record<Exclude<keyof CalendarItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     allowedCalendarSharingRolesWithUser: {
         requestsMetadata: AllowedCalendarSharingRolesWithUserRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["User"],
     },
     calendarPermissions: {
         requestsMetadata: CalendarPermissionsRequestBuilderRequestsMetadata,

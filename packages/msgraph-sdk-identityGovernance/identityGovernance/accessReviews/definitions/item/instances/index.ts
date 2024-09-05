@@ -129,6 +129,7 @@ export const InstancesRequestBuilderNavigationMetadata: Record<Exclude<keyof Ins
     },
     filterByCurrentUserWithOn: {
         requestsMetadata: FilterByCurrentUserWithOnRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["on"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

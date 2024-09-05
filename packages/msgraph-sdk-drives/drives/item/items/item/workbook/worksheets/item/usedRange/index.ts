@@ -235,36 +235,47 @@ export const UsedRangeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did
 export const UsedRangeRequestBuilderNavigationMetadata: Record<Exclude<keyof UsedRangeRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     boundingRectWithAnotherRange: {
         requestsMetadata: BoundingRectWithAnotherRangeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["anotherRange"],
     },
     cellWithRowWithColumn: {
         requestsMetadata: CellWithRowWithColumnRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["column", "row"],
     },
     columnsAfterWithCount: {
         requestsMetadata: ColumnsAfterWithCountRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["count"],
     },
     columnsBeforeWithCount: {
         requestsMetadata: ColumnsBeforeWithCountRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["count"],
     },
     columnWithColumn: {
         requestsMetadata: ColumnWithColumnRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["column"],
     },
     intersectionWithAnotherRange: {
         requestsMetadata: IntersectionWithAnotherRangeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["anotherRange"],
     },
     offsetRangeWithRowOffsetWithColumnOffset: {
         requestsMetadata: OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["columnOffset", "rowOffset"],
     },
     resizedRangeWithDeltaRowsWithDeltaColumns: {
         requestsMetadata: ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["deltaColumns", "deltaRows"],
     },
     rowsAboveWithCount: {
         requestsMetadata: RowsAboveWithCountRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["count"],
     },
     rowsBelowWithCount: {
         requestsMetadata: RowsBelowWithCountRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["count"],
     },
     rowWithRow: {
         requestsMetadata: RowWithRowRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["row"],
     },
     clear: {
         requestsMetadata: ClearRequestBuilderRequestsMetadata,

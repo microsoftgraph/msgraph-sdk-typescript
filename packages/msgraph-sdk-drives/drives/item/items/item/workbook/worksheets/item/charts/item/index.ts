@@ -170,12 +170,15 @@ const WorkbookChartItemRequestBuilderGetQueryParametersMapper: Record<string, st
 export const WorkbookChartItemRequestBuilderNavigationMetadata: Record<Exclude<keyof WorkbookChartItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     imageWithWidth: {
         requestsMetadata: ImageWithWidthRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["width"],
     },
     imageWithWidthWithHeight: {
         requestsMetadata: ImageWithWidthWithHeightRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["height", "width"],
     },
     imageWithWidthWithHeightWithFittingMode: {
         requestsMetadata: ImageWithWidthWithHeightWithFittingModeRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["fittingMode", "height", "width"],
     },
     axes: {
         requestsMetadata: AxesRequestBuilderRequestsMetadata,
