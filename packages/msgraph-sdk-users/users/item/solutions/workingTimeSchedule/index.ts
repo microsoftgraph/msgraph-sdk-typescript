@@ -31,7 +31,7 @@ export interface WorkingTimeScheduleRequestBuilder extends BaseRequestBuilder<Wo
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get workingTimeSchedule from users
+     * The working time schedule entity associated with the solution.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkingTimeSchedule>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface WorkingTimeScheduleRequestBuilder extends BaseRequestBuilder<Wo
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get workingTimeSchedule from users
+     * The working time schedule entity associated with the solution.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface WorkingTimeScheduleRequestBuilder extends BaseRequestBuilder<Wo
      toPatchRequestInformation(body: WorkingTimeSchedule, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get workingTimeSchedule from users
+ * The working time schedule entity associated with the solution.
  */
 export interface WorkingTimeScheduleRequestBuilderGetQueryParameters {
     /**

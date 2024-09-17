@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CreatedByUserRequestBuilderNavigationMetadata, CreatedByUserRequestBuilderRequestsMetadata, type CreatedByUserRequestBuilder } from './createdByUser/index.js';
 // @ts-ignore
-import { DriveItemRequestBuilderNavigationMetadata, DriveItemRequestBuilderRequestsMetadata, type DriveItemRequestBuilder } from './driveItem/index.js';
+import { DriveItemRequestBuilderNavigationMetadata, DriveItemRequestBuilderRequestsMetadata } from './driveItem/index.js';
 // @ts-ignore
 import { ItemsRequestBuilderNavigationMetadata, ItemsRequestBuilderRequestsMetadata, type ItemsRequestBuilder } from './items/index.js';
 // @ts-ignore
@@ -16,7 +16,7 @@ import { LastModifiedByUserRequestBuilderNavigationMetadata, LastModifiedByUserR
 // @ts-ignore
 import { ListRequestBuilderNavigationMetadata, ListRequestBuilderRequestsMetadata, type ListRequestBuilder } from './list/index.js';
 // @ts-ignore
-import { ListItemRequestBuilderRequestsMetadata, type ListItemRequestBuilder } from './listItem/index.js';
+import { ListItemRequestBuilderRequestsMetadata } from './listItem/index.js';
 // @ts-ignore
 import { PermissionRequestBuilderNavigationMetadata, PermissionRequestBuilderRequestsMetadata, type PermissionRequestBuilder } from './permission/index.js';
 // @ts-ignore
@@ -37,7 +37,7 @@ export interface SharedDriveItemItemRequestBuilder extends BaseRequestBuilder<Sh
     /**
      * Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity.
      */
-    get driveItem(): DriveItemRequestBuilder;
+    get driveItem(): DriveItem_EscapedRequestBuilder;
     /**
      * Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity.
      */
@@ -53,7 +53,7 @@ export interface SharedDriveItemItemRequestBuilder extends BaseRequestBuilder<Sh
     /**
      * Provides operations to manage the listItem property of the microsoft.graph.sharedDriveItem entity.
      */
-    get listItem(): ListItemRequestBuilder;
+    get listItem(): ListItem_EscapedRequestBuilder;
     /**
      * Provides operations to manage the permission property of the microsoft.graph.sharedDriveItem entity.
      */
@@ -141,8 +141,6 @@ export const SharedDriveItemItemRequestBuilderNavigationMetadata: Record<Exclude
         navigationMetadata: CreatedByUserRequestBuilderNavigationMetadata,
     },
     driveItem: {
-        requestsMetadata: DriveItemRequestBuilderRequestsMetadata,
-        navigationMetadata: DriveItemRequestBuilderNavigationMetadata,
     },
     items: {
         requestsMetadata: ItemsRequestBuilderRequestsMetadata,
@@ -157,7 +155,6 @@ export const SharedDriveItemItemRequestBuilderNavigationMetadata: Record<Exclude
         navigationMetadata: ListRequestBuilderNavigationMetadata,
     },
     listItem: {
-        requestsMetadata: ListItemRequestBuilderRequestsMetadata,
     },
     permission: {
         requestsMetadata: PermissionRequestBuilderRequestsMetadata,

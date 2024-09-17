@@ -6,7 +6,7 @@ import { createItemActivityFromDiscriminatorValue, serializeItemActivity, type I
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { DriveItemRequestBuilderNavigationMetadata, DriveItemRequestBuilderRequestsMetadata, type DriveItemRequestBuilder } from './driveItem/index.js';
+import { DriveItemRequestBuilderNavigationMetadata, DriveItemRequestBuilderRequestsMetadata } from './driveItem/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -17,7 +17,7 @@ export interface ItemActivityItemRequestBuilder extends BaseRequestBuilder<ItemA
     /**
      * Provides operations to manage the driveItem property of the microsoft.graph.itemActivity entity.
      */
-    get driveItem(): DriveItemRequestBuilder;
+    get driveItem(): DriveItem_EscapedRequestBuilder;
     /**
      * Delete navigation property activities for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -88,8 +88,6 @@ const ItemActivityItemRequestBuilderGetQueryParametersMapper: Record<string, str
  */
 export const ItemActivityItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ItemActivityItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     driveItem: {
-        requestsMetadata: DriveItemRequestBuilderRequestsMetadata,
-        navigationMetadata: DriveItemRequestBuilderNavigationMetadata,
     },
 };
 /**

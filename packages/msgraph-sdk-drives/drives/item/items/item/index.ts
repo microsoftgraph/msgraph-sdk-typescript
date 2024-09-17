@@ -42,7 +42,7 @@ import { InviteRequestBuilderRequestsMetadata, type InviteRequestBuilder } from 
 // @ts-ignore
 import { LastModifiedByUserRequestBuilderNavigationMetadata, LastModifiedByUserRequestBuilderRequestsMetadata, type LastModifiedByUserRequestBuilder } from './lastModifiedByUser/index.js';
 // @ts-ignore
-import { ListItemRequestBuilderRequestsMetadata, type ListItemRequestBuilder } from './listItem/index.js';
+import { ListItemRequestBuilderRequestsMetadata } from './listItem/index.js';
 // @ts-ignore
 import { PermanentDeleteRequestBuilderRequestsMetadata, type PermanentDeleteRequestBuilder } from './permanentDelete/index.js';
 // @ts-ignore
@@ -141,7 +141,7 @@ export interface DriveItemItemRequestBuilder extends BaseRequestBuilder<DriveIte
     /**
      * Provides operations to manage the listItem property of the microsoft.graph.driveItem entity.
      */
-    get listItem(): ListItemRequestBuilder;
+    get listItem(): ListItem_EscapedRequestBuilder;
     /**
      * Provides operations to call the permanentDelete method.
      */
@@ -340,7 +340,6 @@ export const DriveItemItemRequestBuilderNavigationMetadata: Record<Exclude<keyof
         navigationMetadata: LastModifiedByUserRequestBuilderNavigationMetadata,
     },
     listItem: {
-        requestsMetadata: ListItemRequestBuilderRequestsMetadata,
     },
     permanentDelete: {
         requestsMetadata: PermanentDeleteRequestBuilderRequestsMetadata,

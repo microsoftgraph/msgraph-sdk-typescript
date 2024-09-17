@@ -14,7 +14,7 @@ import { CreateLinkRequestBuilderRequestsMetadata, type CreateLinkRequestBuilder
 // @ts-ignore
 import { DocumentSetVersionsRequestBuilderNavigationMetadata, DocumentSetVersionsRequestBuilderRequestsMetadata, type DocumentSetVersionsRequestBuilder } from './documentSetVersions/index.js';
 // @ts-ignore
-import { DriveItemRequestBuilderNavigationMetadata, DriveItemRequestBuilderRequestsMetadata, type DriveItemRequestBuilder } from './driveItem/index.js';
+import { DriveItemRequestBuilderNavigationMetadata, DriveItemRequestBuilderRequestsMetadata } from './driveItem/index.js';
 // @ts-ignore
 import { FieldsRequestBuilderRequestsMetadata, type FieldsRequestBuilder } from './fields/index.js';
 // @ts-ignore
@@ -51,7 +51,7 @@ export interface ListItemItemRequestBuilder extends BaseRequestBuilder<ListItemI
     /**
      * Provides operations to manage the driveItem property of the microsoft.graph.listItem entity.
      */
-    get driveItem(): DriveItemRequestBuilder;
+    get driveItem(): DriveItem_EscapedRequestBuilder;
     /**
      * Provides operations to manage the fields property of the microsoft.graph.listItem entity.
      */
@@ -164,8 +164,6 @@ export const ListItemItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
         navigationMetadata: DocumentSetVersionsRequestBuilderNavigationMetadata,
     },
     driveItem: {
-        requestsMetadata: DriveItemRequestBuilderRequestsMetadata,
-        navigationMetadata: DriveItemRequestBuilderNavigationMetadata,
     },
     fields: {
         requestsMetadata: FieldsRequestBuilderRequestsMetadata,

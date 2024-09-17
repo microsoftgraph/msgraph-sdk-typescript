@@ -11,13 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface EndWorkingTimeRequestBuilder extends BaseRequestBuilder<EndWorkingTimeRequestBuilder> {
     /**
-     * Triggers the policies associated with the end of working hours for user.
+     * Trigger the policies associated with the end of working hours for a specific user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/workingtimeschedule-endworkingtime?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Triggers the policies associated with the end of working hours for user.
+     * Trigger the policies associated with the end of working hours for a specific user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
