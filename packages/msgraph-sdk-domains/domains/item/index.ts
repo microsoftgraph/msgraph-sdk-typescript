@@ -14,6 +14,8 @@ import { ForceDeleteRequestBuilderRequestsMetadata, type ForceDeleteRequestBuild
 // @ts-ignore
 import { PromoteRequestBuilderRequestsMetadata, type PromoteRequestBuilder } from './promote/index.js';
 // @ts-ignore
+import { RootDomainRequestBuilderRequestsMetadata, type RootDomainRequestBuilder } from './rootDomain/index.js';
+// @ts-ignore
 import { ServiceConfigurationRecordsRequestBuilderNavigationMetadata, ServiceConfigurationRecordsRequestBuilderRequestsMetadata, type ServiceConfigurationRecordsRequestBuilder } from './serviceConfigurationRecords/index.js';
 // @ts-ignore
 import { type VerificationDnsRecordsRequestBuilder, VerificationDnsRecordsRequestBuilderNavigationMetadata, VerificationDnsRecordsRequestBuilderRequestsMetadata } from './verificationDnsRecords/index.js';
@@ -42,6 +44,10 @@ export interface DomainItemRequestBuilder extends BaseRequestBuilder<DomainItemR
      * Provides operations to call the promote method.
      */
     get promote(): PromoteRequestBuilder;
+    /**
+     * Provides operations to manage the rootDomain property of the microsoft.graph.domain entity.
+     */
+    get rootDomain(): RootDomainRequestBuilder;
     /**
      * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
      */
@@ -139,6 +145,9 @@ export const DomainItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Do
     },
     promote: {
         requestsMetadata: PromoteRequestBuilderRequestsMetadata,
+    },
+    rootDomain: {
+        requestsMetadata: RootDomainRequestBuilderRequestsMetadata,
     },
     serviceConfigurationRecords: {
         requestsMetadata: ServiceConfigurationRecordsRequestBuilderRequestsMetadata,

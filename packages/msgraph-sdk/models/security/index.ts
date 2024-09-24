@@ -6651,55 +6651,55 @@ export interface GoogleCloudResourceEvidence extends AlertEvidence, Parsable {
 }
 export interface HealthIssue extends Entity, Parsable {
     /**
-     * The additionalInformation property
+     * Contains additional information about the issue, such as a list of items to fix.
      */
     additionalInformation?: string[] | null;
     /**
-     * The createdDateTime property
+     * The date and time when the health issue was generated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     createdDateTime?: Date | null;
     /**
-     * The description property
+     * Contains more detailed information about the health issue.
      */
     description?: string | null;
     /**
-     * The displayName property
+     * The display name of the health issue.
      */
     displayName?: string | null;
     /**
-     * The domainNames property
+     * A list of the fully qualified domain names of the domains or the sensors the health issue is related to.
      */
     domainNames?: string[] | null;
     /**
-     * The healthIssueType property
+     * The type of the health issue. The possible values are: sensor, global, unknownFutureValue. For a list of all health issues and their identifiers, see Microsoft Defender for Identity health issues.
      */
     healthIssueType?: HealthIssueType | null;
     /**
-     * The issueTypeId property
+     * The type identifier of the health issue. For a list of all health issues and their identifiers, see Microsoft Defender for Identity health issues.
      */
     issueTypeId?: string | null;
     /**
-     * The lastModifiedDateTime property
+     * The date and time when the health issue was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     lastModifiedDateTime?: Date | null;
     /**
-     * The recommendations property
+     * A list of recommended actions that can be taken to resolve the issue effectively and efficiently. These actions might include instructions for further investigation and aren't limited to prewritten responses.
      */
     recommendations?: string[] | null;
     /**
-     * The recommendedActionCommands property
+     * A list of commands from the PowerShell module for the product that can be used to resolve the issue, if available. If no commands can be used to solve the issue, this property is empty. The commands, if present, provide a quick and efficient way to address the issue. These commands run in sequence for the single recommended fix.
      */
     recommendedActionCommands?: string[] | null;
     /**
-     * The sensorDNSNames property
+     * A list of the DNS names of the sensors the health issue is related to.
      */
     sensorDNSNames?: string[] | null;
     /**
-     * The severity property
+     * The severity of the health issue. The possible values are: low, medium, high, unknownFutureValue.
      */
     severity?: HealthIssueSeverity | null;
     /**
-     * The status property
+     * The status of the health issue. The possible values are: open, closed, suppressed, unknownFutureValue.
      */
     status?: HealthIssueStatus | null;
 }
@@ -7206,7 +7206,7 @@ export interface Hyperlink extends AdditionalDataHolder, BackedModel, Parsable {
 }
 export interface IdentityContainer extends Entity, Parsable {
     /**
-     * The healthIssues property
+     * Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration.
      */
     healthIssues?: HealthIssue[] | null;
 }
