@@ -38,7 +38,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.11",
+    "@types/chai": "^5.0.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "^22.0.0",
     "chai": "^5.0.3",
