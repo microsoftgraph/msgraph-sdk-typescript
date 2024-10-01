@@ -25,7 +25,7 @@ export interface SolutionsRequestBuilder extends BaseRequestBuilder<SolutionsReq
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get solutions from users
+     * The identifier that relates the user to the working time schedule triggers. Read-Only. Nullable
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserSolutionRoot>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface SolutionsRequestBuilder extends BaseRequestBuilder<SolutionsReq
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get solutions from users
+     * The identifier that relates the user to the working time schedule triggers. Read-Only. Nullable
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface SolutionsRequestBuilder extends BaseRequestBuilder<SolutionsReq
      toPatchRequestInformation(body: UserSolutionRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get solutions from users
+ * The identifier that relates the user to the working time schedule triggers. Read-Only. Nullable
  */
 export interface SolutionsRequestBuilderGetQueryParameters {
     /**

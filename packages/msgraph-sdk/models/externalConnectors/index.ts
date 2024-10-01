@@ -4,7 +4,7 @@
 // @ts-ignore
 import { BinaryOperator, BinaryOperatorObject, createPublicErrorFromDiscriminatorValue, deserializeIntoBaseCollectionPaginationCountResponse, deserializeIntoEntity, serializeBaseCollectionPaginationCountResponse, serializeEntity, serializePublicError, type BaseCollectionPaginationCountResponse, type Entity, type PublicError } from '../index.js';
 // @ts-ignore
-import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, type BackedModel, type BackingStore, type Parsable, type ParseNode, type SerializationWriter, UntypedNode } from '@microsoft/kiota-abstractions';
+import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, type BackedModel, type BackingStore, type Parsable, type ParseNode, type SerializationWriter, type UntypedNode } from '@microsoft/kiota-abstractions';
 
 export type AccessType = (typeof AccessTypeObject)[keyof typeof AccessTypeObject];
 export interface Acl extends AdditionalDataHolder, BackedModel, Parsable {

@@ -16,6 +16,10 @@ import { LastEstimateStatisticsOperationRequestBuilderRequestsMetadata, type Las
 // @ts-ignore
 import { MicrosoftGraphSecurityEstimateStatisticsRequestBuilderRequestsMetadata, type MicrosoftGraphSecurityEstimateStatisticsRequestBuilder } from './microsoftGraphSecurityEstimateStatistics/index.js';
 // @ts-ignore
+import { MicrosoftGraphSecurityExportReportRequestBuilderRequestsMetadata, type MicrosoftGraphSecurityExportReportRequestBuilder } from './microsoftGraphSecurityExportReport/index.js';
+// @ts-ignore
+import { MicrosoftGraphSecurityExportResultRequestBuilderRequestsMetadata, type MicrosoftGraphSecurityExportResultRequestBuilder } from './microsoftGraphSecurityExportResult/index.js';
+// @ts-ignore
 import { MicrosoftGraphSecurityPurgeDataRequestBuilderRequestsMetadata, type MicrosoftGraphSecurityPurgeDataRequestBuilder } from './microsoftGraphSecurityPurgeData/index.js';
 // @ts-ignore
 import { NoncustodialSourcesRequestBuilderNavigationMetadata, NoncustodialSourcesRequestBuilderRequestsMetadata, type NoncustodialSourcesRequestBuilder } from './noncustodialSources/index.js';
@@ -46,6 +50,14 @@ export interface EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder<E
      * Provides operations to call the estimateStatistics method.
      */
     get microsoftGraphSecurityEstimateStatistics(): MicrosoftGraphSecurityEstimateStatisticsRequestBuilder;
+    /**
+     * Provides operations to call the exportReport method.
+     */
+    get microsoftGraphSecurityExportReport(): MicrosoftGraphSecurityExportReportRequestBuilder;
+    /**
+     * Provides operations to call the exportResult method.
+     */
+    get microsoftGraphSecurityExportResult(): MicrosoftGraphSecurityExportResultRequestBuilder;
     /**
      * Provides operations to call the purgeData method.
      */
@@ -142,6 +154,12 @@ export const EdiscoverySearchItemRequestBuilderNavigationMetadata: Record<Exclud
     },
     microsoftGraphSecurityEstimateStatistics: {
         requestsMetadata: MicrosoftGraphSecurityEstimateStatisticsRequestBuilderRequestsMetadata,
+    },
+    microsoftGraphSecurityExportReport: {
+        requestsMetadata: MicrosoftGraphSecurityExportReportRequestBuilderRequestsMetadata,
+    },
+    microsoftGraphSecurityExportResult: {
+        requestsMetadata: MicrosoftGraphSecurityExportResultRequestBuilderRequestsMetadata,
     },
     microsoftGraphSecurityPurgeData: {
         requestsMetadata: MicrosoftGraphSecurityPurgeDataRequestBuilderRequestsMetadata,

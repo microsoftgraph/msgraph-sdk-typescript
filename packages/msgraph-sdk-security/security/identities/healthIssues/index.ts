@@ -27,10 +27,11 @@ export interface HealthIssuesRequestBuilder extends BaseRequestBuilder<HealthIss
      */
      byHealthIssueId(healthIssueId: string) : HealthIssueItemRequestBuilder;
     /**
-     * Get healthIssues from security
+     * Get a list of healthIssue objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HealthIssueCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-identitycontainer-list-healthissues?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HealthIssuesRequestBuilderGetQueryParameters> | undefined) : Promise<HealthIssueCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface HealthIssuesRequestBuilder extends BaseRequestBuilder<HealthIss
      */
      post(body: HealthIssue, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HealthIssue | undefined>;
     /**
-     * Get healthIssues from security
+     * Get a list of healthIssue objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface HealthIssuesRequestBuilder extends BaseRequestBuilder<HealthIss
      toPostRequestInformation(body: HealthIssue, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get healthIssues from security
+ * Get a list of healthIssue objects and their properties.
  */
 export interface HealthIssuesRequestBuilderGetQueryParameters {
     /**
