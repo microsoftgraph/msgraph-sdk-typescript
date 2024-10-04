@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-tests",
-  "version": "1.0.0-preview.28",
+  "version": "1.0.0-preview.29",
   "description": "Tests package for the packages",
   "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
   "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
@@ -31,9 +31,9 @@
     "@microsoft/kiota-serialization-json": "^1.0.0-preview.39",
     "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.18",
     "@microsoft/kiota-serialization-text": "^1.0.0-preview.36",
-    "@microsoft/msgraph-sdk": "^1.0.0-preview.28",
+    "@microsoft/msgraph-sdk": "^1.0.0-preview.29",
     "@microsoft/msgraph-sdk-core": "^1.0.0-preview.2",
-    "@microsoft/msgraph-sdk-users": "^1.0.0-preview.28",
+    "@microsoft/msgraph-sdk-users": "^1.0.0-preview.29",
     "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
   },
