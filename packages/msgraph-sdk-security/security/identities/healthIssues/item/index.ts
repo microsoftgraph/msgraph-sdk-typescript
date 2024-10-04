@@ -19,18 +19,20 @@ export interface HealthIssueItemRequestBuilder extends BaseRequestBuilder<Health
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get healthIssues from security
+     * Read the properties and relationships of a healthIssue object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HealthIssue>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-healthissue-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<HealthIssueItemRequestBuilderGetQueryParameters> | undefined) : Promise<HealthIssue | undefined>;
     /**
-     * Update the navigation property healthIssues in security
+     * Update the properties of a healthIssue object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<HealthIssue>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-healthissue-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: HealthIssue, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<HealthIssue | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface HealthIssueItemRequestBuilder extends BaseRequestBuilder<Health
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get healthIssues from security
+     * Read the properties and relationships of a healthIssue object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<HealthIssueItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property healthIssues in security
+     * Update the properties of a healthIssue object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface HealthIssueItemRequestBuilder extends BaseRequestBuilder<Health
      toPatchRequestInformation(body: HealthIssue, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get healthIssues from security
+ * Read the properties and relationships of a healthIssue object.
  */
 export interface HealthIssueItemRequestBuilderGetQueryParameters {
     /**

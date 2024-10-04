@@ -25,7 +25,7 @@ export interface IdentitiesRequestBuilder extends BaseRequestBuilder<IdentitiesR
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get identities from security
+     * A container for security identities APIs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IdentityContainer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface IdentitiesRequestBuilder extends BaseRequestBuilder<IdentitiesR
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get identities from security
+     * A container for security identities APIs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface IdentitiesRequestBuilder extends BaseRequestBuilder<IdentitiesR
      toPatchRequestInformation(body: IdentityContainer, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get identities from security
+ * A container for security identities APIs.
  */
 export interface IdentitiesRequestBuilderGetQueryParameters {
     /**
