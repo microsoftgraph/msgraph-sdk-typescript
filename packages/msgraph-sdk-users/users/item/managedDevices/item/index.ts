@@ -12,7 +12,7 @@ import { CleanWindowsDeviceRequestBuilderRequestsMetadata, type CleanWindowsDevi
 // @ts-ignore
 import { DeleteUserFromSharedAppleDeviceRequestBuilderRequestsMetadata, type DeleteUserFromSharedAppleDeviceRequestBuilder } from './deleteUserFromSharedAppleDevice/index.js';
 // @ts-ignore
-import { DeviceCategoryRequestBuilderRequestsMetadata, type DeviceCategoryRequestBuilder } from './deviceCategory/index.js';
+import { DeviceCategoryRequestBuilderNavigationMetadata, DeviceCategoryRequestBuilderRequestsMetadata, type DeviceCategoryRequestBuilder } from './deviceCategory/index.js';
 // @ts-ignore
 import { DeviceCompliancePolicyStatesRequestBuilderNavigationMetadata, DeviceCompliancePolicyStatesRequestBuilderRequestsMetadata, type DeviceCompliancePolicyStatesRequestBuilder } from './deviceCompliancePolicyStates/index.js';
 // @ts-ignore
@@ -236,6 +236,7 @@ export const ManagedDeviceItemRequestBuilderNavigationMetadata: Record<Exclude<k
     },
     deviceCategory: {
         requestsMetadata: DeviceCategoryRequestBuilderRequestsMetadata,
+        navigationMetadata: DeviceCategoryRequestBuilderNavigationMetadata,
     },
     deviceCompliancePolicyStates: {
         requestsMetadata: DeviceCompliancePolicyStatesRequestBuilderRequestsMetadata,
