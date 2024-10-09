@@ -6,12 +6,18 @@ import { createDeviceCategoryFromDiscriminatorValue, serializeDeviceCategory, ty
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { RefRequestBuilderRequestsMetadata, type RefRequestBuilder } from './ref/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCategory property of the microsoft.graph.managedDevice entity.
  */
 export interface DeviceCategoryRequestBuilder extends BaseRequestBuilder<DeviceCategoryRequestBuilder> {
+    /**
+     * Provides operations to manage the collection of user entities.
+     */
+    get ref(): RefRequestBuilder;
     /**
      * Delete navigation property deviceCategory for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -76,6 +82,14 @@ export const DeviceCategoryRequestBuilderUriTemplate = "{+baseurl}/users/{user%2
 const DeviceCategoryRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const DeviceCategoryRequestBuilderNavigationMetadata: Record<Exclude<keyof DeviceCategoryRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    ref: {
+        requestsMetadata: RefRequestBuilderRequestsMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.
