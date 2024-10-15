@@ -1,0 +1,29 @@
+{
+    "bootstrap-sha": "73cd29789d538494d3b9d7a7922c26aad7243ddd",
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "pull-request-header": ":rocket: A new MSGraph TypeScript SDK release is coming up!",
+    "include-component-in-tag": false,
+    "versioning": "prerelease",
+    "packages": {
+        ".": {
+            "package-name": "msgraph-ts-sdk",
+            "changelog-path": "CHANGELOG.md",
+            "release-type": "node",
+            "bump-minor-pre-major": false,
+            "bump-patch-for-minor-pre-major": false,
+            "include-v-in-tag": true,
+            "draft": false,
+            "prerelease": true
+        }
+    },
+    "extra-files": [
+        "lerna.json",
+        {
+            "type": "json",
+            "path": "packages/*/package.json",
+            "glob": true,
+            "jsonpath": "$.version"
+        },
+        "packages/msgraph-sdk/version.ts"
+    ]
+}
