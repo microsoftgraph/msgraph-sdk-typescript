@@ -1,5 +1,5 @@
 {
-    "bootstrap-sha": "73cd29789d538494d3b9d7a7922c26aad7243ddd",
+    "bootstrap-sha": "722436d5c5202b7dd10f048c1cdf6946cd67fff6",
     "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
     "pull-request-header": ":rocket: A new MSGraph TypeScript SDK release is coming up!",
     "include-component-in-tag": false,
