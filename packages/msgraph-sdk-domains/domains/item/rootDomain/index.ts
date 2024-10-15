@@ -13,21 +13,22 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RootDomainRequestBuilder extends BaseRequestBuilder<RootDomainRequestBuilder> {
     /**
-     * Get rootDomain from domains
+     * Get the root domain of a subdomain. This API returns a single object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Domain>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/domain-get-rootdomain?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RootDomainRequestBuilderGetQueryParameters> | undefined) : Promise<Domain | undefined>;
     /**
-     * Get rootDomain from domains
+     * Get the root domain of a subdomain. This API returns a single object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RootDomainRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get rootDomain from domains
+ * Get the root domain of a subdomain. This API returns a single object.
  */
 export interface RootDomainRequestBuilderGetQueryParameters {
     /**
