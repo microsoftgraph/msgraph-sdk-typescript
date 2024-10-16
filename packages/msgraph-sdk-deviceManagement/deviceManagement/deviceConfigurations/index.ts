@@ -27,11 +27,11 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      */
      byDeviceConfigurationId(deviceConfigurationId: string) : DeviceConfigurationItemRequestBuilder;
     /**
-     * List properties and relationships of the windows10EndpointProtectionConfiguration objects.
+     * List properties and relationships of the windowsUpdateForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10endpointprotectionconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsupdateforbusinessconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationCollectionResponse | undefined>;
     /**
@@ -44,7 +44,7 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      */
      post(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
-     * List properties and relationships of the windows10EndpointProtectionConfiguration objects.
+     * List properties and relationships of the windowsUpdateForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -58,7 +58,7 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      toPostRequestInformation(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the windows10EndpointProtectionConfiguration objects.
+ * List properties and relationships of the windowsUpdateForBusinessConfiguration objects.
  */
 export interface DeviceConfigurationsRequestBuilderGetQueryParameters {
     /**
