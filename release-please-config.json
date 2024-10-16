@@ -6,7 +6,6 @@
     "versioning": "prerelease",
     "packages": {
         ".": {
-            "package-name": "msgraph-ts-sdk",
             "changelog-path": "CHANGELOG.md",
             "release-type": "node",
             "bump-minor-pre-major": false,
