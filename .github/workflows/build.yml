@@ -63,7 +63,7 @@ jobs:
         run: exit 1
 
   publish-npm:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, 'auto dependabot') }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.actor == 'release-please[bot]'}}
     needs: build
     environment:
       name: production_feed
