@@ -27,11 +27,11 @@ export interface DeviceEnrollmentConfigurationsRequestBuilder extends BaseReques
      */
      byDeviceEnrollmentConfigurationId(deviceEnrollmentConfigurationId: string) : DeviceEnrollmentConfigurationItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceEnrollmentConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceEnrollmentConfigurationCollectionResponse | undefined>;
     /**
@@ -44,7 +44,7 @@ export interface DeviceEnrollmentConfigurationsRequestBuilder extends BaseReques
      */
      post(body: DeviceEnrollmentConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceEnrollmentConfiguration | undefined>;
     /**
-     * List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -58,7 +58,7 @@ export interface DeviceEnrollmentConfigurationsRequestBuilder extends BaseReques
      toPostRequestInformation(body: DeviceEnrollmentConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration objects.
+ * List properties and relationships of the deviceEnrollmentWindowsHelloForBusinessConfiguration objects.
  */
 export interface DeviceEnrollmentConfigurationsRequestBuilderGetQueryParameters {
     /**

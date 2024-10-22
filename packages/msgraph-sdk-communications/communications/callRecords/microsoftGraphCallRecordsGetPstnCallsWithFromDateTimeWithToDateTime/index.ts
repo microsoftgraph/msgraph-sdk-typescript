@@ -41,21 +41,21 @@ export interface GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse extends B
  */
 export interface MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder extends BaseRequestBuilder<MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder> {
     /**
-     * Get log of PSTN calls as a collection of pstnCallLogRow entries.
+     * Get a log of PSTN calls as a collection of pstnCallLogRow entries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse | undefined>;
     /**
-     * Get log of PSTN calls as a collection of pstnCallLogRow entries.
+     * Get a log of PSTN calls as a collection of pstnCallLogRow entries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get log of PSTN calls as a collection of pstnCallLogRow entries.
+ * Get a log of PSTN calls as a collection of pstnCallLogRow entries.
  */
 export interface MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters {
     /**

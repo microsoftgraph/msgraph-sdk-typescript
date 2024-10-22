@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ValidateAuthenticationConfigurationRequestBuilder extends BaseRequestBuilder<ValidateAuthenticationConfigurationRequestBuilder> {
     /**
-     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.
+     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension object, which can represent one of the following derived types:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationConfigurationValidation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -21,7 +21,7 @@ export interface ValidateAuthenticationConfigurationRequestBuilder extends BaseR
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationConfigurationValidation | undefined>;
     /**
-     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.
+     * An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension object, which can represent one of the following derived types:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

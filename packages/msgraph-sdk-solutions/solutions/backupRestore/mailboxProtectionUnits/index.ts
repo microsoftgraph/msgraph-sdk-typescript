@@ -27,11 +27,10 @@ export interface MailboxProtectionUnitsRequestBuilder extends BaseRequestBuilder
      */
      byMailboxProtectionUnitId(mailboxProtectionUnitId: string) : MailboxProtectionUnitItemRequestBuilder;
     /**
-     * Get a list of mailboxProtectionUnit objects.
+     * The list of mailbox protection units in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxProtectionUnitCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/backuprestoreroot-list-mailboxprotectionunits?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MailboxProtectionUnitsRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxProtectionUnitCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface MailboxProtectionUnitsRequestBuilder extends BaseRequestBuilder
      */
      post(body: MailboxProtectionUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MailboxProtectionUnit | undefined>;
     /**
-     * Get a list of mailboxProtectionUnit objects.
+     * The list of mailbox protection units in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface MailboxProtectionUnitsRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: MailboxProtectionUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of mailboxProtectionUnit objects.
+ * The list of mailbox protection units in the tenant.
  */
 export interface MailboxProtectionUnitsRequestBuilderGetQueryParameters {
     /**

@@ -27,22 +27,22 @@ export interface PostsRequestBuilder extends BaseRequestBuilder<PostsRequestBuil
      */
      byPostId(postId: string) : PostItemRequestBuilder;
     /**
-     * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
+     * Get the properties and relationships of a post in a specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PostCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-list-posts?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/post-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PostsRequestBuilderGetQueryParameters> | undefined) : Promise<PostCollectionResponse | undefined>;
     /**
-     * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
+     * Get the properties and relationships of a post in a specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PostsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or,you can specify the thread without referencing the parent conversation.
+ * Get the properties and relationships of a post in a specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. Since the post resource supports extensions, you can also use the GET operation to get custom properties and extension data in a post instance.
  */
 export interface PostsRequestBuilderGetQueryParameters {
     /**
