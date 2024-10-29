@@ -43,7 +43,7 @@ export interface AssignmentRequestsRequestBuilder extends BaseRequestBuilder<Ass
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackageAssignmentRequestCollectionResponse | undefined>;
     /**
-     * In Microsoft Entra Entitlement Management, create a new accessPackageAssignmentRequest object.  This operation is used to assign a user to an access package, update the assignment, or to remove an access package assignment.
+     * In Microsoft Entra Entitlement Management, create a new accessPackageAssignmentRequest object. This operation is used to assign a user to an access package, update the assignment, or to remove an access package assignment.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackageAssignmentRequest>}
@@ -58,7 +58,7 @@ export interface AssignmentRequestsRequestBuilder extends BaseRequestBuilder<Ass
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * In Microsoft Entra Entitlement Management, create a new accessPackageAssignmentRequest object.  This operation is used to assign a user to an access package, update the assignment, or to remove an access package assignment.
+     * In Microsoft Entra Entitlement Management, create a new accessPackageAssignmentRequest object. This operation is used to assign a user to an access package, update the assignment, or to remove an access package assignment.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

@@ -4707,7 +4707,7 @@ export function deserializeIntoIoTDeviceEvidence(ioTDeviceEvidence: Partial<IoTD
         "macAddress": n => { ioTDeviceEvidence.macAddress = n.getStringValue(); },
         "manufacturer": n => { ioTDeviceEvidence.manufacturer = n.getStringValue(); },
         "model": n => { ioTDeviceEvidence.model = n.getStringValue(); },
-        "nics": n => { ioTDeviceEvidence.nics = n.getObjectValue<NicEvidence>(createNicEvidenceFromDiscriminatorValue); },
+        "nics": n => { ioTDeviceEvidence.nics = n.getCollectionOfObjectValues<NicEvidence>(createNicEvidenceFromDiscriminatorValue); },
         "operatingSystem": n => { ioTDeviceEvidence.operatingSystem = n.getStringValue(); },
         "owners": n => { ioTDeviceEvidence.owners = n.getCollectionOfPrimitiveValues<string>(); },
         "protocols": n => { ioTDeviceEvidence.protocols = n.getCollectionOfPrimitiveValues<string>(); },
@@ -6208,7 +6208,7 @@ export interface EdiscoverySearch extends Parsable, Search {
      */
     custodianSources?: DataSource[] | null;
     /**
-     * When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
+     * When specified, the collection spans across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
      */
     dataSourceScopes?: DataSourceScopes[] | null;
     /**
@@ -7544,7 +7544,7 @@ export interface IoTDeviceEvidence extends AlertEvidence, Parsable {
     /**
      * The nics property
      */
-    nics?: NicEvidence | null;
+    nics?: NicEvidence[] | null;
     /**
      * The operatingSystem property
      */
@@ -10234,7 +10234,7 @@ export function serializeIoTDeviceEvidence(writer: SerializationWriter, ioTDevic
         writer.writeStringValue("macAddress", ioTDeviceEvidence.macAddress);
         writer.writeStringValue("manufacturer", ioTDeviceEvidence.manufacturer);
         writer.writeStringValue("model", ioTDeviceEvidence.model);
-        writer.writeObjectValue<NicEvidence>("nics", ioTDeviceEvidence.nics, serializeNicEvidence);
+        writer.writeCollectionOfObjectValues<NicEvidence>("nics", ioTDeviceEvidence.nics, serializeNicEvidence);
         writer.writeStringValue("operatingSystem", ioTDeviceEvidence.operatingSystem);
         writer.writeCollectionOfPrimitiveValues<string>("owners", ioTDeviceEvidence.owners);
         writer.writeCollectionOfPrimitiveValues<string>("protocols", ioTDeviceEvidence.protocols);
@@ -12516,8 +12516,8 @@ export const PurgeAreasObject = {
 } as const;
 export const PurgeTypeObject = {
     Recoverable: "recoverable",
-    PermanentlyDeleted: "permanentlyDeleted",
     UnknownFutureValue: "unknownFutureValue",
+    PermanentlyDelete: "permanentlyDelete",
 } as const;
 export const QueryTypeObject = {
     Files: "files",

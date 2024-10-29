@@ -26,6 +26,7 @@ export function deserializeIntoInstantiatePostRequestBody(instantiatePostRequest
     return {
         "backingStoreEnabled": n => { instantiatePostRequestBody.backingStoreEnabled = true; },
         "displayName": n => { instantiatePostRequestBody.displayName = n.getStringValue(); },
+        "serviceManagementReference": n => { instantiatePostRequestBody.serviceManagementReference = n.getStringValue(); },
     }
 }
 export interface InstantiatePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -41,13 +42,17 @@ export interface InstantiatePostRequestBody extends AdditionalDataHolder, Backed
      * The displayName property
      */
     displayName?: string | null;
+    /**
+     * The serviceManagementReference property
+     */
+    serviceManagementReference?: string | null;
 }
 /**
  * Provides operations to call the instantiate method.
  */
 export interface InstantiateRequestBuilder extends BaseRequestBuilder<InstantiateRequestBuilder> {
     /**
-     * Add an instance of an application from the Microsoft Entra application gallery into your directory. The application template with ID 8adf8e6e-67b2-4cf2-a259-e3dc5476c621 can be used to add a non-gallery app that you can configure different single-sign on (SSO) modes like SAML SSO and password-based SSO.
+     * Add an instance of an application from the Microsoft Entra application gallery into your directory. For non-gallery apps, use an application template with one of the following IDs to configure different single sign-on (SSO) modes like SAML SSO and password-based SSO.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApplicationServicePrincipal>}
@@ -56,7 +61,7 @@ export interface InstantiateRequestBuilder extends BaseRequestBuilder<Instantiat
      */
      post(body: InstantiatePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ApplicationServicePrincipal | undefined>;
     /**
-     * Add an instance of an application from the Microsoft Entra application gallery into your directory. The application template with ID 8adf8e6e-67b2-4cf2-a259-e3dc5476c621 can be used to add a non-gallery app that you can configure different single-sign on (SSO) modes like SAML SSO and password-based SSO.
+     * Add an instance of an application from the Microsoft Entra application gallery into your directory. For non-gallery apps, use an application template with one of the following IDs to configure different single sign-on (SSO) modes like SAML SSO and password-based SSO.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -71,6 +76,7 @@ export interface InstantiateRequestBuilder extends BaseRequestBuilder<Instantiat
 export function serializeInstantiatePostRequestBody(writer: SerializationWriter, instantiatePostRequestBody: Partial<InstantiatePostRequestBody> | undefined | null = {}) : void {
     if (instantiatePostRequestBody) {
         writer.writeStringValue("displayName", instantiatePostRequestBody.displayName);
+        writer.writeStringValue("serviceManagementReference", instantiatePostRequestBody.serviceManagementReference);
         writer.writeAdditionalData(instantiatePostRequestBody.additionalData);
     }
 }
