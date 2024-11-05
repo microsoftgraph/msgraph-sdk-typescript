@@ -10,6 +10,8 @@ import { GroupRequestBuilderNavigationMetadata, GroupRequestBuilderRequestsMetad
 // @ts-ignore
 import { OwnersRequestBuilderNavigationMetadata, OwnersRequestBuilderRequestsMetadata, type OwnersRequestBuilder } from './owners/index.js';
 // @ts-ignore
+import { OwnersWithUserPrincipalNameRequestBuilderRequestsMetadata, type OwnersWithUserPrincipalNameRequestBuilder } from './ownersWithUserPrincipalName/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -39,6 +41,12 @@ export interface CommunityItemRequestBuilder extends BaseRequestBuilder<Communit
      * @see {@link https://learn.microsoft.com/graph/api/community-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CommunityItemRequestBuilderGetQueryParameters> | undefined) : Promise<Community | undefined>;
+    /**
+     * Provides operations to manage the owners property of the microsoft.graph.community entity.
+     * @param userPrincipalName Alternate key of user
+     * @returns {OwnersWithUserPrincipalNameRequestBuilder}
+     */
+     ownersWithUserPrincipalName(userPrincipalName: string | undefined) : OwnersWithUserPrincipalNameRequestBuilder;
     /**
      * Update the properties of an existing Viva Engage community.
      * @param body The request body
@@ -96,6 +104,10 @@ const CommunityItemRequestBuilderGetQueryParametersMapper: Record<string, string
  * Metadata for all the navigation properties in the request builder.
  */
 export const CommunityItemRequestBuilderNavigationMetadata: Record<Exclude<keyof CommunityItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    ownersWithUserPrincipalName: {
+        requestsMetadata: OwnersWithUserPrincipalNameRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["userPrincipalName"],
+    },
     group: {
         requestsMetadata: GroupRequestBuilderRequestsMetadata,
         navigationMetadata: GroupRequestBuilderNavigationMetadata,

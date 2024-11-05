@@ -8,7 +8,11 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { ApproversRequestBuilderNavigationMetadata, ApproversRequestBuilderRequestsMetadata, type ApproversRequestBuilder } from './approvers/index.js';
 // @ts-ignore
+import { ApproversWithUserPrincipalNameRequestBuilderRequestsMetadata, type ApproversWithUserPrincipalNameRequestBuilder } from './approversWithUserPrincipalName/index.js';
+// @ts-ignore
 import { CollaboratorsRequestBuilderNavigationMetadata, CollaboratorsRequestBuilderRequestsMetadata, type CollaboratorsRequestBuilder } from './collaborators/index.js';
+// @ts-ignore
+import { CollaboratorsWithUserPrincipalNameRequestBuilderRequestsMetadata, type CollaboratorsWithUserPrincipalNameRequestBuilder } from './collaboratorsWithUserPrincipalName/index.js';
 // @ts-ignore
 import { GetFinalAttachmentRequestBuilderRequestsMetadata, type GetFinalAttachmentRequestBuilder } from './getFinalAttachment/index.js';
 // @ts-ignore
@@ -54,6 +58,20 @@ export interface SubjectRightsRequestItemRequestBuilder extends BaseRequestBuild
      * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
      */
     get team(): TeamRequestBuilder;
+    /**
+     * Provides operations to manage the approvers property of the microsoft.graph.subjectRightsRequest entity.
+     * @param userPrincipalName Alternate key of user
+     * @returns {ApproversWithUserPrincipalNameRequestBuilder}
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
+     */
+     approversWithUserPrincipalName(userPrincipalName: string | undefined) : ApproversWithUserPrincipalNameRequestBuilder;
+    /**
+     * Provides operations to manage the collaborators property of the microsoft.graph.subjectRightsRequest entity.
+     * @param userPrincipalName Alternate key of user
+     * @returns {CollaboratorsWithUserPrincipalNameRequestBuilder}
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
+     */
+     collaboratorsWithUserPrincipalName(userPrincipalName: string | undefined) : CollaboratorsWithUserPrincipalNameRequestBuilder;
     /**
      * Delete navigation property subjectRightsRequests for privacy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -131,6 +149,14 @@ const SubjectRightsRequestItemRequestBuilderGetQueryParametersMapper: Record<str
  * Metadata for all the navigation properties in the request builder.
  */
 export const SubjectRightsRequestItemRequestBuilderNavigationMetadata: Record<Exclude<keyof SubjectRightsRequestItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    approversWithUserPrincipalName: {
+        requestsMetadata: ApproversWithUserPrincipalNameRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["userPrincipalName"],
+    },
+    collaboratorsWithUserPrincipalName: {
+        requestsMetadata: CollaboratorsWithUserPrincipalNameRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["userPrincipalName"],
+    },
     approvers: {
         requestsMetadata: ApproversRequestBuilderRequestsMetadata,
         navigationMetadata: ApproversRequestBuilderNavigationMetadata,

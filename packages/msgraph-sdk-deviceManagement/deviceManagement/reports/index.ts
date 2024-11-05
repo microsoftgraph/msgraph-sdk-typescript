@@ -44,6 +44,8 @@ import { GetReportFiltersRequestBuilderRequestsMetadata, type GetReportFiltersRe
 // @ts-ignore
 import { GetSettingNonComplianceReportRequestBuilderRequestsMetadata, type GetSettingNonComplianceReportRequestBuilder } from './getSettingNonComplianceReport/index.js';
 // @ts-ignore
+import { RetrieveDeviceAppInstallationStatusReportRequestBuilderRequestsMetadata, type RetrieveDeviceAppInstallationStatusReportRequestBuilder } from './retrieveDeviceAppInstallationStatusReport/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -126,6 +128,10 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      * Provides operations to call the getSettingNonComplianceReport method.
      */
     get getSettingNonComplianceReport(): GetSettingNonComplianceReportRequestBuilder;
+    /**
+     * Provides operations to call the retrieveDeviceAppInstallationStatusReport method.
+     */
+    get retrieveDeviceAppInstallationStatusReport(): RetrieveDeviceAppInstallationStatusReportRequestBuilder;
     /**
      * Delete navigation property reports for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -254,6 +260,9 @@ export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof Repor
     },
     getSettingNonComplianceReport: {
         requestsMetadata: GetSettingNonComplianceReportRequestBuilderRequestsMetadata,
+    },
+    retrieveDeviceAppInstallationStatusReport: {
+        requestsMetadata: RetrieveDeviceAppInstallationStatusReportRequestBuilderRequestsMetadata,
     },
 };
 /**
