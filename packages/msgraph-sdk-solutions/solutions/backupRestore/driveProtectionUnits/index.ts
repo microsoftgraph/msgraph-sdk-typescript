@@ -27,11 +27,10 @@ export interface DriveProtectionUnitsRequestBuilder extends BaseRequestBuilder<D
      */
      byDriveProtectionUnitId(driveProtectionUnitId: string) : DriveProtectionUnitItemRequestBuilder;
     /**
-     * Get a list of the driveProtectionUnit objects that are associated with a oneDriveForBusinessProtectionPolicy.
+     * The list of drive protection units in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveProtectionUnitCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/backuprestoreroot-list-driveprotectionunits?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DriveProtectionUnitsRequestBuilderGetQueryParameters> | undefined) : Promise<DriveProtectionUnitCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface DriveProtectionUnitsRequestBuilder extends BaseRequestBuilder<D
      */
      post(body: DriveProtectionUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveProtectionUnit | undefined>;
     /**
-     * Get a list of the driveProtectionUnit objects that are associated with a oneDriveForBusinessProtectionPolicy.
+     * The list of drive protection units in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface DriveProtectionUnitsRequestBuilder extends BaseRequestBuilder<D
      toPostRequestInformation(body: DriveProtectionUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the driveProtectionUnit objects that are associated with a oneDriveForBusinessProtectionPolicy.
+ * The list of drive protection units in the tenant.
  */
 export interface DriveProtectionUnitsRequestBuilderGetQueryParameters {
     /**

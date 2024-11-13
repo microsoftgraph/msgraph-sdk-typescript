@@ -8,7 +8,11 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { ApproversRequestBuilderNavigationMetadata, ApproversRequestBuilderRequestsMetadata, type ApproversRequestBuilder } from './approvers/index.js';
 // @ts-ignore
+import { ApproversWithUserPrincipalNameRequestBuilderRequestsMetadata, type ApproversWithUserPrincipalNameRequestBuilder } from './approversWithUserPrincipalName/index.js';
+// @ts-ignore
 import { CollaboratorsRequestBuilderNavigationMetadata, CollaboratorsRequestBuilderRequestsMetadata, type CollaboratorsRequestBuilder } from './collaborators/index.js';
+// @ts-ignore
+import { CollaboratorsWithUserPrincipalNameRequestBuilderRequestsMetadata, type CollaboratorsWithUserPrincipalNameRequestBuilder } from './collaboratorsWithUserPrincipalName/index.js';
 // @ts-ignore
 import { GetFinalAttachmentRequestBuilderRequestsMetadata, type GetFinalAttachmentRequestBuilder } from './getFinalAttachment/index.js';
 // @ts-ignore
@@ -48,6 +52,18 @@ export interface SubjectRightsRequestItemRequestBuilder extends BaseRequestBuild
      * Provides operations to manage the team property of the microsoft.graph.subjectRightsRequest entity.
      */
     get team(): TeamRequestBuilder;
+    /**
+     * Provides operations to manage the approvers property of the microsoft.graph.subjectRightsRequest entity.
+     * @param userPrincipalName Alternate key of user
+     * @returns {ApproversWithUserPrincipalNameRequestBuilder}
+     */
+     approversWithUserPrincipalName(userPrincipalName: string | undefined) : ApproversWithUserPrincipalNameRequestBuilder;
+    /**
+     * Provides operations to manage the collaborators property of the microsoft.graph.subjectRightsRequest entity.
+     * @param userPrincipalName Alternate key of user
+     * @returns {CollaboratorsWithUserPrincipalNameRequestBuilder}
+     */
+     collaboratorsWithUserPrincipalName(userPrincipalName: string | undefined) : CollaboratorsWithUserPrincipalNameRequestBuilder;
     /**
      * Delete navigation property subjectRightsRequests for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -117,6 +133,14 @@ const SubjectRightsRequestItemRequestBuilderGetQueryParametersMapper: Record<str
  * Metadata for all the navigation properties in the request builder.
  */
 export const SubjectRightsRequestItemRequestBuilderNavigationMetadata: Record<Exclude<keyof SubjectRightsRequestItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    approversWithUserPrincipalName: {
+        requestsMetadata: ApproversWithUserPrincipalNameRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["userPrincipalName"],
+    },
+    collaboratorsWithUserPrincipalName: {
+        requestsMetadata: CollaboratorsWithUserPrincipalNameRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["userPrincipalName"],
+    },
     approvers: {
         requestsMetadata: ApproversRequestBuilderRequestsMetadata,
         navigationMetadata: ApproversRequestBuilderNavigationMetadata,

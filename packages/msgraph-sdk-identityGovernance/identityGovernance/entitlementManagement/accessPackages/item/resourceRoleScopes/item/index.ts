@@ -25,7 +25,7 @@ export interface AccessPackageResourceRoleScopeItemRequestBuilder extends BaseRe
      */
     get scope(): ScopeRequestBuilder;
     /**
-     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
+     * Remove an accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/accesspackage-delete-resourcerolescopes?view=graph-rest-1.0|Find more info here}
@@ -47,7 +47,7 @@ export interface AccessPackageResourceRoleScopeItemRequestBuilder extends BaseRe
      */
      patch(body: AccessPackageResourceRoleScope, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessPackageResourceRoleScope | undefined>;
     /**
-     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
+     * Remove an accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
