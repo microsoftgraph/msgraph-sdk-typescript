@@ -11,5 +11,6 @@
   },
   "devDependencies": {
     "rimraf": "^6.0.1"
-  }
+  },
+  "version": "1.0.0-preview.31"
 }
