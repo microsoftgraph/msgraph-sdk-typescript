@@ -41,7 +41,7 @@ export interface AdministrativeUnitsRequestBuilder extends BaseRequestBuilder<Ad
      */
      get(requestConfiguration?: RequestConfiguration<AdministrativeUnitsRequestBuilderGetQueryParameters> | undefined) : Promise<AdministrativeUnitCollectionResponse | undefined>;
     /**
-     * Use this API to create a new administrativeUnit.
+     * Create a new administrativeUnit.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdministrativeUnit>}
@@ -56,7 +56,7 @@ export interface AdministrativeUnitsRequestBuilder extends BaseRequestBuilder<Ad
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdministrativeUnitsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Use this API to create a new administrativeUnit.
+     * Create a new administrativeUnit.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

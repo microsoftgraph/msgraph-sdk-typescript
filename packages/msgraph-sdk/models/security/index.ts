@@ -4,9 +4,7 @@
 // @ts-ignore
 import { createGroupFromDiscriminatorValue, createIdentitySetFromDiscriminatorValue, createPhysicalAddressFromDiscriminatorValue, createPublicErrorFromDiscriminatorValue, createResultInfoFromDiscriminatorValue, createSiteFromDiscriminatorValue, deserializeIntoBaseCollectionPaginationCountResponse, deserializeIntoEntity, serializeBaseCollectionPaginationCountResponse, serializeEntity, serializeGroup, serializeIdentitySet, serializePhysicalAddress, serializePublicError, serializeResultInfo, serializeSite, type BaseCollectionPaginationCountResponse, type Entity, type Group, type IdentitySet, type PhysicalAddress, type PublicError, type ResultInfo, type Site } from '../index.js';
 // @ts-ignore
-import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
-// @ts-ignore
-import { type Guid } from 'guid-typescript';
+import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Duration, type Guid, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export type ActionAfterRetentionPeriod = (typeof ActionAfterRetentionPeriodObject)[keyof typeof ActionAfterRetentionPeriodObject];
 export type AdditionalDataOptions = (typeof AdditionalDataOptionsObject)[keyof typeof AdditionalDataOptionsObject];
@@ -483,7 +481,7 @@ export interface CaseEscaped extends Entity, Parsable {
 }
 export interface CaseOperation extends Entity, Parsable {
     /**
-     * The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
+     * The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult. You must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult.
      */
     action?: CaseAction | null;
     /**
@@ -4707,7 +4705,7 @@ export function deserializeIntoIoTDeviceEvidence(ioTDeviceEvidence: Partial<IoTD
         "macAddress": n => { ioTDeviceEvidence.macAddress = n.getStringValue(); },
         "manufacturer": n => { ioTDeviceEvidence.manufacturer = n.getStringValue(); },
         "model": n => { ioTDeviceEvidence.model = n.getStringValue(); },
-        "nics": n => { ioTDeviceEvidence.nics = n.getObjectValue<NicEvidence>(createNicEvidenceFromDiscriminatorValue); },
+        "nics": n => { ioTDeviceEvidence.nics = n.getCollectionOfObjectValues<NicEvidence>(createNicEvidenceFromDiscriminatorValue); },
         "operatingSystem": n => { ioTDeviceEvidence.operatingSystem = n.getStringValue(); },
         "owners": n => { ioTDeviceEvidence.owners = n.getCollectionOfPrimitiveValues<string>(); },
         "protocols": n => { ioTDeviceEvidence.protocols = n.getCollectionOfPrimitiveValues<string>(); },
@@ -6208,7 +6206,7 @@ export interface EdiscoverySearch extends Parsable, Search {
      */
     custodianSources?: DataSource[] | null;
     /**
-     * When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
+     * When specified, the collection spans across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
      */
     dataSourceScopes?: DataSourceScopes[] | null;
     /**
@@ -6228,39 +6226,39 @@ export interface EdiscoverySearchCollectionResponse extends BaseCollectionPagina
 }
 export interface EdiscoverySearchExportOperation extends CaseOperation, Parsable {
     /**
-     * The additionalOptions property
+     * The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue.
      */
     additionalOptions?: AdditionalOptions[] | null;
     /**
-     * The description property
+     * The description of the export by the user.
      */
     description?: string | null;
     /**
-     * The displayName property
+     * The name of export provided by the user.
      */
     displayName?: string | null;
     /**
-     * The exportCriteria property
+     * Items to be included in the export. The possible values are: searchHits, partiallyIndexed, unknownFutureValue.
      */
     exportCriteria?: ExportCriteria[] | null;
     /**
-     * The exportFileMetadata property
+     * Contains the properties for an export file metadata, including downloadUrl, fileName, and size.
      */
     exportFileMetadata?: ExportFileMetadata[] | null;
     /**
-     * The exportFormat property
+     * Format of the emails of the export. The possible values are: pst, msg, eml, unknownFutureValue.
      */
     exportFormat?: ExportFormat | null;
     /**
-     * The exportLocation property
+     * Location scope for partially indexed items. You can choose to include partially indexed items only in responsive locations with search hits or in all targeted locations. The possible values are: responsiveLocations, nonresponsiveLocations, unknownFutureValue.
      */
     exportLocation?: ExportLocation[] | null;
     /**
-     * The exportSingleItems property
+     * Indicates whether to export single items.
      */
     exportSingleItems?: boolean | null;
     /**
-     * The search property
+     * The eDiscovery searches under each case.
      */
     search?: EdiscoverySearch | null;
 }
@@ -7544,7 +7542,7 @@ export interface IoTDeviceEvidence extends AlertEvidence, Parsable {
     /**
      * The nics property
      */
-    nics?: NicEvidence | null;
+    nics?: NicEvidence[] | null;
     /**
      * The operatingSystem property
      */
@@ -10234,7 +10232,7 @@ export function serializeIoTDeviceEvidence(writer: SerializationWriter, ioTDevic
         writer.writeStringValue("macAddress", ioTDeviceEvidence.macAddress);
         writer.writeStringValue("manufacturer", ioTDeviceEvidence.manufacturer);
         writer.writeStringValue("model", ioTDeviceEvidence.model);
-        writer.writeObjectValue<NicEvidence>("nics", ioTDeviceEvidence.nics, serializeNicEvidence);
+        writer.writeCollectionOfObjectValues<NicEvidence>("nics", ioTDeviceEvidence.nics, serializeNicEvidence);
         writer.writeStringValue("operatingSystem", ioTDeviceEvidence.operatingSystem);
         writer.writeCollectionOfPrimitiveValues<string>("owners", ioTDeviceEvidence.owners);
         writer.writeCollectionOfPrimitiveValues<string>("protocols", ioTDeviceEvidence.protocols);
@@ -12516,8 +12514,8 @@ export const PurgeAreasObject = {
 } as const;
 export const PurgeTypeObject = {
     Recoverable: "recoverable",
-    PermanentlyDeleted: "permanentlyDeleted",
     UnknownFutureValue: "unknownFutureValue",
+    PermanentlyDelete: "permanentlyDelete",
 } as const;
 export const QueryTypeObject = {
     Files: "files",

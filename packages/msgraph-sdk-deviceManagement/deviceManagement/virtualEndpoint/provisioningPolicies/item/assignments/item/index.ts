@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { AssignedUsersRequestBuilderNavigationMetadata, AssignedUsersRequestBuilderRequestsMetadata, type AssignedUsersRequestBuilder } from './assignedUsers/index.js';
 // @ts-ignore
+import { AssignedUsersWithUserPrincipalNameRequestBuilderRequestsMetadata, type AssignedUsersWithUserPrincipalNameRequestBuilder } from './assignedUsersWithUserPrincipalName/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,12 @@ export interface CloudPcProvisioningPolicyAssignmentItemRequestBuilder extends B
      * Provides operations to manage the assignedUsers property of the microsoft.graph.cloudPcProvisioningPolicyAssignment entity.
      */
     get assignedUsers(): AssignedUsersRequestBuilder;
+    /**
+     * Provides operations to manage the assignedUsers property of the microsoft.graph.cloudPcProvisioningPolicyAssignment entity.
+     * @param userPrincipalName Alternate key of user
+     * @returns {AssignedUsersWithUserPrincipalNameRequestBuilder}
+     */
+     assignedUsersWithUserPrincipalName(userPrincipalName: string | undefined) : AssignedUsersWithUserPrincipalNameRequestBuilder;
     /**
      * Delete navigation property assignments for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -87,6 +95,10 @@ const CloudPcProvisioningPolicyAssignmentItemRequestBuilderGetQueryParametersMap
  * Metadata for all the navigation properties in the request builder.
  */
 export const CloudPcProvisioningPolicyAssignmentItemRequestBuilderNavigationMetadata: Record<Exclude<keyof CloudPcProvisioningPolicyAssignmentItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    assignedUsersWithUserPrincipalName: {
+        requestsMetadata: AssignedUsersWithUserPrincipalNameRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["userPrincipalName"],
+    },
     assignedUsers: {
         requestsMetadata: AssignedUsersRequestBuilderRequestsMetadata,
         navigationMetadata: AssignedUsersRequestBuilderNavigationMetadata,

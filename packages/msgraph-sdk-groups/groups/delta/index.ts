@@ -28,7 +28,7 @@ export interface DeltaGetResponse extends BaseDeltaFunctionResponse, Parsable {
  */
 export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuilder> {
     /**
-     * Get newly created, updated, or deleted groups, including group membership changes, without having to perform a full read of the entire group collection. See Using Delta Query for details.
+     * Get newly created, updated, or deleted groups, including group membership changes, without having to perform a full read of the entire group collection. For more information, see Use delta query to track changes in Microsoft Graph data for details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeltaGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -36,14 +36,14 @@ export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuil
      */
      get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaGetResponse | undefined>;
     /**
-     * Get newly created, updated, or deleted groups, including group membership changes, without having to perform a full read of the entire group collection. See Using Delta Query for details.
+     * Get newly created, updated, or deleted groups, including group membership changes, without having to perform a full read of the entire group collection. For more information, see Use delta query to track changes in Microsoft Graph data for details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get newly created, updated, or deleted groups, including group membership changes, without having to perform a full read of the entire group collection. See Using Delta Query for details.
+ * Get newly created, updated, or deleted groups, including group membership changes, without having to perform a full read of the entire group collection. For more information, see Use delta query to track changes in Microsoft Graph data for details.
  */
 export interface DeltaRequestBuilderGetQueryParameters {
     /**
