@@ -7480,107 +7480,107 @@ export interface IntelligenceProfileIndicatorCollectionResponse extends BaseColl
 export type IntelligenceProfileKind = (typeof IntelligenceProfileKindObject)[keyof typeof IntelligenceProfileKindObject];
 export interface IoTDeviceEvidence extends AlertEvidence, Parsable {
     /**
-     * The deviceId property
+     * The device ID.
      */
     deviceId?: string | null;
     /**
-     * The deviceName property
+     * The friendly name of the device.
      */
     deviceName?: string | null;
     /**
-     * The devicePageLink property
+     * The URL to the device page in the IoT Defender portal.
      */
     devicePageLink?: string | null;
     /**
-     * The deviceSubType property
+     * The device subtype.
      */
     deviceSubType?: string | null;
     /**
-     * The deviceType property
+     * The type of the device. For example, 'temperature sensor,' 'freezer,' 'wind turbine,' and so on.
      */
     deviceType?: string | null;
     /**
-     * The importance property
+     * The importance level for the IoT device. Possible values are low, normal, high, and unknownFutureValue.
      */
     importance?: IoTDeviceImportanceType | null;
     /**
-     * The ioTHub property
+     * The azureResourceEvidence entity that represents the IoT Hub that the device belongs to.
      */
     ioTHub?: AzureResourceEvidence | null;
     /**
-     * The ioTSecurityAgentId property
+     * The ID of the Azure Security Center for the IoT agent that is running on the device.
      */
     ioTSecurityAgentId?: string | null;
     /**
-     * The ipAddress property
+     * The current IP address of the device.
      */
     ipAddress?: IpEvidence | null;
     /**
-     * The isAuthorized property
+     * Indicates whether the device classified as an authorized device.
      */
     isAuthorized?: boolean | null;
     /**
-     * The isProgramming property
+     * Indicates whether the device classified as a programming device.
      */
     isProgramming?: boolean | null;
     /**
-     * The isScanner property
+     * Indicates whether the device classified as a scanner.
      */
     isScanner?: boolean | null;
     /**
-     * The macAddress property
+     * The MAC address of the device.
      */
     macAddress?: string | null;
     /**
-     * The manufacturer property
+     * The manufacturer of the device.
      */
     manufacturer?: string | null;
     /**
-     * The model property
+     * The model of the device.
      */
     model?: string | null;
     /**
-     * The nics property
+     * The current network interface controllers on the device.
      */
     nics?: NicEvidence[] | null;
     /**
-     * The operatingSystem property
+     * The operating system the device is running.
      */
     operatingSystem?: string | null;
     /**
-     * The owners property
+     * The owners for the device.
      */
     owners?: string[] | null;
     /**
-     * The protocols property
+     * The list of protocols that the device supports.
      */
     protocols?: string[] | null;
     /**
-     * The purdueLayer property
+     * The Purdue Layer of the device.
      */
     purdueLayer?: string | null;
     /**
-     * The sensor property
+     * The sensor that monitors the device.
      */
     sensor?: string | null;
     /**
-     * The serialNumber property
+     * The serial number of the device.
      */
     serialNumber?: string | null;
     /**
-     * The site property
+     * The site location of the device.
      */
     site?: string | null;
     /**
-     * The source property
+     * The source (microsoft/vendor) of the device entity.
      */
     source?: string | null;
     /**
-     * The sourceRef property
+     * A URL reference to the source item where the device is managed.
      */
     sourceRef?: UrlEvidence | null;
     /**
-     * The zone property
+     * The zone location of the device within a site.
      */
     zone?: string | null;
 }
@@ -7968,15 +7968,15 @@ export interface NetworkConnectionEvidence extends AlertEvidence, Parsable {
 }
 export interface NicEvidence extends AlertEvidence, Parsable {
     /**
-     * The ipAddress property
+     * The current IP address of the NIC.
      */
     ipAddress?: IpEvidence | null;
     /**
-     * The macAddress property
+     * The MAC address of the NIC.
      */
     macAddress?: string | null;
     /**
-     * The vlans property
+     * The current virtual local area networks of the NIC.
      */
     vlans?: string[] | null;
 }
