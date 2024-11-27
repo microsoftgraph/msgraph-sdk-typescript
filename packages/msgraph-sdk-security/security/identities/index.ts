@@ -8,6 +8,8 @@ import { createIdentityContainerFromDiscriminatorValue, serializeIdentityContain
 // @ts-ignore
 import { HealthIssuesRequestBuilderNavigationMetadata, HealthIssuesRequestBuilderRequestsMetadata, type HealthIssuesRequestBuilder } from './healthIssues/index.js';
 // @ts-ignore
+import { SensorsRequestBuilderNavigationMetadata, SensorsRequestBuilderRequestsMetadata, type SensorsRequestBuilder } from './sensors/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface IdentitiesRequestBuilder extends BaseRequestBuilder<IdentitiesR
      * Provides operations to manage the healthIssues property of the microsoft.graph.security.identityContainer entity.
      */
     get healthIssues(): HealthIssuesRequestBuilder;
+    /**
+     * Provides operations to manage the sensors property of the microsoft.graph.security.identityContainer entity.
+     */
+    get sensors(): SensorsRequestBuilder;
     /**
      * Delete navigation property identities for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -90,6 +96,10 @@ export const IdentitiesRequestBuilderNavigationMetadata: Record<Exclude<keyof Id
     healthIssues: {
         requestsMetadata: HealthIssuesRequestBuilderRequestsMetadata,
         navigationMetadata: HealthIssuesRequestBuilderNavigationMetadata,
+    },
+    sensors: {
+        requestsMetadata: SensorsRequestBuilderRequestsMetadata,
+        navigationMetadata: SensorsRequestBuilderNavigationMetadata,
     },
 };
 /**

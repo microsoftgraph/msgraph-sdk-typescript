@@ -34,7 +34,7 @@ export interface EmailMethodsRequestBuilder extends BaseRequestBuilder<EmailMeth
      */
      get(requestConfiguration?: RequestConfiguration<EmailMethodsRequestBuilderGetQueryParameters> | undefined) : Promise<EmailAuthenticationMethodCollectionResponse | undefined>;
     /**
-     * Set a user's emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method.
+     * Set a user's emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method. Self-service operations aren't supported.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EmailAuthenticationMethod>}
@@ -49,7 +49,7 @@ export interface EmailMethodsRequestBuilder extends BaseRequestBuilder<EmailMeth
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EmailMethodsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Set a user's emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method.
+     * Set a user's emailAuthenticationMethod object. Email authentication is a self-service password reset method. A user may only have one email authentication method. Self-service operations aren't supported.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

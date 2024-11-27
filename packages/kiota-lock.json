@@ -1,5 +1,5 @@
 {
-  "descriptionHash": "9C0357AF48CB96E9D11FA0C93BA9E89BA6867A8AB1E6BD5A3B06CD9BF3CFD13486E0708B3EC4E4D8D199FDB9EF8D6E84098D8D79C83C943A1E45E1D3439BCAC4",
+  "descriptionHash": "40F7E809DAB5A8CD74C54B0838FB352CC3CA08F14C087BCABEA87C73A3912985E5A29497367213728E27D7EE587297AA3C8BE29E13758F967F5AC2A1E568A4A9",
   "descriptionLocation": "../../msgraph-metadata/clean_v10_openapi/openapi.yaml",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.21.0",
@@ -31,7 +31,9 @@
   "includePatterns": [],
   "excludePatterns": [
     "/me",
-    "/me/**"
+    "/me/**",
+    "/copilot",
+    "/copilot/**"
   ],
   "disabledValidationRules": []
 }

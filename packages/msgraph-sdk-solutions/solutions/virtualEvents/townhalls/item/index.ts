@@ -31,7 +31,7 @@ export interface VirtualEventTownhallItemRequestBuilder extends BaseRequestBuild
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a virtualEventTownhall object.
+     * Read the properties and relationships of a virtualEventTownhall object. All roles can get the details of a townhall event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventTownhall>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -39,7 +39,7 @@ export interface VirtualEventTownhallItemRequestBuilder extends BaseRequestBuild
      */
      get(requestConfiguration?: RequestConfiguration<VirtualEventTownhallItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventTownhall | undefined>;
     /**
-     * Update the properties of a virtualEventTownhall object.
+     * Update the properties of a virtualEventTownhall object. Only the Organizer and Co-organizer can make changes to a townhall event.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventTownhall>}
@@ -54,13 +54,13 @@ export interface VirtualEventTownhallItemRequestBuilder extends BaseRequestBuild
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a virtualEventTownhall object.
+     * Read the properties and relationships of a virtualEventTownhall object. All roles can get the details of a townhall event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<VirtualEventTownhallItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a virtualEventTownhall object.
+     * Update the properties of a virtualEventTownhall object. Only the Organizer and Co-organizer can make changes to a townhall event.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -68,7 +68,7 @@ export interface VirtualEventTownhallItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: VirtualEventTownhall, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a virtualEventTownhall object.
+ * Read the properties and relationships of a virtualEventTownhall object. All roles can get the details of a townhall event.
  */
 export interface VirtualEventTownhallItemRequestBuilderGetQueryParameters {
     /**
