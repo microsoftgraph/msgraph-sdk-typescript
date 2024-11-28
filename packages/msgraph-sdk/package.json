@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk",
-  "version": "1.0.0-preview.31",
+  "version": "1.0.0-preview.32",
   "description": "Microsoft Graph JavaScript client library",
   "keywords": [
     "microsoft",
