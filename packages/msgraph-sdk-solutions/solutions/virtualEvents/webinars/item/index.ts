@@ -47,7 +47,7 @@ export interface VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a virtualEventWebinar object.
+     * Read the properties and relationships of a virtualEventWebinar object. All roles can get the details of a webinar event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventWebinar>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -55,7 +55,7 @@ export interface VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<VirtualEventWebinarItemRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventWebinar | undefined>;
     /**
-     * Update the properties of a virtualEventWebinar object.
+     * Update the properties of a virtualEventWebinar object. Only the Organizer and Co-organizer can make changes to a webinar event.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventWebinar>}
@@ -82,13 +82,13 @@ export interface VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a virtualEventWebinar object.
+     * Read the properties and relationships of a virtualEventWebinar object. All roles can get the details of a webinar event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<VirtualEventWebinarItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a virtualEventWebinar object.
+     * Update the properties of a virtualEventWebinar object. Only the Organizer and Co-organizer can make changes to a webinar event.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -96,7 +96,7 @@ export interface VirtualEventWebinarItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: VirtualEventWebinar, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a virtualEventWebinar object.
+ * Read the properties and relationships of a virtualEventWebinar object. All roles can get the details of a webinar event.
  */
 export interface VirtualEventWebinarItemRequestBuilderGetQueryParameters {
     /**

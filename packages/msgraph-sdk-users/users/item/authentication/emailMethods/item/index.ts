@@ -27,7 +27,7 @@ export interface EmailAuthenticationMethodItemRequestBuilder extends BaseRequest
      */
      get(requestConfiguration?: RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<EmailAuthenticationMethod | undefined>;
     /**
-     * Update a user's email address represented by an emailAuthenticationMethod object.
+     * Update a user's email address represented by an emailAuthenticationMethod object. Self-service operations aren't supported.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EmailAuthenticationMethod>}
@@ -48,7 +48,7 @@ export interface EmailAuthenticationMethodItemRequestBuilder extends BaseRequest
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EmailAuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update a user's email address represented by an emailAuthenticationMethod object.
+     * Update a user's email address represented by an emailAuthenticationMethod object. Self-service operations aren't supported.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

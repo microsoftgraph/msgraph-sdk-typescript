@@ -27,7 +27,7 @@ export interface TownhallsRequestBuilder extends BaseRequestBuilder<TownhallsReq
      */
      byVirtualEventTownhallId(virtualEventTownhallId: string) : VirtualEventTownhallItemRequestBuilder;
     /**
-     * Read the properties and relationships of a virtualEventTownhall object.
+     * Read the properties and relationships of a virtualEventTownhall object. All roles can get the details of a townhall event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventTownhallCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -43,7 +43,7 @@ export interface TownhallsRequestBuilder extends BaseRequestBuilder<TownhallsReq
      */
      post(body: VirtualEventTownhall, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventTownhall | undefined>;
     /**
-     * Read the properties and relationships of a virtualEventTownhall object.
+     * Read the properties and relationships of a virtualEventTownhall object. All roles can get the details of a townhall event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +57,7 @@ export interface TownhallsRequestBuilder extends BaseRequestBuilder<TownhallsReq
      toPostRequestInformation(body: VirtualEventTownhall, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a virtualEventTownhall object.
+ * Read the properties and relationships of a virtualEventTownhall object. All roles can get the details of a townhall event.
  */
 export interface TownhallsRequestBuilderGetQueryParameters {
     /**
