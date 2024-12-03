@@ -2921,6 +2921,10 @@ export interface DataSet extends Entity, Parsable {
      */
     createdDateTime?: Date | null;
     /**
+     * The description property
+     */
+    description?: string | null;
+    /**
      * The displayName property
      */
     displayName?: string | null;
@@ -3483,6 +3487,7 @@ export function deserializeIntoDataSet(dataSet: Partial<DataSet> | undefined = {
         ...deserializeIntoEntity(dataSet),
         "createdBy": n => { dataSet.createdBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "createdDateTime": n => { dataSet.createdDateTime = n.getDateValue(); },
+        "description": n => { dataSet.description = n.getStringValue(); },
         "displayName": n => { dataSet.displayName = n.getStringValue(); },
     }
 }
@@ -9210,6 +9215,7 @@ export function serializeDataSet(writer: SerializationWriter, dataSet: Partial<D
         serializeEntity(writer, dataSet)
         writer.writeObjectValue<IdentitySet>("createdBy", dataSet.createdBy, serializeIdentitySet);
         writer.writeDateValue("createdDateTime", dataSet.createdDateTime);
+        writer.writeStringValue("description", dataSet.description);
         writer.writeStringValue("displayName", dataSet.displayName);
     }
 }
