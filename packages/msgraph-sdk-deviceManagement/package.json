@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-devicemanagement",
-  "version": "1.0.0-preview.32",
+  "version": "1.0.0-preview.33",
   "description": "DeviceManagement fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
