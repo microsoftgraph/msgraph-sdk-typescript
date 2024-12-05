@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-agreements",
-  "version": "1.0.0-preview.32",
+  "version": "1.0.0-preview.33",
   "description": "Agreements fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
