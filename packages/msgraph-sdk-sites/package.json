@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-sites",
-  "version": "1.0.0-preview.33",
+  "version": "1.0.0-preview.34",
   "description": "Sites fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
