@@ -35,12 +35,12 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationCollectionResponse | undefined>;
     /**
-     * Create a new iosCustomConfiguration object.
+     * Create a new windows81GeneralConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-ioscustomconfiguration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81generalconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
@@ -50,7 +50,7 @@ export interface DeviceConfigurationsRequestBuilder extends BaseRequestBuilder<D
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new iosCustomConfiguration object.
+     * Create a new windows81GeneralConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

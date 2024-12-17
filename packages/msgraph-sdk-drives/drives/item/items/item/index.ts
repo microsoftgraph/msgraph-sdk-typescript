@@ -30,6 +30,8 @@ import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from '.
 // @ts-ignore
 import { DeltaWithTokenRequestBuilderRequestsMetadata, type DeltaWithTokenRequestBuilder } from './deltaWithToken/index.js';
 // @ts-ignore
+import { DiscardCheckoutRequestBuilderRequestsMetadata, type DiscardCheckoutRequestBuilder } from './discardCheckout/index.js';
+// @ts-ignore
 import { ExtractSensitivityLabelsRequestBuilderRequestsMetadata, type ExtractSensitivityLabelsRequestBuilder } from './extractSensitivityLabels/index.js';
 // @ts-ignore
 import { FollowRequestBuilderRequestsMetadata, type FollowRequestBuilder } from './follow/index.js';
@@ -118,6 +120,10 @@ export interface DriveItemItemRequestBuilder extends BaseRequestBuilder<DriveIte
      * Provides operations to call the delta method.
      */
     get delta(): DeltaRequestBuilder;
+    /**
+     * Provides operations to call the discardCheckout method.
+     */
+    get discardCheckout(): DiscardCheckoutRequestBuilder;
     /**
      * Provides operations to call the extractSensitivityLabels method.
      */
@@ -322,6 +328,9 @@ export const DriveItemItemRequestBuilderNavigationMetadata: Record<Exclude<keyof
     },
     delta: {
         requestsMetadata: DeltaRequestBuilderRequestsMetadata,
+    },
+    discardCheckout: {
+        requestsMetadata: DiscardCheckoutRequestBuilderRequestsMetadata,
     },
     extractSensitivityLabels: {
         requestsMetadata: ExtractSensitivityLabelsRequestBuilderRequestsMetadata,
