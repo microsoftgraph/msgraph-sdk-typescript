@@ -35,7 +35,7 @@ export interface GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
      */
      get(requestConfiguration?: RequestConfiguration<GroupLifecyclePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<GroupLifecyclePolicyCollectionResponse | undefined>;
     /**
-     * Creates a new groupLifecyclePolicy.
+     * Creates a new groupLifecyclePolicy. Only one policy exists in the tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupLifecyclePolicy>}
@@ -50,7 +50,7 @@ export interface GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GroupLifecyclePoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Creates a new groupLifecyclePolicy.
+     * Creates a new groupLifecyclePolicy. Only one policy exists in the tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
