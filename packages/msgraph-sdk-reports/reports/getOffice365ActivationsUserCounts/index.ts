@@ -11,7 +11,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GetOffice365ActivationsUserCountsRequestBuilder extends BaseRequestBuilder<GetOffice365ActivationsUserCountsRequestBuilder> {
     /**
-     * Get the count of users that are enabled and those that have activated the Office subscription on desktop or devices or shared computers.
+     * Get the count of users that are enabled and the ones that activated the Office subscription on desktop or devices or shared computers.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -19,7 +19,7 @@ export interface GetOffice365ActivationsUserCountsRequestBuilder extends BaseReq
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Get the count of users that are enabled and those that have activated the Office subscription on desktop or devices or shared computers.
+     * Get the count of users that are enabled and the ones that activated the Office subscription on desktop or devices or shared computers.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
