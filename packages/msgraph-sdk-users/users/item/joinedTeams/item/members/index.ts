@@ -12,6 +12,8 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 // @ts-ignore
 import { ConversationMemberItemRequestBuilderRequestsMetadata, type ConversationMemberItemRequestBuilder } from './item/index.js';
 // @ts-ignore
+import { RemoveRequestBuilderRequestsMetadata, type RemoveRequestBuilder } from './remove/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -26,6 +28,10 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Provides operations to call the remove method.
+     */
+    get remove(): RemoveRequestBuilder;
     /**
      * Provides operations to manage the members property of the microsoft.graph.team entity.
      * @param conversationMemberId The unique identifier of conversationMember
@@ -128,6 +134,9 @@ export const MembersRequestBuilderNavigationMetadata: Record<Exclude<keyof Membe
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    remove: {
+        requestsMetadata: RemoveRequestBuilderRequestsMetadata,
     },
 };
 /**
