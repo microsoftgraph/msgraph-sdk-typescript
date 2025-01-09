@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-groupsettingtemplates",
-  "version": "1.0.0-preview.35",
+  "version": "1.0.0-preview.36",
   "description": "GroupSettingTemplates fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",

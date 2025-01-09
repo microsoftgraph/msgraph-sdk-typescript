@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-users",
-  "version": "1.0.0-preview.35",
+  "version": "1.0.0-preview.36",
   "description": "Users fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
