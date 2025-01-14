@@ -57,18 +57,18 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      */
     get userStatusOverview(): UserStatusOverviewRequestBuilder;
     /**
-     * Deletes a iosDeviceFeaturesConfiguration.
+     * Deletes a sharedPCConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosdevicefeaturesconfiguration-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-sharedpcconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the macOSGeneralDeviceConfiguration object.
+     * Read properties and relationships of the androidWorkProfileCustomConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macosgeneraldeviceconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilecustomconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
@@ -87,13 +87,13 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      */
      patch(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
-     * Deletes a iosDeviceFeaturesConfiguration.
+     * Deletes a sharedPCConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the macOSGeneralDeviceConfiguration object.
+     * Read properties and relationships of the androidWorkProfileCustomConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -107,7 +107,7 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the macOSGeneralDeviceConfiguration object.
+ * Read properties and relationships of the androidWorkProfileCustomConfiguration object.
  */
 export interface DeviceConfigurationItemRequestBuilderGetQueryParameters {
     /**
