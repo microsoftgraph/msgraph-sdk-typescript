@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-permissiongrants",
-  "version": "1.0.0-preview.36",
+  "version": "1.0.0-preview.37",
   "description": "PermissionGrants fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
