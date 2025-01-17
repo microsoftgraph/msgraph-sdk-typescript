@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-print",
-  "version": "1.0.0-preview.36",
+  "version": "1.0.0-preview.37",
   "description": "Print fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",

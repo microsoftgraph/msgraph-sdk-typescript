@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-shares",
-  "version": "1.0.0-preview.36",
+  "version": "1.0.0-preview.37",
   "description": "Shares fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
