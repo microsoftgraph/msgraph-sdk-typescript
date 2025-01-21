@@ -143,7 +143,7 @@ const authProvider = new AzureIdentityAuthenticationProvider(credential, ["User.
 You must get a **GraphServiceClient** object to make requests against the service.
 
 ```typescript
-const requestAdapter = new FetchRequestAdapter(authProvider);
+const requestAdapter = new GraphRequestAdapter(authProvider);
 const graphServiceClient = createGraphServiceClient(requestAdapter);
 ```
 
@@ -156,11 +156,10 @@ After you have a **GraphServiceClient** that is authenticated, you can begin mak
 To retrieve the user's detailed information:
 
 ```typescript
-import { FetchRequestAdapter } from "@microsoft/kiota-http-fetchlibrary";
-import { createGraphServiceClient } from "@microsoft/msgraph-sdk";
+import { createGraphServiceClient, GraphRequestAdapter } from "@microsoft/msgraph-sdk";
 import "@microsoft/msgraph-sdk-users";
 
-const requestAdapter = new FetchRequestAdapter(authProvider);
+const requestAdapter = new GraphRequestAdapter(authProvider);
 const graphServiceClient = createGraphServiceClient(requestAdapter);
 
 const jane = await graphServiceClient.users.byUserId("jane@contoso.com").get();
