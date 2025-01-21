@@ -8,6 +8,10 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
+import { GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderRequestsMetadata, type GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder } from './getByUserIdAndRoleWithUserIdWithRole/index.js';
+// @ts-ignore
+import { GetByUserRoleWithRoleRequestBuilderRequestsMetadata, type GetByUserRoleWithRoleRequestBuilder } from './getByUserRoleWithRole/index.js';
+// @ts-ignore
 import { type VirtualEventTownhallItemRequestBuilder, VirtualEventTownhallItemRequestBuilderNavigationMetadata, VirtualEventTownhallItemRequestBuilderRequestsMetadata } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -33,6 +37,19 @@ export interface TownhallsRequestBuilder extends BaseRequestBuilder<TownhallsReq
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<TownhallsRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventTownhallCollectionResponse | undefined>;
+    /**
+     * Provides operations to call the getByUserIdAndRole method.
+     * @param role Usage: role='{role}'
+     * @param userId Usage: userId='{userId}'
+     * @returns {GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder}
+     */
+     getByUserIdAndRoleWithUserIdWithRole(role: string | undefined, userId: string | undefined) : GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder;
+    /**
+     * Provides operations to call the getByUserRole method.
+     * @param role Usage: role='{role}'
+     * @returns {GetByUserRoleWithRoleRequestBuilder}
+     */
+     getByUserRoleWithRole(role: string | undefined) : GetByUserRoleWithRoleRequestBuilder;
     /**
      * Create a new virtualEventTownhall object in draft mode.
      * @param body The request body
@@ -118,6 +135,14 @@ export const TownhallsRequestBuilderNavigationMetadata: Record<Exclude<keyof Tow
         requestsMetadata: VirtualEventTownhallItemRequestBuilderRequestsMetadata,
         navigationMetadata: VirtualEventTownhallItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["virtualEventTownhall%2Did"],
+    },
+    getByUserIdAndRoleWithUserIdWithRole: {
+        requestsMetadata: GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["role", "userId"],
+    },
+    getByUserRoleWithRole: {
+        requestsMetadata: GetByUserRoleWithRoleRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["role"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,

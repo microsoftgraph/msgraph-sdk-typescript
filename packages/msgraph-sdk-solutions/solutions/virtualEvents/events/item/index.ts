@@ -14,6 +14,8 @@ import { PublishRequestBuilderRequestsMetadata, type PublishRequestBuilder } fro
 // @ts-ignore
 import { SessionsRequestBuilderNavigationMetadata, SessionsRequestBuilderRequestsMetadata, type SessionsRequestBuilder } from './sessions/index.js';
 // @ts-ignore
+import { SetExternalEventInformationRequestBuilderRequestsMetadata, type SetExternalEventInformationRequestBuilder } from './setExternalEventInformation/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -36,6 +38,10 @@ export interface VirtualEventItemRequestBuilder extends BaseRequestBuilder<Virtu
      * Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
      */
     get sessions(): SessionsRequestBuilder;
+    /**
+     * Provides operations to call the setExternalEventInformation method.
+     */
+    get setExternalEventInformation(): SetExternalEventInformationRequestBuilder;
     /**
      * Delete navigation property events for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -118,6 +124,9 @@ export const VirtualEventItemRequestBuilderNavigationMetadata: Record<Exclude<ke
     sessions: {
         requestsMetadata: SessionsRequestBuilderRequestsMetadata,
         navigationMetadata: SessionsRequestBuilderNavigationMetadata,
+    },
+    setExternalEventInformation: {
+        requestsMetadata: SetExternalEventInformationRequestBuilderRequestsMetadata,
     },
 };
 /**
