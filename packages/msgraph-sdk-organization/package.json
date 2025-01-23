@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-organization",
-  "version": "1.0.0-preview.37",
+  "version": "1.0.0-preview.38",
   "description": "Organization fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
