@@ -73,7 +73,7 @@ export interface GetMemberObjectsPostResponse extends BaseCollectionPaginationCo
  */
 export interface GetMemberObjectsRequestBuilder extends BaseRequestBuilder<GetMemberObjectsRequestBuilder> {
     /**
-     * Return all IDs for the groups, administrative units, and directory roles that a user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. Note: Only users and role-enabled groups can be members of directory roles.
+     * Return all IDs for the groups, administrative units, and directory roles that an object of one of the following types is a member of:- user- group- service principal- organizational contact- device- directory object This function is transitive. Only users and role-enabled groups can be members of directory roles.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetMemberObjectsPostResponse>}
@@ -82,7 +82,7 @@ export interface GetMemberObjectsRequestBuilder extends BaseRequestBuilder<GetMe
      */
      post(body: GetMemberObjectsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMemberObjectsPostResponse | undefined>;
     /**
-     * Return all IDs for the groups, administrative units, and directory roles that a user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. Note: Only users and role-enabled groups can be members of directory roles.
+     * Return all IDs for the groups, administrative units, and directory roles that an object of one of the following types is a member of:- user- group- service principal- organizational contact- device- directory object This function is transitive. Only users and role-enabled groups can be members of directory roles.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

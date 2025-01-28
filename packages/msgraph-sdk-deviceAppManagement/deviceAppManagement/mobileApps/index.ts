@@ -123,11 +123,11 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      */
      byMobileAppId(mobileAppId: string) : MobileAppItemRequestBuilder;
     /**
-     * List properties and relationships of the mobileLobApp objects.
+     * List properties and relationships of the macOSLobApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobilelobapp-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-macoslobapp-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppCollectionResponse | undefined>;
     /**
@@ -140,7 +140,7 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      */
      post(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * List properties and relationships of the mobileLobApp objects.
+     * List properties and relationships of the macOSLobApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -154,7 +154,7 @@ export interface MobileAppsRequestBuilder extends BaseRequestBuilder<MobileAppsR
      toPostRequestInformation(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the mobileLobApp objects.
+ * List properties and relationships of the macOSLobApp objects.
  */
 export interface MobileAppsRequestBuilderGetQueryParameters {
     /**
