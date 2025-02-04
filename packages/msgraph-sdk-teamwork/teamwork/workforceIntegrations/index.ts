@@ -35,7 +35,7 @@ export interface WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder<
      */
      get(requestConfiguration?: RequestConfiguration<WorkforceIntegrationsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkforceIntegrationCollectionResponse | undefined>;
     /**
-     * Create a new workforceIntegration object.You can set up which entities you want to receive Shifts synchronous change notifications on and set entities to configure filtering by WFM rules eligibility for, including swap requests.
+     * Create a new workforceIntegration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkforceIntegration>}
@@ -50,7 +50,7 @@ export interface WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder<
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkforceIntegrationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new workforceIntegration object.You can set up which entities you want to receive Shifts synchronous change notifications on and set entities to configure filtering by WFM rules eligibility for, including swap requests.
+     * Create a new workforceIntegration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

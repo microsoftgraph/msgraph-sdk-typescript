@@ -27,21 +27,22 @@ export interface ChildTagsRequestBuilder extends BaseRequestBuilder<ChildTagsReq
      */
      byEdiscoveryReviewTagId1(ediscoveryReviewTagId1: string) : EdiscoveryReviewTagItemRequestBuilder;
     /**
-     * Returns the tags that are a child of a tag.
+     * List eDiscovery review tags with the tag hierarchy shown.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EdiscoveryReviewTagCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewtag-ashierarchy?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ChildTagsRequestBuilderGetQueryParameters> | undefined) : Promise<EdiscoveryReviewTagCollectionResponse | undefined>;
     /**
-     * Returns the tags that are a child of a tag.
+     * List eDiscovery review tags with the tag hierarchy shown.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ChildTagsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Returns the tags that are a child of a tag.
+ * List eDiscovery review tags with the tag hierarchy shown.
  */
 export interface ChildTagsRequestBuilderGetQueryParameters {
     /**
