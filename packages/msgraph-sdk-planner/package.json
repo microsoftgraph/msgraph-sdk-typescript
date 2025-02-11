@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-planner",
-  "version": "1.0.0-preview.39",
+  "version": "1.0.0-preview.40",
   "description": "Planner fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
