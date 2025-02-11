@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-tests",
-  "version": "1.0.0-preview.40",
+  "version": "1.0.0-preview.41",
   "description": "Tests package for the packages",
   "author": "Microsoft <graphsdkpub+javascript@microsoft.com>",
   "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
