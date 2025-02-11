@@ -6,6 +6,8 @@ import { createScheduleFromDiscriminatorValue, serializeSchedule, type Schedule 
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { DayNotesRequestBuilderNavigationMetadata, DayNotesRequestBuilderRequestsMetadata, type DayNotesRequestBuilder } from './dayNotes/index.js';
+// @ts-ignore
 import { OfferShiftRequestsRequestBuilderNavigationMetadata, OfferShiftRequestsRequestBuilderRequestsMetadata, type OfferShiftRequestsRequestBuilder } from './offerShiftRequests/index.js';
 // @ts-ignore
 import { OpenShiftChangeRequestsRequestBuilderNavigationMetadata, OpenShiftChangeRequestsRequestBuilderRequestsMetadata, type OpenShiftChangeRequestsRequestBuilder } from './openShiftChangeRequests/index.js';
@@ -20,6 +22,8 @@ import { ShiftsRequestBuilderNavigationMetadata, ShiftsRequestBuilderRequestsMet
 // @ts-ignore
 import { SwapShiftsChangeRequestsRequestBuilderNavigationMetadata, SwapShiftsChangeRequestsRequestBuilderRequestsMetadata, type SwapShiftsChangeRequestsRequestBuilder } from './swapShiftsChangeRequests/index.js';
 // @ts-ignore
+import { TimeCardsRequestBuilderNavigationMetadata, TimeCardsRequestBuilderRequestsMetadata, type TimeCardsRequestBuilder } from './timeCards/index.js';
+// @ts-ignore
 import { TimeOffReasonsRequestBuilderNavigationMetadata, TimeOffReasonsRequestBuilderRequestsMetadata, type TimeOffReasonsRequestBuilder } from './timeOffReasons/index.js';
 // @ts-ignore
 import { TimeOffRequestsRequestBuilderNavigationMetadata, TimeOffRequestsRequestBuilderRequestsMetadata, type TimeOffRequestsRequestBuilder } from './timeOffRequests/index.js';
@@ -32,6 +36,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the schedule property of the microsoft.graph.team entity.
  */
 export interface ScheduleRequestBuilder extends BaseRequestBuilder<ScheduleRequestBuilder> {
+    /**
+     * Provides operations to manage the dayNotes property of the microsoft.graph.schedule entity.
+     */
+    get dayNotes(): DayNotesRequestBuilder;
     /**
      * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
      */
@@ -60,6 +68,10 @@ export interface ScheduleRequestBuilder extends BaseRequestBuilder<ScheduleReque
      * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
      */
     get swapShiftsChangeRequests(): SwapShiftsChangeRequestsRequestBuilder;
+    /**
+     * Provides operations to manage the timeCards property of the microsoft.graph.schedule entity.
+     */
+    get timeCards(): TimeCardsRequestBuilder;
     /**
      * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
      */
@@ -143,6 +155,10 @@ const ScheduleRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const ScheduleRequestBuilderNavigationMetadata: Record<Exclude<keyof ScheduleRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    dayNotes: {
+        requestsMetadata: DayNotesRequestBuilderRequestsMetadata,
+        navigationMetadata: DayNotesRequestBuilderNavigationMetadata,
+    },
     offerShiftRequests: {
         requestsMetadata: OfferShiftRequestsRequestBuilderRequestsMetadata,
         navigationMetadata: OfferShiftRequestsRequestBuilderNavigationMetadata,
@@ -169,6 +185,10 @@ export const ScheduleRequestBuilderNavigationMetadata: Record<Exclude<keyof Sche
     swapShiftsChangeRequests: {
         requestsMetadata: SwapShiftsChangeRequestsRequestBuilderRequestsMetadata,
         navigationMetadata: SwapShiftsChangeRequestsRequestBuilderNavigationMetadata,
+    },
+    timeCards: {
+        requestsMetadata: TimeCardsRequestBuilderRequestsMetadata,
+        navigationMetadata: TimeCardsRequestBuilderNavigationMetadata,
     },
     timeOffReasons: {
         requestsMetadata: TimeOffReasonsRequestBuilderRequestsMetadata,

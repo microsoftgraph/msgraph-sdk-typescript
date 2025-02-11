@@ -36,7 +36,7 @@ export function deserializeIntoUpdateAllowedCombinationsPostRequestBody(updateAl
 export function serializeUpdateAllowedCombinationsPostRequestBody(writer: SerializationWriter, updateAllowedCombinationsPostRequestBody: Partial<UpdateAllowedCombinationsPostRequestBody> | undefined | null = {}) : void {
     if (updateAllowedCombinationsPostRequestBody) {
         if(updateAllowedCombinationsPostRequestBody.allowedCombinations)
-        writer.writeEnumValue<AuthenticationMethodModes>("allowedCombinations", ...updateAllowedCombinationsPostRequestBody.allowedCombinations);
+        writer.writeCollectionOfEnumValues<AuthenticationMethodModes>("allowedCombinations", updateAllowedCombinationsPostRequestBody.allowedCombinations);
         writer.writeAdditionalData(updateAllowedCombinationsPostRequestBody.additionalData);
     }
 }

@@ -92,7 +92,7 @@ import { ManagedAppRegistrationsRequestBuilderNavigationMetadata, ManagedAppRegi
 // @ts-ignore
 import { ManagedDevicesRequestBuilderNavigationMetadata, ManagedDevicesRequestBuilderRequestsMetadata, type ManagedDevicesRequestBuilder } from './managedDevices/index.js';
 // @ts-ignore
-import { ManagerRequestBuilderNavigationMetadata, ManagerRequestBuilderRequestsMetadata, type ManagerRequestBuilder } from './manager/index.js';
+import { ManagerRequestBuilderRequestsMetadata, type ManagerRequestBuilder } from './manager/index.js';
 // @ts-ignore
 import { MemberOfRequestBuilderNavigationMetadata, MemberOfRequestBuilderRequestsMetadata, type MemberOfRequestBuilder } from './memberOf/index.js';
 // @ts-ignore
@@ -464,7 +464,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * Deletes a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -479,7 +479,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserItemRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
@@ -709,7 +709,6 @@ export const UserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof User
     },
     manager: {
         requestsMetadata: ManagerRequestBuilderRequestsMetadata,
-        navigationMetadata: ManagerRequestBuilderNavigationMetadata,
     },
     memberOf: {
         requestsMetadata: MemberOfRequestBuilderRequestsMetadata,

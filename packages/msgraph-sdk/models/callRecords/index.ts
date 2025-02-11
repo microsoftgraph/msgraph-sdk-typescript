@@ -1628,7 +1628,7 @@ export function serializeCallRecord(writer: SerializationWriter, callRecord: Par
         writer.writeStringValue("joinWebUrl", callRecord.joinWebUrl);
         writer.writeDateValue("lastModifiedDateTime", callRecord.lastModifiedDateTime);
         if(callRecord.modalities)
-        writer.writeEnumValue<Modality>("modalities", ...callRecord.modalities);
+        writer.writeCollectionOfEnumValues<Modality>("modalities", callRecord.modalities);
         writer.writeObjectValue<IdentitySet>("organizer", callRecord.organizer, serializeIdentitySet);
         writer.writeObjectValue<Organizer>("organizer_v2", callRecord.organizerV2, serializeOrganizer);
         writer.writeCollectionOfObjectValues<IdentitySet>("participants", callRecord.participants, serializeIdentitySet);
@@ -2015,7 +2015,7 @@ export function serializeSession(writer: SerializationWriter, session: Partial<S
         writer.writeObjectValue<FailureInfo>("failureInfo", session.failureInfo, serializeFailureInfo);
         writer.writeBooleanValue("isTest", session.isTest);
         if(session.modalities)
-        writer.writeEnumValue<Modality>("modalities", ...session.modalities);
+        writer.writeCollectionOfEnumValues<Modality>("modalities", session.modalities);
         writer.writeCollectionOfObjectValues<Segment>("segments", session.segments, serializeSegment);
         writer.writeDateValue("startDateTime", session.startDateTime);
     }

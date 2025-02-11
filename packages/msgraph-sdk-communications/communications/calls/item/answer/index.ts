@@ -90,7 +90,7 @@ export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: Part
 export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined | null = {}) : void {
     if (answerPostRequestBody) {
         if(answerPostRequestBody.acceptedModalities)
-        writer.writeEnumValue<Modality>("acceptedModalities", ...answerPostRequestBody.acceptedModalities);
+        writer.writeCollectionOfEnumValues<Modality>("acceptedModalities", answerPostRequestBody.acceptedModalities);
         writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);
         writer.writeObjectValue<IncomingCallOptions>("callOptions", answerPostRequestBody.callOptions, serializeIncomingCallOptions);
         writer.writeObjectValue<MediaConfig>("mediaConfig", answerPostRequestBody.mediaConfig, serializeMediaConfig);

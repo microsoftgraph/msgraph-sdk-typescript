@@ -86,7 +86,7 @@ export function serializeAllowedCalendarSharingRolesWithUserGetResponse(writer: 
     if (allowedCalendarSharingRolesWithUserGetResponse) {
         serializeBaseCollectionPaginationCountResponse(writer, allowedCalendarSharingRolesWithUserGetResponse)
         if(allowedCalendarSharingRolesWithUserGetResponse.value)
-        writer.writeEnumValue<CalendarRoleType>("value", ...allowedCalendarSharingRolesWithUserGetResponse.value);
+        writer.writeCollectionOfEnumValues<CalendarRoleType>("value", allowedCalendarSharingRolesWithUserGetResponse.value);
     }
 }
 /**
