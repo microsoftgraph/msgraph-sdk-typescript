@@ -82,7 +82,7 @@ export function serializeSendDtmfTonesPostRequestBody(writer: SerializationWrite
         writer.writeStringValue("clientContext", sendDtmfTonesPostRequestBody.clientContext);
         writer.writeNumberValue("delayBetweenTonesMs", sendDtmfTonesPostRequestBody.delayBetweenTonesMs);
         if(sendDtmfTonesPostRequestBody.tones)
-        writer.writeEnumValue<Tone>("tones", ...sendDtmfTonesPostRequestBody.tones);
+        writer.writeCollectionOfEnumValues<Tone>("tones", sendDtmfTonesPostRequestBody.tones);
         writer.writeAdditionalData(sendDtmfTonesPostRequestBody.additionalData);
     }
 }

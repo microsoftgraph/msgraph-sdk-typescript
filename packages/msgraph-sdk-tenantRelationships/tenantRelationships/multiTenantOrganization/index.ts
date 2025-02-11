@@ -33,12 +33,12 @@ export interface MultiTenantOrganizationRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationRequestBuilderGetQueryParameters> | undefined) : Promise<MultiTenantOrganization | undefined>;
     /**
-     * Update the properties of a multitenant organization.
+     * Create a new multitenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganization-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-put-multitenantorganization?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MultiTenantOrganization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganization | undefined>;
     /**
@@ -48,7 +48,7 @@ export interface MultiTenantOrganizationRequestBuilder extends BaseRequestBuilde
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a multitenant organization.
+     * Create a new multitenant organization. By default, the creator tenant becomes an owner tenant upon successful creation. Only owner tenants can manage a multitenant organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

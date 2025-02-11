@@ -589,7 +589,7 @@ export function serializeBookmark(writer: SerializationWriter, bookmark: Partial
         writer.writeObjectValue<AnswerKeyword>("keywords", bookmark.keywords, serializeAnswerKeyword);
         writer.writeCollectionOfPrimitiveValues<string>("languageTags", bookmark.languageTags);
         if(bookmark.platforms)
-        writer.writeEnumValue<DevicePlatformType>("platforms", ...bookmark.platforms);
+        writer.writeCollectionOfEnumValues<DevicePlatformType>("platforms", bookmark.platforms);
         writer.writeCollectionOfPrimitiveValues<string>("powerAppIds", bookmark.powerAppIds);
         writer.writeEnumValue<AnswerState>("state", bookmark.state);
         writer.writeCollectionOfObjectValues<AnswerVariant>("targetedVariations", bookmark.targetedVariations, serializeAnswerVariant);
@@ -648,7 +648,7 @@ export function serializeQna(writer: SerializationWriter, qna: Partial<Qna> | un
         writer.writeObjectValue<AnswerKeyword>("keywords", qna.keywords, serializeAnswerKeyword);
         writer.writeCollectionOfPrimitiveValues<string>("languageTags", qna.languageTags);
         if(qna.platforms)
-        writer.writeEnumValue<DevicePlatformType>("platforms", ...qna.platforms);
+        writer.writeCollectionOfEnumValues<DevicePlatformType>("platforms", qna.platforms);
         writer.writeEnumValue<AnswerState>("state", qna.state);
         writer.writeCollectionOfObjectValues<AnswerVariant>("targetedVariations", qna.targetedVariations, serializeAnswerVariant);
     }
