@@ -6,6 +6,8 @@ import { createChannelFromDiscriminatorValue, serializeChannel, type Channel } f
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { AllMembersRequestBuilderNavigationMetadata, AllMembersRequestBuilderRequestsMetadata, type AllMembersRequestBuilder } from './allMembers/index.js';
+// @ts-ignore
 import { ArchiveRequestBuilderRequestsMetadata, type ArchiveRequestBuilder } from './archive/index.js';
 // @ts-ignore
 import { CompleteMigrationRequestBuilderRequestsMetadata, type CompleteMigrationRequestBuilder } from './completeMigration/index.js';
@@ -34,6 +36,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
  */
 export interface ChannelItemRequestBuilder extends BaseRequestBuilder<ChannelItemRequestBuilder> {
+    /**
+     * Provides operations to manage the allMembers property of the microsoft.graph.channel entity.
+     */
+    get allMembers(): AllMembersRequestBuilder;
     /**
      * Provides operations to call the archive method.
      */
@@ -147,6 +153,10 @@ const ChannelItemRequestBuilderGetQueryParametersMapper: Record<string, string> 
  * Metadata for all the navigation properties in the request builder.
  */
 export const ChannelItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ChannelItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    allMembers: {
+        requestsMetadata: AllMembersRequestBuilderRequestsMetadata,
+        navigationMetadata: AllMembersRequestBuilderNavigationMetadata,
+    },
     archive: {
         requestsMetadata: ArchiveRequestBuilderRequestsMetadata,
     },
