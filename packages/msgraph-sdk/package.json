@@ -27,12 +27,7 @@
     "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
   },
   "dependencies": {
-    "@microsoft/kiota-abstractions": "^1.0.0-preview.39",
-    "@microsoft/kiota-serialization-form": "^1.0.0-preview.28",
-    "@microsoft/kiota-serialization-json": "^1.0.0-preview.39",
-    "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.18",
-    "@microsoft/kiota-serialization-text": "^1.0.0-preview.36",
-    "@microsoft/msgraph-sdk-core": "^1.0.0-preview.2",
+    "@microsoft/msgraph-sdk-core": "^1.0.0-preview.10",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
