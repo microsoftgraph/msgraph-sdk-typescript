@@ -33,7 +33,6 @@
     "@microsoft/kiota-serialization-multipart": "^1.0.0-preview.18",
     "@microsoft/kiota-serialization-text": "^1.0.0-preview.36",
     "@microsoft/msgraph-sdk-core": "^1.0.0-preview.2",
-    "guid-typescript": "^1.0.9",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
