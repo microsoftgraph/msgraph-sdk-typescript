@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-preview.43](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.42...v1.0.0-preview.43) (2025-02-13)
+
+
+### Bug Fixes
+
+* removes duplicated serialization registration ([8a3d738](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/8a3d738a0bb664fe3066d46ece7af62ad358205f))
+* removes duplicated serialization registration ([f984926](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/f9849268e05de132f2b98252135de477554c2d61))
+
 ## [1.0.0-preview.42](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.41...v1.0.0-preview.42) (2025-02-13)
 
 

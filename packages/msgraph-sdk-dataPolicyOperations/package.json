@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-datapolicyoperations",
-  "version": "1.0.0-preview.42",
+  "version": "1.0.0-preview.43",
   "description": "DataPolicyOperations fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
