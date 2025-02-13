@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-domains",
-  "version": "1.0.0-preview.41",
+  "version": "1.0.0-preview.42",
   "description": "Domains fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
