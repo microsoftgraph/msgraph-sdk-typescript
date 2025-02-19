@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-communications",
-  "version": "1.0.0-preview.43",
+  "version": "1.0.0-preview.44",
   "description": "Communications fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
