@@ -1492,6 +1492,7 @@ export const PropertyTypeObject = {
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const RuleOperationObject = {
+    NullEscaped: "null",
     Equals: "equals",
     NotEquals: "notEquals",
     Contains: "contains",
