@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-functions",
-  "version": "1.0.0-preview.44",
+  "version": "1.0.0-preview.45",
   "description": "Functions fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
