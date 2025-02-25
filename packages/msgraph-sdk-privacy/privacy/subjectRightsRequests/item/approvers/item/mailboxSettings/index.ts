@@ -17,7 +17,7 @@ export interface MailboxSettingsRequestBuilder extends BaseRequestBuilder<Mailbo
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
      get(requestConfiguration?: RequestConfiguration<MailboxSettingsRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxSettings | undefined>;
     /**
@@ -26,14 +26,14 @@ export interface MailboxSettingsRequestBuilder extends BaseRequestBuilder<Mailbo
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
      patch(body: MailboxSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MailboxSettings | undefined>;
     /**
      * Settings for the primary mailbox of the signed-in user. You can get or update settings for sending automatic replies to incoming messages, locale, and time zone. Returned only on $select.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MailboxSettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
@@ -41,7 +41,7 @@ export interface MailboxSettingsRequestBuilder extends BaseRequestBuilder<Mailbo
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
-     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
      toPatchRequestInformation(body: MailboxSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }

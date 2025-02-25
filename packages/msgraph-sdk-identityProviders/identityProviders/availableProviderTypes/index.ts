@@ -23,7 +23,7 @@ export interface AvailableProviderTypesRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AvailableProviderTypesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-list-availableprovidertypes?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : Promise<AvailableProviderTypesGetResponse | undefined>;
@@ -31,7 +31,7 @@ export interface AvailableProviderTypesRequestBuilder extends BaseRequestBuilder
      * Retrieves all identity provider types available in a directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
-     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
