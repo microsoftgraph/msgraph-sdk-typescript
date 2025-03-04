@@ -22,6 +22,8 @@ import { ExtensionsRequestBuilderNavigationMetadata, ExtensionsRequestBuilderReq
 // @ts-ignore
 import { ForwardRequestBuilderRequestsMetadata, type ForwardRequestBuilder } from './forward/index.js';
 // @ts-ignore
+import { PermanentDeleteRequestBuilderRequestsMetadata, type PermanentDeleteRequestBuilder } from './permanentDelete/index.js';
+// @ts-ignore
 import { SnoozeReminderRequestBuilderRequestsMetadata, type SnoozeReminderRequestBuilder } from './snoozeReminder/index.js';
 // @ts-ignore
 import { TentativelyAcceptRequestBuilderRequestsMetadata, type TentativelyAcceptRequestBuilder } from './tentativelyAccept/index.js';
@@ -64,6 +66,10 @@ export interface EventItemRequestBuilder extends BaseRequestBuilder<EventItemReq
      * Provides operations to call the forward method.
      */
     get forward(): ForwardRequestBuilder;
+    /**
+     * Provides operations to call the permanentDelete method.
+     */
+    get permanentDelete(): PermanentDeleteRequestBuilder;
     /**
      * Provides operations to call the snoozeReminder method.
      */
@@ -147,6 +153,9 @@ export const EventItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Eve
     },
     forward: {
         requestsMetadata: ForwardRequestBuilderRequestsMetadata,
+    },
+    permanentDelete: {
+        requestsMetadata: PermanentDeleteRequestBuilderRequestsMetadata,
     },
     snoozeReminder: {
         requestsMetadata: SnoozeReminderRequestBuilderRequestsMetadata,

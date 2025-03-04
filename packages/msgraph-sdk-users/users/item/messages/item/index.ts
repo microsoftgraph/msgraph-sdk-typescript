@@ -22,6 +22,8 @@ import { ForwardRequestBuilderRequestsMetadata, type ForwardRequestBuilder } fro
 // @ts-ignore
 import { MoveRequestBuilderRequestsMetadata, type MoveRequestBuilder } from './move/index.js';
 // @ts-ignore
+import { PermanentDeleteRequestBuilderRequestsMetadata, type PermanentDeleteRequestBuilder } from './permanentDelete/index.js';
+// @ts-ignore
 import { ReplyRequestBuilderRequestsMetadata, type ReplyRequestBuilder } from './reply/index.js';
 // @ts-ignore
 import { ReplyAllRequestBuilderRequestsMetadata, type ReplyAllRequestBuilder } from './replyAll/index.js';
@@ -72,6 +74,10 @@ export interface MessageItemRequestBuilder extends BaseRequestBuilder<MessageIte
      * Provides operations to call the move method.
      */
     get move(): MoveRequestBuilder;
+    /**
+     * Provides operations to call the permanentDelete method.
+     */
+    get permanentDelete(): PermanentDeleteRequestBuilder;
     /**
      * Provides operations to call the reply method.
      */
@@ -185,6 +191,9 @@ export const MessageItemRequestBuilderNavigationMetadata: Record<Exclude<keyof M
     },
     move: {
         requestsMetadata: MoveRequestBuilderRequestsMetadata,
+    },
+    permanentDelete: {
+        requestsMetadata: PermanentDeleteRequestBuilderRequestsMetadata,
     },
     reply: {
         requestsMetadata: ReplyRequestBuilderRequestsMetadata,

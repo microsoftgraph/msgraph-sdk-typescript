@@ -16,6 +16,8 @@ import { MessagesRequestBuilderNavigationMetadata, MessagesRequestBuilderRequest
 // @ts-ignore
 import { MoveRequestBuilderRequestsMetadata, type MoveRequestBuilder } from './move/index.js';
 // @ts-ignore
+import { PermanentDeleteRequestBuilderRequestsMetadata, type PermanentDeleteRequestBuilder } from './permanentDelete/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -42,6 +44,10 @@ export interface MailFolderItemRequestBuilder extends BaseRequestBuilder<MailFol
      * Provides operations to call the move method.
      */
     get move(): MoveRequestBuilder;
+    /**
+     * Provides operations to call the permanentDelete method.
+     */
+    get permanentDelete(): PermanentDeleteRequestBuilder;
     /**
      * Delete navigation property mailFolders for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -132,6 +138,9 @@ export const MailFolderItemRequestBuilderNavigationMetadata: Record<Exclude<keyo
     },
     move: {
         requestsMetadata: MoveRequestBuilderRequestsMetadata,
+    },
+    permanentDelete: {
+        requestsMetadata: PermanentDeleteRequestBuilderRequestsMetadata,
     },
 };
 /**
