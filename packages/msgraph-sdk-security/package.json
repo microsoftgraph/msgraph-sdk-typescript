@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-security",
-  "version": "1.0.0-preview.45",
+  "version": "1.0.0-preview.46",
   "description": "Security fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
