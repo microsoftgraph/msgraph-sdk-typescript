@@ -19,9 +19,10 @@ export interface SiteSourceItemRequestBuilder extends BaseRequestBuilder<SiteSou
      */
     get site(): SiteRequestBuilder;
     /**
-     * Delete navigation property siteSources for security
+     * Delete a siteSource object associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-delete-sitesources?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -40,7 +41,7 @@ export interface SiteSourceItemRequestBuilder extends BaseRequestBuilder<SiteSou
      */
      patch(body: SiteSource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SiteSource | undefined>;
     /**
-     * Delete navigation property siteSources for security
+     * Delete a siteSource object associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
