@@ -1,12 +1,12 @@
 # `@microsoft/msgraph-sdk-admin`
 
-Get started with the Microsoft Graph SDK for Typescript by integrating the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) into your Typescript application!
+Get started with the Microsoft Graph SDK for TypeScript by integrating the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) into your TypeScript application!
 
-> **Note:** this package is complementary package that allows you to build applications using the [v1.0](https://docs.microsoft.com/graph/use-the-api#version) of Microsoft Graph. . If you want to try the latest Microsoft Graph APIs, use our [beta SDK](https://github.com/microsoftgraph/msgraph-beta-sdk-typescript) instead.
+> **Note:** This package is a complementary package that allows you to build applications using the [v1.0](https://docs.microsoft.com/graph/use-the-api#version) of Microsoft Graph. If you want to try the latest Microsoft Graph APIs, use our [beta SDK](https://github.com/microsoftgraph/msgraph-beta-sdk-typescript) instead.
 
 This package provides a fluent API for interacting with Microsoft Graph administrative functions.
 
-> **Note:** This package is not a standalone package and is most functional when used in conjunction with the main Microsoft Graph SDK. Please refer to the installation and setting up of [@microsoft/msgraph-sdk](https://github.com/microsoftgraph/msgraph-sdk-typescript/blob/main/README.md) for more information on setting up and using the SDK.
+> **Note:** This package is not a standalone package and is most functional when used in conjunction with the main Microsoft Graph SDK. Please refer to the installation and setup of [@microsoft/msgraph-sdk](https://github.com/microsoftgraph/msgraph-sdk-typescript/blob/main/README.md) for more information on setting up and using the SDK.
 
 
 ## Installation
