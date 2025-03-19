@@ -6,12 +6,30 @@ import { createProtectionUnitBaseFromDiscriminatorValue, type ProtectionUnitBase
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { GraphDriveProtectionUnitRequestBuilderRequestsMetadata, type GraphDriveProtectionUnitRequestBuilder } from './graphDriveProtectionUnit/index.js';
+// @ts-ignore
+import { GraphMailboxProtectionUnitRequestBuilderRequestsMetadata, type GraphMailboxProtectionUnitRequestBuilder } from './graphMailboxProtectionUnit/index.js';
+// @ts-ignore
+import { GraphSiteProtectionUnitRequestBuilderRequestsMetadata, type GraphSiteProtectionUnitRequestBuilder } from './graphSiteProtectionUnit/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protectionUnits property of the microsoft.graph.backupRestoreRoot entity.
  */
 export interface ProtectionUnitBaseItemRequestBuilder extends BaseRequestBuilder<ProtectionUnitBaseItemRequestBuilder> {
+    /**
+     * Casts the previous resource to driveProtectionUnit.
+     */
+    get graphDriveProtectionUnit(): GraphDriveProtectionUnitRequestBuilder;
+    /**
+     * Casts the previous resource to mailboxProtectionUnit.
+     */
+    get graphMailboxProtectionUnit(): GraphMailboxProtectionUnitRequestBuilder;
+    /**
+     * Casts the previous resource to siteProtectionUnit.
+     */
+    get graphSiteProtectionUnit(): GraphSiteProtectionUnitRequestBuilder;
     /**
      * Read the properties and relationships of a protectionUnitBase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -50,6 +68,20 @@ export const ProtectionUnitBaseItemRequestBuilderUriTemplate = "{+baseurl}/solut
 const ProtectionUnitBaseItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const ProtectionUnitBaseItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ProtectionUnitBaseItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    graphDriveProtectionUnit: {
+        requestsMetadata: GraphDriveProtectionUnitRequestBuilderRequestsMetadata,
+    },
+    graphMailboxProtectionUnit: {
+        requestsMetadata: GraphMailboxProtectionUnitRequestBuilderRequestsMetadata,
+    },
+    graphSiteProtectionUnit: {
+        requestsMetadata: GraphSiteProtectionUnitRequestBuilderRequestsMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

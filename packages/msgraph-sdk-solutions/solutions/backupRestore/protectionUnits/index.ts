@@ -8,7 +8,13 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { ProtectionUnitBaseItemRequestBuilderRequestsMetadata, type ProtectionUnitBaseItemRequestBuilder } from './item/index.js';
+import { GraphDriveProtectionUnitRequestBuilderNavigationMetadata, GraphDriveProtectionUnitRequestBuilderRequestsMetadata, type GraphDriveProtectionUnitRequestBuilder } from './graphDriveProtectionUnit/index.js';
+// @ts-ignore
+import { GraphMailboxProtectionUnitRequestBuilderNavigationMetadata, GraphMailboxProtectionUnitRequestBuilderRequestsMetadata, type GraphMailboxProtectionUnitRequestBuilder } from './graphMailboxProtectionUnit/index.js';
+// @ts-ignore
+import { GraphSiteProtectionUnitRequestBuilderNavigationMetadata, GraphSiteProtectionUnitRequestBuilderRequestsMetadata, type GraphSiteProtectionUnitRequestBuilder } from './graphSiteProtectionUnit/index.js';
+// @ts-ignore
+import { ProtectionUnitBaseItemRequestBuilderNavigationMetadata, ProtectionUnitBaseItemRequestBuilderRequestsMetadata, type ProtectionUnitBaseItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -20,6 +26,18 @@ export interface ProtectionUnitsRequestBuilder extends BaseRequestBuilder<Protec
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Casts the previous resource to driveProtectionUnit.
+     */
+    get graphDriveProtectionUnit(): GraphDriveProtectionUnitRequestBuilder;
+    /**
+     * Casts the previous resource to mailboxProtectionUnit.
+     */
+    get graphMailboxProtectionUnit(): GraphMailboxProtectionUnitRequestBuilder;
+    /**
+     * Casts the previous resource to siteProtectionUnit.
+     */
+    get graphSiteProtectionUnit(): GraphSiteProtectionUnitRequestBuilder;
     /**
      * Provides operations to manage the protectionUnits property of the microsoft.graph.backupRestoreRoot entity.
      * @param protectionUnitBaseId The unique identifier of protectionUnitBase
@@ -100,10 +118,23 @@ const ProtectionUnitsRequestBuilderGetQueryParametersMapper: Record<string, stri
 export const ProtectionUnitsRequestBuilderNavigationMetadata: Record<Exclude<keyof ProtectionUnitsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byProtectionUnitBaseId: {
         requestsMetadata: ProtectionUnitBaseItemRequestBuilderRequestsMetadata,
+        navigationMetadata: ProtectionUnitBaseItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["protectionUnitBase%2Did"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    graphDriveProtectionUnit: {
+        requestsMetadata: GraphDriveProtectionUnitRequestBuilderRequestsMetadata,
+        navigationMetadata: GraphDriveProtectionUnitRequestBuilderNavigationMetadata,
+    },
+    graphMailboxProtectionUnit: {
+        requestsMetadata: GraphMailboxProtectionUnitRequestBuilderRequestsMetadata,
+        navigationMetadata: GraphMailboxProtectionUnitRequestBuilderNavigationMetadata,
+    },
+    graphSiteProtectionUnit: {
+        requestsMetadata: GraphSiteProtectionUnitRequestBuilderRequestsMetadata,
+        navigationMetadata: GraphSiteProtectionUnitRequestBuilderNavigationMetadata,
     },
 };
 /**
