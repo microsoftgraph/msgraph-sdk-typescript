@@ -26,29 +26,10 @@ npm install @microsoft/msgraph-sdk-admin
 Here is an example of how to use the package:
 
 ```typescript
-import { createGraphServiceClient, GraphRequestAdapter } from "@microsoft/msgraph-sdk";
-import { AzureIdentityAuthenticationProvider } from "@microsoft/kiota-authentication-azure";
-import { ClientSecretCredential } from "@azure/identity";
 import "@microsoft/msgraph-sdk-admin"
 
-// Create a credential using ClientSecretCredential
-const credential = new ClientSecretCredential(
-  'YOUR_TENANT_ID',
-  'YOUR_CLIENT_ID',
-  'YOUR_CLIENT_SECRET',
-);
-
-// Create an authentication provider
-const authProvider = new AzureIdentityAuthenticationProvider(credential, ["https://graph.microsoft.com/.default"]);
-
-// Create a request adapter
-const requestAdapter = new GraphRequestAdapter(authProvider);
-
-// Create a GraphServiceClient
-const graphServiceClient = createGraphServiceClient(requestAdapter);
-
 // Use the GraphServiceClient to make requests by including the appropriate API calls package
-// e.g graphServiceClient.admin.(complete your call)
+const admin = graphServiceClient.admin.get();
 
 ```
 
