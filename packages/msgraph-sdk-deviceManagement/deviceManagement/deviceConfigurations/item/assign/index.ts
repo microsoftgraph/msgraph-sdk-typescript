@@ -22,7 +22,7 @@ export interface AssignPostRequestBody extends AdditionalDataHolder, BackedModel
      */
     backingStoreEnabled?: boolean | null;
 }
-export interface AssignPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface AssignpostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -36,11 +36,11 @@ export interface AssignRequestBuilder extends BaseRequestBuilder<AssignRequestBu
      * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<AssignPostResponse>}
+     * @returns {Promise<AssignpostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfiguration-assign?view=graph-rest-1.0|Find more info here}
      */
-     post(body: AssignPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AssignPostResponse | undefined>;
+     post(body: AssignPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AssignpostResponse | undefined>;
     /**
      * Not yet documented
      * @param body The request body
@@ -61,11 +61,11 @@ export function createAssignPostRequestBodyFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AssignPostResponse}
+ * @returns {AssignpostResponse}
  */
 // @ts-ignore
-export function createAssignPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAssignPostResponse;
+export function createAssignpostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAssignpostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -83,10 +83,10 @@ export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Part
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoAssignPostResponse(assignPostResponse: Partial<AssignPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAssignpostResponse(assignpostResponse: Partial<AssignpostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(assignPostResponse),
-        "value": n => { assignPostResponse.value = n.getCollectionOfObjectValues<DeviceConfigurationAssignment>(createDeviceConfigurationAssignmentFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(assignpostResponse),
+        "value": n => { assignpostResponse.value = n.getCollectionOfObjectValues<DeviceConfigurationAssignment>(createDeviceConfigurationAssignmentFromDiscriminatorValue); },
     }
 }
 /**
@@ -105,10 +105,10 @@ export function serializeAssignPostRequestBody(writer: SerializationWriter, assi
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAssignPostResponse(writer: SerializationWriter, assignPostResponse: Partial<AssignPostResponse> | undefined | null = {}) : void {
-    if (assignPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, assignPostResponse)
-        writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("value", assignPostResponse.value, serializeDeviceConfigurationAssignment);
+export function serializeAssignpostResponse(writer: SerializationWriter, assignpostResponse: Partial<AssignpostResponse> | undefined | null = {}) : void {
+    if (assignpostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, assignpostResponse)
+        writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("value", assignpostResponse.value, serializeDeviceConfigurationAssignment);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const AssignRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createAssignPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createAssignpostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAssignPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

@@ -11,21 +11,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {SharedWithMeGetResponse}
+ * @returns {SharedWithMegetResponse}
  */
 // @ts-ignore
-export function createSharedWithMeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoSharedWithMeGetResponse;
+export function createSharedWithMegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSharedWithMegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoSharedWithMeGetResponse(sharedWithMeGetResponse: Partial<SharedWithMeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSharedWithMegetResponse(sharedWithMegetResponse: Partial<SharedWithMegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(sharedWithMeGetResponse),
-        "value": n => { sharedWithMeGetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(sharedWithMegetResponse),
+        "value": n => { sharedWithMegetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
     }
 }
 /**
@@ -33,13 +33,13 @@ export function deserializeIntoSharedWithMeGetResponse(sharedWithMeGetResponse: 
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSharedWithMeGetResponse(writer: SerializationWriter, sharedWithMeGetResponse: Partial<SharedWithMeGetResponse> | undefined | null = {}) : void {
-    if (sharedWithMeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, sharedWithMeGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", sharedWithMeGetResponse.value, serializeDriveItem);
+export function serializeSharedWithMegetResponse(writer: SerializationWriter, sharedWithMegetResponse: Partial<SharedWithMegetResponse> | undefined | null = {}) : void {
+    if (sharedWithMegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, sharedWithMegetResponse)
+        writer.writeCollectionOfObjectValues<DriveItem>("value", sharedWithMegetResponse.value, serializeDriveItem);
     }
 }
-export interface SharedWithMeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface SharedWithMegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -52,11 +52,11 @@ export interface SharedWithMeRequestBuilder extends BaseRequestBuilder<SharedWit
     /**
      * Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they are items from a different drive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<SharedWithMeGetResponse>}
+     * @returns {Promise<SharedWithMegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/drive-sharedwithme?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<SharedWithMeRequestBuilderGetQueryParameters> | undefined) : Promise<SharedWithMeGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<SharedWithMeRequestBuilderGetQueryParameters> | undefined) : Promise<SharedWithMegetResponse | undefined>;
     /**
      * Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they are items from a different drive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -129,7 +129,7 @@ export const SharedWithMeRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createSharedWithMeGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createSharedWithMegetResponseFromDiscriminatorValue,
         queryParametersMapper: SharedWithMeRequestBuilderGetQueryParametersMapper,
     },
 };

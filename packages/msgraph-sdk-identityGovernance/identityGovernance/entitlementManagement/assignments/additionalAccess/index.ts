@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface AdditionalAccessGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface AdditionalAccessgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -21,11 +21,11 @@ export interface AdditionalAccessRequestBuilder extends BaseRequestBuilder<Addit
     /**
      * In Microsoft Entra Entitlement Management, retrieve a collection of accessPackageAssignment objects that indicate a target user has an assignment to a specified access package and also an assignment to another, potentially incompatible, access package.  This can be used to prepare to configure the incompatible access packages for a specific access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<AdditionalAccessGetResponse>}
+     * @returns {Promise<AdditionalAccessgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignment-additionalaccess?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<AdditionalAccessRequestBuilderGetQueryParameters> | undefined) : Promise<AdditionalAccessGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<AdditionalAccessRequestBuilderGetQueryParameters> | undefined) : Promise<AdditionalAccessgetResponse | undefined>;
     /**
      * In Microsoft Entra Entitlement Management, retrieve a collection of accessPackageAssignment objects that indicate a target user has an assignment to a specified access package and also an assignment to another, potentially incompatible, access package.  This can be used to prepare to configure the incompatible access packages for a specific access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -73,21 +73,21 @@ export interface AdditionalAccessRequestBuilderGetQueryParameters {
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AdditionalAccessGetResponse}
+ * @returns {AdditionalAccessgetResponse}
  */
 // @ts-ignore
-export function createAdditionalAccessGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAdditionalAccessGetResponse;
+export function createAdditionalAccessgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAdditionalAccessgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoAdditionalAccessGetResponse(additionalAccessGetResponse: Partial<AdditionalAccessGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAdditionalAccessgetResponse(additionalAccessgetResponse: Partial<AdditionalAccessgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(additionalAccessGetResponse),
-        "value": n => { additionalAccessGetResponse.value = n.getCollectionOfObjectValues<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(additionalAccessgetResponse),
+        "value": n => { additionalAccessgetResponse.value = n.getCollectionOfObjectValues<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); },
     }
 }
 /**
@@ -95,10 +95,10 @@ export function deserializeIntoAdditionalAccessGetResponse(additionalAccessGetRe
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAdditionalAccessGetResponse(writer: SerializationWriter, additionalAccessGetResponse: Partial<AdditionalAccessGetResponse> | undefined | null = {}) : void {
-    if (additionalAccessGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, additionalAccessGetResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessGetResponse.value, serializeAccessPackageAssignment);
+export function serializeAdditionalAccessgetResponse(writer: SerializationWriter, additionalAccessgetResponse: Partial<AdditionalAccessgetResponse> | undefined | null = {}) : void {
+    if (additionalAccessgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, additionalAccessgetResponse)
+        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessgetResponse.value, serializeAccessPackageAssignment);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const AdditionalAccessRequestBuilderRequestsMetadata: RequestsMetadata = 
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createAdditionalAccessGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createAdditionalAccessgetResponseFromDiscriminatorValue,
         queryParametersMapper: AdditionalAccessRequestBuilderGetQueryParametersMapper,
     },
 };

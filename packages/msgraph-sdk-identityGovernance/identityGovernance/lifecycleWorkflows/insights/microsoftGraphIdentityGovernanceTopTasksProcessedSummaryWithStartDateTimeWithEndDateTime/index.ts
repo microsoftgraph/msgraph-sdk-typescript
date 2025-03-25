@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse}
+ * @returns {TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse}
  */
 // @ts-ignore
-export function createTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse;
+export function createTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse(topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse: Partial<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse(topTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse: Partial<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse),
-        "value": n => { topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse.value = n.getCollectionOfObjectValues<TopTasksInsightsSummary>(createTopTasksInsightsSummaryFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(topTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse),
+        "value": n => { topTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse.value = n.getCollectionOfObjectValues<TopTasksInsightsSummary>(createTopTasksInsightsSummaryFromDiscriminatorValue); },
     }
 }
 /**
@@ -37,11 +37,11 @@ export interface MicrosoftGraphIdentityGovernanceTopTasksProcessedSummaryWithSta
     /**
      * Provide a summary of the most processed tasks, known as top tasks, for a specified time period in a tenant. The task definition is provided, along with numerical counts of total, successful, and failed runs. For information about workflows processed, see insights: topWorkflowsProcessedSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse>}
+     * @returns {Promise<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-insights-toptasksprocessedsummary?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<MicrosoftGraphIdentityGovernanceTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<MicrosoftGraphIdentityGovernanceTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse | undefined>;
     /**
      * Provide a summary of the most processed tasks, known as top tasks, for a specified time period in a tenant. The task definition is provided, along with numerical counts of total, successful, and failed runs. For information about workflows processed, see insights: topWorkflowsProcessedSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -79,13 +79,13 @@ export interface MicrosoftGraphIdentityGovernanceTopTasksProcessedSummaryWithSta
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse: Partial<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
-    if (topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<TopTasksInsightsSummary>("value", topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse.value, serializeTopTasksInsightsSummary);
+export function serializeTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse(writer: SerializationWriter, topTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse: Partial<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse> | undefined | null = {}) : void {
+    if (topTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, topTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse)
+        writer.writeCollectionOfObjectValues<TopTasksInsightsSummary>("value", topTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse.value, serializeTopTasksInsightsSummary);
     }
 }
-export interface TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -116,7 +116,7 @@ export const MicrosoftGraphIdentityGovernanceTopTasksProcessedSummaryWithStartDa
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue,
         queryParametersMapper: MicrosoftGraphIdentityGovernanceTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParametersMapper,
     },
 };

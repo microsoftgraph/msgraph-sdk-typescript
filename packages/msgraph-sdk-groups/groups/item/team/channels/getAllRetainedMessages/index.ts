@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetAllRetainedMessagesGetResponse}
+ * @returns {GetAllRetainedMessagesgetResponse}
  */
 // @ts-ignore
-export function createGetAllRetainedMessagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetAllRetainedMessagesGetResponse;
+export function createGetAllRetainedMessagesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetAllRetainedMessagesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetAllRetainedMessagesGetResponse(getAllRetainedMessagesGetResponse: Partial<GetAllRetainedMessagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAllRetainedMessagesgetResponse(getAllRetainedMessagesgetResponse: Partial<GetAllRetainedMessagesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getAllRetainedMessagesGetResponse),
-        "value": n => { getAllRetainedMessagesGetResponse.value = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getAllRetainedMessagesgetResponse),
+        "value": n => { getAllRetainedMessagesgetResponse.value = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
     }
 }
-export interface GetAllRetainedMessagesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetAllRetainedMessagesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetAllRetainedMessagesRequestBuilder extends BaseRequestBuilder
     /**
      * Get all retained messages across all channels in a team. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetAllRetainedMessagesGetResponse>}
+     * @returns {Promise<GetAllRetainedMessagesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/channel-getallretainedmessages?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetAllRetainedMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllRetainedMessagesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetAllRetainedMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllRetainedMessagesgetResponse | undefined>;
     /**
      * Get all retained messages across all channels in a team. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface GetAllRetainedMessagesRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAllRetainedMessagesGetResponse(writer: SerializationWriter, getAllRetainedMessagesGetResponse: Partial<GetAllRetainedMessagesGetResponse> | undefined | null = {}) : void {
-    if (getAllRetainedMessagesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAllRetainedMessagesGetResponse)
-        writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllRetainedMessagesGetResponse.value, serializeChatMessage);
+export function serializeGetAllRetainedMessagesgetResponse(writer: SerializationWriter, getAllRetainedMessagesgetResponse: Partial<GetAllRetainedMessagesgetResponse> | undefined | null = {}) : void {
+    if (getAllRetainedMessagesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAllRetainedMessagesgetResponse)
+        writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllRetainedMessagesgetResponse.value, serializeChatMessage);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const GetAllRetainedMessagesRequestBuilderRequestsMetadata: RequestsMetad
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetAllRetainedMessagesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetAllRetainedMessagesgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAllRetainedMessagesRequestBuilderGetQueryParametersMapper,
     },
 };

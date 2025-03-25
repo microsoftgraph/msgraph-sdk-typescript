@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {PromotePostResponse}
+ * @returns {PromotepostResponse}
  */
 // @ts-ignore
-export function createPromotePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoPromotePostResponse;
+export function createPromotepostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoPromotepostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoPromotePostResponse(promotePostResponse: Partial<PromotePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoPromotepostResponse(promotepostResponse: Partial<PromotepostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { promotePostResponse.backingStoreEnabled = true; },
-        "value": n => { promotePostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { promotepostResponse.backingStoreEnabled = true; },
+        "value": n => { promotepostResponse.value = n.getBooleanValue(); },
     }
 }
-export interface PromotePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface PromotepostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,11 +47,11 @@ export interface PromoteRequestBuilder extends BaseRequestBuilder<PromoteRequest
     /**
      * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<PromotePostResponse>}
+     * @returns {Promise<PromotepostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/domain-promote?view=graph-rest-1.0|Find more info here}
      */
-     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PromotePostResponse | undefined>;
+     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PromotepostResponse | undefined>;
     /**
      * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -64,10 +64,10 @@ export interface PromoteRequestBuilder extends BaseRequestBuilder<PromoteRequest
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePromotePostResponse(writer: SerializationWriter, promotePostResponse: Partial<PromotePostResponse> | undefined | null = {}) : void {
-    if (promotePostResponse) {
-        writer.writeBooleanValue("value", promotePostResponse.value);
-        writer.writeAdditionalData(promotePostResponse.additionalData);
+export function serializePromotepostResponse(writer: SerializationWriter, promotepostResponse: Partial<PromotepostResponse> | undefined | null = {}) : void {
+    if (promotepostResponse) {
+        writer.writeBooleanValue("value", promotepostResponse.value);
+        writer.writeAdditionalData(promotepostResponse.additionalData);
     }
 }
 /**
@@ -85,7 +85,7 @@ export const PromoteRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createPromotePostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createPromotepostResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

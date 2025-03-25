@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface AllowedCalendarSharingRolesWithUserGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface AllowedCalendarSharingRolesWithUsergetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -21,10 +21,10 @@ export interface AllowedCalendarSharingRolesWithUserRequestBuilder extends BaseR
     /**
      * Invoke function allowedCalendarSharingRoles
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<AllowedCalendarSharingRolesWithUserGetResponse>}
+     * @returns {Promise<AllowedCalendarSharingRolesWithUsergetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters> | undefined) : Promise<AllowedCalendarSharingRolesWithUserGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParameters> | undefined) : Promise<AllowedCalendarSharingRolesWithUsergetResponse | undefined>;
     /**
      * Invoke function allowedCalendarSharingRoles
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -60,21 +60,21 @@ export interface AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParame
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AllowedCalendarSharingRolesWithUserGetResponse}
+ * @returns {AllowedCalendarSharingRolesWithUsergetResponse}
  */
 // @ts-ignore
-export function createAllowedCalendarSharingRolesWithUserGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAllowedCalendarSharingRolesWithUserGetResponse;
+export function createAllowedCalendarSharingRolesWithUsergetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAllowedCalendarSharingRolesWithUsergetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoAllowedCalendarSharingRolesWithUserGetResponse(allowedCalendarSharingRolesWithUserGetResponse: Partial<AllowedCalendarSharingRolesWithUserGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAllowedCalendarSharingRolesWithUsergetResponse(allowedCalendarSharingRolesWithUsergetResponse: Partial<AllowedCalendarSharingRolesWithUsergetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(allowedCalendarSharingRolesWithUserGetResponse),
-        "value": n => { allowedCalendarSharingRolesWithUserGetResponse.value = n.getCollectionOfEnumValues<CalendarRoleType>(CalendarRoleTypeObject); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(allowedCalendarSharingRolesWithUsergetResponse),
+        "value": n => { allowedCalendarSharingRolesWithUsergetResponse.value = n.getCollectionOfEnumValues<CalendarRoleType>(CalendarRoleTypeObject); },
     }
 }
 /**
@@ -82,11 +82,11 @@ export function deserializeIntoAllowedCalendarSharingRolesWithUserGetResponse(al
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAllowedCalendarSharingRolesWithUserGetResponse(writer: SerializationWriter, allowedCalendarSharingRolesWithUserGetResponse: Partial<AllowedCalendarSharingRolesWithUserGetResponse> | undefined | null = {}) : void {
-    if (allowedCalendarSharingRolesWithUserGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, allowedCalendarSharingRolesWithUserGetResponse)
-        if(allowedCalendarSharingRolesWithUserGetResponse.value)
-        writer.writeCollectionOfEnumValues<CalendarRoleType>("value", allowedCalendarSharingRolesWithUserGetResponse.value);
+export function serializeAllowedCalendarSharingRolesWithUsergetResponse(writer: SerializationWriter, allowedCalendarSharingRolesWithUsergetResponse: Partial<AllowedCalendarSharingRolesWithUsergetResponse> | undefined | null = {}) : void {
+    if (allowedCalendarSharingRolesWithUsergetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, allowedCalendarSharingRolesWithUsergetResponse)
+        if(allowedCalendarSharingRolesWithUsergetResponse.value)
+        writer.writeCollectionOfEnumValues<CalendarRoleType>("value", allowedCalendarSharingRolesWithUsergetResponse.value);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const AllowedCalendarSharingRolesWithUserRequestBuilderRequestsMetadata: 
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createAllowedCalendarSharingRolesWithUserGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createAllowedCalendarSharingRolesWithUsergetResponseFromDiscriminatorValue,
         queryParametersMapper: AllowedCalendarSharingRolesWithUserRequestBuilderGetQueryParametersMapper,
     },
 };

@@ -6,7 +6,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface CountGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface CountgetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -27,10 +27,10 @@ export interface CountRequestBuilder extends BaseRequestBuilder<CountRequestBuil
     /**
      * Invoke function count
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<CountGetResponse>}
+     * @returns {Promise<CountgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CountGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CountgetResponse | undefined>;
     /**
      * Invoke function count
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -41,21 +41,21 @@ export interface CountRequestBuilder extends BaseRequestBuilder<CountRequestBuil
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {CountGetResponse}
+ * @returns {CountgetResponse}
  */
 // @ts-ignore
-export function createCountGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoCountGetResponse;
+export function createCountgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCountgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoCountGetResponse(countGetResponse: Partial<CountGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCountgetResponse(countgetResponse: Partial<CountgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { countGetResponse.backingStoreEnabled = true; },
-        "value": n => { countGetResponse.value = n.getNumberValue(); },
+        "backingStoreEnabled": n => { countgetResponse.backingStoreEnabled = true; },
+        "value": n => { countgetResponse.value = n.getNumberValue(); },
     }
 }
 /**
@@ -63,10 +63,10 @@ export function deserializeIntoCountGetResponse(countGetResponse: Partial<CountG
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCountGetResponse(writer: SerializationWriter, countGetResponse: Partial<CountGetResponse> | undefined | null = {}) : void {
-    if (countGetResponse) {
-        writer.writeNumberValue("value", countGetResponse.value);
-        writer.writeAdditionalData(countGetResponse.additionalData);
+export function serializeCountgetResponse(writer: SerializationWriter, countgetResponse: Partial<CountgetResponse> | undefined | null = {}) : void {
+    if (countgetResponse) {
+        writer.writeNumberValue("value", countgetResponse.value);
+        writer.writeAdditionalData(countgetResponse.additionalData);
     }
 }
 /**
@@ -84,7 +84,7 @@ export const CountRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createCountGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createCountgetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

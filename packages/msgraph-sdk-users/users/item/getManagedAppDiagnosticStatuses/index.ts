@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetManagedAppDiagnosticStatusesGetResponse}
+ * @returns {GetManagedAppDiagnosticStatusesgetResponse}
  */
 // @ts-ignore
-export function createGetManagedAppDiagnosticStatusesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetManagedAppDiagnosticStatusesGetResponse;
+export function createGetManagedAppDiagnosticStatusesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetManagedAppDiagnosticStatusesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetManagedAppDiagnosticStatusesGetResponse(getManagedAppDiagnosticStatusesGetResponse: Partial<GetManagedAppDiagnosticStatusesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetManagedAppDiagnosticStatusesgetResponse(getManagedAppDiagnosticStatusesgetResponse: Partial<GetManagedAppDiagnosticStatusesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedAppDiagnosticStatusesGetResponse),
-        "value": n => { getManagedAppDiagnosticStatusesGetResponse.value = n.getCollectionOfObjectValues<ManagedAppDiagnosticStatus>(createManagedAppDiagnosticStatusFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedAppDiagnosticStatusesgetResponse),
+        "value": n => { getManagedAppDiagnosticStatusesgetResponse.value = n.getCollectionOfObjectValues<ManagedAppDiagnosticStatus>(createManagedAppDiagnosticStatusFromDiscriminatorValue); },
     }
 }
-export interface GetManagedAppDiagnosticStatusesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetManagedAppDiagnosticStatusesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetManagedAppDiagnosticStatusesRequestBuilder extends BaseReque
     /**
      * Gets diagnostics validation status for a given user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetManagedAppDiagnosticStatusesGetResponse>}
+     * @returns {Promise<GetManagedAppDiagnosticStatusesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-getmanagedappdiagnosticstatuses?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedAppDiagnosticStatusesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedAppDiagnosticStatusesgetResponse | undefined>;
     /**
      * Gets diagnostics validation status for a given user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetManagedAppDiagnosticStatusesGetResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesGetResponse: Partial<GetManagedAppDiagnosticStatusesGetResponse> | undefined | null = {}) : void {
-    if (getManagedAppDiagnosticStatusesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesGetResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesGetResponse.value, serializeManagedAppDiagnosticStatus);
+export function serializeGetManagedAppDiagnosticStatusesgetResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesgetResponse: Partial<GetManagedAppDiagnosticStatusesgetResponse> | undefined | null = {}) : void {
+    if (getManagedAppDiagnosticStatusesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesgetResponse)
+        writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesgetResponse.value, serializeManagedAppDiagnosticStatus);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetManagedAppDiagnosticStatusesRequestBuilderRequestsMetadata: Requ
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetManagedAppDiagnosticStatusesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetManagedAppDiagnosticStatusesgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParametersMapper,
     },
 };

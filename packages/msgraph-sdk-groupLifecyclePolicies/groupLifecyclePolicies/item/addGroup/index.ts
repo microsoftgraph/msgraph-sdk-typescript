@@ -20,7 +20,7 @@ export interface AddGroupPostRequestBody extends AdditionalDataHolder, BackedMod
      */
     groupId?: string | null;
 }
-export interface AddGroupPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface AddGrouppostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -42,11 +42,11 @@ export interface AddGroupRequestBuilder extends BaseRequestBuilder<AddGroupReque
      * Add a group to a groupLifecyclePolicy. This action is supported only if the managedGroupTypes property of the policy is set to Selected.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<AddGroupPostResponse>}
+     * @returns {Promise<AddGrouppostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-addgroup?view=graph-rest-1.0|Find more info here}
      */
-     post(body: AddGroupPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AddGroupPostResponse | undefined>;
+     post(body: AddGroupPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AddGrouppostResponse | undefined>;
     /**
      * Add a group to a groupLifecyclePolicy. This action is supported only if the managedGroupTypes property of the policy is set to Selected.
      * @param body The request body
@@ -67,11 +67,11 @@ export function createAddGroupPostRequestBodyFromDiscriminatorValue(parseNode: P
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AddGroupPostResponse}
+ * @returns {AddGrouppostResponse}
  */
 // @ts-ignore
-export function createAddGroupPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAddGroupPostResponse;
+export function createAddGrouppostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAddGrouppostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -89,10 +89,10 @@ export function deserializeIntoAddGroupPostRequestBody(addGroupPostRequestBody: 
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoAddGroupPostResponse(addGroupPostResponse: Partial<AddGroupPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddGrouppostResponse(addGrouppostResponse: Partial<AddGrouppostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { addGroupPostResponse.backingStoreEnabled = true; },
-        "value": n => { addGroupPostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { addGrouppostResponse.backingStoreEnabled = true; },
+        "value": n => { addGrouppostResponse.value = n.getBooleanValue(); },
     }
 }
 /**
@@ -111,10 +111,10 @@ export function serializeAddGroupPostRequestBody(writer: SerializationWriter, ad
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddGroupPostResponse(writer: SerializationWriter, addGroupPostResponse: Partial<AddGroupPostResponse> | undefined | null = {}) : void {
-    if (addGroupPostResponse) {
-        writer.writeBooleanValue("value", addGroupPostResponse.value);
-        writer.writeAdditionalData(addGroupPostResponse.additionalData);
+export function serializeAddGrouppostResponse(writer: SerializationWriter, addGrouppostResponse: Partial<AddGrouppostResponse> | undefined | null = {}) : void {
+    if (addGrouppostResponse) {
+        writer.writeBooleanValue("value", addGrouppostResponse.value);
+        writer.writeAdditionalData(addGrouppostResponse.additionalData);
     }
 }
 /**
@@ -132,7 +132,7 @@ export const AddGroupRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createAddGroupPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createAddGrouppostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAddGroupPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

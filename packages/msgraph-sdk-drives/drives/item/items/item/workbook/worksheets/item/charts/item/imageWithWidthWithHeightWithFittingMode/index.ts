@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {ImageWithWidthWithHeightWithFittingModeGetResponse}
+ * @returns {ImageWithWidthWithHeightWithFittingModegetResponse}
  */
 // @ts-ignore
-export function createImageWithWidthWithHeightWithFittingModeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoImageWithWidthWithHeightWithFittingModeGetResponse;
+export function createImageWithWidthWithHeightWithFittingModegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoImageWithWidthWithHeightWithFittingModegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoImageWithWidthWithHeightWithFittingModeGetResponse(imageWithWidthWithHeightWithFittingModeGetResponse: Partial<ImageWithWidthWithHeightWithFittingModeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImageWithWidthWithHeightWithFittingModegetResponse(imageWithWidthWithHeightWithFittingModegetResponse: Partial<ImageWithWidthWithHeightWithFittingModegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { imageWithWidthWithHeightWithFittingModeGetResponse.backingStoreEnabled = true; },
-        "value": n => { imageWithWidthWithHeightWithFittingModeGetResponse.value = n.getStringValue(); },
+        "backingStoreEnabled": n => { imageWithWidthWithHeightWithFittingModegetResponse.backingStoreEnabled = true; },
+        "value": n => { imageWithWidthWithHeightWithFittingModegetResponse.value = n.getStringValue(); },
     }
 }
-export interface ImageWithWidthWithHeightWithFittingModeGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface ImageWithWidthWithHeightWithFittingModegetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,10 +47,10 @@ export interface ImageWithWidthWithHeightWithFittingModeRequestBuilder extends B
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<ImageWithWidthWithHeightWithFittingModeGetResponse>}
+     * @returns {Promise<ImageWithWidthWithHeightWithFittingModegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImageWithWidthWithHeightWithFittingModeGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImageWithWidthWithHeightWithFittingModegetResponse | undefined>;
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -63,10 +63,10 @@ export interface ImageWithWidthWithHeightWithFittingModeRequestBuilder extends B
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImageWithWidthWithHeightWithFittingModeGetResponse(writer: SerializationWriter, imageWithWidthWithHeightWithFittingModeGetResponse: Partial<ImageWithWidthWithHeightWithFittingModeGetResponse> | undefined | null = {}) : void {
-    if (imageWithWidthWithHeightWithFittingModeGetResponse) {
-        writer.writeStringValue("value", imageWithWidthWithHeightWithFittingModeGetResponse.value);
-        writer.writeAdditionalData(imageWithWidthWithHeightWithFittingModeGetResponse.additionalData);
+export function serializeImageWithWidthWithHeightWithFittingModegetResponse(writer: SerializationWriter, imageWithWidthWithHeightWithFittingModegetResponse: Partial<ImageWithWidthWithHeightWithFittingModegetResponse> | undefined | null = {}) : void {
+    if (imageWithWidthWithHeightWithFittingModegetResponse) {
+        writer.writeStringValue("value", imageWithWidthWithHeightWithFittingModegetResponse.value);
+        writer.writeAdditionalData(imageWithWidthWithHeightWithFittingModegetResponse.additionalData);
     }
 }
 /**
@@ -84,7 +84,7 @@ export const ImageWithWidthWithHeightWithFittingModeRequestBuilderRequestsMetada
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createImageWithWidthWithHeightWithFittingModeGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createImageWithWidthWithHeightWithFittingModegetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

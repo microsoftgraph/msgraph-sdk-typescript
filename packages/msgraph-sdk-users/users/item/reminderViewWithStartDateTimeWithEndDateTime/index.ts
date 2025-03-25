@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {ReminderViewWithStartDateTimeWithEndDateTimeGetResponse}
+ * @returns {ReminderViewWithStartDateTimeWithEndDateTimegetResponse}
  */
 // @ts-ignore
-export function createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoReminderViewWithStartDateTimeWithEndDateTimeGetResponse;
+export function createReminderViewWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoReminderViewWithStartDateTimeWithEndDateTimegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoReminderViewWithStartDateTimeWithEndDateTimeGetResponse(reminderViewWithStartDateTimeWithEndDateTimeGetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoReminderViewWithStartDateTimeWithEndDateTimegetResponse(reminderViewWithStartDateTimeWithEndDateTimegetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(reminderViewWithStartDateTimeWithEndDateTimeGetResponse),
-        "value": n => { reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value = n.getCollectionOfObjectValues<Reminder>(createReminderFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(reminderViewWithStartDateTimeWithEndDateTimegetResponse),
+        "value": n => { reminderViewWithStartDateTimeWithEndDateTimegetResponse.value = n.getCollectionOfObjectValues<Reminder>(createReminderFromDiscriminatorValue); },
     }
 }
-export interface ReminderViewWithStartDateTimeWithEndDateTimeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface ReminderViewWithStartDateTimeWithEndDateTimegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder exte
     /**
      * Invoke function reminderView
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse>}
+     * @returns {Promise<ReminderViewWithStartDateTimeWithEndDateTimegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-reminderview?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<ReminderViewWithStartDateTimeWithEndDateTimegetResponse | undefined>;
     /**
      * Invoke function reminderView
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQu
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeReminderViewWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, reminderViewWithStartDateTimeWithEndDateTimeGetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
-    if (reminderViewWithStartDateTimeWithEndDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, reminderViewWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<Reminder>("value", reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value, serializeReminder);
+export function serializeReminderViewWithStartDateTimeWithEndDateTimegetResponse(writer: SerializationWriter, reminderViewWithStartDateTimeWithEndDateTimegetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimegetResponse> | undefined | null = {}) : void {
+    if (reminderViewWithStartDateTimeWithEndDateTimegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, reminderViewWithStartDateTimeWithEndDateTimegetResponse)
+        writer.writeCollectionOfObjectValues<Reminder>("value", reminderViewWithStartDateTimeWithEndDateTimegetResponse.value, serializeReminder);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderRequestsM
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createReminderViewWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue,
         queryParametersMapper: ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParametersMapper,
     },
 };

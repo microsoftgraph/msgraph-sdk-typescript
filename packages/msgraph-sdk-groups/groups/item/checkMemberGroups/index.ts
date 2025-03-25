@@ -22,7 +22,7 @@ export interface CheckMemberGroupsPostRequestBody extends AdditionalDataHolder, 
      */
     groupIds?: string[] | null;
 }
-export interface CheckMemberGroupsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface CheckMemberGroupspostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -36,11 +36,11 @@ export interface CheckMemberGroupsRequestBuilder extends BaseRequestBuilder<Chec
      * Check for membership in a specified list of group IDs, and return from that list the IDs of groups where a specified object is a member. The specified object can be of one of the following types:- user- group- service principal- organizational contact- device- directory object This function is transitive. You can check up to a maximum of 20 groups per request. This function supports all groups provisioned in Microsoft Entra ID. Because Microsoft 365 groups cannot contain other groups, membership in a Microsoft 365 group is always direct.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<CheckMemberGroupsPostResponse>}
+     * @returns {Promise<CheckMemberGroupspostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-checkmembergroups?view=graph-rest-1.0|Find more info here}
      */
-     post(body: CheckMemberGroupsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CheckMemberGroupsPostResponse | undefined>;
+     post(body: CheckMemberGroupsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CheckMemberGroupspostResponse | undefined>;
     /**
      * Check for membership in a specified list of group IDs, and return from that list the IDs of groups where a specified object is a member. The specified object can be of one of the following types:- user- group- service principal- organizational contact- device- directory object This function is transitive. You can check up to a maximum of 20 groups per request. This function supports all groups provisioned in Microsoft Entra ID. Because Microsoft 365 groups cannot contain other groups, membership in a Microsoft 365 group is always direct.
      * @param body The request body
@@ -61,11 +61,11 @@ export function createCheckMemberGroupsPostRequestBodyFromDiscriminatorValue(par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {CheckMemberGroupsPostResponse}
+ * @returns {CheckMemberGroupspostResponse}
  */
 // @ts-ignore
-export function createCheckMemberGroupsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoCheckMemberGroupsPostResponse;
+export function createCheckMemberGroupspostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCheckMemberGroupspostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -83,10 +83,10 @@ export function deserializeIntoCheckMemberGroupsPostRequestBody(checkMemberGroup
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoCheckMemberGroupsPostResponse(checkMemberGroupsPostResponse: Partial<CheckMemberGroupsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCheckMemberGroupspostResponse(checkMemberGroupspostResponse: Partial<CheckMemberGroupspostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(checkMemberGroupsPostResponse),
-        "value": n => { checkMemberGroupsPostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(checkMemberGroupspostResponse),
+        "value": n => { checkMemberGroupspostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
 /**
@@ -105,10 +105,10 @@ export function serializeCheckMemberGroupsPostRequestBody(writer: SerializationW
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCheckMemberGroupsPostResponse(writer: SerializationWriter, checkMemberGroupsPostResponse: Partial<CheckMemberGroupsPostResponse> | undefined | null = {}) : void {
-    if (checkMemberGroupsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, checkMemberGroupsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberGroupsPostResponse.value);
+export function serializeCheckMemberGroupspostResponse(writer: SerializationWriter, checkMemberGroupspostResponse: Partial<CheckMemberGroupspostResponse> | undefined | null = {}) : void {
+    if (checkMemberGroupspostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, checkMemberGroupspostResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberGroupspostResponse.value);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const CheckMemberGroupsRequestBuilderRequestsMetadata: RequestsMetadata =
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createCheckMemberGroupsPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createCheckMemberGroupspostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCheckMemberGroupsPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

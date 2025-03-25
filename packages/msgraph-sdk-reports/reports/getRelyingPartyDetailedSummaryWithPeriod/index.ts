@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetRelyingPartyDetailedSummaryWithPeriodGetResponse}
+ * @returns {GetRelyingPartyDetailedSummaryWithPeriodgetResponse}
  */
 // @ts-ignore
-export function createGetRelyingPartyDetailedSummaryWithPeriodGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetRelyingPartyDetailedSummaryWithPeriodGetResponse;
+export function createGetRelyingPartyDetailedSummaryWithPeriodgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetRelyingPartyDetailedSummaryWithPeriodgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetRelyingPartyDetailedSummaryWithPeriodGetResponse(getRelyingPartyDetailedSummaryWithPeriodGetResponse: Partial<GetRelyingPartyDetailedSummaryWithPeriodGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetRelyingPartyDetailedSummaryWithPeriodgetResponse(getRelyingPartyDetailedSummaryWithPeriodgetResponse: Partial<GetRelyingPartyDetailedSummaryWithPeriodgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getRelyingPartyDetailedSummaryWithPeriodGetResponse),
-        "value": n => { getRelyingPartyDetailedSummaryWithPeriodGetResponse.value = n.getCollectionOfObjectValues<RelyingPartyDetailedSummary>(createRelyingPartyDetailedSummaryFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getRelyingPartyDetailedSummaryWithPeriodgetResponse),
+        "value": n => { getRelyingPartyDetailedSummaryWithPeriodgetResponse.value = n.getCollectionOfObjectValues<RelyingPartyDetailedSummary>(createRelyingPartyDetailedSummaryFromDiscriminatorValue); },
     }
 }
-export interface GetRelyingPartyDetailedSummaryWithPeriodGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetRelyingPartyDetailedSummaryWithPeriodgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder extends 
     /**
      * Get a summary of AD FS relying parties information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetRelyingPartyDetailedSummaryWithPeriodGetResponse>}
+     * @returns {Promise<GetRelyingPartyDetailedSummaryWithPeriodgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/reportroot-getrelyingpartydetailedsummary?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters> | undefined) : Promise<GetRelyingPartyDetailedSummaryWithPeriodGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParameters> | undefined) : Promise<GetRelyingPartyDetailedSummaryWithPeriodgetResponse | undefined>;
     /**
      * Get a summary of AD FS relying parties information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryP
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetRelyingPartyDetailedSummaryWithPeriodGetResponse(writer: SerializationWriter, getRelyingPartyDetailedSummaryWithPeriodGetResponse: Partial<GetRelyingPartyDetailedSummaryWithPeriodGetResponse> | undefined | null = {}) : void {
-    if (getRelyingPartyDetailedSummaryWithPeriodGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getRelyingPartyDetailedSummaryWithPeriodGetResponse)
-        writer.writeCollectionOfObjectValues<RelyingPartyDetailedSummary>("value", getRelyingPartyDetailedSummaryWithPeriodGetResponse.value, serializeRelyingPartyDetailedSummary);
+export function serializeGetRelyingPartyDetailedSummaryWithPeriodgetResponse(writer: SerializationWriter, getRelyingPartyDetailedSummaryWithPeriodgetResponse: Partial<GetRelyingPartyDetailedSummaryWithPeriodgetResponse> | undefined | null = {}) : void {
+    if (getRelyingPartyDetailedSummaryWithPeriodgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getRelyingPartyDetailedSummaryWithPeriodgetResponse)
+        writer.writeCollectionOfObjectValues<RelyingPartyDetailedSummary>("value", getRelyingPartyDetailedSummaryWithPeriodgetResponse.value, serializeRelyingPartyDetailedSummary);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderRequestsMetad
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetRelyingPartyDetailedSummaryWithPeriodGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetRelyingPartyDetailedSummaryWithPeriodgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryParametersMapper,
     },
 };

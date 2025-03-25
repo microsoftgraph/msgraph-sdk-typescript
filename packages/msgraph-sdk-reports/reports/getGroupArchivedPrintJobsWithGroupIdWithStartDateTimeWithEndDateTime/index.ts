@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse}
+ * @returns {GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse}
  */
 // @ts-ignore
-export function createGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse;
+export function createGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse(getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse: Partial<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse(getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse: Partial<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse),
-        "value": n => { getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse.value = n.getCollectionOfObjectValues<ArchivedPrintJob>(createArchivedPrintJobFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse),
+        "value": n => { getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse.value = n.getCollectionOfObjectValues<ArchivedPrintJob>(createArchivedPrintJobFromDiscriminatorValue); },
     }
 }
-export interface GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDat
     /**
      * Get a list of archived print jobs for a particular group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse>}
+     * @returns {Promise<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/reports-getgrouparchivedprintjobs?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse | undefined>;
     /**
      * Get a list of archived print jobs for a particular group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDat
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse: Partial<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
-    if (getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
+export function serializeGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse(writer: SerializationWriter, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse: Partial<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse> | undefined | null = {}) : void {
+    if (getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse)
+        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponse.value, serializeArchivedPrintJob);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTim
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue,
         queryParametersMapper: GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParametersMapper,
     },
 };

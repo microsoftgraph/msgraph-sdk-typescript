@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetByUserRoleWithRoleGetResponse}
+ * @returns {GetByUserRoleWithRolegetResponse}
  */
 // @ts-ignore
-export function createGetByUserRoleWithRoleGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetByUserRoleWithRoleGetResponse;
+export function createGetByUserRoleWithRolegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetByUserRoleWithRolegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetByUserRoleWithRoleGetResponse(getByUserRoleWithRoleGetResponse: Partial<GetByUserRoleWithRoleGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetByUserRoleWithRolegetResponse(getByUserRoleWithRolegetResponse: Partial<GetByUserRoleWithRolegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getByUserRoleWithRoleGetResponse),
-        "value": n => { getByUserRoleWithRoleGetResponse.value = n.getCollectionOfObjectValues<VirtualEventTownhall>(createVirtualEventTownhallFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getByUserRoleWithRolegetResponse),
+        "value": n => { getByUserRoleWithRolegetResponse.value = n.getCollectionOfObjectValues<VirtualEventTownhall>(createVirtualEventTownhallFromDiscriminatorValue); },
     }
 }
-export interface GetByUserRoleWithRoleGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetByUserRoleWithRolegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetByUserRoleWithRoleRequestBuilder extends BaseRequestBuilder<
     /**
      * Get a list of virtualEventTownhall objects where the signed-in user is either the organizer or a coorganizer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetByUserRoleWithRoleGetResponse>}
+     * @returns {Promise<GetByUserRoleWithRolegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/virtualeventtownhall-getbyuserrole?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetByUserRoleWithRoleRequestBuilderGetQueryParameters> | undefined) : Promise<GetByUserRoleWithRoleGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetByUserRoleWithRoleRequestBuilderGetQueryParameters> | undefined) : Promise<GetByUserRoleWithRolegetResponse | undefined>;
     /**
      * Get a list of virtualEventTownhall objects where the signed-in user is either the organizer or a coorganizer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface GetByUserRoleWithRoleRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetByUserRoleWithRoleGetResponse(writer: SerializationWriter, getByUserRoleWithRoleGetResponse: Partial<GetByUserRoleWithRoleGetResponse> | undefined | null = {}) : void {
-    if (getByUserRoleWithRoleGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getByUserRoleWithRoleGetResponse)
-        writer.writeCollectionOfObjectValues<VirtualEventTownhall>("value", getByUserRoleWithRoleGetResponse.value, serializeVirtualEventTownhall);
+export function serializeGetByUserRoleWithRolegetResponse(writer: SerializationWriter, getByUserRoleWithRolegetResponse: Partial<GetByUserRoleWithRolegetResponse> | undefined | null = {}) : void {
+    if (getByUserRoleWithRolegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getByUserRoleWithRolegetResponse)
+        writer.writeCollectionOfObjectValues<VirtualEventTownhall>("value", getByUserRoleWithRolegetResponse.value, serializeVirtualEventTownhall);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const GetByUserRoleWithRoleRequestBuilderRequestsMetadata: RequestsMetada
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetByUserRoleWithRoleGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetByUserRoleWithRolegetResponseFromDiscriminatorValue,
         queryParametersMapper: GetByUserRoleWithRoleRequestBuilderGetQueryParametersMapper,
     },
 };

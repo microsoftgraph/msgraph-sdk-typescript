@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -21,10 +21,10 @@ export interface AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackag
     /**
      * Invoke function additionalAccess
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse>}
+     * @returns {Promise<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetQueryParameters> | undefined) : Promise<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetQueryParameters> | undefined) : Promise<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse | undefined>;
     /**
      * Invoke function additionalAccess
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -72,21 +72,21 @@ export interface AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackag
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse}
+ * @returns {AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse}
  */
 // @ts-ignore
-export function createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse;
+export function createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse),
-        "value": n => { additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value = n.getCollectionOfObjectValues<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse),
+        "value": n => { additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse.value = n.getCollectionOfObjectValues<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); },
     }
 }
 /**
@@ -94,10 +94,10 @@ export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatib
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse> | undefined | null = {}) : void {
-    if (additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value, serializeAccessPackageAssignment);
+export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse> | undefined | null = {}) : void {
+    if (additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse)
+        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponse.value, serializeAccessPackageAssignment);
     }
 }
 /**
@@ -128,7 +128,7 @@ export const AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdR
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdgetResponseFromDiscriminatorValue,
         queryParametersMapper: AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderGetQueryParametersMapper,
     },
 };

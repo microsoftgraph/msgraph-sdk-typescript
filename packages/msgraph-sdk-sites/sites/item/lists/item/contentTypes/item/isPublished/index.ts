@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {IsPublishedGetResponse}
+ * @returns {IsPublishedgetResponse}
  */
 // @ts-ignore
-export function createIsPublishedGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoIsPublishedGetResponse;
+export function createIsPublishedgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIsPublishedgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoIsPublishedGetResponse(isPublishedGetResponse: Partial<IsPublishedGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIsPublishedgetResponse(isPublishedgetResponse: Partial<IsPublishedgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { isPublishedGetResponse.backingStoreEnabled = true; },
-        "value": n => { isPublishedGetResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { isPublishedgetResponse.backingStoreEnabled = true; },
+        "value": n => { isPublishedgetResponse.value = n.getBooleanValue(); },
     }
 }
-export interface IsPublishedGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface IsPublishedgetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,11 +47,11 @@ export interface IsPublishedRequestBuilder extends BaseRequestBuilder<IsPublishe
     /**
      * Check the publishing status of a contentType in a content type hub site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<IsPublishedGetResponse>}
+     * @returns {Promise<IsPublishedgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-ispublished?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IsPublishedGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IsPublishedgetResponse | undefined>;
     /**
      * Check the publishing status of a contentType in a content type hub site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -64,10 +64,10 @@ export interface IsPublishedRequestBuilder extends BaseRequestBuilder<IsPublishe
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIsPublishedGetResponse(writer: SerializationWriter, isPublishedGetResponse: Partial<IsPublishedGetResponse> | undefined | null = {}) : void {
-    if (isPublishedGetResponse) {
-        writer.writeBooleanValue("value", isPublishedGetResponse.value);
-        writer.writeAdditionalData(isPublishedGetResponse.additionalData);
+export function serializeIsPublishedgetResponse(writer: SerializationWriter, isPublishedgetResponse: Partial<IsPublishedgetResponse> | undefined | null = {}) : void {
+    if (isPublishedgetResponse) {
+        writer.writeBooleanValue("value", isPublishedgetResponse.value);
+        writer.writeAdditionalData(isPublishedgetResponse.additionalData);
     }
 }
 /**
@@ -85,7 +85,7 @@ export const IsPublishedRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createIsPublishedGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createIsPublishedgetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

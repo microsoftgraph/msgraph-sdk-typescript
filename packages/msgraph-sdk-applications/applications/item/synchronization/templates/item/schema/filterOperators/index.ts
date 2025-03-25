@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {FilterOperatorsGetResponse}
+ * @returns {FilterOperatorsgetResponse}
  */
 // @ts-ignore
-export function createFilterOperatorsGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoFilterOperatorsGetResponse;
+export function createFilterOperatorsgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoFilterOperatorsgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoFilterOperatorsGetResponse(filterOperatorsGetResponse: Partial<FilterOperatorsGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFilterOperatorsgetResponse(filterOperatorsgetResponse: Partial<FilterOperatorsgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(filterOperatorsGetResponse),
-        "value": n => { filterOperatorsGetResponse.value = n.getCollectionOfObjectValues<FilterOperatorSchema>(createFilterOperatorSchemaFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(filterOperatorsgetResponse),
+        "value": n => { filterOperatorsgetResponse.value = n.getCollectionOfObjectValues<FilterOperatorSchema>(createFilterOperatorSchemaFromDiscriminatorValue); },
     }
 }
-export interface FilterOperatorsGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface FilterOperatorsgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface FilterOperatorsRequestBuilder extends BaseRequestBuilder<Filter
     /**
      * List all operators supported in the scoping filters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<FilterOperatorsGetResponse>}
+     * @returns {Promise<FilterOperatorsgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-filteroperators?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<FilterOperatorsRequestBuilderGetQueryParameters> | undefined) : Promise<FilterOperatorsGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<FilterOperatorsRequestBuilderGetQueryParameters> | undefined) : Promise<FilterOperatorsgetResponse | undefined>;
     /**
      * List all operators supported in the scoping filters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface FilterOperatorsRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFilterOperatorsGetResponse(writer: SerializationWriter, filterOperatorsGetResponse: Partial<FilterOperatorsGetResponse> | undefined | null = {}) : void {
-    if (filterOperatorsGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsGetResponse)
-        writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsGetResponse.value, serializeFilterOperatorSchema);
+export function serializeFilterOperatorsgetResponse(writer: SerializationWriter, filterOperatorsgetResponse: Partial<FilterOperatorsgetResponse> | undefined | null = {}) : void {
+    if (filterOperatorsgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsgetResponse)
+        writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsgetResponse.value, serializeFilterOperatorSchema);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const FilterOperatorsRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createFilterOperatorsGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createFilterOperatorsgetResponseFromDiscriminatorValue,
         queryParametersMapper: FilterOperatorsRequestBuilderGetQueryParametersMapper,
     },
 };

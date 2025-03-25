@@ -20,11 +20,11 @@ export function createGetMemberObjectsPostRequestBodyFromDiscriminatorValue(pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetMemberObjectsPostResponse}
+ * @returns {GetMemberObjectspostResponse}
  */
 // @ts-ignore
-export function createGetMemberObjectsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetMemberObjectsPostResponse;
+export function createGetMemberObjectspostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetMemberObjectspostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -42,10 +42,10 @@ export function deserializeIntoGetMemberObjectsPostRequestBody(getMemberObjectsP
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetMemberObjectsPostResponse(getMemberObjectsPostResponse: Partial<GetMemberObjectsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetMemberObjectspostResponse(getMemberObjectspostResponse: Partial<GetMemberObjectspostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getMemberObjectsPostResponse),
-        "value": n => { getMemberObjectsPostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getMemberObjectspostResponse),
+        "value": n => { getMemberObjectspostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
 export interface GetMemberObjectsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -62,7 +62,7 @@ export interface GetMemberObjectsPostRequestBody extends AdditionalDataHolder, B
      */
     securityEnabledOnly?: boolean | null;
 }
-export interface GetMemberObjectsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetMemberObjectspostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -76,11 +76,11 @@ export interface GetMemberObjectsRequestBuilder extends BaseRequestBuilder<GetMe
      * Return all IDs for the groups, administrative units, and directory roles that an object of one of the following types is a member of:- user- group- service principal- organizational contact- device- directory object This function is transitive. Only users and role-enabled groups can be members of directory roles.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetMemberObjectsPostResponse>}
+     * @returns {Promise<GetMemberObjectspostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getmemberobjects?view=graph-rest-1.0|Find more info here}
      */
-     post(body: GetMemberObjectsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMemberObjectsPostResponse | undefined>;
+     post(body: GetMemberObjectsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMemberObjectspostResponse | undefined>;
     /**
      * Return all IDs for the groups, administrative units, and directory roles that an object of one of the following types is a member of:- user- group- service principal- organizational contact- device- directory object This function is transitive. Only users and role-enabled groups can be members of directory roles.
      * @param body The request body
@@ -105,10 +105,10 @@ export function serializeGetMemberObjectsPostRequestBody(writer: SerializationWr
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetMemberObjectsPostResponse(writer: SerializationWriter, getMemberObjectsPostResponse: Partial<GetMemberObjectsPostResponse> | undefined | null = {}) : void {
-    if (getMemberObjectsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getMemberObjectsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getMemberObjectsPostResponse.value);
+export function serializeGetMemberObjectspostResponse(writer: SerializationWriter, getMemberObjectspostResponse: Partial<GetMemberObjectspostResponse> | undefined | null = {}) : void {
+    if (getMemberObjectspostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getMemberObjectspostResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", getMemberObjectspostResponse.value);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const GetMemberObjectsRequestBuilderRequestsMetadata: RequestsMetadata = 
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetMemberObjectsPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetMemberObjectspostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetMemberObjectsPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

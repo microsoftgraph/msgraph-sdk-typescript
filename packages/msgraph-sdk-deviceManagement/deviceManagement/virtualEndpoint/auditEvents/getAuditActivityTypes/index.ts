@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetAuditActivityTypesGetResponse}
+ * @returns {GetAuditActivityTypesgetResponse}
  */
 // @ts-ignore
-export function createGetAuditActivityTypesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetAuditActivityTypesGetResponse;
+export function createGetAuditActivityTypesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetAuditActivityTypesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetAuditActivityTypesGetResponse(getAuditActivityTypesGetResponse: Partial<GetAuditActivityTypesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAuditActivityTypesgetResponse(getAuditActivityTypesgetResponse: Partial<GetAuditActivityTypesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getAuditActivityTypesGetResponse),
-        "value": n => { getAuditActivityTypesGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getAuditActivityTypesgetResponse),
+        "value": n => { getAuditActivityTypesgetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
-export interface GetAuditActivityTypesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetAuditActivityTypesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetAuditActivityTypesRequestBuilder extends BaseRequestBuilder<
     /**
      * Get audit activity types by tenant ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetAuditActivityTypesGetResponse>}
+     * @returns {Promise<GetAuditActivityTypesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/cloudpcauditevent-getauditactivitytypes?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetAuditActivityTypesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAuditActivityTypesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetAuditActivityTypesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAuditActivityTypesgetResponse | undefined>;
     /**
      * Get audit activity types by tenant ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetAuditActivityTypesRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAuditActivityTypesGetResponse(writer: SerializationWriter, getAuditActivityTypesGetResponse: Partial<GetAuditActivityTypesGetResponse> | undefined | null = {}) : void {
-    if (getAuditActivityTypesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesGetResponse.value);
+export function serializeGetAuditActivityTypesgetResponse(writer: SerializationWriter, getAuditActivityTypesgetResponse: Partial<GetAuditActivityTypesgetResponse> | undefined | null = {}) : void {
+    if (getAuditActivityTypesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesgetResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesgetResponse.value);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetAuditActivityTypesRequestBuilderRequestsMetadata: RequestsMetada
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetAuditActivityTypesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetAuditActivityTypesgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAuditActivityTypesRequestBuilderGetQueryParametersMapper,
     },
 };

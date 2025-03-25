@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {ImageWithWidthGetResponse}
+ * @returns {ImageWithWidthgetResponse}
  */
 // @ts-ignore
-export function createImageWithWidthGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoImageWithWidthGetResponse;
+export function createImageWithWidthgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoImageWithWidthgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoImageWithWidthGetResponse(imageWithWidthGetResponse: Partial<ImageWithWidthGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImageWithWidthgetResponse(imageWithWidthgetResponse: Partial<ImageWithWidthgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { imageWithWidthGetResponse.backingStoreEnabled = true; },
-        "value": n => { imageWithWidthGetResponse.value = n.getStringValue(); },
+        "backingStoreEnabled": n => { imageWithWidthgetResponse.backingStoreEnabled = true; },
+        "value": n => { imageWithWidthgetResponse.value = n.getStringValue(); },
     }
 }
-export interface ImageWithWidthGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface ImageWithWidthgetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,10 +47,10 @@ export interface ImageWithWidthRequestBuilder extends BaseRequestBuilder<ImageWi
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<ImageWithWidthGetResponse>}
+     * @returns {Promise<ImageWithWidthgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImageWithWidthGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImageWithWidthgetResponse | undefined>;
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -63,10 +63,10 @@ export interface ImageWithWidthRequestBuilder extends BaseRequestBuilder<ImageWi
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImageWithWidthGetResponse(writer: SerializationWriter, imageWithWidthGetResponse: Partial<ImageWithWidthGetResponse> | undefined | null = {}) : void {
-    if (imageWithWidthGetResponse) {
-        writer.writeStringValue("value", imageWithWidthGetResponse.value);
-        writer.writeAdditionalData(imageWithWidthGetResponse.additionalData);
+export function serializeImageWithWidthgetResponse(writer: SerializationWriter, imageWithWidthgetResponse: Partial<ImageWithWidthgetResponse> | undefined | null = {}) : void {
+    if (imageWithWidthgetResponse) {
+        writer.writeStringValue("value", imageWithWidthgetResponse.value);
+        writer.writeAdditionalData(imageWithWidthgetResponse.additionalData);
     }
 }
 /**
@@ -84,7 +84,7 @@ export const ImageWithWidthRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createImageWithWidthGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createImageWithWidthgetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

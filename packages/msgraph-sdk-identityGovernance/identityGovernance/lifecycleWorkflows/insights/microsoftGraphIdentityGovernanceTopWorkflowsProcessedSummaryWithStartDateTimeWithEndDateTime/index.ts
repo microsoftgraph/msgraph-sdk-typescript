@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse}
+ * @returns {TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse}
  */
 // @ts-ignore
-export function createTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse;
+export function createTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse(topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse: Partial<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse(topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse: Partial<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse),
-        "value": n => { topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse.value = n.getCollectionOfObjectValues<TopWorkflowsInsightsSummary>(createTopWorkflowsInsightsSummaryFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse),
+        "value": n => { topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse.value = n.getCollectionOfObjectValues<TopWorkflowsInsightsSummary>(createTopWorkflowsInsightsSummaryFromDiscriminatorValue); },
     }
 }
 /**
@@ -37,11 +37,11 @@ export interface MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWit
     /**
      * Provide a summary of the workflows processed the most, known as top workflows, for a specified period in a tenant. Workflow basic details are given, along with run information. For information about tasks processed, see insights: topTasksProcessedSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse>}
+     * @returns {Promise<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-insights-topworkflowsprocessedsummary?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse | undefined>;
     /**
      * Provide a summary of the workflows processed the most, known as top workflows, for a specified period in a tenant. Workflow basic details are given, along with run information. For information about tasks processed, see insights: topTasksProcessedSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -79,13 +79,13 @@ export interface MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWit
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse: Partial<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
-    if (topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<TopWorkflowsInsightsSummary>("value", topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse.value, serializeTopWorkflowsInsightsSummary);
+export function serializeTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse(writer: SerializationWriter, topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse: Partial<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse> | undefined | null = {}) : void {
+    if (topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse)
+        writer.writeCollectionOfObjectValues<TopWorkflowsInsightsSummary>("value", topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse.value, serializeTopWorkflowsInsightsSummary);
     }
 }
-export interface TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -116,7 +116,7 @@ export const MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithSta
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue,
         queryParametersMapper: MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParametersMapper,
     },
 };

@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {RecentGetResponse}
+ * @returns {RecentgetResponse}
  */
 // @ts-ignore
-export function createRecentGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoRecentGetResponse;
+export function createRecentgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRecentgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoRecentGetResponse(recentGetResponse: Partial<RecentGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRecentgetResponse(recentgetResponse: Partial<RecentgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(recentGetResponse),
-        "value": n => { recentGetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(recentgetResponse),
+        "value": n => { recentgetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
     }
 }
-export interface RecentGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface RecentgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface RecentRequestBuilder extends BaseRequestBuilder<RecentRequestBu
     /**
      * List a set of items that have been recently used by the signed in user.This collection includes items that are in the user's drive and items they have access to from other drives.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<RecentGetResponse>}
+     * @returns {Promise<RecentgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/drive-recent?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : Promise<RecentGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : Promise<RecentgetResponse | undefined>;
     /**
      * List a set of items that have been recently used by the signed in user.This collection includes items that are in the user's drive and items they have access to from other drives.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface RecentRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRecentGetResponse(writer: SerializationWriter, recentGetResponse: Partial<RecentGetResponse> | undefined | null = {}) : void {
-    if (recentGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, recentGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", recentGetResponse.value, serializeDriveItem);
+export function serializeRecentgetResponse(writer: SerializationWriter, recentgetResponse: Partial<RecentgetResponse> | undefined | null = {}) : void {
+    if (recentgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, recentgetResponse)
+        writer.writeCollectionOfObjectValues<DriveItem>("value", recentgetResponse.value, serializeDriveItem);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const RecentRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createRecentGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createRecentgetResponseFromDiscriminatorValue,
         queryParametersMapper: RecentRequestBuilderGetQueryParametersMapper,
     },
 };

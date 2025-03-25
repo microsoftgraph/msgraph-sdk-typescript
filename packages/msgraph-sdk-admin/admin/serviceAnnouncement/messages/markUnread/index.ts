@@ -18,11 +18,11 @@ export function createMarkUnreadPostRequestBodyFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {MarkUnreadPostResponse}
+ * @returns {MarkUnreadpostResponse}
  */
 // @ts-ignore
-export function createMarkUnreadPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoMarkUnreadPostResponse;
+export function createMarkUnreadpostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMarkUnreadpostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -40,10 +40,10 @@ export function deserializeIntoMarkUnreadPostRequestBody(markUnreadPostRequestBo
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoMarkUnreadPostResponse(markUnreadPostResponse: Partial<MarkUnreadPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMarkUnreadpostResponse(markUnreadpostResponse: Partial<MarkUnreadpostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { markUnreadPostResponse.backingStoreEnabled = true; },
-        "value": n => { markUnreadPostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { markUnreadpostResponse.backingStoreEnabled = true; },
+        "value": n => { markUnreadpostResponse.value = n.getBooleanValue(); },
     }
 }
 export interface MarkUnreadPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -60,7 +60,7 @@ export interface MarkUnreadPostRequestBody extends AdditionalDataHolder, BackedM
      */
     messageIds?: string[] | null;
 }
-export interface MarkUnreadPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface MarkUnreadpostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -82,11 +82,11 @@ export interface MarkUnreadRequestBuilder extends BaseRequestBuilder<MarkUnreadR
      * Mark a list of serviceUpdateMessages as unread for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<MarkUnreadPostResponse>}
+     * @returns {Promise<MarkUnreadpostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-markunread?view=graph-rest-1.0|Find more info here}
      */
-     post(body: MarkUnreadPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MarkUnreadPostResponse | undefined>;
+     post(body: MarkUnreadPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MarkUnreadpostResponse | undefined>;
     /**
      * Mark a list of serviceUpdateMessages as unread for the signed in user.
      * @param body The request body
@@ -111,10 +111,10 @@ export function serializeMarkUnreadPostRequestBody(writer: SerializationWriter, 
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMarkUnreadPostResponse(writer: SerializationWriter, markUnreadPostResponse: Partial<MarkUnreadPostResponse> | undefined | null = {}) : void {
-    if (markUnreadPostResponse) {
-        writer.writeBooleanValue("value", markUnreadPostResponse.value);
-        writer.writeAdditionalData(markUnreadPostResponse.additionalData);
+export function serializeMarkUnreadpostResponse(writer: SerializationWriter, markUnreadpostResponse: Partial<MarkUnreadpostResponse> | undefined | null = {}) : void {
+    if (markUnreadpostResponse) {
+        writer.writeBooleanValue("value", markUnreadpostResponse.value);
+        writer.writeAdditionalData(markUnreadpostResponse.additionalData);
     }
 }
 /**
@@ -132,7 +132,7 @@ export const MarkUnreadRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createMarkUnreadPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createMarkUnreadpostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMarkUnreadPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

@@ -10,7 +10,7 @@ import { createEdiscoveryReviewTagFromDiscriminatorValue, serializeEdiscoveryRev
 // @ts-ignore
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface AsHierarchyGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface AsHierarchygetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -19,21 +19,21 @@ export interface AsHierarchyGetResponse extends BaseCollectionPaginationCountRes
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AsHierarchyGetResponse}
+ * @returns {AsHierarchygetResponse}
  */
 // @ts-ignore
-export function createAsHierarchyGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAsHierarchyGetResponse;
+export function createAsHierarchygetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAsHierarchygetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoAsHierarchyGetResponse(asHierarchyGetResponse: Partial<AsHierarchyGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAsHierarchygetResponse(asHierarchygetResponse: Partial<AsHierarchygetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(asHierarchyGetResponse),
-        "value": n => { asHierarchyGetResponse.value = n.getCollectionOfObjectValues<EdiscoveryReviewTag>(createEdiscoveryReviewTagFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(asHierarchygetResponse),
+        "value": n => { asHierarchygetResponse.value = n.getCollectionOfObjectValues<EdiscoveryReviewTag>(createEdiscoveryReviewTagFromDiscriminatorValue); },
     }
 }
 /**
@@ -43,10 +43,10 @@ export interface MicrosoftGraphSecurityAsHierarchyRequestBuilder extends BaseReq
     /**
      * List eDiscovery review tags with the tag hierarchy shown.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<AsHierarchyGetResponse>}
+     * @returns {Promise<AsHierarchygetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters> | undefined) : Promise<AsHierarchyGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParameters> | undefined) : Promise<AsHierarchygetResponse | undefined>;
     /**
      * List eDiscovery review tags with the tag hierarchy shown.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -96,10 +96,10 @@ export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParamete
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAsHierarchyGetResponse(writer: SerializationWriter, asHierarchyGetResponse: Partial<AsHierarchyGetResponse> | undefined | null = {}) : void {
-    if (asHierarchyGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, asHierarchyGetResponse)
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", asHierarchyGetResponse.value, serializeEdiscoveryReviewTag);
+export function serializeAsHierarchygetResponse(writer: SerializationWriter, asHierarchygetResponse: Partial<AsHierarchygetResponse> | undefined | null = {}) : void {
+    if (asHierarchygetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, asHierarchygetResponse)
+        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", asHierarchygetResponse.value, serializeEdiscoveryReviewTag);
     }
 }
 /**
@@ -130,7 +130,7 @@ export const MicrosoftGraphSecurityAsHierarchyRequestBuilderRequestsMetadata: Re
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createAsHierarchyGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createAsHierarchygetResponseFromDiscriminatorValue,
         queryParametersMapper: MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParametersMapper,
     },
 };

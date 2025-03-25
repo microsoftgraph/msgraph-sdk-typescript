@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetVirtualAppointmentJoinWebUrlGetResponse}
+ * @returns {GetVirtualAppointmentJoinWebUrlgetResponse}
  */
 // @ts-ignore
-export function createGetVirtualAppointmentJoinWebUrlGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetVirtualAppointmentJoinWebUrlGetResponse;
+export function createGetVirtualAppointmentJoinWebUrlgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetVirtualAppointmentJoinWebUrlgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetVirtualAppointmentJoinWebUrlGetResponse(getVirtualAppointmentJoinWebUrlGetResponse: Partial<GetVirtualAppointmentJoinWebUrlGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetVirtualAppointmentJoinWebUrlgetResponse(getVirtualAppointmentJoinWebUrlgetResponse: Partial<GetVirtualAppointmentJoinWebUrlgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { getVirtualAppointmentJoinWebUrlGetResponse.backingStoreEnabled = true; },
-        "value": n => { getVirtualAppointmentJoinWebUrlGetResponse.value = n.getStringValue(); },
+        "backingStoreEnabled": n => { getVirtualAppointmentJoinWebUrlgetResponse.backingStoreEnabled = true; },
+        "value": n => { getVirtualAppointmentJoinWebUrlgetResponse.value = n.getStringValue(); },
     }
 }
-export interface GetVirtualAppointmentJoinWebUrlGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface GetVirtualAppointmentJoinWebUrlgetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,11 +47,11 @@ export interface GetVirtualAppointmentJoinWebUrlRequestBuilder extends BaseReque
     /**
      * Get a join web URL for a Microsoft Virtual Appointment. This web URL includes enhanced business-to-customer experiences such as mobile browser join and virtual lobby rooms. With Teams Premium, you can configure a custom lobby room experience for attendees by adding your company logo and access the Virtual Appointments usage report for organizational analytics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetVirtualAppointmentJoinWebUrlGetResponse>}
+     * @returns {Promise<GetVirtualAppointmentJoinWebUrlgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/virtualappointment-getvirtualappointmentjoinweburl?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetVirtualAppointmentJoinWebUrlGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetVirtualAppointmentJoinWebUrlgetResponse | undefined>;
     /**
      * Get a join web URL for a Microsoft Virtual Appointment. This web URL includes enhanced business-to-customer experiences such as mobile browser join and virtual lobby rooms. With Teams Premium, you can configure a custom lobby room experience for attendees by adding your company logo and access the Virtual Appointments usage report for organizational analytics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -64,10 +64,10 @@ export interface GetVirtualAppointmentJoinWebUrlRequestBuilder extends BaseReque
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetVirtualAppointmentJoinWebUrlGetResponse(writer: SerializationWriter, getVirtualAppointmentJoinWebUrlGetResponse: Partial<GetVirtualAppointmentJoinWebUrlGetResponse> | undefined | null = {}) : void {
-    if (getVirtualAppointmentJoinWebUrlGetResponse) {
-        writer.writeStringValue("value", getVirtualAppointmentJoinWebUrlGetResponse.value);
-        writer.writeAdditionalData(getVirtualAppointmentJoinWebUrlGetResponse.additionalData);
+export function serializeGetVirtualAppointmentJoinWebUrlgetResponse(writer: SerializationWriter, getVirtualAppointmentJoinWebUrlgetResponse: Partial<GetVirtualAppointmentJoinWebUrlgetResponse> | undefined | null = {}) : void {
+    if (getVirtualAppointmentJoinWebUrlgetResponse) {
+        writer.writeStringValue("value", getVirtualAppointmentJoinWebUrlgetResponse.value);
+        writer.writeAdditionalData(getVirtualAppointmentJoinWebUrlgetResponse.additionalData);
     }
 }
 /**
@@ -85,7 +85,7 @@ export const GetVirtualAppointmentJoinWebUrlRequestBuilderRequestsMetadata: Requ
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetVirtualAppointmentJoinWebUrlGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetVirtualAppointmentJoinWebUrlgetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

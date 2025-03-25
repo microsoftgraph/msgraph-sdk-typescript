@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetAllSitesGetResponse}
+ * @returns {GetAllSitesgetResponse}
  */
 // @ts-ignore
-export function createGetAllSitesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetAllSitesGetResponse;
+export function createGetAllSitesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetAllSitesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetAllSitesGetResponse(getAllSitesGetResponse: Partial<GetAllSitesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAllSitesgetResponse(getAllSitesgetResponse: Partial<GetAllSitesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getAllSitesGetResponse),
-        "value": n => { getAllSitesGetResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getAllSitesgetResponse),
+        "value": n => { getAllSitesgetResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
     }
 }
-export interface GetAllSitesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetAllSitesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetAllSitesRequestBuilder extends BaseRequestBuilder<GetAllSite
     /**
      * List sites across geographies in an organization. This API can also be used to enumerate all sites in a non-multi-geo tenant. For more information, see Best practices for discovering files and detecting changes at scale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetAllSitesGetResponse>}
+     * @returns {Promise<GetAllSitesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/site-getallsites?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetAllSitesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllSitesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetAllSitesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllSitesgetResponse | undefined>;
     /**
      * List sites across geographies in an organization. This API can also be used to enumerate all sites in a non-multi-geo tenant. For more information, see Best practices for discovering files and detecting changes at scale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface GetAllSitesRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAllSitesGetResponse(writer: SerializationWriter, getAllSitesGetResponse: Partial<GetAllSitesGetResponse> | undefined | null = {}) : void {
-    if (getAllSitesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAllSitesGetResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", getAllSitesGetResponse.value, serializeSite);
+export function serializeGetAllSitesgetResponse(writer: SerializationWriter, getAllSitesgetResponse: Partial<GetAllSitesgetResponse> | undefined | null = {}) : void {
+    if (getAllSitesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAllSitesgetResponse)
+        writer.writeCollectionOfObjectValues<Site>("value", getAllSitesgetResponse.value, serializeSite);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const GetAllSitesRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetAllSitesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetAllSitesgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAllSitesRequestBuilderGetQueryParametersMapper,
     },
 };

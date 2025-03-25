@@ -24,7 +24,7 @@ export interface AddActivitiesPostRequestBody extends AdditionalDataHolder, Back
      */
     backingStoreEnabled?: boolean | null;
 }
-export interface AddActivitiesPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface AddActivitiespostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -42,11 +42,11 @@ export function createAddActivitiesPostRequestBodyFromDiscriminatorValue(parseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AddActivitiesPostResponse}
+ * @returns {AddActivitiespostResponse}
  */
 // @ts-ignore
-export function createAddActivitiesPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAddActivitiesPostResponse;
+export function createAddActivitiespostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAddActivitiespostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -64,10 +64,10 @@ export function deserializeIntoAddActivitiesPostRequestBody(addActivitiesPostReq
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoAddActivitiesPostResponse(addActivitiesPostResponse: Partial<AddActivitiesPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddActivitiespostResponse(addActivitiespostResponse: Partial<AddActivitiespostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(addActivitiesPostResponse),
-        "value": n => { addActivitiesPostResponse.value = n.getCollectionOfObjectValues<ExternalActivityResult>(createExternalActivityResultFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(addActivitiespostResponse),
+        "value": n => { addActivitiespostResponse.value = n.getCollectionOfObjectValues<ExternalActivityResult>(createExternalActivityResultFromDiscriminatorValue); },
     }
 }
 /**
@@ -78,10 +78,10 @@ export interface MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder ext
      * Invoke action addActivities
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<AddActivitiesPostResponse>}
+     * @returns {Promise<AddActivitiespostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     post(body: AddActivitiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AddActivitiesPostResponse | undefined>;
+     post(body: AddActivitiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AddActivitiespostResponse | undefined>;
     /**
      * Invoke action addActivities
      * @param body The request body
@@ -106,10 +106,10 @@ export function serializeAddActivitiesPostRequestBody(writer: SerializationWrite
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddActivitiesPostResponse(writer: SerializationWriter, addActivitiesPostResponse: Partial<AddActivitiesPostResponse> | undefined | null = {}) : void {
-    if (addActivitiesPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, addActivitiesPostResponse)
-        writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiesPostResponse.value, serializeExternalActivityResult);
+export function serializeAddActivitiespostResponse(writer: SerializationWriter, addActivitiespostResponse: Partial<AddActivitiespostResponse> | undefined | null = {}) : void {
+    if (addActivitiespostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, addActivitiespostResponse)
+        writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiespostResponse.value, serializeExternalActivityResult);
     }
 }
 /**
@@ -127,7 +127,7 @@ export const MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderRequests
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createAddActivitiesPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createAddActivitiespostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAddActivitiesPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

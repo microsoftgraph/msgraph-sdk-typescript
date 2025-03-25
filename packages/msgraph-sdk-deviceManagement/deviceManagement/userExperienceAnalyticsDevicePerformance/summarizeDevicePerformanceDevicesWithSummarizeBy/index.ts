@@ -11,21 +11,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse}
+ * @returns {SummarizeDevicePerformanceDevicesWithSummarizeBygetResponse}
  */
 // @ts-ignore
-export function createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse;
+export function createSummarizeDevicePerformanceDevicesWithSummarizeBygetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeBygetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeBygetResponse(summarizeDevicePerformanceDevicesWithSummarizeBygetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeBygetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(summarizeDevicePerformanceDevicesWithSummarizeByGetResponse),
-        "value": n => { summarizeDevicePerformanceDevicesWithSummarizeByGetResponse.value = n.getCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>(createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(summarizeDevicePerformanceDevicesWithSummarizeBygetResponse),
+        "value": n => { summarizeDevicePerformanceDevicesWithSummarizeBygetResponse.value = n.getCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>(createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue); },
     }
 }
 /**
@@ -33,13 +33,13 @@ export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByG
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(writer: SerializationWriter, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse> | undefined | null = {}) : void {
-    if (summarizeDevicePerformanceDevicesWithSummarizeByGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse)
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>("value", summarizeDevicePerformanceDevicesWithSummarizeByGetResponse.value, serializeUserExperienceAnalyticsDevicePerformance);
+export function serializeSummarizeDevicePerformanceDevicesWithSummarizeBygetResponse(writer: SerializationWriter, summarizeDevicePerformanceDevicesWithSummarizeBygetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeBygetResponse> | undefined | null = {}) : void {
+    if (summarizeDevicePerformanceDevicesWithSummarizeBygetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, summarizeDevicePerformanceDevicesWithSummarizeBygetResponse)
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>("value", summarizeDevicePerformanceDevicesWithSummarizeBygetResponse.value, serializeUserExperienceAnalyticsDevicePerformance);
     }
 }
-export interface SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface SummarizeDevicePerformanceDevicesWithSummarizeBygetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -52,10 +52,10 @@ export interface SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder 
     /**
      * Invoke function summarizeDevicePerformanceDevices
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse>}
+     * @returns {Promise<SummarizeDevicePerformanceDevicesWithSummarizeBygetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters> | undefined) : Promise<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParameters> | undefined) : Promise<SummarizeDevicePerformanceDevicesWithSummarizeBygetResponse | undefined>;
     /**
      * Invoke function summarizeDevicePerformanceDevices
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -128,7 +128,7 @@ export const SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderReque
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createSummarizeDevicePerformanceDevicesWithSummarizeByGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createSummarizeDevicePerformanceDevicesWithSummarizeBygetResponseFromDiscriminatorValue,
         queryParametersMapper: SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilderGetQueryParametersMapper,
     },
 };

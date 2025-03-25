@@ -20,11 +20,11 @@ export function createQueryPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {QueryPostResponse}
+ * @returns {QuerypostResponse}
  */
 // @ts-ignore
-export function createQueryPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoQueryPostResponse;
+export function createQuerypostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoQuerypostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -42,10 +42,10 @@ export function deserializeIntoQueryPostRequestBody(queryPostRequestBody: Partia
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoQueryPostResponse(queryPostResponse: Partial<QueryPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoQuerypostResponse(querypostResponse: Partial<QuerypostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(queryPostResponse),
-        "value": n => { queryPostResponse.value = n.getCollectionOfObjectValues<SearchResponse>(createSearchResponseFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(querypostResponse),
+        "value": n => { querypostResponse.value = n.getCollectionOfObjectValues<SearchResponse>(createSearchResponseFromDiscriminatorValue); },
     }
 }
 export interface QueryPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -62,7 +62,7 @@ export interface QueryPostRequestBody extends AdditionalDataHolder, BackedModel,
      */
     requests?: SearchRequest[] | null;
 }
-export interface QueryPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface QuerypostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -76,11 +76,11 @@ export interface QueryRequestBuilder extends BaseRequestBuilder<QueryRequestBuil
      * Runs the query specified in the request body. Search results are provided in the response.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<QueryPostResponse>}
+     * @returns {Promise<QuerypostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/search-query?view=graph-rest-1.0|Find more info here}
      */
-     post(body: QueryPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<QueryPostResponse | undefined>;
+     post(body: QueryPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<QuerypostResponse | undefined>;
     /**
      * Runs the query specified in the request body. Search results are provided in the response.
      * @param body The request body
@@ -105,10 +105,10 @@ export function serializeQueryPostRequestBody(writer: SerializationWriter, query
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeQueryPostResponse(writer: SerializationWriter, queryPostResponse: Partial<QueryPostResponse> | undefined | null = {}) : void {
-    if (queryPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, queryPostResponse)
-        writer.writeCollectionOfObjectValues<SearchResponse>("value", queryPostResponse.value, serializeSearchResponse);
+export function serializeQuerypostResponse(writer: SerializationWriter, querypostResponse: Partial<QuerypostResponse> | undefined | null = {}) : void {
+    if (querypostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, querypostResponse)
+        writer.writeCollectionOfObjectValues<SearchResponse>("value", querypostResponse.value, serializeSearchResponse);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const QueryRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createQueryPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createQuerypostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeQueryPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

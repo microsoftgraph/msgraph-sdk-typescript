@@ -22,11 +22,11 @@ export function createSecretsPutRequestBodyFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {SecretsPutResponse}
+ * @returns {SecretsputResponse}
  */
 // @ts-ignore
-export function createSecretsPutResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoSecretsPutResponse;
+export function createSecretsputResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSecretsputResponse;
 }
 /**
  * The deserialization information for the current model
@@ -44,10 +44,10 @@ export function deserializeIntoSecretsPutRequestBody(secretsPutRequestBody: Part
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoSecretsPutResponse(secretsPutResponse: Partial<SecretsPutResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSecretsputResponse(secretsputResponse: Partial<SecretsputResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { secretsPutResponse.backingStoreEnabled = true; },
-        "value": n => { secretsPutResponse.value = n.getCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>(createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue); },
+        "backingStoreEnabled": n => { secretsputResponse.backingStoreEnabled = true; },
+        "value": n => { secretsputResponse.value = n.getCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>(createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue); },
     }
 }
 export interface SecretsPutRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -64,7 +64,7 @@ export interface SecretsPutRequestBody extends AdditionalDataHolder, BackedModel
      */
     value?: SynchronizationSecretKeyStringValuePair[] | null;
 }
-export interface SecretsPutResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface SecretsputResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -90,11 +90,11 @@ export interface SecretsRequestBuilder extends BaseRequestBuilder<SecretsRequest
      * Provide credentials for establishing connectivity with the target system.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<SecretsPutResponse>}
+     * @returns {Promise<SecretsputResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-serviceprincipal-put-synchronization?view=graph-rest-1.0|Find more info here}
      */
-     put(body: SecretsPutRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecretsPutResponse | undefined>;
+     put(body: SecretsPutRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecretsputResponse | undefined>;
     /**
      * Provide credentials for establishing connectivity with the target system.
      * @param body The request body
@@ -119,10 +119,10 @@ export function serializeSecretsPutRequestBody(writer: SerializationWriter, secr
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSecretsPutResponse(writer: SerializationWriter, secretsPutResponse: Partial<SecretsPutResponse> | undefined | null = {}) : void {
-    if (secretsPutResponse) {
-        writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("value", secretsPutResponse.value, serializeSynchronizationSecretKeyStringValuePair);
-        writer.writeAdditionalData(secretsPutResponse.additionalData);
+export function serializeSecretsputResponse(writer: SerializationWriter, secretsputResponse: Partial<SecretsputResponse> | undefined | null = {}) : void {
+    if (secretsputResponse) {
+        writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("value", secretsputResponse.value, serializeSynchronizationSecretKeyStringValuePair);
+        writer.writeAdditionalData(secretsputResponse.additionalData);
     }
 }
 /**
@@ -148,7 +148,7 @@ export const SecretsRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createSecretsPutResponseFromDiscriminatorValue,
+        responseBodyFactory:  createSecretsputResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeSecretsPutRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

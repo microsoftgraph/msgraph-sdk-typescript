@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface AvailableProviderTypesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface AvailableProviderTypesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -21,12 +21,12 @@ export interface AvailableProviderTypesRequestBuilder extends BaseRequestBuilder
     /**
      * Retrieves all identity provider types available in a directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<AvailableProviderTypesGetResponse>}
+     * @returns {Promise<AvailableProviderTypesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-list-availableprovidertypes?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : Promise<AvailableProviderTypesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<AvailableProviderTypesRequestBuilderGetQueryParameters> | undefined) : Promise<AvailableProviderTypesgetResponse | undefined>;
     /**
      * Retrieves all identity provider types available in a directory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -63,21 +63,21 @@ export interface AvailableProviderTypesRequestBuilderGetQueryParameters {
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AvailableProviderTypesGetResponse}
+ * @returns {AvailableProviderTypesgetResponse}
  */
 // @ts-ignore
-export function createAvailableProviderTypesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAvailableProviderTypesGetResponse;
+export function createAvailableProviderTypesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAvailableProviderTypesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoAvailableProviderTypesGetResponse(availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAvailableProviderTypesgetResponse(availableProviderTypesgetResponse: Partial<AvailableProviderTypesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(availableProviderTypesGetResponse),
-        "value": n => { availableProviderTypesGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(availableProviderTypesgetResponse),
+        "value": n => { availableProviderTypesgetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
 /**
@@ -85,10 +85,10 @@ export function deserializeIntoAvailableProviderTypesGetResponse(availableProvid
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAvailableProviderTypesGetResponse(writer: SerializationWriter, availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined | null = {}) : void {
-    if (availableProviderTypesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesGetResponse.value);
+export function serializeAvailableProviderTypesgetResponse(writer: SerializationWriter, availableProviderTypesgetResponse: Partial<AvailableProviderTypesgetResponse> | undefined | null = {}) : void {
+    if (availableProviderTypesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesgetResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesgetResponse.value);
     }
 }
 /**
@@ -116,7 +116,7 @@ export const AvailableProviderTypesRequestBuilderRequestsMetadata: RequestsMetad
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createAvailableProviderTypesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createAvailableProviderTypesgetResponseFromDiscriminatorValue,
         queryParametersMapper: AvailableProviderTypesRequestBuilderGetQueryParametersMapper,
     },
 };

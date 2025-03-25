@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetAttackSimulationSimulationUserCoverageGetResponse}
+ * @returns {GetAttackSimulationSimulationUserCoveragegetResponse}
  */
 // @ts-ignore
-export function createGetAttackSimulationSimulationUserCoverageGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetAttackSimulationSimulationUserCoverageGetResponse;
+export function createGetAttackSimulationSimulationUserCoveragegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetAttackSimulationSimulationUserCoveragegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetAttackSimulationSimulationUserCoverageGetResponse(getAttackSimulationSimulationUserCoverageGetResponse: Partial<GetAttackSimulationSimulationUserCoverageGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAttackSimulationSimulationUserCoveragegetResponse(getAttackSimulationSimulationUserCoveragegetResponse: Partial<GetAttackSimulationSimulationUserCoveragegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getAttackSimulationSimulationUserCoverageGetResponse),
-        "value": n => { getAttackSimulationSimulationUserCoverageGetResponse.value = n.getCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>(createAttackSimulationSimulationUserCoverageFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getAttackSimulationSimulationUserCoveragegetResponse),
+        "value": n => { getAttackSimulationSimulationUserCoveragegetResponse.value = n.getCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>(createAttackSimulationSimulationUserCoverageFromDiscriminatorValue); },
     }
 }
-export interface GetAttackSimulationSimulationUserCoverageGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetAttackSimulationSimulationUserCoveragegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetAttackSimulationSimulationUserCoverageRequestBuilder extends
     /**
      * List training coverage for each tenant user in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetAttackSimulationSimulationUserCoverageGetResponse>}
+     * @returns {Promise<GetAttackSimulationSimulationUserCoveragegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/securityreportsroot-getattacksimulationsimulationusercoverage?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetAttackSimulationSimulationUserCoverageRequestBuilderGetQueryParameters> | undefined) : Promise<GetAttackSimulationSimulationUserCoverageGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetAttackSimulationSimulationUserCoverageRequestBuilderGetQueryParameters> | undefined) : Promise<GetAttackSimulationSimulationUserCoveragegetResponse | undefined>;
     /**
      * List training coverage for each tenant user in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetAttackSimulationSimulationUserCoverageRequestBuilderGetQuery
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAttackSimulationSimulationUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageGetResponse: Partial<GetAttackSimulationSimulationUserCoverageGetResponse> | undefined | null = {}) : void {
-    if (getAttackSimulationSimulationUserCoverageGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageGetResponse)
-        writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, serializeAttackSimulationSimulationUserCoverage);
+export function serializeGetAttackSimulationSimulationUserCoveragegetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoveragegetResponse: Partial<GetAttackSimulationSimulationUserCoveragegetResponse> | undefined | null = {}) : void {
+    if (getAttackSimulationSimulationUserCoveragegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoveragegetResponse)
+        writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoveragegetResponse.value, serializeAttackSimulationSimulationUserCoverage);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetAttackSimulationSimulationUserCoverageRequestBuilderRequestsMeta
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetAttackSimulationSimulationUserCoverageGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetAttackSimulationSimulationUserCoveragegetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAttackSimulationSimulationUserCoverageRequestBuilderGetQueryParametersMapper,
     },
 };

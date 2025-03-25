@@ -20,11 +20,11 @@ export function createGetPresencesByUserIdPostRequestBodyFromDiscriminatorValue(
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetPresencesByUserIdPostResponse}
+ * @returns {GetPresencesByUserIdpostResponse}
  */
 // @ts-ignore
-export function createGetPresencesByUserIdPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetPresencesByUserIdPostResponse;
+export function createGetPresencesByUserIdpostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetPresencesByUserIdpostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -42,10 +42,10 @@ export function deserializeIntoGetPresencesByUserIdPostRequestBody(getPresencesB
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetPresencesByUserIdPostResponse(getPresencesByUserIdPostResponse: Partial<GetPresencesByUserIdPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetPresencesByUserIdpostResponse(getPresencesByUserIdpostResponse: Partial<GetPresencesByUserIdpostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getPresencesByUserIdPostResponse),
-        "value": n => { getPresencesByUserIdPostResponse.value = n.getCollectionOfObjectValues<Presence>(createPresenceFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getPresencesByUserIdpostResponse),
+        "value": n => { getPresencesByUserIdpostResponse.value = n.getCollectionOfObjectValues<Presence>(createPresenceFromDiscriminatorValue); },
     }
 }
 export interface GetPresencesByUserIdPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -62,7 +62,7 @@ export interface GetPresencesByUserIdPostRequestBody extends AdditionalDataHolde
      */
     ids?: string[] | null;
 }
-export interface GetPresencesByUserIdPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetPresencesByUserIdpostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -76,11 +76,11 @@ export interface GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder<G
      * Get the presence information for multiple users.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetPresencesByUserIdPostResponse>}
+     * @returns {Promise<GetPresencesByUserIdpostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-1.0|Find more info here}
      */
-     post(body: GetPresencesByUserIdPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetPresencesByUserIdPostResponse | undefined>;
+     post(body: GetPresencesByUserIdPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetPresencesByUserIdpostResponse | undefined>;
     /**
      * Get the presence information for multiple users.
      * @param body The request body
@@ -105,10 +105,10 @@ export function serializeGetPresencesByUserIdPostRequestBody(writer: Serializati
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetPresencesByUserIdPostResponse(writer: SerializationWriter, getPresencesByUserIdPostResponse: Partial<GetPresencesByUserIdPostResponse> | undefined | null = {}) : void {
-    if (getPresencesByUserIdPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getPresencesByUserIdPostResponse)
-        writer.writeCollectionOfObjectValues<Presence>("value", getPresencesByUserIdPostResponse.value, serializePresence);
+export function serializeGetPresencesByUserIdpostResponse(writer: SerializationWriter, getPresencesByUserIdpostResponse: Partial<GetPresencesByUserIdpostResponse> | undefined | null = {}) : void {
+    if (getPresencesByUserIdpostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getPresencesByUserIdpostResponse)
+        writer.writeCollectionOfObjectValues<Presence>("value", getPresencesByUserIdpostResponse.value, serializePresence);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const GetPresencesByUserIdRequestBuilderRequestsMetadata: RequestsMetadat
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetPresencesByUserIdPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetPresencesByUserIdpostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetPresencesByUserIdPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

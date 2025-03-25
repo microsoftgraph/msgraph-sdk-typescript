@@ -18,11 +18,11 @@ export function createUnfavoritePostRequestBodyFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {UnfavoritePostResponse}
+ * @returns {UnfavoritepostResponse}
  */
 // @ts-ignore
-export function createUnfavoritePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoUnfavoritePostResponse;
+export function createUnfavoritepostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoUnfavoritepostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -40,10 +40,10 @@ export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBo
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUnfavoritepostResponse(unfavoritepostResponse: Partial<UnfavoritepostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { unfavoritePostResponse.backingStoreEnabled = true; },
-        "value": n => { unfavoritePostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { unfavoritepostResponse.backingStoreEnabled = true; },
+        "value": n => { unfavoritepostResponse.value = n.getBooleanValue(); },
     }
 }
 /**
@@ -62,10 +62,10 @@ export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, 
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined | null = {}) : void {
-    if (unfavoritePostResponse) {
-        writer.writeBooleanValue("value", unfavoritePostResponse.value);
-        writer.writeAdditionalData(unfavoritePostResponse.additionalData);
+export function serializeUnfavoritepostResponse(writer: SerializationWriter, unfavoritepostResponse: Partial<UnfavoritepostResponse> | undefined | null = {}) : void {
+    if (unfavoritepostResponse) {
+        writer.writeBooleanValue("value", unfavoritepostResponse.value);
+        writer.writeAdditionalData(unfavoritepostResponse.additionalData);
     }
 }
 export interface UnfavoritePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -82,7 +82,7 @@ export interface UnfavoritePostRequestBody extends AdditionalDataHolder, BackedM
      */
     messageIds?: string[] | null;
 }
-export interface UnfavoritePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface UnfavoritepostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -104,11 +104,11 @@ export interface UnfavoriteRequestBuilder extends BaseRequestBuilder<UnfavoriteR
      * Remove the favorite status of serviceUpdateMessages for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<UnfavoritePostResponse>}
+     * @returns {Promise<UnfavoritepostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-unfavorite?view=graph-rest-1.0|Find more info here}
      */
-     post(body: UnfavoritePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnfavoritePostResponse | undefined>;
+     post(body: UnfavoritePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnfavoritepostResponse | undefined>;
     /**
      * Remove the favorite status of serviceUpdateMessages for the signed in user.
      * @param body The request body
@@ -132,7 +132,7 @@ export const UnfavoriteRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createUnfavoritePostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createUnfavoritepostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnfavoritePostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

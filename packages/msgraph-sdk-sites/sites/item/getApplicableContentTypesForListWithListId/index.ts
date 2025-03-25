@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetApplicableContentTypesForListWithListIdGetResponse}
+ * @returns {GetApplicableContentTypesForListWithListIdgetResponse}
  */
 // @ts-ignore
-export function createGetApplicableContentTypesForListWithListIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetApplicableContentTypesForListWithListIdGetResponse;
+export function createGetApplicableContentTypesForListWithListIdgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetApplicableContentTypesForListWithListIdgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetApplicableContentTypesForListWithListIdGetResponse(getApplicableContentTypesForListWithListIdGetResponse: Partial<GetApplicableContentTypesForListWithListIdGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetApplicableContentTypesForListWithListIdgetResponse(getApplicableContentTypesForListWithListIdgetResponse: Partial<GetApplicableContentTypesForListWithListIdgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getApplicableContentTypesForListWithListIdGetResponse),
-        "value": n => { getApplicableContentTypesForListWithListIdGetResponse.value = n.getCollectionOfObjectValues<ContentType>(createContentTypeFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getApplicableContentTypesForListWithListIdgetResponse),
+        "value": n => { getApplicableContentTypesForListWithListIdgetResponse.value = n.getCollectionOfObjectValues<ContentType>(createContentTypeFromDiscriminatorValue); },
     }
 }
-export interface GetApplicableContentTypesForListWithListIdGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetApplicableContentTypesForListWithListIdgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetApplicableContentTypesForListWithListIdRequestBuilder extend
     /**
      * Get site contentTypes that can be added to a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetApplicableContentTypesForListWithListIdGetResponse>}
+     * @returns {Promise<GetApplicableContentTypesForListWithListIdgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/site-getapplicablecontenttypesforlist?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters> | undefined) : Promise<GetApplicableContentTypesForListWithListIdGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParameters> | undefined) : Promise<GetApplicableContentTypesForListWithListIdgetResponse | undefined>;
     /**
      * Get site contentTypes that can be added to a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface GetApplicableContentTypesForListWithListIdRequestBuilderGetQuer
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetApplicableContentTypesForListWithListIdGetResponse(writer: SerializationWriter, getApplicableContentTypesForListWithListIdGetResponse: Partial<GetApplicableContentTypesForListWithListIdGetResponse> | undefined | null = {}) : void {
-    if (getApplicableContentTypesForListWithListIdGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getApplicableContentTypesForListWithListIdGetResponse)
-        writer.writeCollectionOfObjectValues<ContentType>("value", getApplicableContentTypesForListWithListIdGetResponse.value, serializeContentType);
+export function serializeGetApplicableContentTypesForListWithListIdgetResponse(writer: SerializationWriter, getApplicableContentTypesForListWithListIdgetResponse: Partial<GetApplicableContentTypesForListWithListIdgetResponse> | undefined | null = {}) : void {
+    if (getApplicableContentTypesForListWithListIdgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getApplicableContentTypesForListWithListIdgetResponse)
+        writer.writeCollectionOfObjectValues<ContentType>("value", getApplicableContentTypesForListWithListIdgetResponse.value, serializeContentType);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const GetApplicableContentTypesForListWithListIdRequestBuilderRequestsMet
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetApplicableContentTypesForListWithListIdGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetApplicableContentTypesForListWithListIdgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetApplicableContentTypesForListWithListIdRequestBuilderGetQueryParametersMapper,
     },
 };

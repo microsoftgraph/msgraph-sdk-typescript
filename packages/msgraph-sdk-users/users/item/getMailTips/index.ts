@@ -20,11 +20,11 @@ export function createGetMailTipsPostRequestBodyFromDiscriminatorValue(parseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetMailTipsPostResponse}
+ * @returns {GetMailTipspostResponse}
  */
 // @ts-ignore
-export function createGetMailTipsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetMailTipsPostResponse;
+export function createGetMailTipspostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetMailTipspostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -43,10 +43,10 @@ export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequest
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetMailTipsPostResponse(getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetMailTipspostResponse(getMailTipspostResponse: Partial<GetMailTipspostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getMailTipsPostResponse),
-        "value": n => { getMailTipsPostResponse.value = n.getCollectionOfObjectValues<MailTips>(createMailTipsFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getMailTipspostResponse),
+        "value": n => { getMailTipspostResponse.value = n.getCollectionOfObjectValues<MailTips>(createMailTipsFromDiscriminatorValue); },
     }
 }
 export interface GetMailTipsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -67,7 +67,7 @@ export interface GetMailTipsPostRequestBody extends AdditionalDataHolder, Backed
      */
     mailTipsOptions?: MailTipsType[] | null;
 }
-export interface GetMailTipsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetMailTipspostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -81,11 +81,11 @@ export interface GetMailTipsRequestBuilder extends BaseRequestBuilder<GetMailTip
      * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips tobe returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetMailTipsPostResponse>}
+     * @returns {Promise<GetMailTipspostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-getmailtips?view=graph-rest-1.0|Find more info here}
      */
-     post(body: GetMailTipsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMailTipsPostResponse | undefined>;
+     post(body: GetMailTipsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMailTipspostResponse | undefined>;
     /**
      * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips tobe returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
      * @param body The request body
@@ -111,10 +111,10 @@ export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter,
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetMailTipsPostResponse(writer: SerializationWriter, getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined | null = {}) : void {
-    if (getMailTipsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getMailTipsPostResponse)
-        writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
+export function serializeGetMailTipspostResponse(writer: SerializationWriter, getMailTipspostResponse: Partial<GetMailTipspostResponse> | undefined | null = {}) : void {
+    if (getMailTipspostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getMailTipspostResponse)
+        writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipspostResponse.value, serializeMailTips);
     }
 }
 /**
@@ -132,7 +132,7 @@ export const GetMailTipsRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetMailTipsPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetMailTipspostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetMailTipsPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

@@ -20,11 +20,11 @@ export function createGetByIdsPostRequestBodyFromDiscriminatorValue(parseNode: P
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetByIdsPostResponse}
+ * @returns {GetByIdspostResponse}
  */
 // @ts-ignore
-export function createGetByIdsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetByIdsPostResponse;
+export function createGetByIdspostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetByIdspostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -43,10 +43,10 @@ export function deserializeIntoGetByIdsPostRequestBody(getByIdsPostRequestBody: 
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetByIdsPostResponse(getByIdsPostResponse: Partial<GetByIdsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetByIdspostResponse(getByIdspostResponse: Partial<GetByIdspostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getByIdsPostResponse),
-        "value": n => { getByIdsPostResponse.value = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getByIdspostResponse),
+        "value": n => { getByIdspostResponse.value = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
     }
 }
 export interface GetByIdsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -67,7 +67,7 @@ export interface GetByIdsPostRequestBody extends AdditionalDataHolder, BackedMod
      */
     types?: string[] | null;
 }
-export interface GetByIdsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetByIdspostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -81,11 +81,11 @@ export interface GetByIdsRequestBuilder extends BaseRequestBuilder<GetByIdsReque
      * Return the directory objects specified in a list of IDs. Only a subset of user properties are returned by default in v1.0. Some common uses for this function are to:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetByIdsPostResponse>}
+     * @returns {Promise<GetByIdspostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getbyids?view=graph-rest-1.0|Find more info here}
      */
-     post(body: GetByIdsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetByIdsPostResponse | undefined>;
+     post(body: GetByIdsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetByIdspostResponse | undefined>;
     /**
      * Return the directory objects specified in a list of IDs. Only a subset of user properties are returned by default in v1.0. Some common uses for this function are to:
      * @param body The request body
@@ -111,10 +111,10 @@ export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, ge
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetByIdsPostResponse(writer: SerializationWriter, getByIdsPostResponse: Partial<GetByIdsPostResponse> | undefined | null = {}) : void {
-    if (getByIdsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getByIdsPostResponse)
-        writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, serializeDirectoryObject);
+export function serializeGetByIdspostResponse(writer: SerializationWriter, getByIdspostResponse: Partial<GetByIdspostResponse> | undefined | null = {}) : void {
+    if (getByIdspostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getByIdspostResponse)
+        writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdspostResponse.value, serializeDirectoryObject);
     }
 }
 /**
@@ -132,7 +132,7 @@ export const GetByIdsRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetByIdsPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetByIdspostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetByIdsPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

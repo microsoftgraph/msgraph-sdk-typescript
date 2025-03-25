@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse}
+ * @returns {GetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse}
  */
 // @ts-ignore
-export function createGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse;
+export function createGetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse(getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse: Partial<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse(getOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse: Partial<GetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.backingStoreEnabled = true; },
-        "value": n => { getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.value = n.getStringValue(); },
+        "backingStoreEnabled": n => { getOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse.backingStoreEnabled = true; },
+        "value": n => { getOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse.value = n.getStringValue(); },
     }
 }
-export interface GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface GetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,10 +47,10 @@ export interface GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBui
     /**
      * Invoke function getOmaSettingPlainTextValue
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse>}
+     * @returns {Promise<GetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse | undefined>;
     /**
      * Invoke function getOmaSettingPlainTextValue
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -63,10 +63,10 @@ export interface GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBui
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse(writer: SerializationWriter, getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse: Partial<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse> | undefined | null = {}) : void {
-    if (getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse) {
-        writer.writeStringValue("value", getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.value);
-        writer.writeAdditionalData(getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.additionalData);
+export function serializeGetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse(writer: SerializationWriter, getOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse: Partial<GetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse> | undefined | null = {}) : void {
+    if (getOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse) {
+        writer.writeStringValue("value", getOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse.value);
+        writer.writeAdditionalData(getOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponse.additionalData);
     }
 }
 /**
@@ -84,7 +84,7 @@ export const GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetOmaSettingPlainTextValueWithSecretReferenceValueIdgetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

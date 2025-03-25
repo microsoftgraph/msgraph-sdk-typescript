@@ -20,11 +20,11 @@ export function createGetStaffAvailabilityPostRequestBodyFromDiscriminatorValue(
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetStaffAvailabilityPostResponse}
+ * @returns {GetStaffAvailabilitypostResponse}
  */
 // @ts-ignore
-export function createGetStaffAvailabilityPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetStaffAvailabilityPostResponse;
+export function createGetStaffAvailabilitypostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetStaffAvailabilitypostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -44,10 +44,10 @@ export function deserializeIntoGetStaffAvailabilityPostRequestBody(getStaffAvail
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetStaffAvailabilityPostResponse(getStaffAvailabilityPostResponse: Partial<GetStaffAvailabilityPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetStaffAvailabilitypostResponse(getStaffAvailabilitypostResponse: Partial<GetStaffAvailabilitypostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getStaffAvailabilityPostResponse),
-        "value": n => { getStaffAvailabilityPostResponse.value = n.getCollectionOfObjectValues<StaffAvailabilityItem>(createStaffAvailabilityItemFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getStaffAvailabilitypostResponse),
+        "value": n => { getStaffAvailabilitypostResponse.value = n.getCollectionOfObjectValues<StaffAvailabilityItem>(createStaffAvailabilityItemFromDiscriminatorValue); },
     }
 }
 export interface GetStaffAvailabilityPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -72,7 +72,7 @@ export interface GetStaffAvailabilityPostRequestBody extends AdditionalDataHolde
      */
     startDateTime?: DateTimeTimeZone | null;
 }
-export interface GetStaffAvailabilityPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetStaffAvailabilitypostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -86,11 +86,11 @@ export interface GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder<G
      * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetStaffAvailabilityPostResponse>}
+     * @returns {Promise<GetStaffAvailabilitypostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0|Find more info here}
      */
-     post(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetStaffAvailabilityPostResponse | undefined>;
+     post(body: GetStaffAvailabilityPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetStaffAvailabilitypostResponse | undefined>;
     /**
      * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body The request body
@@ -117,10 +117,10 @@ export function serializeGetStaffAvailabilityPostRequestBody(writer: Serializati
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetStaffAvailabilityPostResponse(writer: SerializationWriter, getStaffAvailabilityPostResponse: Partial<GetStaffAvailabilityPostResponse> | undefined | null = {}) : void {
-    if (getStaffAvailabilityPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getStaffAvailabilityPostResponse)
-        writer.writeCollectionOfObjectValues<StaffAvailabilityItem>("value", getStaffAvailabilityPostResponse.value, serializeStaffAvailabilityItem);
+export function serializeGetStaffAvailabilitypostResponse(writer: SerializationWriter, getStaffAvailabilitypostResponse: Partial<GetStaffAvailabilitypostResponse> | undefined | null = {}) : void {
+    if (getStaffAvailabilitypostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getStaffAvailabilitypostResponse)
+        writer.writeCollectionOfObjectValues<StaffAvailabilityItem>("value", getStaffAvailabilitypostResponse.value, serializeStaffAvailabilityItem);
     }
 }
 /**
@@ -138,7 +138,7 @@ export const GetStaffAvailabilityRequestBuilderRequestsMetadata: RequestsMetadat
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetStaffAvailabilityPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetStaffAvailabilitypostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetStaffAvailabilityPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

@@ -20,11 +20,11 @@ export function createGetAvailableExtensionPropertiesPostRequestBodyFromDiscrimi
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetAvailableExtensionPropertiesPostResponse}
+ * @returns {GetAvailableExtensionPropertiespostResponse}
  */
 // @ts-ignore
-export function createGetAvailableExtensionPropertiesPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetAvailableExtensionPropertiesPostResponse;
+export function createGetAvailableExtensionPropertiespostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetAvailableExtensionPropertiespostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -42,10 +42,10 @@ export function deserializeIntoGetAvailableExtensionPropertiesPostRequestBody(ge
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetAvailableExtensionPropertiesPostResponse(getAvailableExtensionPropertiesPostResponse: Partial<GetAvailableExtensionPropertiesPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAvailableExtensionPropertiespostResponse(getAvailableExtensionPropertiespostResponse: Partial<GetAvailableExtensionPropertiespostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getAvailableExtensionPropertiesPostResponse),
-        "value": n => { getAvailableExtensionPropertiesPostResponse.value = n.getCollectionOfObjectValues<ExtensionProperty>(createExtensionPropertyFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getAvailableExtensionPropertiespostResponse),
+        "value": n => { getAvailableExtensionPropertiespostResponse.value = n.getCollectionOfObjectValues<ExtensionProperty>(createExtensionPropertyFromDiscriminatorValue); },
     }
 }
 export interface GetAvailableExtensionPropertiesPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -62,7 +62,7 @@ export interface GetAvailableExtensionPropertiesPostRequestBody extends Addition
      */
     isSyncedFromOnPremises?: boolean | null;
 }
-export interface GetAvailableExtensionPropertiesPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetAvailableExtensionPropertiespostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -76,11 +76,11 @@ export interface GetAvailableExtensionPropertiesRequestBuilder extends BaseReque
      * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetAvailableExtensionPropertiesPostResponse>}
+     * @returns {Promise<GetAvailableExtensionPropertiespostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getavailableextensionproperties?view=graph-rest-1.0|Find more info here}
      */
-     post(body: GetAvailableExtensionPropertiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetAvailableExtensionPropertiesPostResponse | undefined>;
+     post(body: GetAvailableExtensionPropertiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetAvailableExtensionPropertiespostResponse | undefined>;
     /**
      * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:
      * @param body The request body
@@ -105,10 +105,10 @@ export function serializeGetAvailableExtensionPropertiesPostRequestBody(writer: 
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAvailableExtensionPropertiesPostResponse(writer: SerializationWriter, getAvailableExtensionPropertiesPostResponse: Partial<GetAvailableExtensionPropertiesPostResponse> | undefined | null = {}) : void {
-    if (getAvailableExtensionPropertiesPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAvailableExtensionPropertiesPostResponse)
-        writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiesPostResponse.value, serializeExtensionProperty);
+export function serializeGetAvailableExtensionPropertiespostResponse(writer: SerializationWriter, getAvailableExtensionPropertiespostResponse: Partial<GetAvailableExtensionPropertiespostResponse> | undefined | null = {}) : void {
+    if (getAvailableExtensionPropertiespostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAvailableExtensionPropertiespostResponse)
+        writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiespostResponse.value, serializeExtensionProperty);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const GetAvailableExtensionPropertiesRequestBuilderRequestsMetadata: Requ
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetAvailableExtensionPropertiesPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetAvailableExtensionPropertiespostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetAvailableExtensionPropertiesPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

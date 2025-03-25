@@ -11,13 +11,13 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {DeltaGetResponse}
+ * @returns {DeltagetResponse}
  */
 // @ts-ignore
-export function createDeltaGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoDeltaGetResponse;
+export function createDeltagetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDeltagetResponse;
 }
-export interface DeltaGetResponse extends BaseDeltaFunctionResponse, Parsable {
+export interface DeltagetResponse extends BaseDeltaFunctionResponse, Parsable {
     /**
      * The value property
      */
@@ -30,11 +30,11 @@ export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuil
     /**
      * Get newly created or updated classes, including membership changes, without having to perform a full read of the entire class collection. See Use delta query for details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<DeltaGetResponse>}
+     * @returns {Promise<DeltagetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/educationclass-delta?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltagetResponse | undefined>;
     /**
      * Get newly created or updated classes, including membership changes, without having to perform a full read of the entire class collection. See Use delta query for details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -84,10 +84,10 @@ export interface DeltaRequestBuilderGetQueryParameters {
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDeltagetResponse(deltagetResponse: Partial<DeltagetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseDeltaFunctionResponse(deltaGetResponse),
-        "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<EducationClass>(createEducationClassFromDiscriminatorValue); },
+        ...deserializeIntoBaseDeltaFunctionResponse(deltagetResponse),
+        "value": n => { deltagetResponse.value = n.getCollectionOfObjectValues<EducationClass>(createEducationClassFromDiscriminatorValue); },
     }
 }
 /**
@@ -95,10 +95,10 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: Partial<DeltaGetResponse> | undefined | null = {}) : void {
-    if (deltaGetResponse) {
-        serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-        writer.writeCollectionOfObjectValues<EducationClass>("value", deltaGetResponse.value, serializeEducationClass);
+export function serializeDeltagetResponse(writer: SerializationWriter, deltagetResponse: Partial<DeltagetResponse> | undefined | null = {}) : void {
+    if (deltagetResponse) {
+        serializeBaseDeltaFunctionResponse(writer, deltagetResponse)
+        writer.writeCollectionOfObjectValues<EducationClass>("value", deltagetResponse.value, serializeEducationClass);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createDeltagetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };

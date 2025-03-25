@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetUserIdsWithFlaggedAppRegistrationGetResponse}
+ * @returns {GetUserIdsWithFlaggedAppRegistrationgetResponse}
  */
 // @ts-ignore
-export function createGetUserIdsWithFlaggedAppRegistrationGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetUserIdsWithFlaggedAppRegistrationGetResponse;
+export function createGetUserIdsWithFlaggedAppRegistrationgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetUserIdsWithFlaggedAppRegistrationgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetUserIdsWithFlaggedAppRegistrationGetResponse(getUserIdsWithFlaggedAppRegistrationGetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetUserIdsWithFlaggedAppRegistrationgetResponse(getUserIdsWithFlaggedAppRegistrationgetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getUserIdsWithFlaggedAppRegistrationGetResponse),
-        "value": n => { getUserIdsWithFlaggedAppRegistrationGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getUserIdsWithFlaggedAppRegistrationgetResponse),
+        "value": n => { getUserIdsWithFlaggedAppRegistrationgetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
-export interface GetUserIdsWithFlaggedAppRegistrationGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetUserIdsWithFlaggedAppRegistrationgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetUserIdsWithFlaggedAppRegistrationRequestBuilder extends Base
     /**
      * Not yet documented
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetUserIdsWithFlaggedAppRegistrationGetResponse>}
+     * @returns {Promise<GetUserIdsWithFlaggedAppRegistrationgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappregistration-getuseridswithflaggedappregistration?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters> | undefined) : Promise<GetUserIdsWithFlaggedAppRegistrationGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParameters> | undefined) : Promise<GetUserIdsWithFlaggedAppRegistrationgetResponse | undefined>;
     /**
      * Not yet documented
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParam
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetUserIdsWithFlaggedAppRegistrationGetResponse(writer: SerializationWriter, getUserIdsWithFlaggedAppRegistrationGetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationGetResponse> | undefined | null = {}) : void {
-    if (getUserIdsWithFlaggedAppRegistrationGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getUserIdsWithFlaggedAppRegistrationGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getUserIdsWithFlaggedAppRegistrationGetResponse.value);
+export function serializeGetUserIdsWithFlaggedAppRegistrationgetResponse(writer: SerializationWriter, getUserIdsWithFlaggedAppRegistrationgetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationgetResponse> | undefined | null = {}) : void {
+    if (getUserIdsWithFlaggedAppRegistrationgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getUserIdsWithFlaggedAppRegistrationgetResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", getUserIdsWithFlaggedAppRegistrationgetResponse.value);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetUserIdsWithFlaggedAppRegistrationRequestBuilderRequestsMetadata:
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetUserIdsWithFlaggedAppRegistrationGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetUserIdsWithFlaggedAppRegistrationgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParametersMapper,
     },
 };

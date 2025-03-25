@@ -35,12 +35,12 @@ export interface DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuild
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCompliancePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicyCollectionResponse | undefined>;
     /**
-     * Create a new macOSCompliancePolicy object.
+     * Create a new windows81CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macoscompliancepolicy-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows81compliancepolicy-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicy | undefined>;
     /**
@@ -50,7 +50,7 @@ export interface DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuild
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new macOSCompliancePolicy object.
+     * Create a new windows81CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

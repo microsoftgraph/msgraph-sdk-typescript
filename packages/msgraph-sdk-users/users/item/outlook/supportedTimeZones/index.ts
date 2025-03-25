@@ -11,21 +11,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {SupportedTimeZonesGetResponse}
+ * @returns {SupportedTimeZonesgetResponse}
  */
 // @ts-ignore
-export function createSupportedTimeZonesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoSupportedTimeZonesGetResponse;
+export function createSupportedTimeZonesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSupportedTimeZonesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoSupportedTimeZonesGetResponse(supportedTimeZonesGetResponse: Partial<SupportedTimeZonesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSupportedTimeZonesgetResponse(supportedTimeZonesgetResponse: Partial<SupportedTimeZonesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(supportedTimeZonesGetResponse),
-        "value": n => { supportedTimeZonesGetResponse.value = n.getCollectionOfObjectValues<TimeZoneInformation>(createTimeZoneInformationFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(supportedTimeZonesgetResponse),
+        "value": n => { supportedTimeZonesgetResponse.value = n.getCollectionOfObjectValues<TimeZoneInformation>(createTimeZoneInformationFromDiscriminatorValue); },
     }
 }
 /**
@@ -33,13 +33,13 @@ export function deserializeIntoSupportedTimeZonesGetResponse(supportedTimeZonesG
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSupportedTimeZonesGetResponse(writer: SerializationWriter, supportedTimeZonesGetResponse: Partial<SupportedTimeZonesGetResponse> | undefined | null = {}) : void {
-    if (supportedTimeZonesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesGetResponse)
-        writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesGetResponse.value, serializeTimeZoneInformation);
+export function serializeSupportedTimeZonesgetResponse(writer: SerializationWriter, supportedTimeZonesgetResponse: Partial<SupportedTimeZonesgetResponse> | undefined | null = {}) : void {
+    if (supportedTimeZonesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesgetResponse)
+        writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesgetResponse.value, serializeTimeZoneInformation);
     }
 }
-export interface SupportedTimeZonesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface SupportedTimeZonesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -52,10 +52,10 @@ export interface SupportedTimeZonesRequestBuilder extends BaseRequestBuilder<Sup
     /**
      * Invoke function supportedTimeZones
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<SupportedTimeZonesGetResponse>}
+     * @returns {Promise<SupportedTimeZonesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<SupportedTimeZonesRequestBuilderGetQueryParameters> | undefined) : Promise<SupportedTimeZonesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<SupportedTimeZonesRequestBuilderGetQueryParameters> | undefined) : Promise<SupportedTimeZonesgetResponse | undefined>;
     /**
      * Invoke function supportedTimeZones
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -113,7 +113,7 @@ export const SupportedTimeZonesRequestBuilderRequestsMetadata: RequestsMetadata 
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createSupportedTimeZonesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createSupportedTimeZonesgetResponseFromDiscriminatorValue,
         queryParametersMapper: SupportedTimeZonesRequestBuilderGetQueryParametersMapper,
     },
 };

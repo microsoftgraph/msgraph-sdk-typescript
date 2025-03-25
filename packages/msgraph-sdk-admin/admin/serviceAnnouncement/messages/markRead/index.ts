@@ -18,11 +18,11 @@ export function createMarkReadPostRequestBodyFromDiscriminatorValue(parseNode: P
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {MarkReadPostResponse}
+ * @returns {MarkReadpostResponse}
  */
 // @ts-ignore
-export function createMarkReadPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoMarkReadPostResponse;
+export function createMarkReadpostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMarkReadpostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -40,10 +40,10 @@ export function deserializeIntoMarkReadPostRequestBody(markReadPostRequestBody: 
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoMarkReadPostResponse(markReadPostResponse: Partial<MarkReadPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoMarkReadpostResponse(markReadpostResponse: Partial<MarkReadpostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { markReadPostResponse.backingStoreEnabled = true; },
-        "value": n => { markReadPostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { markReadpostResponse.backingStoreEnabled = true; },
+        "value": n => { markReadpostResponse.value = n.getBooleanValue(); },
     }
 }
 export interface MarkReadPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -60,7 +60,7 @@ export interface MarkReadPostRequestBody extends AdditionalDataHolder, BackedMod
      */
     messageIds?: string[] | null;
 }
-export interface MarkReadPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface MarkReadpostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -82,11 +82,11 @@ export interface MarkReadRequestBuilder extends BaseRequestBuilder<MarkReadReque
      * Mark a list of serviceUpdateMessages as read for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<MarkReadPostResponse>}
+     * @returns {Promise<MarkReadpostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0|Find more info here}
      */
-     post(body: MarkReadPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MarkReadPostResponse | undefined>;
+     post(body: MarkReadPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MarkReadpostResponse | undefined>;
     /**
      * Mark a list of serviceUpdateMessages as read for the signed in user.
      * @param body The request body
@@ -111,10 +111,10 @@ export function serializeMarkReadPostRequestBody(writer: SerializationWriter, ma
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMarkReadPostResponse(writer: SerializationWriter, markReadPostResponse: Partial<MarkReadPostResponse> | undefined | null = {}) : void {
-    if (markReadPostResponse) {
-        writer.writeBooleanValue("value", markReadPostResponse.value);
-        writer.writeAdditionalData(markReadPostResponse.additionalData);
+export function serializeMarkReadpostResponse(writer: SerializationWriter, markReadpostResponse: Partial<MarkReadpostResponse> | undefined | null = {}) : void {
+    if (markReadpostResponse) {
+        writer.writeBooleanValue("value", markReadpostResponse.value);
+        writer.writeAdditionalData(markReadpostResponse.additionalData);
     }
 }
 /**
@@ -132,7 +132,7 @@ export const MarkReadRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createMarkReadPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createMarkReadpostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeMarkReadPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

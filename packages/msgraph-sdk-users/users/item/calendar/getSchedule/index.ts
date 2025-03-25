@@ -20,11 +20,11 @@ export function createGetSchedulePostRequestBodyFromDiscriminatorValue(parseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetSchedulePostResponse}
+ * @returns {GetSchedulepostResponse}
  */
 // @ts-ignore
-export function createGetSchedulePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetSchedulePostResponse;
+export function createGetSchedulepostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetSchedulepostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -45,10 +45,10 @@ export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequest
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetSchedulePostResponse(getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetSchedulepostResponse(getSchedulepostResponse: Partial<GetSchedulepostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getSchedulePostResponse),
-        "value": n => { getSchedulePostResponse.value = n.getCollectionOfObjectValues<ScheduleInformation>(createScheduleInformationFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getSchedulepostResponse),
+        "value": n => { getSchedulepostResponse.value = n.getCollectionOfObjectValues<ScheduleInformation>(createScheduleInformationFromDiscriminatorValue); },
     }
 }
 export interface GetSchedulePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -77,7 +77,7 @@ export interface GetSchedulePostRequestBody extends AdditionalDataHolder, Backed
      */
     startTime?: DateTimeTimeZone | null;
 }
-export interface GetSchedulePostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetSchedulepostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -91,11 +91,11 @@ export interface GetScheduleRequestBuilder extends BaseRequestBuilder<GetSchedul
      * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetSchedulePostResponse>}
+     * @returns {Promise<GetSchedulepostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/calendar-getschedule?view=graph-rest-1.0|Find more info here}
      */
-     post(body: GetSchedulePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetSchedulePostResponse | undefined>;
+     post(body: GetSchedulePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetSchedulepostResponse | undefined>;
     /**
      * Get the free/busy availability information for a collection of users, distributions lists, or resources (rooms or equipment) for a specified time period.
      * @param body The request body
@@ -123,10 +123,10 @@ export function serializeGetSchedulePostRequestBody(writer: SerializationWriter,
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetSchedulePostResponse(writer: SerializationWriter, getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined | null = {}) : void {
-    if (getSchedulePostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getSchedulePostResponse)
-        writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulePostResponse.value, serializeScheduleInformation);
+export function serializeGetSchedulepostResponse(writer: SerializationWriter, getSchedulepostResponse: Partial<GetSchedulepostResponse> | undefined | null = {}) : void {
+    if (getSchedulepostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getSchedulepostResponse)
+        writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulepostResponse.value, serializeScheduleInformation);
     }
 }
 /**
@@ -144,7 +144,7 @@ export const GetScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetSchedulePostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetSchedulepostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetSchedulePostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

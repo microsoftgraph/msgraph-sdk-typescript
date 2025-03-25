@@ -18,11 +18,11 @@ export function createUnarchivePostRequestBodyFromDiscriminatorValue(parseNode: 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {UnarchivePostResponse}
+ * @returns {UnarchivepostResponse}
  */
 // @ts-ignore
-export function createUnarchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoUnarchivePostResponse;
+export function createUnarchivepostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoUnarchivepostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -40,10 +40,10 @@ export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Partial<UnarchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoUnarchivepostResponse(unarchivepostResponse: Partial<UnarchivepostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { unarchivePostResponse.backingStoreEnabled = true; },
-        "value": n => { unarchivePostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { unarchivepostResponse.backingStoreEnabled = true; },
+        "value": n => { unarchivepostResponse.value = n.getBooleanValue(); },
     }
 }
 /**
@@ -62,10 +62,10 @@ export function serializeUnarchivePostRequestBody(writer: SerializationWriter, u
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: Partial<UnarchivePostResponse> | undefined | null = {}) : void {
-    if (unarchivePostResponse) {
-        writer.writeBooleanValue("value", unarchivePostResponse.value);
-        writer.writeAdditionalData(unarchivePostResponse.additionalData);
+export function serializeUnarchivepostResponse(writer: SerializationWriter, unarchivepostResponse: Partial<UnarchivepostResponse> | undefined | null = {}) : void {
+    if (unarchivepostResponse) {
+        writer.writeBooleanValue("value", unarchivepostResponse.value);
+        writer.writeAdditionalData(unarchivepostResponse.additionalData);
     }
 }
 export interface UnarchivePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -82,7 +82,7 @@ export interface UnarchivePostRequestBody extends AdditionalDataHolder, BackedMo
      */
     messageIds?: string[] | null;
 }
-export interface UnarchivePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface UnarchivepostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -104,11 +104,11 @@ export interface UnarchiveRequestBuilder extends BaseRequestBuilder<UnarchiveReq
      * Unarchive a list of serviceUpdateMessages for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<UnarchivePostResponse>}
+     * @returns {Promise<UnarchivepostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-unarchive?view=graph-rest-1.0|Find more info here}
      */
-     post(body: UnarchivePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnarchivePostResponse | undefined>;
+     post(body: UnarchivePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnarchivepostResponse | undefined>;
     /**
      * Unarchive a list of serviceUpdateMessages for the signed in user.
      * @param body The request body
@@ -132,7 +132,7 @@ export const UnarchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createUnarchivePostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createUnarchivepostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeUnarchivePostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

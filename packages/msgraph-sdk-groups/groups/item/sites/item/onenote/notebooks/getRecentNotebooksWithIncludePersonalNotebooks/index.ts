@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetRecentNotebooksWithIncludePersonalNotebooksGetResponse}
+ * @returns {GetRecentNotebooksWithIncludePersonalNotebooksgetResponse}
  */
 // @ts-ignore
-export function createGetRecentNotebooksWithIncludePersonalNotebooksGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetRecentNotebooksWithIncludePersonalNotebooksGetResponse;
+export function createGetRecentNotebooksWithIncludePersonalNotebooksgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetRecentNotebooksWithIncludePersonalNotebooksgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetRecentNotebooksWithIncludePersonalNotebooksGetResponse(getRecentNotebooksWithIncludePersonalNotebooksGetResponse: Partial<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetRecentNotebooksWithIncludePersonalNotebooksgetResponse(getRecentNotebooksWithIncludePersonalNotebooksgetResponse: Partial<GetRecentNotebooksWithIncludePersonalNotebooksgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getRecentNotebooksWithIncludePersonalNotebooksGetResponse),
-        "value": n => { getRecentNotebooksWithIncludePersonalNotebooksGetResponse.value = n.getCollectionOfObjectValues<RecentNotebook>(createRecentNotebookFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getRecentNotebooksWithIncludePersonalNotebooksgetResponse),
+        "value": n => { getRecentNotebooksWithIncludePersonalNotebooksgetResponse.value = n.getCollectionOfObjectValues<RecentNotebook>(createRecentNotebookFromDiscriminatorValue); },
     }
 }
-export interface GetRecentNotebooksWithIncludePersonalNotebooksGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetRecentNotebooksWithIncludePersonalNotebooksgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder ex
     /**
      * Get a list of recentNotebook instances that have been accessed by the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse>}
+     * @returns {Promise<GetRecentNotebooksWithIncludePersonalNotebooksgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/notebook-getrecentnotebooks?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters> | undefined) : Promise<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters> | undefined) : Promise<GetRecentNotebooksWithIncludePersonalNotebooksgetResponse | undefined>;
     /**
      * Get a list of recentNotebook instances that have been accessed by the signed-in user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGet
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetRecentNotebooksWithIncludePersonalNotebooksGetResponse(writer: SerializationWriter, getRecentNotebooksWithIncludePersonalNotebooksGetResponse: Partial<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse> | undefined | null = {}) : void {
-    if (getRecentNotebooksWithIncludePersonalNotebooksGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getRecentNotebooksWithIncludePersonalNotebooksGetResponse)
-        writer.writeCollectionOfObjectValues<RecentNotebook>("value", getRecentNotebooksWithIncludePersonalNotebooksGetResponse.value, serializeRecentNotebook);
+export function serializeGetRecentNotebooksWithIncludePersonalNotebooksgetResponse(writer: SerializationWriter, getRecentNotebooksWithIncludePersonalNotebooksgetResponse: Partial<GetRecentNotebooksWithIncludePersonalNotebooksgetResponse> | undefined | null = {}) : void {
+    if (getRecentNotebooksWithIncludePersonalNotebooksgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getRecentNotebooksWithIncludePersonalNotebooksgetResponse)
+        writer.writeCollectionOfObjectValues<RecentNotebook>("value", getRecentNotebooksWithIncludePersonalNotebooksgetResponse.value, serializeRecentNotebook);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderRequest
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetRecentNotebooksWithIncludePersonalNotebooksGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetRecentNotebooksWithIncludePersonalNotebooksgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParametersMapper,
     },
 };

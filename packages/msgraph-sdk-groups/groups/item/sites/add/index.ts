@@ -22,7 +22,7 @@ export interface AddPostRequestBody extends AdditionalDataHolder, BackedModel, P
      */
     value?: Site[] | null;
 }
-export interface AddPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface AddpostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -36,11 +36,11 @@ export interface AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder>
      * Follow a user's site or multiple sites.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<AddPostResponse>}
+     * @returns {Promise<AddpostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/site-follow?view=graph-rest-1.0|Find more info here}
      */
-     post(body: AddPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AddPostResponse | undefined>;
+     post(body: AddPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AddpostResponse | undefined>;
     /**
      * Follow a user's site or multiple sites.
      * @param body The request body
@@ -61,11 +61,11 @@ export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {AddPostResponse}
+ * @returns {AddpostResponse}
  */
 // @ts-ignore
-export function createAddPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoAddPostResponse;
+export function createAddpostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAddpostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -83,10 +83,10 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<Ad
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoAddPostResponse(addPostResponse: Partial<AddPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoAddpostResponse(addpostResponse: Partial<AddpostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(addPostResponse),
-        "value": n => { addPostResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(addpostResponse),
+        "value": n => { addpostResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
     }
 }
 /**
@@ -105,10 +105,10 @@ export function serializeAddPostRequestBody(writer: SerializationWriter, addPost
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddPostResponse(writer: SerializationWriter, addPostResponse: Partial<AddPostResponse> | undefined | null = {}) : void {
-    if (addPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, addPostResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", addPostResponse.value, serializeSite);
+export function serializeAddpostResponse(writer: SerializationWriter, addpostResponse: Partial<AddpostResponse> | undefined | null = {}) : void {
+    if (addpostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, addpostResponse)
+        writer.writeCollectionOfObjectValues<Site>("value", addpostResponse.value, serializeSite);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const AddRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createAddPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createAddpostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeAddPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

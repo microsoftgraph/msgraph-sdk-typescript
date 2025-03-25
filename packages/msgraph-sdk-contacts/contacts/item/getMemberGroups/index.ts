@@ -20,11 +20,11 @@ export function createGetMemberGroupsPostRequestBodyFromDiscriminatorValue(parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetMemberGroupsPostResponse}
+ * @returns {GetMemberGroupspostResponse}
  */
 // @ts-ignore
-export function createGetMemberGroupsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetMemberGroupsPostResponse;
+export function createGetMemberGroupspostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetMemberGroupspostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -42,10 +42,10 @@ export function deserializeIntoGetMemberGroupsPostRequestBody(getMemberGroupsPos
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetMemberGroupsPostResponse(getMemberGroupsPostResponse: Partial<GetMemberGroupsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetMemberGroupspostResponse(getMemberGroupspostResponse: Partial<GetMemberGroupspostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getMemberGroupsPostResponse),
-        "value": n => { getMemberGroupsPostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getMemberGroupspostResponse),
+        "value": n => { getMemberGroupspostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
 export interface GetMemberGroupsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -62,7 +62,7 @@ export interface GetMemberGroupsPostRequestBody extends AdditionalDataHolder, Ba
      */
     securityEnabledOnly?: boolean | null;
 }
-export interface GetMemberGroupsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetMemberGroupspostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -76,11 +76,11 @@ export interface GetMemberGroupsRequestBuilder extends BaseRequestBuilder<GetMem
      * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. This API returns up to 11,000 group IDs. If more than 11,000 results are available, it returns a 400 Bad Request error with the DirectoryResultSizeLimitExceeded error code. If you get the DirectoryResultSizeLimitExceeded error code, use the List group transitive memberOf API instead.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetMemberGroupsPostResponse>}
+     * @returns {Promise<GetMemberGroupspostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0|Find more info here}
      */
-     post(body: GetMemberGroupsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMemberGroupsPostResponse | undefined>;
+     post(body: GetMemberGroupsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMemberGroupspostResponse | undefined>;
     /**
      * Return all the group IDs for the groups that the specified user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. This API returns up to 11,000 group IDs. If more than 11,000 results are available, it returns a 400 Bad Request error with the DirectoryResultSizeLimitExceeded error code. If you get the DirectoryResultSizeLimitExceeded error code, use the List group transitive memberOf API instead.
      * @param body The request body
@@ -105,10 +105,10 @@ export function serializeGetMemberGroupsPostRequestBody(writer: SerializationWri
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetMemberGroupsPostResponse(writer: SerializationWriter, getMemberGroupsPostResponse: Partial<GetMemberGroupsPostResponse> | undefined | null = {}) : void {
-    if (getMemberGroupsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getMemberGroupsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getMemberGroupsPostResponse.value);
+export function serializeGetMemberGroupspostResponse(writer: SerializationWriter, getMemberGroupspostResponse: Partial<GetMemberGroupspostResponse> | undefined | null = {}) : void {
+    if (getMemberGroupspostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getMemberGroupspostResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", getMemberGroupspostResponse.value);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const GetMemberGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetMemberGroupsPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetMemberGroupspostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGetMemberGroupsPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetManagedAppPoliciesGetResponse}
+ * @returns {GetManagedAppPoliciesgetResponse}
  */
 // @ts-ignore
-export function createGetManagedAppPoliciesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetManagedAppPoliciesGetResponse;
+export function createGetManagedAppPoliciesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetManagedAppPoliciesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetManagedAppPoliciesGetResponse(getManagedAppPoliciesGetResponse: Partial<GetManagedAppPoliciesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetManagedAppPoliciesgetResponse(getManagedAppPoliciesgetResponse: Partial<GetManagedAppPoliciesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedAppPoliciesGetResponse),
-        "value": n => { getManagedAppPoliciesGetResponse.value = n.getCollectionOfObjectValues<ManagedAppPolicy>(createManagedAppPolicyFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedAppPoliciesgetResponse),
+        "value": n => { getManagedAppPoliciesgetResponse.value = n.getCollectionOfObjectValues<ManagedAppPolicy>(createManagedAppPolicyFromDiscriminatorValue); },
     }
 }
-export interface GetManagedAppPoliciesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetManagedAppPoliciesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetManagedAppPoliciesRequestBuilder extends BaseRequestBuilder<
     /**
      * Gets app restrictions for a given user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetManagedAppPoliciesGetResponse>}
+     * @returns {Promise<GetManagedAppPoliciesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-getmanagedapppolicies?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetManagedAppPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedAppPoliciesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetManagedAppPoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedAppPoliciesgetResponse | undefined>;
     /**
      * Gets app restrictions for a given user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface GetManagedAppPoliciesRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetManagedAppPoliciesGetResponse(writer: SerializationWriter, getManagedAppPoliciesGetResponse: Partial<GetManagedAppPoliciesGetResponse> | undefined | null = {}) : void {
-    if (getManagedAppPoliciesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getManagedAppPoliciesGetResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesGetResponse.value, serializeManagedAppPolicy);
+export function serializeGetManagedAppPoliciesgetResponse(writer: SerializationWriter, getManagedAppPoliciesgetResponse: Partial<GetManagedAppPoliciesgetResponse> | undefined | null = {}) : void {
+    if (getManagedAppPoliciesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getManagedAppPoliciesgetResponse)
+        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesgetResponse.value, serializeManagedAppPolicy);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const GetManagedAppPoliciesRequestBuilderRequestsMetadata: RequestsMetada
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetManagedAppPoliciesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetManagedAppPoliciesgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetManagedAppPoliciesRequestBuilderGetQueryParametersMapper,
     },
 };

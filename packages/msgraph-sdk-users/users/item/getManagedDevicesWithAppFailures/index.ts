@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetManagedDevicesWithAppFailuresGetResponse}
+ * @returns {GetManagedDevicesWithAppFailuresgetResponse}
  */
 // @ts-ignore
-export function createGetManagedDevicesWithAppFailuresGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetManagedDevicesWithAppFailuresGetResponse;
+export function createGetManagedDevicesWithAppFailuresgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetManagedDevicesWithAppFailuresgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetManagedDevicesWithAppFailuresGetResponse(getManagedDevicesWithAppFailuresGetResponse: Partial<GetManagedDevicesWithAppFailuresGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetManagedDevicesWithAppFailuresgetResponse(getManagedDevicesWithAppFailuresgetResponse: Partial<GetManagedDevicesWithAppFailuresgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedDevicesWithAppFailuresGetResponse),
-        "value": n => { getManagedDevicesWithAppFailuresGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedDevicesWithAppFailuresgetResponse),
+        "value": n => { getManagedDevicesWithAppFailuresgetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
-export interface GetManagedDevicesWithAppFailuresGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetManagedDevicesWithAppFailuresgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetManagedDevicesWithAppFailuresRequestBuilder extends BaseRequ
     /**
      * Retrieves the list of devices with failed apps
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetManagedDevicesWithAppFailuresGetResponse>}
+     * @returns {Promise<GetManagedDevicesWithAppFailuresgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-troubleshooting-user-getmanageddeviceswithappfailures?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedDevicesWithAppFailuresGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameters> | undefined) : Promise<GetManagedDevicesWithAppFailuresgetResponse | undefined>;
     /**
      * Retrieves the list of devices with failed apps
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameter
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetManagedDevicesWithAppFailuresGetResponse(writer: SerializationWriter, getManagedDevicesWithAppFailuresGetResponse: Partial<GetManagedDevicesWithAppFailuresGetResponse> | undefined | null = {}) : void {
-    if (getManagedDevicesWithAppFailuresGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getManagedDevicesWithAppFailuresGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getManagedDevicesWithAppFailuresGetResponse.value);
+export function serializeGetManagedDevicesWithAppFailuresgetResponse(writer: SerializationWriter, getManagedDevicesWithAppFailuresgetResponse: Partial<GetManagedDevicesWithAppFailuresgetResponse> | undefined | null = {}) : void {
+    if (getManagedDevicesWithAppFailuresgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getManagedDevicesWithAppFailuresgetResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", getManagedDevicesWithAppFailuresgetResponse.value);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetManagedDevicesWithAppFailuresRequestBuilderRequestsMetadata: Req
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetManagedDevicesWithAppFailuresGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetManagedDevicesWithAppFailuresgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParametersMapper,
     },
 };

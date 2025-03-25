@@ -9,13 +9,13 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {CreateDownloadUrlPostResponse}
+ * @returns {CreateDownloadUrlpostResponse}
  */
 // @ts-ignore
-export function createCreateDownloadUrlPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoCreateDownloadUrlPostResponse;
+export function createCreateDownloadUrlpostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCreateDownloadUrlpostResponse;
 }
-export interface CreateDownloadUrlPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface CreateDownloadUrlpostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -36,10 +36,10 @@ export interface CreateDownloadUrlRequestBuilder extends BaseRequestBuilder<Crea
     /**
      * Invoke action createDownloadUrl
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<CreateDownloadUrlPostResponse>}
+     * @returns {Promise<CreateDownloadUrlpostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CreateDownloadUrlPostResponse | undefined>;
+     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CreateDownloadUrlpostResponse | undefined>;
     /**
      * Invoke action createDownloadUrl
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -52,10 +52,10 @@ export interface CreateDownloadUrlRequestBuilder extends BaseRequestBuilder<Crea
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoCreateDownloadUrlPostResponse(createDownloadUrlPostResponse: Partial<CreateDownloadUrlPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCreateDownloadUrlpostResponse(createDownloadUrlpostResponse: Partial<CreateDownloadUrlpostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { createDownloadUrlPostResponse.backingStoreEnabled = true; },
-        "value": n => { createDownloadUrlPostResponse.value = n.getStringValue(); },
+        "backingStoreEnabled": n => { createDownloadUrlpostResponse.backingStoreEnabled = true; },
+        "value": n => { createDownloadUrlpostResponse.value = n.getStringValue(); },
     }
 }
 /**
@@ -63,10 +63,10 @@ export function deserializeIntoCreateDownloadUrlPostResponse(createDownloadUrlPo
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCreateDownloadUrlPostResponse(writer: SerializationWriter, createDownloadUrlPostResponse: Partial<CreateDownloadUrlPostResponse> | undefined | null = {}) : void {
-    if (createDownloadUrlPostResponse) {
-        writer.writeStringValue("value", createDownloadUrlPostResponse.value);
-        writer.writeAdditionalData(createDownloadUrlPostResponse.additionalData);
+export function serializeCreateDownloadUrlpostResponse(writer: SerializationWriter, createDownloadUrlpostResponse: Partial<CreateDownloadUrlpostResponse> | undefined | null = {}) : void {
+    if (createDownloadUrlpostResponse) {
+        writer.writeStringValue("value", createDownloadUrlpostResponse.value);
+        writer.writeAdditionalData(createDownloadUrlpostResponse.additionalData);
     }
 }
 /**
@@ -84,7 +84,7 @@ export const CreateDownloadUrlRequestBuilderRequestsMetadata: RequestsMetadata =
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createCreateDownloadUrlPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createCreateDownloadUrlpostResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

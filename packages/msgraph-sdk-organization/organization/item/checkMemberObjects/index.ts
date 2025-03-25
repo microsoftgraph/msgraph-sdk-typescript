@@ -22,7 +22,7 @@ export interface CheckMemberObjectsPostRequestBody extends AdditionalDataHolder,
      */
     ids?: string[] | null;
 }
-export interface CheckMemberObjectsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface CheckMemberObjectspostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -36,10 +36,10 @@ export interface CheckMemberObjectsRequestBuilder extends BaseRequestBuilder<Che
      * Invoke action checkMemberObjects
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<CheckMemberObjectsPostResponse>}
+     * @returns {Promise<CheckMemberObjectspostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     post(body: CheckMemberObjectsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CheckMemberObjectsPostResponse | undefined>;
+     post(body: CheckMemberObjectsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CheckMemberObjectspostResponse | undefined>;
     /**
      * Invoke action checkMemberObjects
      * @param body The request body
@@ -60,11 +60,11 @@ export function createCheckMemberObjectsPostRequestBodyFromDiscriminatorValue(pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {CheckMemberObjectsPostResponse}
+ * @returns {CheckMemberObjectspostResponse}
  */
 // @ts-ignore
-export function createCheckMemberObjectsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoCheckMemberObjectsPostResponse;
+export function createCheckMemberObjectspostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCheckMemberObjectspostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -82,10 +82,10 @@ export function deserializeIntoCheckMemberObjectsPostRequestBody(checkMemberObje
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoCheckMemberObjectsPostResponse(checkMemberObjectsPostResponse: Partial<CheckMemberObjectsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCheckMemberObjectspostResponse(checkMemberObjectspostResponse: Partial<CheckMemberObjectspostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(checkMemberObjectsPostResponse),
-        "value": n => { checkMemberObjectsPostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(checkMemberObjectspostResponse),
+        "value": n => { checkMemberObjectspostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }
 /**
@@ -104,10 +104,10 @@ export function serializeCheckMemberObjectsPostRequestBody(writer: Serialization
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCheckMemberObjectsPostResponse(writer: SerializationWriter, checkMemberObjectsPostResponse: Partial<CheckMemberObjectsPostResponse> | undefined | null = {}) : void {
-    if (checkMemberObjectsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, checkMemberObjectsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberObjectsPostResponse.value);
+export function serializeCheckMemberObjectspostResponse(writer: SerializationWriter, checkMemberObjectspostResponse: Partial<CheckMemberObjectspostResponse> | undefined | null = {}) : void {
+    if (checkMemberObjectspostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, checkMemberObjectspostResponse)
+        writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberObjectspostResponse.value);
     }
 }
 /**
@@ -125,7 +125,7 @@ export const CheckMemberObjectsRequestBuilderRequestsMetadata: RequestsMetadata 
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createCheckMemberObjectsPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createCheckMemberObjectspostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeCheckMemberObjectsPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

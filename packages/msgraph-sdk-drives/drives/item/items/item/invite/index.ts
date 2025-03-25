@@ -20,11 +20,11 @@ export function createInvitePostRequestBodyFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {InvitePostResponse}
+ * @returns {InvitepostResponse}
  */
 // @ts-ignore
-export function createInvitePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoInvitePostResponse;
+export function createInvitepostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoInvitepostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -49,10 +49,10 @@ export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: Part
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoInvitePostResponse(invitePostResponse: Partial<InvitePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoInvitepostResponse(invitepostResponse: Partial<InvitepostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(invitePostResponse),
-        "value": n => { invitePostResponse.value = n.getCollectionOfObjectValues<Permission>(createPermissionFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(invitepostResponse),
+        "value": n => { invitepostResponse.value = n.getCollectionOfObjectValues<Permission>(createPermissionFromDiscriminatorValue); },
     }
 }
 export interface InvitePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -97,7 +97,7 @@ export interface InvitePostRequestBody extends AdditionalDataHolder, BackedModel
      */
     sendInvitation?: boolean | null;
 }
-export interface InvitePostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface InvitepostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -111,11 +111,11 @@ export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBu
      * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a sharing link.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<InvitePostResponse>}
+     * @returns {Promise<InvitepostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-invite?view=graph-rest-1.0|Find more info here}
      */
-     post(body: InvitePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<InvitePostResponse | undefined>;
+     post(body: InvitePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<InvitepostResponse | undefined>;
     /**
      * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a sharing link.
      * @param body The request body
@@ -147,10 +147,10 @@ export function serializeInvitePostRequestBody(writer: SerializationWriter, invi
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeInvitePostResponse(writer: SerializationWriter, invitePostResponse: Partial<InvitePostResponse> | undefined | null = {}) : void {
-    if (invitePostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, invitePostResponse)
-        writer.writeCollectionOfObjectValues<Permission>("value", invitePostResponse.value, serializePermission);
+export function serializeInvitepostResponse(writer: SerializationWriter, invitepostResponse: Partial<InvitepostResponse> | undefined | null = {}) : void {
+    if (invitepostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, invitepostResponse)
+        writer.writeCollectionOfObjectValues<Permission>("value", invitepostResponse.value, serializePermission);
     }
 }
 /**
@@ -168,7 +168,7 @@ export const InviteRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createInvitePostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createInvitepostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeInvitePostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

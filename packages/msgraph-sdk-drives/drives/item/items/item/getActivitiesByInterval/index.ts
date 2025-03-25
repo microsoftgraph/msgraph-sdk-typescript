@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetActivitiesByIntervalGetResponse}
+ * @returns {GetActivitiesByIntervalgetResponse}
  */
 // @ts-ignore
-export function createGetActivitiesByIntervalGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetActivitiesByIntervalGetResponse;
+export function createGetActivitiesByIntervalgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetActivitiesByIntervalgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetActivitiesByIntervalGetResponse(getActivitiesByIntervalGetResponse: Partial<GetActivitiesByIntervalGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetActivitiesByIntervalgetResponse(getActivitiesByIntervalgetResponse: Partial<GetActivitiesByIntervalgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getActivitiesByIntervalGetResponse),
-        "value": n => { getActivitiesByIntervalGetResponse.value = n.getCollectionOfObjectValues<ItemActivityStat>(createItemActivityStatFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getActivitiesByIntervalgetResponse),
+        "value": n => { getActivitiesByIntervalgetResponse.value = n.getCollectionOfObjectValues<ItemActivityStat>(createItemActivityStatFromDiscriminatorValue); },
     }
 }
-export interface GetActivitiesByIntervalGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetActivitiesByIntervalgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetActivitiesByIntervalRequestBuilder extends BaseRequestBuilde
     /**
      * Get a collection of itemActivityStats resources for the activities that took place on this resource within the specified time interval. Analytics aggregates might not be available for all action types.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetActivitiesByIntervalGetResponse>}
+     * @returns {Promise<GetActivitiesByIntervalgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/itemactivitystat-getactivitybyinterval?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetActivitiesByIntervalRequestBuilderGetQueryParameters> | undefined) : Promise<GetActivitiesByIntervalGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetActivitiesByIntervalRequestBuilderGetQueryParameters> | undefined) : Promise<GetActivitiesByIntervalgetResponse | undefined>;
     /**
      * Get a collection of itemActivityStats resources for the activities that took place on this resource within the specified time interval. Analytics aggregates might not be available for all action types.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface GetActivitiesByIntervalRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetActivitiesByIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalGetResponse: Partial<GetActivitiesByIntervalGetResponse> | undefined | null = {}) : void {
-    if (getActivitiesByIntervalGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalGetResponse)
-        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalGetResponse.value, serializeItemActivityStat);
+export function serializeGetActivitiesByIntervalgetResponse(writer: SerializationWriter, getActivitiesByIntervalgetResponse: Partial<GetActivitiesByIntervalgetResponse> | undefined | null = {}) : void {
+    if (getActivitiesByIntervalgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalgetResponse)
+        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalgetResponse.value, serializeItemActivityStat);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const GetActivitiesByIntervalRequestBuilderRequestsMetadata: RequestsMeta
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetActivitiesByIntervalGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetActivitiesByIntervalgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetActivitiesByIntervalRequestBuilderGetQueryParametersMapper,
     },
 };

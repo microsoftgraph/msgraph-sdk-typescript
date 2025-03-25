@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {ImageGetResponse}
+ * @returns {ImagegetResponse}
  */
 // @ts-ignore
-export function createImageGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoImageGetResponse;
+export function createImagegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoImagegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoImageGetResponse(imageGetResponse: Partial<ImageGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImagegetResponse(imagegetResponse: Partial<ImagegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { imageGetResponse.backingStoreEnabled = true; },
-        "value": n => { imageGetResponse.value = n.getStringValue(); },
+        "backingStoreEnabled": n => { imagegetResponse.backingStoreEnabled = true; },
+        "value": n => { imagegetResponse.value = n.getStringValue(); },
     }
 }
-export interface ImageGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface ImagegetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,10 +47,10 @@ export interface ImageRequestBuilder extends BaseRequestBuilder<ImageRequestBuil
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<ImageGetResponse>}
+     * @returns {Promise<ImagegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImageGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImagegetResponse | undefined>;
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -63,10 +63,10 @@ export interface ImageRequestBuilder extends BaseRequestBuilder<ImageRequestBuil
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImageGetResponse(writer: SerializationWriter, imageGetResponse: Partial<ImageGetResponse> | undefined | null = {}) : void {
-    if (imageGetResponse) {
-        writer.writeStringValue("value", imageGetResponse.value);
-        writer.writeAdditionalData(imageGetResponse.additionalData);
+export function serializeImagegetResponse(writer: SerializationWriter, imagegetResponse: Partial<ImagegetResponse> | undefined | null = {}) : void {
+    if (imagegetResponse) {
+        writer.writeStringValue("value", imagegetResponse.value);
+        writer.writeAdditionalData(imagegetResponse.additionalData);
     }
 }
 /**
@@ -84,7 +84,7 @@ export const ImageRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createImageGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createImagegetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

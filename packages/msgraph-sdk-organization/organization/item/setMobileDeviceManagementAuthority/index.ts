@@ -9,21 +9,21 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {SetMobileDeviceManagementAuthorityPostResponse}
+ * @returns {SetMobileDeviceManagementAuthoritypostResponse}
  */
 // @ts-ignore
-export function createSetMobileDeviceManagementAuthorityPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoSetMobileDeviceManagementAuthorityPostResponse;
+export function createSetMobileDeviceManagementAuthoritypostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSetMobileDeviceManagementAuthoritypostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoSetMobileDeviceManagementAuthorityPostResponse(setMobileDeviceManagementAuthorityPostResponse: Partial<SetMobileDeviceManagementAuthorityPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSetMobileDeviceManagementAuthoritypostResponse(setMobileDeviceManagementAuthoritypostResponse: Partial<SetMobileDeviceManagementAuthoritypostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { setMobileDeviceManagementAuthorityPostResponse.backingStoreEnabled = true; },
-        "value": n => { setMobileDeviceManagementAuthorityPostResponse.value = n.getNumberValue(); },
+        "backingStoreEnabled": n => { setMobileDeviceManagementAuthoritypostResponse.backingStoreEnabled = true; },
+        "value": n => { setMobileDeviceManagementAuthoritypostResponse.value = n.getNumberValue(); },
     }
 }
 /**
@@ -31,13 +31,13 @@ export function deserializeIntoSetMobileDeviceManagementAuthorityPostResponse(se
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSetMobileDeviceManagementAuthorityPostResponse(writer: SerializationWriter, setMobileDeviceManagementAuthorityPostResponse: Partial<SetMobileDeviceManagementAuthorityPostResponse> | undefined | null = {}) : void {
-    if (setMobileDeviceManagementAuthorityPostResponse) {
-        writer.writeNumberValue("value", setMobileDeviceManagementAuthorityPostResponse.value);
-        writer.writeAdditionalData(setMobileDeviceManagementAuthorityPostResponse.additionalData);
+export function serializeSetMobileDeviceManagementAuthoritypostResponse(writer: SerializationWriter, setMobileDeviceManagementAuthoritypostResponse: Partial<SetMobileDeviceManagementAuthoritypostResponse> | undefined | null = {}) : void {
+    if (setMobileDeviceManagementAuthoritypostResponse) {
+        writer.writeNumberValue("value", setMobileDeviceManagementAuthoritypostResponse.value);
+        writer.writeAdditionalData(setMobileDeviceManagementAuthoritypostResponse.additionalData);
     }
 }
-export interface SetMobileDeviceManagementAuthorityPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface SetMobileDeviceManagementAuthoritypostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -58,11 +58,11 @@ export interface SetMobileDeviceManagementAuthorityRequestBuilder extends BaseRe
     /**
      * Set mobile device management authority
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<SetMobileDeviceManagementAuthorityPostResponse>}
+     * @returns {Promise<SetMobileDeviceManagementAuthoritypostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-setmobiledevicemanagementauthority?view=graph-rest-1.0|Find more info here}
      */
-     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SetMobileDeviceManagementAuthorityPostResponse | undefined>;
+     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SetMobileDeviceManagementAuthoritypostResponse | undefined>;
     /**
      * Set mobile device management authority
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -85,7 +85,7 @@ export const SetMobileDeviceManagementAuthorityRequestBuilderRequestsMetadata: R
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createSetMobileDeviceManagementAuthorityPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createSetMobileDeviceManagementAuthoritypostResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

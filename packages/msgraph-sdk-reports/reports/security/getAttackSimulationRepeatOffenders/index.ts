@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetAttackSimulationRepeatOffendersGetResponse}
+ * @returns {GetAttackSimulationRepeatOffendersgetResponse}
  */
 // @ts-ignore
-export function createGetAttackSimulationRepeatOffendersGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetAttackSimulationRepeatOffendersGetResponse;
+export function createGetAttackSimulationRepeatOffendersgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetAttackSimulationRepeatOffendersgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetAttackSimulationRepeatOffendersGetResponse(getAttackSimulationRepeatOffendersGetResponse: Partial<GetAttackSimulationRepeatOffendersGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAttackSimulationRepeatOffendersgetResponse(getAttackSimulationRepeatOffendersgetResponse: Partial<GetAttackSimulationRepeatOffendersgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getAttackSimulationRepeatOffendersGetResponse),
-        "value": n => { getAttackSimulationRepeatOffendersGetResponse.value = n.getCollectionOfObjectValues<AttackSimulationRepeatOffender>(createAttackSimulationRepeatOffenderFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getAttackSimulationRepeatOffendersgetResponse),
+        "value": n => { getAttackSimulationRepeatOffendersgetResponse.value = n.getCollectionOfObjectValues<AttackSimulationRepeatOffender>(createAttackSimulationRepeatOffenderFromDiscriminatorValue); },
     }
 }
-export interface GetAttackSimulationRepeatOffendersGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetAttackSimulationRepeatOffendersgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetAttackSimulationRepeatOffendersRequestBuilder extends BaseRe
     /**
      * List the tenant users who have yielded to attacks more than once in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetAttackSimulationRepeatOffendersGetResponse>}
+     * @returns {Promise<GetAttackSimulationRepeatOffendersgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/securityreportsroot-getattacksimulationrepeatoffenders?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters> | undefined) : Promise<GetAttackSimulationRepeatOffendersGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters> | undefined) : Promise<GetAttackSimulationRepeatOffendersgetResponse | undefined>;
     /**
      * List the tenant users who have yielded to attacks more than once in attack simulation and training campaigns. This function supports @odata.nextLink for pagination.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParamet
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAttackSimulationRepeatOffendersGetResponse(writer: SerializationWriter, getAttackSimulationRepeatOffendersGetResponse: Partial<GetAttackSimulationRepeatOffendersGetResponse> | undefined | null = {}) : void {
-    if (getAttackSimulationRepeatOffendersGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationRepeatOffendersGetResponse)
-        writer.writeCollectionOfObjectValues<AttackSimulationRepeatOffender>("value", getAttackSimulationRepeatOffendersGetResponse.value, serializeAttackSimulationRepeatOffender);
+export function serializeGetAttackSimulationRepeatOffendersgetResponse(writer: SerializationWriter, getAttackSimulationRepeatOffendersgetResponse: Partial<GetAttackSimulationRepeatOffendersgetResponse> | undefined | null = {}) : void {
+    if (getAttackSimulationRepeatOffendersgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationRepeatOffendersgetResponse)
+        writer.writeCollectionOfObjectValues<AttackSimulationRepeatOffender>("value", getAttackSimulationRepeatOffendersgetResponse.value, serializeAttackSimulationRepeatOffender);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetAttackSimulationRepeatOffendersRequestBuilderRequestsMetadata: R
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetAttackSimulationRepeatOffendersGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetAttackSimulationRepeatOffendersgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParametersMapper,
     },
 };

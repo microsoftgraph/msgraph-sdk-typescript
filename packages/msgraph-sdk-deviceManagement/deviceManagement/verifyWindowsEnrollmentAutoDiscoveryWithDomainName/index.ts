@@ -9,21 +9,21 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse}
+ * @returns {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse}
  */
 // @ts-ignore
-export function createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse;
+export function createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse: Partial<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse(verifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse: Partial<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.backingStoreEnabled = true; },
-        "value": n => { verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { verifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse.backingStoreEnabled = true; },
+        "value": n => { verifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse.value = n.getBooleanValue(); },
     }
 }
 /**
@@ -31,13 +31,13 @@ export function deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNam
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse(writer: SerializationWriter, verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse: Partial<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse> | undefined | null = {}) : void {
-    if (verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse) {
-        writer.writeBooleanValue("value", verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.value);
-        writer.writeAdditionalData(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.additionalData);
+export function serializeVerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse(writer: SerializationWriter, verifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse: Partial<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse> | undefined | null = {}) : void {
+    if (verifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse) {
+        writer.writeBooleanValue("value", verifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse.value);
+        writer.writeAdditionalData(verifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse.additionalData);
     }
 }
-export interface VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface VerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -58,10 +58,10 @@ export interface VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilde
     /**
      * Invoke function verifyWindowsEnrollmentAutoDiscovery
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse>}
+     * @returns {Promise<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponse | undefined>;
     /**
      * Invoke function verifyWindowsEnrollmentAutoDiscovery
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -84,7 +84,7 @@ export const VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilderReq
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNamegetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

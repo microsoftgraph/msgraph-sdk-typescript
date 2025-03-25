@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse}
+ * @returns {GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse}
  */
 // @ts-ignore
-export function createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse;
+export function createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse(getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse: Partial<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse(getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse: Partial<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse),
-        "value": n => { getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse.value = n.getCollectionOfObjectValues<ArchivedPrintJob>(createArchivedPrintJobFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse),
+        "value": n => { getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse.value = n.getCollectionOfObjectValues<ArchivedPrintJob>(createArchivedPrintJobFromDiscriminatorValue); },
     }
 }
-export interface GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateT
     /**
      * Get a list of archived print jobs for a particular user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse>}
+     * @returns {Promise<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/reports-getuserarchivedprintjobs?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse | undefined>;
     /**
      * Get a list of archived print jobs for a particular user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateT
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse: Partial<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
-    if (getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
+export function serializeGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse(writer: SerializationWriter, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse: Partial<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse> | undefined | null = {}) : void {
+    if (getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse)
+        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponse.value, serializeArchivedPrintJob);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimegetResponseFromDiscriminatorValue,
         queryParametersMapper: GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParametersMapper,
     },
 };

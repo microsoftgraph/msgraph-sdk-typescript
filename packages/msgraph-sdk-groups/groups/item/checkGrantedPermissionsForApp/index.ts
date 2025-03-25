@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
-export interface CheckGrantedPermissionsForAppPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface CheckGrantedPermissionsForApppostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -21,10 +21,10 @@ export interface CheckGrantedPermissionsForAppRequestBuilder extends BaseRequest
     /**
      * Invoke action checkGrantedPermissionsForApp
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<CheckGrantedPermissionsForAppPostResponse>}
+     * @returns {Promise<CheckGrantedPermissionsForApppostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CheckGrantedPermissionsForAppPostResponse | undefined>;
+     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CheckGrantedPermissionsForApppostResponse | undefined>;
     /**
      * Invoke action checkGrantedPermissionsForApp
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -35,21 +35,21 @@ export interface CheckGrantedPermissionsForAppRequestBuilder extends BaseRequest
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {CheckGrantedPermissionsForAppPostResponse}
+ * @returns {CheckGrantedPermissionsForApppostResponse}
  */
 // @ts-ignore
-export function createCheckGrantedPermissionsForAppPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoCheckGrantedPermissionsForAppPostResponse;
+export function createCheckGrantedPermissionsForApppostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCheckGrantedPermissionsForApppostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoCheckGrantedPermissionsForAppPostResponse(checkGrantedPermissionsForAppPostResponse: Partial<CheckGrantedPermissionsForAppPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoCheckGrantedPermissionsForApppostResponse(checkGrantedPermissionsForApppostResponse: Partial<CheckGrantedPermissionsForApppostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(checkGrantedPermissionsForAppPostResponse),
-        "value": n => { checkGrantedPermissionsForAppPostResponse.value = n.getCollectionOfObjectValues<ResourceSpecificPermissionGrant>(createResourceSpecificPermissionGrantFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(checkGrantedPermissionsForApppostResponse),
+        "value": n => { checkGrantedPermissionsForApppostResponse.value = n.getCollectionOfObjectValues<ResourceSpecificPermissionGrant>(createResourceSpecificPermissionGrantFromDiscriminatorValue); },
     }
 }
 /**
@@ -57,10 +57,10 @@ export function deserializeIntoCheckGrantedPermissionsForAppPostResponse(checkGr
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCheckGrantedPermissionsForAppPostResponse(writer: SerializationWriter, checkGrantedPermissionsForAppPostResponse: Partial<CheckGrantedPermissionsForAppPostResponse> | undefined | null = {}) : void {
-    if (checkGrantedPermissionsForAppPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, checkGrantedPermissionsForAppPostResponse)
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", checkGrantedPermissionsForAppPostResponse.value, serializeResourceSpecificPermissionGrant);
+export function serializeCheckGrantedPermissionsForApppostResponse(writer: SerializationWriter, checkGrantedPermissionsForApppostResponse: Partial<CheckGrantedPermissionsForApppostResponse> | undefined | null = {}) : void {
+    if (checkGrantedPermissionsForApppostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, checkGrantedPermissionsForApppostResponse)
+        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", checkGrantedPermissionsForApppostResponse.value, serializeResourceSpecificPermissionGrant);
     }
 }
 /**
@@ -78,7 +78,7 @@ export const CheckGrantedPermissionsForAppRequestBuilderRequestsMetadata: Reques
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createCheckGrantedPermissionsForAppPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createCheckGrantedPermissionsForApppostResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

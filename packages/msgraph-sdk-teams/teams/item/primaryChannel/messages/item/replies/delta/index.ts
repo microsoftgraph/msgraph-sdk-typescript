@@ -11,13 +11,13 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {DeltaGetResponse}
+ * @returns {DeltagetResponse}
  */
 // @ts-ignore
-export function createDeltaGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoDeltaGetResponse;
+export function createDeltagetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDeltagetResponse;
 }
-export interface DeltaGetResponse extends BaseDeltaFunctionResponse, Parsable {
+export interface DeltagetResponse extends BaseDeltaFunctionResponse, Parsable {
     /**
      * The value property
      */
@@ -30,11 +30,11 @@ export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuil
     /**
      * Get the list of messages from all chats in which a user is a participant, including one-on-one chats, group chats, and meeting chats. When you use delta query, you can get new or updated messages. To get the replies for a message, use the list message replies or the get message reply operations. A GET request with the delta function returns one of the following: State tokens are opaque to the client. To proceed with a round of change tracking, copy and apply the @odata.nextLink or @odata.deltaLink URL returned from the last GET request to the next delta function call. An @odata.deltaLink returned in a response signifies that the current round of change tracking is complete. You can save and use the @odata.deltaLink URL when you begin to retrieve more changes (messages changed or posted after you acquire @odata.deltaLink). For more information, see the delta query documentation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<DeltaGetResponse>}
+     * @returns {Promise<DeltagetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/chatmessage-delta?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltagetResponse | undefined>;
     /**
      * Get the list of messages from all chats in which a user is a participant, including one-on-one chats, group chats, and meeting chats. When you use delta query, you can get new or updated messages. To get the replies for a message, use the list message replies or the get message reply operations. A GET request with the delta function returns one of the following: State tokens are opaque to the client. To proceed with a round of change tracking, copy and apply the @odata.nextLink or @odata.deltaLink URL returned from the last GET request to the next delta function call. An @odata.deltaLink returned in a response signifies that the current round of change tracking is complete. You can save and use the @odata.deltaLink URL when you begin to retrieve more changes (messages changed or posted after you acquire @odata.deltaLink). For more information, see the delta query documentation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -84,10 +84,10 @@ export interface DeltaRequestBuilderGetQueryParameters {
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDeltagetResponse(deltagetResponse: Partial<DeltagetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseDeltaFunctionResponse(deltaGetResponse),
-        "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
+        ...deserializeIntoBaseDeltaFunctionResponse(deltagetResponse),
+        "value": n => { deltagetResponse.value = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
     }
 }
 /**
@@ -95,10 +95,10 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: Partial<DeltaGetResponse> | undefined | null = {}) : void {
-    if (deltaGetResponse) {
-        serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-        writer.writeCollectionOfObjectValues<ChatMessage>("value", deltaGetResponse.value, serializeChatMessage);
+export function serializeDeltagetResponse(writer: SerializationWriter, deltagetResponse: Partial<DeltagetResponse> | undefined | null = {}) : void {
+    if (deltagetResponse) {
+        serializeBaseDeltaFunctionResponse(writer, deltagetResponse)
+        writer.writeCollectionOfObjectValues<ChatMessage>("value", deltagetResponse.value, serializeChatMessage);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createDeltagetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };

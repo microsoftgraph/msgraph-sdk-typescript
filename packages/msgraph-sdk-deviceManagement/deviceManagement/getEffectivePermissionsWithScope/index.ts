@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetEffectivePermissionsWithScopeGetResponse}
+ * @returns {GetEffectivePermissionsWithScopegetResponse}
  */
 // @ts-ignore
-export function createGetEffectivePermissionsWithScopeGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetEffectivePermissionsWithScopeGetResponse;
+export function createGetEffectivePermissionsWithScopegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetEffectivePermissionsWithScopegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetEffectivePermissionsWithScopeGetResponse(getEffectivePermissionsWithScopeGetResponse: Partial<GetEffectivePermissionsWithScopeGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetEffectivePermissionsWithScopegetResponse(getEffectivePermissionsWithScopegetResponse: Partial<GetEffectivePermissionsWithScopegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getEffectivePermissionsWithScopeGetResponse),
-        "value": n => { getEffectivePermissionsWithScopeGetResponse.value = n.getCollectionOfObjectValues<RolePermission>(createRolePermissionFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getEffectivePermissionsWithScopegetResponse),
+        "value": n => { getEffectivePermissionsWithScopegetResponse.value = n.getCollectionOfObjectValues<RolePermission>(createRolePermissionFromDiscriminatorValue); },
     }
 }
-export interface GetEffectivePermissionsWithScopeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetEffectivePermissionsWithScopegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetEffectivePermissionsWithScopeRequestBuilder extends BaseRequ
     /**
      * Retrieves the effective permissions of the currently authenticated user
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetEffectivePermissionsWithScopeGetResponse>}
+     * @returns {Promise<GetEffectivePermissionsWithScopegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-devicemanagement-geteffectivepermissions?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters> | undefined) : Promise<GetEffectivePermissionsWithScopeGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters> | undefined) : Promise<GetEffectivePermissionsWithScopegetResponse | undefined>;
     /**
      * Retrieves the effective permissions of the currently authenticated user
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameter
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetEffectivePermissionsWithScopeGetResponse(writer: SerializationWriter, getEffectivePermissionsWithScopeGetResponse: Partial<GetEffectivePermissionsWithScopeGetResponse> | undefined | null = {}) : void {
-    if (getEffectivePermissionsWithScopeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getEffectivePermissionsWithScopeGetResponse)
-        writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopeGetResponse.value, serializeRolePermission);
+export function serializeGetEffectivePermissionsWithScopegetResponse(writer: SerializationWriter, getEffectivePermissionsWithScopegetResponse: Partial<GetEffectivePermissionsWithScopegetResponse> | undefined | null = {}) : void {
+    if (getEffectivePermissionsWithScopegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getEffectivePermissionsWithScopegetResponse)
+        writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopegetResponse.value, serializeRolePermission);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetEffectivePermissionsWithScopeRequestBuilderRequestsMetadata: Req
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetEffectivePermissionsWithScopeGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetEffectivePermissionsWithScopegetResponseFromDiscriminatorValue,
         queryParametersMapper: GetEffectivePermissionsWithScopeRequestBuilderGetQueryParametersMapper,
     },
 };

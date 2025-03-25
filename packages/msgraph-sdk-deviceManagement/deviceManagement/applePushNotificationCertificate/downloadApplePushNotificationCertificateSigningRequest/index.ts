@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {DownloadApplePushNotificationCertificateSigningRequestGetResponse}
+ * @returns {DownloadApplePushNotificationCertificateSigningRequestgetResponse}
  */
 // @ts-ignore
-export function createDownloadApplePushNotificationCertificateSigningRequestGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoDownloadApplePushNotificationCertificateSigningRequestGetResponse;
+export function createDownloadApplePushNotificationCertificateSigningRequestgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDownloadApplePushNotificationCertificateSigningRequestgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoDownloadApplePushNotificationCertificateSigningRequestGetResponse(downloadApplePushNotificationCertificateSigningRequestGetResponse: Partial<DownloadApplePushNotificationCertificateSigningRequestGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDownloadApplePushNotificationCertificateSigningRequestgetResponse(downloadApplePushNotificationCertificateSigningRequestgetResponse: Partial<DownloadApplePushNotificationCertificateSigningRequestgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { downloadApplePushNotificationCertificateSigningRequestGetResponse.backingStoreEnabled = true; },
-        "value": n => { downloadApplePushNotificationCertificateSigningRequestGetResponse.value = n.getStringValue(); },
+        "backingStoreEnabled": n => { downloadApplePushNotificationCertificateSigningRequestgetResponse.backingStoreEnabled = true; },
+        "value": n => { downloadApplePushNotificationCertificateSigningRequestgetResponse.value = n.getStringValue(); },
     }
 }
-export interface DownloadApplePushNotificationCertificateSigningRequestGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface DownloadApplePushNotificationCertificateSigningRequestgetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,11 +47,11 @@ export interface DownloadApplePushNotificationCertificateSigningRequestRequestBu
     /**
      * Download Apple push notification certificate signing request
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<DownloadApplePushNotificationCertificateSigningRequestGetResponse>}
+     * @returns {Promise<DownloadApplePushNotificationCertificateSigningRequestgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applepushnotificationcertificate-downloadapplepushnotificationcertificatesigningrequest?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DownloadApplePushNotificationCertificateSigningRequestGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DownloadApplePushNotificationCertificateSigningRequestgetResponse | undefined>;
     /**
      * Download Apple push notification certificate signing request
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -64,10 +64,10 @@ export interface DownloadApplePushNotificationCertificateSigningRequestRequestBu
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDownloadApplePushNotificationCertificateSigningRequestGetResponse(writer: SerializationWriter, downloadApplePushNotificationCertificateSigningRequestGetResponse: Partial<DownloadApplePushNotificationCertificateSigningRequestGetResponse> | undefined | null = {}) : void {
-    if (downloadApplePushNotificationCertificateSigningRequestGetResponse) {
-        writer.writeStringValue("value", downloadApplePushNotificationCertificateSigningRequestGetResponse.value);
-        writer.writeAdditionalData(downloadApplePushNotificationCertificateSigningRequestGetResponse.additionalData);
+export function serializeDownloadApplePushNotificationCertificateSigningRequestgetResponse(writer: SerializationWriter, downloadApplePushNotificationCertificateSigningRequestgetResponse: Partial<DownloadApplePushNotificationCertificateSigningRequestgetResponse> | undefined | null = {}) : void {
+    if (downloadApplePushNotificationCertificateSigningRequestgetResponse) {
+        writer.writeStringValue("value", downloadApplePushNotificationCertificateSigningRequestgetResponse.value);
+        writer.writeAdditionalData(downloadApplePushNotificationCertificateSigningRequestgetResponse.additionalData);
     }
 }
 /**
@@ -85,7 +85,7 @@ export const DownloadApplePushNotificationCertificateSigningRequestRequestBuilde
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createDownloadApplePushNotificationCertificateSigningRequestGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createDownloadApplePushNotificationCertificateSigningRequestgetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {ImageWithWidthWithHeightGetResponse}
+ * @returns {ImageWithWidthWithHeightgetResponse}
  */
 // @ts-ignore
-export function createImageWithWidthWithHeightGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoImageWithWidthWithHeightGetResponse;
+export function createImageWithWidthWithHeightgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoImageWithWidthWithHeightgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoImageWithWidthWithHeightGetResponse(imageWithWidthWithHeightGetResponse: Partial<ImageWithWidthWithHeightGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImageWithWidthWithHeightgetResponse(imageWithWidthWithHeightgetResponse: Partial<ImageWithWidthWithHeightgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { imageWithWidthWithHeightGetResponse.backingStoreEnabled = true; },
-        "value": n => { imageWithWidthWithHeightGetResponse.value = n.getStringValue(); },
+        "backingStoreEnabled": n => { imageWithWidthWithHeightgetResponse.backingStoreEnabled = true; },
+        "value": n => { imageWithWidthWithHeightgetResponse.value = n.getStringValue(); },
     }
 }
-export interface ImageWithWidthWithHeightGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface ImageWithWidthWithHeightgetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,10 +47,10 @@ export interface ImageWithWidthWithHeightRequestBuilder extends BaseRequestBuild
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<ImageWithWidthWithHeightGetResponse>}
+     * @returns {Promise<ImageWithWidthWithHeightgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImageWithWidthWithHeightGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImageWithWidthWithHeightgetResponse | undefined>;
     /**
      * Invoke function image
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -63,10 +63,10 @@ export interface ImageWithWidthWithHeightRequestBuilder extends BaseRequestBuild
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImageWithWidthWithHeightGetResponse(writer: SerializationWriter, imageWithWidthWithHeightGetResponse: Partial<ImageWithWidthWithHeightGetResponse> | undefined | null = {}) : void {
-    if (imageWithWidthWithHeightGetResponse) {
-        writer.writeStringValue("value", imageWithWidthWithHeightGetResponse.value);
-        writer.writeAdditionalData(imageWithWidthWithHeightGetResponse.additionalData);
+export function serializeImageWithWidthWithHeightgetResponse(writer: SerializationWriter, imageWithWidthWithHeightgetResponse: Partial<ImageWithWidthWithHeightgetResponse> | undefined | null = {}) : void {
+    if (imageWithWidthWithHeightgetResponse) {
+        writer.writeStringValue("value", imageWithWidthWithHeightgetResponse.value);
+        writer.writeAdditionalData(imageWithWidthWithHeightgetResponse.additionalData);
     }
 }
 /**
@@ -84,7 +84,7 @@ export const ImageWithWidthWithHeightRequestBuilderRequestsMetadata: RequestsMet
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createImageWithWidthWithHeightGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createImageWithWidthWithHeightgetResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

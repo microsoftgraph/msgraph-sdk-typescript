@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetSourceImagesGetResponse}
+ * @returns {GetSourceImagesgetResponse}
  */
 // @ts-ignore
-export function createGetSourceImagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetSourceImagesGetResponse;
+export function createGetSourceImagesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetSourceImagesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetSourceImagesGetResponse(getSourceImagesGetResponse: Partial<GetSourceImagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetSourceImagesgetResponse(getSourceImagesgetResponse: Partial<GetSourceImagesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getSourceImagesGetResponse),
-        "value": n => { getSourceImagesGetResponse.value = n.getCollectionOfObjectValues<CloudPcSourceDeviceImage>(createCloudPcSourceDeviceImageFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getSourceImagesgetResponse),
+        "value": n => { getSourceImagesgetResponse.value = n.getCollectionOfObjectValues<CloudPcSourceDeviceImage>(createCloudPcSourceDeviceImageFromDiscriminatorValue); },
     }
 }
-export interface GetSourceImagesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetSourceImagesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetSourceImagesRequestBuilder extends BaseRequestBuilder<GetSou
     /**
      * Get cloudPcSourceDeviceImage objects that can be uploaded and used on Cloud PCs. View a list of all the managed image resources from your Microsoft Entra subscriptions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetSourceImagesGetResponse>}
+     * @returns {Promise<GetSourceImagesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/cloudpcdeviceimage-getsourceimages?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetSourceImagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetSourceImagesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetSourceImagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetSourceImagesgetResponse | undefined>;
     /**
      * Get cloudPcSourceDeviceImage objects that can be uploaded and used on Cloud PCs. View a list of all the managed image resources from your Microsoft Entra subscriptions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface GetSourceImagesRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetSourceImagesGetResponse(writer: SerializationWriter, getSourceImagesGetResponse: Partial<GetSourceImagesGetResponse> | undefined | null = {}) : void {
-    if (getSourceImagesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getSourceImagesGetResponse)
-        writer.writeCollectionOfObjectValues<CloudPcSourceDeviceImage>("value", getSourceImagesGetResponse.value, serializeCloudPcSourceDeviceImage);
+export function serializeGetSourceImagesgetResponse(writer: SerializationWriter, getSourceImagesgetResponse: Partial<GetSourceImagesgetResponse> | undefined | null = {}) : void {
+    if (getSourceImagesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getSourceImagesgetResponse)
+        writer.writeCollectionOfObjectValues<CloudPcSourceDeviceImage>("value", getSourceImagesgetResponse.value, serializeCloudPcSourceDeviceImage);
     }
 }
 /**
@@ -114,7 +114,7 @@ export const GetSourceImagesRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetSourceImagesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetSourceImagesgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetSourceImagesRequestBuilderGetQueryParametersMapper,
     },
 };

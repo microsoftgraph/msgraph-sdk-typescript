@@ -11,13 +11,13 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {DeltaWithTokenGetResponse}
+ * @returns {DeltaWithTokengetResponse}
  */
 // @ts-ignore
-export function createDeltaWithTokenGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoDeltaWithTokenGetResponse;
+export function createDeltaWithTokengetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDeltaWithTokengetResponse;
 }
-export interface DeltaWithTokenGetResponse extends BaseDeltaFunctionResponse, Parsable {
+export interface DeltaWithTokengetResponse extends BaseDeltaFunctionResponse, Parsable {
     /**
      * The value property
      */
@@ -30,10 +30,10 @@ export interface DeltaWithTokenRequestBuilder extends BaseRequestBuilder<DeltaWi
     /**
      * Invoke function delta
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<DeltaWithTokenGetResponse>}
+     * @returns {Promise<DeltaWithTokengetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<DeltaWithTokenRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaWithTokenGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<DeltaWithTokenRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaWithTokengetResponse | undefined>;
     /**
      * Invoke function delta
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -83,10 +83,10 @@ export interface DeltaWithTokenRequestBuilderGetQueryParameters {
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetResponse: Partial<DeltaWithTokenGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDeltaWithTokengetResponse(deltaWithTokengetResponse: Partial<DeltaWithTokengetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseDeltaFunctionResponse(deltaWithTokenGetResponse),
-        "value": n => { deltaWithTokenGetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
+        ...deserializeIntoBaseDeltaFunctionResponse(deltaWithTokengetResponse),
+        "value": n => { deltaWithTokengetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
     }
 }
 /**
@@ -94,10 +94,10 @@ export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetRespon
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeltaWithTokenGetResponse(writer: SerializationWriter, deltaWithTokenGetResponse: Partial<DeltaWithTokenGetResponse> | undefined | null = {}) : void {
-    if (deltaWithTokenGetResponse) {
-        serializeBaseDeltaFunctionResponse(writer, deltaWithTokenGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", deltaWithTokenGetResponse.value, serializeDriveItem);
+export function serializeDeltaWithTokengetResponse(writer: SerializationWriter, deltaWithTokengetResponse: Partial<DeltaWithTokengetResponse> | undefined | null = {}) : void {
+    if (deltaWithTokengetResponse) {
+        serializeBaseDeltaFunctionResponse(writer, deltaWithTokengetResponse)
+        writer.writeCollectionOfObjectValues<DriveItem>("value", deltaWithTokengetResponse.value, serializeDriveItem);
     }
 }
 /**
@@ -128,7 +128,7 @@ export const DeltaWithTokenRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createDeltaWithTokenGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createDeltaWithTokengetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaWithTokenRequestBuilderGetQueryParametersMapper,
     },
 };

@@ -18,11 +18,11 @@ export function createFavoritePostRequestBodyFromDiscriminatorValue(parseNode: P
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {FavoritePostResponse}
+ * @returns {FavoritepostResponse}
  */
 // @ts-ignore
-export function createFavoritePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoFavoritePostResponse;
+export function createFavoritepostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoFavoritepostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -40,10 +40,10 @@ export function deserializeIntoFavoritePostRequestBody(favoritePostRequestBody: 
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoFavoritePostResponse(favoritePostResponse: Partial<FavoritePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFavoritepostResponse(favoritepostResponse: Partial<FavoritepostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { favoritePostResponse.backingStoreEnabled = true; },
-        "value": n => { favoritePostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { favoritepostResponse.backingStoreEnabled = true; },
+        "value": n => { favoritepostResponse.value = n.getBooleanValue(); },
     }
 }
 export interface FavoritePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -60,7 +60,7 @@ export interface FavoritePostRequestBody extends AdditionalDataHolder, BackedMod
      */
     messageIds?: string[] | null;
 }
-export interface FavoritePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface FavoritepostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -82,11 +82,11 @@ export interface FavoriteRequestBuilder extends BaseRequestBuilder<FavoriteReque
      * Change the status of a list of serviceUpdateMessages to favorite for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<FavoritePostResponse>}
+     * @returns {Promise<FavoritepostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-favorite?view=graph-rest-1.0|Find more info here}
      */
-     post(body: FavoritePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FavoritePostResponse | undefined>;
+     post(body: FavoritePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FavoritepostResponse | undefined>;
     /**
      * Change the status of a list of serviceUpdateMessages to favorite for the signed in user.
      * @param body The request body
@@ -111,10 +111,10 @@ export function serializeFavoritePostRequestBody(writer: SerializationWriter, fa
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFavoritePostResponse(writer: SerializationWriter, favoritePostResponse: Partial<FavoritePostResponse> | undefined | null = {}) : void {
-    if (favoritePostResponse) {
-        writer.writeBooleanValue("value", favoritePostResponse.value);
-        writer.writeAdditionalData(favoritePostResponse.additionalData);
+export function serializeFavoritepostResponse(writer: SerializationWriter, favoritepostResponse: Partial<FavoritepostResponse> | undefined | null = {}) : void {
+    if (favoritepostResponse) {
+        writer.writeBooleanValue("value", favoritepostResponse.value);
+        writer.writeAdditionalData(favoritepostResponse.additionalData);
     }
 }
 /**
@@ -132,7 +132,7 @@ export const FavoriteRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createFavoritePostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createFavoritepostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeFavoritePostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

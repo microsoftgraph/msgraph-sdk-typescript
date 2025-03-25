@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetByUserIdAndRoleWithUserIdWithRoleGetResponse}
+ * @returns {GetByUserIdAndRoleWithUserIdWithRolegetResponse}
  */
 // @ts-ignore
-export function createGetByUserIdAndRoleWithUserIdWithRoleGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetByUserIdAndRoleWithUserIdWithRoleGetResponse;
+export function createGetByUserIdAndRoleWithUserIdWithRolegetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetByUserIdAndRoleWithUserIdWithRolegetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetByUserIdAndRoleWithUserIdWithRoleGetResponse(getByUserIdAndRoleWithUserIdWithRoleGetResponse: Partial<GetByUserIdAndRoleWithUserIdWithRoleGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetByUserIdAndRoleWithUserIdWithRolegetResponse(getByUserIdAndRoleWithUserIdWithRolegetResponse: Partial<GetByUserIdAndRoleWithUserIdWithRolegetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getByUserIdAndRoleWithUserIdWithRoleGetResponse),
-        "value": n => { getByUserIdAndRoleWithUserIdWithRoleGetResponse.value = n.getCollectionOfObjectValues<VirtualEventWebinar>(createVirtualEventWebinarFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getByUserIdAndRoleWithUserIdWithRolegetResponse),
+        "value": n => { getByUserIdAndRoleWithUserIdWithRolegetResponse.value = n.getCollectionOfObjectValues<VirtualEventWebinar>(createVirtualEventWebinarFromDiscriminatorValue); },
     }
 }
-export interface GetByUserIdAndRoleWithUserIdWithRoleGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetByUserIdAndRoleWithUserIdWithRolegetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder extends Base
     /**
      * Get a virtualEventWebinar collection where the specified user is either the organizer or a coorganizer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetByUserIdAndRoleWithUserIdWithRoleGetResponse>}
+     * @returns {Promise<GetByUserIdAndRoleWithUserIdWithRolegetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/virtualeventwebinar-getbyuseridandrole?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParameters> | undefined) : Promise<GetByUserIdAndRoleWithUserIdWithRoleGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParameters> | undefined) : Promise<GetByUserIdAndRoleWithUserIdWithRolegetResponse | undefined>;
     /**
      * Get a virtualEventWebinar collection where the specified user is either the organizer or a coorganizer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParam
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetByUserIdAndRoleWithUserIdWithRoleGetResponse(writer: SerializationWriter, getByUserIdAndRoleWithUserIdWithRoleGetResponse: Partial<GetByUserIdAndRoleWithUserIdWithRoleGetResponse> | undefined | null = {}) : void {
-    if (getByUserIdAndRoleWithUserIdWithRoleGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getByUserIdAndRoleWithUserIdWithRoleGetResponse)
-        writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserIdAndRoleWithUserIdWithRoleGetResponse.value, serializeVirtualEventWebinar);
+export function serializeGetByUserIdAndRoleWithUserIdWithRolegetResponse(writer: SerializationWriter, getByUserIdAndRoleWithUserIdWithRolegetResponse: Partial<GetByUserIdAndRoleWithUserIdWithRolegetResponse> | undefined | null = {}) : void {
+    if (getByUserIdAndRoleWithUserIdWithRolegetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getByUserIdAndRoleWithUserIdWithRolegetResponse)
+        writer.writeCollectionOfObjectValues<VirtualEventWebinar>("value", getByUserIdAndRoleWithUserIdWithRolegetResponse.value, serializeVirtualEventWebinar);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderRequestsMetadata:
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetByUserIdAndRoleWithUserIdWithRoleGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetByUserIdAndRoleWithUserIdWithRolegetResponseFromDiscriminatorValue,
         queryParametersMapper: GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParametersMapper,
     },
 };

@@ -20,11 +20,11 @@ export function createGrantPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GrantPostResponse}
+ * @returns {GrantpostResponse}
  */
 // @ts-ignore
-export function createGrantPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGrantPostResponse;
+export function createGrantpostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGrantpostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -43,10 +43,10 @@ export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: Partia
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGrantPostResponse(grantPostResponse: Partial<GrantPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGrantpostResponse(grantpostResponse: Partial<GrantpostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(grantPostResponse),
-        "value": n => { grantPostResponse.value = n.getCollectionOfObjectValues<Permission>(createPermissionFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(grantpostResponse),
+        "value": n => { grantpostResponse.value = n.getCollectionOfObjectValues<Permission>(createPermissionFromDiscriminatorValue); },
     }
 }
 export interface GrantPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -67,7 +67,7 @@ export interface GrantPostRequestBody extends AdditionalDataHolder, BackedModel,
      */
     roles?: string[] | null;
 }
-export interface GrantPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GrantpostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -81,11 +81,11 @@ export interface GrantRequestBuilder extends BaseRequestBuilder<GrantRequestBuil
      * Grant users access to a link represented by a permission.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GrantPostResponse>}
+     * @returns {Promise<GrantpostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/permission-grant?view=graph-rest-1.0|Find more info here}
      */
-     post(body: GrantPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GrantPostResponse | undefined>;
+     post(body: GrantPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GrantpostResponse | undefined>;
     /**
      * Grant users access to a link represented by a permission.
      * @param body The request body
@@ -111,10 +111,10 @@ export function serializeGrantPostRequestBody(writer: SerializationWriter, grant
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGrantPostResponse(writer: SerializationWriter, grantPostResponse: Partial<GrantPostResponse> | undefined | null = {}) : void {
-    if (grantPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, grantPostResponse)
-        writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, serializePermission);
+export function serializeGrantpostResponse(writer: SerializationWriter, grantpostResponse: Partial<GrantpostResponse> | undefined | null = {}) : void {
+    if (grantpostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, grantpostResponse)
+        writer.writeCollectionOfObjectValues<Permission>("value", grantpostResponse.value, serializePermission);
     }
 }
 /**
@@ -132,7 +132,7 @@ export const GrantRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGrantPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGrantpostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeGrantPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

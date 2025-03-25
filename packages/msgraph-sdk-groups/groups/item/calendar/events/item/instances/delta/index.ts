@@ -11,13 +11,13 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {DeltaGetResponse}
+ * @returns {DeltagetResponse}
  */
 // @ts-ignore
-export function createDeltaGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoDeltaGetResponse;
+export function createDeltagetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDeltagetResponse;
 }
-export interface DeltaGetResponse extends BaseDeltaFunctionResponse, Parsable {
+export interface DeltagetResponse extends BaseDeltaFunctionResponse, Parsable {
     /**
      * The value property
      */
@@ -30,11 +30,11 @@ export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuil
     /**
      * Get a set of event resources that have been added, deleted, or updated in a calendarView (a range of events defined by start and end dates) of the user's primary calendar. Typically, synchronizing events in a calendarView in a local store entails a round of multiple delta function calls. The initial call is a full synchronization, and every subsequent delta call in the same round gets the incremental changes (additions, deletions, or updates). This allows you to maintain and synchronize a local store of events in the specified calendarView, without having to fetch all the events of that calendar from the server every time.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<DeltaGetResponse>}
+     * @returns {Promise<DeltagetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/event-delta?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltagetResponse | undefined>;
     /**
      * Get a set of event resources that have been added, deleted, or updated in a calendarView (a range of events defined by start and end dates) of the user's primary calendar. Typically, synchronizing events in a calendarView in a local store entails a round of multiple delta function calls. The initial call is a full synchronization, and every subsequent delta call in the same round gets the incremental changes (additions, deletions, or updates). This allows you to maintain and synchronize a local store of events in the specified calendarView, without having to fetch all the events of that calendar from the server every time.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -92,10 +92,10 @@ export interface DeltaRequestBuilderGetQueryParameters {
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDeltagetResponse(deltagetResponse: Partial<DeltagetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseDeltaFunctionResponse(deltaGetResponse),
-        "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<Event>(createEventFromDiscriminatorValue); },
+        ...deserializeIntoBaseDeltaFunctionResponse(deltagetResponse),
+        "value": n => { deltagetResponse.value = n.getCollectionOfObjectValues<Event>(createEventFromDiscriminatorValue); },
     }
 }
 /**
@@ -103,10 +103,10 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: Partial<DeltaGetResponse> | undefined | null = {}) : void {
-    if (deltaGetResponse) {
-        serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-        writer.writeCollectionOfObjectValues<Event>("value", deltaGetResponse.value, serializeEvent);
+export function serializeDeltagetResponse(writer: SerializationWriter, deltagetResponse: Partial<DeltagetResponse> | undefined | null = {}) : void {
+    if (deltagetResponse) {
+        serializeBaseDeltaFunctionResponse(writer, deltagetResponse)
+        writer.writeCollectionOfObjectValues<Event>("value", deltagetResponse.value, serializeEvent);
     }
 }
 /**
@@ -137,7 +137,7 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createDeltagetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };

@@ -20,11 +20,11 @@ export function createTranslateExchangeIdsPostRequestBodyFromDiscriminatorValue(
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {TranslateExchangeIdsPostResponse}
+ * @returns {TranslateExchangeIdspostResponse}
  */
 // @ts-ignore
-export function createTranslateExchangeIdsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoTranslateExchangeIdsPostResponse;
+export function createTranslateExchangeIdspostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTranslateExchangeIdspostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -44,10 +44,10 @@ export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExch
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoTranslateExchangeIdsPostResponse(translateExchangeIdsPostResponse: Partial<TranslateExchangeIdsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoTranslateExchangeIdspostResponse(translateExchangeIdspostResponse: Partial<TranslateExchangeIdspostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(translateExchangeIdsPostResponse),
-        "value": n => { translateExchangeIdsPostResponse.value = n.getCollectionOfObjectValues<ConvertIdResult>(createConvertIdResultFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(translateExchangeIdspostResponse),
+        "value": n => { translateExchangeIdspostResponse.value = n.getCollectionOfObjectValues<ConvertIdResult>(createConvertIdResultFromDiscriminatorValue); },
     }
 }
 /**
@@ -68,10 +68,10 @@ export function serializeTranslateExchangeIdsPostRequestBody(writer: Serializati
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTranslateExchangeIdsPostResponse(writer: SerializationWriter, translateExchangeIdsPostResponse: Partial<TranslateExchangeIdsPostResponse> | undefined | null = {}) : void {
-    if (translateExchangeIdsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, translateExchangeIdsPostResponse)
-        writer.writeCollectionOfObjectValues<ConvertIdResult>("value", translateExchangeIdsPostResponse.value, serializeConvertIdResult);
+export function serializeTranslateExchangeIdspostResponse(writer: SerializationWriter, translateExchangeIdspostResponse: Partial<TranslateExchangeIdspostResponse> | undefined | null = {}) : void {
+    if (translateExchangeIdspostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, translateExchangeIdspostResponse)
+        writer.writeCollectionOfObjectValues<ConvertIdResult>("value", translateExchangeIdspostResponse.value, serializeConvertIdResult);
     }
 }
 export interface TranslateExchangeIdsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -96,7 +96,7 @@ export interface TranslateExchangeIdsPostRequestBody extends AdditionalDataHolde
      */
     targetIdType?: ExchangeIdFormat | null;
 }
-export interface TranslateExchangeIdsPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface TranslateExchangeIdspostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -110,11 +110,11 @@ export interface TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder<T
      * Translate identifiers of Outlook-related resources between formats.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<TranslateExchangeIdsPostResponse>}
+     * @returns {Promise<TranslateExchangeIdspostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-translateexchangeids?view=graph-rest-1.0|Find more info here}
      */
-     post(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TranslateExchangeIdsPostResponse | undefined>;
+     post(body: TranslateExchangeIdsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TranslateExchangeIdspostResponse | undefined>;
     /**
      * Translate identifiers of Outlook-related resources between formats.
      * @param body The request body
@@ -138,7 +138,7 @@ export const TranslateExchangeIdsRequestBuilderRequestsMetadata: RequestsMetadat
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createTranslateExchangeIdsPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createTranslateExchangeIdspostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeTranslateExchangeIdsPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

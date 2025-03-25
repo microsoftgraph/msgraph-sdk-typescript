@@ -9,24 +9,24 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {RevokeSignInSessionsPostResponse}
+ * @returns {RevokeSignInSessionspostResponse}
  */
 // @ts-ignore
-export function createRevokeSignInSessionsPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoRevokeSignInSessionsPostResponse;
+export function createRevokeSignInSessionspostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRevokeSignInSessionspostResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoRevokeSignInSessionsPostResponse(revokeSignInSessionsPostResponse: Partial<RevokeSignInSessionsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRevokeSignInSessionspostResponse(revokeSignInSessionspostResponse: Partial<RevokeSignInSessionspostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { revokeSignInSessionsPostResponse.backingStoreEnabled = true; },
-        "value": n => { revokeSignInSessionsPostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { revokeSignInSessionspostResponse.backingStoreEnabled = true; },
+        "value": n => { revokeSignInSessionspostResponse.value = n.getBooleanValue(); },
     }
 }
-export interface RevokeSignInSessionsPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface RevokeSignInSessionspostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -47,11 +47,11 @@ export interface RevokeSignInSessionsRequestBuilder extends BaseRequestBuilder<R
     /**
      * Invalidates all the refresh tokens issued to applications for a user (and session cookies in a user's browser), by resetting the signInSessionsValidFromDateTime user property to the current date-time. Typically, this operation is performed (by the user or an administrator) if the user has a lost or stolen device. This operation prevents access to the organization's data through applications on the device by requiring the user to sign in again to all applications that they consented to previously, independent of device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<RevokeSignInSessionsPostResponse>}
+     * @returns {Promise<RevokeSignInSessionspostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/user-revokesigninsessions?view=graph-rest-1.0|Find more info here}
      */
-     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RevokeSignInSessionsPostResponse | undefined>;
+     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RevokeSignInSessionspostResponse | undefined>;
     /**
      * Invalidates all the refresh tokens issued to applications for a user (and session cookies in a user's browser), by resetting the signInSessionsValidFromDateTime user property to the current date-time. Typically, this operation is performed (by the user or an administrator) if the user has a lost or stolen device. This operation prevents access to the organization's data through applications on the device by requiring the user to sign in again to all applications that they consented to previously, independent of device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -64,10 +64,10 @@ export interface RevokeSignInSessionsRequestBuilder extends BaseRequestBuilder<R
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRevokeSignInSessionsPostResponse(writer: SerializationWriter, revokeSignInSessionsPostResponse: Partial<RevokeSignInSessionsPostResponse> | undefined | null = {}) : void {
-    if (revokeSignInSessionsPostResponse) {
-        writer.writeBooleanValue("value", revokeSignInSessionsPostResponse.value);
-        writer.writeAdditionalData(revokeSignInSessionsPostResponse.additionalData);
+export function serializeRevokeSignInSessionspostResponse(writer: SerializationWriter, revokeSignInSessionspostResponse: Partial<RevokeSignInSessionspostResponse> | undefined | null = {}) : void {
+    if (revokeSignInSessionspostResponse) {
+        writer.writeBooleanValue("value", revokeSignInSessionspostResponse.value);
+        writer.writeAdditionalData(revokeSignInSessionspostResponse.additionalData);
     }
 }
 /**
@@ -85,7 +85,7 @@ export const RevokeSignInSessionsRequestBuilderRequestsMetadata: RequestsMetadat
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createRevokeSignInSessionsPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createRevokeSignInSessionspostResponseFromDiscriminatorValue,
     },
 };
 /* tslint:enable */

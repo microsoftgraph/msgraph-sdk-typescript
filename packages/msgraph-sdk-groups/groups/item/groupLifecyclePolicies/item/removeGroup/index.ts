@@ -18,11 +18,11 @@ export function createRemoveGroupPostRequestBodyFromDiscriminatorValue(parseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {RemoveGroupPostResponse}
+ * @returns {RemoveGrouppostResponse}
  */
 // @ts-ignore
-export function createRemoveGroupPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoRemoveGroupPostResponse;
+export function createRemoveGrouppostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRemoveGrouppostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -40,10 +40,10 @@ export function deserializeIntoRemoveGroupPostRequestBody(removeGroupPostRequest
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoRemoveGroupPostResponse(removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRemoveGrouppostResponse(removeGrouppostResponse: Partial<RemoveGrouppostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { removeGroupPostResponse.backingStoreEnabled = true; },
-        "value": n => { removeGroupPostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { removeGrouppostResponse.backingStoreEnabled = true; },
+        "value": n => { removeGrouppostResponse.value = n.getBooleanValue(); },
     }
 }
 export interface RemoveGroupPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -60,7 +60,7 @@ export interface RemoveGroupPostRequestBody extends AdditionalDataHolder, Backed
      */
     groupId?: string | null;
 }
-export interface RemoveGroupPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface RemoveGrouppostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -82,11 +82,11 @@ export interface RemoveGroupRequestBuilder extends BaseRequestBuilder<RemoveGrou
      * Removes a group from a lifecycle policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<RemoveGroupPostResponse>}
+     * @returns {Promise<RemoveGrouppostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-removegroup?view=graph-rest-1.0|Find more info here}
      */
-     post(body: RemoveGroupPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RemoveGroupPostResponse | undefined>;
+     post(body: RemoveGroupPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RemoveGrouppostResponse | undefined>;
     /**
      * Removes a group from a lifecycle policy.
      * @param body The request body
@@ -111,10 +111,10 @@ export function serializeRemoveGroupPostRequestBody(writer: SerializationWriter,
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRemoveGroupPostResponse(writer: SerializationWriter, removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined | null = {}) : void {
-    if (removeGroupPostResponse) {
-        writer.writeBooleanValue("value", removeGroupPostResponse.value);
-        writer.writeAdditionalData(removeGroupPostResponse.additionalData);
+export function serializeRemoveGrouppostResponse(writer: SerializationWriter, removeGrouppostResponse: Partial<RemoveGrouppostResponse> | undefined | null = {}) : void {
+    if (removeGrouppostResponse) {
+        writer.writeBooleanValue("value", removeGrouppostResponse.value);
+        writer.writeAdditionalData(removeGrouppostResponse.additionalData);
     }
 }
 /**
@@ -132,7 +132,7 @@ export const RemoveGroupRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createRemoveGroupPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createRemoveGrouppostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRemoveGroupPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

@@ -11,21 +11,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {SupportedTimeZonesWithTimeZoneStandardGetResponse}
+ * @returns {SupportedTimeZonesWithTimeZoneStandardgetResponse}
  */
 // @ts-ignore
-export function createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse;
+export function createSupportedTimeZonesWithTimeZoneStandardgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSupportedTimeZonesWithTimeZoneStandardgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse(supportedTimeZonesWithTimeZoneStandardGetResponse: Partial<SupportedTimeZonesWithTimeZoneStandardGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardgetResponse(supportedTimeZonesWithTimeZoneStandardgetResponse: Partial<SupportedTimeZonesWithTimeZoneStandardgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(supportedTimeZonesWithTimeZoneStandardGetResponse),
-        "value": n => { supportedTimeZonesWithTimeZoneStandardGetResponse.value = n.getCollectionOfObjectValues<TimeZoneInformation>(createTimeZoneInformationFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(supportedTimeZonesWithTimeZoneStandardgetResponse),
+        "value": n => { supportedTimeZonesWithTimeZoneStandardgetResponse.value = n.getCollectionOfObjectValues<TimeZoneInformation>(createTimeZoneInformationFromDiscriminatorValue); },
     }
 }
 /**
@@ -33,13 +33,13 @@ export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSupportedTimeZonesWithTimeZoneStandardGetResponse(writer: SerializationWriter, supportedTimeZonesWithTimeZoneStandardGetResponse: Partial<SupportedTimeZonesWithTimeZoneStandardGetResponse> | undefined | null = {}) : void {
-    if (supportedTimeZonesWithTimeZoneStandardGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesWithTimeZoneStandardGetResponse)
-        writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesWithTimeZoneStandardGetResponse.value, serializeTimeZoneInformation);
+export function serializeSupportedTimeZonesWithTimeZoneStandardgetResponse(writer: SerializationWriter, supportedTimeZonesWithTimeZoneStandardgetResponse: Partial<SupportedTimeZonesWithTimeZoneStandardgetResponse> | undefined | null = {}) : void {
+    if (supportedTimeZonesWithTimeZoneStandardgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesWithTimeZoneStandardgetResponse)
+        writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesWithTimeZoneStandardgetResponse.value, serializeTimeZoneInformation);
     }
 }
-export interface SupportedTimeZonesWithTimeZoneStandardGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface SupportedTimeZonesWithTimeZoneStandardgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -52,10 +52,10 @@ export interface SupportedTimeZonesWithTimeZoneStandardRequestBuilder extends Ba
     /**
      * Invoke function supportedTimeZones
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<SupportedTimeZonesWithTimeZoneStandardGetResponse>}
+     * @returns {Promise<SupportedTimeZonesWithTimeZoneStandardgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters> | undefined) : Promise<SupportedTimeZonesWithTimeZoneStandardGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParameters> | undefined) : Promise<SupportedTimeZonesWithTimeZoneStandardgetResponse | undefined>;
     /**
      * Invoke function supportedTimeZones
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -113,7 +113,7 @@ export const SupportedTimeZonesWithTimeZoneStandardRequestBuilderRequestsMetadat
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createSupportedTimeZonesWithTimeZoneStandardgetResponseFromDiscriminatorValue,
         queryParametersMapper: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetQueryParametersMapper,
     },
 };

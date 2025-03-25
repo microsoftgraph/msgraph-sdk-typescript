@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse}
+ * @returns {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse}
  */
 // @ts-ignore
-export function createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse;
+export function createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse),
-        "value": n => { getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse.value = n.getCollectionOfObjectValues<ItemActivityStat>(createItemActivityStatFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse),
+        "value": n => { getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse.value = n.getCollectionOfObjectValues<ItemActivityStat>(createItemActivityStatFromDiscriminatorValue); },
     }
 }
-export interface GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,10 +41,10 @@ export interface GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInte
     /**
      * Invoke function getActivitiesByInterval
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse>}
+     * @returns {Promise<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
-     get(requestConfiguration?: RequestConfiguration<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderGetQueryParameters> | undefined) : Promise<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderGetQueryParameters> | undefined) : Promise<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse | undefined>;
     /**
      * Invoke function getActivitiesByInterval
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -94,10 +94,10 @@ export interface GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInte
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse> | undefined | null = {}) : void {
-    if (getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse)
-        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse.value, serializeItemActivityStat);
+export function serializeGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse(writer: SerializationWriter, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse> | undefined | null = {}) : void {
+    if (getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse)
+        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponse.value, serializeItemActivityStat);
     }
 }
 /**
@@ -128,7 +128,7 @@ export const GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderGetQueryParametersMapper,
     },
 };

@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {FunctionsGetResponse}
+ * @returns {FunctionsgetResponse}
  */
 // @ts-ignore
-export function createFunctionsGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoFunctionsGetResponse;
+export function createFunctionsgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoFunctionsgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoFunctionsGetResponse(functionsGetResponse: Partial<FunctionsGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFunctionsgetResponse(functionsgetResponse: Partial<FunctionsgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(functionsGetResponse),
-        "value": n => { functionsGetResponse.value = n.getCollectionOfObjectValues<AttributeMappingFunctionSchema>(createAttributeMappingFunctionSchemaFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(functionsgetResponse),
+        "value": n => { functionsgetResponse.value = n.getCollectionOfObjectValues<AttributeMappingFunctionSchema>(createAttributeMappingFunctionSchemaFromDiscriminatorValue); },
     }
 }
-export interface FunctionsGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface FunctionsgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface FunctionsRequestBuilder extends BaseRequestBuilder<FunctionsReq
     /**
      * List all the functions currently supported in the attributeMappingSource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<FunctionsGetResponse>}
+     * @returns {Promise<FunctionsgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-functions?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<FunctionsRequestBuilderGetQueryParameters> | undefined) : Promise<FunctionsGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<FunctionsRequestBuilderGetQueryParameters> | undefined) : Promise<FunctionsgetResponse | undefined>;
     /**
      * List all the functions currently supported in the attributeMappingSource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface FunctionsRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFunctionsGetResponse(writer: SerializationWriter, functionsGetResponse: Partial<FunctionsGetResponse> | undefined | null = {}) : void {
-    if (functionsGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, functionsGetResponse)
-        writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsGetResponse.value, serializeAttributeMappingFunctionSchema);
+export function serializeFunctionsgetResponse(writer: SerializationWriter, functionsgetResponse: Partial<FunctionsgetResponse> | undefined | null = {}) : void {
+    if (functionsgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, functionsgetResponse)
+        writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsgetResponse.value, serializeAttributeMappingFunctionSchema);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const FunctionsRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createFunctionsGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createFunctionsgetResponseFromDiscriminatorValue,
         queryParametersMapper: FunctionsRequestBuilderGetQueryParametersMapper,
     },
 };

@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetAllMessagesGetResponse}
+ * @returns {GetAllMessagesgetResponse}
  */
 // @ts-ignore
-export function createGetAllMessagesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetAllMessagesGetResponse;
+export function createGetAllMessagesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetAllMessagesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetAllMessagesGetResponse(getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetAllMessagesgetResponse(getAllMessagesgetResponse: Partial<GetAllMessagesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getAllMessagesGetResponse),
-        "value": n => { getAllMessagesGetResponse.value = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getAllMessagesgetResponse),
+        "value": n => { getAllMessagesgetResponse.value = n.getCollectionOfObjectValues<ChatMessage>(createChatMessageFromDiscriminatorValue); },
     }
 }
-export interface GetAllMessagesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetAllMessagesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetAllMessagesRequestBuilder extends BaseRequestBuilder<GetAllM
     /**
      * Get all messages from all chats that a user is a participant in, including one-on-one chats, group chats, and meeting chats.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetAllMessagesGetResponse>}
+     * @returns {Promise<GetAllMessagesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/chats-getallmessages?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllMessagesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllMessagesgetResponse | undefined>;
     /**
      * Get all messages from all chats that a user is a participant in, including one-on-one chats, group chats, and meeting chats.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -99,10 +99,10 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined | null = {}) : void {
-    if (getAllMessagesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesGetResponse)
-        writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
+export function serializeGetAllMessagesgetResponse(writer: SerializationWriter, getAllMessagesgetResponse: Partial<GetAllMessagesgetResponse> | undefined | null = {}) : void {
+    if (getAllMessagesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesgetResponse)
+        writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesgetResponse.value, serializeChatMessage);
     }
 }
 /**
@@ -133,7 +133,7 @@ export const GetAllMessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetAllMessagesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetAllMessagesgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetAllMessagesRequestBuilderGetQueryParametersMapper,
     },
 };

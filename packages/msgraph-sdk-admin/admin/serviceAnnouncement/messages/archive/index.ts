@@ -20,7 +20,7 @@ export interface ArchivePostRequestBody extends AdditionalDataHolder, BackedMode
      */
     messageIds?: string[] | null;
 }
-export interface ArchivePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
+export interface ArchivepostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
@@ -42,11 +42,11 @@ export interface ArchiveRequestBuilder extends BaseRequestBuilder<ArchiveRequest
      * Archive a list of serviceUpdateMessages for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<ArchivePostResponse>}
+     * @returns {Promise<ArchivepostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0|Find more info here}
      */
-     post(body: ArchivePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArchivePostResponse | undefined>;
+     post(body: ArchivePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArchivepostResponse | undefined>;
     /**
      * Archive a list of serviceUpdateMessages for the signed in user.
      * @param body The request body
@@ -67,11 +67,11 @@ export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: Pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {ArchivePostResponse}
+ * @returns {ArchivepostResponse}
  */
 // @ts-ignore
-export function createArchivePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoArchivePostResponse;
+export function createArchivepostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoArchivepostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -89,10 +89,10 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Pa
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoArchivePostResponse(archivePostResponse: Partial<ArchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoArchivepostResponse(archivepostResponse: Partial<ArchivepostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "backingStoreEnabled": n => { archivePostResponse.backingStoreEnabled = true; },
-        "value": n => { archivePostResponse.value = n.getBooleanValue(); },
+        "backingStoreEnabled": n => { archivepostResponse.backingStoreEnabled = true; },
+        "value": n => { archivepostResponse.value = n.getBooleanValue(); },
     }
 }
 /**
@@ -111,10 +111,10 @@ export function serializeArchivePostRequestBody(writer: SerializationWriter, arc
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeArchivePostResponse(writer: SerializationWriter, archivePostResponse: Partial<ArchivePostResponse> | undefined | null = {}) : void {
-    if (archivePostResponse) {
-        writer.writeBooleanValue("value", archivePostResponse.value);
-        writer.writeAdditionalData(archivePostResponse.additionalData);
+export function serializeArchivepostResponse(writer: SerializationWriter, archivepostResponse: Partial<ArchivepostResponse> | undefined | null = {}) : void {
+    if (archivepostResponse) {
+        writer.writeBooleanValue("value", archivepostResponse.value);
+        writer.writeAdditionalData(archivepostResponse.additionalData);
     }
 }
 /**
@@ -132,7 +132,7 @@ export const ArchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createArchivePostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createArchivepostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeArchivePostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

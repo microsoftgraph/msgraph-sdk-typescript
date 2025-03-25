@@ -20,11 +20,11 @@ export function createImportPostRequestBodyFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {ImportPostResponse}
+ * @returns {ImportpostResponse}
  */
 // @ts-ignore
-export function createImportPostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoImportPostResponse;
+export function createImportpostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoImportpostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -42,10 +42,10 @@ export function deserializeIntoImportPostRequestBody(importPostRequestBody: Part
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoImportPostResponse(importPostResponse: Partial<ImportPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoImportpostResponse(importpostResponse: Partial<ImportpostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(importPostResponse),
-        "value": n => { importPostResponse.value = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(importpostResponse),
+        "value": n => { importpostResponse.value = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
     }
 }
 export interface ImportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -62,7 +62,7 @@ export interface ImportPostRequestBody extends AdditionalDataHolder, BackedModel
      */
     importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | null;
 }
-export interface ImportPostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface ImportpostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -76,11 +76,11 @@ export interface ImportRequestBuilder extends BaseRequestBuilder<ImportRequestBu
      * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<ImportPostResponse>}
+     * @returns {Promise<ImportpostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-importedwindowsautopilotdeviceidentity-import?view=graph-rest-1.0|Find more info here}
      */
-     post(body: ImportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImportPostResponse | undefined>;
+     post(body: ImportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ImportpostResponse | undefined>;
     /**
      * Not yet documented
      * @param body The request body
@@ -105,10 +105,10 @@ export function serializeImportPostRequestBody(writer: SerializationWriter, impo
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImportPostResponse(writer: SerializationWriter, importPostResponse: Partial<ImportPostResponse> | undefined | null = {}) : void {
-    if (importPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, importPostResponse)
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importPostResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
+export function serializeImportpostResponse(writer: SerializationWriter, importpostResponse: Partial<ImportpostResponse> | undefined | null = {}) : void {
+    if (importpostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, importpostResponse)
+        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importpostResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const ImportRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createImportPostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createImportpostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeImportPostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

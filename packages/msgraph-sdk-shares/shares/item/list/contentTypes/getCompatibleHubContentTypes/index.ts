@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {GetCompatibleHubContentTypesGetResponse}
+ * @returns {GetCompatibleHubContentTypesgetResponse}
  */
 // @ts-ignore
-export function createGetCompatibleHubContentTypesGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoGetCompatibleHubContentTypesGetResponse;
+export function createGetCompatibleHubContentTypesgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetCompatibleHubContentTypesgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoGetCompatibleHubContentTypesGetResponse(getCompatibleHubContentTypesGetResponse: Partial<GetCompatibleHubContentTypesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoGetCompatibleHubContentTypesgetResponse(getCompatibleHubContentTypesgetResponse: Partial<GetCompatibleHubContentTypesgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(getCompatibleHubContentTypesGetResponse),
-        "value": n => { getCompatibleHubContentTypesGetResponse.value = n.getCollectionOfObjectValues<ContentType>(createContentTypeFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(getCompatibleHubContentTypesgetResponse),
+        "value": n => { getCompatibleHubContentTypesgetResponse.value = n.getCollectionOfObjectValues<ContentType>(createContentTypeFromDiscriminatorValue); },
     }
 }
-export interface GetCompatibleHubContentTypesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface GetCompatibleHubContentTypesgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface GetCompatibleHubContentTypesRequestBuilder extends BaseRequestB
     /**
      * Get a list of compatible content types from the content type hub that can be added to a target site or a list. This method is part of the content type publishing changes to optimize the syncing of published content types to sites and lists, effectively switching from a 'push everywhere' to 'pull as needed' approach. The method allows users to pull content types directly from the content type hub to a site or list. For more information, see contentType: addCopyFromContentTypeHub and the blog post Syntex Product Updates – August 2021.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<GetCompatibleHubContentTypesGetResponse>}
+     * @returns {Promise<GetCompatibleHubContentTypesgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-getcompatiblehubcontenttypes?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<GetCompatibleHubContentTypesRequestBuilderGetQueryParameters> | undefined) : Promise<GetCompatibleHubContentTypesGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<GetCompatibleHubContentTypesRequestBuilderGetQueryParameters> | undefined) : Promise<GetCompatibleHubContentTypesgetResponse | undefined>;
     /**
      * Get a list of compatible content types from the content type hub that can be added to a target site or a list. This method is part of the content type publishing changes to optimize the syncing of published content types to sites and lists, effectively switching from a 'push everywhere' to 'pull as needed' approach. The method allows users to pull content types directly from the content type hub to a site or list. For more information, see contentType: addCopyFromContentTypeHub and the blog post Syntex Product Updates – August 2021.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface GetCompatibleHubContentTypesRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetCompatibleHubContentTypesGetResponse(writer: SerializationWriter, getCompatibleHubContentTypesGetResponse: Partial<GetCompatibleHubContentTypesGetResponse> | undefined | null = {}) : void {
-    if (getCompatibleHubContentTypesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getCompatibleHubContentTypesGetResponse)
-        writer.writeCollectionOfObjectValues<ContentType>("value", getCompatibleHubContentTypesGetResponse.value, serializeContentType);
+export function serializeGetCompatibleHubContentTypesgetResponse(writer: SerializationWriter, getCompatibleHubContentTypesgetResponse: Partial<GetCompatibleHubContentTypesgetResponse> | undefined | null = {}) : void {
+    if (getCompatibleHubContentTypesgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, getCompatibleHubContentTypesgetResponse)
+        writer.writeCollectionOfObjectValues<ContentType>("value", getCompatibleHubContentTypesgetResponse.value, serializeContentType);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const GetCompatibleHubContentTypesRequestBuilderRequestsMetadata: Request
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createGetCompatibleHubContentTypesGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createGetCompatibleHubContentTypesgetResponseFromDiscriminatorValue,
         queryParametersMapper: GetCompatibleHubContentTypesRequestBuilderGetQueryParametersMapper,
     },
 };

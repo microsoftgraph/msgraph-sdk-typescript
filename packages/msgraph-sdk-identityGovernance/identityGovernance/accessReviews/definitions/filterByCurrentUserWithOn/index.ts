@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {FilterByCurrentUserWithOnGetResponse}
+ * @returns {FilterByCurrentUserWithOngetResponse}
  */
 // @ts-ignore
-export function createFilterByCurrentUserWithOnGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoFilterByCurrentUserWithOnGetResponse;
+export function createFilterByCurrentUserWithOngetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoFilterByCurrentUserWithOngetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoFilterByCurrentUserWithOnGetResponse(filterByCurrentUserWithOnGetResponse: Partial<FilterByCurrentUserWithOnGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoFilterByCurrentUserWithOngetResponse(filterByCurrentUserWithOngetResponse: Partial<FilterByCurrentUserWithOngetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(filterByCurrentUserWithOnGetResponse),
-        "value": n => { filterByCurrentUserWithOnGetResponse.value = n.getCollectionOfObjectValues<AccessReviewScheduleDefinition>(createAccessReviewScheduleDefinitionFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(filterByCurrentUserWithOngetResponse),
+        "value": n => { filterByCurrentUserWithOngetResponse.value = n.getCollectionOfObjectValues<AccessReviewScheduleDefinition>(createAccessReviewScheduleDefinitionFromDiscriminatorValue); },
     }
 }
-export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface FilterByCurrentUserWithOngetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface FilterByCurrentUserWithOnRequestBuilder extends BaseRequestBuil
     /**
      * Returns accessReviewScheduleDefinition objects where the calling user is a reviewer on one or more accessReviewInstance objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<FilterByCurrentUserWithOnGetResponse>}
+     * @returns {Promise<FilterByCurrentUserWithOngetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-filterbycurrentuser?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<FilterByCurrentUserWithOnRequestBuilderGetQueryParameters> | undefined) : Promise<FilterByCurrentUserWithOnGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<FilterByCurrentUserWithOnRequestBuilderGetQueryParameters> | undefined) : Promise<FilterByCurrentUserWithOngetResponse | undefined>;
     /**
      * Returns accessReviewScheduleDefinition objects where the calling user is a reviewer on one or more accessReviewInstance objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: Partial<FilterByCurrentUserWithOnGetResponse> | undefined | null = {}) : void {
-    if (filterByCurrentUserWithOnGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
-        writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinition>("value", filterByCurrentUserWithOnGetResponse.value, serializeAccessReviewScheduleDefinition);
+export function serializeFilterByCurrentUserWithOngetResponse(writer: SerializationWriter, filterByCurrentUserWithOngetResponse: Partial<FilterByCurrentUserWithOngetResponse> | undefined | null = {}) : void {
+    if (filterByCurrentUserWithOngetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOngetResponse)
+        writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinition>("value", filterByCurrentUserWithOngetResponse.value, serializeAccessReviewScheduleDefinition);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const FilterByCurrentUserWithOnRequestBuilderRequestsMetadata: RequestsMe
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createFilterByCurrentUserWithOnGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createFilterByCurrentUserWithOngetResponseFromDiscriminatorValue,
         queryParametersMapper: FilterByCurrentUserWithOnRequestBuilderGetQueryParametersMapper,
     },
 };

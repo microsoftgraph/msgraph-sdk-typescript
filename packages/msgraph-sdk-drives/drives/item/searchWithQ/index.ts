@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {SearchWithQGetResponse}
+ * @returns {SearchWithQgetResponse}
  */
 // @ts-ignore
-export function createSearchWithQGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoSearchWithQGetResponse;
+export function createSearchWithQgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSearchWithQgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoSearchWithQGetResponse(searchWithQGetResponse: Partial<SearchWithQGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoSearchWithQgetResponse(searchWithQgetResponse: Partial<SearchWithQgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(searchWithQGetResponse),
-        "value": n => { searchWithQGetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(searchWithQgetResponse),
+        "value": n => { searchWithQgetResponse.value = n.getCollectionOfObjectValues<DriveItem>(createDriveItemFromDiscriminatorValue); },
     }
 }
-export interface SearchWithQGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface SearchWithQgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface SearchWithQRequestBuilder extends BaseRequestBuilder<SearchWith
     /**
      * Search the hierarchy of items for items matching a query.You can search within a folder hierarchy, a whole drive, or files shared with the current user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<SearchWithQGetResponse>}
+     * @returns {Promise<SearchWithQgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/driveitem-search?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<SearchWithQRequestBuilderGetQueryParameters> | undefined) : Promise<SearchWithQGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<SearchWithQRequestBuilderGetQueryParameters> | undefined) : Promise<SearchWithQgetResponse | undefined>;
     /**
      * Search the hierarchy of items for items matching a query.You can search within a folder hierarchy, a whole drive, or files shared with the current user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface SearchWithQRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSearchWithQGetResponse(writer: SerializationWriter, searchWithQGetResponse: Partial<SearchWithQGetResponse> | undefined | null = {}) : void {
-    if (searchWithQGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, searchWithQGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQGetResponse.value, serializeDriveItem);
+export function serializeSearchWithQgetResponse(writer: SerializationWriter, searchWithQgetResponse: Partial<SearchWithQgetResponse> | undefined | null = {}) : void {
+    if (searchWithQgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, searchWithQgetResponse)
+        writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQgetResponse.value, serializeDriveItem);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const SearchWithQRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createSearchWithQGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createSearchWithQgetResponseFromDiscriminatorValue,
         queryParametersMapper: SearchWithQRequestBuilderGetQueryParametersMapper,
     },
 };

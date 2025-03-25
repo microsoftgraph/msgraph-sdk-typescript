@@ -20,11 +20,11 @@ export function createRemovePostRequestBodyFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {RemovePostResponse}
+ * @returns {RemovepostResponse}
  */
 // @ts-ignore
-export function createRemovePostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoRemovePostResponse;
+export function createRemovepostResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRemovepostResponse;
 }
 /**
  * The deserialization information for the current model
@@ -42,10 +42,10 @@ export function deserializeIntoRemovePostRequestBody(removePostRequestBody: Part
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoRemovePostResponse(removePostResponse: Partial<RemovePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRemovepostResponse(removepostResponse: Partial<RemovepostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(removePostResponse),
-        "value": n => { removePostResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(removepostResponse),
+        "value": n => { removepostResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
     }
 }
 export interface RemovePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -62,7 +62,7 @@ export interface RemovePostRequestBody extends AdditionalDataHolder, BackedModel
      */
     value?: Site[] | null;
 }
-export interface RemovePostResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface RemovepostResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -76,11 +76,11 @@ export interface RemoveRequestBuilder extends BaseRequestBuilder<RemoveRequestBu
      * Unfollow a user's site or multiple sites.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<RemovePostResponse>}
+     * @returns {Promise<RemovepostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/site-unfollow?view=graph-rest-1.0|Find more info here}
      */
-     post(body: RemovePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RemovePostResponse | undefined>;
+     post(body: RemovePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RemovepostResponse | undefined>;
     /**
      * Unfollow a user's site or multiple sites.
      * @param body The request body
@@ -105,10 +105,10 @@ export function serializeRemovePostRequestBody(writer: SerializationWriter, remo
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRemovePostResponse(writer: SerializationWriter, removePostResponse: Partial<RemovePostResponse> | undefined | null = {}) : void {
-    if (removePostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, removePostResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", removePostResponse.value, serializeSite);
+export function serializeRemovepostResponse(writer: SerializationWriter, removepostResponse: Partial<RemovepostResponse> | undefined | null = {}) : void {
+    if (removepostResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, removepostResponse)
+        writer.writeCollectionOfObjectValues<Site>("value", removepostResponse.value, serializeSite);
     }
 }
 /**
@@ -126,7 +126,7 @@ export const RemoveRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createRemovePostResponseFromDiscriminatorValue,
+        responseBodyFactory:  createRemovepostResponseFromDiscriminatorValue,
         requestBodyContentType: "application/json",
         requestBodySerializer: serializeRemovePostRequestBody,
         requestInformationContentSetMethod: "setContentFromParsable",

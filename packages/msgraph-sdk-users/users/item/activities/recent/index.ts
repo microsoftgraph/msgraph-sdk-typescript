@@ -11,24 +11,24 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {RecentGetResponse}
+ * @returns {RecentgetResponse}
  */
 // @ts-ignore
-export function createRecentGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoRecentGetResponse;
+export function createRecentgetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRecentgetResponse;
 }
 /**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoRecentGetResponse(recentGetResponse: Partial<RecentGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoRecentgetResponse(recentgetResponse: Partial<RecentgetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseCollectionPaginationCountResponse(recentGetResponse),
-        "value": n => { recentGetResponse.value = n.getCollectionOfObjectValues<UserActivity>(createUserActivityFromDiscriminatorValue); },
+        ...deserializeIntoBaseCollectionPaginationCountResponse(recentgetResponse),
+        "value": n => { recentgetResponse.value = n.getCollectionOfObjectValues<UserActivity>(createUserActivityFromDiscriminatorValue); },
     }
 }
-export interface RecentGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
+export interface RecentgetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
@@ -41,11 +41,11 @@ export interface RecentRequestBuilder extends BaseRequestBuilder<RecentRequestBu
     /**
      * Get recent activities for a given user. This OData function has some default behaviors included to make it operate like a 'most recently used' API. The service queries for the most recent activityHistoryItems, and then pull those related activities. Activities are sorted according to the most recent lastModified on the activityHistoryItem. This means that activities without activityHistoryItems won't be included in the response. The UserActivity.ReadWrite.CreatedByApp permission will also apply extra filtering to the response, so that only activities created by your application are returned. This server-side filtering might result in empty pages if the user is active and other applications have created more recent activities. To get your application's activities, use the nextLink property to paginate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<RecentGetResponse>}
+     * @returns {Promise<RecentgetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/projectrome-get-recent-activities?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : Promise<RecentGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : Promise<RecentgetResponse | undefined>;
     /**
      * Get recent activities for a given user. This OData function has some default behaviors included to make it operate like a 'most recently used' API. The service queries for the most recent activityHistoryItems, and then pull those related activities. Activities are sorted according to the most recent lastModified on the activityHistoryItem. This means that activities without activityHistoryItems won't be included in the response. The UserActivity.ReadWrite.CreatedByApp permission will also apply extra filtering to the response, so that only activities created by your application are returned. This server-side filtering might result in empty pages if the user is active and other applications have created more recent activities. To get your application's activities, use the nextLink property to paginate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,10 +95,10 @@ export interface RecentRequestBuilderGetQueryParameters {
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRecentGetResponse(writer: SerializationWriter, recentGetResponse: Partial<RecentGetResponse> | undefined | null = {}) : void {
-    if (recentGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, recentGetResponse)
-        writer.writeCollectionOfObjectValues<UserActivity>("value", recentGetResponse.value, serializeUserActivity);
+export function serializeRecentgetResponse(writer: SerializationWriter, recentgetResponse: Partial<RecentgetResponse> | undefined | null = {}) : void {
+    if (recentgetResponse) {
+        serializeBaseCollectionPaginationCountResponse(writer, recentgetResponse)
+        writer.writeCollectionOfObjectValues<UserActivity>("value", recentgetResponse.value, serializeUserActivity);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const RecentRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createRecentGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createRecentgetResponseFromDiscriminatorValue,
         queryParametersMapper: RecentRequestBuilderGetQueryParametersMapper,
     },
 };

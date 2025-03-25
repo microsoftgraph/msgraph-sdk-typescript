@@ -11,13 +11,13 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {DeltaGetResponse}
+ * @returns {DeltagetResponse}
  */
 // @ts-ignore
-export function createDeltaGetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoDeltaGetResponse;
+export function createDeltagetResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDeltagetResponse;
 }
-export interface DeltaGetResponse extends BaseDeltaFunctionResponse, Parsable {
+export interface DeltagetResponse extends BaseDeltaFunctionResponse, Parsable {
     /**
      * The value property
      */
@@ -30,11 +30,11 @@ export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuil
     /**
      * Get newly created, updated, or deleted sites without having to perform a full read of the entire sites collection. A delta function call for sites is similar to a GET request, except that by appropriately applying state tokens in one or more of these calls,you can query for incremental changes in the sites. It allows you to maintain and synchronize a local store of a user's sites without having to fetch all the sites from the server every time.The application calls the API without specifying any parameters.The service begins enumerating sites and returns pages of changes to these sites, accompanied by either an @odata.nextLink or an @odata.deltaLink.Your application should continue making calls using the @odata.nextLink until there's an @odata.deltaLink  in the response. After you receive all the changes, you can apply them to your local state.To monitor future changes, call the delta API by using the @odata.deltaLink in the previous response. Any resources marked as deleted should be removed from your local state.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns {Promise<DeltaGetResponse>}
+     * @returns {Promise<DeltagetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/site-delta?view=graph-rest-1.0|Find more info here}
      */
-     get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaGetResponse | undefined>;
+     get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltagetResponse | undefined>;
     /**
      * Get newly created, updated, or deleted sites without having to perform a full read of the entire sites collection. A delta function call for sites is similar to a GET request, except that by appropriately applying state tokens in one or more of these calls,you can query for incremental changes in the sites. It allows you to maintain and synchronize a local store of a user's sites without having to fetch all the sites from the server every time.The application calls the API without specifying any parameters.The service begins enumerating sites and returns pages of changes to these sites, accompanied by either an @odata.nextLink or an @odata.deltaLink.Your application should continue making calls using the @odata.nextLink until there's an @odata.deltaLink  in the response. After you receive all the changes, you can apply them to your local state.To monitor future changes, call the delta API by using the @odata.deltaLink in the previous response. Any resources marked as deleted should be removed from your local state.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -84,10 +84,10 @@ export interface DeltaRequestBuilderGetQueryParameters {
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoDeltagetResponse(deltagetResponse: Partial<DeltagetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        ...deserializeIntoBaseDeltaFunctionResponse(deltaGetResponse),
-        "value": n => { deltaGetResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
+        ...deserializeIntoBaseDeltaFunctionResponse(deltagetResponse),
+        "value": n => { deltagetResponse.value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
     }
 }
 /**
@@ -95,10 +95,10 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: Partial<DeltaGetResponse> | undefined | null = {}) : void {
-    if (deltaGetResponse) {
-        serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", deltaGetResponse.value, serializeSite);
+export function serializeDeltagetResponse(writer: SerializationWriter, deltagetResponse: Partial<DeltagetResponse> | undefined | null = {}) : void {
+    if (deltagetResponse) {
+        serializeBaseDeltaFunctionResponse(writer, deltagetResponse)
+        writer.writeCollectionOfObjectValues<Site>("value", deltagetResponse.value, serializeSite);
     }
 }
 /**
@@ -129,7 +129,7 @@ export const DeltaRequestBuilderRequestsMetadata: RequestsMetadata = {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "send",
-        responseBodyFactory:  createDeltaGetResponseFromDiscriminatorValue,
+        responseBodyFactory:  createDeltagetResponseFromDiscriminatorValue,
         queryParametersMapper: DeltaRequestBuilderGetQueryParametersMapper,
     },
 };
