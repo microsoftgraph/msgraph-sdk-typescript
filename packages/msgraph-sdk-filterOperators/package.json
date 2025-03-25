@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-filteroperators",
-  "version": "1.0.0-preview.48",
+  "version": "1.0.0-preview.49",
   "description": "FilterOperators fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
