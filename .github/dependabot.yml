@@ -20,3 +20,20 @@ updates:
   schedule:
     interval: weekly
   open-pull-requests-limit: 10
+  
+  #Check test package dependencies
+- package-ecosystem: npm
+  directory: "/packages/msgraph-sdk-tests"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  commit-message:
+    # Prefix all commit messages with "npm"
+    prefix: "auto dependabot"
+  groups:
+    kiota-dependencies:
+      patterns:
+        - "*kiota*"
+    eslint:
+      patterns:
+        - "*eslint*"
