@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-domaindnsrecords",
-  "version": "1.0.0-preview.49",
+  "version": "1.0.0-preview.50",
   "description": "DomainDnsRecords fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",

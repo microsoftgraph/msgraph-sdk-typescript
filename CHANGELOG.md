@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-preview.50](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.49...v1.0.0-preview.50) (2025-04-01)
+
+
+### Bug Fixes
+
+* remove singleton references ([d815294](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/d815294697cc0ceacd9e777906c39a253b38f16e))
+* test package dependecies ([6b5292c](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/6b5292ca397037e0a8117439ab5697a1767a2f76))
+* test package dependecies ([18beb0c](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/18beb0c140d39f2cd19ac46e91a5322f283572d0))
+* test package dependecies ([7d71bd0](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/7d71bd0eae70b0914cc95fc3ec10c05355fb04c9))
+* test package dependecies ([80a454b](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/80a454b4a41e5d5dc69517766a9a1d20a5ba5686))
+
 ## [1.0.0-preview.49](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.48...v1.0.0-preview.49) (2025-03-25)
 
 

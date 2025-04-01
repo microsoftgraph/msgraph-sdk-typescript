@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-tenantrelationships",
-  "version": "1.0.0-preview.49",
+  "version": "1.0.0-preview.50",
   "description": "TenantRelationships fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",

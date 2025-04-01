@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-admin",
-  "version": "1.0.0-preview.49",
+  "version": "1.0.0-preview.50",
   "description": "Admin fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
