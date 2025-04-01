@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-employeeexperience",
-  "version": "1.0.0-preview.50",
+  "version": "1.0.0-preview.51",
   "description": "EmployeeExperience fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
