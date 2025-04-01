@@ -27,7 +27,7 @@
     "@microsoft/kiota-bundle": "^1.0.0-preview.92",
     "@microsoft/kiota-authentication-azure": "^1.0.0-preview.92",
     "@microsoft/msgraph-sdk": "^1.0.0-preview.49",
-    "@microsoft/msgraph-sdk-core": "^1.0.0-preview.16",
+    "@microsoft/msgraph-sdk-core": "^1.0.0-preview.17",
     "@microsoft/msgraph-sdk-users": "^1.0.0-preview.49",
     "tslib": "^2.6.2"
   },
