@@ -579,6 +579,7 @@ export interface CloudApplicationEvidence extends AlertEvidence, Parsable {
      */
     stream?: Stream | null;
 }
+export type CloudAttachmentVersion = (typeof CloudAttachmentVersionObject)[keyof typeof CloudAttachmentVersionObject];
 export interface CloudLogonRequestEvidence extends AlertEvidence, Parsable {
     /**
      * The unique identifier for the sign-in request.
@@ -3665,6 +3666,10 @@ export function deserializeIntoDnsEvidence(dnsEvidence: Partial<DnsEvidence> | u
 export function deserializeIntoEdiscoveryAddToReviewSetOperation(ediscoveryAddToReviewSetOperation: Partial<EdiscoveryAddToReviewSetOperation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoCaseOperation(ediscoveryAddToReviewSetOperation),
+        "additionalDataOptions": n => { ediscoveryAddToReviewSetOperation.additionalDataOptions = n.getCollectionOfEnumValues<AdditionalDataOptions>(AdditionalDataOptionsObject); },
+        "cloudAttachmentVersion": n => { ediscoveryAddToReviewSetOperation.cloudAttachmentVersion = n.getEnumValue<CloudAttachmentVersion>(CloudAttachmentVersionObject); },
+        "documentVersion": n => { ediscoveryAddToReviewSetOperation.documentVersion = n.getEnumValue<DocumentVersion>(DocumentVersionObject); },
+        "itemsToInclude": n => { ediscoveryAddToReviewSetOperation.itemsToInclude = n.getCollectionOfEnumValues<ItemsToInclude>(ItemsToIncludeObject); },
         "reviewSet": n => { ediscoveryAddToReviewSetOperation.reviewSet = n.getObjectValue<EdiscoveryReviewSet>(createEdiscoveryReviewSetFromDiscriminatorValue); },
         "search": n => { ediscoveryAddToReviewSetOperation.search = n.getObjectValue<EdiscoverySearch>(createEdiscoverySearchFromDiscriminatorValue); },
     }
@@ -3753,6 +3758,7 @@ export function deserializeIntoEdiscoveryEstimateOperation(ediscoveryEstimateOpe
         "mailboxCount": n => { ediscoveryEstimateOperation.mailboxCount = n.getNumberValue(); },
         "search": n => { ediscoveryEstimateOperation.search = n.getObjectValue<EdiscoverySearch>(createEdiscoverySearchFromDiscriminatorValue); },
         "siteCount": n => { ediscoveryEstimateOperation.siteCount = n.getNumberValue(); },
+        "statisticsOptions": n => { ediscoveryEstimateOperation.statisticsOptions = n.getCollectionOfEnumValues<StatisticsOptions>(StatisticsOptionsObject); },
         "unindexedItemCount": n => { ediscoveryEstimateOperation.unindexedItemCount = n.getNumberValue(); },
         "unindexedItemsSize": n => { ediscoveryEstimateOperation.unindexedItemsSize = n.getNumberValue(); },
     }
@@ -3930,8 +3936,10 @@ export function deserializeIntoEdiscoverySearchExportOperation(ediscoverySearchE
     return {
         ...deserializeIntoCaseOperation(ediscoverySearchExportOperation),
         "additionalOptions": n => { ediscoverySearchExportOperation.additionalOptions = n.getCollectionOfEnumValues<AdditionalOptions>(AdditionalOptionsObject); },
+        "cloudAttachmentVersion": n => { ediscoverySearchExportOperation.cloudAttachmentVersion = n.getEnumValue<CloudAttachmentVersion>(CloudAttachmentVersionObject); },
         "description": n => { ediscoverySearchExportOperation.description = n.getStringValue(); },
         "displayName": n => { ediscoverySearchExportOperation.displayName = n.getStringValue(); },
+        "documentVersion": n => { ediscoverySearchExportOperation.documentVersion = n.getEnumValue<DocumentVersion>(DocumentVersionObject); },
         "exportCriteria": n => { ediscoverySearchExportOperation.exportCriteria = n.getCollectionOfEnumValues<ExportCriteria>(ExportCriteriaObject); },
         "exportFileMetadata": n => { ediscoverySearchExportOperation.exportFileMetadata = n.getCollectionOfObjectValues<ExportFileMetadata>(createExportFileMetadataFromDiscriminatorValue); },
         "exportFormat": n => { ediscoverySearchExportOperation.exportFormat = n.getEnumValue<ExportFormat>(ExportFormatObject); },
@@ -6175,7 +6183,24 @@ export interface DnsEvidence extends AlertEvidence, Parsable {
      */
     ipAddresses?: IpEvidence[] | null;
 }
+export type DocumentVersion = (typeof DocumentVersionObject)[keyof typeof DocumentVersionObject];
 export interface EdiscoveryAddToReviewSetOperation extends CaseOperation, Parsable {
+    /**
+     * The additionalDataOptions property
+     */
+    additionalDataOptions?: AdditionalDataOptions[] | null;
+    /**
+     * The cloudAttachmentVersion property
+     */
+    cloudAttachmentVersion?: CloudAttachmentVersion | null;
+    /**
+     * The documentVersion property
+     */
+    documentVersion?: DocumentVersion | null;
+    /**
+     * The itemsToInclude property
+     */
+    itemsToInclude?: ItemsToInclude[] | null;
     /**
      * eDiscovery review set to which items matching source collection query gets added.
      */
@@ -6300,6 +6325,10 @@ export interface EdiscoveryEstimateOperation extends CaseOperation, Parsable {
      * The number of mailboxes that had search hits.
      */
     siteCount?: number | null;
+    /**
+     * The statisticsOptions property
+     */
+    statisticsOptions?: StatisticsOptions[] | null;
     /**
      * The estimated count of unindexed items for the collection.
      */
@@ -6439,6 +6468,10 @@ export interface EdiscoverySearchExportOperation extends CaseOperation, Parsable
      */
     additionalOptions?: AdditionalOptions[] | null;
     /**
+     * The cloudAttachmentVersion property
+     */
+    cloudAttachmentVersion?: CloudAttachmentVersion | null;
+    /**
      * The description of the export by the user.
      */
     description?: string | null;
@@ -6446,6 +6479,10 @@ export interface EdiscoverySearchExportOperation extends CaseOperation, Parsable
      * The name of export provided by the user.
      */
     displayName?: string | null;
+    /**
+     * The documentVersion property
+     */
+    documentVersion?: DocumentVersion | null;
     /**
      * Items to be included in the export. The possible values are: searchHits, partiallyIndexed, unknownFutureValue.
      */
@@ -7834,6 +7871,7 @@ export interface IpEvidence extends AlertEvidence, Parsable {
      */
     stream?: Stream | null;
 }
+export type ItemsToInclude = (typeof ItemsToIncludeObject)[keyof typeof ItemsToIncludeObject];
 export interface KubernetesClusterEvidence extends AlertEvidence, Parsable {
     /**
      * The cloud identifier of the cluster. Can be either an amazonResourceEvidence, azureResourceEvidence, or googleCloudResourceEvidence object.
@@ -9432,6 +9470,10 @@ export function serializeDnsEvidence(writer: SerializationWriter, dnsEvidence: P
 export function serializeEdiscoveryAddToReviewSetOperation(writer: SerializationWriter, ediscoveryAddToReviewSetOperation: Partial<EdiscoveryAddToReviewSetOperation> | undefined | null = {}) : void {
     if (ediscoveryAddToReviewSetOperation) {
         serializeCaseOperation(writer, ediscoveryAddToReviewSetOperation)
+        writer.writeEnumValue<AdditionalDataOptions[]>("additionalDataOptions", ediscoveryAddToReviewSetOperation.additionalDataOptions);
+        writer.writeEnumValue<CloudAttachmentVersion>("cloudAttachmentVersion", ediscoveryAddToReviewSetOperation.cloudAttachmentVersion);
+        writer.writeEnumValue<DocumentVersion>("documentVersion", ediscoveryAddToReviewSetOperation.documentVersion);
+        writer.writeEnumValue<ItemsToInclude[]>("itemsToInclude", ediscoveryAddToReviewSetOperation.itemsToInclude);
         writer.writeObjectValue<EdiscoveryReviewSet>("reviewSet", ediscoveryAddToReviewSetOperation.reviewSet, serializeEdiscoveryReviewSet);
         writer.writeObjectValue<EdiscoverySearch>("search", ediscoveryAddToReviewSetOperation.search, serializeEdiscoverySearch);
     }
@@ -9520,6 +9562,7 @@ export function serializeEdiscoveryEstimateOperation(writer: SerializationWriter
         writer.writeNumberValue("mailboxCount", ediscoveryEstimateOperation.mailboxCount);
         writer.writeObjectValue<EdiscoverySearch>("search", ediscoveryEstimateOperation.search, serializeEdiscoverySearch);
         writer.writeNumberValue("siteCount", ediscoveryEstimateOperation.siteCount);
+        writer.writeEnumValue<StatisticsOptions[]>("statisticsOptions", ediscoveryEstimateOperation.statisticsOptions);
         writer.writeNumberValue("unindexedItemCount", ediscoveryEstimateOperation.unindexedItemCount);
         writer.writeNumberValue("unindexedItemsSize", ediscoveryEstimateOperation.unindexedItemsSize);
     }
@@ -9697,8 +9740,10 @@ export function serializeEdiscoverySearchExportOperation(writer: SerializationWr
     if (ediscoverySearchExportOperation) {
         serializeCaseOperation(writer, ediscoverySearchExportOperation)
         writer.writeEnumValue<AdditionalOptions[]>("additionalOptions", ediscoverySearchExportOperation.additionalOptions);
+        writer.writeEnumValue<CloudAttachmentVersion>("cloudAttachmentVersion", ediscoverySearchExportOperation.cloudAttachmentVersion);
         writer.writeStringValue("description", ediscoverySearchExportOperation.description);
         writer.writeStringValue("displayName", ediscoverySearchExportOperation.displayName);
+        writer.writeEnumValue<DocumentVersion>("documentVersion", ediscoverySearchExportOperation.documentVersion);
         writer.writeEnumValue<ExportCriteria[]>("exportCriteria", ediscoverySearchExportOperation.exportCriteria);
         writer.writeCollectionOfObjectValues<ExportFileMetadata>("exportFileMetadata", ediscoverySearchExportOperation.exportFileMetadata, serializeExportFileMetadata);
         writer.writeEnumValue<ExportFormat>("exportFormat", ediscoverySearchExportOperation.exportFormat);
@@ -11961,6 +12006,7 @@ export interface SslCertificateEntity extends AdditionalDataHolder, BackedModel,
      */
     surname?: string | null;
 }
+export type StatisticsOptions = (typeof StatisticsOptionsObject)[keyof typeof StatisticsOptionsObject];
 export interface Stream extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -12660,6 +12706,12 @@ export const AdditionalDataOptionsObject = {
     AllVersions: "allVersions",
     LinkedFiles: "linkedFiles",
     UnknownFutureValue: "unknownFutureValue",
+    AdvancedIndexing: "advancedIndexing",
+    ListAttachments: "listAttachments",
+    HtmlTranscripts: "htmlTranscripts",
+    MessageConversationExpansion: "messageConversationExpansion",
+    LocationsWithoutHits: "locationsWithoutHits",
+    AllItemsInFolder: "allItemsInFolder",
 } as const;
 export const AdditionalOptionsObject = {
     None: "none",
@@ -12669,6 +12721,15 @@ export const AdditionalOptionsObject = {
     SubfolderContents: "subfolderContents",
     ListAttachments: "listAttachments",
     UnknownFutureValue: "unknownFutureValue",
+    HtmlTranscripts: "htmlTranscripts",
+    AdvancedIndexing: "advancedIndexing",
+    AllItemsInFolder: "allItemsInFolder",
+    IncludeFolderAndPath: "includeFolderAndPath",
+    CondensePaths: "condensePaths",
+    FriendlyName: "friendlyName",
+    SplitSource: "splitSource",
+    OptimizedPartitionSize: "optimizedPartitionSize",
+    IncludeReport: "includeReport",
 } as const;
 export const AlertClassificationObject = {
     Unknown: "unknown",
@@ -12758,6 +12819,13 @@ export const CaseStatusObject = {
 export const ChildSelectabilityObject = {
     One: "One",
     Many: "Many",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const CloudAttachmentVersionObject = {
+    Latest: "latest",
+    Recent10: "recent10",
+    Recent100: "recent100",
+    All: "all",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const ContainerPortProtocolObject = {
@@ -12880,6 +12948,13 @@ export const DeviceRiskScoreObject = {
     High: "high",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const DocumentVersionObject = {
+    Latest: "latest",
+    Recent10: "recent10",
+    Recent100: "recent100",
+    All: "all",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const EventPropagationStatusObject = {
     None: "none",
     InProcessing: "inProcessing",
@@ -12943,6 +13018,7 @@ export const ExportFileStructureObject = {
     Directory: "directory",
     Pst: "pst",
     UnknownFutureValue: "unknownFutureValue",
+    Msg: "msg",
 } as const;
 export const ExportFormatObject = {
     Pst: "pst",
@@ -12961,6 +13037,11 @@ export const ExportOptionsObject = {
     PdfReplacement: "pdfReplacement",
     Tags: "tags",
     UnknownFutureValue: "unknownFutureValue",
+    SplitSource: "splitSource",
+    IncludeFolderAndPath: "includeFolderAndPath",
+    FriendlyName: "friendlyName",
+    CondensePaths: "condensePaths",
+    OptimizedPartitionSize: "optimizedPartitionSize",
 } as const;
 export const FileHashAlgorithmObject = {
     Unknown: "unknown",
@@ -13043,6 +13124,11 @@ export const IoTDeviceImportanceTypeObject = {
     Low: "low",
     Normal: "normal",
     High: "high",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const ItemsToIncludeObject = {
+    SearchHits: "searchHits",
+    PartiallyIndexed: "partiallyIndexed",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const KubernetesPlatformObject = {
@@ -13143,6 +13229,14 @@ export const ServiceSourceObject = {
 export const SourceTypeObject = {
     Mailbox: "mailbox",
     Site: "site",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const StatisticsOptionsObject = {
+    IncludeRefiners: "includeRefiners",
+    IncludeQueryStats: "includeQueryStats",
+    IncludeUnindexedStats: "includeUnindexedStats",
+    AdvancedIndexing: "advancedIndexing",
+    LocationsWithoutHits: "locationsWithoutHits",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const TeamsDeliveryLocationObject = {

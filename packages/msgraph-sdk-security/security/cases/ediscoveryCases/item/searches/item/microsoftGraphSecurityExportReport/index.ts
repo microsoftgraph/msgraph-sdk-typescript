@@ -4,7 +4,7 @@
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { AdditionalOptions, AdditionalOptionsObject, ExportCriteria, ExportCriteriaObject, ExportLocation, ExportLocationObject } from '@microsoft/msgraph-sdk/models/security/index.js';
+import { AdditionalOptions, AdditionalOptionsObject, CloudAttachmentVersion, CloudAttachmentVersionObject, DocumentVersion, DocumentVersionObject, ExportCriteria, ExportCriteriaObject, ExportLocation, ExportLocationObject } from '@microsoft/msgraph-sdk/models/security/index.js';
 // @ts-ignore
 import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
@@ -26,8 +26,10 @@ export function deserializeIntoExportReportPostRequestBody(exportReportPostReque
     return {
         "additionalOptions": n => { exportReportPostRequestBody.additionalOptions = n.getCollectionOfEnumValues<AdditionalOptions>(AdditionalOptionsObject); },
         "backingStoreEnabled": n => { exportReportPostRequestBody.backingStoreEnabled = true; },
+        "cloudAttachmentVersion": n => { exportReportPostRequestBody.cloudAttachmentVersion = n.getEnumValue<CloudAttachmentVersion>(CloudAttachmentVersionObject); },
         "description": n => { exportReportPostRequestBody.description = n.getStringValue(); },
         "displayName": n => { exportReportPostRequestBody.displayName = n.getStringValue(); },
+        "documentVersion": n => { exportReportPostRequestBody.documentVersion = n.getEnumValue<DocumentVersion>(DocumentVersionObject); },
         "exportCriteria": n => { exportReportPostRequestBody.exportCriteria = n.getCollectionOfEnumValues<ExportCriteria>(ExportCriteriaObject); },
         "exportLocation": n => { exportReportPostRequestBody.exportLocation = n.getCollectionOfEnumValues<ExportLocation>(ExportLocationObject); },
     }
@@ -46,6 +48,10 @@ export interface ExportReportPostRequestBody extends AdditionalDataHolder, Backe
      */
     backingStoreEnabled?: boolean | null;
     /**
+     * The cloudAttachmentVersion property
+     */
+    cloudAttachmentVersion?: CloudAttachmentVersion | null;
+    /**
      * The description property
      */
     description?: string | null;
@@ -53,6 +59,10 @@ export interface ExportReportPostRequestBody extends AdditionalDataHolder, Backe
      * The displayName property
      */
     displayName?: string | null;
+    /**
+     * The documentVersion property
+     */
+    documentVersion?: DocumentVersion | null;
     /**
      * The exportCriteria property
      */
@@ -90,8 +100,10 @@ export interface MicrosoftGraphSecurityExportReportRequestBuilder extends BaseRe
 export function serializeExportReportPostRequestBody(writer: SerializationWriter, exportReportPostRequestBody: Partial<ExportReportPostRequestBody> | undefined | null = {}) : void {
     if (exportReportPostRequestBody) {
         writer.writeEnumValue<AdditionalOptions[]>("additionalOptions", exportReportPostRequestBody.additionalOptions);
+        writer.writeEnumValue<CloudAttachmentVersion>("cloudAttachmentVersion", exportReportPostRequestBody.cloudAttachmentVersion);
         writer.writeStringValue("description", exportReportPostRequestBody.description);
         writer.writeStringValue("displayName", exportReportPostRequestBody.displayName);
+        writer.writeEnumValue<DocumentVersion>("documentVersion", exportReportPostRequestBody.documentVersion);
         writer.writeEnumValue<ExportCriteria[]>("exportCriteria", exportReportPostRequestBody.exportCriteria);
         writer.writeEnumValue<ExportLocation[]>("exportLocation", exportReportPostRequestBody.exportLocation);
         writer.writeAdditionalData(exportReportPostRequestBody.additionalData);
