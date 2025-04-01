@@ -25,8 +25,8 @@ export class GraphRequestAdapter extends BaseGraphRequestAdapter {
    */
   constructor(
     authenticationProvider: AuthenticationProvider,
-    parseNodeFactory: ParseNodeFactory = ParseNodeFactoryRegistry.defaultInstance,
-    serializationWriterFactory: SerializationWriterFactory = SerializationWriterFactoryRegistry.defaultInstance,
+    parseNodeFactory: ParseNodeFactory = new ParseNodeFactoryRegistry(),
+    serializationWriterFactory: SerializationWriterFactory = new SerializationWriterFactoryRegistry(),
     httpClient?: HttpClient,
     observabilityOptions: ObservabilityOptions = new ObservabilityOptionsImpl(),
   ) {
