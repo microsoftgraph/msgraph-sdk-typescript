@@ -177,7 +177,6 @@ export const SharedDriveItemItemRequestBuilderNavigationMetadata: Record<Exclude
 export const SharedDriveItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SharedDriveItemItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

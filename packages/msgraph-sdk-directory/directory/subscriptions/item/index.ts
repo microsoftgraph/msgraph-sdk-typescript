@@ -84,7 +84,6 @@ const CompanySubscriptionItemRequestBuilderGetQueryParametersMapper: Record<stri
 export const CompanySubscriptionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CompanySubscriptionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

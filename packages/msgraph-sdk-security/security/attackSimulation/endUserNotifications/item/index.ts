@@ -98,7 +98,6 @@ export const EndUserNotificationItemRequestBuilderNavigationMetadata: Record<Exc
 export const EndUserNotificationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EndUserNotificationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

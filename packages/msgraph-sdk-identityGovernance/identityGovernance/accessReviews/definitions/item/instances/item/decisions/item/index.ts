@@ -99,7 +99,6 @@ export const AccessReviewInstanceDecisionItemItemRequestBuilderNavigationMetadat
 export const AccessReviewInstanceDecisionItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AccessReviewInstanceDecisionItemItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

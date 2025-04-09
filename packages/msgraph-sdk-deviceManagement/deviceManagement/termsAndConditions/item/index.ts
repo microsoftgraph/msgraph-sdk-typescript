@@ -111,7 +111,6 @@ export const TermsAndConditionsItemRequestBuilderNavigationMetadata: Record<Excl
 export const TermsAndConditionsItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TermsAndConditionsItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -98,7 +98,6 @@ export const CasesRequestBuilderNavigationMetadata: Record<Exclude<keyof CasesRe
 export const CasesRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CasesRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

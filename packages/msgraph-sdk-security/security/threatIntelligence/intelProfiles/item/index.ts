@@ -99,7 +99,6 @@ export const IntelligenceProfileItemRequestBuilderNavigationMetadata: Record<Exc
 export const IntelligenceProfileItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: IntelligenceProfileItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

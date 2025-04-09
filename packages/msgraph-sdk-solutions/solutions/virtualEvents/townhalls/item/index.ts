@@ -110,7 +110,6 @@ export const VirtualEventTownhallItemRequestBuilderNavigationMetadata: Record<Ex
 export const VirtualEventTownhallItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: VirtualEventTownhallItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

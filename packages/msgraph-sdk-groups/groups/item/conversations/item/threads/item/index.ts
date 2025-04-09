@@ -107,7 +107,6 @@ export const ConversationThreadItemRequestBuilderNavigationMetadata: Record<Excl
 export const ConversationThreadItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ConversationThreadItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

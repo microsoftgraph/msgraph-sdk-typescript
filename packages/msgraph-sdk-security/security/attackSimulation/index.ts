@@ -168,7 +168,6 @@ export const AttackSimulationRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const AttackSimulationRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AttackSimulationRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

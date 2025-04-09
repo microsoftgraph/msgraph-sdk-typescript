@@ -86,7 +86,6 @@ const OAuth2PermissionGrantItemRequestBuilderGetQueryParametersMapper: Record<st
 export const OAuth2PermissionGrantItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OAuth2PermissionGrantItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

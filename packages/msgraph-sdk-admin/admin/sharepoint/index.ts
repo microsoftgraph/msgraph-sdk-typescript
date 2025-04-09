@@ -97,7 +97,6 @@ export const SharepointRequestBuilderNavigationMetadata: Record<Exclude<keyof Sh
 export const SharepointRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SharepointRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

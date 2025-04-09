@@ -84,7 +84,6 @@ export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderNavigat
 export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

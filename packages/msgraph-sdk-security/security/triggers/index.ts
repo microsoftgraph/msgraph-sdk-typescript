@@ -98,7 +98,6 @@ export const TriggersRequestBuilderNavigationMetadata: Record<Exclude<keyof Trig
 export const TriggersRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TriggersRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

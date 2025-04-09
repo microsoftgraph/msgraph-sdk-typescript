@@ -209,7 +209,6 @@ export const WorkbookRequestBuilderNavigationMetadata: Record<Exclude<keyof Work
 export const WorkbookRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WorkbookRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

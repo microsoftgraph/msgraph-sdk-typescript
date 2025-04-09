@@ -81,7 +81,6 @@ export const CancelRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/e
 export const CancelRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CancelRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

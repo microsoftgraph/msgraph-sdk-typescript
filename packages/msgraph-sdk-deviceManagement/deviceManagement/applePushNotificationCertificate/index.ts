@@ -99,7 +99,6 @@ export const ApplePushNotificationCertificateRequestBuilderNavigationMetadata: R
 export const ApplePushNotificationCertificateRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ApplePushNotificationCertificateRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

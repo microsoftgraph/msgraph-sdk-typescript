@@ -209,7 +209,6 @@ export const ScheduleRequestBuilderNavigationMetadata: Record<Exclude<keyof Sche
 export const ScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ScheduleRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

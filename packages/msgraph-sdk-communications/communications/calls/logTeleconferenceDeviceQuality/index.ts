@@ -83,7 +83,6 @@ export const LogTeleconferenceDeviceQualityRequestBuilderUriTemplate = "{+baseur
 export const LogTeleconferenceDeviceQualityRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: LogTeleconferenceDeviceQualityRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -61,7 +61,6 @@ export const AttendeeReportRequestBuilderUriTemplate = "{+baseurl}/communication
 export const AttendeeReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AttendeeReportRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -69,7 +68,7 @@ export const AttendeeReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: AttendeeReportRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -78,7 +77,6 @@ export const AttendeeReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: AttendeeReportRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

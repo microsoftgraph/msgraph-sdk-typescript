@@ -99,7 +99,6 @@ export const FileRequestBuilderNavigationMetadata: Record<Exclude<keyof FileRequ
 export const FileRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FileRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

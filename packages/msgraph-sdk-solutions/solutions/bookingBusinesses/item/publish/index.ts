@@ -34,7 +34,6 @@ export const PublishRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBus
 export const PublishRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: PublishRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -98,7 +98,6 @@ export const AppConsentRequestBuilderNavigationMetadata: Record<Exclude<keyof Ap
 export const AppConsentRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AppConsentRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

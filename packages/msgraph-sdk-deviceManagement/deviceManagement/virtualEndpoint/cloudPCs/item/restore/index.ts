@@ -81,7 +81,6 @@ export const RestoreRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/vir
 export const RestoreRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RestoreRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

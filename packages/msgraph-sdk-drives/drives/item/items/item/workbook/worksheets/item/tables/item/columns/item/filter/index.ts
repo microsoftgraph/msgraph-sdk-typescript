@@ -196,7 +196,6 @@ export const FilterRequestBuilderNavigationMetadata: Record<Exclude<keyof Filter
 export const FilterRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FilterRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

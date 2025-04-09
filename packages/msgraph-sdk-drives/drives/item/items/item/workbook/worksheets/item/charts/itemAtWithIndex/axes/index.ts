@@ -83,7 +83,6 @@ const AxesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const AxesRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AxesRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -34,7 +34,6 @@ export const RequestRemoteAssistanceRequestBuilderUriTemplate = "{+baseurl}/devi
 export const RequestRemoteAssistanceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RequestRemoteAssistanceRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

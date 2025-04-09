@@ -99,7 +99,6 @@ export const RiskyServicePrincipalItemRequestBuilderNavigationMetadata: Record<E
 export const RiskyServicePrincipalItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RiskyServicePrincipalItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

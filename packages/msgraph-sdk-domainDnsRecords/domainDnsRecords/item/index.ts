@@ -83,7 +83,6 @@ const DomainDnsRecordItemRequestBuilderGetQueryParametersMapper: Record<string, 
 export const DomainDnsRecordItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DomainDnsRecordItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -97,7 +97,6 @@ export const WhoisHistoryRecordItemRequestBuilderNavigationMetadata: Record<Excl
 export const WhoisHistoryRecordItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WhoisHistoryRecordItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

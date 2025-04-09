@@ -3382,7 +3382,6 @@ export const FunctionsRequestBuilderNavigationMetadata: Record<Exclude<keyof Fun
 export const FunctionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FunctionsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

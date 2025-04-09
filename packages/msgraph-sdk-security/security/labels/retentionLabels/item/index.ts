@@ -119,7 +119,6 @@ export const RetentionLabelItemRequestBuilderNavigationMetadata: Record<Exclude<
 export const RetentionLabelItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RetentionLabelItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

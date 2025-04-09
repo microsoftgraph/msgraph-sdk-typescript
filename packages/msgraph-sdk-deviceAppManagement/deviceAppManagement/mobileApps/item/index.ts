@@ -127,43 +127,43 @@ export interface MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAp
      */
     get graphWindowsWebApp(): GraphWindowsWebAppRequestBuilder;
     /**
-     * Deletes a managedIOSLobApp.
+     * Deletes a macOSOfficeSuiteApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-managedioslobapp-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-macosofficesuiteapp-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the macOSOfficeSuiteApp object.
+     * Read properties and relationships of the macOSMicrosoftEdgeApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-macosofficesuiteapp-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-macosmicrosoftedgeapp-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * Update the properties of a windowsAppX object.
+     * Update the properties of a win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsappx-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileApp | undefined>;
     /**
-     * Deletes a managedIOSLobApp.
+     * Deletes a macOSOfficeSuiteApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the macOSOfficeSuiteApp object.
+     * Read properties and relationships of the macOSMicrosoftEdgeApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a windowsAppX object.
+     * Update the properties of a win32LobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -171,7 +171,7 @@ export interface MobileAppItemRequestBuilder extends BaseRequestBuilder<MobileAp
      toPatchRequestInformation(body: MobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the macOSOfficeSuiteApp object.
+ * Read properties and relationships of the macOSMicrosoftEdgeApp object.
  */
 export interface MobileAppItemRequestBuilderGetQueryParameters {
     /**
@@ -280,7 +280,6 @@ export const MobileAppItemRequestBuilderNavigationMetadata: Record<Exclude<keyof
 export const MobileAppItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MobileAppItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

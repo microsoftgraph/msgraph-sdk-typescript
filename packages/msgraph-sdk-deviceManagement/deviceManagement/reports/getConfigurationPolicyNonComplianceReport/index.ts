@@ -130,7 +130,7 @@ export const GetConfigurationPolicyNonComplianceReportRequestBuilderUriTemplate 
 export const GetConfigurationPolicyNonComplianceReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: GetConfigurationPolicyNonComplianceReportRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

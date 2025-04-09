@@ -107,7 +107,6 @@ export const ExternalItemItemRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const ExternalItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ExternalItemItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

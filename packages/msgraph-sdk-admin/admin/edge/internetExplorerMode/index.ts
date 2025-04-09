@@ -98,7 +98,6 @@ export const InternetExplorerModeRequestBuilderNavigationMetadata: Record<Exclud
 export const InternetExplorerModeRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: InternetExplorerModeRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

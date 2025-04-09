@@ -86,7 +86,6 @@ const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryPar
 export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

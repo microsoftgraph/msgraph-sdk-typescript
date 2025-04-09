@@ -97,7 +97,6 @@ export const RestorePointItemRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const RestorePointItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RestorePointItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

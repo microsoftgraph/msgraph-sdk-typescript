@@ -84,7 +84,6 @@ const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderGetQuery
 export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -124,7 +124,6 @@ export const UnifiedRoleEligibilityScheduleItemRequestBuilderNavigationMetadata:
 export const UnifiedRoleEligibilityScheduleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UnifiedRoleEligibilityScheduleItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

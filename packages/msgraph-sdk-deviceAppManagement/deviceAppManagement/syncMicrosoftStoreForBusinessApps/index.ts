@@ -34,7 +34,6 @@ export const SyncMicrosoftStoreForBusinessAppsRequestBuilderUriTemplate = "{+bas
 export const SyncMicrosoftStoreForBusinessAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SyncMicrosoftStoreForBusinessAppsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

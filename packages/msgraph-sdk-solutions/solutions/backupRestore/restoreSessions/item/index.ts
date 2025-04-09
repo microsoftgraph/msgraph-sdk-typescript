@@ -99,7 +99,6 @@ export const RestoreSessionBaseItemRequestBuilderNavigationMetadata: Record<Excl
 export const RestoreSessionBaseItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RestoreSessionBaseItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

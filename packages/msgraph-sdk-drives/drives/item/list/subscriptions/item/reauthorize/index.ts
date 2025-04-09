@@ -34,7 +34,6 @@ export const ReauthorizeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2D
 export const ReauthorizeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ReauthorizeRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

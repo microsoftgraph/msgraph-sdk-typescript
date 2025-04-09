@@ -83,7 +83,6 @@ export const UpgradeRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/
 export const UpgradeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UpgradeRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

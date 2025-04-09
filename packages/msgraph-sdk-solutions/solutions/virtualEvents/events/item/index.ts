@@ -135,7 +135,6 @@ export const VirtualEventItemRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const VirtualEventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: VirtualEventItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -86,7 +86,6 @@ const InternalDomainFederationItemRequestBuilderGetQueryParametersMapper: Record
 export const InternalDomainFederationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: InternalDomainFederationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

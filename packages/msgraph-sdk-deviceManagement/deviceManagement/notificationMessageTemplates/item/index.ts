@@ -110,7 +110,6 @@ export const NotificationMessageTemplateItemRequestBuilderNavigationMetadata: Re
 export const NotificationMessageTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: NotificationMessageTemplateItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

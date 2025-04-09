@@ -120,7 +120,6 @@ const RefRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RefRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -139,7 +138,6 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     post: {
         uriTemplate: RefRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

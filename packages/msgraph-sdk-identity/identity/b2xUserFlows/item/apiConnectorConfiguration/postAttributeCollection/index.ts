@@ -106,7 +106,6 @@ export const PostAttributeCollectionRequestBuilderNavigationMetadata: Record<Exc
 export const PostAttributeCollectionRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PostAttributeCollectionRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

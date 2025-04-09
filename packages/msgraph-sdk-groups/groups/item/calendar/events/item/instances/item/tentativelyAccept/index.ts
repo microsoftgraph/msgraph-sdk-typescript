@@ -95,7 +95,6 @@ export const TentativelyAcceptRequestBuilderUriTemplate = "{+baseurl}/groups/{gr
 export const TentativelyAcceptRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: TentativelyAcceptRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

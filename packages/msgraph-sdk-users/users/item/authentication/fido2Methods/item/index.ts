@@ -69,7 +69,6 @@ const Fido2AuthenticationMethodItemRequestBuilderGetQueryParametersMapper: Recor
 export const Fido2AuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: Fido2AuthenticationMethodItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

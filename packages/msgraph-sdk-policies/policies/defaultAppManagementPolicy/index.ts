@@ -85,7 +85,6 @@ const DefaultAppManagementPolicyRequestBuilderGetQueryParametersMapper: Record<s
 export const DefaultAppManagementPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DefaultAppManagementPolicyRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,7 +83,6 @@ const ProvisioningObjectSummaryItemRequestBuilderGetQueryParametersMapper: Recor
 export const ProvisioningObjectSummaryItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ProvisioningObjectSummaryItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

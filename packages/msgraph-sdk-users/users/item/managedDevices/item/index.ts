@@ -309,7 +309,6 @@ export const ManagedDeviceItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const ManagedDeviceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ManagedDeviceItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

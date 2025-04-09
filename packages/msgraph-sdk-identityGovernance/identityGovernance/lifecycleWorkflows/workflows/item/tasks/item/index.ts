@@ -99,7 +99,6 @@ export const TaskItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Task
 export const TaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TaskItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

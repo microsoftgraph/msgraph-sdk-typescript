@@ -97,7 +97,6 @@ export const FormatRequestBuilderNavigationMetadata: Record<Exclude<keyof Format
 export const FormatRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FormatRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

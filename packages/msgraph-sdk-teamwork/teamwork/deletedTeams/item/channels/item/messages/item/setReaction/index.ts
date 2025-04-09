@@ -80,7 +80,6 @@ export const SetReactionRequestBuilderUriTemplate = "{+baseurl}/teamwork/deleted
 export const SetReactionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetReactionRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

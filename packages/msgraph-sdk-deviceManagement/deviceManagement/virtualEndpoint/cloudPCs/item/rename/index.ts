@@ -81,7 +81,6 @@ export const RenameRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virt
 export const RenameRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RenameRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

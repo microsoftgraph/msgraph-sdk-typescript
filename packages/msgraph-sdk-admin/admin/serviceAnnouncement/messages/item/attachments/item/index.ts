@@ -98,7 +98,6 @@ export const ServiceAnnouncementAttachmentItemRequestBuilderNavigationMetadata: 
 export const ServiceAnnouncementAttachmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ServiceAnnouncementAttachmentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

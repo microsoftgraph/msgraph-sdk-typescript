@@ -110,7 +110,6 @@ export const CloudPcProvisioningPolicyAssignmentItemRequestBuilderNavigationMeta
 export const CloudPcProvisioningPolicyAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CloudPcProvisioningPolicyAssignmentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

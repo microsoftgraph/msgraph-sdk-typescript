@@ -97,7 +97,6 @@ export const UsedInsightItemRequestBuilderNavigationMetadata: Record<Exclude<key
 export const UsedInsightItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UsedInsightItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -134,7 +134,6 @@ export const CloudPCItemRequestBuilderNavigationMetadata: Record<Exclude<keyof C
 export const CloudPCItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CloudPCItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

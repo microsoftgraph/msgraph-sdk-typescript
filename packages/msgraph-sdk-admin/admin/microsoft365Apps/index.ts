@@ -97,7 +97,6 @@ export const Microsoft365AppsRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const Microsoft365AppsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: Microsoft365AppsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

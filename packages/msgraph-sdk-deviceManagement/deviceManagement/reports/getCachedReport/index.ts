@@ -118,7 +118,7 @@ export const GetCachedReportRequestBuilderUriTemplate = "{+baseurl}/deviceManage
 export const GetCachedReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: GetCachedReportRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

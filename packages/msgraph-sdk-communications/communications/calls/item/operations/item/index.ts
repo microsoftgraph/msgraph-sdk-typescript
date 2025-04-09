@@ -84,7 +84,6 @@ const CommsOperationItemRequestBuilderGetQueryParametersMapper: Record<string, s
 export const CommsOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CommsOperationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

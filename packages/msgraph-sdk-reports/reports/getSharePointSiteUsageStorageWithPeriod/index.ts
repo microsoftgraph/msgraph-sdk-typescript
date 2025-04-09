@@ -35,7 +35,7 @@ export const GetSharePointSiteUsageStorageWithPeriodRequestBuilderUriTemplate = 
 export const GetSharePointSiteUsageStorageWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetSharePointSiteUsageStorageWithPeriodRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,7 +83,6 @@ const ColumnLinkItemRequestBuilderGetQueryParametersMapper: Record<string, strin
 export const ColumnLinkItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ColumnLinkItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

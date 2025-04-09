@@ -81,7 +81,6 @@ export const ConfirmCompromisedRequestBuilderUriTemplate = "{+baseurl}/identityP
 export const ConfirmCompromisedRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ConfirmCompromisedRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

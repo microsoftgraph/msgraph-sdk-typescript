@@ -83,7 +83,6 @@ const ThumbnailSetItemRequestBuilderGetQueryParametersMapper: Record<string, str
 export const ThumbnailSetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ThumbnailSetItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -89,7 +89,6 @@ export const MarkChatUnreadForUserRequestBuilderUriTemplate = "{+baseurl}/users/
 export const MarkChatUnreadForUserRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MarkChatUnreadForUserRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

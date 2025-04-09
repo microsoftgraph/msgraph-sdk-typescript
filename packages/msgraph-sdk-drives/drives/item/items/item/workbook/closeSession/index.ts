@@ -34,7 +34,6 @@ export const CloseSessionRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2
 export const CloseSessionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CloseSessionRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

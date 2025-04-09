@@ -34,7 +34,6 @@ export const UnassignUserFromDeviceRequestBuilderUriTemplate = "{+baseurl}/devic
 export const UnassignUserFromDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UnassignUserFromDeviceRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

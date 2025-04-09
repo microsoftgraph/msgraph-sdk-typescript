@@ -98,7 +98,6 @@ export const DeletedTeamItemRequestBuilderNavigationMetadata: Record<Exclude<key
 export const DeletedTeamItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DeletedTeamItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

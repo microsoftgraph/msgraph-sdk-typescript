@@ -83,7 +83,6 @@ export const UpdateWindowsDeviceAccountRequestBuilderUriTemplate = "{+baseurl}/d
 export const UpdateWindowsDeviceAccountRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UpdateWindowsDeviceAccountRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

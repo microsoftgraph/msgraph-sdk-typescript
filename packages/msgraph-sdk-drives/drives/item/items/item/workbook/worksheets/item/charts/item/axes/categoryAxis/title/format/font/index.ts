@@ -83,7 +83,6 @@ const FontRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const FontRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FontRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

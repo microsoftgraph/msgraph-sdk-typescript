@@ -86,7 +86,6 @@ const CalendarPermissionItemRequestBuilderGetQueryParametersMapper: Record<strin
 export const CalendarPermissionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CalendarPermissionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -110,7 +110,6 @@ export const CloudPcUserSettingItemRequestBuilderNavigationMetadata: Record<Excl
 export const CloudPcUserSettingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CloudPcUserSettingItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -80,7 +80,6 @@ export const ClearRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/it
 export const ClearRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ClearRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -128,7 +128,6 @@ export const SeriesAxisRequestBuilderNavigationMetadata: Record<Exclude<keyof Se
 export const SeriesAxisRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SeriesAxisRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

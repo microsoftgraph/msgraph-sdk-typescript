@@ -106,7 +106,6 @@ export const WorkbookPivotTableItemRequestBuilderNavigationMetadata: Record<Excl
 export const WorkbookPivotTableItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WorkbookPivotTableItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

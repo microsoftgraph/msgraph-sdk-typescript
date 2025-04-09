@@ -97,7 +97,6 @@ export const DeviceCategoryRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const DeviceCategoryRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DeviceCategoryRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

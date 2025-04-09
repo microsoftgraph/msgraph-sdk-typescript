@@ -82,7 +82,6 @@ export const OnenotePatchContentRequestBuilderUriTemplate = "{+baseurl}/sites/{s
 export const OnenotePatchContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: OnenotePatchContentRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

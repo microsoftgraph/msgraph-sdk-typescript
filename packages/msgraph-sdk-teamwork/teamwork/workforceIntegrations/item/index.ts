@@ -86,7 +86,6 @@ const WorkforceIntegrationItemRequestBuilderGetQueryParametersMapper: Record<str
 export const WorkforceIntegrationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WorkforceIntegrationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -80,7 +80,6 @@ export const MergeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/it
 export const MergeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MergeRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

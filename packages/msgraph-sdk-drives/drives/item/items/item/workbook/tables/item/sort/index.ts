@@ -115,7 +115,6 @@ export const SortRequestBuilderNavigationMetadata: Record<Exclude<keyof SortRequ
 export const SortRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SortRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

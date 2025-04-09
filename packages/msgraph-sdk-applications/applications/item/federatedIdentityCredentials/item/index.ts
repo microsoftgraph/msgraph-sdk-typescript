@@ -86,7 +86,6 @@ const FederatedIdentityCredentialItemRequestBuilderGetQueryParametersMapper: Rec
 export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FederatedIdentityCredentialItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -35,7 +35,7 @@ export const GetOffice365GroupsActivityCountsWithPeriodRequestBuilderUriTemplate
 export const GetOffice365GroupsActivityCountsWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetOffice365GroupsActivityCountsWithPeriodRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

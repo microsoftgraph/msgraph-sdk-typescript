@@ -185,7 +185,6 @@ export const SubjectRightsRequestItemRequestBuilderNavigationMetadata: Record<Ex
 export const SubjectRightsRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SubjectRightsRequestItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

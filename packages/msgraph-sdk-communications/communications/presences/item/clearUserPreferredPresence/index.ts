@@ -34,7 +34,6 @@ export const ClearUserPreferredPresenceRequestBuilderUriTemplate = "{+baseurl}/c
 export const ClearUserPreferredPresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ClearUserPreferredPresenceRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

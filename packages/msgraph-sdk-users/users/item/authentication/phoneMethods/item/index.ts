@@ -107,7 +107,6 @@ export const PhoneAuthenticationMethodItemRequestBuilderNavigationMetadata: Reco
 export const PhoneAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PhoneAuthenticationMethodItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

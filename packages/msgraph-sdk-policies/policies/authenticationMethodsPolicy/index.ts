@@ -100,7 +100,6 @@ export const AuthenticationMethodsPolicyRequestBuilderNavigationMetadata: Record
 export const AuthenticationMethodsPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthenticationMethodsPolicyRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

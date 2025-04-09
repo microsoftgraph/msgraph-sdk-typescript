@@ -99,7 +99,6 @@ export const SimulationAutomationItemRequestBuilderNavigationMetadata: Record<Ex
 export const SimulationAutomationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SimulationAutomationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

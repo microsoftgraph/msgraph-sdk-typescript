@@ -107,7 +107,6 @@ export const SharedWithChannelTeamInfoItemRequestBuilderNavigationMetadata: Reco
 export const SharedWithChannelTeamInfoItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SharedWithChannelTeamInfoItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

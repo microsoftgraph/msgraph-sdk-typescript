@@ -92,7 +92,6 @@ export const ApplyCustomFilterRequestBuilderUriTemplate = "{+baseurl}/drives/{dr
 export const ApplyCustomFilterRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ApplyCustomFilterRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

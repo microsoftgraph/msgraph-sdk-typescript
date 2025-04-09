@@ -98,7 +98,6 @@ export const DeletedChatItemRequestBuilderNavigationMetadata: Record<Exclude<key
 export const DeletedChatItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DeletedChatItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

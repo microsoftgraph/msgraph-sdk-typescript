@@ -118,7 +118,6 @@ export const BaseSitePageItemRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const BaseSitePageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BaseSitePageItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
