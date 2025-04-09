@@ -130,7 +130,7 @@ export const GetDeviceManagementIntentPerSettingContributingProfilesRequestBuild
 export const GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

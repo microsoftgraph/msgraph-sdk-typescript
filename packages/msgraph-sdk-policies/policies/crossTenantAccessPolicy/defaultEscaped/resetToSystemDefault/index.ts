@@ -34,7 +34,6 @@ export const ResetToSystemDefaultRequestBuilderUriTemplate = "{+baseurl}/policie
 export const ResetToSystemDefaultRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ResetToSystemDefaultRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

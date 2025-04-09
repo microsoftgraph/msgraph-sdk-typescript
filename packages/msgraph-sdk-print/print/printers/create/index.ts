@@ -119,7 +119,6 @@ export const CreateRequestBuilderUriTemplate = "{+baseurl}/print/printers/create
 export const CreateRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CreateRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

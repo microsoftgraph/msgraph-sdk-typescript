@@ -83,7 +83,6 @@ export const HideForUserRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did
 export const HideForUserRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: HideForUserRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -99,7 +99,6 @@ export const DelegatedAdminCustomerItemRequestBuilderNavigationMetadata: Record<
 export const DelegatedAdminCustomerItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DelegatedAdminCustomerItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

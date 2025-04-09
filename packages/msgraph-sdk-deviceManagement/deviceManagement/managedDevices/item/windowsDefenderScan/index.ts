@@ -81,7 +81,6 @@ export const WindowsDefenderScanRequestBuilderUriTemplate = "{+baseurl}/deviceMa
 export const WindowsDefenderScanRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: WindowsDefenderScanRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

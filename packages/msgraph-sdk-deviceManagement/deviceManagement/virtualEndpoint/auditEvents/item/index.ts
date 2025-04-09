@@ -84,7 +84,6 @@ const CloudPcAuditEventItemRequestBuilderGetQueryParametersMapper: Record<string
 export const CloudPcAuditEventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CloudPcAuditEventItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

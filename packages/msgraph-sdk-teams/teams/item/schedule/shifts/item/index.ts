@@ -86,7 +86,6 @@ const ShiftItemRequestBuilderGetQueryParametersMapper: Record<string, string> = 
 export const ShiftItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ShiftItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

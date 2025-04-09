@@ -83,7 +83,6 @@ const TeamsTemplateItemRequestBuilderGetQueryParametersMapper: Record<string, st
 export const TeamsTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TeamsTemplateItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

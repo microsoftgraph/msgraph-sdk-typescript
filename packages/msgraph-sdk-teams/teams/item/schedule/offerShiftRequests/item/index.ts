@@ -84,7 +84,6 @@ const OfferShiftRequestItemRequestBuilderGetQueryParametersMapper: Record<string
 export const OfferShiftRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OfferShiftRequestItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

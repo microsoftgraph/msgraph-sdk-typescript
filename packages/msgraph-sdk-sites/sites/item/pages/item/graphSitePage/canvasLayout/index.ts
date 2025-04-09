@@ -108,7 +108,6 @@ export const CanvasLayoutRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const CanvasLayoutRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CanvasLayoutRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

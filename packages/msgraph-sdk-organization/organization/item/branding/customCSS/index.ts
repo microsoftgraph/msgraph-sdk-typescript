@@ -63,7 +63,6 @@ export const CustomCSSRequestBuilderUriTemplate = "{+baseurl}/organization/{orga
 export const CustomCSSRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CustomCSSRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -71,7 +70,7 @@ export const CustomCSSRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: CustomCSSRequestBuilderUriTemplate,
-        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json",
+        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -80,7 +79,6 @@ export const CustomCSSRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: CustomCSSRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

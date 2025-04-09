@@ -75,7 +75,6 @@ export const PlaceItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Pla
 export const PlaceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PlaceItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

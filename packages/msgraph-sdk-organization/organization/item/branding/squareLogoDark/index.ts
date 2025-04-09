@@ -63,7 +63,6 @@ export const SquareLogoDarkRequestBuilderUriTemplate = "{+baseurl}/organization/
 export const SquareLogoDarkRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SquareLogoDarkRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -71,7 +70,7 @@ export const SquareLogoDarkRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: SquareLogoDarkRequestBuilderUriTemplate,
-        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json",
+        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -80,7 +79,6 @@ export const SquareLogoDarkRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: SquareLogoDarkRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

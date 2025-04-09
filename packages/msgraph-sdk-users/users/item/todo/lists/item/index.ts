@@ -108,7 +108,6 @@ export const TodoTaskListItemRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const TodoTaskListItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TodoTaskListItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

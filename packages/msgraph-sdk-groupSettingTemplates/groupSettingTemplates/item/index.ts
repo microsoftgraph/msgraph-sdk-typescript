@@ -134,7 +134,6 @@ export const GroupSettingTemplateItemRequestBuilderNavigationMetadata: Record<Ex
 export const GroupSettingTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: GroupSettingTemplateItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -121,7 +121,6 @@ export const WindowsInformationProtectionPolicyItemRequestBuilderNavigationMetad
 export const WindowsInformationProtectionPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WindowsInformationProtectionPolicyItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

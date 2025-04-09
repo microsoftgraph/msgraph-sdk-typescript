@@ -85,7 +85,6 @@ const CloudPcDeviceImageItemRequestBuilderGetQueryParametersMapper: Record<strin
 export const CloudPcDeviceImageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CloudPcDeviceImageItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

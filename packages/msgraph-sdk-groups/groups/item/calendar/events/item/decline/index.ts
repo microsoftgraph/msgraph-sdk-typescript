@@ -95,7 +95,6 @@ export const DeclineRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/
 export const DeclineRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: DeclineRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,7 +83,6 @@ const Organizer_v2RequestBuilderGetQueryParametersMapper: Record<string, string>
 export const Organizer_v2RequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: Organizer_v2RequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

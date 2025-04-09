@@ -83,7 +83,6 @@ const InferenceClassificationOverrideItemRequestBuilderGetQueryParametersMapper:
 export const InferenceClassificationOverrideItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: InferenceClassificationOverrideItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

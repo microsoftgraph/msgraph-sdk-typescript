@@ -35,7 +35,7 @@ export const IncidentReportRequestBuilderUriTemplate = "{+baseurl}/admin/service
 export const IncidentReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: IncidentReportRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

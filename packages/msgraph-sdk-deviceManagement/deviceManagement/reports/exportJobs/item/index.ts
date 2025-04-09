@@ -86,7 +86,6 @@ const DeviceManagementExportJobItemRequestBuilderGetQueryParametersMapper: Recor
 export const DeviceManagementExportJobItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DeviceManagementExportJobItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

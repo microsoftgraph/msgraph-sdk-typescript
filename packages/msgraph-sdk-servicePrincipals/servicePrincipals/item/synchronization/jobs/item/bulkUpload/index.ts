@@ -97,7 +97,6 @@ export const BulkUploadRequestBuilderNavigationMetadata: Record<Exclude<keyof Bu
 export const BulkUploadRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BulkUploadRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

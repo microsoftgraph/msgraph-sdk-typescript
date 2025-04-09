@@ -83,7 +83,6 @@ const DataLabelsRequestBuilderGetQueryParametersMapper: Record<string, string> =
 export const DataLabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DataLabelsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

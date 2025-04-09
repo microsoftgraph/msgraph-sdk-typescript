@@ -101,7 +101,6 @@ export const ValidateCredentialsRequestBuilderUriTemplate = "{+baseurl}/serviceP
 export const ValidateCredentialsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ValidateCredentialsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

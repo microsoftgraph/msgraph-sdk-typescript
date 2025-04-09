@@ -98,7 +98,6 @@ export const DataLabelsRequestBuilderNavigationMetadata: Record<Exclude<keyof Da
 export const DataLabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DataLabelsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -106,7 +106,6 @@ export const WorkingTimeScheduleRequestBuilderNavigationMetadata: Record<Exclude
 export const WorkingTimeScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WorkingTimeScheduleRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

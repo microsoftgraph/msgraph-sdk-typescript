@@ -35,7 +35,7 @@ export const GetOffice365ActiveUserDetailWithDateRequestBuilderUriTemplate = "{+
 export const GetOffice365ActiveUserDetailWithDateRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetOffice365ActiveUserDetailWithDateRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

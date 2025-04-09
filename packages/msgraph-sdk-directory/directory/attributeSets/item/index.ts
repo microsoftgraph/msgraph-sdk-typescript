@@ -85,7 +85,6 @@ const AttributeSetItemRequestBuilderGetQueryParametersMapper: Record<string, str
 export const AttributeSetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AttributeSetItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

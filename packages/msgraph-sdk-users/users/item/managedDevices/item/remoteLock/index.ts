@@ -34,7 +34,6 @@ export const RemoteLockRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}
 export const RemoteLockRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RemoteLockRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

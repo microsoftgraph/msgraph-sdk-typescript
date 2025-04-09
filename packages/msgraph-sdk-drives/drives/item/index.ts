@@ -198,7 +198,6 @@ export const DriveItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Dri
 export const DriveItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DriveItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

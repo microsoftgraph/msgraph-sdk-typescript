@@ -34,7 +34,6 @@ export const RenewRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/re
 export const RenewRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RenewRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -4027,9 +4027,11 @@ export function deserializeIntoFileDetails(fileDetails: Partial<FileDetails> | u
         "filePublisher": n => { fileDetails.filePublisher = n.getStringValue(); },
         "fileSize": n => { fileDetails.fileSize = n.getNumberValue(); },
         "issuer": n => { fileDetails.issuer = n.getStringValue(); },
+        "md5": n => { fileDetails.md5 = n.getStringValue(); },
         "@odata.type": n => { fileDetails.odataType = n.getStringValue(); },
         "sha1": n => { fileDetails.sha1 = n.getStringValue(); },
         "sha256": n => { fileDetails.sha256 = n.getStringValue(); },
+        "sha256Ac": n => { fileDetails.sha256Ac = n.getStringValue(); },
         "signer": n => { fileDetails.signer = n.getStringValue(); },
     }
 }
@@ -6654,6 +6656,10 @@ export interface FileDetails extends AdditionalDataHolder, BackedModel, Parsable
      */
     issuer?: string | null;
     /**
+     * The Md5 cryptographic hash of the file content.
+     */
+    md5?: string | null;
+    /**
      * The OdataType property
      */
     odataType?: string | null;
@@ -6665,6 +6671,10 @@ export interface FileDetails extends AdditionalDataHolder, BackedModel, Parsable
      * The Sha256 cryptographic hash of the file content.
      */
     sha256?: string | null;
+    /**
+     * The sha256Ac property
+     */
+    sha256Ac?: string | null;
     /**
      * The signer of the signed file.
      */
@@ -9830,9 +9840,11 @@ export function serializeFileDetails(writer: SerializationWriter, fileDetails: P
         writer.writeStringValue("filePublisher", fileDetails.filePublisher);
         writer.writeNumberValue("fileSize", fileDetails.fileSize);
         writer.writeStringValue("issuer", fileDetails.issuer);
+        writer.writeStringValue("md5", fileDetails.md5);
         writer.writeStringValue("@odata.type", fileDetails.odataType);
         writer.writeStringValue("sha1", fileDetails.sha1);
         writer.writeStringValue("sha256", fileDetails.sha256);
+        writer.writeStringValue("sha256Ac", fileDetails.sha256Ac);
         writer.writeStringValue("signer", fileDetails.signer);
         writer.writeAdditionalData(fileDetails.additionalData);
     }

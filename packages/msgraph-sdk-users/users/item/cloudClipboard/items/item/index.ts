@@ -83,7 +83,6 @@ const CloudClipboardItemItemRequestBuilderGetQueryParametersMapper: Record<strin
 export const CloudClipboardItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CloudClipboardItemItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -157,7 +157,6 @@ export const LifecycleWorkflowsRequestBuilderNavigationMetadata: Record<Exclude<
 export const LifecycleWorkflowsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LifecycleWorkflowsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

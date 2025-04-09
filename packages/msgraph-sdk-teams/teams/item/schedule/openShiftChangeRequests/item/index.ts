@@ -84,7 +84,6 @@ const OpenShiftChangeRequestItemRequestBuilderGetQueryParametersMapper: Record<s
 export const OpenShiftChangeRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OpenShiftChangeRequestItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

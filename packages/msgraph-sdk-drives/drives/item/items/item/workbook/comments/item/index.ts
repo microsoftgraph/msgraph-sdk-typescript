@@ -98,7 +98,6 @@ export const WorkbookCommentItemRequestBuilderNavigationMetadata: Record<Exclude
 export const WorkbookCommentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WorkbookCommentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

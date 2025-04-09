@@ -34,7 +34,6 @@ export const ShutDownRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/ma
 export const ShutDownRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ShutDownRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

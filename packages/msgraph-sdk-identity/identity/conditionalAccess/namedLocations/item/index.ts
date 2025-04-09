@@ -28,12 +28,12 @@ export interface NamedLocationItemRequestBuilder extends BaseRequestBuilder<Name
      */
      get(requestConfiguration?: RequestConfiguration<NamedLocationItemRequestBuilderGetQueryParameters> | undefined) : Promise<NamedLocation | undefined>;
     /**
-     * Update the properties of an ipNamedLocation object.
+     * Update the properties of a countryNamedLocation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<NamedLocation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: NamedLocation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<NamedLocation | undefined>;
     /**
@@ -49,7 +49,7 @@ export interface NamedLocationItemRequestBuilder extends BaseRequestBuilder<Name
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<NamedLocationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an ipNamedLocation object.
+     * Update the properties of a countryNamedLocation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -86,7 +86,6 @@ const NamedLocationItemRequestBuilderGetQueryParametersMapper: Record<string, st
 export const NamedLocationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: NamedLocationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -63,7 +63,6 @@ export const FaviconRequestBuilderUriTemplate = "{+baseurl}/organization/{organi
 export const FaviconRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FaviconRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -71,7 +70,7 @@ export const FaviconRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: FaviconRequestBuilderUriTemplate,
-        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json",
+        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -80,7 +79,6 @@ export const FaviconRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: FaviconRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -99,7 +99,6 @@ export const SetPresenceRequestBuilderUriTemplate = "{+baseurl}/communications/p
 export const SetPresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetPresenceRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

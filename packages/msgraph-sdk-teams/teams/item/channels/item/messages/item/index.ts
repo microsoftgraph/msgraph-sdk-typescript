@@ -146,7 +146,6 @@ export const ChatMessageItemRequestBuilderNavigationMetadata: Record<Exclude<key
 export const ChatMessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ChatMessageItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -87,7 +87,6 @@ export const RemoveKeyRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/
 export const RemoveKeyRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RemoveKeyRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

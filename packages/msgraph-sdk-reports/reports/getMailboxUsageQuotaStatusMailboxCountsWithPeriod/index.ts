@@ -35,7 +35,7 @@ export const GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderUriT
 export const GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

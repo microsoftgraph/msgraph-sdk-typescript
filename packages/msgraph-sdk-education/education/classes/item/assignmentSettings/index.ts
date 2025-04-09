@@ -99,7 +99,6 @@ export const AssignmentSettingsRequestBuilderNavigationMetadata: Record<Exclude<
 export const AssignmentSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AssignmentSettingsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -108,7 +108,6 @@ export const TermStoreRequestBuilderNavigationMetadata: Record<Exclude<keyof Ter
 export const TermStoreRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TermStoreRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

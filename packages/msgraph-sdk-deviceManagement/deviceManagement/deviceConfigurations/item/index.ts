@@ -57,18 +57,18 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      */
     get userStatusOverview(): UserStatusOverviewRequestBuilder;
     /**
-     * Deletes a macOSGeneralDeviceConfiguration.
+     * Deletes a macOSDeviceFeaturesConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macosgeneraldeviceconfiguration-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macosdevicefeaturesconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the windows10CustomConfiguration object.
+     * Read properties and relationships of the androidCustomConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10customconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcustomconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
@@ -78,28 +78,28 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      */
      getOmaSettingPlainTextValueWithSecretReferenceValueId(secretReferenceValueId: string | undefined) : GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder;
     /**
-     * Update the properties of a windows10TeamGeneralConfiguration object.
+     * Update the properties of a macOSGeneralDeviceConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10teamgeneralconfiguration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-macosgeneraldeviceconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
-     * Deletes a macOSGeneralDeviceConfiguration.
+     * Deletes a macOSDeviceFeaturesConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the windows10CustomConfiguration object.
+     * Read properties and relationships of the androidCustomConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a windows10TeamGeneralConfiguration object.
+     * Update the properties of a macOSGeneralDeviceConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -107,7 +107,7 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the windows10CustomConfiguration object.
+ * Read properties and relationships of the androidCustomConfiguration object.
  */
 export interface DeviceConfigurationItemRequestBuilderGetQueryParameters {
     /**
@@ -170,7 +170,6 @@ export const DeviceConfigurationItemRequestBuilderNavigationMetadata: Record<Exc
 export const DeviceConfigurationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DeviceConfigurationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

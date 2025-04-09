@@ -192,7 +192,6 @@ export const OrgContactItemRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const OrgContactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OrgContactItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

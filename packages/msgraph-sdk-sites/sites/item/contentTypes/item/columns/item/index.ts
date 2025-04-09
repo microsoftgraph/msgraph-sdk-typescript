@@ -100,7 +100,6 @@ export const ColumnDefinitionItemRequestBuilderNavigationMetadata: Record<Exclud
 export const ColumnDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ColumnDefinitionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -98,7 +98,6 @@ export const SharePointRestoreSessionItemRequestBuilderNavigationMetadata: Recor
 export const SharePointRestoreSessionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SharePointRestoreSessionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

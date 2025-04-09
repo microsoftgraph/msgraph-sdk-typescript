@@ -83,7 +83,6 @@ export const SnoozeReminderRequestBuilderUriTemplate = "{+baseurl}/users/{user%2
 export const SnoozeReminderRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SnoozeReminderRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

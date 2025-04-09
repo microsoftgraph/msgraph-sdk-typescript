@@ -86,7 +86,6 @@ const AuthenticationEventListenerItemRequestBuilderGetQueryParametersMapper: Rec
 export const AuthenticationEventListenerItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthenticationEventListenerItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

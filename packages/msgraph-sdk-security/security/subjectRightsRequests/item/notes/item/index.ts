@@ -83,7 +83,6 @@ const AuthoredNoteItemRequestBuilderGetQueryParametersMapper: Record<string, str
 export const AuthoredNoteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthoredNoteItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

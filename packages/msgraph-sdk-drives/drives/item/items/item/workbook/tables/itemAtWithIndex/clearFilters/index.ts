@@ -34,7 +34,6 @@ export const ClearFiltersRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2
 export const ClearFiltersRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ClearFiltersRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

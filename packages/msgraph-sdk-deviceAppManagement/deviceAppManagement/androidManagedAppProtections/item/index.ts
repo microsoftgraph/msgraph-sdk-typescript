@@ -120,7 +120,6 @@ export const AndroidManagedAppProtectionItemRequestBuilderNavigationMetadata: Re
 export const AndroidManagedAppProtectionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AndroidManagedAppProtectionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

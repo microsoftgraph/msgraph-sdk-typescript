@@ -81,7 +81,6 @@ export const DismissRequestBuilderUriTemplate = "{+baseurl}/identityProtection/r
 export const DismissRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: DismissRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

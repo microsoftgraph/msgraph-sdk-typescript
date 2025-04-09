@@ -108,7 +108,6 @@ export const WorkbookChartSeriesItemRequestBuilderNavigationMetadata: Record<Exc
 export const WorkbookChartSeriesItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WorkbookChartSeriesItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

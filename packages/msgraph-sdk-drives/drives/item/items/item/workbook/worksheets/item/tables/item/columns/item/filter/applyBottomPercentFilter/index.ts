@@ -80,7 +80,6 @@ export const ApplyBottomPercentFilterRequestBuilderUriTemplate = "{+baseurl}/dri
 export const ApplyBottomPercentFilterRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ApplyBottomPercentFilterRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

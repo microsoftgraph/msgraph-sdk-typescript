@@ -108,7 +108,6 @@ export const AnswerRequestBuilderUriTemplate = "{+baseurl}/communications/calls/
 export const AnswerRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: AnswerRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,7 +83,6 @@ export const SyncRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/exchan
 export const SyncRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SyncRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

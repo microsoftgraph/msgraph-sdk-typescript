@@ -83,7 +83,6 @@ export const ProtectRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/
 export const ProtectRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ProtectRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

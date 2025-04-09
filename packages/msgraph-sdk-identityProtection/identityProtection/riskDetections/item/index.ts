@@ -84,7 +84,6 @@ const RiskDetectionItemRequestBuilderGetQueryParametersMapper: Record<string, st
 export const RiskDetectionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RiskDetectionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

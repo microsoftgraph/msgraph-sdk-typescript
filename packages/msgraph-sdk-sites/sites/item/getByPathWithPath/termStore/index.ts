@@ -83,7 +83,6 @@ const TermStoreRequestBuilderGetQueryParametersMapper: Record<string, string> = 
 export const TermStoreRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TermStoreRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

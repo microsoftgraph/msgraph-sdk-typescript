@@ -83,7 +83,6 @@ const UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderGetQueryPar
 export const UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -93,7 +93,6 @@ export const ShareRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/sche
 export const ShareRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ShareRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

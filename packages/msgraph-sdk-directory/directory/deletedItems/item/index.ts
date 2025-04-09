@@ -174,7 +174,6 @@ export const DirectoryObjectItemRequestBuilderNavigationMetadata: Record<Exclude
 export const DirectoryObjectItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DirectoryObjectItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

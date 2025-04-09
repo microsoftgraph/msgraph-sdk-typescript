@@ -148,7 +148,6 @@ export const OnenoteRequestBuilderNavigationMetadata: Record<Exclude<keyof Oneno
 export const OnenoteRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OnenoteRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

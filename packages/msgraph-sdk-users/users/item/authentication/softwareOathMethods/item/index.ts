@@ -69,7 +69,6 @@ const SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParametersMapper
 export const SoftwareOathAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

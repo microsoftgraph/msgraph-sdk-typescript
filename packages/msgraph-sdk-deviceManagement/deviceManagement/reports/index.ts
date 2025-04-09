@@ -271,7 +271,6 @@ export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof Repor
 export const ReportsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ReportsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

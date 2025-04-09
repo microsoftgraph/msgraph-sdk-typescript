@@ -83,7 +83,6 @@ const UserExperienceAnalyticsMetricHistoryItemRequestBuilderGetQueryParametersMa
 export const UserExperienceAnalyticsMetricHistoryItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserExperienceAnalyticsMetricHistoryItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

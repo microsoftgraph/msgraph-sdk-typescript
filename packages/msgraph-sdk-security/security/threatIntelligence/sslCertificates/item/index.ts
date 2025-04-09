@@ -99,7 +99,6 @@ export const SslCertificateItemRequestBuilderNavigationMetadata: Record<Exclude<
 export const SslCertificateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SslCertificateItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -97,7 +97,6 @@ export const ChatMessageHostedContentItemRequestBuilderNavigationMetadata: Recor
 export const ChatMessageHostedContentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ChatMessageHostedContentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

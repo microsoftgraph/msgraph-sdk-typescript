@@ -101,7 +101,6 @@ export const PlannerBucketItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const PlannerBucketItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PlannerBucketItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,7 +83,6 @@ const UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetQueryParam
 export const UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

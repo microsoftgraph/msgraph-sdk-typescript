@@ -85,7 +85,6 @@ const AuthorityTemplateItemRequestBuilderGetQueryParametersMapper: Record<string
 export const AuthorityTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthorityTemplateItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

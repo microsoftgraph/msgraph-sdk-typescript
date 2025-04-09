@@ -81,7 +81,6 @@ export const RemovePasswordRequestBuilderUriTemplate = "{+baseurl}/applications/
 export const RemovePasswordRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RemovePasswordRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

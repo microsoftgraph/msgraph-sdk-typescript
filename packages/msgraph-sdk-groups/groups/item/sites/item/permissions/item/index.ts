@@ -97,7 +97,6 @@ export const PermissionItemRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const PermissionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PermissionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

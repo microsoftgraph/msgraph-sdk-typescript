@@ -94,7 +94,6 @@ export const AssignSensitivityLabelRequestBuilderUriTemplate = "{+baseurl}/drive
 export const AssignSensitivityLabelRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: AssignSensitivityLabelRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

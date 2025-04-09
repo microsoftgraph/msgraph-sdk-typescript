@@ -83,7 +83,6 @@ const UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuild
 export const UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -121,7 +121,6 @@ export const DelegatedAdminRelationshipItemRequestBuilderNavigationMetadata: Rec
 export const DelegatedAdminRelationshipItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DelegatedAdminRelationshipItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -100,7 +100,6 @@ export const CloudPcOnPremisesConnectionItemRequestBuilderNavigationMetadata: Re
 export const CloudPcOnPremisesConnectionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CloudPcOnPremisesConnectionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

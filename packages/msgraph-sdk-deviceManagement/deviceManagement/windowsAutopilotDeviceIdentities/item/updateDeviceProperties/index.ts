@@ -99,7 +99,6 @@ export const UpdateDevicePropertiesRequestBuilderUriTemplate = "{+baseurl}/devic
 export const UpdateDevicePropertiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UpdateDevicePropertiesRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

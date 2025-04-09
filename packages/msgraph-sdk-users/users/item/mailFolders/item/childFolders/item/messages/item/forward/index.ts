@@ -95,7 +95,6 @@ export const ForwardRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/ma
 export const ForwardRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ForwardRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

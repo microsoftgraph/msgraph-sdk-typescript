@@ -108,7 +108,6 @@ export const VirtualEventRegistrationItemRequestBuilderNavigationMetadata: Recor
 export const VirtualEventRegistrationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: VirtualEventRegistrationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

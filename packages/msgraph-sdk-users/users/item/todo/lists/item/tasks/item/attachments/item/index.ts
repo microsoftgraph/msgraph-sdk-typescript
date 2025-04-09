@@ -82,7 +82,6 @@ export const AttachmentBaseItemRequestBuilderNavigationMetadata: Record<Exclude<
 export const AttachmentBaseItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AttachmentBaseItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

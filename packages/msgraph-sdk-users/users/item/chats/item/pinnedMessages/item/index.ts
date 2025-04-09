@@ -97,7 +97,6 @@ export const PinnedChatMessageInfoItemRequestBuilderNavigationMetadata: Record<E
 export const PinnedChatMessageInfoItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PinnedChatMessageInfoItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

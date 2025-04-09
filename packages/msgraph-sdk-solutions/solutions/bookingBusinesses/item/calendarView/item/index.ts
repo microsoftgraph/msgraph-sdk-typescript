@@ -105,7 +105,6 @@ export const BookingAppointmentItemRequestBuilderNavigationMetadata: Record<Excl
 export const BookingAppointmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BookingAppointmentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,7 +83,6 @@ const AnalyticsRequestBuilderGetQueryParametersMapper: Record<string, string> = 
 export const AnalyticsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AnalyticsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
