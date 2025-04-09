@@ -80,7 +80,6 @@ export const SetReactionRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did
 export const SetReactionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetReactionRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -118,7 +118,6 @@ export const InsightsRequestBuilderNavigationMetadata: Record<Exclude<keyof Insi
 export const InsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: InsightsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

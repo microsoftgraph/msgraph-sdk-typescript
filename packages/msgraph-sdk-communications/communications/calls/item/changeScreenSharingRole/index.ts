@@ -83,7 +83,6 @@ export const ChangeScreenSharingRoleRequestBuilderUriTemplate = "{+baseurl}/comm
 export const ChangeScreenSharingRoleRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ChangeScreenSharingRoleRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

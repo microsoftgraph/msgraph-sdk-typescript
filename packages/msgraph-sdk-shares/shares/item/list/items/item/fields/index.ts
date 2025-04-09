@@ -83,7 +83,6 @@ const FieldsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const FieldsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FieldsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -84,7 +84,6 @@ const AuthenticationConditionApplicationAppItemRequestBuilderGetQueryParametersM
 export const AuthenticationConditionApplicationAppItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthenticationConditionApplicationAppItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

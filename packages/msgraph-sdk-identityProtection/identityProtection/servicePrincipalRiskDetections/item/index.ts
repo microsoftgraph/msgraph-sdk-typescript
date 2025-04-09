@@ -84,7 +84,6 @@ const ServicePrincipalRiskDetectionItemRequestBuilderGetQueryParametersMapper: R
 export const ServicePrincipalRiskDetectionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ServicePrincipalRiskDetectionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -85,7 +85,6 @@ const EmailAuthenticationMethodItemRequestBuilderGetQueryParametersMapper: Recor
 export const EmailAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EmailAuthenticationMethodItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

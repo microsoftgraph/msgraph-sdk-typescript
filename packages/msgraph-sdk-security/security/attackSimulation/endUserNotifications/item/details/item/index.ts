@@ -83,7 +83,6 @@ const EndUserNotificationDetailItemRequestBuilderGetQueryParametersMapper: Recor
 export const EndUserNotificationDetailItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EndUserNotificationDetailItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

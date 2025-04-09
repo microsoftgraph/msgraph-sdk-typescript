@@ -83,7 +83,6 @@ const ParentGroupRequestBuilderGetQueryParametersMapper: Record<string, string> 
 export const ParentGroupRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ParentGroupRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

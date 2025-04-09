@@ -33,7 +33,6 @@ export const PublishRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEve
 export const PublishRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: PublishRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

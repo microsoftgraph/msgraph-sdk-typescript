@@ -82,7 +82,6 @@ export const ApplyIconFilterRequestBuilderUriTemplate = "{+baseurl}/drives/{driv
 export const ApplyIconFilterRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ApplyIconFilterRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

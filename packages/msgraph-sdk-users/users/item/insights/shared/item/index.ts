@@ -106,7 +106,6 @@ export const SharedInsightItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const SharedInsightItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SharedInsightItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

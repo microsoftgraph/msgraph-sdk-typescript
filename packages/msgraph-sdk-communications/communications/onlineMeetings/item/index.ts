@@ -154,7 +154,6 @@ export const OnlineMeetingItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const OnlineMeetingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OnlineMeetingItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

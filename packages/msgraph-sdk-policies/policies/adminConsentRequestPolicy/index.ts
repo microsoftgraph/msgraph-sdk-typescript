@@ -85,7 +85,6 @@ const AdminConsentRequestPolicyRequestBuilderGetQueryParametersMapper: Record<st
 export const AdminConsentRequestPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AdminConsentRequestPolicyRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

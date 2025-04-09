@@ -86,7 +86,6 @@ const ConversationMemberItemRequestBuilderGetQueryParametersMapper: Record<strin
 export const ConversationMemberItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ConversationMemberItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

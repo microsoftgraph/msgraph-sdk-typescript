@@ -97,7 +97,6 @@ export const DriveRestoreArtifactItemRequestBuilderNavigationMetadata: Record<Ex
 export const DriveRestoreArtifactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DriveRestoreArtifactItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

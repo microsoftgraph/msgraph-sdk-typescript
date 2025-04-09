@@ -86,7 +86,6 @@ const TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParametersMapp
 export const TargetedManagedAppPolicyAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TargetedManagedAppPolicyAssignmentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

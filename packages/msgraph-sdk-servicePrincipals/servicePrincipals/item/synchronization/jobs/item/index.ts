@@ -155,7 +155,6 @@ export const SynchronizationJobItemRequestBuilderNavigationMetadata: Record<Excl
 export const SynchronizationJobItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SynchronizationJobItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

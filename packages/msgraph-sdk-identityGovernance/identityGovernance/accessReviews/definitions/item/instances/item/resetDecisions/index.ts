@@ -34,7 +34,6 @@ export const ResetDecisionsRequestBuilderUriTemplate = "{+baseurl}/identityGover
 export const ResetDecisionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ResetDecisionsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

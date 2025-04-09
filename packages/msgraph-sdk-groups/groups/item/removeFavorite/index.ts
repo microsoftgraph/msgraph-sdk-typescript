@@ -34,7 +34,6 @@ export const RemoveFavoriteRequestBuilderUriTemplate = "{+baseurl}/groups/{group
 export const RemoveFavoriteRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RemoveFavoriteRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

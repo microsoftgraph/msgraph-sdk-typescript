@@ -106,7 +106,6 @@ export const GroupLifecyclePolicyItemRequestBuilderNavigationMetadata: Record<Ex
 export const GroupLifecyclePolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: GroupLifecyclePolicyItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

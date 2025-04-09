@@ -85,7 +85,6 @@ const TeamsAppSettingsRequestBuilderGetQueryParametersMapper: Record<string, str
 export const TeamsAppSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TeamsAppSettingsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

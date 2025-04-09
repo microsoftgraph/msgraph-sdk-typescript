@@ -100,7 +100,6 @@ export const GroupItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Gro
 export const GroupItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: GroupItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -34,7 +34,6 @@ export const UnpublishRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/
 export const UnpublishRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UnpublishRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

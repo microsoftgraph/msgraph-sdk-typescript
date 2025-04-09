@@ -121,7 +121,6 @@ export const AdministrativeUnitItemRequestBuilderNavigationMetadata: Record<Excl
 export const AdministrativeUnitItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AdministrativeUnitItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

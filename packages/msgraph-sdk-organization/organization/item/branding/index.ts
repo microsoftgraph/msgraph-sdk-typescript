@@ -164,7 +164,6 @@ export const BrandingRequestBuilderNavigationMetadata: Record<Exclude<keyof Bran
 export const BrandingRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BrandingRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

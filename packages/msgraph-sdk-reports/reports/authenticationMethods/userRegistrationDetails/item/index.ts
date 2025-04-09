@@ -84,7 +84,6 @@ const UserRegistrationDetailsItemRequestBuilderGetQueryParametersMapper: Record<
 export const UserRegistrationDetailsItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserRegistrationDetailsItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

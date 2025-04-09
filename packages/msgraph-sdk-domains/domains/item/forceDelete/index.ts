@@ -81,7 +81,6 @@ export const ForceDeleteRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%
 export const ForceDeleteRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ForceDeleteRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -98,7 +98,6 @@ export const ScopeRequestBuilderNavigationMetadata: Record<Exclude<keyof ScopeRe
 export const ScopeRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ScopeRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

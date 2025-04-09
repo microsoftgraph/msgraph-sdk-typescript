@@ -84,7 +84,6 @@ const SubscriptionsWithCommerceSubscriptionIdRequestBuilderGetQueryParametersMap
 export const SubscriptionsWithCommerceSubscriptionIdRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SubscriptionsWithCommerceSubscriptionIdRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

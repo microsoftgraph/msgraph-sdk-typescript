@@ -83,7 +83,6 @@ const CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParametersMappe
 export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

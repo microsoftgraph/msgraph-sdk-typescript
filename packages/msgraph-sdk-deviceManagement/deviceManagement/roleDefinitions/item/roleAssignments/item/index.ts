@@ -100,7 +100,6 @@ export const RoleAssignmentItemRequestBuilderNavigationMetadata: Record<Exclude<
 export const RoleAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RoleAssignmentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

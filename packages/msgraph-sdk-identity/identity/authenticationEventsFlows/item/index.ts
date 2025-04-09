@@ -111,7 +111,6 @@ export const AuthenticationEventsFlowItemRequestBuilderNavigationMetadata: Recor
 export const AuthenticationEventsFlowItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthenticationEventsFlowItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -130,7 +130,6 @@ export const PrinterShareItemRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const PrinterShareItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PrinterShareItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

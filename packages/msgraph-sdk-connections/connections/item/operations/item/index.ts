@@ -83,7 +83,6 @@ const ConnectionOperationItemRequestBuilderGetQueryParametersMapper: Record<stri
 export const ConnectionOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ConnectionOperationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

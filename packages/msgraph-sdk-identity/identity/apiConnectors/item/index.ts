@@ -100,7 +100,6 @@ export const IdentityApiConnectorItemRequestBuilderNavigationMetadata: Record<Ex
 export const IdentityApiConnectorItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: IdentityApiConnectorItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

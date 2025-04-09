@@ -83,7 +83,6 @@ const SimulationAutomationRunItemRequestBuilderGetQueryParametersMapper: Record<
 export const SimulationAutomationRunItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SimulationAutomationRunItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

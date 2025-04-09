@@ -98,7 +98,6 @@ export const HorizontalSectionItemRequestBuilderNavigationMetadata: Record<Exclu
 export const HorizontalSectionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: HorizontalSectionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

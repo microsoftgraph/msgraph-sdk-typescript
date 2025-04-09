@@ -111,7 +111,6 @@ export const PermissionGrantPolicyItemRequestBuilderNavigationMetadata: Record<E
 export const PermissionGrantPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PermissionGrantPolicyItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

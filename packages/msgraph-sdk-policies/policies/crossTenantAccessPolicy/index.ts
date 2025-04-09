@@ -120,7 +120,6 @@ export const CrossTenantAccessPolicyRequestBuilderNavigationMetadata: Record<Exc
 export const CrossTenantAccessPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CrossTenantAccessPolicyRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

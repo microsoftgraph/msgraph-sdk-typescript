@@ -109,7 +109,6 @@ export const EdiscoveryReviewSetQueryItemRequestBuilderNavigationMetadata: Recor
 export const EdiscoveryReviewSetQueryItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EdiscoveryReviewSetQueryItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

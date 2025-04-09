@@ -86,7 +86,6 @@ const AcronymItemRequestBuilderGetQueryParametersMapper: Record<string, string> 
 export const AcronymItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AcronymItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

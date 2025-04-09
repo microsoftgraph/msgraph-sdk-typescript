@@ -115,7 +115,6 @@ export const RelationItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const RelationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RelationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

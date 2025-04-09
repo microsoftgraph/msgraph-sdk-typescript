@@ -86,7 +86,6 @@ const BrowserSiteItemRequestBuilderGetQueryParametersMapper: Record<string, stri
 export const BrowserSiteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BrowserSiteItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -34,7 +34,6 @@ export const PauseRequestBuilderUriTemplate = "{+baseurl}/applications/{applicat
 export const PauseRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: PauseRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

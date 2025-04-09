@@ -85,7 +85,6 @@ const InstallationOptionsRequestBuilderGetQueryParametersMapper: Record<string, 
 export const InstallationOptionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: InstallationOptionsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

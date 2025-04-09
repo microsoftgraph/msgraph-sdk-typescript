@@ -97,7 +97,6 @@ export const WebPartItemRequestBuilderNavigationMetadata: Record<Exclude<keyof W
 export const WebPartItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WebPartItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

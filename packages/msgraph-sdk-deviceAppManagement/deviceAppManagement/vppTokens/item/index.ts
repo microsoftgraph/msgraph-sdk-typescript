@@ -100,7 +100,6 @@ export const VppTokenItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const VppTokenItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: VppTokenItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

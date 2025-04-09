@@ -81,7 +81,6 @@ export const AbortRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerS
 export const AbortRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: AbortRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

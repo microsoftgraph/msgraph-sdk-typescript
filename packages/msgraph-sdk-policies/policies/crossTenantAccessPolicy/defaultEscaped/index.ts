@@ -99,7 +99,6 @@ export const DefaultRequestBuilderNavigationMetadata: Record<Exclude<keyof Defau
 export const DefaultRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DefaultRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

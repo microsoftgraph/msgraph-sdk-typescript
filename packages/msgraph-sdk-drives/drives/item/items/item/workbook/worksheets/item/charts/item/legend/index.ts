@@ -98,7 +98,6 @@ export const LegendRequestBuilderNavigationMetadata: Record<Exclude<keyof Legend
 export const LegendRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LegendRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

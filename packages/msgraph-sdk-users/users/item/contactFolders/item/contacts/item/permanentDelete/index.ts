@@ -33,7 +33,6 @@ export const PermanentDeleteRequestBuilderUriTemplate = "{+baseurl}/users/{user%
 export const PermanentDeleteRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: PermanentDeleteRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

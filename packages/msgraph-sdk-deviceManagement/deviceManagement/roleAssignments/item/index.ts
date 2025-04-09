@@ -100,7 +100,6 @@ export const DeviceAndAppManagementRoleAssignmentItemRequestBuilderNavigationMet
 export const DeviceAndAppManagementRoleAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DeviceAndAppManagementRoleAssignmentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

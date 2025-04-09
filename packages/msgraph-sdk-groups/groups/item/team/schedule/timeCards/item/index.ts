@@ -124,7 +124,6 @@ export const TimeCardItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const TimeCardItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TimeCardItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

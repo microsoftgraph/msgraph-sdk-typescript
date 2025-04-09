@@ -98,7 +98,6 @@ export const ApprovalItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const ApprovalItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ApprovalItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

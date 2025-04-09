@@ -182,7 +182,6 @@ export const WorkflowItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const WorkflowItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WorkflowItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

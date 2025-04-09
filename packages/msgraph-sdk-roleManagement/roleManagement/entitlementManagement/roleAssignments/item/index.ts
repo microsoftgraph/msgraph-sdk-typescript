@@ -124,7 +124,6 @@ export const UnifiedRoleAssignmentItemRequestBuilderNavigationMetadata: Record<E
 export const UnifiedRoleAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UnifiedRoleAssignmentItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

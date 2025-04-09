@@ -110,7 +110,6 @@ export const DefaultManagedAppProtectionItemRequestBuilderNavigationMetadata: Re
 export const DefaultManagedAppProtectionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DefaultManagedAppProtectionItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

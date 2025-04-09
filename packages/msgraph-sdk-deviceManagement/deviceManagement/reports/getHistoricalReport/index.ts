@@ -124,7 +124,7 @@ export const GetHistoricalReportRequestBuilderUriTemplate = "{+baseurl}/deviceMa
 export const GetHistoricalReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: GetHistoricalReportRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

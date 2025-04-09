@@ -113,7 +113,6 @@ export const CloneRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/clon
 export const CloneRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CloneRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

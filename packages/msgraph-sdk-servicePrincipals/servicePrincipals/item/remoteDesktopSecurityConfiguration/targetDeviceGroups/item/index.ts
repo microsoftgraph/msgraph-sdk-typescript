@@ -86,7 +86,6 @@ const TargetDeviceGroupItemRequestBuilderGetQueryParametersMapper: Record<string
 export const TargetDeviceGroupItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TargetDeviceGroupItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

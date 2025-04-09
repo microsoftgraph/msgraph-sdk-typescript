@@ -98,7 +98,6 @@ export const WindowsSettingItemRequestBuilderNavigationMetadata: Record<Exclude<
 export const WindowsSettingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WindowsSettingItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

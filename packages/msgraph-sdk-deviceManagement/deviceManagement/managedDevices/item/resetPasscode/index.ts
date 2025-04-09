@@ -34,7 +34,6 @@ export const ResetPasscodeRequestBuilderUriTemplate = "{+baseurl}/deviceManageme
 export const ResetPasscodeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ResetPasscodeRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

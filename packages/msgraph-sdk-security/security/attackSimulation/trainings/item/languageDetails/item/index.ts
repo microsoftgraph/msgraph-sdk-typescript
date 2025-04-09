@@ -83,7 +83,6 @@ const TrainingLanguageDetailItemRequestBuilderGetQueryParametersMapper: Record<s
 export const TrainingLanguageDetailItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TrainingLanguageDetailItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

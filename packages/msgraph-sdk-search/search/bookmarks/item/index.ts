@@ -86,7 +86,6 @@ const BookmarkItemRequestBuilderGetQueryParametersMapper: Record<string, string>
 export const BookmarkItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BookmarkItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

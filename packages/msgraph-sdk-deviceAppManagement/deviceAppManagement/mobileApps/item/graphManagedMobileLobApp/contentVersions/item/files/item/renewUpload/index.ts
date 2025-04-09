@@ -33,7 +33,6 @@ export const RenewUploadRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagem
 export const RenewUploadRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RenewUploadRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

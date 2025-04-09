@@ -85,7 +85,6 @@ const SettingsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SettingsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

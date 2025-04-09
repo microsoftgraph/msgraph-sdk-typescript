@@ -80,7 +80,6 @@ export const SetReactionRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2D
 export const SetReactionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetReactionRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

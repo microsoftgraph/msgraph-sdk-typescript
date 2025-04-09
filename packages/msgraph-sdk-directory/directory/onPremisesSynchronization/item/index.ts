@@ -85,7 +85,6 @@ const OnPremisesDirectorySynchronizationItemRequestBuilderGetQueryParametersMapp
 export const OnPremisesDirectorySynchronizationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OnPremisesDirectorySynchronizationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

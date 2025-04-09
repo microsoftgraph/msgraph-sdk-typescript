@@ -83,7 +83,6 @@ const GovernanceInsightItemRequestBuilderGetQueryParametersMapper: Record<string
 export const GovernanceInsightItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: GovernanceInsightItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

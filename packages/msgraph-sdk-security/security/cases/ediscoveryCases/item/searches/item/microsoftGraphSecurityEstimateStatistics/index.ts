@@ -4,74 +4,25 @@
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { StatisticsOptions, StatisticsOptionsObject } from '@microsoft/msgraph-sdk/models/security/index.js';
-// @ts-ignore
-import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
-/**
- * Creates a new instance of the appropriate class based on discriminator value
- * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {EstimateStatisticsPostRequestBody}
- */
-// @ts-ignore
-export function createEstimateStatisticsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoEstimateStatisticsPostRequestBody;
-}
-/**
- * The deserialization information for the current model
- * @returns {Record<string, (node: ParseNode) => void>}
- */
-// @ts-ignore
-export function deserializeIntoEstimateStatisticsPostRequestBody(estimateStatisticsPostRequestBody: Partial<EstimateStatisticsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
-    return {
-        "backingStoreEnabled": n => { estimateStatisticsPostRequestBody.backingStoreEnabled = true; },
-        "statisticsOptions": n => { estimateStatisticsPostRequestBody.statisticsOptions = n.getCollectionOfEnumValues<StatisticsOptions>(StatisticsOptionsObject); },
-    }
-}
-export interface EstimateStatisticsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
-    /**
-     * The statisticsOptions property
-     */
-    statisticsOptions?: StatisticsOptions[] | null;
-}
 /**
  * Provides operations to call the estimateStatistics method.
  */
 export interface MicrosoftGraphSecurityEstimateStatisticsRequestBuilder extends BaseRequestBuilder<MicrosoftGraphSecurityEstimateStatisticsRequestBuilder> {
     /**
      * Run an estimate of the number of emails and documents in the eDiscovery search. To learn more about searches in eDiscovery, see Collect data for a case in eDiscovery (Premium).
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-estimatestatistics?view=graph-rest-1.0|Find more info here}
      */
-     post(body: EstimateStatisticsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
+     post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
      * Run an estimate of the number of emails and documents in the eDiscovery search. To learn more about searches in eDiscovery, see Collect data for a case in eDiscovery (Premium).
-     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
-     toPostRequestInformation(body: EstimateStatisticsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeEstimateStatisticsPostRequestBody(writer: SerializationWriter, estimateStatisticsPostRequestBody: Partial<EstimateStatisticsPostRequestBody> | undefined | null = {}) : void {
-    if (estimateStatisticsPostRequestBody) {
-        writer.writeEnumValue<StatisticsOptions[]>("statisticsOptions", estimateStatisticsPostRequestBody.statisticsOptions);
-        writer.writeAdditionalData(estimateStatisticsPostRequestBody.additionalData);
-    }
+     toPostRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
  * Uri template for the request builder.
@@ -83,14 +34,10 @@ export const MicrosoftGraphSecurityEstimateStatisticsRequestBuilderUriTemplate =
 export const MicrosoftGraphSecurityEstimateStatisticsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphSecurityEstimateStatisticsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
         adapterMethodName: "sendNoResponseContent",
-        requestBodyContentType: "application/json",
-        requestBodySerializer: serializeEstimateStatisticsPostRequestBody,
-        requestInformationContentSetMethod: "setContentFromParsable",
     },
 };
 /* tslint:enable */

@@ -223,7 +223,6 @@ export const WorkbookChartItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const WorkbookChartItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WorkbookChartItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

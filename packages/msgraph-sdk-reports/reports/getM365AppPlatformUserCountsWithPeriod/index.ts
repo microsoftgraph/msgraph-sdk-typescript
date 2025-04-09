@@ -35,7 +35,7 @@ export const GetM365AppPlatformUserCountsWithPeriodRequestBuilderUriTemplate = "
 export const GetM365AppPlatformUserCountsWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetM365AppPlatformUserCountsWithPeriodRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream, application/json",
+        responseBodyContentType: "application/octet-stream",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

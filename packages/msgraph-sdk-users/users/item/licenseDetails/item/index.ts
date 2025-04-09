@@ -83,7 +83,6 @@ const LicenseDetailsItemRequestBuilderGetQueryParametersMapper: Record<string, s
 export const LicenseDetailsItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LicenseDetailsItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

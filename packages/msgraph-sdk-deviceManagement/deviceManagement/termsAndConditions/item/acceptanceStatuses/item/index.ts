@@ -100,7 +100,6 @@ export const TermsAndConditionsAcceptanceStatusItemRequestBuilderNavigationMetad
 export const TermsAndConditionsAcceptanceStatusItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TermsAndConditionsAcceptanceStatusItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

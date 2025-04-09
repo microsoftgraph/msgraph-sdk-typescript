@@ -85,7 +85,6 @@ const FilePlanReferenceTemplateItemRequestBuilderGetQueryParametersMapper: Recor
 export const FilePlanReferenceTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FilePlanReferenceTemplateItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

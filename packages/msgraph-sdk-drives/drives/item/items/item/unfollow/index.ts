@@ -34,7 +34,6 @@ export const UnfollowRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}
 export const UnfollowRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UnfollowRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

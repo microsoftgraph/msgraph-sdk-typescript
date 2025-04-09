@@ -126,7 +126,6 @@ export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderNa
 export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

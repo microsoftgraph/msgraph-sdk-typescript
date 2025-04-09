@@ -34,7 +34,6 @@ export const RestoreVersionRequestBuilderUriTemplate = "{+baseurl}/groups/{group
 export const RestoreVersionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RestoreVersionRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

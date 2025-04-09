@@ -84,7 +84,6 @@ const DelegatedPermissionClassificationItemRequestBuilderGetQueryParametersMappe
 export const DelegatedPermissionClassificationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DelegatedPermissionClassificationItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

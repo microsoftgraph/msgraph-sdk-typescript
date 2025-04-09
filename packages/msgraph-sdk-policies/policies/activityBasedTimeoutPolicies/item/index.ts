@@ -101,7 +101,6 @@ export const ActivityBasedTimeoutPolicyItemRequestBuilderNavigationMetadata: Rec
 export const ActivityBasedTimeoutPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ActivityBasedTimeoutPolicyItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

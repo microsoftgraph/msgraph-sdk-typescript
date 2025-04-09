@@ -83,7 +83,6 @@ const AgreementAcceptanceItemRequestBuilderGetQueryParametersMapper: Record<stri
 export const AgreementAcceptanceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AgreementAcceptanceItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

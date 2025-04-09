@@ -98,7 +98,6 @@ export const RegistrationsWithEmailRequestBuilderNavigationMetadata: Record<Excl
 export const RegistrationsWithEmailRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RegistrationsWithEmailRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

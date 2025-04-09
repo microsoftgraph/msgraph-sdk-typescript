@@ -63,7 +63,6 @@ export const BackgroundImageRequestBuilderUriTemplate = "{+baseurl}/organization
 export const BackgroundImageRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BackgroundImageRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -71,7 +70,7 @@ export const BackgroundImageRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: BackgroundImageRequestBuilderUriTemplate,
-        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json",
+        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -80,7 +79,6 @@ export const BackgroundImageRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: BackgroundImageRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

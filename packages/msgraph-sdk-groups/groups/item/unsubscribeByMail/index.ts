@@ -34,7 +34,6 @@ export const UnsubscribeByMailRequestBuilderUriTemplate = "{+baseurl}/groups/{gr
 export const UnsubscribeByMailRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UnsubscribeByMailRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

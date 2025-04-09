@@ -34,7 +34,6 @@ export const BypassActivationLockRequestBuilderUriTemplate = "{+baseurl}/deviceM
 export const BypassActivationLockRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: BypassActivationLockRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

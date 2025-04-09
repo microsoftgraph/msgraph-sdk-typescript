@@ -95,7 +95,6 @@ export const MicrosoftGraphIdentityGovernanceResumeRequestBuilderUriTemplate = "
 export const MicrosoftGraphIdentityGovernanceResumeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphIdentityGovernanceResumeRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

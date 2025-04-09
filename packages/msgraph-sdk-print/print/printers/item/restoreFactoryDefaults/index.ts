@@ -34,7 +34,6 @@ export const RestoreFactoryDefaultsRequestBuilderUriTemplate = "{+baseurl}/print
 export const RestoreFactoryDefaultsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RestoreFactoryDefaultsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

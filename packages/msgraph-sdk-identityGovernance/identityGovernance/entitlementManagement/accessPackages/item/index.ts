@@ -159,7 +159,6 @@ export const AccessPackageItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const AccessPackageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AccessPackageItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

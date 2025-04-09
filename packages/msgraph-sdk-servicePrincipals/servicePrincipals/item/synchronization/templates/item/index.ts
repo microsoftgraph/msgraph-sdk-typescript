@@ -98,7 +98,6 @@ export const SynchronizationTemplateItemRequestBuilderNavigationMetadata: Record
 export const SynchronizationTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SynchronizationTemplateItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -97,7 +97,6 @@ export const MailboxRestoreArtifactItemRequestBuilderNavigationMetadata: Record<
 export const MailboxRestoreArtifactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MailboxRestoreArtifactItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -85,7 +85,6 @@ const ShiftPreferencesRequestBuilderGetQueryParametersMapper: Record<string, str
 export const ShiftPreferencesRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ShiftPreferencesRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

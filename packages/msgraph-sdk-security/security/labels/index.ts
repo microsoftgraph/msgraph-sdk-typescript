@@ -148,7 +148,6 @@ export const LabelsRequestBuilderNavigationMetadata: Record<Exclude<keyof Labels
 export const LabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LabelsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

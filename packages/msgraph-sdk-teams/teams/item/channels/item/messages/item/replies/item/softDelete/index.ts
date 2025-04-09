@@ -34,7 +34,6 @@ export const SoftDeleteRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}
 export const SoftDeleteRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SoftDeleteRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

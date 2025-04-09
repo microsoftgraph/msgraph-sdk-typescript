@@ -120,7 +120,6 @@ export const EducationSchoolItemRequestBuilderNavigationMetadata: Record<Exclude
 export const EducationSchoolItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EducationSchoolItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -178,7 +178,6 @@ export const EntitlementManagementRequestBuilderNavigationMetadata: Record<Exclu
 export const EntitlementManagementRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EntitlementManagementRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -263,7 +263,6 @@ export const TeamRequestBuilderNavigationMetadata: Record<Exclude<keyof TeamRequ
 export const TeamRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TeamRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

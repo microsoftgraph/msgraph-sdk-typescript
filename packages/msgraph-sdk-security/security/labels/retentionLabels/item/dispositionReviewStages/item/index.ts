@@ -83,7 +83,6 @@ const DispositionReviewStageStageNumberItemRequestBuilderGetQueryParametersMappe
 export const DispositionReviewStageStageNumberItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DispositionReviewStageStageNumberItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -119,7 +119,6 @@ export const SendActivityNotificationToRecipientsRequestBuilderUriTemplate = "{+
 export const SendActivityNotificationToRecipientsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SendActivityNotificationToRecipientsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

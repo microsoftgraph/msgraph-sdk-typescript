@@ -83,7 +83,6 @@ const UserExperienceAnalyticsMetricItemRequestBuilderGetQueryParametersMapper: R
 export const UserExperienceAnalyticsMetricItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserExperienceAnalyticsMetricItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -116,7 +116,6 @@ export const AnalyticsRequestBuilderNavigationMetadata: Record<Exclude<keyof Ana
 export const AnalyticsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AnalyticsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

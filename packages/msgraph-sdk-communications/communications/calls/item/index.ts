@@ -265,7 +265,6 @@ export const CallItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Call
 export const CallItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CallItemRequestBuilderUriTemplate,
-        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
