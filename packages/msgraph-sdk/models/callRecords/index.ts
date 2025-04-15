@@ -1309,7 +1309,7 @@ export interface NetworkInfo extends AdditionalDataHolder, BackedModel, Parsable
      */
     bandwidthLowEventRatio?: number | null;
     /**
-     * The wireless LAN basic service set identifier of the media endpoint used to connect to the network.
+     * The wireless LAN basic service set identifier of the media endpoint used to connect to the network. This property isn't available if the user disables precise location sharing in their operating system or Microsoft Teams app settings.
      */
     basicServiceSetIdentifier?: string | null;
     /**
