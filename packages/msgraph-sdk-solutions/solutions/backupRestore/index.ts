@@ -10,6 +10,8 @@ import { DriveInclusionRulesRequestBuilderNavigationMetadata, DriveInclusionRule
 // @ts-ignore
 import { DriveProtectionUnitsRequestBuilderNavigationMetadata, DriveProtectionUnitsRequestBuilderRequestsMetadata, type DriveProtectionUnitsRequestBuilder } from './driveProtectionUnits/index.js';
 // @ts-ignore
+import { DriveProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata, DriveProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata, type DriveProtectionUnitsBulkAdditionJobsRequestBuilder } from './driveProtectionUnitsBulkAdditionJobs/index.js';
+// @ts-ignore
 import { EnableRequestBuilderRequestsMetadata, type EnableRequestBuilder } from './enable/index.js';
 // @ts-ignore
 import { ExchangeProtectionPoliciesRequestBuilderNavigationMetadata, ExchangeProtectionPoliciesRequestBuilderRequestsMetadata, type ExchangeProtectionPoliciesRequestBuilder } from './exchangeProtectionPolicies/index.js';
@@ -19,6 +21,8 @@ import { ExchangeRestoreSessionsRequestBuilderNavigationMetadata, ExchangeRestor
 import { MailboxInclusionRulesRequestBuilderNavigationMetadata, MailboxInclusionRulesRequestBuilderRequestsMetadata, type MailboxInclusionRulesRequestBuilder } from './mailboxInclusionRules/index.js';
 // @ts-ignore
 import { MailboxProtectionUnitsRequestBuilderNavigationMetadata, MailboxProtectionUnitsRequestBuilderRequestsMetadata, type MailboxProtectionUnitsRequestBuilder } from './mailboxProtectionUnits/index.js';
+// @ts-ignore
+import { MailboxProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata, MailboxProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata, type MailboxProtectionUnitsBulkAdditionJobsRequestBuilder } from './mailboxProtectionUnitsBulkAdditionJobs/index.js';
 // @ts-ignore
 import { OneDriveForBusinessProtectionPoliciesRequestBuilderNavigationMetadata, OneDriveForBusinessProtectionPoliciesRequestBuilderRequestsMetadata, type OneDriveForBusinessProtectionPoliciesRequestBuilder } from './oneDriveForBusinessProtectionPolicies/index.js';
 // @ts-ignore
@@ -42,6 +46,8 @@ import { SiteInclusionRulesRequestBuilderNavigationMetadata, SiteInclusionRulesR
 // @ts-ignore
 import { SiteProtectionUnitsRequestBuilderNavigationMetadata, SiteProtectionUnitsRequestBuilderRequestsMetadata, type SiteProtectionUnitsRequestBuilder } from './siteProtectionUnits/index.js';
 // @ts-ignore
+import { SiteProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata, SiteProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata, type SiteProtectionUnitsBulkAdditionJobsRequestBuilder } from './siteProtectionUnitsBulkAdditionJobs/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -56,6 +62,10 @@ export interface BackupRestoreRequestBuilder extends BaseRequestBuilder<BackupRe
      * Provides operations to manage the driveProtectionUnits property of the microsoft.graph.backupRestoreRoot entity.
      */
     get driveProtectionUnits(): DriveProtectionUnitsRequestBuilder;
+    /**
+     * Provides operations to manage the driveProtectionUnitsBulkAdditionJobs property of the microsoft.graph.backupRestoreRoot entity.
+     */
+    get driveProtectionUnitsBulkAdditionJobs(): DriveProtectionUnitsBulkAdditionJobsRequestBuilder;
     /**
      * Provides operations to call the enable method.
      */
@@ -76,6 +86,10 @@ export interface BackupRestoreRequestBuilder extends BaseRequestBuilder<BackupRe
      * Provides operations to manage the mailboxProtectionUnits property of the microsoft.graph.backupRestoreRoot entity.
      */
     get mailboxProtectionUnits(): MailboxProtectionUnitsRequestBuilder;
+    /**
+     * Provides operations to manage the mailboxProtectionUnitsBulkAdditionJobs property of the microsoft.graph.backupRestoreRoot entity.
+     */
+    get mailboxProtectionUnitsBulkAdditionJobs(): MailboxProtectionUnitsBulkAdditionJobsRequestBuilder;
     /**
      * Provides operations to manage the oneDriveForBusinessProtectionPolicies property of the microsoft.graph.backupRestoreRoot entity.
      */
@@ -120,6 +134,10 @@ export interface BackupRestoreRequestBuilder extends BaseRequestBuilder<BackupRe
      * Provides operations to manage the siteProtectionUnits property of the microsoft.graph.backupRestoreRoot entity.
      */
     get siteProtectionUnits(): SiteProtectionUnitsRequestBuilder;
+    /**
+     * Provides operations to manage the siteProtectionUnitsBulkAdditionJobs property of the microsoft.graph.backupRestoreRoot entity.
+     */
+    get siteProtectionUnitsBulkAdditionJobs(): SiteProtectionUnitsBulkAdditionJobsRequestBuilder;
     /**
      * Delete navigation property backupRestore for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -198,6 +216,10 @@ export const BackupRestoreRequestBuilderNavigationMetadata: Record<Exclude<keyof
         requestsMetadata: DriveProtectionUnitsRequestBuilderRequestsMetadata,
         navigationMetadata: DriveProtectionUnitsRequestBuilderNavigationMetadata,
     },
+    driveProtectionUnitsBulkAdditionJobs: {
+        requestsMetadata: DriveProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata,
+        navigationMetadata: DriveProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata,
+    },
     enable: {
         requestsMetadata: EnableRequestBuilderRequestsMetadata,
     },
@@ -216,6 +238,10 @@ export const BackupRestoreRequestBuilderNavigationMetadata: Record<Exclude<keyof
     mailboxProtectionUnits: {
         requestsMetadata: MailboxProtectionUnitsRequestBuilderRequestsMetadata,
         navigationMetadata: MailboxProtectionUnitsRequestBuilderNavigationMetadata,
+    },
+    mailboxProtectionUnitsBulkAdditionJobs: {
+        requestsMetadata: MailboxProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata,
+        navigationMetadata: MailboxProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata,
     },
     oneDriveForBusinessProtectionPolicies: {
         requestsMetadata: OneDriveForBusinessProtectionPoliciesRequestBuilderRequestsMetadata,
@@ -260,6 +286,10 @@ export const BackupRestoreRequestBuilderNavigationMetadata: Record<Exclude<keyof
     siteProtectionUnits: {
         requestsMetadata: SiteProtectionUnitsRequestBuilderRequestsMetadata,
         navigationMetadata: SiteProtectionUnitsRequestBuilderNavigationMetadata,
+    },
+    siteProtectionUnitsBulkAdditionJobs: {
+        requestsMetadata: SiteProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata,
+        navigationMetadata: SiteProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata,
     },
 };
 /**

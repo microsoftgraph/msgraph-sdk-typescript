@@ -14,6 +14,8 @@ import { AssignmentsRequestBuilderNavigationMetadata, AssignmentsRequestBuilderR
 // @ts-ignore
 import { AssignmentSettingsRequestBuilderNavigationMetadata, AssignmentSettingsRequestBuilderRequestsMetadata, type AssignmentSettingsRequestBuilder } from './assignmentSettings/index.js';
 // @ts-ignore
+import { GetRecentlyModifiedSubmissionsRequestBuilderRequestsMetadata, type GetRecentlyModifiedSubmissionsRequestBuilder } from './getRecentlyModifiedSubmissions/index.js';
+// @ts-ignore
 import { GroupRequestBuilderNavigationMetadata, GroupRequestBuilderRequestsMetadata, type GroupRequestBuilder } from './group/index.js';
 // @ts-ignore
 import { MembersRequestBuilderNavigationMetadata, MembersRequestBuilderRequestsMetadata, type MembersRequestBuilder } from './members/index.js';
@@ -46,6 +48,10 @@ export interface EducationClassItemRequestBuilder extends BaseRequestBuilder<Edu
      * Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity.
      */
     get assignmentSettings(): AssignmentSettingsRequestBuilder;
+    /**
+     * Provides operations to call the getRecentlyModifiedSubmissions method.
+     */
+    get getRecentlyModifiedSubmissions(): GetRecentlyModifiedSubmissionsRequestBuilder;
     /**
      * Provides operations to manage the group property of the microsoft.graph.educationClass entity.
      */
@@ -152,6 +158,9 @@ export const EducationClassItemRequestBuilderNavigationMetadata: Record<Exclude<
     assignmentSettings: {
         requestsMetadata: AssignmentSettingsRequestBuilderRequestsMetadata,
         navigationMetadata: AssignmentSettingsRequestBuilderNavigationMetadata,
+    },
+    getRecentlyModifiedSubmissions: {
+        requestsMetadata: GetRecentlyModifiedSubmissionsRequestBuilderRequestsMetadata,
     },
     group: {
         requestsMetadata: GroupRequestBuilderRequestsMetadata,
