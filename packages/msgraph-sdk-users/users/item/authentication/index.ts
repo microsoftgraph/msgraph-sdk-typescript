@@ -20,6 +20,8 @@ import { PasswordMethodsRequestBuilderNavigationMetadata, PasswordMethodsRequest
 // @ts-ignore
 import { PhoneMethodsRequestBuilderNavigationMetadata, PhoneMethodsRequestBuilderRequestsMetadata, type PhoneMethodsRequestBuilder } from './phoneMethods/index.js';
 // @ts-ignore
+import { PlatformCredentialMethodsRequestBuilderNavigationMetadata, PlatformCredentialMethodsRequestBuilderRequestsMetadata, type PlatformCredentialMethodsRequestBuilder } from './platformCredentialMethods/index.js';
+// @ts-ignore
 import { SoftwareOathMethodsRequestBuilderNavigationMetadata, SoftwareOathMethodsRequestBuilderRequestsMetadata, type SoftwareOathMethodsRequestBuilder } from './softwareOathMethods/index.js';
 // @ts-ignore
 import { TemporaryAccessPassMethodsRequestBuilderNavigationMetadata, TemporaryAccessPassMethodsRequestBuilderRequestsMetadata, type TemporaryAccessPassMethodsRequestBuilder } from './temporaryAccessPassMethods/index.js';
@@ -60,6 +62,10 @@ export interface AuthenticationRequestBuilder extends BaseRequestBuilder<Authent
      * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
      */
     get phoneMethods(): PhoneMethodsRequestBuilder;
+    /**
+     * Provides operations to manage the platformCredentialMethods property of the microsoft.graph.authentication entity.
+     */
+    get platformCredentialMethods(): PlatformCredentialMethodsRequestBuilder;
     /**
      * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
      */
@@ -168,6 +174,10 @@ export const AuthenticationRequestBuilderNavigationMetadata: Record<Exclude<keyo
     phoneMethods: {
         requestsMetadata: PhoneMethodsRequestBuilderRequestsMetadata,
         navigationMetadata: PhoneMethodsRequestBuilderNavigationMetadata,
+    },
+    platformCredentialMethods: {
+        requestsMetadata: PlatformCredentialMethodsRequestBuilderRequestsMetadata,
+        navigationMetadata: PlatformCredentialMethodsRequestBuilderNavigationMetadata,
     },
     softwareOathMethods: {
         requestsMetadata: SoftwareOathMethodsRequestBuilderRequestsMetadata,

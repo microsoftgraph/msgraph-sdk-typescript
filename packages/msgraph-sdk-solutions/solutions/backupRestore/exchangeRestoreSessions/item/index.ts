@@ -10,6 +10,8 @@ import { GranularMailboxRestoreArtifactsRequestBuilderNavigationMetadata, Granul
 // @ts-ignore
 import { MailboxRestoreArtifactsRequestBuilderNavigationMetadata, MailboxRestoreArtifactsRequestBuilderRequestsMetadata, type MailboxRestoreArtifactsRequestBuilder } from './mailboxRestoreArtifacts/index.js';
 // @ts-ignore
+import { MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata, MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata, type MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilder } from './mailboxRestoreArtifactsBulkAdditionRequests/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +26,10 @@ export interface ExchangeRestoreSessionItemRequestBuilder extends BaseRequestBui
      * Provides operations to manage the mailboxRestoreArtifacts property of the microsoft.graph.exchangeRestoreSession entity.
      */
     get mailboxRestoreArtifacts(): MailboxRestoreArtifactsRequestBuilder;
+    /**
+     * Provides operations to manage the mailboxRestoreArtifactsBulkAdditionRequests property of the microsoft.graph.exchangeRestoreSession entity.
+     */
+    get mailboxRestoreArtifactsBulkAdditionRequests(): MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilder;
     /**
      * Delete navigation property exchangeRestoreSessions for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -101,6 +107,10 @@ export const ExchangeRestoreSessionItemRequestBuilderNavigationMetadata: Record<
     mailboxRestoreArtifacts: {
         requestsMetadata: MailboxRestoreArtifactsRequestBuilderRequestsMetadata,
         navigationMetadata: MailboxRestoreArtifactsRequestBuilderNavigationMetadata,
+    },
+    mailboxRestoreArtifactsBulkAdditionRequests: {
+        requestsMetadata: MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata,
+        navigationMetadata: MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata,
     },
 };
 /**

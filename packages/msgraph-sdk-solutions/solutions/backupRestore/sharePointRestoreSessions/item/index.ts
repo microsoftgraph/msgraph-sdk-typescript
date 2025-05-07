@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { SiteRestoreArtifactsRequestBuilderNavigationMetadata, SiteRestoreArtifactsRequestBuilderRequestsMetadata, type SiteRestoreArtifactsRequestBuilder } from './siteRestoreArtifacts/index.js';
 // @ts-ignore
+import { SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata, SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata, type SiteRestoreArtifactsBulkAdditionRequestsRequestBuilder } from './siteRestoreArtifactsBulkAdditionRequests/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface SharePointRestoreSessionItemRequestBuilder extends BaseRequestB
      * Provides operations to manage the siteRestoreArtifacts property of the microsoft.graph.sharePointRestoreSession entity.
      */
     get siteRestoreArtifacts(): SiteRestoreArtifactsRequestBuilder;
+    /**
+     * Provides operations to manage the siteRestoreArtifactsBulkAdditionRequests property of the microsoft.graph.sharePointRestoreSession entity.
+     */
+    get siteRestoreArtifactsBulkAdditionRequests(): SiteRestoreArtifactsBulkAdditionRequestsRequestBuilder;
     /**
      * Delete navigation property sharePointRestoreSessions for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -90,6 +96,10 @@ export const SharePointRestoreSessionItemRequestBuilderNavigationMetadata: Recor
     siteRestoreArtifacts: {
         requestsMetadata: SiteRestoreArtifactsRequestBuilderRequestsMetadata,
         navigationMetadata: SiteRestoreArtifactsRequestBuilderNavigationMetadata,
+    },
+    siteRestoreArtifactsBulkAdditionRequests: {
+        requestsMetadata: SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata,
+        navigationMetadata: SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata,
     },
 };
 /**

@@ -10,6 +10,8 @@ import { SiteInclusionRulesRequestBuilderNavigationMetadata, SiteInclusionRulesR
 // @ts-ignore
 import { SiteProtectionUnitsRequestBuilderNavigationMetadata, SiteProtectionUnitsRequestBuilderRequestsMetadata, type SiteProtectionUnitsRequestBuilder } from './siteProtectionUnits/index.js';
 // @ts-ignore
+import { SiteProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata, SiteProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata, type SiteProtectionUnitsBulkAdditionJobsRequestBuilder } from './siteProtectionUnitsBulkAdditionJobs/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +26,10 @@ export interface SharePointProtectionPolicyItemRequestBuilder extends BaseReques
      * Provides operations to manage the siteProtectionUnits property of the microsoft.graph.sharePointProtectionPolicy entity.
      */
     get siteProtectionUnits(): SiteProtectionUnitsRequestBuilder;
+    /**
+     * Provides operations to manage the siteProtectionUnitsBulkAdditionJobs property of the microsoft.graph.sharePointProtectionPolicy entity.
+     */
+    get siteProtectionUnitsBulkAdditionJobs(): SiteProtectionUnitsBulkAdditionJobsRequestBuilder;
     /**
      * Delete navigation property sharePointProtectionPolicies for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -101,6 +107,10 @@ export const SharePointProtectionPolicyItemRequestBuilderNavigationMetadata: Rec
     siteProtectionUnits: {
         requestsMetadata: SiteProtectionUnitsRequestBuilderRequestsMetadata,
         navigationMetadata: SiteProtectionUnitsRequestBuilderNavigationMetadata,
+    },
+    siteProtectionUnitsBulkAdditionJobs: {
+        requestsMetadata: SiteProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata,
+        navigationMetadata: SiteProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata,
     },
 };
 /**
