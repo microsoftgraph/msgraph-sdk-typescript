@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-identity",
-  "version": "1.0.0-preview.53",
+  "version": "1.0.0-preview.54",
   "description": "Identity fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
