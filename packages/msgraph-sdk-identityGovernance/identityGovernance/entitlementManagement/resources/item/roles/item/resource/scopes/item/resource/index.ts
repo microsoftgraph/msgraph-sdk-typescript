@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { EnvironmentRequestBuilderRequestsMetadata, type EnvironmentRequestBuilder } from './environment/index.js';
 // @ts-ignore
+import { RefreshRequestBuilderRequestsMetadata, type RefreshRequestBuilder } from './refresh/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface ResourceRequestBuilder extends BaseRequestBuilder<ResourceReque
      * Provides operations to manage the environment property of the microsoft.graph.accessPackageResource entity.
      */
     get environment(): EnvironmentRequestBuilder;
+    /**
+     * Provides operations to call the refresh method.
+     */
+    get refresh(): RefreshRequestBuilder;
     /**
      * Delete navigation property resource for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -89,6 +95,9 @@ const ResourceRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const ResourceRequestBuilderNavigationMetadata: Record<Exclude<keyof ResourceRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     environment: {
         requestsMetadata: EnvironmentRequestBuilderRequestsMetadata,
+    },
+    refresh: {
+        requestsMetadata: RefreshRequestBuilderRequestsMetadata,
     },
 };
 /**
