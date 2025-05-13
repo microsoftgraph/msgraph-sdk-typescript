@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-devices",
-  "version": "1.0.0-preview.54",
+  "version": "1.0.0-preview.55",
   "description": "Devices fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
