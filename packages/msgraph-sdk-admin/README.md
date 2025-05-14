@@ -5,7 +5,7 @@ Get started with the Microsoft Graph SDK for TypeScript by integrating the [Micr
 This package provides a fluent API for interacting with Microsoft Graph administrative functions.
 
 > [!NOTE]
-> This package requires the `@microsoft/msgraph-sdk` package. It allows you to build applications using the [v1.0](https://learn.microsoft.com/graph/use-the-api#version) of Microsoft Graph. If you want to try the latest Microsoft Graph APIs, use our [beta SDK](https://github.com/microsoftgraph/msgraph-beta-sdk-typescript) instead.
+> This package allows you to build applications using the [v1.0](https://learn.microsoft.com/graph/use-the-api#version) of Microsoft Graph. If you want to try the latest Microsoft Graph APIs, use our [beta SDK](https://github.com/microsoftgraph/msgraph-beta-sdk-typescript) instead.
 
 
 ## Installation
