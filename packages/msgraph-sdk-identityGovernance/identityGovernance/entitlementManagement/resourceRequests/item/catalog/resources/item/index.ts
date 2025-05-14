@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { EnvironmentRequestBuilderRequestsMetadata, type EnvironmentRequestBuilder } from './environment/index.js';
 // @ts-ignore
+import { RefreshRequestBuilderRequestsMetadata, type RefreshRequestBuilder } from './refresh/index.js';
+// @ts-ignore
 import { RolesRequestBuilderNavigationMetadata, RolesRequestBuilderRequestsMetadata, type RolesRequestBuilder } from './roles/index.js';
 // @ts-ignore
 import { ScopesRequestBuilderNavigationMetadata, ScopesRequestBuilderRequestsMetadata, type ScopesRequestBuilder } from './scopes/index.js';
@@ -22,6 +24,10 @@ export interface AccessPackageResourceItemRequestBuilder extends BaseRequestBuil
      * Provides operations to manage the environment property of the microsoft.graph.accessPackageResource entity.
      */
     get environment(): EnvironmentRequestBuilder;
+    /**
+     * Provides operations to call the refresh method.
+     */
+    get refresh(): RefreshRequestBuilder;
     /**
      * Provides operations to manage the roles property of the microsoft.graph.accessPackageResource entity.
      */
@@ -101,6 +107,9 @@ const AccessPackageResourceItemRequestBuilderGetQueryParametersMapper: Record<st
 export const AccessPackageResourceItemRequestBuilderNavigationMetadata: Record<Exclude<keyof AccessPackageResourceItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     environment: {
         requestsMetadata: EnvironmentRequestBuilderRequestsMetadata,
+    },
+    refresh: {
+        requestsMetadata: RefreshRequestBuilderRequestsMetadata,
     },
     roles: {
         requestsMetadata: RolesRequestBuilderRequestsMetadata,

@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { DriveRestoreArtifactsRequestBuilderNavigationMetadata, DriveRestoreArtifactsRequestBuilderRequestsMetadata, type DriveRestoreArtifactsRequestBuilder } from './driveRestoreArtifacts/index.js';
 // @ts-ignore
+import { DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata, DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata, type DriveRestoreArtifactsBulkAdditionRequestsRequestBuilder } from './driveRestoreArtifactsBulkAdditionRequests/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface OneDriveForBusinessRestoreSessionItemRequestBuilder extends Bas
      * Provides operations to manage the driveRestoreArtifacts property of the microsoft.graph.oneDriveForBusinessRestoreSession entity.
      */
     get driveRestoreArtifacts(): DriveRestoreArtifactsRequestBuilder;
+    /**
+     * Provides operations to manage the driveRestoreArtifactsBulkAdditionRequests property of the microsoft.graph.oneDriveForBusinessRestoreSession entity.
+     */
+    get driveRestoreArtifactsBulkAdditionRequests(): DriveRestoreArtifactsBulkAdditionRequestsRequestBuilder;
     /**
      * Delete navigation property oneDriveForBusinessRestoreSessions for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -91,6 +97,10 @@ export const OneDriveForBusinessRestoreSessionItemRequestBuilderNavigationMetada
     driveRestoreArtifacts: {
         requestsMetadata: DriveRestoreArtifactsRequestBuilderRequestsMetadata,
         navigationMetadata: DriveRestoreArtifactsRequestBuilderNavigationMetadata,
+    },
+    driveRestoreArtifactsBulkAdditionRequests: {
+        requestsMetadata: DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata,
+        navigationMetadata: DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata,
     },
 };
 /**

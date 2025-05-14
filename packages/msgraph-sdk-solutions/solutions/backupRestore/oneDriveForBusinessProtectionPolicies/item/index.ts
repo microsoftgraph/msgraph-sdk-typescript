@@ -10,6 +10,8 @@ import { DriveInclusionRulesRequestBuilderNavigationMetadata, DriveInclusionRule
 // @ts-ignore
 import { DriveProtectionUnitsRequestBuilderNavigationMetadata, DriveProtectionUnitsRequestBuilderRequestsMetadata, type DriveProtectionUnitsRequestBuilder } from './driveProtectionUnits/index.js';
 // @ts-ignore
+import { DriveProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata, DriveProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata, type DriveProtectionUnitsBulkAdditionJobsRequestBuilder } from './driveProtectionUnitsBulkAdditionJobs/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +26,10 @@ export interface OneDriveForBusinessProtectionPolicyItemRequestBuilder extends B
      * Provides operations to manage the driveProtectionUnits property of the microsoft.graph.oneDriveForBusinessProtectionPolicy entity.
      */
     get driveProtectionUnits(): DriveProtectionUnitsRequestBuilder;
+    /**
+     * Provides operations to manage the driveProtectionUnitsBulkAdditionJobs property of the microsoft.graph.oneDriveForBusinessProtectionPolicy entity.
+     */
+    get driveProtectionUnitsBulkAdditionJobs(): DriveProtectionUnitsBulkAdditionJobsRequestBuilder;
     /**
      * Delete navigation property oneDriveForBusinessProtectionPolicies for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -101,6 +107,10 @@ export const OneDriveForBusinessProtectionPolicyItemRequestBuilderNavigationMeta
     driveProtectionUnits: {
         requestsMetadata: DriveProtectionUnitsRequestBuilderRequestsMetadata,
         navigationMetadata: DriveProtectionUnitsRequestBuilderNavigationMetadata,
+    },
+    driveProtectionUnitsBulkAdditionJobs: {
+        requestsMetadata: DriveProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata,
+        navigationMetadata: DriveProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata,
     },
 };
 /**

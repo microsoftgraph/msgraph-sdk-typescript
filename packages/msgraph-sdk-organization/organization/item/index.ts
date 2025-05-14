@@ -81,12 +81,12 @@ export interface OrganizationItemRequestBuilder extends BaseRequestBuilder<Organ
      */
      get(requestConfiguration?: RequestConfiguration<OrganizationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Organization | undefined>;
     /**
-     * Update the properties of a organization object.
+     * Update the properties of the currently authenticated organization. In this case, organization is defined as a collection of exactly one record, and so its ID must be specified in the request.  The ID is also known as the tenantId of the organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Organization>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organization-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: Organization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Organization | undefined>;
     /**
@@ -102,7 +102,7 @@ export interface OrganizationItemRequestBuilder extends BaseRequestBuilder<Organ
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OrganizationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a organization object.
+     * Update the properties of the currently authenticated organization. In this case, organization is defined as a collection of exactly one record, and so its ID must be specified in the request.  The ID is also known as the tenantId of the organization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

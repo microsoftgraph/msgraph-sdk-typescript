@@ -10,6 +10,8 @@ import { MailboxInclusionRulesRequestBuilderNavigationMetadata, MailboxInclusion
 // @ts-ignore
 import { MailboxProtectionUnitsRequestBuilderNavigationMetadata, MailboxProtectionUnitsRequestBuilderRequestsMetadata, type MailboxProtectionUnitsRequestBuilder } from './mailboxProtectionUnits/index.js';
 // @ts-ignore
+import { MailboxProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata, MailboxProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata, type MailboxProtectionUnitsBulkAdditionJobsRequestBuilder } from './mailboxProtectionUnitsBulkAdditionJobs/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +26,10 @@ export interface ExchangeProtectionPolicyItemRequestBuilder extends BaseRequestB
      * Provides operations to manage the mailboxProtectionUnits property of the microsoft.graph.exchangeProtectionPolicy entity.
      */
     get mailboxProtectionUnits(): MailboxProtectionUnitsRequestBuilder;
+    /**
+     * Provides operations to manage the mailboxProtectionUnitsBulkAdditionJobs property of the microsoft.graph.exchangeProtectionPolicy entity.
+     */
+    get mailboxProtectionUnitsBulkAdditionJobs(): MailboxProtectionUnitsBulkAdditionJobsRequestBuilder;
     /**
      * Delete navigation property exchangeProtectionPolicies for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -101,6 +107,10 @@ export const ExchangeProtectionPolicyItemRequestBuilderNavigationMetadata: Recor
     mailboxProtectionUnits: {
         requestsMetadata: MailboxProtectionUnitsRequestBuilderRequestsMetadata,
         navigationMetadata: MailboxProtectionUnitsRequestBuilderNavigationMetadata,
+    },
+    mailboxProtectionUnitsBulkAdditionJobs: {
+        requestsMetadata: MailboxProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata,
+        navigationMetadata: MailboxProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadata,
     },
 };
 /**
