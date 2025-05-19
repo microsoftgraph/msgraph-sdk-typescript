@@ -76,6 +76,9 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org/
+      - name: Copy README.md to packages
+        shell: pwsh
+        run: ./script/copy-readme.ps1
       - run: npm ci
       - run: npm run build
       - run: npx lerna publish from-package --no-push --yes

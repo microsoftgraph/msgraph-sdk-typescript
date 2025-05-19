@@ -1,20 +1,24 @@
-# Microsoft Graph SDK for Typescript
+# `@microsoft/msgraph-sdk-$packageName`
 
-Get started with the Microsoft Graph SDK for Typescript by integrating the [Microsoft Graph API](https://learn.microsoft.com/graph/overview) into your Typescript application!
+Get started with the Microsoft Graph SDK for TypeScript by integrating the [Microsoft Graph API](https://learn.microsoft.com/graph/overview) into your TypeScript application!
+
+This package provides a fluent API for interacting with Microsoft Graph administrative functions.
 
 > [!NOTE]
-> The Microsoft Graph Typescript SDK is currently in Pre-Release. This SDK allows you to build applications using the [v1.0](https://learn.microsoft.com/graph/use-the-api#version) of Microsoft Graph. If you want to try the latest Microsoft Graph APIs, use our [beta SDK](https://github.com/microsoftgraph/msgraph-beta-sdk-typescript) instead.
+> This package requires the `@microsoft/msgraph-sdk` package. It allows you to build applications using the [v1.0](https://learn.microsoft.com/graph/use-the-api#version) of Microsoft Graph. If you want to try the latest Microsoft Graph APIs, use our [beta SDK](https://github.com/microsoftgraph/msgraph-beta-sdk-typescript) instead.
 
 
 ## 1. Installation
+
+To install the package, use npm:
 
 ```shell
 # this will install the main package
 npm install @microsoft/msgraph-sdk
 # this will install the authentication provider for Azure Identity / Microsoft Entra
 npm install @microsoft/kiota-authentication-azure @azure/identity
-# this will install the fluent API package for the users API paths
-npm install @microsoft/msgraph-sdk-users
+# this will install the fluent API package for the administrative API paths
+npm install @microsoft/msgraph-sdk-$packageName
 ```
 
 ## 2. Getting started
@@ -157,12 +161,12 @@ To retrieve the user's detailed information:
 
 ```typescript
 import { createGraphServiceClient, GraphRequestAdapter } from "@microsoft/msgraph-sdk";
-import "@microsoft/msgraph-sdk-users";
+import "@microsoft/msgraph-sdk-$packageName"
 
 const requestAdapter = new GraphRequestAdapter(authProvider);
 const graphServiceClient = createGraphServiceClient(requestAdapter);
 
-const jane = await graphServiceClient.users.byUserId("jane@contoso.com").get();
+const $packageName = graphServiceClient.$packageName.get();
 ```
 
 ## 4. Documentation
@@ -185,8 +189,8 @@ The Microsoft Graph SDK is open for contribution. To contribute to this project,
 
 ## 7. License
 
-Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the [MIT license](LICENSE).
+Licensed under the [MIT license](https://github.com/microsoftgraph/msgraph-sdk-typescript/blob/main/LICENSE).
 
 ## 8. Third-party notices
 
-[Third-party notices](THIRD%20PARTY%20NOTICES)
+[Third-party notices](https://github.com/microsoftgraph/msgraph-sdk-typescript/blob/main/LICENSE)
