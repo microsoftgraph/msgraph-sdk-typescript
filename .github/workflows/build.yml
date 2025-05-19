@@ -78,6 +78,9 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run build
+      - name: Copy README.md to packages
+        shell: pwsh
+        run: ./script/copy-readme.ps1
       - run: npx lerna publish from-package --no-push --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
