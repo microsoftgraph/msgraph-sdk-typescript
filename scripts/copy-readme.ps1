@@ -1,7 +1,7 @@
 # PowerShell script to copy and modify README.md files in package folders
 
 $scriptPath = Join-Path -Path $PSScriptRoot -ChildPath "README.md"
-$packagesPath = Join-Path -Path $PSScriptRoot -ChildPath "..\packages\.."
+$packagesPath = Join-Path -Path (Split-Path $PSScriptRoot -Parent) -ChildPath "packages"
 $packageFolders = Get-ChildItem -Path $packagesPath -Directory
 
 foreach ($folder in $packageFolders) {
