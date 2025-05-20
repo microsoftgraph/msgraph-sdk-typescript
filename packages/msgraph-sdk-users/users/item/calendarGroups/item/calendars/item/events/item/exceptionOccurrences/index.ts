@@ -33,21 +33,21 @@ export interface ExceptionOccurrencesRequestBuilder extends BaseRequestBuilder<E
      */
      byEventId1(eventId1: string) : EventItemRequestBuilder;
     /**
-     * Get exceptionOccurrences from users
+     * Contains the id property values of the event instances that are exceptions in a recurring series.Exceptions can differ from other occurrences in a recurring series, such as the subject, start or end times, or attendees. Exceptions don't include canceled occurrences.Returned only on $select and $expand in a GET operation that specifies the ID (seriesMasterId property value) of a series master event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EventCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ExceptionOccurrencesRequestBuilderGetQueryParameters> | undefined) : Promise<EventCollectionResponse | undefined>;
     /**
-     * Get exceptionOccurrences from users
+     * Contains the id property values of the event instances that are exceptions in a recurring series.Exceptions can differ from other occurrences in a recurring series, such as the subject, start or end times, or attendees. Exceptions don't include canceled occurrences.Returned only on $select and $expand in a GET operation that specifies the ID (seriesMasterId property value) of a series master event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExceptionOccurrencesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get exceptionOccurrences from users
+ * Contains the id property values of the event instances that are exceptions in a recurring series.Exceptions can differ from other occurrences in a recurring series, such as the subject, start or end times, or attendees. Exceptions don't include canceled occurrences.Returned only on $select and $expand in a GET operation that specifies the ID (seriesMasterId property value) of a series master event.
  */
 export interface ExceptionOccurrencesRequestBuilderGetQueryParameters {
     /**
