@@ -20,6 +20,8 @@ import { FederationConfigurationsRequestBuilderNavigationMetadata, FederationCon
 // @ts-ignore
 import { OnPremisesSynchronizationRequestBuilderNavigationMetadata, OnPremisesSynchronizationRequestBuilderRequestsMetadata, type OnPremisesSynchronizationRequestBuilder } from './onPremisesSynchronization/index.js';
 // @ts-ignore
+import { PublicKeyInfrastructureRequestBuilderNavigationMetadata, PublicKeyInfrastructureRequestBuilderRequestsMetadata, type PublicKeyInfrastructureRequestBuilder } from './publicKeyInfrastructure/index.js';
+// @ts-ignore
 import { SubscriptionsRequestBuilderNavigationMetadata, SubscriptionsRequestBuilderRequestsMetadata, type SubscriptionsRequestBuilder } from './subscriptions/index.js';
 // @ts-ignore
 import { SubscriptionsWithCommerceSubscriptionIdRequestBuilderRequestsMetadata, type SubscriptionsWithCommerceSubscriptionIdRequestBuilder } from './subscriptionsWithCommerceSubscriptionId/index.js';
@@ -58,6 +60,10 @@ export interface DirectoryRequestBuilder extends BaseRequestBuilder<DirectoryReq
      * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
      */
     get onPremisesSynchronization(): OnPremisesSynchronizationRequestBuilder;
+    /**
+     * Provides operations to manage the publicKeyInfrastructure property of the microsoft.graph.directory entity.
+     */
+    get publicKeyInfrastructure(): PublicKeyInfrastructureRequestBuilder;
     /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
      */
@@ -156,6 +162,10 @@ export const DirectoryRequestBuilderNavigationMetadata: Record<Exclude<keyof Dir
     onPremisesSynchronization: {
         requestsMetadata: OnPremisesSynchronizationRequestBuilderRequestsMetadata,
         navigationMetadata: OnPremisesSynchronizationRequestBuilderNavigationMetadata,
+    },
+    publicKeyInfrastructure: {
+        requestsMetadata: PublicKeyInfrastructureRequestBuilderRequestsMetadata,
+        navigationMetadata: PublicKeyInfrastructureRequestBuilderNavigationMetadata,
     },
     subscriptions: {
         requestsMetadata: SubscriptionsRequestBuilderRequestsMetadata,
