@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilder extends BaseRequestBuilder<SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilder> {
     /**
-     * Delete navigation property siteRestoreArtifactsBulkAdditionRequests for solutions
+     * Delete a siteRestoreArtifactsBulkAdditionRequest object associated with a sharepointRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/siterestoreartifactsbulkadditionrequest-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get siteRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a siteRestoreArtifactsBulkAdditionRequest object by its id, associated with a sharePointRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SiteRestoreArtifactsBulkAdditionRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/siterestoreartifactsbulkadditionrequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<SiteRestoreArtifactsBulkAdditionRequest | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilder exten
      */
      patch(body: SiteRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SiteRestoreArtifactsBulkAdditionRequest | undefined>;
     /**
-     * Delete navigation property siteRestoreArtifactsBulkAdditionRequests for solutions
+     * Delete a siteRestoreArtifactsBulkAdditionRequest object associated with a sharepointRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get siteRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a siteRestoreArtifactsBulkAdditionRequest object by its id, associated with a sharePointRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilder exten
      toPatchRequestInformation(body: SiteRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get siteRestoreArtifactsBulkAdditionRequests from solutions
+ * Get a siteRestoreArtifactsBulkAdditionRequest object by its id, associated with a sharePointRestoreSession.
  */
 export interface SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParameters {
     /**

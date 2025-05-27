@@ -13,10 +13,10 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface NamedLocationItemRequestBuilder extends BaseRequestBuilder<NamedLocationItemRequestBuilder> {
     /**
-     * Delete a countryNamedLocation object.
+     * Delete an ipNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -37,7 +37,7 @@ export interface NamedLocationItemRequestBuilder extends BaseRequestBuilder<Name
      */
      patch(body: NamedLocation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<NamedLocation | undefined>;
     /**
-     * Delete a countryNamedLocation object.
+     * Delete an ipNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
