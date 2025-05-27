@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilder extends BaseRequestBuilder<DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilder> {
     /**
-     * Delete navigation property driveRestoreArtifactsBulkAdditionRequests for solutions
+     * Delete a driveRestoreArtifactsBulkAdditionRequest object associated with a oneDriveForBusinessRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/driverestoreartifactsbulkadditionrequest-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get driveRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a driveRestoreArtifactsBulkAdditionRequest object by its id, associated with a oneDriveForBusinessRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveRestoreArtifactsBulkAdditionRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/driverestoreartifactsbulkadditionrequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<DriveRestoreArtifactsBulkAdditionRequest | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilder exte
      */
      patch(body: DriveRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveRestoreArtifactsBulkAdditionRequest | undefined>;
     /**
-     * Delete navigation property driveRestoreArtifactsBulkAdditionRequests for solutions
+     * Delete a driveRestoreArtifactsBulkAdditionRequest object associated with a oneDriveForBusinessRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get driveRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a driveRestoreArtifactsBulkAdditionRequest object by its id, associated with a oneDriveForBusinessRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilder exte
      toPatchRequestInformation(body: DriveRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get driveRestoreArtifactsBulkAdditionRequests from solutions
+ * Get a driveRestoreArtifactsBulkAdditionRequest object by its id, associated with a oneDriveForBusinessRestoreSession.
  */
 export interface DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParameters {
     /**

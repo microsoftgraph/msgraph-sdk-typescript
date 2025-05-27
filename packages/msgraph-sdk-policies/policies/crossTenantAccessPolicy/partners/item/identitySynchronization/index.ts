@@ -28,12 +28,12 @@ export interface IdentitySynchronizationRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<IdentitySynchronizationRequestBuilderGetQueryParameters> | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined>;
     /**
-     * Create a cross-tenant user synchronization policy for a partner-specific configuration.
+     * Update the user synchronization policy of a partner-specific configuration.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CrossTenantIdentitySyncPolicyPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-1.0|Find more info here}
      */
      put(body: CrossTenantIdentitySyncPolicyPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined>;
     /**
@@ -49,7 +49,7 @@ export interface IdentitySynchronizationRequestBuilder extends BaseRequestBuilde
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IdentitySynchronizationRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a cross-tenant user synchronization policy for a partner-specific configuration.
+     * Update the user synchronization policy of a partner-specific configuration.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

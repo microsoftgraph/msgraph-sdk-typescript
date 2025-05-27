@@ -27,28 +27,30 @@ export interface DriveRestoreArtifactsBulkAdditionRequestsRequestBuilder extends
      */
      byDriveRestoreArtifactsBulkAdditionRequestId(driveRestoreArtifactsBulkAdditionRequestId: string) : DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilder;
     /**
-     * Get driveRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a list of the driveRestoreArtifactsBulkAdditionRequest objects associated with a oneDriveForBusinessRestoreSession. The drives property is deliberately omitted from the response body in order to limit the response size.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveRestoreArtifactsBulkAdditionRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/onedriveforbusinessrestoresession-list-driverestoreartifactsbulkadditionrequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<DriveRestoreArtifactsBulkAdditionRequestCollectionResponse | undefined>;
     /**
-     * Create new navigation property to driveRestoreArtifactsBulkAdditionRequests for solutions
+     * Create a driveRestoreArtifactsBulkAdditionRequest object associated with a oneDriveForBusinessRestoreSession. The following steps describe how to create and manage a oneDriveForBusinessRestoreSession with bulk artifact additions.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveRestoreArtifactsBulkAdditionRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/onedriveforbusinessrestoresession-post-driverestoreartifactsbulkadditionrequests?view=graph-rest-1.0|Find more info here}
      */
      post(body: DriveRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveRestoreArtifactsBulkAdditionRequest | undefined>;
     /**
-     * Get driveRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a list of the driveRestoreArtifactsBulkAdditionRequest objects associated with a oneDriveForBusinessRestoreSession. The drives property is deliberately omitted from the response body in order to limit the response size.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to driveRestoreArtifactsBulkAdditionRequests for solutions
+     * Create a driveRestoreArtifactsBulkAdditionRequest object associated with a oneDriveForBusinessRestoreSession. The following steps describe how to create and manage a oneDriveForBusinessRestoreSession with bulk artifact additions.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface DriveRestoreArtifactsBulkAdditionRequestsRequestBuilder extends
      toPostRequestInformation(body: DriveRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get driveRestoreArtifactsBulkAdditionRequests from solutions
+ * Get a list of the driveRestoreArtifactsBulkAdditionRequest objects associated with a oneDriveForBusinessRestoreSession. The drives property is deliberately omitted from the response body in order to limit the response size.
  */
 export interface DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQueryParameters {
     /**

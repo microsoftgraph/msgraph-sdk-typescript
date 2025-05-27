@@ -27,28 +27,30 @@ export interface MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilder exten
      */
      byMailboxRestoreArtifactsBulkAdditionRequestId(mailboxRestoreArtifactsBulkAdditionRequestId: string) : MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilder;
     /**
-     * Get mailboxRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a list of the maiboxRestoreArtifactsBulkAdditionRequest objects associated with an exchangeRestoreSession. The mailboxes property is deliberately omitted from the response body in order to limit the response size.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxRestoreArtifactsBulkAdditionRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/exchangerestoresession-list-mailboxrestoreartifactsbulkadditionrequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxRestoreArtifactsBulkAdditionRequestCollectionResponse | undefined>;
     /**
-     * Create new navigation property to mailboxRestoreArtifactsBulkAdditionRequests for solutions
+     * Create a new mailboxRestoreArtifactsBulkAdditionRequest object associated with an exchangeRestoreSession. The following steps describe how to create and manage an exchangeRestoreSession with bulk artifact additions:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxRestoreArtifactsBulkAdditionRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/exchangerestoresession-post-mailboxrestoreartifactsbulkadditionrequests?view=graph-rest-1.0|Find more info here}
      */
      post(body: MailboxRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MailboxRestoreArtifactsBulkAdditionRequest | undefined>;
     /**
-     * Get mailboxRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a list of the maiboxRestoreArtifactsBulkAdditionRequest objects associated with an exchangeRestoreSession. The mailboxes property is deliberately omitted from the response body in order to limit the response size.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to mailboxRestoreArtifactsBulkAdditionRequests for solutions
+     * Create a new mailboxRestoreArtifactsBulkAdditionRequest object associated with an exchangeRestoreSession. The following steps describe how to create and manage an exchangeRestoreSession with bulk artifact additions:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilder exten
      toPostRequestInformation(body: MailboxRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get mailboxRestoreArtifactsBulkAdditionRequests from solutions
+ * Get a list of the maiboxRestoreArtifactsBulkAdditionRequest objects associated with an exchangeRestoreSession. The mailboxes property is deliberately omitted from the response body in order to limit the response size.
  */
 export interface MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQueryParameters {
     /**

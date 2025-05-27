@@ -13,16 +13,18 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilder extends BaseRequestBuilder<MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilder> {
     /**
-     * Delete navigation property mailboxRestoreArtifactsBulkAdditionRequests for solutions
+     * Delete a mailboxRestoreArtifactsBulkAdditionRequest object associated with an exchangeRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/mailboxrestoreartifactsbulkadditionrequest-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get mailboxRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a mailboxRestoreArtifactsBulkAdditionRequest object by its id, associated with an exchangeRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxRestoreArtifactsBulkAdditionRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/mailboxrestoreartifactsbulkadditionrequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxRestoreArtifactsBulkAdditionRequest | undefined>;
     /**
@@ -34,13 +36,13 @@ export interface MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilder ex
      */
      patch(body: MailboxRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MailboxRestoreArtifactsBulkAdditionRequest | undefined>;
     /**
-     * Delete navigation property mailboxRestoreArtifactsBulkAdditionRequests for solutions
+     * Delete a mailboxRestoreArtifactsBulkAdditionRequest object associated with an exchangeRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get mailboxRestoreArtifactsBulkAdditionRequests from solutions
+     * Get a mailboxRestoreArtifactsBulkAdditionRequest object by its id, associated with an exchangeRestoreSession.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +56,7 @@ export interface MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilder ex
      toPatchRequestInformation(body: MailboxRestoreArtifactsBulkAdditionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get mailboxRestoreArtifactsBulkAdditionRequests from solutions
+ * Get a mailboxRestoreArtifactsBulkAdditionRequest object by its id, associated with an exchangeRestoreSession.
  */
 export interface MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParameters {
     /**
