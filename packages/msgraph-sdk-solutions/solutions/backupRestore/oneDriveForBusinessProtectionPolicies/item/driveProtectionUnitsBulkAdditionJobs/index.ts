@@ -27,21 +27,22 @@ export interface DriveProtectionUnitsBulkAdditionJobsRequestBuilder extends Base
      */
      byDriveProtectionUnitsBulkAdditionJobId(driveProtectionUnitsBulkAdditionJobId: string) : DriveProtectionUnitsBulkAdditionJobItemRequestBuilder;
     /**
-     * Get driveProtectionUnitsBulkAdditionJobs from solutions
+     * Get a list of driveProtectionUnitsBulkAdditionJobs objects associated with a oneDriveForBusinessProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveProtectionUnitsBulkAdditionJobCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/onedriveforbusinessprotectionpolicy-list-driveprotectionunitsbulkadditionjobs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DriveProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters> | undefined) : Promise<DriveProtectionUnitsBulkAdditionJobCollectionResponse | undefined>;
     /**
-     * Get driveProtectionUnitsBulkAdditionJobs from solutions
+     * Get a list of driveProtectionUnitsBulkAdditionJobs objects associated with a oneDriveForBusinessProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DriveProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get driveProtectionUnitsBulkAdditionJobs from solutions
+ * Get a list of driveProtectionUnitsBulkAdditionJobs objects associated with a oneDriveForBusinessProtectionPolicy.
  */
 export interface DriveProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters {
     /**

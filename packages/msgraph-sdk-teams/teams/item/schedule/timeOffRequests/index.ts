@@ -35,11 +35,12 @@ export interface TimeOffRequestsRequestBuilder extends BaseRequestBuilder<TimeOf
      */
      get(requestConfiguration?: RequestConfiguration<TimeOffRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<TimeOffRequestCollectionResponse | undefined>;
     /**
-     * Create new navigation property to timeOffRequests for teams
+     * Create instance of a timeoffrequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TimeOffRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: TimeOffRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TimeOffRequest | undefined>;
     /**
@@ -49,7 +50,7 @@ export interface TimeOffRequestsRequestBuilder extends BaseRequestBuilder<TimeOf
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TimeOffRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to timeOffRequests for teams
+     * Create instance of a timeoffrequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

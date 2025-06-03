@@ -13,21 +13,22 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface SiteProtectionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBuilder<SiteProtectionUnitsBulkAdditionJobItemRequestBuilder> {
     /**
-     * Get siteProtectionUnitsBulkAdditionJobs from solutions
+     * Get a siteProtectionUnitsBulkAdditionJob object by the ID associated with a sharePointProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SiteProtectionUnitsBulkAdditionJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/siteprotectionunitsbulkadditionjobs-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SiteProtectionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters> | undefined) : Promise<SiteProtectionUnitsBulkAdditionJob | undefined>;
     /**
-     * Get siteProtectionUnitsBulkAdditionJobs from solutions
+     * Get a siteProtectionUnitsBulkAdditionJob object by the ID associated with a sharePointProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SiteProtectionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get siteProtectionUnitsBulkAdditionJobs from solutions
+ * Get a siteProtectionUnitsBulkAdditionJob object by the ID associated with a sharePointProtectionPolicy.
  */
 export interface SiteProtectionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters {
     /**

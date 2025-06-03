@@ -27,21 +27,22 @@ export interface MailboxProtectionUnitsBulkAdditionJobsRequestBuilder extends Ba
      */
      byMailboxProtectionUnitsBulkAdditionJobId(mailboxProtectionUnitsBulkAdditionJobId: string) : MailboxProtectionUnitsBulkAdditionJobItemRequestBuilder;
     /**
-     * Get mailboxProtectionUnitsBulkAdditionJobs from solutions
+     * Get a list of mailboxProtectionUnitsBulkAdditionJobs objects associated with an exchangeProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxProtectionUnitsBulkAdditionJobCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/exchangeprotectionpolicy-list-mailboxprotectionunitsbulkadditionjobs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MailboxProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxProtectionUnitsBulkAdditionJobCollectionResponse | undefined>;
     /**
-     * Get mailboxProtectionUnitsBulkAdditionJobs from solutions
+     * Get a list of mailboxProtectionUnitsBulkAdditionJobs objects associated with an exchangeProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MailboxProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get mailboxProtectionUnitsBulkAdditionJobs from solutions
+ * Get a list of mailboxProtectionUnitsBulkAdditionJobs objects associated with an exchangeProtectionPolicy.
  */
 export interface MailboxProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters {
     /**
