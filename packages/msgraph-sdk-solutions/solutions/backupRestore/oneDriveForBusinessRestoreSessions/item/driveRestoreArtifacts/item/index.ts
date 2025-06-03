@@ -25,7 +25,7 @@ export interface DriveRestoreArtifactItemRequestBuilder extends BaseRequestBuild
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * A collection of restore points and destination details that can be used to restore a OneDrive for Business drive.
+     * A collection of restore points and destination details that can be used to restore a OneDrive for work or school drive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveRestoreArtifact>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface DriveRestoreArtifactItemRequestBuilder extends BaseRequestBuild
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * A collection of restore points and destination details that can be used to restore a OneDrive for Business drive.
+     * A collection of restore points and destination details that can be used to restore a OneDrive for work or school drive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface DriveRestoreArtifactItemRequestBuilder extends BaseRequestBuild
      toPatchRequestInformation(body: DriveRestoreArtifact, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * A collection of restore points and destination details that can be used to restore a OneDrive for Business drive.
+ * A collection of restore points and destination details that can be used to restore a OneDrive for work or school drive.
  */
 export interface DriveRestoreArtifactItemRequestBuilderGetQueryParameters {
     /**

@@ -25,6 +25,10 @@ export interface ClockInPostRequestBody extends AdditionalDataHolder, BackedMode
      * The notes property
      */
     notes?: ItemBody | null;
+    /**
+     * The onBehalfOfUserId property
+     */
+    onBehalfOfUserId?: string | null;
 }
 /**
  * Provides operations to call the clockIn method.
@@ -66,6 +70,7 @@ export function deserializeIntoClockInPostRequestBody(clockInPostRequestBody: Pa
         "backingStoreEnabled": n => { clockInPostRequestBody.backingStoreEnabled = true; },
         "isAtApprovedLocation": n => { clockInPostRequestBody.isAtApprovedLocation = n.getBooleanValue(); },
         "notes": n => { clockInPostRequestBody.notes = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
+        "onBehalfOfUserId": n => { clockInPostRequestBody.onBehalfOfUserId = n.getStringValue(); },
     }
 }
 /**
@@ -77,6 +82,7 @@ export function serializeClockInPostRequestBody(writer: SerializationWriter, clo
     if (clockInPostRequestBody) {
         writer.writeBooleanValue("isAtApprovedLocation", clockInPostRequestBody.isAtApprovedLocation);
         writer.writeObjectValue<ItemBody>("notes", clockInPostRequestBody.notes, serializeItemBody);
+        writer.writeStringValue("onBehalfOfUserId", clockInPostRequestBody.onBehalfOfUserId);
         writer.writeAdditionalData(clockInPostRequestBody.additionalData);
     }
 }

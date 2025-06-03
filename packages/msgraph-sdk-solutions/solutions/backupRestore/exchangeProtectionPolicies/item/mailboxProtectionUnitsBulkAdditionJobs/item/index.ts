@@ -13,21 +13,22 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MailboxProtectionUnitsBulkAdditionJobItemRequestBuilder extends BaseRequestBuilder<MailboxProtectionUnitsBulkAdditionJobItemRequestBuilder> {
     /**
-     * Get mailboxProtectionUnitsBulkAdditionJobs from solutions
+     * Get a mailboxProtectionUnitsBulkAdditionJob object by the ID associated with an exchangeProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxProtectionUnitsBulkAdditionJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/mailboxprotectionunitsbulkadditionjobs-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxProtectionUnitsBulkAdditionJob | undefined>;
     /**
-     * Get mailboxProtectionUnitsBulkAdditionJobs from solutions
+     * Get a mailboxProtectionUnitsBulkAdditionJob object by the ID associated with an exchangeProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get mailboxProtectionUnitsBulkAdditionJobs from solutions
+ * Get a mailboxProtectionUnitsBulkAdditionJob object by the ID associated with an exchangeProtectionPolicy.
  */
 export interface MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderGetQueryParameters {
     /**

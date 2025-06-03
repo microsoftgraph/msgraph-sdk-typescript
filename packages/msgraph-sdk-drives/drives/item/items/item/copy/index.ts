@@ -31,16 +31,15 @@ export interface CopyPostRequestBody extends AdditionalDataHolder, BackedModel, 
  */
 export interface CopyRequestBuilder extends BaseRequestBuilder<CopyRequestBuilder> {
     /**
-     * Asynchronously creates a copy of an driveItem (including any children), under a new parent item or with a new name.
+     * Invoke action copy
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/driveitem-copy?view=graph-rest-1.0|Find more info here}
      */
      post(body: CopyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItem | undefined>;
     /**
-     * Asynchronously creates a copy of an driveItem (including any children), under a new parent item or with a new name.
+     * Invoke action copy
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

@@ -46,7 +46,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EducationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/educationclass-post-assignment?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-post-assignments?view=graph-rest-1.0|Find more info here}
      */
      post(body: EducationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EducationAssignment | undefined>;
     /**

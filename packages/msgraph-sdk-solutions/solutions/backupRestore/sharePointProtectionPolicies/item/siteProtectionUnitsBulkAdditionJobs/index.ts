@@ -27,21 +27,22 @@ export interface SiteProtectionUnitsBulkAdditionJobsRequestBuilder extends BaseR
      */
      bySiteProtectionUnitsBulkAdditionJobId(siteProtectionUnitsBulkAdditionJobId: string) : SiteProtectionUnitsBulkAdditionJobItemRequestBuilder;
     /**
-     * Get siteProtectionUnitsBulkAdditionJobs from solutions
+     * Get a list of siteProtectionUnitsBulkAdditionJobs objects associated with a sharePointProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SiteProtectionUnitsBulkAdditionJobCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/sharepointprotectionpolicy-list-siteprotectionunitsbulkadditionjobs?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SiteProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters> | undefined) : Promise<SiteProtectionUnitsBulkAdditionJobCollectionResponse | undefined>;
     /**
-     * Get siteProtectionUnitsBulkAdditionJobs from solutions
+     * Get a list of siteProtectionUnitsBulkAdditionJobs objects associated with a sharePointProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SiteProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get siteProtectionUnitsBulkAdditionJobs from solutions
+ * Get a list of siteProtectionUnitsBulkAdditionJobs objects associated with a sharePointProtectionPolicy.
  */
 export interface SiteProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParameters {
     /**
