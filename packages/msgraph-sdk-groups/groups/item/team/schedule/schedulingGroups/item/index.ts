@@ -83,6 +83,7 @@ const SchedulingGroupItemRequestBuilderGetQueryParametersMapper: Record<string, 
 export const SchedulingGroupItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SchedulingGroupItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

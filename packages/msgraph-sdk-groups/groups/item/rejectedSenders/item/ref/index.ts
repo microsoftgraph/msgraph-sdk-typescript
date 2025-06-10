@@ -34,6 +34,7 @@ export const RefRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/reje
 export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RefRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

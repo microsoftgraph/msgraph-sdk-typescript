@@ -81,6 +81,7 @@ export const ClearPresenceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2D
 export const ClearPresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ClearPresenceRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -100,6 +100,7 @@ export const CustomSecurityAttributeDefinitionItemRequestBuilderNavigationMetada
 export const CustomSecurityAttributeDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CustomSecurityAttributeDefinitionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

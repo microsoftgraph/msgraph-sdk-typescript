@@ -129,7 +129,7 @@ export const RetrieveDeviceAppInstallationStatusReportRequestBuilderUriTemplate 
 export const RetrieveDeviceAppInstallationStatusReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RetrieveDeviceAppInstallationStatusReportRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

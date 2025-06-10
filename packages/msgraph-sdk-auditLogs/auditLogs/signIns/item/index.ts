@@ -84,6 +84,7 @@ const SignInItemRequestBuilderGetQueryParametersMapper: Record<string, string> =
 export const SignInItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SignInItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

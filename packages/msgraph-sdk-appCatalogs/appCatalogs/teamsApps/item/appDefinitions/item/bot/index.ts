@@ -84,6 +84,7 @@ const BotRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const BotRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BotRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

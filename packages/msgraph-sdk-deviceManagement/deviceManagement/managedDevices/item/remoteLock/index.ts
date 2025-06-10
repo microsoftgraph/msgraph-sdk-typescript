@@ -34,6 +34,7 @@ export const RemoteLockRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/
 export const RemoteLockRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RemoteLockRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

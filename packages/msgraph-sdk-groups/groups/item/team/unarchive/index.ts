@@ -34,6 +34,7 @@ export const UnarchiveRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did
 export const UnarchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UnarchiveRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

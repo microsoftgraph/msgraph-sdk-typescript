@@ -98,6 +98,7 @@ export const VerticalSectionRequestBuilderNavigationMetadata: Record<Exclude<key
 export const VerticalSectionRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: VerticalSectionRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

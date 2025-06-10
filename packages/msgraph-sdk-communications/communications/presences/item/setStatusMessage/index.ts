@@ -83,6 +83,7 @@ export const SetStatusMessageRequestBuilderUriTemplate = "{+baseurl}/communicati
 export const SetStatusMessageRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetStatusMessageRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

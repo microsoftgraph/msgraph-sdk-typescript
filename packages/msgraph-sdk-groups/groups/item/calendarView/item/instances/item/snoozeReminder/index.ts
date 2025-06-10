@@ -83,6 +83,7 @@ export const SnoozeReminderRequestBuilderUriTemplate = "{+baseurl}/groups/{group
 export const SnoozeReminderRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SnoozeReminderRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

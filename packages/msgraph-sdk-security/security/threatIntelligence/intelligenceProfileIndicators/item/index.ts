@@ -98,6 +98,7 @@ export const IntelligenceProfileIndicatorItemRequestBuilderNavigationMetadata: R
 export const IntelligenceProfileIndicatorItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: IntelligenceProfileIndicatorItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

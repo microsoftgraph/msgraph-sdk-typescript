@@ -99,6 +99,7 @@ export const BatchRecordDecisionsRequestBuilderUriTemplate = "{+baseurl}/identit
 export const BatchRecordDecisionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: BatchRecordDecisionsRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

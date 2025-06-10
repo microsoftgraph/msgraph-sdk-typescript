@@ -84,6 +84,7 @@ const PermissionGrantConditionSetItemRequestBuilderGetQueryParametersMapper: Rec
 export const PermissionGrantConditionSetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PermissionGrantConditionSetItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

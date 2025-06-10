@@ -81,6 +81,7 @@ export const SetVerifiedPublisherRequestBuilderUriTemplate = "{+baseurl}/applica
 export const SetVerifiedPublisherRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetVerifiedPublisherRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

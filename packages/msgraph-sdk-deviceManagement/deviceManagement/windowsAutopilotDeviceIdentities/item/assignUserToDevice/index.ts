@@ -87,6 +87,7 @@ export const AssignUserToDeviceRequestBuilderUriTemplate = "{+baseurl}/deviceMan
 export const AssignUserToDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: AssignUserToDeviceRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

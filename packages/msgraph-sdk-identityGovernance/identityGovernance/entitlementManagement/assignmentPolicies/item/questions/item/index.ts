@@ -83,6 +83,7 @@ const AccessPackageQuestionItemRequestBuilderGetQueryParametersMapper: Record<st
 export const AccessPackageQuestionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AccessPackageQuestionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

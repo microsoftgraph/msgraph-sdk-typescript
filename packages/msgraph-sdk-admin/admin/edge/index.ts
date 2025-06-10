@@ -98,6 +98,7 @@ export const EdgeRequestBuilderNavigationMetadata: Record<Exclude<keyof EdgeRequ
 export const EdgeRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EdgeRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

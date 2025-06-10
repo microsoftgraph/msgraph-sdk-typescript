@@ -86,6 +86,7 @@ const IosUpdateDeviceStatusItemRequestBuilderGetQueryParametersMapper: Record<st
 export const IosUpdateDeviceStatusItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: IosUpdateDeviceStatusItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

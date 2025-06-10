@@ -98,6 +98,7 @@ export const ExternalGroupItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const ExternalGroupItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ExternalGroupItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

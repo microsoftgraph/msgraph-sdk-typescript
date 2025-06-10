@@ -89,6 +89,7 @@ export const ReplyAllRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/m
 export const ReplyAllRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ReplyAllRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

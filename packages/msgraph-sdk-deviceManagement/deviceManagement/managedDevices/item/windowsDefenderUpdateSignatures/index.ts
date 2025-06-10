@@ -34,6 +34,7 @@ export const WindowsDefenderUpdateSignaturesRequestBuilderUriTemplate = "{+baseu
 export const WindowsDefenderUpdateSignaturesRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: WindowsDefenderUpdateSignaturesRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

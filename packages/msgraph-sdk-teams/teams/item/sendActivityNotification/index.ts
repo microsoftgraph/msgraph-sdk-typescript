@@ -119,6 +119,7 @@ export const SendActivityNotificationRequestBuilderUriTemplate = "{+baseurl}/tea
 export const SendActivityNotificationRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SendActivityNotificationRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

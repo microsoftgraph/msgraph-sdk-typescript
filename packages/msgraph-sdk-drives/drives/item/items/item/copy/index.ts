@@ -18,6 +18,14 @@ export interface CopyPostRequestBody extends AdditionalDataHolder, BackedModel, 
      */
     backingStoreEnabled?: boolean | null;
     /**
+     * The childrenOnly property
+     */
+    childrenOnly?: boolean | null;
+    /**
+     * The includeAllVersionHistory property
+     */
+    includeAllVersionHistory?: boolean | null;
+    /**
      * The name property
      */
     name?: string | null;
@@ -63,6 +71,8 @@ export function createCopyPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: Partial<CopyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyPostRequestBody.backingStoreEnabled = true; },
+        "childrenOnly": n => { copyPostRequestBody.childrenOnly = n.getBooleanValue(); },
+        "includeAllVersionHistory": n => { copyPostRequestBody.includeAllVersionHistory = n.getBooleanValue(); },
         "name": n => { copyPostRequestBody.name = n.getStringValue(); },
         "parentReference": n => { copyPostRequestBody.parentReference = n.getObjectValue<ItemReference>(createItemReferenceFromDiscriminatorValue); },
     }
@@ -74,6 +84,8 @@ export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: Partial<
 // @ts-ignore
 export function serializeCopyPostRequestBody(writer: SerializationWriter, copyPostRequestBody: Partial<CopyPostRequestBody> | undefined | null = {}) : void {
     if (copyPostRequestBody) {
+        writer.writeBooleanValue("childrenOnly", copyPostRequestBody.childrenOnly);
+        writer.writeBooleanValue("includeAllVersionHistory", copyPostRequestBody.includeAllVersionHistory);
         writer.writeStringValue("name", copyPostRequestBody.name);
         writer.writeObjectValue<ItemReference>("parentReference", copyPostRequestBody.parentReference, serializeItemReference);
         writer.writeAdditionalData(copyPostRequestBody.additionalData);

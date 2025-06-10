@@ -34,6 +34,7 @@ export const UnarchiveRequestBuilderUriTemplate = "{+baseurl}/teamwork/deletedTe
 export const UnarchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UnarchiveRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

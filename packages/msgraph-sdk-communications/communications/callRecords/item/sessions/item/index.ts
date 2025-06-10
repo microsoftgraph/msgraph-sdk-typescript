@@ -98,6 +98,7 @@ export const SessionItemRequestBuilderNavigationMetadata: Record<Exclude<keyof S
 export const SessionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SessionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

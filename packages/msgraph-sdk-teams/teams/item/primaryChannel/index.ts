@@ -203,6 +203,7 @@ export const PrimaryChannelRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const PrimaryChannelRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PrimaryChannelRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

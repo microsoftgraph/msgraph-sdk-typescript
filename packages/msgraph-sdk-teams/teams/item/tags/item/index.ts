@@ -101,6 +101,7 @@ export const TeamworkTagItemRequestBuilderNavigationMetadata: Record<Exclude<key
 export const TeamworkTagItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TeamworkTagItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

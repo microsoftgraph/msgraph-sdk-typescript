@@ -85,6 +85,7 @@ const AuthenticationFlowsPolicyRequestBuilderGetQueryParametersMapper: Record<st
 export const AuthenticationFlowsPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthenticationFlowsPolicyRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,6 +83,7 @@ const SiteProtectionUnitItemRequestBuilderGetQueryParametersMapper: Record<strin
 export const SiteProtectionUnitItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SiteProtectionUnitItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

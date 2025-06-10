@@ -142,6 +142,7 @@ export const EdiscoveryNoncustodialDataSourceItemRequestBuilderNavigationMetadat
 export const EdiscoveryNoncustodialDataSourceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EdiscoveryNoncustodialDataSourceItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

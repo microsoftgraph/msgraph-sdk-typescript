@@ -83,6 +83,7 @@ const CloudPcUserSettingAssignmentItemRequestBuilderGetQueryParametersMapper: Re
 export const CloudPcUserSettingAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CloudPcUserSettingAssignmentItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

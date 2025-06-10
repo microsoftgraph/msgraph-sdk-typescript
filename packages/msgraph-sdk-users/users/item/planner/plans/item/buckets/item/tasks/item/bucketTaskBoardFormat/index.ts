@@ -83,6 +83,7 @@ const BucketTaskBoardFormatRequestBuilderGetQueryParametersMapper: Record<string
 export const BucketTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BucketTaskBoardFormatRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

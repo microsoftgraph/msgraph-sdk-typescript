@@ -83,6 +83,7 @@ const LastMessagePreviewRequestBuilderGetQueryParametersMapper: Record<string, s
 export const LastMessagePreviewRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LastMessagePreviewRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

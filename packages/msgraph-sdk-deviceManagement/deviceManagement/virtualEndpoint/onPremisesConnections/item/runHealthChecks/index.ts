@@ -34,6 +34,7 @@ export const RunHealthChecksRequestBuilderUriTemplate = "{+baseurl}/deviceManage
 export const RunHealthChecksRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RunHealthChecksRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

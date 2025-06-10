@@ -101,6 +101,7 @@ export const FeatureRolloutPolicyItemRequestBuilderNavigationMetadata: Record<Ex
 export const FeatureRolloutPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FeatureRolloutPolicyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

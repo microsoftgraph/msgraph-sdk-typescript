@@ -85,6 +85,7 @@ const SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParameter
 export const SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SiteRestoreArtifactsBulkAdditionRequestItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

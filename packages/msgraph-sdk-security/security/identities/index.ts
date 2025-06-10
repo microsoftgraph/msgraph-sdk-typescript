@@ -108,6 +108,7 @@ export const IdentitiesRequestBuilderNavigationMetadata: Record<Exclude<keyof Id
 export const IdentitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: IdentitiesRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -86,6 +86,7 @@ const SchemaExtensionItemRequestBuilderGetQueryParametersMapper: Record<string, 
 export const SchemaExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SchemaExtensionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -98,6 +98,7 @@ export const WindowsProtectionStateRequestBuilderNavigationMetadata: Record<Excl
 export const WindowsProtectionStateRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WindowsProtectionStateRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -62,6 +62,7 @@ export const ContentRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/ch
 export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ContentRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -69,7 +70,7 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: ContentRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -78,6 +79,7 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: ContentRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

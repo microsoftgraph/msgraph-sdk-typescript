@@ -99,6 +99,7 @@ export const VirtualEventSessionItemRequestBuilderNavigationMetadata: Record<Exc
 export const VirtualEventSessionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: VirtualEventSessionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

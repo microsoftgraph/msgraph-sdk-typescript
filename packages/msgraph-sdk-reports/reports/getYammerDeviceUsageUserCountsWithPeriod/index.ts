@@ -35,7 +35,7 @@ export const GetYammerDeviceUsageUserCountsWithPeriodRequestBuilderUriTemplate =
 export const GetYammerDeviceUsageUserCountsWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetYammerDeviceUsageUserCountsWithPeriodRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

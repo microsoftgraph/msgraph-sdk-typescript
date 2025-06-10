@@ -12873,6 +12873,7 @@ export const DetectionSourceObject = {
     MicrosoftDefenderThreatIntelligenceAnalytics: "microsoftDefenderThreatIntelligenceAnalytics",
     BuiltInMl: "builtInMl",
     MicrosoftInsiderRiskManagement: "microsoftInsiderRiskManagement",
+    MicrosoftThreatIntelligence: "microsoftThreatIntelligence",
     MicrosoftSentinel: "microsoftSentinel",
 } as const;
 export const DetectionStatusObject = {
@@ -13157,6 +13158,7 @@ export const ServiceSourceObject = {
     MicrosoftDefenderForCloud: "microsoftDefenderForCloud",
     MicrosoftSentinel: "microsoftSentinel",
     MicrosoftInsiderRiskManagement: "microsoftInsiderRiskManagement",
+    MicrosoftThreatIntelligence: "microsoftThreatIntelligence",
 } as const;
 export const SourceTypeObject = {
     Mailbox: "mailbox",

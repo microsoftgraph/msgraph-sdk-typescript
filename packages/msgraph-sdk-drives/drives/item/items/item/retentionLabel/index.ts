@@ -85,6 +85,7 @@ const RetentionLabelRequestBuilderGetQueryParametersMapper: Record<string, strin
 export const RetentionLabelRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RetentionLabelRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

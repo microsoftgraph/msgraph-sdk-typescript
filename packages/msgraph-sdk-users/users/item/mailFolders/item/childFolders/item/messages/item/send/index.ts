@@ -34,6 +34,7 @@ export const SendRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailF
 export const SendRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SendRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

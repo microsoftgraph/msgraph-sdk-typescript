@@ -34,7 +34,7 @@ export const GetTeamsTeamActivityDetailWithDateRequestBuilderUriTemplate = "{+ba
 export const GetTeamsTeamActivityDetailWithDateRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetTeamsTeamActivityDetailWithDateRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

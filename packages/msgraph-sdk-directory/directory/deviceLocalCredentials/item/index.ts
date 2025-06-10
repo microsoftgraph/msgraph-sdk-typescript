@@ -84,6 +84,7 @@ const DeviceLocalCredentialInfoItemRequestBuilderGetQueryParametersMapper: Recor
 export const DeviceLocalCredentialInfoItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DeviceLocalCredentialInfoItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

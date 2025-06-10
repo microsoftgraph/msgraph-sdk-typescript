@@ -108,6 +108,7 @@ export const DocumentSetVersionItemRequestBuilderNavigationMetadata: Record<Excl
 export const DocumentSetVersionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DocumentSetVersionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

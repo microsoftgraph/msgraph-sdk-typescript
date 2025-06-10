@@ -34,6 +34,7 @@ export const ResetUnseenCountRequestBuilderUriTemplate = "{+baseurl}/groups/{gro
 export const ResetUnseenCountRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ResetUnseenCountRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

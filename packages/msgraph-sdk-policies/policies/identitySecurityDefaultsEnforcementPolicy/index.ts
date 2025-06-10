@@ -85,6 +85,7 @@ const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParametersM
 export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

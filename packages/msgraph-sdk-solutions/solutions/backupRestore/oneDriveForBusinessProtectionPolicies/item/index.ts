@@ -119,6 +119,7 @@ export const OneDriveForBusinessProtectionPolicyItemRequestBuilderNavigationMeta
 export const OneDriveForBusinessProtectionPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OneDriveForBusinessProtectionPolicyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

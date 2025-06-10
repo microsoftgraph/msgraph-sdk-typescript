@@ -35,7 +35,7 @@ export const GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilderUriTemplate =
 export const GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

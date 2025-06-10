@@ -61,6 +61,7 @@ export const LogoRequestBuilderUriTemplate = "{+baseurl}/applications/{applicati
 export const LogoRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LogoRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -68,7 +69,7 @@ export const LogoRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: LogoRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -77,6 +78,7 @@ export const LogoRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: LogoRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

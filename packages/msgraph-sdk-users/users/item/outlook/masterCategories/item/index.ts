@@ -83,6 +83,7 @@ const OutlookCategoryItemRequestBuilderGetQueryParametersMapper: Record<string, 
 export const OutlookCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OutlookCategoryItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

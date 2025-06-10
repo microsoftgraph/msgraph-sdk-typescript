@@ -85,6 +85,7 @@ const ExtensionPropertyItemRequestBuilderGetQueryParametersMapper: Record<string
 export const ExtensionPropertyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ExtensionPropertyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

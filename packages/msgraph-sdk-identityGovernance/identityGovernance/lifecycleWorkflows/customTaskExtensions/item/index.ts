@@ -111,6 +111,7 @@ export const CustomTaskExtensionItemRequestBuilderNavigationMetadata: Record<Exc
 export const CustomTaskExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CustomTaskExtensionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

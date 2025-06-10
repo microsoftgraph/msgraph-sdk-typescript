@@ -298,6 +298,7 @@ export const BackupRestoreRequestBuilderNavigationMetadata: Record<Exclude<keyof
 export const BackupRestoreRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BackupRestoreRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -93,6 +93,7 @@ export const SetUserPreferredPresenceRequestBuilderUriTemplate = "{+baseurl}/com
 export const SetUserPreferredPresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetUserPreferredPresenceRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -109,6 +109,7 @@ export const UserFlowLanguageConfigurationItemRequestBuilderNavigationMetadata: 
 export const UserFlowLanguageConfigurationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserFlowLanguageConfigurationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

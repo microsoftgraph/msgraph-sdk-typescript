@@ -34,6 +34,7 @@ export const MicrosoftGraphSecurityReopenRequestBuilderUriTemplate = "{+baseurl}
 export const MicrosoftGraphSecurityReopenRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphSecurityReopenRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

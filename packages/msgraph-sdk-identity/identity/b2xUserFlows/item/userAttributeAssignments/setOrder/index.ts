@@ -83,6 +83,7 @@ export const SetOrderRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlo
 export const SetOrderRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetOrderRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,6 +83,7 @@ const CustomCalloutExtensionItemRequestBuilderGetQueryParametersMapper: Record<s
 export const CustomCalloutExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CustomCalloutExtensionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

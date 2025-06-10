@@ -85,6 +85,7 @@ const MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetQueryParame
 export const MultiTenantOrganizationIdentitySynchronizationRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MultiTenantOrganizationIdentitySynchronizationRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -98,6 +98,7 @@ export const SubdomainItemRequestBuilderNavigationMetadata: Record<Exclude<keyof
 export const SubdomainItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SubdomainItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

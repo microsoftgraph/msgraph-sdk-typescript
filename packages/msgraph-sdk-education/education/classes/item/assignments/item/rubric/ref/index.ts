@@ -65,6 +65,7 @@ export const RefRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educa
 export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RefRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -81,6 +82,7 @@ export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: RefRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

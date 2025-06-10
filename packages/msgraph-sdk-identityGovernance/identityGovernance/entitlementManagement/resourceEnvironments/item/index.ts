@@ -98,6 +98,7 @@ export const AccessPackageResourceEnvironmentItemRequestBuilderNavigationMetadat
 export const AccessPackageResourceEnvironmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AccessPackageResourceEnvironmentItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -98,6 +98,7 @@ export const ServiceHealthIssueItemRequestBuilderNavigationMetadata: Record<Excl
 export const ServiceHealthIssueItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ServiceHealthIssueItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

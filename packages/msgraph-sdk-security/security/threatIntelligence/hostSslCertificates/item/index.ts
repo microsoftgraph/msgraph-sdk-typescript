@@ -107,6 +107,7 @@ export const HostSslCertificateItemRequestBuilderNavigationMetadata: Record<Excl
 export const HostSslCertificateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: HostSslCertificateItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

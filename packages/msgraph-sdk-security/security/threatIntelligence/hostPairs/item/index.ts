@@ -107,6 +107,7 @@ export const HostPairItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const HostPairItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: HostPairItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

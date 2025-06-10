@@ -133,6 +133,7 @@ export const DescriptorsRequestBuilderNavigationMetadata: Record<Exclude<keyof D
 export const DescriptorsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DescriptorsRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

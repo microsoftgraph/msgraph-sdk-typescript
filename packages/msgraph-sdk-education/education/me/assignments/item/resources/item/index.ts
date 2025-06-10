@@ -83,6 +83,7 @@ const EducationAssignmentResourceItemRequestBuilderGetQueryParametersMapper: Rec
 export const EducationAssignmentResourceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EducationAssignmentResourceItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

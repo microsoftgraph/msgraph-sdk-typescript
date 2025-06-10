@@ -25,10 +25,11 @@ export interface MeetingAttendanceReportItemRequestBuilder extends BaseRequestBu
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The attendance reports of an online meeting. Read-only.
+     * Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. When an online meeting ends, an attendance report is generated for that session.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MeetingAttendanceReport>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/meetingattendancereport-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MeetingAttendanceReportItemRequestBuilderGetQueryParameters> | undefined) : Promise<MeetingAttendanceReport | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface MeetingAttendanceReportItemRequestBuilder extends BaseRequestBu
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The attendance reports of an online meeting. Read-only.
+     * Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. When an online meeting ends, an attendance report is generated for that session.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface MeetingAttendanceReportItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: MeetingAttendanceReport, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The attendance reports of an online meeting. Read-only.
+ * Get the meetingAttendanceReport for an onlineMeeting or a virtualEvent. When an online meeting ends, an attendance report is generated for that session.
  */
 export interface MeetingAttendanceReportItemRequestBuilderGetQueryParameters {
     /**
@@ -98,6 +99,7 @@ export const MeetingAttendanceReportItemRequestBuilderNavigationMetadata: Record
 export const MeetingAttendanceReportItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MeetingAttendanceReportItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

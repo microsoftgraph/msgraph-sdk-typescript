@@ -100,6 +100,7 @@ export const TokenIssuancePolicyItemRequestBuilderNavigationMetadata: Record<Exc
 export const TokenIssuancePolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TokenIssuancePolicyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -87,6 +87,7 @@ export const ChangePasswordRequestBuilderUriTemplate = "{+baseurl}/users/{user%2
 export const ChangePasswordRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ChangePasswordRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

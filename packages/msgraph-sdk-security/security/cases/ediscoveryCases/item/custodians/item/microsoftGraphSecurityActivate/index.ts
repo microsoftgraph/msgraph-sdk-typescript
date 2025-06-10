@@ -34,6 +34,7 @@ export const MicrosoftGraphSecurityActivateRequestBuilderUriTemplate = "{+baseur
 export const MicrosoftGraphSecurityActivateRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphSecurityActivateRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

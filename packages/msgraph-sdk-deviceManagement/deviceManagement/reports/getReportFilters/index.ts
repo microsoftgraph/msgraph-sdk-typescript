@@ -130,7 +130,7 @@ export const GetReportFiltersRequestBuilderUriTemplate = "{+baseurl}/deviceManag
 export const GetReportFiltersRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: GetReportFiltersRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

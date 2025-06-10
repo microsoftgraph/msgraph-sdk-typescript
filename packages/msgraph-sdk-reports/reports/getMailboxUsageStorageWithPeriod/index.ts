@@ -35,7 +35,7 @@ export const GetMailboxUsageStorageWithPeriodRequestBuilderUriTemplate = "{+base
 export const GetMailboxUsageStorageWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetMailboxUsageStorageWithPeriodRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

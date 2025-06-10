@@ -83,6 +83,7 @@ const ServiceStorageQuotaBreakdownItemRequestBuilderGetQueryParametersMapper: Re
 export const ServiceStorageQuotaBreakdownItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ServiceStorageQuotaBreakdownItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

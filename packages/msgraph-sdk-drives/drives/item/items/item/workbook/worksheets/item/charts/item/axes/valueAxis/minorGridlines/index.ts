@@ -98,6 +98,7 @@ export const MinorGridlinesRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const MinorGridlinesRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MinorGridlinesRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

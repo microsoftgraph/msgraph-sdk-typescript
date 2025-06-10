@@ -35,7 +35,7 @@ export const GetOffice365ActivationCountsRequestBuilderUriTemplate = "{+baseurl}
 export const GetOffice365ActivationCountsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetOffice365ActivationCountsRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

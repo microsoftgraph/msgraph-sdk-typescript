@@ -87,6 +87,7 @@ export const SetPositionRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2D
 export const SetPositionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetPositionRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

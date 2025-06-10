@@ -86,6 +86,7 @@ const QnaItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const QnaItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: QnaItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

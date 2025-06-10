@@ -89,6 +89,7 @@ export const SendVirtualAppointmentSmsRequestBuilderUriTemplate = "{+baseurl}/us
 export const SendVirtualAppointmentSmsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SendVirtualAppointmentSmsRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

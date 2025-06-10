@@ -108,6 +108,7 @@ export const ServiceAppItemRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const ServiceAppItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ServiceAppItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

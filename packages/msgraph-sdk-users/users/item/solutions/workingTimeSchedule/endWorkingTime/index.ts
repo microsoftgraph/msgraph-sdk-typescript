@@ -34,6 +34,7 @@ export const EndWorkingTimeRequestBuilderUriTemplate = "{+baseurl}/users/{user%2
 export const EndWorkingTimeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: EndWorkingTimeRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

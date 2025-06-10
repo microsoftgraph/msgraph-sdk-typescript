@@ -258,6 +258,7 @@ export const ThreatIntelligenceRequestBuilderNavigationMetadata: Record<Exclude<
 export const ThreatIntelligenceRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ThreatIntelligenceRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -100,6 +100,7 @@ export const CustomAuthenticationExtensionItemRequestBuilderNavigationMetadata: 
 export const CustomAuthenticationExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CustomAuthenticationExtensionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

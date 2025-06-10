@@ -154,6 +154,7 @@ export const OrganizationalBrandingLocalizationItemRequestBuilderNavigationMetad
 export const OrganizationalBrandingLocalizationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OrganizationalBrandingLocalizationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,6 +83,7 @@ const LandingPageDetailItemRequestBuilderGetQueryParametersMapper: Record<string
 export const LandingPageDetailItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LandingPageDetailItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

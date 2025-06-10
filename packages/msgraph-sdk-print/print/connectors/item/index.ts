@@ -86,6 +86,7 @@ const PrintConnectorItemRequestBuilderGetQueryParametersMapper: Record<string, s
 export const PrintConnectorItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PrintConnectorItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

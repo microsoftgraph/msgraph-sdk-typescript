@@ -33,6 +33,7 @@ export const UnmergeRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/
 export const UnmergeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UnmergeRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

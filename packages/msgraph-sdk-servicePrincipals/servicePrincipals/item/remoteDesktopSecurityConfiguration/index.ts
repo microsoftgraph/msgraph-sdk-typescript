@@ -101,6 +101,7 @@ export const RemoteDesktopSecurityConfigurationRequestBuilderNavigationMetadata:
 export const RemoteDesktopSecurityConfigurationRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RemoteDesktopSecurityConfigurationRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

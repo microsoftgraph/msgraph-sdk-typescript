@@ -84,6 +84,7 @@ const DirectoryAuditItemRequestBuilderGetQueryParametersMapper: Record<string, s
 export const DirectoryAuditItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DirectoryAuditItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

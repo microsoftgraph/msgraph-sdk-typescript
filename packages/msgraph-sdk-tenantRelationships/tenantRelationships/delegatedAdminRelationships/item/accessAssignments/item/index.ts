@@ -86,6 +86,7 @@ const DelegatedAdminAccessAssignmentItemRequestBuilderGetQueryParametersMapper: 
 export const DelegatedAdminAccessAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DelegatedAdminAccessAssignmentItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

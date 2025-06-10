@@ -34,6 +34,7 @@ export const SendTestMessageRequestBuilderUriTemplate = "{+baseurl}/deviceManage
 export const SendTestMessageRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SendTestMessageRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

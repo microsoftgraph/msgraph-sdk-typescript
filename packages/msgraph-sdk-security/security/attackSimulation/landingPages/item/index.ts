@@ -98,6 +98,7 @@ export const LandingPageItemRequestBuilderNavigationMetadata: Record<Exclude<key
 export const LandingPageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LandingPageItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

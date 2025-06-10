@@ -110,6 +110,7 @@ export const EmployeeExperienceRequestBuilderNavigationMetadata: Record<Exclude<
 export const EmployeeExperienceRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EmployeeExperienceRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

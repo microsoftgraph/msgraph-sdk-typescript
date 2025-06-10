@@ -34,6 +34,7 @@ export const MicrosoftGraphSecurityApplyHoldRequestBuilderUriTemplate = "{+baseu
 export const MicrosoftGraphSecurityApplyHoldRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphSecurityApplyHoldRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

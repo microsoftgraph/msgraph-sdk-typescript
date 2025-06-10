@@ -82,6 +82,7 @@ export const CommitRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/m
 export const CommitRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CommitRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

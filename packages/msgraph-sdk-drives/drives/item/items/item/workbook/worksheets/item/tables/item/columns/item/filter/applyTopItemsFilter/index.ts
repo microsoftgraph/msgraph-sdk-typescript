@@ -80,6 +80,7 @@ export const ApplyTopItemsFilterRequestBuilderUriTemplate = "{+baseurl}/drives/{
 export const ApplyTopItemsFilterRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ApplyTopItemsFilterRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

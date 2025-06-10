@@ -109,6 +109,7 @@ export const UnifiedRoleManagementPolicyItemRequestBuilderNavigationMetadata: Re
 export const UnifiedRoleManagementPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UnifiedRoleManagementPolicyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

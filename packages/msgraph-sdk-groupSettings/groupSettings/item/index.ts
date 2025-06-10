@@ -86,6 +86,7 @@ const GroupSettingItemRequestBuilderGetQueryParametersMapper: Record<string, str
 export const GroupSettingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: GroupSettingItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

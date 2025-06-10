@@ -86,6 +86,7 @@ const AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParameters
 export const AuthenticationCombinationConfigurationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthenticationCombinationConfigurationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -95,6 +95,7 @@ export const SubscriptionItemRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const SubscriptionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SubscriptionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -34,6 +34,7 @@ export const CompleteMigrationRequestBuilderUriTemplate = "{+baseurl}/teams/{tea
 export const CompleteMigrationRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CompleteMigrationRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

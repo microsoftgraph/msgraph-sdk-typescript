@@ -109,6 +109,7 @@ export const VulnerabilityItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const VulnerabilityItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: VulnerabilityItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

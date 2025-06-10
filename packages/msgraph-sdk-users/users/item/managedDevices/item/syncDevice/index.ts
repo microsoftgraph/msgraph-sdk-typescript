@@ -34,6 +34,7 @@ export const SyncDeviceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}
 export const SyncDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SyncDeviceRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

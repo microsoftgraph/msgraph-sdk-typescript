@@ -100,6 +100,7 @@ export const IncidentItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const IncidentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: IncidentItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

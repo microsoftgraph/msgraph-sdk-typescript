@@ -98,6 +98,7 @@ export const StorageRequestBuilderNavigationMetadata: Record<Exclude<keyof Stora
 export const StorageRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: StorageRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

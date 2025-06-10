@@ -209,6 +209,7 @@ export const EventItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Eve
 export const EventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EventItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

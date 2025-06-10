@@ -83,6 +83,7 @@ const ProgressTaskBoardFormatRequestBuilderGetQueryParametersMapper: Record<stri
 export const ProgressTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ProgressTaskBoardFormatRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

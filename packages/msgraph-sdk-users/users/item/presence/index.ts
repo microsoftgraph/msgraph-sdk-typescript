@@ -134,6 +134,7 @@ export const PresenceRequestBuilderNavigationMetadata: Record<Exclude<keyof Pres
 export const PresenceRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PresenceRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

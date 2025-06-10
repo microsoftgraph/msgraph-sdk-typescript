@@ -86,6 +86,7 @@ const AudioRoutingGroupItemRequestBuilderGetQueryParametersMapper: Record<string
 export const AudioRoutingGroupItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AudioRoutingGroupItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

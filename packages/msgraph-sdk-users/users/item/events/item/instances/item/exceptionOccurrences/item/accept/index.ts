@@ -87,6 +87,7 @@ export const AcceptRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/eve
 export const AcceptRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: AcceptRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

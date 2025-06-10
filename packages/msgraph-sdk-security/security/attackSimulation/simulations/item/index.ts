@@ -118,6 +118,7 @@ export const SimulationItemRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const SimulationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SimulationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

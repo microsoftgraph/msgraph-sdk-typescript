@@ -111,6 +111,7 @@ export const ConnectedOrganizationItemRequestBuilderNavigationMetadata: Record<E
 export const ConnectedOrganizationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ConnectedOrganizationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

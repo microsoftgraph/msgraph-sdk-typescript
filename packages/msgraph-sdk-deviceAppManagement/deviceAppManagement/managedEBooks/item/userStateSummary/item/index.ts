@@ -101,6 +101,7 @@ export const UserInstallStateSummaryItemRequestBuilderNavigationMetadata: Record
 export const UserInstallStateSummaryItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserInstallStateSummaryItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -97,6 +97,7 @@ export const AccessReviewHistoryInstanceItemRequestBuilderNavigationMetadata: Re
 export const AccessReviewHistoryInstanceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AccessReviewHistoryInstanceItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

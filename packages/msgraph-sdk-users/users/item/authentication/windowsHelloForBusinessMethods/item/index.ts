@@ -84,6 +84,7 @@ export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderNaviga
 export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

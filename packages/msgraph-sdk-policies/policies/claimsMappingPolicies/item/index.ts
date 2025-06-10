@@ -101,6 +101,7 @@ export const ClaimsMappingPolicyItemRequestBuilderNavigationMetadata: Record<Exc
 export const ClaimsMappingPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ClaimsMappingPolicyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

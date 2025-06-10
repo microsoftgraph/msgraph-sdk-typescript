@@ -84,6 +84,7 @@ const DelegatedAdminRelationshipOperationItemRequestBuilderGetQueryParametersMap
 export const DelegatedAdminRelationshipOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DelegatedAdminRelationshipOperationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

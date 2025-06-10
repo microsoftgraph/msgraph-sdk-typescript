@@ -101,6 +101,7 @@ export const SensorItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Se
 export const SensorItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SensorItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

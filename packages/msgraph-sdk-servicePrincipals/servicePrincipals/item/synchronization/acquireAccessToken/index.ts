@@ -83,6 +83,7 @@ export const AcquireAccessTokenRequestBuilderUriTemplate = "{+baseurl}/servicePr
 export const AcquireAccessTokenRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: AcquireAccessTokenRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

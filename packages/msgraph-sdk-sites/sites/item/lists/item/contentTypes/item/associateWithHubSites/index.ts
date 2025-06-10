@@ -87,6 +87,7 @@ export const AssociateWithHubSitesRequestBuilderUriTemplate = "{+baseurl}/sites/
 export const AssociateWithHubSitesRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: AssociateWithHubSitesRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

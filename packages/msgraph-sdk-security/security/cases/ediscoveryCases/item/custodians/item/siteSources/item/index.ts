@@ -98,6 +98,7 @@ export const SiteSourceItemRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const SiteSourceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SiteSourceItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

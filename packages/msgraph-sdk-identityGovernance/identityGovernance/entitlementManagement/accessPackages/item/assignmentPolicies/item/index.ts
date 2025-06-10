@@ -126,6 +126,7 @@ export const AccessPackageAssignmentPolicyItemRequestBuilderNavigationMetadata: 
 export const AccessPackageAssignmentPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AccessPackageAssignmentPolicyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

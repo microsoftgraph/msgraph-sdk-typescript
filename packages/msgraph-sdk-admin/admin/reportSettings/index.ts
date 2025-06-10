@@ -85,6 +85,7 @@ const ReportSettingsRequestBuilderGetQueryParametersMapper: Record<string, strin
 export const ReportSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ReportSettingsRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

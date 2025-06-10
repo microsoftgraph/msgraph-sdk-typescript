@@ -86,6 +86,7 @@ const WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParamet
 export const WindowsInformationProtectionAppLockerFileItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WindowsInformationProtectionAppLockerFileItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

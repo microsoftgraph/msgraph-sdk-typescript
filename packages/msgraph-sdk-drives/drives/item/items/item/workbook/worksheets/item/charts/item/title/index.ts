@@ -98,6 +98,7 @@ export const TitleRequestBuilderNavigationMetadata: Record<Exclude<keyof TitleRe
 export const TitleRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TitleRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

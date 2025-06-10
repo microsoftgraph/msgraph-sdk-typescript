@@ -84,6 +84,7 @@ const EngagementAsyncOperationItemRequestBuilderGetQueryParametersMapper: Record
 export const EngagementAsyncOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EngagementAsyncOperationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

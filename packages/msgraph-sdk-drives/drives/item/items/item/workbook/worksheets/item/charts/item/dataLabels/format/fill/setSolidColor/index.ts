@@ -81,6 +81,7 @@ export const SetSolidColorRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%
 export const SetSolidColorRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetSolidColorRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

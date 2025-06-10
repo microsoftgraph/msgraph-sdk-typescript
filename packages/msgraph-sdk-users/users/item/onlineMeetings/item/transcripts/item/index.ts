@@ -107,6 +107,7 @@ export const CallTranscriptItemRequestBuilderNavigationMetadata: Record<Exclude<
 export const CallTranscriptItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CallTranscriptItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -86,6 +86,7 @@ const TermsAndConditionsAssignmentItemRequestBuilderGetQueryParametersMapper: Re
 export const TermsAndConditionsAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TermsAndConditionsAssignmentItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

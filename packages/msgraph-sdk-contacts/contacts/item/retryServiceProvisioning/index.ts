@@ -33,6 +33,7 @@ export const RetryServiceProvisioningRequestBuilderUriTemplate = "{+baseurl}/con
 export const RetryServiceProvisioningRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RetryServiceProvisioningRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
