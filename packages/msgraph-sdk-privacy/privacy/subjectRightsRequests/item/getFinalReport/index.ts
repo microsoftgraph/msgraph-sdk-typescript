@@ -37,7 +37,7 @@ export const GetFinalReportRequestBuilderUriTemplate = "{+baseurl}/privacy/subje
 export const GetFinalReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetFinalReportRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

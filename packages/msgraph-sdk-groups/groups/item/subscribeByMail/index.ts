@@ -34,6 +34,7 @@ export const SubscribeByMailRequestBuilderUriTemplate = "{+baseurl}/groups/{grou
 export const SubscribeByMailRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SubscribeByMailRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

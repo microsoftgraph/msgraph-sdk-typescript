@@ -34,6 +34,7 @@ export const MicrosoftGraphSecurityResetToDefaultRequestBuilderUriTemplate = "{+
 export const MicrosoftGraphSecurityResetToDefaultRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphSecurityResetToDefaultRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -84,6 +84,7 @@ const PayloadItemRequestBuilderGetQueryParametersMapper: Record<string, string> 
 export const PayloadItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PayloadItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

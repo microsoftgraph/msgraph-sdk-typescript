@@ -34,7 +34,7 @@ export const GetM365AppUserDetailWithDateRequestBuilderUriTemplate = "{+baseurl}
 export const GetM365AppUserDetailWithDateRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetM365AppUserDetailWithDateRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

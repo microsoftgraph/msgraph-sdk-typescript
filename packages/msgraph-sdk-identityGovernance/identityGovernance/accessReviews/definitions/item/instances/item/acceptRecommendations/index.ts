@@ -34,6 +34,7 @@ export const AcceptRecommendationsRequestBuilderUriTemplate = "{+baseurl}/identi
 export const AcceptRecommendationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: AcceptRecommendationsRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

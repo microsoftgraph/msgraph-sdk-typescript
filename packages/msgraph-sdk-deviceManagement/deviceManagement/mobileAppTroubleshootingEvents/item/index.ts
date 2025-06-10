@@ -101,6 +101,7 @@ export const MobileAppTroubleshootingEventItemRequestBuilderNavigationMetadata: 
 export const MobileAppTroubleshootingEventItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MobileAppTroubleshootingEventItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

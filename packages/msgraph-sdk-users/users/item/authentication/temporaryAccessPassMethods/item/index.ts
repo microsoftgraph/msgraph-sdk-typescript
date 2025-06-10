@@ -70,6 +70,7 @@ const TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameter
 export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TemporaryAccessPassAuthenticationMethodItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

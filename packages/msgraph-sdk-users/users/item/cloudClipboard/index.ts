@@ -98,6 +98,7 @@ export const CloudClipboardRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const CloudClipboardRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CloudClipboardRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

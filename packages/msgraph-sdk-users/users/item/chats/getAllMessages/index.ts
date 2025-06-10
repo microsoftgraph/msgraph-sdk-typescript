@@ -39,7 +39,7 @@ export interface GetAllMessagesGetResponse extends BaseCollectionPaginationCount
  */
 export interface GetAllMessagesRequestBuilder extends BaseRequestBuilder<GetAllMessagesRequestBuilder> {
     /**
-     * Get all messages from all chats that a user is a participant in, including one-on-one chats, group chats, and meeting chats.
+     * Get all messages from all chats in which a user is a participant, including one-on-one chats, group chats, and meeting chats. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAllMessagesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -47,14 +47,14 @@ export interface GetAllMessagesRequestBuilder extends BaseRequestBuilder<GetAllM
      */
      get(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllMessagesGetResponse | undefined>;
     /**
-     * Get all messages from all chats that a user is a participant in, including one-on-one chats, group chats, and meeting chats.
+     * Get all messages from all chats in which a user is a participant, including one-on-one chats, group chats, and meeting chats. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAllMessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get all messages from all chats that a user is a participant in, including one-on-one chats, group chats, and meeting chats.
+ * Get all messages from all chats in which a user is a participant, including one-on-one chats, group chats, and meeting chats. To learn more about how to use the Microsoft Teams export APIs to export content, see Export content with the Microsoft Teams export APIs.
  */
 export interface GetAllMessagesRequestBuilderGetQueryParameters {
     /**

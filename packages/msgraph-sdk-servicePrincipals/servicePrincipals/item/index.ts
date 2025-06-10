@@ -373,6 +373,7 @@ export const ServicePrincipalItemRequestBuilderNavigationMetadata: Record<Exclud
 export const ServicePrincipalItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ServicePrincipalItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

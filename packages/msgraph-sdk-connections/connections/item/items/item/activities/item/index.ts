@@ -97,6 +97,7 @@ export const ExternalActivityItemRequestBuilderNavigationMetadata: Record<Exclud
 export const ExternalActivityItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ExternalActivityItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

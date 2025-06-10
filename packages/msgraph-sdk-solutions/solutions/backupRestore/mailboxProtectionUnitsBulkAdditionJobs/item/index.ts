@@ -83,6 +83,7 @@ const MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderGetQueryParametersM
 export const MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

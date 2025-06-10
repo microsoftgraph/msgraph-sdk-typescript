@@ -63,6 +63,7 @@ export const HeaderLogoRequestBuilderUriTemplate = "{+baseurl}/organization/{org
 export const HeaderLogoRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: HeaderLogoRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -70,7 +71,7 @@ export const HeaderLogoRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: HeaderLogoRequestBuilderUriTemplate,
-        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff",
+        responseBodyContentType: "image/bmp, image/jpg, image/jpeg, image/gif, image/vnd.microsoft.icon, image/png, image/tiff, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -79,6 +80,7 @@ export const HeaderLogoRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: HeaderLogoRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

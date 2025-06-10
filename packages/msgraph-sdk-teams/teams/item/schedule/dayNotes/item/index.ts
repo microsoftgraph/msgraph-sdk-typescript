@@ -83,6 +83,7 @@ const DayNoteItemRequestBuilderGetQueryParametersMapper: Record<string, string> 
 export const DayNoteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DayNoteItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

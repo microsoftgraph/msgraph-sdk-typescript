@@ -117,6 +117,7 @@ export const ContactFolderItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const ContactFolderItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ContactFolderItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

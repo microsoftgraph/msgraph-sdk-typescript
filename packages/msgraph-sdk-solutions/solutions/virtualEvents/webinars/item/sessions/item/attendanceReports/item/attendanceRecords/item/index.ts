@@ -83,6 +83,7 @@ const AttendanceRecordItemRequestBuilderGetQueryParametersMapper: Record<string,
 export const AttendanceRecordItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AttendanceRecordItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

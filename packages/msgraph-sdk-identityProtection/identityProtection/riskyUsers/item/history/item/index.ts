@@ -83,6 +83,7 @@ const RiskyUserHistoryItemItemRequestBuilderGetQueryParametersMapper: Record<str
 export const RiskyUserHistoryItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RiskyUserHistoryItemItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

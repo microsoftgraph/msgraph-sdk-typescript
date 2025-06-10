@@ -34,6 +34,7 @@ export const MicrosoftGraphSecurityEstimateStatisticsRequestBuilderUriTemplate =
 export const MicrosoftGraphSecurityEstimateStatisticsRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphSecurityEstimateStatisticsRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -84,6 +84,7 @@ const AppRoleAssignmentItemRequestBuilderGetQueryParametersMapper: Record<string
 export const AppRoleAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AppRoleAssignmentItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

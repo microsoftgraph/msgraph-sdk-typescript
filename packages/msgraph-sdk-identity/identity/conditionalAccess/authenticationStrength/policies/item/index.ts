@@ -116,6 +116,7 @@ export const AuthenticationStrengthPolicyItemRequestBuilderNavigationMetadata: R
 export const AuthenticationStrengthPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthenticationStrengthPolicyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

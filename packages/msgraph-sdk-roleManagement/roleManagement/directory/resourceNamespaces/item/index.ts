@@ -98,6 +98,7 @@ export const UnifiedRbacResourceNamespaceItemRequestBuilderNavigationMetadata: R
 export const UnifiedRbacResourceNamespaceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UnifiedRbacResourceNamespaceItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

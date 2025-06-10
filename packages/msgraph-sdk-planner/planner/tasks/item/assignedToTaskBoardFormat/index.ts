@@ -85,6 +85,7 @@ const AssignedToTaskBoardFormatRequestBuilderGetQueryParametersMapper: Record<st
 export const AssignedToTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AssignedToTaskBoardFormatRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

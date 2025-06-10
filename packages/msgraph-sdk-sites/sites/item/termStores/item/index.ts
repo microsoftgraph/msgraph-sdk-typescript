@@ -108,6 +108,7 @@ export const StoreItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Sto
 export const StoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: StoreItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

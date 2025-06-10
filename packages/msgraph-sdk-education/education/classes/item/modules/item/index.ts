@@ -137,6 +137,7 @@ export const EducationModuleItemRequestBuilderNavigationMetadata: Record<Exclude
 export const EducationModuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: EducationModuleItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

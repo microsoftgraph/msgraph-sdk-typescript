@@ -33,6 +33,7 @@ export const StopRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/acce
 export const StopRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: StopRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

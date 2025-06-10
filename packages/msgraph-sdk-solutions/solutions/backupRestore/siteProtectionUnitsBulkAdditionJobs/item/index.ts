@@ -83,6 +83,7 @@ const SiteProtectionUnitsBulkAdditionJobItemRequestBuilderGetQueryParametersMapp
 export const SiteProtectionUnitsBulkAdditionJobItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SiteProtectionUnitsBulkAdditionJobItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

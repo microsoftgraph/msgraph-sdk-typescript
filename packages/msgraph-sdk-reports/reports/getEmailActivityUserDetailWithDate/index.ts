@@ -34,7 +34,7 @@ export const GetEmailActivityUserDetailWithDateRequestBuilderUriTemplate = "{+ba
 export const GetEmailActivityUserDetailWithDateRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetEmailActivityUserDetailWithDateRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

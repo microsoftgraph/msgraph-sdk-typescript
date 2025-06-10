@@ -34,6 +34,7 @@ export const RetireRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mana
 export const RetireRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RetireRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

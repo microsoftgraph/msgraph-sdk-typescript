@@ -106,6 +106,7 @@ export const PostFederationSignupRequestBuilderNavigationMetadata: Record<Exclud
 export const PostFederationSignupRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PostFederationSignupRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

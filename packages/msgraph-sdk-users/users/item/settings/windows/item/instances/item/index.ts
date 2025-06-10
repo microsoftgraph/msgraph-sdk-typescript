@@ -83,6 +83,7 @@ const WindowsSettingInstanceItemRequestBuilderGetQueryParametersMapper: Record<s
 export const WindowsSettingInstanceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WindowsSettingInstanceItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

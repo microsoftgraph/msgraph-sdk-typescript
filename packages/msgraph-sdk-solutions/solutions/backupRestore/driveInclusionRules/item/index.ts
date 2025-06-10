@@ -83,6 +83,7 @@ const DriveProtectionRuleItemRequestBuilderGetQueryParametersMapper: Record<stri
 export const DriveProtectionRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DriveProtectionRuleItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

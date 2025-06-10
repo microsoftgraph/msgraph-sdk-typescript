@@ -84,6 +84,7 @@ const VulnerabilityComponentItemRequestBuilderGetQueryParametersMapper: Record<s
 export const VulnerabilityComponentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: VulnerabilityComponentItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

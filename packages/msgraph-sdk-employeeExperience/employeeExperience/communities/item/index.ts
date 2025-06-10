@@ -123,6 +123,7 @@ export const CommunityItemRequestBuilderNavigationMetadata: Record<Exclude<keyof
 export const CommunityItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CommunityItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

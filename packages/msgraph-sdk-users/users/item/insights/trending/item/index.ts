@@ -97,6 +97,7 @@ export const TrendingItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const TrendingItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TrendingItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

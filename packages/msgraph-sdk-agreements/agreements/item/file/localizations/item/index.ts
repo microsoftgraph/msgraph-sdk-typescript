@@ -98,6 +98,7 @@ export const AgreementFileLocalizationItemRequestBuilderNavigationMetadata: Reco
 export const AgreementFileLocalizationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AgreementFileLocalizationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

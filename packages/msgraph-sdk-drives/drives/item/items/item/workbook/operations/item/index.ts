@@ -83,6 +83,7 @@ const WorkbookOperationItemRequestBuilderGetQueryParametersMapper: Record<string
 export const WorkbookOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: WorkbookOperationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

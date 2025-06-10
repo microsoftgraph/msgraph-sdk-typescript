@@ -83,6 +83,7 @@ const RichLongRunningOperationItemRequestBuilderGetQueryParametersMapper: Record
 export const RichLongRunningOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RichLongRunningOperationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

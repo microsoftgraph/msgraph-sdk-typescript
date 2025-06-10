@@ -83,6 +83,7 @@ const AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParametersMapper: 
 export const AttributeMappingFunctionSchemaItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AttributeMappingFunctionSchemaItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

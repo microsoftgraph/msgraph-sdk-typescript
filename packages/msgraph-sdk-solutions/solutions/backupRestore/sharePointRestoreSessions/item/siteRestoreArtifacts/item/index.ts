@@ -97,6 +97,7 @@ export const SiteRestoreArtifactItemRequestBuilderNavigationMetadata: Record<Exc
 export const SiteRestoreArtifactItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SiteRestoreArtifactItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

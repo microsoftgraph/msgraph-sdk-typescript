@@ -119,6 +119,7 @@ export const SharePointProtectionPolicyItemRequestBuilderNavigationMetadata: Rec
 export const SharePointProtectionPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SharePointProtectionPolicyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -84,6 +84,7 @@ const CaseOperationItemRequestBuilderGetQueryParametersMapper: Record<string, st
 export const CaseOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CaseOperationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

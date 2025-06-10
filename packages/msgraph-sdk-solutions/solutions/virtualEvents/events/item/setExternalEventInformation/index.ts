@@ -80,6 +80,7 @@ export const SetExternalEventInformationRequestBuilderUriTemplate = "{+baseurl}/
 export const SetExternalEventInformationRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetExternalEventInformationRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

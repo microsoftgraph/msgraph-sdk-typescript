@@ -97,6 +97,7 @@ export const RubricRequestBuilderNavigationMetadata: Record<Exclude<keyof Rubric
 export const RubricRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RubricRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

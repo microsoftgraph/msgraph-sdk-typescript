@@ -83,6 +83,7 @@ export const PlatformCredentialAuthenticationMethodItemRequestBuilderNavigationM
 export const PlatformCredentialAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PlatformCredentialAuthenticationMethodItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

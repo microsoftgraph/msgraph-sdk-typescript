@@ -85,6 +85,7 @@ const MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParame
 export const MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -34,6 +34,7 @@ export const ReauthorizeRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2D
 export const ReauthorizeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ReauthorizeRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

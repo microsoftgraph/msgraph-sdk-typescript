@@ -83,6 +83,7 @@ const SwapShiftsChangeRequestItemRequestBuilderGetQueryParametersMapper: Record<
 export const SwapShiftsChangeRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SwapShiftsChangeRequestItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

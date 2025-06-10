@@ -126,6 +126,7 @@ export const SectionGroupItemRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const SectionGroupItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SectionGroupItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

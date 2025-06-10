@@ -198,6 +198,7 @@ export const AuthenticationRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const AuthenticationRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AuthenticationRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

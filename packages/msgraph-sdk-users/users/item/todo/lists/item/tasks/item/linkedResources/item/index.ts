@@ -83,6 +83,7 @@ const LinkedResourceItemRequestBuilderGetQueryParametersMapper: Record<string, s
 export const LinkedResourceItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LinkedResourceItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -151,6 +151,7 @@ export const UserExperienceAnalyticsBaselineItemRequestBuilderNavigationMetadata
 export const UserExperienceAnalyticsBaselineItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserExperienceAnalyticsBaselineItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

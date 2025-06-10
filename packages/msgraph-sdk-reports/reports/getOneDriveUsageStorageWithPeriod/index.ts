@@ -35,7 +35,7 @@ export const GetOneDriveUsageStorageWithPeriodRequestBuilderUriTemplate = "{+bas
 export const GetOneDriveUsageStorageWithPeriodRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetOneDriveUsageStorageWithPeriodRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

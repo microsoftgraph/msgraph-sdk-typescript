@@ -34,6 +34,7 @@ export const UnsetVerifiedPublisherRequestBuilderUriTemplate = "{+baseurl}/appli
 export const UnsetVerifiedPublisherRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UnsetVerifiedPublisherRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

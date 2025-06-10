@@ -89,6 +89,7 @@ export const CopyToDefaultContentLocationRequestBuilderUriTemplate = "{+baseurl}
 export const CopyToDefaultContentLocationRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CopyToDefaultContentLocationRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

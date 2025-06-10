@@ -83,6 +83,7 @@ export const RestartRequestBuilderUriTemplate = "{+baseurl}/applications/{applic
 export const RestartRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RestartRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -80,6 +80,7 @@ export const ApplyCellColorFilterRequestBuilderUriTemplate = "{+baseurl}/drives/
 export const ApplyCellColorFilterRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ApplyCellColorFilterRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

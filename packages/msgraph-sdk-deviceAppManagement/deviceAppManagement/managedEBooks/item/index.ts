@@ -139,6 +139,7 @@ export const ManagedEBookItemRequestBuilderNavigationMetadata: Record<Exclude<ke
 export const ManagedEBookItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ManagedEBookItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -34,6 +34,7 @@ export const ReprocessRequestBuilderUriTemplate = "{+baseurl}/identityGovernance
 export const ReprocessRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ReprocessRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

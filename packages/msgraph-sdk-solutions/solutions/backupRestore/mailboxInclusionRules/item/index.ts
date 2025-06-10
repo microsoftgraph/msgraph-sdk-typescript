@@ -83,6 +83,7 @@ const MailboxProtectionRuleItemRequestBuilderGetQueryParametersMapper: Record<st
 export const MailboxProtectionRuleItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MailboxProtectionRuleItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

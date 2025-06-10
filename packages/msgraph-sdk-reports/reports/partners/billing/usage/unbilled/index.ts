@@ -97,6 +97,7 @@ export const UnbilledRequestBuilderNavigationMetadata: Record<Exclude<keyof Unbi
 export const UnbilledRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UnbilledRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -80,6 +80,7 @@ export const MicrosoftGraphSecurityRemoveHoldRequestBuilderUriTemplate = "{+base
 export const MicrosoftGraphSecurityRemoveHoldRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphSecurityRemoveHoldRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

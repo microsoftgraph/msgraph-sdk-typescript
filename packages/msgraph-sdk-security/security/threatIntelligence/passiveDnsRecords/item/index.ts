@@ -107,6 +107,7 @@ export const PassiveDnsRecordItemRequestBuilderNavigationMetadata: Record<Exclud
 export const PassiveDnsRecordItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: PassiveDnsRecordItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

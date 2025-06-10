@@ -89,6 +89,7 @@ export const RejectRequestBuilderUriTemplate = "{+baseurl}/communications/calls/
 export const RejectRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RejectRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

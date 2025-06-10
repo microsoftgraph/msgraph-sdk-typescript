@@ -83,6 +83,7 @@ export const UpgradeRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/in
 export const UpgradeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UpgradeRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

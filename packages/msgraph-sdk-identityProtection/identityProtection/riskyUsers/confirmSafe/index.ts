@@ -81,6 +81,7 @@ export const ConfirmSafeRequestBuilderUriTemplate = "{+baseurl}/identityProtecti
 export const ConfirmSafeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ConfirmSafeRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

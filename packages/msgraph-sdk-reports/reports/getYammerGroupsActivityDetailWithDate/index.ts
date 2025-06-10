@@ -35,7 +35,7 @@ export const GetYammerGroupsActivityDetailWithDateRequestBuilderUriTemplate = "{
 export const GetYammerGroupsActivityDetailWithDateRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetYammerGroupsActivityDetailWithDateRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

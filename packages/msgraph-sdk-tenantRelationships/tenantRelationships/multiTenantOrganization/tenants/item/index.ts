@@ -85,6 +85,7 @@ const MultiTenantOrganizationMemberItemRequestBuilderGetQueryParametersMapper: R
 export const MultiTenantOrganizationMemberItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MultiTenantOrganizationMemberItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

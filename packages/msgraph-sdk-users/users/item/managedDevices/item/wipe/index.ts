@@ -99,6 +99,7 @@ export const WipeRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/manag
 export const WipeRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: WipeRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

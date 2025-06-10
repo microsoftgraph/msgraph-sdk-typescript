@@ -98,6 +98,7 @@ export const SolutionsRequestBuilderNavigationMetadata: Record<Exclude<keyof Sol
 export const SolutionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SolutionsRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

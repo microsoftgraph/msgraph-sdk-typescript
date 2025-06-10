@@ -61,6 +61,7 @@ export const MetadataContentRequestBuilderUriTemplate = "{+baseurl}/communicatio
 export const MetadataContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MetadataContentRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -68,7 +69,7 @@ export const MetadataContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: MetadataContentRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -77,6 +78,7 @@ export const MetadataContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     put: {
         uriTemplate: MetadataContentRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

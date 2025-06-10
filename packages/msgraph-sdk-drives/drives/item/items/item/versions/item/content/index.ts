@@ -63,6 +63,7 @@ export const ContentRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/
 export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ContentRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -70,7 +71,7 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     },
     get: {
         uriTemplate: ContentRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

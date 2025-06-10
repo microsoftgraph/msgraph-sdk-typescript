@@ -83,6 +83,7 @@ const ScopedRoleMembershipItemRequestBuilderGetQueryParametersMapper: Record<str
 export const ScopedRoleMembershipItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ScopedRoleMembershipItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

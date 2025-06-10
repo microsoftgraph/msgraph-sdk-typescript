@@ -101,6 +101,7 @@ export const HomeRealmDiscoveryPolicyItemRequestBuilderNavigationMetadata: Recor
 export const HomeRealmDiscoveryPolicyItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: HomeRealmDiscoveryPolicyItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

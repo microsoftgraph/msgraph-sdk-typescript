@@ -120,6 +120,7 @@ export const BrowserSiteListItemRequestBuilderNavigationMetadata: Record<Exclude
 export const BrowserSiteListItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BrowserSiteListItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -79,6 +79,7 @@ const SubscribedSkuItemRequestBuilderGetQueryParametersMapper: Record<string, st
 export const SubscribedSkuItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SubscribedSkuItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

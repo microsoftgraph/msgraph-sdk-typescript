@@ -84,6 +84,7 @@ const AttackSimulationOperationItemRequestBuilderGetQueryParametersMapper: Recor
 export const AttackSimulationOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AttackSimulationOperationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

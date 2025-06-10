@@ -86,6 +86,7 @@ const BrowserSharedCookieItemRequestBuilderGetQueryParametersMapper: Record<stri
 export const BrowserSharedCookieItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BrowserSharedCookieItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

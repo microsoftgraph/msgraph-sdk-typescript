@@ -81,6 +81,7 @@ export const CalculateRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did
 export const CalculateRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CalculateRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

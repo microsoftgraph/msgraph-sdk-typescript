@@ -85,6 +85,7 @@ const TeamworkTagMemberItemRequestBuilderGetQueryParametersMapper: Record<string
 export const TeamworkTagMemberItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TeamworkTagMemberItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

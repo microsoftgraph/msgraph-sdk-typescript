@@ -34,6 +34,7 @@ export const DiscardCheckoutRequestBuilderUriTemplate = "{+baseurl}/drives/{driv
 export const DiscardCheckoutRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: DiscardCheckoutRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -83,6 +83,7 @@ const TeamsAsyncOperationItemRequestBuilderGetQueryParametersMapper: Record<stri
 export const TeamsAsyncOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TeamsAsyncOperationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -97,6 +97,7 @@ export const BilledRequestBuilderNavigationMetadata: Record<Exclude<keyof Billed
 export const BilledRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: BilledRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

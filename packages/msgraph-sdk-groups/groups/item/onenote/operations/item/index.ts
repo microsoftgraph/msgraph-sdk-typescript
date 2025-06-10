@@ -83,6 +83,7 @@ const OnenoteOperationItemRequestBuilderGetQueryParametersMapper: Record<string,
 export const OnenoteOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: OnenoteOperationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

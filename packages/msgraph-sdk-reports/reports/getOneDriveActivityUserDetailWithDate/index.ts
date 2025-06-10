@@ -35,7 +35,7 @@ export const GetOneDriveActivityUserDetailWithDateRequestBuilderUriTemplate = "{
 export const GetOneDriveActivityUserDetailWithDateRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetOneDriveActivityUserDetailWithDateRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

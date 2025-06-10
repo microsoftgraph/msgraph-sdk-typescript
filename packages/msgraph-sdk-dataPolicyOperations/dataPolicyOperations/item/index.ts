@@ -84,6 +84,7 @@ const DataPolicyOperationItemRequestBuilderGetQueryParametersMapper: Record<stri
 export const DataPolicyOperationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DataPolicyOperationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

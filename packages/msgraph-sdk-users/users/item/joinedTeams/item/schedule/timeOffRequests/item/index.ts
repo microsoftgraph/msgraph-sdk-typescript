@@ -83,6 +83,7 @@ const TimeOffRequestItemRequestBuilderGetQueryParametersMapper: Record<string, s
 export const TimeOffRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TimeOffRequestItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -118,6 +118,7 @@ export const AxesRequestBuilderNavigationMetadata: Record<Exclude<keyof AxesRequ
 export const AxesRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AxesRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

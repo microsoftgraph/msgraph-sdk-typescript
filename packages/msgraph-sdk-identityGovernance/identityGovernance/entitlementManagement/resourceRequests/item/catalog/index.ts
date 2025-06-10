@@ -138,6 +138,7 @@ export const CatalogRequestBuilderNavigationMetadata: Record<Exclude<keyof Catal
 export const CatalogRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CatalogRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

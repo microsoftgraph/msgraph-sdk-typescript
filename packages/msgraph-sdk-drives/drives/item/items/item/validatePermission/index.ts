@@ -86,6 +86,7 @@ export const ValidatePermissionRequestBuilderUriTemplate = "{+baseurl}/drives/{d
 export const ValidatePermissionRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ValidatePermissionRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -34,6 +34,7 @@ export const TroubleshootRequestBuilderUriTemplate = "{+baseurl}/deviceManagemen
 export const TroubleshootRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: TroubleshootRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

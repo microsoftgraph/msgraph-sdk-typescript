@@ -86,6 +86,7 @@ const MobileThreatDefenseConnectorItemRequestBuilderGetQueryParametersMapper: Re
 export const MobileThreatDefenseConnectorItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MobileThreatDefenseConnectorItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

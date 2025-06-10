@@ -99,6 +99,7 @@ export const ValidatePropertiesRequestBuilderUriTemplate = "{+baseurl}/devices/v
 export const ValidatePropertiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ValidatePropertiesRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

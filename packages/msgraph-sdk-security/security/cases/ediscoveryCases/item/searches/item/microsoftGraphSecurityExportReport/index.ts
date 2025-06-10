@@ -107,6 +107,7 @@ export const MicrosoftGraphSecurityExportReportRequestBuilderUriTemplate = "{+ba
 export const MicrosoftGraphSecurityExportReportRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphSecurityExportReportRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

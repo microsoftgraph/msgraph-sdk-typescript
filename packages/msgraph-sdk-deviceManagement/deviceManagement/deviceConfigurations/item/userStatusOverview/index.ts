@@ -85,6 +85,7 @@ const UserStatusOverviewRequestBuilderGetQueryParametersMapper: Record<string, s
 export const UserStatusOverviewRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserStatusOverviewRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

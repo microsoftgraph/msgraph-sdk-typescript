@@ -85,6 +85,7 @@ const HealthIssueItemRequestBuilderGetQueryParametersMapper: Record<string, stri
 export const HealthIssueItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: HealthIssueItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

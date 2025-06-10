@@ -98,6 +98,7 @@ export const QuotaRequestBuilderNavigationMetadata: Record<Exclude<keyof QuotaRe
 export const QuotaRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: QuotaRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

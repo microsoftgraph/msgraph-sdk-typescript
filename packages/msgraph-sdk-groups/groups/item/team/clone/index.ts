@@ -113,6 +113,7 @@ export const CloneRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/te
 export const CloneRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CloneRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

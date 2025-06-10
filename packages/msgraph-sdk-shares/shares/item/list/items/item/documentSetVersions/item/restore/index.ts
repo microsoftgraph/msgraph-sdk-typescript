@@ -34,6 +34,7 @@ export const RestoreRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveI
 export const RestoreRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: RestoreRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

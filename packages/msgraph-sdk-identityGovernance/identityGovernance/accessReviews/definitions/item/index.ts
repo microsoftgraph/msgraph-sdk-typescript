@@ -110,6 +110,7 @@ export const AccessReviewScheduleDefinitionItemRequestBuilderNavigationMetadata:
 export const AccessReviewScheduleDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AccessReviewScheduleDefinitionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

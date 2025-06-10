@@ -84,6 +84,7 @@ const VirtualEventRegistrationQuestionBaseItemRequestBuilderGetQueryParametersMa
 export const VirtualEventRegistrationQuestionBaseItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: VirtualEventRegistrationQuestionBaseItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

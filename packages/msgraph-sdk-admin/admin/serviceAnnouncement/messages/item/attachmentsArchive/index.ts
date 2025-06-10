@@ -62,6 +62,7 @@ export const AttachmentsArchiveRequestBuilderUriTemplate = "{+baseurl}/admin/ser
 export const AttachmentsArchiveRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AttachmentsArchiveRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -69,7 +70,7 @@ export const AttachmentsArchiveRequestBuilderRequestsMetadata: RequestsMetadata 
     },
     get: {
         uriTemplate: AttachmentsArchiveRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
@@ -78,6 +79,7 @@ export const AttachmentsArchiveRequestBuilderRequestsMetadata: RequestsMetadata 
     },
     put: {
         uriTemplate: AttachmentsArchiveRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

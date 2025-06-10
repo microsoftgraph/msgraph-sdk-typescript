@@ -89,6 +89,7 @@ export const MicrosoftGraphSecurityPurgeDataRequestBuilderUriTemplate = "{+baseu
 export const MicrosoftGraphSecurityPurgeDataRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: MicrosoftGraphSecurityPurgeDataRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

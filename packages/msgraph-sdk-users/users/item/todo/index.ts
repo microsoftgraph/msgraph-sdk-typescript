@@ -98,6 +98,7 @@ export const TodoRequestBuilderNavigationMetadata: Record<Exclude<keyof TodoRequ
 export const TodoRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TodoRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

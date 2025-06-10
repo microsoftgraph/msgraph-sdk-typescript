@@ -83,6 +83,7 @@ const ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParametersMapper:
 export const ResourceSpecificPermissionGrantItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

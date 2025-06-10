@@ -117,6 +117,7 @@ export const UserScopeTeamsAppInstallationItemRequestBuilderNavigationMetadata: 
 export const UserScopeTeamsAppInstallationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: UserScopeTeamsAppInstallationItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -82,6 +82,7 @@ export const ReplyRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/th
 export const ReplyRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ReplyRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

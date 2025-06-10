@@ -85,6 +85,7 @@ const DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilderGetQueryParamete
 export const DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: DriveRestoreArtifactsBulkAdditionRequestItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

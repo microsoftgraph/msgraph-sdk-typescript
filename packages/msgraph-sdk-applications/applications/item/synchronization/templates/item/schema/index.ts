@@ -125,6 +125,7 @@ export const SchemaRequestBuilderNavigationMetadata: Record<Exclude<keyof Schema
 export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SchemaRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

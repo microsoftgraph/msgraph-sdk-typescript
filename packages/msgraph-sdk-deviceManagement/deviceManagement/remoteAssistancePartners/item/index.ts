@@ -109,6 +109,7 @@ export const RemoteAssistancePartnerItemRequestBuilderNavigationMetadata: Record
 export const RemoteAssistancePartnerItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: RemoteAssistancePartnerItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -117,6 +117,7 @@ export const NotebookItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const NotebookItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: NotebookItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

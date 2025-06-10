@@ -81,6 +81,7 @@ export const ExportPersonalDataRequestBuilderUriTemplate = "{+baseurl}/users/{us
 export const ExportPersonalDataRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ExportPersonalDataRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

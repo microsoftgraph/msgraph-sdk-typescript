@@ -34,6 +34,7 @@ export const DisableSmsSignInRequestBuilderUriTemplate = "{+baseurl}/users/{user
 export const DisableSmsSignInRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: DisableSmsSignInRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

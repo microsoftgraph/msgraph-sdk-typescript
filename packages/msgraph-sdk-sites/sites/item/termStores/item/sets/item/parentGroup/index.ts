@@ -98,6 +98,7 @@ export const ParentGroupRequestBuilderNavigationMetadata: Record<Exclude<keyof P
 export const ParentGroupRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ParentGroupRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

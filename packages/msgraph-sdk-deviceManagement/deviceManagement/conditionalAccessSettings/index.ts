@@ -85,6 +85,7 @@ const ConditionalAccessSettingsRequestBuilderGetQueryParametersMapper: Record<st
 export const ConditionalAccessSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ConditionalAccessSettingsRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -99,6 +99,7 @@ export const TeamsAppItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
 export const TeamsAppItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: TeamsAppItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

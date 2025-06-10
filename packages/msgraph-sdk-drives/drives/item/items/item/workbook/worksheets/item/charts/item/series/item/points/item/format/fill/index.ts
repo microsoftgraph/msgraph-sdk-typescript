@@ -106,6 +106,7 @@ export const FillRequestBuilderNavigationMetadata: Record<Exclude<keyof FillRequ
 export const FillRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: FillRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -84,6 +84,7 @@ const SubcategoryTemplateItemRequestBuilderGetQueryParametersMapper: Record<stri
 export const SubcategoryTemplateItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SubcategoryTemplateItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

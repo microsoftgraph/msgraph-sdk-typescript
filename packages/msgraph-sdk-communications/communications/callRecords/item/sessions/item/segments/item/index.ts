@@ -83,6 +83,7 @@ const SegmentItemRequestBuilderGetQueryParametersMapper: Record<string, string> 
 export const SegmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: SegmentItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

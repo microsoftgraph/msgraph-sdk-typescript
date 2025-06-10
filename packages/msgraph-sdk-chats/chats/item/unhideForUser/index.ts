@@ -83,6 +83,7 @@ export const UnhideForUserRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2D
 export const UnhideForUserRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UnhideForUserRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

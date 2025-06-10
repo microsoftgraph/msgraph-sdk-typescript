@@ -81,6 +81,7 @@ export const CleanWindowsDeviceRequestBuilderUriTemplate = "{+baseurl}/deviceMan
 export const CleanWindowsDeviceRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: CleanWindowsDeviceRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

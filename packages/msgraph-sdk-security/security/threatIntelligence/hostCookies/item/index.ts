@@ -98,6 +98,7 @@ export const HostCookieItemRequestBuilderNavigationMetadata: Record<Exclude<keyo
 export const HostCookieItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: HostCookieItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

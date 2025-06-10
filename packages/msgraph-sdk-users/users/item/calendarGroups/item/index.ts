@@ -98,6 +98,7 @@ export const CalendarGroupItemRequestBuilderNavigationMetadata: Record<Exclude<k
 export const CalendarGroupItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: CalendarGroupItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

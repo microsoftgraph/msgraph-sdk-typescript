@@ -148,6 +148,7 @@ export const MeRequestBuilderNavigationMetadata: Record<Exclude<keyof MeRequestB
 export const MeRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: MeRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

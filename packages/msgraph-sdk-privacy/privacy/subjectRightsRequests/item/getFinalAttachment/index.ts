@@ -37,7 +37,7 @@ export const GetFinalAttachmentRequestBuilderUriTemplate = "{+baseurl}/privacy/s
 export const GetFinalAttachmentRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
         uriTemplate: GetFinalAttachmentRequestBuilderUriTemplate,
-        responseBodyContentType: "application/octet-stream",
+        responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -85,6 +85,7 @@ const AssignmentDefaultsRequestBuilderGetQueryParametersMapper: Record<string, s
 export const AssignmentDefaultsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AssignmentDefaultsRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

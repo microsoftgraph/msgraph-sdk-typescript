@@ -83,6 +83,7 @@ const LoginPageItemRequestBuilderGetQueryParametersMapper: Record<string, string
 export const LoginPageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: LoginPageItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

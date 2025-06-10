@@ -34,6 +34,7 @@ export const ReapplyRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/
 export const ReapplyRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: ReapplyRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -84,6 +84,7 @@ const ManifestItemRequestBuilderGetQueryParametersMapper: Record<string, string>
 export const ManifestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ManifestItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

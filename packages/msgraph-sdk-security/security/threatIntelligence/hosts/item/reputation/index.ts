@@ -84,6 +84,7 @@ const ReputationRequestBuilderGetQueryParametersMapper: Record<string, string> =
 export const ReputationRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ReputationRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

@@ -81,6 +81,7 @@ export const SetPriorityRequestBuilderUriTemplate = "{+baseurl}/deviceManagement
 export const SetPriorityRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: SetPriorityRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

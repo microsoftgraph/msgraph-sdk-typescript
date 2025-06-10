@@ -34,6 +34,7 @@ export const UndoDeleteRequestBuilderUriTemplate = "{+baseurl}/teamwork/deletedC
 export const UndoDeleteRequestBuilderRequestsMetadata: RequestsMetadata = {
     post: {
         uriTemplate: UndoDeleteRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

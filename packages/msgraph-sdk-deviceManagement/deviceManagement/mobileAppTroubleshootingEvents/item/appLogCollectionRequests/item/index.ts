@@ -100,6 +100,7 @@ export const AppLogCollectionRequestItemRequestBuilderNavigationMetadata: Record
 export const AppLogCollectionRequestItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: AppLogCollectionRequestItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

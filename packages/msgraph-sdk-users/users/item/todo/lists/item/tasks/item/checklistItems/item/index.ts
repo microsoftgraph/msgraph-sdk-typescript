@@ -83,6 +83,7 @@ const ChecklistItemItemRequestBuilderGetQueryParametersMapper: Record<string, st
 export const ChecklistItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: ChecklistItemItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },

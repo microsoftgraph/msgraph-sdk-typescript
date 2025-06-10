@@ -120,6 +120,7 @@ export const IosManagedAppProtectionItemRequestBuilderNavigationMetadata: Record
 export const IosManagedAppProtectionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
         uriTemplate: IosManagedAppProtectionItemRequestBuilderUriTemplate,
+        responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
         },
