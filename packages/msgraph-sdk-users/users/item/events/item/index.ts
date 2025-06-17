@@ -18,8 +18,6 @@ import { DeclineRequestBuilderRequestsMetadata, type DeclineRequestBuilder } fro
 // @ts-ignore
 import { DismissReminderRequestBuilderRequestsMetadata, type DismissReminderRequestBuilder } from './dismissReminder/index.js';
 // @ts-ignore
-import { ExceptionOccurrencesRequestBuilderNavigationMetadata, ExceptionOccurrencesRequestBuilderRequestsMetadata, type ExceptionOccurrencesRequestBuilder } from './exceptionOccurrences/index.js';
-// @ts-ignore
 import { ExtensionsRequestBuilderNavigationMetadata, ExtensionsRequestBuilderRequestsMetadata, type ExtensionsRequestBuilder } from './extensions/index.js';
 // @ts-ignore
 import { ForwardRequestBuilderRequestsMetadata, type ForwardRequestBuilder } from './forward/index.js';
@@ -62,10 +60,6 @@ export interface EventItemRequestBuilder extends BaseRequestBuilder<EventItemReq
      * Provides operations to call the dismissReminder method.
      */
     get dismissReminder(): DismissReminderRequestBuilder;
-    /**
-     * Provides operations to manage the exceptionOccurrences property of the microsoft.graph.event entity.
-     */
-    get exceptionOccurrences(): ExceptionOccurrencesRequestBuilder;
     /**
      * Provides operations to manage the extensions property of the microsoft.graph.event entity.
      */
@@ -177,10 +171,6 @@ export const EventItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Eve
     },
     dismissReminder: {
         requestsMetadata: DismissReminderRequestBuilderRequestsMetadata,
-    },
-    exceptionOccurrences: {
-        requestsMetadata: ExceptionOccurrencesRequestBuilderRequestsMetadata,
-        navigationMetadata: ExceptionOccurrencesRequestBuilderNavigationMetadata,
     },
     extensions: {
         requestsMetadata: ExtensionsRequestBuilderRequestsMetadata,

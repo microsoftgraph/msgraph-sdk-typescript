@@ -6,11 +6,7 @@ import { createEventCollectionResponseFromDiscriminatorValue, type EventCollecti
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
-// @ts-ignore
 import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from './delta/index.js';
-// @ts-ignore
-import { EventItemRequestBuilderNavigationMetadata, EventItemRequestBuilderRequestsMetadata, type EventItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -19,19 +15,9 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  */
 export interface CalendarViewRequestBuilder extends BaseRequestBuilder<CalendarViewRequestBuilder> {
     /**
-     * Provides operations to count the resources in the collection.
-     */
-    get count(): CountRequestBuilder;
-    /**
      * Provides operations to call the delta method.
      */
     get delta(): DeltaRequestBuilder;
-    /**
-     * Provides operations to manage the calendarView property of the microsoft.graph.user entity.
-     * @param eventId The unique identifier of event
-     * @returns {EventItemRequestBuilder}
-     */
-     byEventId(eventId: string) : EventItemRequestBuilder;
     /**
      * The calendar view for the calendar. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -112,14 +98,6 @@ const CalendarViewRequestBuilderGetQueryParametersMapper: Record<string, string>
  * Metadata for all the navigation properties in the request builder.
  */
 export const CalendarViewRequestBuilderNavigationMetadata: Record<Exclude<keyof CalendarViewRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
-    byEventId: {
-        requestsMetadata: EventItemRequestBuilderRequestsMetadata,
-        navigationMetadata: EventItemRequestBuilderNavigationMetadata,
-        pathParametersMappings: ["event%2Did"],
-    },
-    count: {
-        requestsMetadata: CountRequestBuilderRequestsMetadata,
-    },
     delta: {
         requestsMetadata: DeltaRequestBuilderRequestsMetadata,
     },
