@@ -4,7 +4,7 @@
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { AdditionalDataOptions, AdditionalDataOptionsObject, createEdiscoverySearchFromDiscriminatorValue, serializeEdiscoverySearch, type EdiscoverySearch } from '@microsoft/msgraph-sdk/models/security/index.js';
+import { AdditionalDataOptions, AdditionalDataOptionsObject, CloudAttachmentVersion, CloudAttachmentVersionObject, createEdiscoverySearchFromDiscriminatorValue, DocumentVersion, DocumentVersionObject, ItemsToInclude, ItemsToIncludeObject, serializeEdiscoverySearch, type EdiscoverySearch } from '@microsoft/msgraph-sdk/models/security/index.js';
 // @ts-ignore
 import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
@@ -21,6 +21,18 @@ export interface AddToReviewSetPostRequestBody extends AdditionalDataHolder, Bac
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
+    /**
+     * The cloudAttachmentVersion property
+     */
+    cloudAttachmentVersion?: CloudAttachmentVersion | null;
+    /**
+     * The documentVersion property
+     */
+    documentVersion?: DocumentVersion | null;
+    /**
+     * The itemsToInclude property
+     */
+    itemsToInclude?: ItemsToInclude[] | null;
     /**
      * The search property
      */
@@ -44,6 +56,9 @@ export function deserializeIntoAddToReviewSetPostRequestBody(addToReviewSetPostR
     return {
         "additionalDataOptions": n => { addToReviewSetPostRequestBody.additionalDataOptions = n.getCollectionOfEnumValues<AdditionalDataOptions>(AdditionalDataOptionsObject); },
         "backingStoreEnabled": n => { addToReviewSetPostRequestBody.backingStoreEnabled = true; },
+        "cloudAttachmentVersion": n => { addToReviewSetPostRequestBody.cloudAttachmentVersion = n.getEnumValue<CloudAttachmentVersion>(CloudAttachmentVersionObject); },
+        "documentVersion": n => { addToReviewSetPostRequestBody.documentVersion = n.getEnumValue<DocumentVersion>(DocumentVersionObject); },
+        "itemsToInclude": n => { addToReviewSetPostRequestBody.itemsToInclude = n.getCollectionOfEnumValues<ItemsToInclude>(ItemsToIncludeObject); },
         "search": n => { addToReviewSetPostRequestBody.search = n.getObjectValue<EdiscoverySearch>(createEdiscoverySearchFromDiscriminatorValue); },
     }
 }
@@ -75,6 +90,9 @@ export interface MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends Base
 export function serializeAddToReviewSetPostRequestBody(writer: SerializationWriter, addToReviewSetPostRequestBody: Partial<AddToReviewSetPostRequestBody> | undefined | null = {}) : void {
     if (addToReviewSetPostRequestBody) {
         writer.writeEnumValue<AdditionalDataOptions[]>("additionalDataOptions", addToReviewSetPostRequestBody.additionalDataOptions);
+        writer.writeEnumValue<CloudAttachmentVersion>("cloudAttachmentVersion", addToReviewSetPostRequestBody.cloudAttachmentVersion);
+        writer.writeEnumValue<DocumentVersion>("documentVersion", addToReviewSetPostRequestBody.documentVersion);
+        writer.writeEnumValue<ItemsToInclude[]>("itemsToInclude", addToReviewSetPostRequestBody.itemsToInclude);
         writer.writeObjectValue<EdiscoverySearch>("search", addToReviewSetPostRequestBody.search, serializeEdiscoverySearch);
         writer.writeAdditionalData(addToReviewSetPostRequestBody.additionalData);
     }

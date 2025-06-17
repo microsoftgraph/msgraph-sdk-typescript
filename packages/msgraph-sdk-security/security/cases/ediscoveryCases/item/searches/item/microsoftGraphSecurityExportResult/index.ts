@@ -4,7 +4,7 @@
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { AdditionalOptions, AdditionalOptionsObject, ExportCriteria, ExportCriteriaObject, ExportFormat, ExportFormatObject, ExportLocation, ExportLocationObject } from '@microsoft/msgraph-sdk/models/security/index.js';
+import { AdditionalOptions, AdditionalOptionsObject, CloudAttachmentVersion, CloudAttachmentVersionObject, DocumentVersion, DocumentVersionObject, ExportCriteria, ExportCriteriaObject, ExportFormat, ExportFormatObject, ExportLocation, ExportLocationObject } from '@microsoft/msgraph-sdk/models/security/index.js';
 // @ts-ignore
 import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
@@ -26,8 +26,10 @@ export function deserializeIntoExportResultPostRequestBody(exportResultPostReque
     return {
         "additionalOptions": n => { exportResultPostRequestBody.additionalOptions = n.getCollectionOfEnumValues<AdditionalOptions>(AdditionalOptionsObject); },
         "backingStoreEnabled": n => { exportResultPostRequestBody.backingStoreEnabled = true; },
+        "cloudAttachmentVersion": n => { exportResultPostRequestBody.cloudAttachmentVersion = n.getEnumValue<CloudAttachmentVersion>(CloudAttachmentVersionObject); },
         "description": n => { exportResultPostRequestBody.description = n.getStringValue(); },
         "displayName": n => { exportResultPostRequestBody.displayName = n.getStringValue(); },
+        "documentVersion": n => { exportResultPostRequestBody.documentVersion = n.getEnumValue<DocumentVersion>(DocumentVersionObject); },
         "exportCriteria": n => { exportResultPostRequestBody.exportCriteria = n.getCollectionOfEnumValues<ExportCriteria>(ExportCriteriaObject); },
         "exportFormat": n => { exportResultPostRequestBody.exportFormat = n.getEnumValue<ExportFormat>(ExportFormatObject); },
         "exportLocation": n => { exportResultPostRequestBody.exportLocation = n.getCollectionOfEnumValues<ExportLocation>(ExportLocationObject); },
@@ -48,6 +50,10 @@ export interface ExportResultPostRequestBody extends AdditionalDataHolder, Backe
      */
     backingStoreEnabled?: boolean | null;
     /**
+     * The cloudAttachmentVersion property
+     */
+    cloudAttachmentVersion?: CloudAttachmentVersion | null;
+    /**
      * The description property
      */
     description?: string | null;
@@ -55,6 +61,10 @@ export interface ExportResultPostRequestBody extends AdditionalDataHolder, Backe
      * The displayName property
      */
     displayName?: string | null;
+    /**
+     * The documentVersion property
+     */
+    documentVersion?: DocumentVersion | null;
     /**
      * The exportCriteria property
      */
@@ -100,8 +110,10 @@ export interface MicrosoftGraphSecurityExportResultRequestBuilder extends BaseRe
 export function serializeExportResultPostRequestBody(writer: SerializationWriter, exportResultPostRequestBody: Partial<ExportResultPostRequestBody> | undefined | null = {}) : void {
     if (exportResultPostRequestBody) {
         writer.writeEnumValue<AdditionalOptions[]>("additionalOptions", exportResultPostRequestBody.additionalOptions);
+        writer.writeEnumValue<CloudAttachmentVersion>("cloudAttachmentVersion", exportResultPostRequestBody.cloudAttachmentVersion);
         writer.writeStringValue("description", exportResultPostRequestBody.description);
         writer.writeStringValue("displayName", exportResultPostRequestBody.displayName);
+        writer.writeEnumValue<DocumentVersion>("documentVersion", exportResultPostRequestBody.documentVersion);
         writer.writeEnumValue<ExportCriteria[]>("exportCriteria", exportResultPostRequestBody.exportCriteria);
         writer.writeEnumValue<ExportFormat>("exportFormat", exportResultPostRequestBody.exportFormat);
         writer.writeEnumValue<ExportLocation[]>("exportLocation", exportResultPostRequestBody.exportLocation);
