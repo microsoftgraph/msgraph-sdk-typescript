@@ -27,7 +27,7 @@ export interface RoleManagementPolicyAssignmentsRequestBuilder extends BaseReque
      */
      byUnifiedRoleManagementPolicyAssignmentId(unifiedRoleManagementPolicyAssignmentId: string) : UnifiedRoleManagementPolicyAssignmentItemRequestBuilder;
     /**
-     * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
+     * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for Groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnifiedRoleManagementPolicyAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -43,7 +43,7 @@ export interface RoleManagementPolicyAssignmentsRequestBuilder extends BaseReque
      */
      post(body: UnifiedRoleManagementPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnifiedRoleManagementPolicyAssignment | undefined>;
     /**
-     * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
+     * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for Groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +57,7 @@ export interface RoleManagementPolicyAssignmentsRequestBuilder extends BaseReque
      toPostRequestInformation(body: UnifiedRoleManagementPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
+ * Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for Groups.
  */
 export interface RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters {
     /**

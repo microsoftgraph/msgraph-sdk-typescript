@@ -27,30 +27,30 @@ export interface RoleDefinitionsRequestBuilder extends BaseRequestBuilder<RoleDe
      */
      byRoleDefinitionId(roleDefinitionId: string) : RoleDefinitionItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceAndAppManagementRoleDefinition objects.
+     * List properties and relationships of the roleDefinition objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleDefinitionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleDefinitionsRequestBuilderGetQueryParameters> | undefined) : Promise<RoleDefinitionCollectionResponse | undefined>;
     /**
-     * Create a new roleDefinition object.
+     * Create a new deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleDefinition | undefined>;
     /**
-     * List properties and relationships of the deviceAndAppManagementRoleDefinition objects.
+     * List properties and relationships of the roleDefinition objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleDefinitionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new roleDefinition object.
+     * Create a new deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +58,7 @@ export interface RoleDefinitionsRequestBuilder extends BaseRequestBuilder<RoleDe
      toPostRequestInformation(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceAndAppManagementRoleDefinition objects.
+ * List properties and relationships of the roleDefinition objects.
  */
 export interface RoleDefinitionsRequestBuilderGetQueryParameters {
     /**

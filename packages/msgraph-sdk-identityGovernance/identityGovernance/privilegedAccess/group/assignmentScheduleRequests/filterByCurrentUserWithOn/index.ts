@@ -39,7 +39,7 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
  */
 export interface FilterByCurrentUserWithOnRequestBuilder extends BaseRequestBuilder<FilterByCurrentUserWithOnRequestBuilder> {
     /**
-     * In PIM for groups, retrieve the requests for membership or ownership assignments for the calling principal to groups that are governed by PIM.
+     * In PIM for Groups, retrieve the requests for membership or ownership assignments for the calling principal to groups that are governed by PIM.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FilterByCurrentUserWithOnGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -47,14 +47,14 @@ export interface FilterByCurrentUserWithOnRequestBuilder extends BaseRequestBuil
      */
      get(requestConfiguration?: RequestConfiguration<FilterByCurrentUserWithOnRequestBuilderGetQueryParameters> | undefined) : Promise<FilterByCurrentUserWithOnGetResponse | undefined>;
     /**
-     * In PIM for groups, retrieve the requests for membership or ownership assignments for the calling principal to groups that are governed by PIM.
+     * In PIM for Groups, retrieve the requests for membership or ownership assignments for the calling principal to groups that are governed by PIM.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilterByCurrentUserWithOnRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * In PIM for groups, retrieve the requests for membership or ownership assignments for the calling principal to groups that are governed by PIM.
+ * In PIM for Groups, retrieve the requests for membership or ownership assignments for the calling principal to groups that are governed by PIM.
  */
 export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
     /**
