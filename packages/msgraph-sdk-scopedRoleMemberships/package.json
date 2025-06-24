@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-scopedrolememberships",
-  "version": "1.0.0-preview.60",
+  "version": "1.0.0-preview.61",
   "description": "ScopedRoleMemberships fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
