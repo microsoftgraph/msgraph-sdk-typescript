@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-places",
-  "version": "1.0.0-preview.60",
+  "version": "1.0.0-preview.61",
   "description": "Places fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
