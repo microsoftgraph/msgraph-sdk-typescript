@@ -62,14 +62,15 @@ export interface UploadPostRequestBody extends AdditionalDataHolder, BackedModel
  */
 export interface UploadRequestBuilder extends BaseRequestBuilder<UploadRequestBuilder> {
     /**
-     * Invoke action upload
+     * Append additional certificate authority details to a certificateBasedAuthPki resource. Only one operation can run at a time and this operation can take up to 30 minutes to complete. To know whether another upload is in progress, call the Get certificateBasedAuthPki. The status property will have the value running.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthpki-upload?view=graph-rest-1.0|Find more info here}
      */
      post(body: UploadPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Invoke action upload
+     * Append additional certificate authority details to a certificateBasedAuthPki resource. Only one operation can run at a time and this operation can take up to 30 minutes to complete. To know whether another upload is in progress, call the Get certificateBasedAuthPki. The status property will have the value running.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

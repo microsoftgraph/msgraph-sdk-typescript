@@ -25,7 +25,7 @@ export interface PublicKeyInfrastructureRequestBuilder extends BaseRequestBuilde
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get publicKeyInfrastructure from directory
+     * The collection of public key infrastructure instances for the certificate-based authentication feature for users in a Microsoft Entra tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PublicKeyInfrastructureRoot>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface PublicKeyInfrastructureRequestBuilder extends BaseRequestBuilde
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get publicKeyInfrastructure from directory
+     * The collection of public key infrastructure instances for the certificate-based authentication feature for users in a Microsoft Entra tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface PublicKeyInfrastructureRequestBuilder extends BaseRequestBuilde
      toPatchRequestInformation(body: PublicKeyInfrastructureRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get publicKeyInfrastructure from directory
+ * The collection of public key infrastructure instances for the certificate-based authentication feature for users in a Microsoft Entra tenant.
  */
 export interface PublicKeyInfrastructureRequestBuilderGetQueryParameters {
     /**

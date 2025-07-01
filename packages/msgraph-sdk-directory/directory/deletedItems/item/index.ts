@@ -79,14 +79,14 @@ export interface DirectoryObjectItemRequestBuilder extends BaseRequestBuilder<Di
      */
     get restore(): RestoreRequestBuilder;
     /**
-     * Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
+     * Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it cannot be restored. Permanently delete a recently deleted directory object from deleted items. The following types are supported:- certificateBasedAuthPki- certificateAuthorityDetail After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/directory-deleteditems-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
+     * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- certificateBasedAuthPki- certificateAuthorityDetail- group- servicePrincipal- user
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -94,20 +94,20 @@ export interface DirectoryObjectItemRequestBuilder extends BaseRequestBuilder<Di
      */
      get(requestConfiguration?: RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObject | undefined>;
     /**
-     * Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
+     * Permanently delete a recently deleted application, group, servicePrincipal, or user object from deleted items. After an item is permanently deleted, it cannot be restored. Permanently delete a recently deleted directory object from deleted items. The following types are supported:- certificateBasedAuthPki- certificateAuthorityDetail After an item is permanently deleted, it cannot be restored. Administrative units cannot be permanently deleted by using the deletedItems API. Soft-deleted administrative units will be permanently deleted 30 days after initial deletion unless they are restored.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
+     * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- certificateBasedAuthPki- certificateAuthorityDetail- group- servicePrincipal- user
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items.
+ * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- certificateBasedAuthPki- certificateAuthorityDetail- group- servicePrincipal- user
  */
 export interface DirectoryObjectItemRequestBuilderGetQueryParameters {
     /**

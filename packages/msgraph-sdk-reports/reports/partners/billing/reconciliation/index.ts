@@ -8,6 +8,8 @@ import { createBillingReconciliationFromDiscriminatorValue, serializeBillingReco
 // @ts-ignore
 import { BilledRequestBuilderNavigationMetadata, BilledRequestBuilderRequestsMetadata, type BilledRequestBuilder } from './billed/index.js';
 // @ts-ignore
+import { type UnbilledRequestBuilder, UnbilledRequestBuilderNavigationMetadata, UnbilledRequestBuilderRequestsMetadata } from './unbilled/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface ReconciliationRequestBuilder extends BaseRequestBuilder<Reconci
      * Provides operations to manage the billed property of the microsoft.graph.partners.billing.billingReconciliation entity.
      */
     get billed(): BilledRequestBuilder;
+    /**
+     * Provides operations to manage the unbilled property of the microsoft.graph.partners.billing.billingReconciliation entity.
+     */
+    get unbilled(): UnbilledRequestBuilder;
     /**
      * Delete navigation property reconciliation for reports
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -90,6 +96,10 @@ export const ReconciliationRequestBuilderNavigationMetadata: Record<Exclude<keyo
     billed: {
         requestsMetadata: BilledRequestBuilderRequestsMetadata,
         navigationMetadata: BilledRequestBuilderNavigationMetadata,
+    },
+    unbilled: {
+        requestsMetadata: UnbilledRequestBuilderRequestsMetadata,
+        navigationMetadata: UnbilledRequestBuilderNavigationMetadata,
     },
 };
 /**

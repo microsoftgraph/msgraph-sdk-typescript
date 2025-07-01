@@ -45,6 +45,10 @@ export interface BillingReconciliation extends Entity, Parsable {
      * The billed property
      */
     billed?: BilledReconciliation | null;
+    /**
+     * The unbilled property
+     */
+    unbilled?: UnbilledReconciliation | null;
 }
 export interface Blob extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -203,6 +207,15 @@ export function createRunningOperationFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {UnbilledReconciliation}
+ */
+// @ts-ignore
+export function createUnbilledReconciliationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoUnbilledReconciliation;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnbilledUsage}
  */
 // @ts-ignore
@@ -264,6 +277,7 @@ export function deserializeIntoBillingReconciliation(billingReconciliation: Part
     return {
         ...deserializeIntoEntity(billingReconciliation),
         "billed": n => { billingReconciliation.billed = n.getObjectValue<BilledReconciliation>(createBilledReconciliationFromDiscriminatorValue); },
+        "unbilled": n => { billingReconciliation.unbilled = n.getObjectValue<UnbilledReconciliation>(createUnbilledReconciliationFromDiscriminatorValue); },
     }
 }
 /**
@@ -364,6 +378,16 @@ export function deserializeIntoOperationCollectionResponse(operationCollectionRe
 export function deserializeIntoRunningOperation(runningOperation: Partial<RunningOperation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoOperation(runningOperation),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoUnbilledReconciliation(unbilledReconciliation: Partial<UnbilledReconciliation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(unbilledReconciliation),
     }
 }
 /**
@@ -513,6 +537,7 @@ export function serializeBillingReconciliation(writer: SerializationWriter, bill
     if (billingReconciliation) {
         serializeEntity(writer, billingReconciliation)
         writer.writeObjectValue<BilledReconciliation>("billed", billingReconciliation.billed, serializeBilledReconciliation);
+        writer.writeObjectValue<UnbilledReconciliation>("unbilled", billingReconciliation.unbilled, serializeUnbilledReconciliation);
     }
 }
 /**
@@ -620,10 +645,22 @@ export function serializeRunningOperation(writer: SerializationWriter, runningOp
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
+export function serializeUnbilledReconciliation(writer: SerializationWriter, unbilledReconciliation: Partial<UnbilledReconciliation> | undefined | null = {}) : void {
+    if (unbilledReconciliation) {
+        serializeEntity(writer, unbilledReconciliation)
+    }
+}
+/**
+ * Serializes information the current object
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
 export function serializeUnbilledUsage(writer: SerializationWriter, unbilledUsage: Partial<UnbilledUsage> | undefined | null = {}) : void {
     if (unbilledUsage) {
         serializeEntity(writer, unbilledUsage)
     }
+}
+export interface UnbilledReconciliation extends Entity, Parsable {
 }
 export interface UnbilledUsage extends Entity, Parsable {
 }

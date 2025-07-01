@@ -27,28 +27,30 @@ export interface CertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
      */
      byCertificateAuthorityDetailId(certificateAuthorityDetailId: string) : CertificateAuthorityDetailItemRequestBuilder;
     /**
-     * Get certificateAuthorities from directory
+     * Get a list of the certificateAuthorityDetail objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateAuthorityDetailCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthpki-list-certificateauthorities?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CertificateAuthoritiesRequestBuilderGetQueryParameters> | undefined) : Promise<CertificateAuthorityDetailCollectionResponse | undefined>;
     /**
-     * Create new navigation property to certificateAuthorities for directory
+     * Create a new certificateAuthorityDetail object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateAuthorityDetail>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthpki-post-certificateauthorities?view=graph-rest-1.0|Find more info here}
      */
      post(body: CertificateAuthorityDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CertificateAuthorityDetail | undefined>;
     /**
-     * Get certificateAuthorities from directory
+     * Get a list of the certificateAuthorityDetail objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CertificateAuthoritiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to certificateAuthorities for directory
+     * Create a new certificateAuthorityDetail object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface CertificateAuthoritiesRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: CertificateAuthorityDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get certificateAuthorities from directory
+ * Get a list of the certificateAuthorityDetail objects and their properties.
  */
 export interface CertificateAuthoritiesRequestBuilderGetQueryParameters {
     /**

@@ -28,7 +28,7 @@ export interface ShiftItemRequestBuilder extends BaseRequestBuilder<ShiftItemReq
      */
      get(requestConfiguration?: RequestConfiguration<ShiftItemRequestBuilderGetQueryParameters> | undefined) : Promise<Shift | undefined>;
     /**
-     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift can't be less than 1 minute or longer than 24 hours.
+     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift can't be less than one minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Shift>}
@@ -49,7 +49,7 @@ export interface ShiftItemRequestBuilder extends BaseRequestBuilder<ShiftItemReq
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ShiftItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift can't be less than 1 minute or longer than 24 hours.
+     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift can't be less than one minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

@@ -13,40 +13,42 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface CertificateAuthorityDetailItemRequestBuilder extends BaseRequestBuilder<CertificateAuthorityDetailItemRequestBuilder> {
     /**
-     * Delete navigation property certificateAuthorities for directory
+     * Delete a certificateAuthorityDetail object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthpki-delete-certificateauthorities?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get certificateAuthorities from directory
+     * The collection of certificate authorities contained in this public key infrastructure resource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateAuthorityDetail>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<CertificateAuthorityDetailItemRequestBuilderGetQueryParameters> | undefined) : Promise<CertificateAuthorityDetail | undefined>;
     /**
-     * Update the navigation property certificateAuthorities in directory
+     * Update certificateAuthorityDetail
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateAuthorityDetail>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/certificateauthoritydetail-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CertificateAuthorityDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CertificateAuthorityDetail | undefined>;
     /**
-     * Delete navigation property certificateAuthorities for directory
+     * Delete a certificateAuthorityDetail object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get certificateAuthorities from directory
+     * The collection of certificate authorities contained in this public key infrastructure resource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CertificateAuthorityDetailItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property certificateAuthorities in directory
+     * Update certificateAuthorityDetail
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface CertificateAuthorityDetailItemRequestBuilder extends BaseReques
      toPatchRequestInformation(body: CertificateAuthorityDetail, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get certificateAuthorities from directory
+ * The collection of certificate authorities contained in this public key infrastructure resource.
  */
 export interface CertificateAuthorityDetailItemRequestBuilderGetQueryParameters {
     /**

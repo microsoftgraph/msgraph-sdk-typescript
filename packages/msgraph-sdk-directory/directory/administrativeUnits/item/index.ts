@@ -38,7 +38,7 @@ export interface AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties and relationships of an administrativeUnit object.
+     * Retrieve the properties and relationships of an administrativeUnit object. The administrativeUnit resource supports extensions, which also allows you to use the GET operation to get custom properties and extension data in an administrativeUnit instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AdministrativeUnit>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -61,7 +61,7 @@ export interface AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of an administrativeUnit object.
+     * Retrieve the properties and relationships of an administrativeUnit object. The administrativeUnit resource supports extensions, which also allows you to use the GET operation to get custom properties and extension data in an administrativeUnit instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -75,7 +75,7 @@ export interface AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: AdministrativeUnit, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of an administrativeUnit object.
+ * Retrieve the properties and relationships of an administrativeUnit object. The administrativeUnit resource supports extensions, which also allows you to use the GET operation to get custom properties and extension data in an administrativeUnit instance.
  */
 export interface AdministrativeUnitItemRequestBuilderGetQueryParameters {
     /**
