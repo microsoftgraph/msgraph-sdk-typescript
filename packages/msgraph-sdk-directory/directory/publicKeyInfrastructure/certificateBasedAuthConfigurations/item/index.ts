@@ -25,40 +25,43 @@ export interface CertificateBasedAuthPkiItemRequestBuilder extends BaseRequestBu
      */
     get upload(): UploadRequestBuilder;
     /**
-     * Delete navigation property certificateBasedAuthConfigurations for directory
+     * Delete a certificateBasedAuthPki object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/publickeyinfrastructureroot-delete-certificatebasedauthconfigurations?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get certificateBasedAuthConfigurations from directory
+     * Read the properties and relationships of a certificateBasedAuthPki object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateBasedAuthPki>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthpki-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CertificateBasedAuthPkiItemRequestBuilderGetQueryParameters> | undefined) : Promise<CertificateBasedAuthPki | undefined>;
     /**
-     * Update the navigation property certificateBasedAuthConfigurations in directory
+     * Update the properties of a certificateBasedAuthPki object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateBasedAuthPki>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthpki-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: CertificateBasedAuthPki, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CertificateBasedAuthPki | undefined>;
     /**
-     * Delete navigation property certificateBasedAuthConfigurations for directory
+     * Delete a certificateBasedAuthPki object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get certificateBasedAuthConfigurations from directory
+     * Read the properties and relationships of a certificateBasedAuthPki object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CertificateBasedAuthPkiItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property certificateBasedAuthConfigurations in directory
+     * Update the properties of a certificateBasedAuthPki object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -66,7 +69,7 @@ export interface CertificateBasedAuthPkiItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: CertificateBasedAuthPki, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get certificateBasedAuthConfigurations from directory
+ * Read the properties and relationships of a certificateBasedAuthPki object.
  */
 export interface CertificateBasedAuthPkiItemRequestBuilderGetQueryParameters {
     /**

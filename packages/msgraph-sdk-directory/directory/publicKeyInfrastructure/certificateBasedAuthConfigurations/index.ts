@@ -27,28 +27,30 @@ export interface CertificateBasedAuthConfigurationsRequestBuilder extends BaseRe
      */
      byCertificateBasedAuthPkiId(certificateBasedAuthPkiId: string) : CertificateBasedAuthPkiItemRequestBuilder;
     /**
-     * Get certificateBasedAuthConfigurations from directory
+     * Get a list of the certificateBasedAuthPki objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateBasedAuthPkiCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/publickeyinfrastructureroot-list-certificatebasedauthconfigurations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CertificateBasedAuthConfigurationsRequestBuilderGetQueryParameters> | undefined) : Promise<CertificateBasedAuthPkiCollectionResponse | undefined>;
     /**
-     * Create new navigation property to certificateBasedAuthConfigurations for directory
+     * Create a new certificateBasedAuthPki object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CertificateBasedAuthPki>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/publickeyinfrastructureroot-post-certificatebasedauthconfigurations?view=graph-rest-1.0|Find more info here}
      */
      post(body: CertificateBasedAuthPki, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CertificateBasedAuthPki | undefined>;
     /**
-     * Get certificateBasedAuthConfigurations from directory
+     * Get a list of the certificateBasedAuthPki objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CertificateBasedAuthConfigurationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to certificateBasedAuthConfigurations for directory
+     * Create a new certificateBasedAuthPki object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface CertificateBasedAuthConfigurationsRequestBuilder extends BaseRe
      toPostRequestInformation(body: CertificateBasedAuthPki, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get certificateBasedAuthConfigurations from directory
+ * Get a list of the certificateBasedAuthPki objects and their properties.
  */
 export interface CertificateBasedAuthConfigurationsRequestBuilderGetQueryParameters {
     /**
