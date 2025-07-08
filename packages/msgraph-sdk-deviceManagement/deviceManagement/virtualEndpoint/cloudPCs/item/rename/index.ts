@@ -17,6 +17,7 @@ export function createRenamePostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param RenamePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoRenamePostRequestBody(renamePostRequestBody: Part
     }
 }
 export interface RenamePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -62,14 +59,15 @@ export interface RenameRequestBuilder extends BaseRequestBuilder<RenameRequestBu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RenamePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRenamePostRequestBody(writer: SerializationWriter, renamePostRequestBody: Partial<RenamePostRequestBody> | undefined | null = {}) : void {
-    if (renamePostRequestBody) {
-        writer.writeStringValue("displayName", renamePostRequestBody.displayName);
-        writer.writeAdditionalData(renamePostRequestBody.additionalData);
-    }
+export function serializeRenamePostRequestBody(writer: SerializationWriter, renamePostRequestBody: Partial<RenamePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!renamePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("displayName", renamePostRequestBody.displayName);
+    writer.writeAdditionalData(renamePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

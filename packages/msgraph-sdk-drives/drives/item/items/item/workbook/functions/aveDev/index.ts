@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface AveDevPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export function createAveDevPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param AveDevPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoAveDevPostRequestBody(aveDevPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param AveDevPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAveDevPostRequestBody(writer: SerializationWriter, aveDevPostRequestBody: Partial<AveDevPostRequestBody> | undefined | null = {}) : void {
-    if (aveDevPostRequestBody) {
-        writer.writeObjectValue("values", aveDevPostRequestBody.values);
-        writer.writeAdditionalData(aveDevPostRequestBody.additionalData);
-    }
+export function serializeAveDevPostRequestBody(writer: SerializationWriter, aveDevPostRequestBody: Partial<AveDevPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!aveDevPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", aveDevPostRequestBody.values);
+    writer.writeAdditionalData(aveDevPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

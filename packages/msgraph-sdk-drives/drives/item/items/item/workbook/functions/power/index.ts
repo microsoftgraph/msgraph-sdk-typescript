@@ -19,6 +19,7 @@ export function createPowerPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param PowerPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoPowerPostRequestBody(powerPostRequestBody: Partia
     }
 }
 export interface PowerPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface PowerRequestBuilder extends BaseRequestBuilder<PowerRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PowerPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePowerPostRequestBody(writer: SerializationWriter, powerPostRequestBody: Partial<PowerPostRequestBody> | undefined | null = {}) : void {
-    if (powerPostRequestBody) {
-        writer.writeObjectValue("number", powerPostRequestBody.number);
-        writer.writeObjectValue("power", powerPostRequestBody.power);
-        writer.writeAdditionalData(powerPostRequestBody.additionalData);
-    }
+export function serializePowerPostRequestBody(writer: SerializationWriter, powerPostRequestBody: Partial<PowerPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!powerPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", powerPostRequestBody.number);
+    writer.writeObjectValue("power", powerPostRequestBody.power);
+    writer.writeAdditionalData(powerPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

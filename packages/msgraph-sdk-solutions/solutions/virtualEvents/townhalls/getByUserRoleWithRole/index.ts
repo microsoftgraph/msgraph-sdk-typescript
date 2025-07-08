@@ -19,6 +19,7 @@ export function createGetByUserRoleWithRoleGetResponseFromDiscriminatorValue(par
 }
 /**
  * The deserialization information for the current model
+ * @param GetByUserRoleWithRoleGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface GetByUserRoleWithRoleRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param GetByUserRoleWithRoleGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetByUserRoleWithRoleGetResponse(writer: SerializationWriter, getByUserRoleWithRoleGetResponse: Partial<GetByUserRoleWithRoleGetResponse> | undefined | null = {}) : void {
-    if (getByUserRoleWithRoleGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getByUserRoleWithRoleGetResponse)
-        writer.writeCollectionOfObjectValues<VirtualEventTownhall>("value", getByUserRoleWithRoleGetResponse.value, serializeVirtualEventTownhall);
-    }
+export function serializeGetByUserRoleWithRoleGetResponse(writer: SerializationWriter, getByUserRoleWithRoleGetResponse: Partial<GetByUserRoleWithRoleGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getByUserRoleWithRoleGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getByUserRoleWithRoleGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<VirtualEventTownhall>("value", getByUserRoleWithRoleGetResponse.value, serializeVirtualEventTownhall);
 }
 /**
  * Uri template for the request builder.

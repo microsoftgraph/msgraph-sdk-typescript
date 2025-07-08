@@ -19,6 +19,7 @@ export function createLogNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param LogNorm_InvPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoLogNorm_InvPostRequestBody(logNorm_InvPostRequest
     }
 }
 export interface LogNorm_InvPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface LogNorm_InvRequestBuilder extends BaseRequestBuilder<LogNorm_In
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LogNorm_InvPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLogNorm_InvPostRequestBody(writer: SerializationWriter, logNorm_InvPostRequestBody: Partial<LogNorm_InvPostRequestBody> | undefined | null = {}) : void {
-    if (logNorm_InvPostRequestBody) {
-        writer.writeObjectValue("mean", logNorm_InvPostRequestBody.mean);
-        writer.writeObjectValue("probability", logNorm_InvPostRequestBody.probability);
-        writer.writeObjectValue("standardDev", logNorm_InvPostRequestBody.standardDev);
-        writer.writeAdditionalData(logNorm_InvPostRequestBody.additionalData);
-    }
+export function serializeLogNorm_InvPostRequestBody(writer: SerializationWriter, logNorm_InvPostRequestBody: Partial<LogNorm_InvPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!logNorm_InvPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("mean", logNorm_InvPostRequestBody.mean);
+    writer.writeObjectValue("probability", logNorm_InvPostRequestBody.probability);
+    writer.writeObjectValue("standardDev", logNorm_InvPostRequestBody.standardDev);
+    writer.writeAdditionalData(logNorm_InvPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

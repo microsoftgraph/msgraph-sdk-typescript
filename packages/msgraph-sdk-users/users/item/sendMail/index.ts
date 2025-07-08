@@ -19,6 +19,7 @@ export function createSendMailPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param SendMailPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoSendMailPostRequestBody(sendMailPostRequestBody: 
     }
 }
 export interface SendMailPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface SendMailRequestBuilder extends BaseRequestBuilder<SendMailReque
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SendMailPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSendMailPostRequestBody(writer: SerializationWriter, sendMailPostRequestBody: Partial<SendMailPostRequestBody> | undefined | null = {}) : void {
-    if (sendMailPostRequestBody) {
-        writer.writeObjectValue<Message>("Message", sendMailPostRequestBody.message, serializeMessage);
-        writer.writeBooleanValue("SaveToSentItems", sendMailPostRequestBody.saveToSentItems);
-        writer.writeAdditionalData(sendMailPostRequestBody.additionalData);
-    }
+export function serializeSendMailPostRequestBody(writer: SerializationWriter, sendMailPostRequestBody: Partial<SendMailPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sendMailPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<Message>("Message", sendMailPostRequestBody.message, serializeMessage);
+    writer.writeBooleanValue("SaveToSentItems", sendMailPostRequestBody.saveToSentItems);
+    writer.writeAdditionalData(sendMailPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

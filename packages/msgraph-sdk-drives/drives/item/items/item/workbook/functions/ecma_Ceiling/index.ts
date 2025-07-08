@@ -19,6 +19,7 @@ export function createEcma_CeilingPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param Ecma_CeilingPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoEcma_CeilingPostRequestBody(ecma_CeilingPostReque
     }
 }
 export interface Ecma_CeilingPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface Ecma_CeilingRequestBuilder extends BaseRequestBuilder<Ecma_Ceil
 }
 /**
  * Serializes information the current object
+ * @param Ecma_CeilingPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeEcma_CeilingPostRequestBody(writer: SerializationWriter, ecma_CeilingPostRequestBody: Partial<Ecma_CeilingPostRequestBody> | undefined | null = {}) : void {
-    if (ecma_CeilingPostRequestBody) {
-        writer.writeObjectValue("number", ecma_CeilingPostRequestBody.number);
-        writer.writeObjectValue("significance", ecma_CeilingPostRequestBody.significance);
-        writer.writeAdditionalData(ecma_CeilingPostRequestBody.additionalData);
-    }
+export function serializeEcma_CeilingPostRequestBody(writer: SerializationWriter, ecma_CeilingPostRequestBody: Partial<Ecma_CeilingPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!ecma_CeilingPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", ecma_CeilingPostRequestBody.number);
+    writer.writeObjectValue("significance", ecma_CeilingPostRequestBody.significance);
+    writer.writeAdditionalData(ecma_CeilingPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

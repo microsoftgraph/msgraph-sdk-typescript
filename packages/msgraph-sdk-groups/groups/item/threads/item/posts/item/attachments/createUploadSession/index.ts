@@ -19,10 +19,6 @@ export function createCreateUploadSessionPostRequestBodyFromDiscriminatorValue(p
 }
 export interface CreateUploadSessionPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The AttachmentItem property
      */
     attachmentItem?: AttachmentItem | null;
@@ -54,6 +50,7 @@ export interface CreateUploadSessionRequestBuilder extends BaseRequestBuilder<Cr
 }
 /**
  * The deserialization information for the current model
+ * @param CreateUploadSessionPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -65,14 +62,15 @@ export function deserializeIntoCreateUploadSessionPostRequestBody(createUploadSe
 }
 /**
  * Serializes information the current object
+ * @param CreateUploadSessionPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCreateUploadSessionPostRequestBody(writer: SerializationWriter, createUploadSessionPostRequestBody: Partial<CreateUploadSessionPostRequestBody> | undefined | null = {}) : void {
-    if (createUploadSessionPostRequestBody) {
-        writer.writeObjectValue<AttachmentItem>("AttachmentItem", createUploadSessionPostRequestBody.attachmentItem, serializeAttachmentItem);
-        writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
-    }
+export function serializeCreateUploadSessionPostRequestBody(writer: SerializationWriter, createUploadSessionPostRequestBody: Partial<CreateUploadSessionPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!createUploadSessionPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<AttachmentItem>("AttachmentItem", createUploadSessionPostRequestBody.attachmentItem, serializeAttachmentItem);
+    writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -28,6 +28,7 @@ export function createGetStaffAvailabilityPostResponseFromDiscriminatorValue(par
 }
 /**
  * The deserialization information for the current model
+ * @param GetStaffAvailabilityPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -41,6 +42,7 @@ export function deserializeIntoGetStaffAvailabilityPostRequestBody(getStaffAvail
 }
 /**
  * The deserialization information for the current model
+ * @param GetStaffAvailabilityPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -51,10 +53,6 @@ export function deserializeIntoGetStaffAvailabilityPostResponse(getStaffAvailabi
     }
 }
 export interface GetStaffAvailabilityPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -101,27 +99,29 @@ export interface GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder<G
 }
 /**
  * Serializes information the current object
+ * @param GetStaffAvailabilityPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetStaffAvailabilityPostRequestBody(writer: SerializationWriter, getStaffAvailabilityPostRequestBody: Partial<GetStaffAvailabilityPostRequestBody> | undefined | null = {}) : void {
-    if (getStaffAvailabilityPostRequestBody) {
-        writer.writeObjectValue<DateTimeTimeZone>("endDateTime", getStaffAvailabilityPostRequestBody.endDateTime, serializeDateTimeTimeZone);
-        writer.writeCollectionOfPrimitiveValues<string>("staffIds", getStaffAvailabilityPostRequestBody.staffIds);
-        writer.writeObjectValue<DateTimeTimeZone>("startDateTime", getStaffAvailabilityPostRequestBody.startDateTime, serializeDateTimeTimeZone);
-        writer.writeAdditionalData(getStaffAvailabilityPostRequestBody.additionalData);
-    }
+export function serializeGetStaffAvailabilityPostRequestBody(writer: SerializationWriter, getStaffAvailabilityPostRequestBody: Partial<GetStaffAvailabilityPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getStaffAvailabilityPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<DateTimeTimeZone>("endDateTime", getStaffAvailabilityPostRequestBody.endDateTime, serializeDateTimeTimeZone);
+    writer.writeCollectionOfPrimitiveValues<string>("staffIds", getStaffAvailabilityPostRequestBody.staffIds);
+    writer.writeObjectValue<DateTimeTimeZone>("startDateTime", getStaffAvailabilityPostRequestBody.startDateTime, serializeDateTimeTimeZone);
+    writer.writeAdditionalData(getStaffAvailabilityPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param GetStaffAvailabilityPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetStaffAvailabilityPostResponse(writer: SerializationWriter, getStaffAvailabilityPostResponse: Partial<GetStaffAvailabilityPostResponse> | undefined | null = {}) : void {
-    if (getStaffAvailabilityPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getStaffAvailabilityPostResponse)
-        writer.writeCollectionOfObjectValues<StaffAvailabilityItem>("value", getStaffAvailabilityPostResponse.value, serializeStaffAvailabilityItem);
-    }
+export function serializeGetStaffAvailabilityPostResponse(writer: SerializationWriter, getStaffAvailabilityPostResponse: Partial<GetStaffAvailabilityPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getStaffAvailabilityPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getStaffAvailabilityPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<StaffAvailabilityItem>("value", getStaffAvailabilityPostResponse.value, serializeStaffAvailabilityItem);
 }
 /**
  * Uri template for the request builder.

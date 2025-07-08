@@ -19,6 +19,7 @@ export function createInsertPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param InsertPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoInsertPostRequestBody(insertPostRequestBody: Part
     }
 }
 export interface InsertPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface InsertRequestBuilder extends BaseRequestBuilder<InsertRequestBu
 }
 /**
  * Serializes information the current object
+ * @param InsertPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeInsertPostRequestBody(writer: SerializationWriter, insertPostRequestBody: Partial<InsertPostRequestBody> | undefined | null = {}) : void {
-    if (insertPostRequestBody) {
-        writer.writeStringValue("shift", insertPostRequestBody.shift);
-        writer.writeAdditionalData(insertPostRequestBody.additionalData);
-    }
+export function serializeInsertPostRequestBody(writer: SerializationWriter, insertPostRequestBody: Partial<InsertPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!insertPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("shift", insertPostRequestBody.shift);
+    writer.writeAdditionalData(insertPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -17,6 +17,7 @@ export function createSetVerifiedPublisherPostRequestBodyFromDiscriminatorValue(
 }
 /**
  * The deserialization information for the current model
+ * @param SetVerifiedPublisherPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -28,20 +29,17 @@ export function deserializeIntoSetVerifiedPublisherPostRequestBody(setVerifiedPu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SetVerifiedPublisherPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSetVerifiedPublisherPostRequestBody(writer: SerializationWriter, setVerifiedPublisherPostRequestBody: Partial<SetVerifiedPublisherPostRequestBody> | undefined | null = {}) : void {
-    if (setVerifiedPublisherPostRequestBody) {
-        writer.writeStringValue("verifiedPublisherId", setVerifiedPublisherPostRequestBody.verifiedPublisherId);
-        writer.writeAdditionalData(setVerifiedPublisherPostRequestBody.additionalData);
-    }
+export function serializeSetVerifiedPublisherPostRequestBody(writer: SerializationWriter, setVerifiedPublisherPostRequestBody: Partial<SetVerifiedPublisherPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!setVerifiedPublisherPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("verifiedPublisherId", setVerifiedPublisherPostRequestBody.verifiedPublisherId);
+    writer.writeAdditionalData(setVerifiedPublisherPostRequestBody.additionalData);
 }
 export interface SetVerifiedPublisherPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

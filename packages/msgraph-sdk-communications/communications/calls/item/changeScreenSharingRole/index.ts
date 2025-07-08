@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface ChangeScreenSharingRolePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export function createChangeScreenSharingRolePostRequestBodyFromDiscriminatorVal
 }
 /**
  * The deserialization information for the current model
+ * @param ChangeScreenSharingRolePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoChangeScreenSharingRolePostRequestBody(changeScre
 }
 /**
  * Serializes information the current object
+ * @param ChangeScreenSharingRolePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeChangeScreenSharingRolePostRequestBody(writer: SerializationWriter, changeScreenSharingRolePostRequestBody: Partial<ChangeScreenSharingRolePostRequestBody> | undefined | null = {}) : void {
-    if (changeScreenSharingRolePostRequestBody) {
-        writer.writeEnumValue<ScreenSharingRole>("role", changeScreenSharingRolePostRequestBody.role);
-        writer.writeAdditionalData(changeScreenSharingRolePostRequestBody.additionalData);
-    }
+export function serializeChangeScreenSharingRolePostRequestBody(writer: SerializationWriter, changeScreenSharingRolePostRequestBody: Partial<ChangeScreenSharingRolePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!changeScreenSharingRolePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<ScreenSharingRole>("role", changeScreenSharingRolePostRequestBody.role);
+    writer.writeAdditionalData(changeScreenSharingRolePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

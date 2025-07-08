@@ -68,6 +68,7 @@ export function createAllowedCalendarSharingRolesWithUserGetResponseFromDiscrimi
 }
 /**
  * The deserialization information for the current model
+ * @param AllowedCalendarSharingRolesWithUserGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -79,15 +80,16 @@ export function deserializeIntoAllowedCalendarSharingRolesWithUserGetResponse(al
 }
 /**
  * Serializes information the current object
+ * @param AllowedCalendarSharingRolesWithUserGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAllowedCalendarSharingRolesWithUserGetResponse(writer: SerializationWriter, allowedCalendarSharingRolesWithUserGetResponse: Partial<AllowedCalendarSharingRolesWithUserGetResponse> | undefined | null = {}) : void {
-    if (allowedCalendarSharingRolesWithUserGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, allowedCalendarSharingRolesWithUserGetResponse)
-        if(allowedCalendarSharingRolesWithUserGetResponse.value)
-        writer.writeCollectionOfEnumValues<CalendarRoleType>("value", allowedCalendarSharingRolesWithUserGetResponse.value);
-    }
+export function serializeAllowedCalendarSharingRolesWithUserGetResponse(writer: SerializationWriter, allowedCalendarSharingRolesWithUserGetResponse: Partial<AllowedCalendarSharingRolesWithUserGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!allowedCalendarSharingRolesWithUserGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, allowedCalendarSharingRolesWithUserGetResponse, isSerializingDerivedType)
+    if(allowedCalendarSharingRolesWithUserGetResponse.value)
+    writer.writeCollectionOfEnumValues<CalendarRoleType>("value", allowedCalendarSharingRolesWithUserGetResponse.value);
 }
 /**
  * Uri template for the request builder.

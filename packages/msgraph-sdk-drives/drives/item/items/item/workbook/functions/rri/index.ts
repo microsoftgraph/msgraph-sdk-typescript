@@ -19,6 +19,7 @@ export function createRriPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param RriPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoRriPostRequestBody(rriPostRequestBody: Partial<Rr
     }
 }
 export interface RriPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface RriRequestBuilder extends BaseRequestBuilder<RriRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RriPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRriPostRequestBody(writer: SerializationWriter, rriPostRequestBody: Partial<RriPostRequestBody> | undefined | null = {}) : void {
-    if (rriPostRequestBody) {
-        writer.writeObjectValue("fv", rriPostRequestBody.fv);
-        writer.writeObjectValue("nper", rriPostRequestBody.nper);
-        writer.writeObjectValue("pv", rriPostRequestBody.pv);
-        writer.writeAdditionalData(rriPostRequestBody.additionalData);
-    }
+export function serializeRriPostRequestBody(writer: SerializationWriter, rriPostRequestBody: Partial<RriPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!rriPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("fv", rriPostRequestBody.fv);
+    writer.writeObjectValue("nper", rriPostRequestBody.nper);
+    writer.writeObjectValue("pv", rriPostRequestBody.pv);
+    writer.writeAdditionalData(rriPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createLogTeleconferenceDeviceQualityPostRequestBodyFromDiscrimin
 }
 /**
  * The deserialization information for the current model
+ * @param LogTeleconferenceDeviceQualityPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody(log
     }
 }
 export interface LogTeleconferenceDeviceQualityPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface LogTeleconferenceDeviceQualityRequestBuilder extends BaseReques
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LogTeleconferenceDeviceQualityPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLogTeleconferenceDeviceQualityPostRequestBody(writer: SerializationWriter, logTeleconferenceDeviceQualityPostRequestBody: Partial<LogTeleconferenceDeviceQualityPostRequestBody> | undefined | null = {}) : void {
-    if (logTeleconferenceDeviceQualityPostRequestBody) {
-        writer.writeObjectValue<TeleconferenceDeviceQuality>("quality", logTeleconferenceDeviceQualityPostRequestBody.quality, serializeTeleconferenceDeviceQuality);
-        writer.writeAdditionalData(logTeleconferenceDeviceQualityPostRequestBody.additionalData);
-    }
+export function serializeLogTeleconferenceDeviceQualityPostRequestBody(writer: SerializationWriter, logTeleconferenceDeviceQualityPostRequestBody: Partial<LogTeleconferenceDeviceQualityPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!logTeleconferenceDeviceQualityPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<TeleconferenceDeviceQuality>("quality", logTeleconferenceDeviceQualityPostRequestBody.quality, serializeTeleconferenceDeviceQuality);
+    writer.writeAdditionalData(logTeleconferenceDeviceQualityPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

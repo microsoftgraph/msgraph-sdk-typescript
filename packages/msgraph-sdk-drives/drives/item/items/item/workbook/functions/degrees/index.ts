@@ -19,10 +19,6 @@ export function createDegreesPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 export interface DegreesPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The angle property
      */
     angle?: UntypedNode | null;
@@ -53,6 +49,7 @@ export interface DegreesRequestBuilder extends BaseRequestBuilder<DegreesRequest
 }
 /**
  * The deserialization information for the current model
+ * @param DegreesPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoDegreesPostRequestBody(degreesPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param DegreesPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDegreesPostRequestBody(writer: SerializationWriter, degreesPostRequestBody: Partial<DegreesPostRequestBody> | undefined | null = {}) : void {
-    if (degreesPostRequestBody) {
-        writer.writeObjectValue("angle", degreesPostRequestBody.angle);
-        writer.writeAdditionalData(degreesPostRequestBody.additionalData);
-    }
+export function serializeDegreesPostRequestBody(writer: SerializationWriter, degreesPostRequestBody: Partial<DegreesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!degreesPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("angle", degreesPostRequestBody.angle);
+    writer.writeAdditionalData(degreesPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

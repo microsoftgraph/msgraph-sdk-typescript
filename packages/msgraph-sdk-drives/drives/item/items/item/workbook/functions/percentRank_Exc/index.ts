@@ -19,6 +19,7 @@ export function createPercentRank_ExcPostRequestBodyFromDiscriminatorValue(parse
 }
 /**
  * The deserialization information for the current model
+ * @param PercentRank_ExcPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoPercentRank_ExcPostRequestBody(percentRank_ExcPos
     }
 }
 export interface PercentRank_ExcPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The array property
      */
@@ -74,16 +71,17 @@ export interface PercentRank_ExcRequestBuilder extends BaseRequestBuilder<Percen
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PercentRank_ExcPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePercentRank_ExcPostRequestBody(writer: SerializationWriter, percentRank_ExcPostRequestBody: Partial<PercentRank_ExcPostRequestBody> | undefined | null = {}) : void {
-    if (percentRank_ExcPostRequestBody) {
-        writer.writeObjectValue("array", percentRank_ExcPostRequestBody.array);
-        writer.writeObjectValue("significance", percentRank_ExcPostRequestBody.significance);
-        writer.writeObjectValue("x", percentRank_ExcPostRequestBody.x);
-        writer.writeAdditionalData(percentRank_ExcPostRequestBody.additionalData);
-    }
+export function serializePercentRank_ExcPostRequestBody(writer: SerializationWriter, percentRank_ExcPostRequestBody: Partial<PercentRank_ExcPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!percentRank_ExcPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("array", percentRank_ExcPostRequestBody.array);
+    writer.writeObjectValue("significance", percentRank_ExcPostRequestBody.significance);
+    writer.writeObjectValue("x", percentRank_ExcPostRequestBody.x);
+    writer.writeAdditionalData(percentRank_ExcPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

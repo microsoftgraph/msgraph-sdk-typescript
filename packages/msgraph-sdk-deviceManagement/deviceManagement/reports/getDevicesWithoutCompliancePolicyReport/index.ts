@@ -17,6 +17,7 @@ export function createGetDevicesWithoutCompliancePolicyReportPostRequestBodyFrom
 }
 /**
  * The deserialization information for the current model
+ * @param GetDevicesWithoutCompliancePolicyReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetDevicesWithoutCompliancePolicyReportPostReques
     }
 }
 export interface GetDevicesWithoutCompliancePolicyReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetDevicesWithoutCompliancePolicyReportRequestBuilder extends B
 }
 /**
  * Serializes information the current object
+ * @param GetDevicesWithoutCompliancePolicyReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetDevicesWithoutCompliancePolicyReportPostRequestBody(writer: SerializationWriter, getDevicesWithoutCompliancePolicyReportPostRequestBody: Partial<GetDevicesWithoutCompliancePolicyReportPostRequestBody> | undefined | null = {}) : void {
-    if (getDevicesWithoutCompliancePolicyReportPostRequestBody) {
-        writer.writeStringValue("filter", getDevicesWithoutCompliancePolicyReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDevicesWithoutCompliancePolicyReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getDevicesWithoutCompliancePolicyReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDevicesWithoutCompliancePolicyReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getDevicesWithoutCompliancePolicyReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getDevicesWithoutCompliancePolicyReportPostRequestBody.select);
-        writer.writeStringValue("sessionId", getDevicesWithoutCompliancePolicyReportPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getDevicesWithoutCompliancePolicyReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getDevicesWithoutCompliancePolicyReportPostRequestBody.top);
-        writer.writeAdditionalData(getDevicesWithoutCompliancePolicyReportPostRequestBody.additionalData);
-    }
+export function serializeGetDevicesWithoutCompliancePolicyReportPostRequestBody(writer: SerializationWriter, getDevicesWithoutCompliancePolicyReportPostRequestBody: Partial<GetDevicesWithoutCompliancePolicyReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getDevicesWithoutCompliancePolicyReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getDevicesWithoutCompliancePolicyReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDevicesWithoutCompliancePolicyReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getDevicesWithoutCompliancePolicyReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDevicesWithoutCompliancePolicyReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getDevicesWithoutCompliancePolicyReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getDevicesWithoutCompliancePolicyReportPostRequestBody.select);
+    writer.writeStringValue("sessionId", getDevicesWithoutCompliancePolicyReportPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getDevicesWithoutCompliancePolicyReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getDevicesWithoutCompliancePolicyReportPostRequestBody.top);
+    writer.writeAdditionalData(getDevicesWithoutCompliancePolicyReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

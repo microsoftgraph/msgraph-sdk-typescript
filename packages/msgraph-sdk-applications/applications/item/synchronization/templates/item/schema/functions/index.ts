@@ -19,6 +19,7 @@ export function createFunctionsGetResponseFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param FunctionsGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface FunctionsRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param FunctionsGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFunctionsGetResponse(writer: SerializationWriter, functionsGetResponse: Partial<FunctionsGetResponse> | undefined | null = {}) : void {
-    if (functionsGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, functionsGetResponse)
-        writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsGetResponse.value, serializeAttributeMappingFunctionSchema);
-    }
+export function serializeFunctionsGetResponse(writer: SerializationWriter, functionsGetResponse: Partial<FunctionsGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!functionsGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, functionsGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AttributeMappingFunctionSchema>("value", functionsGetResponse.value, serializeAttributeMappingFunctionSchema);
 }
 /**
  * Uri template for the request builder.

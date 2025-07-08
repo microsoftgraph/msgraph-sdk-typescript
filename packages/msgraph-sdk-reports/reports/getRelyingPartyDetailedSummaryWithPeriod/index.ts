@@ -19,6 +19,7 @@ export function createGetRelyingPartyDetailedSummaryWithPeriodGetResponseFromDis
 }
 /**
  * The deserialization information for the current model
+ * @param GetRelyingPartyDetailedSummaryWithPeriodGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderGetQueryP
 }
 /**
  * Serializes information the current object
+ * @param GetRelyingPartyDetailedSummaryWithPeriodGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetRelyingPartyDetailedSummaryWithPeriodGetResponse(writer: SerializationWriter, getRelyingPartyDetailedSummaryWithPeriodGetResponse: Partial<GetRelyingPartyDetailedSummaryWithPeriodGetResponse> | undefined | null = {}) : void {
-    if (getRelyingPartyDetailedSummaryWithPeriodGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getRelyingPartyDetailedSummaryWithPeriodGetResponse)
-        writer.writeCollectionOfObjectValues<RelyingPartyDetailedSummary>("value", getRelyingPartyDetailedSummaryWithPeriodGetResponse.value, serializeRelyingPartyDetailedSummary);
-    }
+export function serializeGetRelyingPartyDetailedSummaryWithPeriodGetResponse(writer: SerializationWriter, getRelyingPartyDetailedSummaryWithPeriodGetResponse: Partial<GetRelyingPartyDetailedSummaryWithPeriodGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getRelyingPartyDetailedSummaryWithPeriodGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getRelyingPartyDetailedSummaryWithPeriodGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RelyingPartyDetailedSummary>("value", getRelyingPartyDetailedSummaryWithPeriodGetResponse.value, serializeRelyingPartyDetailedSummary);
 }
 /**
  * Uri template for the request builder.

@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface CheckMemberGroupsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -69,6 +65,7 @@ export function createCheckMemberGroupsPostResponseFromDiscriminatorValue(parseN
 }
 /**
  * The deserialization information for the current model
+ * @param CheckMemberGroupsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,6 +77,7 @@ export function deserializeIntoCheckMemberGroupsPostRequestBody(checkMemberGroup
 }
 /**
  * The deserialization information for the current model
+ * @param CheckMemberGroupsPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -91,25 +89,27 @@ export function deserializeIntoCheckMemberGroupsPostResponse(checkMemberGroupsPo
 }
 /**
  * Serializes information the current object
+ * @param CheckMemberGroupsPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCheckMemberGroupsPostRequestBody(writer: SerializationWriter, checkMemberGroupsPostRequestBody: Partial<CheckMemberGroupsPostRequestBody> | undefined | null = {}) : void {
-    if (checkMemberGroupsPostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("groupIds", checkMemberGroupsPostRequestBody.groupIds);
-        writer.writeAdditionalData(checkMemberGroupsPostRequestBody.additionalData);
-    }
+export function serializeCheckMemberGroupsPostRequestBody(writer: SerializationWriter, checkMemberGroupsPostRequestBody: Partial<CheckMemberGroupsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!checkMemberGroupsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("groupIds", checkMemberGroupsPostRequestBody.groupIds);
+    writer.writeAdditionalData(checkMemberGroupsPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param CheckMemberGroupsPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCheckMemberGroupsPostResponse(writer: SerializationWriter, checkMemberGroupsPostResponse: Partial<CheckMemberGroupsPostResponse> | undefined | null = {}) : void {
-    if (checkMemberGroupsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, checkMemberGroupsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberGroupsPostResponse.value);
-    }
+export function serializeCheckMemberGroupsPostResponse(writer: SerializationWriter, checkMemberGroupsPostResponse: Partial<CheckMemberGroupsPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!checkMemberGroupsPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, checkMemberGroupsPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfPrimitiveValues<string>("value", checkMemberGroupsPostResponse.value);
 }
 /**
  * Uri template for the request builder.

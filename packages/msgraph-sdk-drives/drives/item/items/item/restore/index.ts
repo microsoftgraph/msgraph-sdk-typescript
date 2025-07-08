@@ -19,6 +19,7 @@ export function createRestorePostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param RestorePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoRestorePostRequestBody(restorePostRequestBody: Pa
     }
 }
 export interface RestorePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -52,7 +49,7 @@ export interface RestorePostRequestBody extends AdditionalDataHolder, BackedMode
  */
 export interface RestoreRequestBuilder extends BaseRequestBuilder<RestoreRequestBuilder> {
     /**
-     * Restore a driveItem that has been deleted and is currently in the recycle bin. NOTE: This functionality is currently only available for OneDrive Personal.
+     * Restore a driveItem that has been deleted and is currently in the recycle bin.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItem>}
@@ -61,7 +58,7 @@ export interface RestoreRequestBuilder extends BaseRequestBuilder<RestoreRequest
      */
      post(body: RestorePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItem | undefined>;
     /**
-     * Restore a driveItem that has been deleted and is currently in the recycle bin. NOTE: This functionality is currently only available for OneDrive Personal.
+     * Restore a driveItem that has been deleted and is currently in the recycle bin.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -70,15 +67,16 @@ export interface RestoreRequestBuilder extends BaseRequestBuilder<RestoreRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RestorePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRestorePostRequestBody(writer: SerializationWriter, restorePostRequestBody: Partial<RestorePostRequestBody> | undefined | null = {}) : void {
-    if (restorePostRequestBody) {
-        writer.writeStringValue("name", restorePostRequestBody.name);
-        writer.writeObjectValue<ItemReference>("parentReference", restorePostRequestBody.parentReference, serializeItemReference);
-        writer.writeAdditionalData(restorePostRequestBody.additionalData);
-    }
+export function serializeRestorePostRequestBody(writer: SerializationWriter, restorePostRequestBody: Partial<RestorePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!restorePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("name", restorePostRequestBody.name);
+    writer.writeObjectValue<ItemReference>("parentReference", restorePostRequestBody.parentReference, serializeItemReference);
+    writer.writeAdditionalData(restorePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

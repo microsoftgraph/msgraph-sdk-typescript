@@ -26,6 +26,7 @@ export function createMarkUnreadPostResponseFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param MarkUnreadPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -37,6 +38,7 @@ export function deserializeIntoMarkUnreadPostRequestBody(markUnreadPostRequestBo
 }
 /**
  * The deserialization information for the current model
+ * @param MarkUnreadPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -48,10 +50,6 @@ export function deserializeIntoMarkUnreadPostResponse(markUnreadPostResponse: Pa
 }
 export interface MarkUnreadPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,10 +59,6 @@ export interface MarkUnreadPostRequestBody extends AdditionalDataHolder, BackedM
     messageIds?: string[] | null;
 }
 export interface MarkUnreadPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -97,25 +91,27 @@ export interface MarkUnreadRequestBuilder extends BaseRequestBuilder<MarkUnreadR
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MarkUnreadPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMarkUnreadPostRequestBody(writer: SerializationWriter, markUnreadPostRequestBody: Partial<MarkUnreadPostRequestBody> | undefined | null = {}) : void {
-    if (markUnreadPostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", markUnreadPostRequestBody.messageIds);
-        writer.writeAdditionalData(markUnreadPostRequestBody.additionalData);
-    }
+export function serializeMarkUnreadPostRequestBody(writer: SerializationWriter, markUnreadPostRequestBody: Partial<MarkUnreadPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!markUnreadPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", markUnreadPostRequestBody.messageIds);
+    writer.writeAdditionalData(markUnreadPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MarkUnreadPostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMarkUnreadPostResponse(writer: SerializationWriter, markUnreadPostResponse: Partial<MarkUnreadPostResponse> | undefined | null = {}) : void {
-    if (markUnreadPostResponse) {
-        writer.writeBooleanValue("value", markUnreadPostResponse.value);
-        writer.writeAdditionalData(markUnreadPostResponse.additionalData);
-    }
+export function serializeMarkUnreadPostResponse(writer: SerializationWriter, markUnreadPostResponse: Partial<MarkUnreadPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!markUnreadPostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", markUnreadPostResponse.value);
+    writer.writeAdditionalData(markUnreadPostResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

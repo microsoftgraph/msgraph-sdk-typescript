@@ -19,6 +19,7 @@ export function createSearchWithQGetResponseFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param SearchWithQGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface SearchWithQRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SearchWithQGetResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSearchWithQGetResponse(writer: SerializationWriter, searchWithQGetResponse: Partial<SearchWithQGetResponse> | undefined | null = {}) : void {
-    if (searchWithQGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, searchWithQGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQGetResponse.value, serializeDriveItem);
-    }
+export function serializeSearchWithQGetResponse(writer: SerializationWriter, searchWithQGetResponse: Partial<SearchWithQGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!searchWithQGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, searchWithQGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<DriveItem>("value", searchWithQGetResponse.value, serializeDriveItem);
 }
 /**
  * Uri template for the request builder.

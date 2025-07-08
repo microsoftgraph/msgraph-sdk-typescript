@@ -19,6 +19,7 @@ export function createSendDtmfTonesPostRequestBodyFromDiscriminatorValue(parseNo
 }
 /**
  * The deserialization information for the current model
+ * @param SendDtmfTonesPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoSendDtmfTonesPostRequestBody(sendDtmfTonesPostReq
     }
 }
 export interface SendDtmfTonesPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,17 +71,18 @@ export interface SendDtmfTonesRequestBuilder extends BaseRequestBuilder<SendDtmf
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SendDtmfTonesPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSendDtmfTonesPostRequestBody(writer: SerializationWriter, sendDtmfTonesPostRequestBody: Partial<SendDtmfTonesPostRequestBody> | undefined | null = {}) : void {
-    if (sendDtmfTonesPostRequestBody) {
-        writer.writeStringValue("clientContext", sendDtmfTonesPostRequestBody.clientContext);
-        writer.writeNumberValue("delayBetweenTonesMs", sendDtmfTonesPostRequestBody.delayBetweenTonesMs);
-        if(sendDtmfTonesPostRequestBody.tones)
-        writer.writeCollectionOfEnumValues<Tone>("tones", sendDtmfTonesPostRequestBody.tones);
-        writer.writeAdditionalData(sendDtmfTonesPostRequestBody.additionalData);
-    }
+export function serializeSendDtmfTonesPostRequestBody(writer: SerializationWriter, sendDtmfTonesPostRequestBody: Partial<SendDtmfTonesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sendDtmfTonesPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("clientContext", sendDtmfTonesPostRequestBody.clientContext);
+    writer.writeNumberValue("delayBetweenTonesMs", sendDtmfTonesPostRequestBody.delayBetweenTonesMs);
+    if(sendDtmfTonesPostRequestBody.tones)
+    writer.writeCollectionOfEnumValues<Tone>("tones", sendDtmfTonesPostRequestBody.tones);
+    writer.writeAdditionalData(sendDtmfTonesPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

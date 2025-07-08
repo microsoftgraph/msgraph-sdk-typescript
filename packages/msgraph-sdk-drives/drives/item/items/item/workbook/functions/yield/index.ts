@@ -19,6 +19,7 @@ export function createYieldPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param YieldPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -36,26 +37,23 @@ export function deserializeIntoYieldPostRequestBody(yieldPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
+ * @param YieldPostRequestBody The instance to serialize from.
  */
 // @ts-ignore
-export function serializeYieldPostRequestBody(writer: SerializationWriter, yieldPostRequestBody: Partial<YieldPostRequestBody> | undefined | null = {}) : void {
-    if (yieldPostRequestBody) {
-        writer.writeObjectValue("basis", yieldPostRequestBody.basis);
-        writer.writeObjectValue("frequency", yieldPostRequestBody.frequency);
-        writer.writeObjectValue("maturity", yieldPostRequestBody.maturity);
-        writer.writeObjectValue("pr", yieldPostRequestBody.pr);
-        writer.writeObjectValue("rate", yieldPostRequestBody.rate);
-        writer.writeObjectValue("redemption", yieldPostRequestBody.redemption);
-        writer.writeObjectValue("settlement", yieldPostRequestBody.settlement);
-        writer.writeAdditionalData(yieldPostRequestBody.additionalData);
-    }
+export function serializeYieldPostRequestBody(writer: SerializationWriter, yieldPostRequestBody: Partial<YieldPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!yieldPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", yieldPostRequestBody.basis);
+    writer.writeObjectValue("frequency", yieldPostRequestBody.frequency);
+    writer.writeObjectValue("maturity", yieldPostRequestBody.maturity);
+    writer.writeObjectValue("pr", yieldPostRequestBody.pr);
+    writer.writeObjectValue("rate", yieldPostRequestBody.rate);
+    writer.writeObjectValue("redemption", yieldPostRequestBody.redemption);
+    writer.writeObjectValue("settlement", yieldPostRequestBody.settlement);
+    writer.writeAdditionalData(yieldPostRequestBody.additionalData);
 }
 export interface YieldPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

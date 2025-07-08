@@ -19,6 +19,7 @@ export function createMinAPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param MinAPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoMinAPostRequestBody(minAPostRequestBody: Partial<
     }
 }
 export interface MinAPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface MinARequestBuilder extends BaseRequestBuilder<MinARequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MinAPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMinAPostRequestBody(writer: SerializationWriter, minAPostRequestBody: Partial<MinAPostRequestBody> | undefined | null = {}) : void {
-    if (minAPostRequestBody) {
-        writer.writeObjectValue("values", minAPostRequestBody.values);
-        writer.writeAdditionalData(minAPostRequestBody.additionalData);
-    }
+export function serializeMinAPostRequestBody(writer: SerializationWriter, minAPostRequestBody: Partial<MinAPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!minAPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", minAPostRequestBody.values);
+    writer.writeAdditionalData(minAPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -17,6 +17,7 @@ export function createRemoveHoldPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param RemoveHoldPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -47,10 +48,6 @@ export interface MicrosoftGraphSecurityRemoveHoldRequestBuilder extends BaseRequ
 }
 export interface RemoveHoldPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,14 +58,15 @@ export interface RemoveHoldPostRequestBody extends AdditionalDataHolder, BackedM
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RemoveHoldPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRemoveHoldPostRequestBody(writer: SerializationWriter, removeHoldPostRequestBody: Partial<RemoveHoldPostRequestBody> | undefined | null = {}) : void {
-    if (removeHoldPostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("ids", removeHoldPostRequestBody.ids);
-        writer.writeAdditionalData(removeHoldPostRequestBody.additionalData);
-    }
+export function serializeRemoveHoldPostRequestBody(writer: SerializationWriter, removeHoldPostRequestBody: Partial<RemoveHoldPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!removeHoldPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("ids", removeHoldPostRequestBody.ids);
+    writer.writeAdditionalData(removeHoldPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

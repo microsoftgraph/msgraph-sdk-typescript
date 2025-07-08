@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface AscPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export function createAscPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param AscPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoAscPostRequestBody(ascPostRequestBody: Partial<As
 }
 /**
  * Serializes information the current object
+ * @param AscPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAscPostRequestBody(writer: SerializationWriter, ascPostRequestBody: Partial<AscPostRequestBody> | undefined | null = {}) : void {
-    if (ascPostRequestBody) {
-        writer.writeObjectValue("text", ascPostRequestBody.text);
-        writer.writeAdditionalData(ascPostRequestBody.additionalData);
-    }
+export function serializeAscPostRequestBody(writer: SerializationWriter, ascPostRequestBody: Partial<AscPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!ascPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("text", ascPostRequestBody.text);
+    writer.writeAdditionalData(ascPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

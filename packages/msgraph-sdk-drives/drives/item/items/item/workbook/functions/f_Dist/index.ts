@@ -19,6 +19,7 @@ export function createF_DistPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param F_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,10 +33,6 @@ export function deserializeIntoF_DistPostRequestBody(f_DistPostRequestBody: Part
     }
 }
 export interface F_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -79,17 +76,18 @@ export interface F_DistRequestBuilder extends BaseRequestBuilder<F_DistRequestBu
 }
 /**
  * Serializes information the current object
+ * @param F_DistPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeF_DistPostRequestBody(writer: SerializationWriter, f_DistPostRequestBody: Partial<F_DistPostRequestBody> | undefined | null = {}) : void {
-    if (f_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", f_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("degFreedom1", f_DistPostRequestBody.degFreedom1);
-        writer.writeObjectValue("degFreedom2", f_DistPostRequestBody.degFreedom2);
-        writer.writeObjectValue("x", f_DistPostRequestBody.x);
-        writer.writeAdditionalData(f_DistPostRequestBody.additionalData);
-    }
+export function serializeF_DistPostRequestBody(writer: SerializationWriter, f_DistPostRequestBody: Partial<F_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!f_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", f_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("degFreedom1", f_DistPostRequestBody.degFreedom1);
+    writer.writeObjectValue("degFreedom2", f_DistPostRequestBody.degFreedom2);
+    writer.writeObjectValue("x", f_DistPostRequestBody.x);
+    writer.writeAdditionalData(f_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

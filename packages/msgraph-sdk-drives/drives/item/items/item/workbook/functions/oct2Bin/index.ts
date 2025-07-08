@@ -19,6 +19,7 @@ export function createOct2BinPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param Oct2BinPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoOct2BinPostRequestBody(oct2BinPostRequestBody: Pa
     }
 }
 export interface Oct2BinPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface Oct2BinRequestBuilder extends BaseRequestBuilder<Oct2BinRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Oct2BinPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeOct2BinPostRequestBody(writer: SerializationWriter, oct2BinPostRequestBody: Partial<Oct2BinPostRequestBody> | undefined | null = {}) : void {
-    if (oct2BinPostRequestBody) {
-        writer.writeObjectValue("number", oct2BinPostRequestBody.number);
-        writer.writeObjectValue("places", oct2BinPostRequestBody.places);
-        writer.writeAdditionalData(oct2BinPostRequestBody.additionalData);
-    }
+export function serializeOct2BinPostRequestBody(writer: SerializationWriter, oct2BinPostRequestBody: Partial<Oct2BinPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!oct2BinPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", oct2BinPostRequestBody.number);
+    writer.writeObjectValue("places", oct2BinPostRequestBody.places);
+    writer.writeAdditionalData(oct2BinPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

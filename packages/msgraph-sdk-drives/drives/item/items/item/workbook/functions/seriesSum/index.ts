@@ -19,6 +19,7 @@ export function createSeriesSumPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param SeriesSumPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,23 +34,20 @@ export function deserializeIntoSeriesSumPostRequestBody(seriesSumPostRequestBody
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SeriesSumPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSeriesSumPostRequestBody(writer: SerializationWriter, seriesSumPostRequestBody: Partial<SeriesSumPostRequestBody> | undefined | null = {}) : void {
-    if (seriesSumPostRequestBody) {
-        writer.writeObjectValue("coefficients", seriesSumPostRequestBody.coefficients);
-        writer.writeObjectValue("m", seriesSumPostRequestBody.m);
-        writer.writeObjectValue("n", seriesSumPostRequestBody.n);
-        writer.writeObjectValue("x", seriesSumPostRequestBody.x);
-        writer.writeAdditionalData(seriesSumPostRequestBody.additionalData);
-    }
+export function serializeSeriesSumPostRequestBody(writer: SerializationWriter, seriesSumPostRequestBody: Partial<SeriesSumPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!seriesSumPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("coefficients", seriesSumPostRequestBody.coefficients);
+    writer.writeObjectValue("m", seriesSumPostRequestBody.m);
+    writer.writeObjectValue("n", seriesSumPostRequestBody.n);
+    writer.writeObjectValue("x", seriesSumPostRequestBody.x);
+    writer.writeAdditionalData(seriesSumPostRequestBody.additionalData);
 }
 export interface SeriesSumPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

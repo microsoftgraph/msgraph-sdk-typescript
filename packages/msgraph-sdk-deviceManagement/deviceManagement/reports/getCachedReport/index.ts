@@ -17,6 +17,7 @@ export function createGetCachedReportPostRequestBodyFromDiscriminatorValue(parse
 }
 /**
  * The deserialization information for the current model
+ * @param GetCachedReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,10 +34,6 @@ export function deserializeIntoGetCachedReportPostRequestBody(getCachedReportPos
     }
 }
 export interface GetCachedReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -93,20 +90,21 @@ export interface GetCachedReportRequestBuilder extends BaseRequestBuilder<GetCac
 }
 /**
  * Serializes information the current object
+ * @param GetCachedReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetCachedReportPostRequestBody(writer: SerializationWriter, getCachedReportPostRequestBody: Partial<GetCachedReportPostRequestBody> | undefined | null = {}) : void {
-    if (getCachedReportPostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getCachedReportPostRequestBody.groupBy);
-        writer.writeStringValue("id", getCachedReportPostRequestBody.id);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getCachedReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getCachedReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getCachedReportPostRequestBody.select);
-        writer.writeNumberValue("skip", getCachedReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getCachedReportPostRequestBody.top);
-        writer.writeAdditionalData(getCachedReportPostRequestBody.additionalData);
-    }
+export function serializeGetCachedReportPostRequestBody(writer: SerializationWriter, getCachedReportPostRequestBody: Partial<GetCachedReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getCachedReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getCachedReportPostRequestBody.groupBy);
+    writer.writeStringValue("id", getCachedReportPostRequestBody.id);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getCachedReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getCachedReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getCachedReportPostRequestBody.select);
+    writer.writeNumberValue("skip", getCachedReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getCachedReportPostRequestBody.top);
+    writer.writeAdditionalData(getCachedReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

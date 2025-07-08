@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface AmorDegrcPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -77,6 +73,7 @@ export function createAmorDegrcPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param AmorDegrcPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -94,20 +91,21 @@ export function deserializeIntoAmorDegrcPostRequestBody(amorDegrcPostRequestBody
 }
 /**
  * Serializes information the current object
+ * @param AmorDegrcPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAmorDegrcPostRequestBody(writer: SerializationWriter, amorDegrcPostRequestBody: Partial<AmorDegrcPostRequestBody> | undefined | null = {}) : void {
-    if (amorDegrcPostRequestBody) {
-        writer.writeObjectValue("basis", amorDegrcPostRequestBody.basis);
-        writer.writeObjectValue("cost", amorDegrcPostRequestBody.cost);
-        writer.writeObjectValue("datePurchased", amorDegrcPostRequestBody.datePurchased);
-        writer.writeObjectValue("firstPeriod", amorDegrcPostRequestBody.firstPeriod);
-        writer.writeObjectValue("period", amorDegrcPostRequestBody.period);
-        writer.writeObjectValue("rate", amorDegrcPostRequestBody.rate);
-        writer.writeObjectValue("salvage", amorDegrcPostRequestBody.salvage);
-        writer.writeAdditionalData(amorDegrcPostRequestBody.additionalData);
-    }
+export function serializeAmorDegrcPostRequestBody(writer: SerializationWriter, amorDegrcPostRequestBody: Partial<AmorDegrcPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!amorDegrcPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", amorDegrcPostRequestBody.basis);
+    writer.writeObjectValue("cost", amorDegrcPostRequestBody.cost);
+    writer.writeObjectValue("datePurchased", amorDegrcPostRequestBody.datePurchased);
+    writer.writeObjectValue("firstPeriod", amorDegrcPostRequestBody.firstPeriod);
+    writer.writeObjectValue("period", amorDegrcPostRequestBody.period);
+    writer.writeObjectValue("rate", amorDegrcPostRequestBody.rate);
+    writer.writeObjectValue("salvage", amorDegrcPostRequestBody.salvage);
+    writer.writeAdditionalData(amorDegrcPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

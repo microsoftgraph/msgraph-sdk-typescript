@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface AssignLicensePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The addLicenses property
      */
     addLicenses?: AssignedLicense[] | null;
@@ -58,6 +54,7 @@ export function createAssignLicensePostRequestBodyFromDiscriminatorValue(parseNo
 }
 /**
  * The deserialization information for the current model
+ * @param AssignLicensePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -70,15 +67,16 @@ export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostReq
 }
 /**
  * Serializes information the current object
+ * @param AssignLicensePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAssignLicensePostRequestBody(writer: SerializationWriter, assignLicensePostRequestBody: Partial<AssignLicensePostRequestBody> | undefined | null = {}) : void {
-    if (assignLicensePostRequestBody) {
-        writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", assignLicensePostRequestBody.addLicenses, serializeAssignedLicense);
-        writer.writeCollectionOfPrimitiveValues<Guid>("removeLicenses", assignLicensePostRequestBody.removeLicenses);
-        writer.writeAdditionalData(assignLicensePostRequestBody.additionalData);
-    }
+export function serializeAssignLicensePostRequestBody(writer: SerializationWriter, assignLicensePostRequestBody: Partial<AssignLicensePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!assignLicensePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<AssignedLicense>("addLicenses", assignLicensePostRequestBody.addLicenses, serializeAssignedLicense);
+    writer.writeCollectionOfPrimitiveValues<Guid>("removeLicenses", assignLicensePostRequestBody.removeLicenses);
+    writer.writeAdditionalData(assignLicensePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

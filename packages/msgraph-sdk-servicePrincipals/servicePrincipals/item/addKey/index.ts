@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface AddKeyPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -35,7 +31,7 @@ export interface AddKeyPostRequestBody extends AdditionalDataHolder, BackedModel
  */
 export interface AddKeyRequestBuilder extends BaseRequestBuilder<AddKeyRequestBuilder> {
     /**
-     * Adds a key credential to a servicePrincipal. This method along with removeKey can be used by a servicePrincipal to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  ServicePrincipals that don’t have any existing valid certificates (i.e.: no certificates have been added yet, or all certificates have expired), won’t be able to use this service action. Update servicePrincipal can be used to perform an update instead.
+     * Adds a key credential to a servicePrincipal. This method along with removeKey can be used by a servicePrincipal to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  ServicePrincipals that don't have any existing valid certificates (i.e.: no certificates have been added yet, or all certificates have expired), won't be able to use this service action. Update servicePrincipal can be used to perform an update instead.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<KeyCredential>}
@@ -44,7 +40,7 @@ export interface AddKeyRequestBuilder extends BaseRequestBuilder<AddKeyRequestBu
      */
      post(body: AddKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<KeyCredential | undefined>;
     /**
-     * Adds a key credential to a servicePrincipal. This method along with removeKey can be used by a servicePrincipal to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  ServicePrincipals that don’t have any existing valid certificates (i.e.: no certificates have been added yet, or all certificates have expired), won’t be able to use this service action. Update servicePrincipal can be used to perform an update instead.
+     * Adds a key credential to a servicePrincipal. This method along with removeKey can be used by a servicePrincipal to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.  ServicePrincipals that don't have any existing valid certificates (i.e.: no certificates have been added yet, or all certificates have expired), won't be able to use this service action. Update servicePrincipal can be used to perform an update instead.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,6 +58,7 @@ export function createAddKeyPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param AddKeyPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -75,16 +72,17 @@ export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param AddKeyPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined | null = {}) : void {
-    if (addKeyPostRequestBody) {
-        writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
-        writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);
-        writer.writeStringValue("proof", addKeyPostRequestBody.proof);
-        writer.writeAdditionalData(addKeyPostRequestBody.additionalData);
-    }
+export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: Partial<AddKeyPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!addKeyPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
+    writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);
+    writer.writeStringValue("proof", addKeyPostRequestBody.proof);
+    writer.writeAdditionalData(addKeyPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createOddFPricePostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param OddFPricePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -37,10 +38,6 @@ export function deserializeIntoOddFPricePostRequestBody(oddFPricePostRequestBody
     }
 }
 export interface OddFPricePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -104,22 +101,23 @@ export interface OddFPriceRequestBuilder extends BaseRequestBuilder<OddFPriceReq
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OddFPricePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeOddFPricePostRequestBody(writer: SerializationWriter, oddFPricePostRequestBody: Partial<OddFPricePostRequestBody> | undefined | null = {}) : void {
-    if (oddFPricePostRequestBody) {
-        writer.writeObjectValue("basis", oddFPricePostRequestBody.basis);
-        writer.writeObjectValue("firstCoupon", oddFPricePostRequestBody.firstCoupon);
-        writer.writeObjectValue("frequency", oddFPricePostRequestBody.frequency);
-        writer.writeObjectValue("issue", oddFPricePostRequestBody.issue);
-        writer.writeObjectValue("maturity", oddFPricePostRequestBody.maturity);
-        writer.writeObjectValue("rate", oddFPricePostRequestBody.rate);
-        writer.writeObjectValue("redemption", oddFPricePostRequestBody.redemption);
-        writer.writeObjectValue("settlement", oddFPricePostRequestBody.settlement);
-        writer.writeObjectValue("yld", oddFPricePostRequestBody.yld);
-        writer.writeAdditionalData(oddFPricePostRequestBody.additionalData);
-    }
+export function serializeOddFPricePostRequestBody(writer: SerializationWriter, oddFPricePostRequestBody: Partial<OddFPricePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!oddFPricePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", oddFPricePostRequestBody.basis);
+    writer.writeObjectValue("firstCoupon", oddFPricePostRequestBody.firstCoupon);
+    writer.writeObjectValue("frequency", oddFPricePostRequestBody.frequency);
+    writer.writeObjectValue("issue", oddFPricePostRequestBody.issue);
+    writer.writeObjectValue("maturity", oddFPricePostRequestBody.maturity);
+    writer.writeObjectValue("rate", oddFPricePostRequestBody.rate);
+    writer.writeObjectValue("redemption", oddFPricePostRequestBody.redemption);
+    writer.writeObjectValue("settlement", oddFPricePostRequestBody.settlement);
+    writer.writeObjectValue("yld", oddFPricePostRequestBody.yld);
+    writer.writeAdditionalData(oddFPricePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

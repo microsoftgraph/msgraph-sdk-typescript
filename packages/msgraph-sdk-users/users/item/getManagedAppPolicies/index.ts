@@ -19,6 +19,7 @@ export function createGetManagedAppPoliciesGetResponseFromDiscriminatorValue(par
 }
 /**
  * The deserialization information for the current model
+ * @param GetManagedAppPoliciesGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface GetManagedAppPoliciesRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param GetManagedAppPoliciesGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetManagedAppPoliciesGetResponse(writer: SerializationWriter, getManagedAppPoliciesGetResponse: Partial<GetManagedAppPoliciesGetResponse> | undefined | null = {}) : void {
-    if (getManagedAppPoliciesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getManagedAppPoliciesGetResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesGetResponse.value, serializeManagedAppPolicy);
-    }
+export function serializeGetManagedAppPoliciesGetResponse(writer: SerializationWriter, getManagedAppPoliciesGetResponse: Partial<GetManagedAppPoliciesGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getManagedAppPoliciesGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getManagedAppPoliciesGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ManagedAppPolicy>("value", getManagedAppPoliciesGetResponse.value, serializeManagedAppPolicy);
 }
 /**
  * Uri template for the request builder.

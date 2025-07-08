@@ -17,6 +17,7 @@ export function createGetNoncompliantDevicesAndSettingsReportPostRequestBodyFrom
 }
 /**
  * The deserialization information for the current model
+ * @param GetNoncompliantDevicesAndSettingsReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetNoncompliantDevicesAndSettingsReportPostReques
     }
 }
 export interface GetNoncompliantDevicesAndSettingsReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetNoncompliantDevicesAndSettingsReportRequestBuilder extends B
 }
 /**
  * Serializes information the current object
+ * @param GetNoncompliantDevicesAndSettingsReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody(writer: SerializationWriter, getNoncompliantDevicesAndSettingsReportPostRequestBody: Partial<GetNoncompliantDevicesAndSettingsReportPostRequestBody> | undefined | null = {}) : void {
-    if (getNoncompliantDevicesAndSettingsReportPostRequestBody) {
-        writer.writeStringValue("filter", getNoncompliantDevicesAndSettingsReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getNoncompliantDevicesAndSettingsReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getNoncompliantDevicesAndSettingsReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getNoncompliantDevicesAndSettingsReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getNoncompliantDevicesAndSettingsReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getNoncompliantDevicesAndSettingsReportPostRequestBody.select);
-        writer.writeStringValue("sessionId", getNoncompliantDevicesAndSettingsReportPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getNoncompliantDevicesAndSettingsReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getNoncompliantDevicesAndSettingsReportPostRequestBody.top);
-        writer.writeAdditionalData(getNoncompliantDevicesAndSettingsReportPostRequestBody.additionalData);
-    }
+export function serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody(writer: SerializationWriter, getNoncompliantDevicesAndSettingsReportPostRequestBody: Partial<GetNoncompliantDevicesAndSettingsReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getNoncompliantDevicesAndSettingsReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getNoncompliantDevicesAndSettingsReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getNoncompliantDevicesAndSettingsReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getNoncompliantDevicesAndSettingsReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getNoncompliantDevicesAndSettingsReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getNoncompliantDevicesAndSettingsReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getNoncompliantDevicesAndSettingsReportPostRequestBody.select);
+    writer.writeStringValue("sessionId", getNoncompliantDevicesAndSettingsReportPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getNoncompliantDevicesAndSettingsReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getNoncompliantDevicesAndSettingsReportPostRequestBody.top);
+    writer.writeAdditionalData(getNoncompliantDevicesAndSettingsReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

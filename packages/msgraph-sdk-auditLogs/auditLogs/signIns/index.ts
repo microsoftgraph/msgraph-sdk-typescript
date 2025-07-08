@@ -6,7 +6,13 @@ import { createSignInCollectionResponseFromDiscriminatorValue, createSignInFromD
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { ConfirmCompromisedRequestBuilderRequestsMetadata, type ConfirmCompromisedRequestBuilder } from './confirmCompromised/index.js';
+// @ts-ignore
+import { ConfirmSafeRequestBuilderRequestsMetadata, type ConfirmSafeRequestBuilder } from './confirmSafe/index.js';
+// @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
+// @ts-ignore
+import { DismissRequestBuilderRequestsMetadata, type DismissRequestBuilder } from './dismiss/index.js';
 // @ts-ignore
 import { SignInItemRequestBuilderRequestsMetadata, type SignInItemRequestBuilder } from './item/index.js';
 // @ts-ignore
@@ -17,9 +23,21 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  */
 export interface SignInsRequestBuilder extends BaseRequestBuilder<SignInsRequestBuilder> {
     /**
+     * Provides operations to call the confirmCompromised method.
+     */
+    get confirmCompromised(): ConfirmCompromisedRequestBuilder;
+    /**
+     * Provides operations to call the confirmSafe method.
+     */
+    get confirmSafe(): ConfirmSafeRequestBuilder;
+    /**
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Provides operations to call the dismiss method.
+     */
+    get dismiss(): DismissRequestBuilder;
     /**
      * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
      * @param signInId The unique identifier of signIn
@@ -118,8 +136,17 @@ export const SignInsRequestBuilderNavigationMetadata: Record<Exclude<keyof SignI
         requestsMetadata: SignInItemRequestBuilderRequestsMetadata,
         pathParametersMappings: ["signIn%2Did"],
     },
+    confirmCompromised: {
+        requestsMetadata: ConfirmCompromisedRequestBuilderRequestsMetadata,
+    },
+    confirmSafe: {
+        requestsMetadata: ConfirmSafeRequestBuilderRequestsMetadata,
+    },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    dismiss: {
+        requestsMetadata: DismissRequestBuilderRequestsMetadata,
     },
 };
 /**

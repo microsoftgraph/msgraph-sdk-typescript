@@ -125,6 +125,7 @@ export function createTermFromDiscriminatorValue(parseNode: ParseNode | undefine
 }
 /**
  * The deserialization information for the current model
+ * @param Group The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -141,6 +142,7 @@ export function deserializeIntoGroup(group: Partial<Group> | undefined = {}) : R
 }
 /**
  * The deserialization information for the current model
+ * @param GroupCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -152,6 +154,7 @@ export function deserializeIntoGroupCollectionResponse(groupCollectionResponse: 
 }
 /**
  * The deserialization information for the current model
+ * @param LocalizedDescription The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -165,6 +168,7 @@ export function deserializeIntoLocalizedDescription(localizedDescription: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param LocalizedLabel The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -179,6 +183,7 @@ export function deserializeIntoLocalizedLabel(localizedLabel: Partial<LocalizedL
 }
 /**
  * The deserialization information for the current model
+ * @param LocalizedName The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -192,6 +197,7 @@ export function deserializeIntoLocalizedName(localizedName: Partial<LocalizedNam
 }
 /**
  * The deserialization information for the current model
+ * @param Relation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -206,6 +212,7 @@ export function deserializeIntoRelation(relation: Partial<Relation> | undefined 
 }
 /**
  * The deserialization information for the current model
+ * @param RelationCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -217,6 +224,7 @@ export function deserializeIntoRelationCollectionResponse(relationCollectionResp
 }
 /**
  * The deserialization information for the current model
+ * @param Set The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -235,6 +243,7 @@ export function deserializeIntoSet(set: Partial<Set> | undefined = {}) : Record<
 }
 /**
  * The deserialization information for the current model
+ * @param SetCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -246,6 +255,7 @@ export function deserializeIntoSetCollectionResponse(setCollectionResponse: Part
 }
 /**
  * The deserialization information for the current model
+ * @param Store The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -260,6 +270,7 @@ export function deserializeIntoStore(store: Partial<Store> | undefined = {}) : R
 }
 /**
  * The deserialization information for the current model
+ * @param StoreCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -271,6 +282,7 @@ export function deserializeIntoStoreCollectionResponse(storeCollectionResponse: 
 }
 /**
  * The deserialization information for the current model
+ * @param Term The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -289,6 +301,7 @@ export function deserializeIntoTerm(term: Partial<Term> | undefined = {}) : Reco
 }
 /**
  * The deserialization information for the current model
+ * @param TermCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -332,10 +345,6 @@ export interface GroupCollectionResponse extends BaseCollectionPaginationCountRe
 }
 export interface LocalizedDescription extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -353,10 +362,6 @@ export interface LocalizedDescription extends AdditionalDataHolder, BackedModel,
     odataType?: string | null;
 }
 export interface LocalizedLabel extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -379,10 +384,6 @@ export interface LocalizedLabel extends AdditionalDataHolder, BackedModel, Parsa
     odataType?: string | null;
 }
 export interface LocalizedName extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -427,178 +428,191 @@ export interface RelationCollectionResponse extends BaseCollectionPaginationCoun
 export type RelationType = (typeof RelationTypeObject)[keyof typeof RelationTypeObject];
 /**
  * Serializes information the current object
+ * @param Group The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGroup(writer: SerializationWriter, group: Partial<Group> | undefined | null = {}) : void {
-    if (group) {
-        serializeEntity(writer, group)
-        writer.writeDateValue("createdDateTime", group.createdDateTime);
-        writer.writeStringValue("description", group.description);
-        writer.writeStringValue("displayName", group.displayName);
-        writer.writeStringValue("parentSiteId", group.parentSiteId);
-        writer.writeEnumValue<TermGroupScope>("scope", group.scope);
-        writer.writeCollectionOfObjectValues<Set>("sets", group.sets, serializeSet);
-    }
+export function serializeGroup(writer: SerializationWriter, group: Partial<Group> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!group || isSerializingDerivedType) { return; }
+    serializeEntity(writer, group, isSerializingDerivedType)
+    writer.writeDateValue("createdDateTime", group.createdDateTime);
+    writer.writeStringValue("description", group.description);
+    writer.writeStringValue("displayName", group.displayName);
+    writer.writeStringValue("parentSiteId", group.parentSiteId);
+    writer.writeEnumValue<TermGroupScope>("scope", group.scope);
+    writer.writeCollectionOfObjectValues<Set>("sets", group.sets, serializeSet);
 }
 /**
  * Serializes information the current object
+ * @param GroupCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGroupCollectionResponse(writer: SerializationWriter, groupCollectionResponse: Partial<GroupCollectionResponse> | undefined | null = {}) : void {
-    if (groupCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, groupCollectionResponse)
-        writer.writeCollectionOfObjectValues<Group>("value", groupCollectionResponse.value, serializeGroup);
-    }
+export function serializeGroupCollectionResponse(writer: SerializationWriter, groupCollectionResponse: Partial<GroupCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!groupCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, groupCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Group>("value", groupCollectionResponse.value, serializeGroup);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LocalizedDescription The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLocalizedDescription(writer: SerializationWriter, localizedDescription: Partial<LocalizedDescription> | undefined | null = {}) : void {
-    if (localizedDescription) {
-        writer.writeStringValue("description", localizedDescription.description);
-        writer.writeStringValue("languageTag", localizedDescription.languageTag);
-        writer.writeStringValue("@odata.type", localizedDescription.odataType);
-        writer.writeAdditionalData(localizedDescription.additionalData);
-    }
+export function serializeLocalizedDescription(writer: SerializationWriter, localizedDescription: Partial<LocalizedDescription> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!localizedDescription || isSerializingDerivedType) { return; }
+    writer.writeStringValue("description", localizedDescription.description);
+    writer.writeStringValue("languageTag", localizedDescription.languageTag);
+    writer.writeStringValue("@odata.type", localizedDescription.odataType);
+    writer.writeAdditionalData(localizedDescription.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LocalizedLabel The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLocalizedLabel(writer: SerializationWriter, localizedLabel: Partial<LocalizedLabel> | undefined | null = {}) : void {
-    if (localizedLabel) {
-        writer.writeBooleanValue("isDefault", localizedLabel.isDefault);
-        writer.writeStringValue("languageTag", localizedLabel.languageTag);
-        writer.writeStringValue("name", localizedLabel.name);
-        writer.writeStringValue("@odata.type", localizedLabel.odataType);
-        writer.writeAdditionalData(localizedLabel.additionalData);
-    }
+export function serializeLocalizedLabel(writer: SerializationWriter, localizedLabel: Partial<LocalizedLabel> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!localizedLabel || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("isDefault", localizedLabel.isDefault);
+    writer.writeStringValue("languageTag", localizedLabel.languageTag);
+    writer.writeStringValue("name", localizedLabel.name);
+    writer.writeStringValue("@odata.type", localizedLabel.odataType);
+    writer.writeAdditionalData(localizedLabel.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LocalizedName The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLocalizedName(writer: SerializationWriter, localizedName: Partial<LocalizedName> | undefined | null = {}) : void {
-    if (localizedName) {
-        writer.writeStringValue("languageTag", localizedName.languageTag);
-        writer.writeStringValue("name", localizedName.name);
-        writer.writeStringValue("@odata.type", localizedName.odataType);
-        writer.writeAdditionalData(localizedName.additionalData);
-    }
+export function serializeLocalizedName(writer: SerializationWriter, localizedName: Partial<LocalizedName> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!localizedName || isSerializingDerivedType) { return; }
+    writer.writeStringValue("languageTag", localizedName.languageTag);
+    writer.writeStringValue("name", localizedName.name);
+    writer.writeStringValue("@odata.type", localizedName.odataType);
+    writer.writeAdditionalData(localizedName.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Relation The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRelation(writer: SerializationWriter, relation: Partial<Relation> | undefined | null = {}) : void {
-    if (relation) {
-        serializeEntity(writer, relation)
-        writer.writeObjectValue<Term>("fromTerm", relation.fromTerm, serializeTerm);
-        writer.writeEnumValue<RelationType>("relationship", relation.relationship);
-        writer.writeObjectValue<Set>("set", relation.set, serializeSet);
-        writer.writeObjectValue<Term>("toTerm", relation.toTerm, serializeTerm);
-    }
+export function serializeRelation(writer: SerializationWriter, relation: Partial<Relation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!relation || isSerializingDerivedType) { return; }
+    serializeEntity(writer, relation, isSerializingDerivedType)
+    writer.writeObjectValue<Term>("fromTerm", relation.fromTerm, serializeTerm);
+    writer.writeEnumValue<RelationType>("relationship", relation.relationship);
+    writer.writeObjectValue<Set>("set", relation.set, serializeSet);
+    writer.writeObjectValue<Term>("toTerm", relation.toTerm, serializeTerm);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RelationCollectionResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRelationCollectionResponse(writer: SerializationWriter, relationCollectionResponse: Partial<RelationCollectionResponse> | undefined | null = {}) : void {
-    if (relationCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, relationCollectionResponse)
-        writer.writeCollectionOfObjectValues<Relation>("value", relationCollectionResponse.value, serializeRelation);
-    }
+export function serializeRelationCollectionResponse(writer: SerializationWriter, relationCollectionResponse: Partial<RelationCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!relationCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, relationCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Relation>("value", relationCollectionResponse.value, serializeRelation);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Set The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSet(writer: SerializationWriter, set: Partial<Set> | undefined | null = {}) : void {
-    if (set) {
-        serializeEntity(writer, set)
-        writer.writeCollectionOfObjectValues<Term>("children", set.children, serializeTerm);
-        writer.writeDateValue("createdDateTime", set.createdDateTime);
-        writer.writeStringValue("description", set.description);
-        writer.writeCollectionOfObjectValues<LocalizedName>("localizedNames", set.localizedNames, serializeLocalizedName);
-        writer.writeObjectValue<Group>("parentGroup", set.parentGroup, serializeGroup);
-        writer.writeCollectionOfObjectValues<KeyValue>("properties", set.properties, serializeKeyValue);
-        writer.writeCollectionOfObjectValues<Relation>("relations", set.relations, serializeRelation);
-        writer.writeCollectionOfObjectValues<Term>("terms", set.terms, serializeTerm);
-    }
+export function serializeSet(writer: SerializationWriter, set: Partial<Set> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!set || isSerializingDerivedType) { return; }
+    serializeEntity(writer, set, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Term>("children", set.children, serializeTerm);
+    writer.writeDateValue("createdDateTime", set.createdDateTime);
+    writer.writeStringValue("description", set.description);
+    writer.writeCollectionOfObjectValues<LocalizedName>("localizedNames", set.localizedNames, serializeLocalizedName);
+    writer.writeObjectValue<Group>("parentGroup", set.parentGroup, serializeGroup);
+    writer.writeCollectionOfObjectValues<KeyValue>("properties", set.properties, serializeKeyValue);
+    writer.writeCollectionOfObjectValues<Relation>("relations", set.relations, serializeRelation);
+    writer.writeCollectionOfObjectValues<Term>("terms", set.terms, serializeTerm);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SetCollectionResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSetCollectionResponse(writer: SerializationWriter, setCollectionResponse: Partial<SetCollectionResponse> | undefined | null = {}) : void {
-    if (setCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, setCollectionResponse)
-        writer.writeCollectionOfObjectValues<Set>("value", setCollectionResponse.value, serializeSet);
-    }
+export function serializeSetCollectionResponse(writer: SerializationWriter, setCollectionResponse: Partial<SetCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!setCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, setCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Set>("value", setCollectionResponse.value, serializeSet);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Store The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeStore(writer: SerializationWriter, store: Partial<Store> | undefined | null = {}) : void {
-    if (store) {
-        serializeEntity(writer, store)
-        writer.writeStringValue("defaultLanguageTag", store.defaultLanguageTag);
-        writer.writeCollectionOfObjectValues<Group>("groups", store.groups, serializeGroup);
-        writer.writeCollectionOfPrimitiveValues<string>("languageTags", store.languageTags);
-        writer.writeCollectionOfObjectValues<Set>("sets", store.sets, serializeSet);
-    }
+export function serializeStore(writer: SerializationWriter, store: Partial<Store> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!store || isSerializingDerivedType) { return; }
+    serializeEntity(writer, store, isSerializingDerivedType)
+    writer.writeStringValue("defaultLanguageTag", store.defaultLanguageTag);
+    writer.writeCollectionOfObjectValues<Group>("groups", store.groups, serializeGroup);
+    writer.writeCollectionOfPrimitiveValues<string>("languageTags", store.languageTags);
+    writer.writeCollectionOfObjectValues<Set>("sets", store.sets, serializeSet);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param StoreCollectionResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeStoreCollectionResponse(writer: SerializationWriter, storeCollectionResponse: Partial<StoreCollectionResponse> | undefined | null = {}) : void {
-    if (storeCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, storeCollectionResponse)
-        writer.writeCollectionOfObjectValues<Store>("value", storeCollectionResponse.value, serializeStore);
-    }
+export function serializeStoreCollectionResponse(writer: SerializationWriter, storeCollectionResponse: Partial<StoreCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!storeCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, storeCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Store>("value", storeCollectionResponse.value, serializeStore);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Term The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTerm(writer: SerializationWriter, term: Partial<Term> | undefined | null = {}) : void {
-    if (term) {
-        serializeEntity(writer, term)
-        writer.writeCollectionOfObjectValues<Term>("children", term.children, serializeTerm);
-        writer.writeDateValue("createdDateTime", term.createdDateTime);
-        writer.writeCollectionOfObjectValues<LocalizedDescription>("descriptions", term.descriptions, serializeLocalizedDescription);
-        writer.writeCollectionOfObjectValues<LocalizedLabel>("labels", term.labels, serializeLocalizedLabel);
-        writer.writeDateValue("lastModifiedDateTime", term.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<KeyValue>("properties", term.properties, serializeKeyValue);
-        writer.writeCollectionOfObjectValues<Relation>("relations", term.relations, serializeRelation);
-        writer.writeObjectValue<Set>("set", term.set, serializeSet);
-    }
+export function serializeTerm(writer: SerializationWriter, term: Partial<Term> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!term || isSerializingDerivedType) { return; }
+    serializeEntity(writer, term, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Term>("children", term.children, serializeTerm);
+    writer.writeDateValue("createdDateTime", term.createdDateTime);
+    writer.writeCollectionOfObjectValues<LocalizedDescription>("descriptions", term.descriptions, serializeLocalizedDescription);
+    writer.writeCollectionOfObjectValues<LocalizedLabel>("labels", term.labels, serializeLocalizedLabel);
+    writer.writeDateValue("lastModifiedDateTime", term.lastModifiedDateTime);
+    writer.writeCollectionOfObjectValues<KeyValue>("properties", term.properties, serializeKeyValue);
+    writer.writeCollectionOfObjectValues<Relation>("relations", term.relations, serializeRelation);
+    writer.writeObjectValue<Set>("set", term.set, serializeSet);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TermCollectionResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTermCollectionResponse(writer: SerializationWriter, termCollectionResponse: Partial<TermCollectionResponse> | undefined | null = {}) : void {
-    if (termCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, termCollectionResponse)
-        writer.writeCollectionOfObjectValues<Term>("value", termCollectionResponse.value, serializeTerm);
-    }
+export function serializeTermCollectionResponse(writer: SerializationWriter, termCollectionResponse: Partial<TermCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!termCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, termCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Term>("value", termCollectionResponse.value, serializeTerm);
 }
 export interface Set extends Entity, Parsable {
     /**

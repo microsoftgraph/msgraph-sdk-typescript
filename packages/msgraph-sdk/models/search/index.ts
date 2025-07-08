@@ -24,10 +24,6 @@ export interface AcronymCollectionResponse extends BaseCollectionPaginationCount
 }
 export interface AnswerKeyword extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -50,10 +46,6 @@ export interface AnswerKeyword extends AdditionalDataHolder, BackedModel, Parsab
 }
 export type AnswerState = (typeof AnswerStateObject)[keyof typeof AnswerStateObject];
 export interface AnswerVariant extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -251,6 +243,7 @@ export function createSearchAnswerFromDiscriminatorValue(parseNode: ParseNode | 
 }
 /**
  * The deserialization information for the current model
+ * @param Acronym The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -263,6 +256,7 @@ export function deserializeIntoAcronym(acronym: Partial<Acronym> | undefined = {
 }
 /**
  * The deserialization information for the current model
+ * @param AcronymCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -274,6 +268,7 @@ export function deserializeIntoAcronymCollectionResponse(acronymCollectionRespon
 }
 /**
  * The deserialization information for the current model
+ * @param AnswerKeyword The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -288,6 +283,7 @@ export function deserializeIntoAnswerKeyword(answerKeyword: Partial<AnswerKeywor
 }
 /**
  * The deserialization information for the current model
+ * @param AnswerVariant The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -304,6 +300,7 @@ export function deserializeIntoAnswerVariant(answerVariant: Partial<AnswerVarian
 }
 /**
  * The deserialization information for the current model
+ * @param Bookmark The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -325,6 +322,7 @@ export function deserializeIntoBookmark(bookmark: Partial<Bookmark> | undefined 
 }
 /**
  * The deserialization information for the current model
+ * @param BookmarkCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -336,6 +334,7 @@ export function deserializeIntoBookmarkCollectionResponse(bookmarkCollectionResp
 }
 /**
  * The deserialization information for the current model
+ * @param Identity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -349,6 +348,7 @@ export function deserializeIntoIdentity(identity: Partial<Identity> | undefined 
 }
 /**
  * The deserialization information for the current model
+ * @param IdentitySet The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -363,6 +363,7 @@ export function deserializeIntoIdentitySet(identitySet: Partial<IdentitySet> | u
 }
 /**
  * The deserialization information for the current model
+ * @param Qna The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -382,6 +383,7 @@ export function deserializeIntoQna(qna: Partial<Qna> | undefined = {}) : Record<
 }
 /**
  * The deserialization information for the current model
+ * @param QnaCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -393,6 +395,7 @@ export function deserializeIntoQnaCollectionResponse(qnaCollectionResponse: Part
 }
 /**
  * The deserialization information for the current model
+ * @param SearchAnswer The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -407,10 +410,6 @@ export function deserializeIntoSearchAnswer(searchAnswer: Partial<SearchAnswer> 
     }
 }
 export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -429,10 +428,6 @@ export interface Identity extends AdditionalDataHolder, BackedModel, Parsable {
     odataType?: string | null;
 }
 export interface IdentitySet extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The application property
      */
@@ -522,161 +517,183 @@ export interface SearchAnswer extends Entity, Parsable {
 }
 /**
  * Serializes information the current object
+ * @param Acronym The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAcronym(writer: SerializationWriter, acronym: Partial<Acronym> | undefined | null = {}) : void {
-    if (acronym) {
-        serializeSearchAnswer(writer, acronym)
-        writer.writeStringValue("standsFor", acronym.standsFor);
-        writer.writeEnumValue<AnswerState>("state", acronym.state);
-    }
+export function serializeAcronym(writer: SerializationWriter, acronym: Partial<Acronym> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!acronym || isSerializingDerivedType) { return; }
+    serializeSearchAnswer(writer, acronym, isSerializingDerivedType)
+    writer.writeStringValue("standsFor", acronym.standsFor);
+    writer.writeEnumValue<AnswerState>("state", acronym.state);
 }
 /**
  * Serializes information the current object
+ * @param AcronymCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAcronymCollectionResponse(writer: SerializationWriter, acronymCollectionResponse: Partial<AcronymCollectionResponse> | undefined | null = {}) : void {
-    if (acronymCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, acronymCollectionResponse)
-        writer.writeCollectionOfObjectValues<Acronym>("value", acronymCollectionResponse.value, serializeAcronym);
-    }
+export function serializeAcronymCollectionResponse(writer: SerializationWriter, acronymCollectionResponse: Partial<AcronymCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!acronymCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, acronymCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Acronym>("value", acronymCollectionResponse.value, serializeAcronym);
 }
 /**
  * Serializes information the current object
+ * @param AnswerKeyword The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAnswerKeyword(writer: SerializationWriter, answerKeyword: Partial<AnswerKeyword> | undefined | null = {}) : void {
-    if (answerKeyword) {
-        writer.writeCollectionOfPrimitiveValues<string>("keywords", answerKeyword.keywords);
-        writer.writeBooleanValue("matchSimilarKeywords", answerKeyword.matchSimilarKeywords);
-        writer.writeStringValue("@odata.type", answerKeyword.odataType);
-        writer.writeCollectionOfPrimitiveValues<string>("reservedKeywords", answerKeyword.reservedKeywords);
-        writer.writeAdditionalData(answerKeyword.additionalData);
-    }
+export function serializeAnswerKeyword(writer: SerializationWriter, answerKeyword: Partial<AnswerKeyword> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!answerKeyword || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("keywords", answerKeyword.keywords);
+    writer.writeBooleanValue("matchSimilarKeywords", answerKeyword.matchSimilarKeywords);
+    writer.writeStringValue("@odata.type", answerKeyword.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("reservedKeywords", answerKeyword.reservedKeywords);
+    writer.writeAdditionalData(answerKeyword.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param AnswerVariant The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAnswerVariant(writer: SerializationWriter, answerVariant: Partial<AnswerVariant> | undefined | null = {}) : void {
-    if (answerVariant) {
-        writer.writeStringValue("description", answerVariant.description);
-        writer.writeStringValue("displayName", answerVariant.displayName);
-        writer.writeStringValue("languageTag", answerVariant.languageTag);
-        writer.writeStringValue("@odata.type", answerVariant.odataType);
-        writer.writeEnumValue<DevicePlatformType>("platform", answerVariant.platform);
-        writer.writeStringValue("webUrl", answerVariant.webUrl);
-        writer.writeAdditionalData(answerVariant.additionalData);
-    }
+export function serializeAnswerVariant(writer: SerializationWriter, answerVariant: Partial<AnswerVariant> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!answerVariant || isSerializingDerivedType) { return; }
+    writer.writeStringValue("description", answerVariant.description);
+    writer.writeStringValue("displayName", answerVariant.displayName);
+    writer.writeStringValue("languageTag", answerVariant.languageTag);
+    writer.writeStringValue("@odata.type", answerVariant.odataType);
+    writer.writeEnumValue<DevicePlatformType>("platform", answerVariant.platform);
+    writer.writeStringValue("webUrl", answerVariant.webUrl);
+    writer.writeAdditionalData(answerVariant.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param Bookmark The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBookmark(writer: SerializationWriter, bookmark: Partial<Bookmark> | undefined | null = {}) : void {
-    if (bookmark) {
-        serializeSearchAnswer(writer, bookmark)
-        writer.writeDateValue("availabilityEndDateTime", bookmark.availabilityEndDateTime);
-        writer.writeDateValue("availabilityStartDateTime", bookmark.availabilityStartDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("categories", bookmark.categories);
-        writer.writeCollectionOfPrimitiveValues<string>("groupIds", bookmark.groupIds);
-        writer.writeBooleanValue("isSuggested", bookmark.isSuggested);
-        writer.writeObjectValue<AnswerKeyword>("keywords", bookmark.keywords, serializeAnswerKeyword);
-        writer.writeCollectionOfPrimitiveValues<string>("languageTags", bookmark.languageTags);
-        if(bookmark.platforms)
-        writer.writeCollectionOfEnumValues<DevicePlatformType>("platforms", bookmark.platforms);
-        writer.writeCollectionOfPrimitiveValues<string>("powerAppIds", bookmark.powerAppIds);
-        writer.writeEnumValue<AnswerState>("state", bookmark.state);
-        writer.writeCollectionOfObjectValues<AnswerVariant>("targetedVariations", bookmark.targetedVariations, serializeAnswerVariant);
-    }
+export function serializeBookmark(writer: SerializationWriter, bookmark: Partial<Bookmark> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!bookmark || isSerializingDerivedType) { return; }
+    serializeSearchAnswer(writer, bookmark, isSerializingDerivedType)
+    writer.writeDateValue("availabilityEndDateTime", bookmark.availabilityEndDateTime);
+    writer.writeDateValue("availabilityStartDateTime", bookmark.availabilityStartDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("categories", bookmark.categories);
+    writer.writeCollectionOfPrimitiveValues<string>("groupIds", bookmark.groupIds);
+    writer.writeBooleanValue("isSuggested", bookmark.isSuggested);
+    writer.writeObjectValue<AnswerKeyword>("keywords", bookmark.keywords, serializeAnswerKeyword);
+    writer.writeCollectionOfPrimitiveValues<string>("languageTags", bookmark.languageTags);
+    if(bookmark.platforms)
+    writer.writeCollectionOfEnumValues<DevicePlatformType>("platforms", bookmark.platforms);
+    writer.writeCollectionOfPrimitiveValues<string>("powerAppIds", bookmark.powerAppIds);
+    writer.writeEnumValue<AnswerState>("state", bookmark.state);
+    writer.writeCollectionOfObjectValues<AnswerVariant>("targetedVariations", bookmark.targetedVariations, serializeAnswerVariant);
 }
 /**
  * Serializes information the current object
+ * @param BookmarkCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBookmarkCollectionResponse(writer: SerializationWriter, bookmarkCollectionResponse: Partial<BookmarkCollectionResponse> | undefined | null = {}) : void {
-    if (bookmarkCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, bookmarkCollectionResponse)
-        writer.writeCollectionOfObjectValues<Bookmark>("value", bookmarkCollectionResponse.value, serializeBookmark);
-    }
+export function serializeBookmarkCollectionResponse(writer: SerializationWriter, bookmarkCollectionResponse: Partial<BookmarkCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!bookmarkCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, bookmarkCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Bookmark>("value", bookmarkCollectionResponse.value, serializeBookmark);
 }
 /**
  * Serializes information the current object
+ * @param Identity The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIdentity(writer: SerializationWriter, identity: Partial<Identity> | undefined | null = {}) : void {
-    if (identity) {
-        writer.writeStringValue("displayName", identity.displayName);
-        writer.writeStringValue("id", identity.id);
-        writer.writeStringValue("@odata.type", identity.odataType);
-        writer.writeAdditionalData(identity.additionalData);
-    }
+export function serializeIdentity(writer: SerializationWriter, identity: Partial<Identity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!identity || isSerializingDerivedType) { return; }
+    writer.writeStringValue("displayName", identity.displayName);
+    writer.writeStringValue("id", identity.id);
+    writer.writeStringValue("@odata.type", identity.odataType);
+    writer.writeAdditionalData(identity.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param IdentitySet The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIdentitySet(writer: SerializationWriter, identitySet: Partial<IdentitySet> | undefined | null = {}) : void {
-    if (identitySet) {
-        writer.writeObjectValue<Identity>("application", identitySet.application, serializeIdentity);
-        writer.writeObjectValue<Identity>("device", identitySet.device, serializeIdentity);
-        writer.writeStringValue("@odata.type", identitySet.odataType);
-        writer.writeObjectValue<Identity>("user", identitySet.user, serializeIdentity);
-        writer.writeAdditionalData(identitySet.additionalData);
-    }
+export function serializeIdentitySet(writer: SerializationWriter, identitySet: Partial<IdentitySet> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!identitySet || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<Identity>("application", identitySet.application, serializeIdentity);
+    writer.writeObjectValue<Identity>("device", identitySet.device, serializeIdentity);
+    writer.writeStringValue("@odata.type", identitySet.odataType);
+    writer.writeObjectValue<Identity>("user", identitySet.user, serializeIdentity);
+    writer.writeAdditionalData(identitySet.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Qna The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeQna(writer: SerializationWriter, qna: Partial<Qna> | undefined | null = {}) : void {
-    if (qna) {
-        serializeSearchAnswer(writer, qna)
-        writer.writeDateValue("availabilityEndDateTime", qna.availabilityEndDateTime);
-        writer.writeDateValue("availabilityStartDateTime", qna.availabilityStartDateTime);
-        writer.writeCollectionOfPrimitiveValues<string>("groupIds", qna.groupIds);
-        writer.writeBooleanValue("isSuggested", qna.isSuggested);
-        writer.writeObjectValue<AnswerKeyword>("keywords", qna.keywords, serializeAnswerKeyword);
-        writer.writeCollectionOfPrimitiveValues<string>("languageTags", qna.languageTags);
-        if(qna.platforms)
-        writer.writeCollectionOfEnumValues<DevicePlatformType>("platforms", qna.platforms);
-        writer.writeEnumValue<AnswerState>("state", qna.state);
-        writer.writeCollectionOfObjectValues<AnswerVariant>("targetedVariations", qna.targetedVariations, serializeAnswerVariant);
-    }
+export function serializeQna(writer: SerializationWriter, qna: Partial<Qna> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!qna || isSerializingDerivedType) { return; }
+    serializeSearchAnswer(writer, qna, isSerializingDerivedType)
+    writer.writeDateValue("availabilityEndDateTime", qna.availabilityEndDateTime);
+    writer.writeDateValue("availabilityStartDateTime", qna.availabilityStartDateTime);
+    writer.writeCollectionOfPrimitiveValues<string>("groupIds", qna.groupIds);
+    writer.writeBooleanValue("isSuggested", qna.isSuggested);
+    writer.writeObjectValue<AnswerKeyword>("keywords", qna.keywords, serializeAnswerKeyword);
+    writer.writeCollectionOfPrimitiveValues<string>("languageTags", qna.languageTags);
+    if(qna.platforms)
+    writer.writeCollectionOfEnumValues<DevicePlatformType>("platforms", qna.platforms);
+    writer.writeEnumValue<AnswerState>("state", qna.state);
+    writer.writeCollectionOfObjectValues<AnswerVariant>("targetedVariations", qna.targetedVariations, serializeAnswerVariant);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param QnaCollectionResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeQnaCollectionResponse(writer: SerializationWriter, qnaCollectionResponse: Partial<QnaCollectionResponse> | undefined | null = {}) : void {
-    if (qnaCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, qnaCollectionResponse)
-        writer.writeCollectionOfObjectValues<Qna>("value", qnaCollectionResponse.value, serializeQna);
-    }
+export function serializeQnaCollectionResponse(writer: SerializationWriter, qnaCollectionResponse: Partial<QnaCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!qnaCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, qnaCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Qna>("value", qnaCollectionResponse.value, serializeQna);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SearchAnswer The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSearchAnswer(writer: SerializationWriter, searchAnswer: Partial<SearchAnswer> | undefined | null = {}) : void {
-    if (searchAnswer) {
-        serializeEntity(writer, searchAnswer)
-        writer.writeStringValue("description", searchAnswer.description);
-        writer.writeStringValue("displayName", searchAnswer.displayName);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", searchAnswer.lastModifiedBy, serializeIdentitySet);
-        writer.writeDateValue("lastModifiedDateTime", searchAnswer.lastModifiedDateTime);
-        writer.writeStringValue("webUrl", searchAnswer.webUrl);
+export function serializeSearchAnswer(writer: SerializationWriter, searchAnswer: Partial<SearchAnswer> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!searchAnswer || isSerializingDerivedType) { return; }
+    serializeEntity(writer, searchAnswer, isSerializingDerivedType)
+    writer.writeStringValue("description", searchAnswer.description);
+    writer.writeStringValue("displayName", searchAnswer.displayName);
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", searchAnswer.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", searchAnswer.lastModifiedDateTime);
+    writer.writeStringValue("webUrl", searchAnswer.webUrl);
+    switch (searchAnswer.odataType) {
+        case "#microsoft.graph.search.acronym":
+            serializeAcronym(writer, searchAnswer as Acronym, true);
+        break;
+        case "#microsoft.graph.search.bookmark":
+            serializeBookmark(writer, searchAnswer as Bookmark, true);
+        break;
+        case "#microsoft.graph.search.qna":
+            serializeQna(writer, searchAnswer as Qna, true);
+        break;
     }
 }
 export const AnswerStateObject = {

@@ -19,6 +19,7 @@ export function createIrrPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param IrrPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoIrrPostRequestBody(irrPostRequestBody: Partial<Ir
     }
 }
 export interface IrrPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface IrrRequestBuilder extends BaseRequestBuilder<IrrRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param IrrPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIrrPostRequestBody(writer: SerializationWriter, irrPostRequestBody: Partial<IrrPostRequestBody> | undefined | null = {}) : void {
-    if (irrPostRequestBody) {
-        writer.writeObjectValue("guess", irrPostRequestBody.guess);
-        writer.writeObjectValue("values", irrPostRequestBody.values);
-        writer.writeAdditionalData(irrPostRequestBody.additionalData);
-    }
+export function serializeIrrPostRequestBody(writer: SerializationWriter, irrPostRequestBody: Partial<IrrPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!irrPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("guess", irrPostRequestBody.guess);
+    writer.writeObjectValue("values", irrPostRequestBody.values);
+    writer.writeAdditionalData(irrPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

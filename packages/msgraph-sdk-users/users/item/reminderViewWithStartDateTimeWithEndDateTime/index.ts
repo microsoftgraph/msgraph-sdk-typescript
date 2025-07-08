@@ -19,6 +19,7 @@ export function createReminderViewWithStartDateTimeWithEndDateTimeGetResponseFro
 }
 /**
  * The deserialization information for the current model
+ * @param ReminderViewWithStartDateTimeWithEndDateTimeGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ReminderViewWithStartDateTimeWithEndDateTimeGetResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeReminderViewWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, reminderViewWithStartDateTimeWithEndDateTimeGetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
-    if (reminderViewWithStartDateTimeWithEndDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, reminderViewWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<Reminder>("value", reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value, serializeReminder);
-    }
+export function serializeReminderViewWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, reminderViewWithStartDateTimeWithEndDateTimeGetResponse: Partial<ReminderViewWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!reminderViewWithStartDateTimeWithEndDateTimeGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, reminderViewWithStartDateTimeWithEndDateTimeGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Reminder>("value", reminderViewWithStartDateTimeWithEndDateTimeGetResponse.value, serializeReminder);
 }
 /**
  * Uri template for the request builder.

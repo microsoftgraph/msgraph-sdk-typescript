@@ -19,6 +19,7 @@ export function createMutePostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param MutePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoMutePostRequestBody(mutePostRequestBody: Partial<
     }
 }
 export interface MutePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -65,14 +62,15 @@ export interface MuteRequestBuilder extends BaseRequestBuilder<MuteRequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MutePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMutePostRequestBody(writer: SerializationWriter, mutePostRequestBody: Partial<MutePostRequestBody> | undefined | null = {}) : void {
-    if (mutePostRequestBody) {
-        writer.writeStringValue("clientContext", mutePostRequestBody.clientContext);
-        writer.writeAdditionalData(mutePostRequestBody.additionalData);
-    }
+export function serializeMutePostRequestBody(writer: SerializationWriter, mutePostRequestBody: Partial<MutePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!mutePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("clientContext", mutePostRequestBody.clientContext);
+    writer.writeAdditionalData(mutePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

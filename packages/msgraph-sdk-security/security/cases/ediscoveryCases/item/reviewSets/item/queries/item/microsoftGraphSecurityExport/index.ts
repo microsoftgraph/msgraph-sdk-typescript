@@ -19,6 +19,7 @@ export function createExportPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param ExportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,10 +33,6 @@ export function deserializeIntoExportPostRequestBody(exportPostRequestBody: Part
     }
 }
 export interface ExportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -79,17 +76,18 @@ export interface MicrosoftGraphSecurityExportRequestBuilder extends BaseRequestB
 }
 /**
  * Serializes information the current object
+ * @param ExportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeExportPostRequestBody(writer: SerializationWriter, exportPostRequestBody: Partial<ExportPostRequestBody> | undefined | null = {}) : void {
-    if (exportPostRequestBody) {
-        writer.writeStringValue("description", exportPostRequestBody.description);
-        writer.writeEnumValue<ExportOptions[]>("exportOptions", exportPostRequestBody.exportOptions);
-        writer.writeEnumValue<ExportFileStructure>("exportStructure", exportPostRequestBody.exportStructure);
-        writer.writeStringValue("outputName", exportPostRequestBody.outputName);
-        writer.writeAdditionalData(exportPostRequestBody.additionalData);
-    }
+export function serializeExportPostRequestBody(writer: SerializationWriter, exportPostRequestBody: Partial<ExportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!exportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("description", exportPostRequestBody.description);
+    writer.writeEnumValue<ExportOptions[]>("exportOptions", exportPostRequestBody.exportOptions);
+    writer.writeEnumValue<ExportFileStructure>("exportStructure", exportPostRequestBody.exportStructure);
+    writer.writeStringValue("outputName", exportPostRequestBody.outputName);
+    writer.writeAdditionalData(exportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

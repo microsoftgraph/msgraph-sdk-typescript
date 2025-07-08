@@ -28,6 +28,7 @@ export function createInvitePostResponseFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param InvitePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -46,6 +47,7 @@ export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: Part
 }
 /**
  * The deserialization information for the current model
+ * @param InvitePostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -56,10 +58,6 @@ export function deserializeIntoInvitePostResponse(invitePostResponse: Partial<In
     }
 }
 export interface InvitePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -126,32 +124,34 @@ export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBu
 }
 /**
  * Serializes information the current object
+ * @param InvitePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: Partial<InvitePostRequestBody> | undefined | null = {}) : void {
-    if (invitePostRequestBody) {
-        writer.writeStringValue("expirationDateTime", invitePostRequestBody.expirationDateTime);
-        writer.writeStringValue("message", invitePostRequestBody.message);
-        writer.writeStringValue("password", invitePostRequestBody.password);
-        writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", invitePostRequestBody.recipients, serializeDriveRecipient);
-        writer.writeBooleanValue("requireSignIn", invitePostRequestBody.requireSignIn);
-        writer.writeBooleanValue("retainInheritedPermissions", invitePostRequestBody.retainInheritedPermissions);
-        writer.writeCollectionOfPrimitiveValues<string>("roles", invitePostRequestBody.roles);
-        writer.writeBooleanValue("sendInvitation", invitePostRequestBody.sendInvitation);
-        writer.writeAdditionalData(invitePostRequestBody.additionalData);
-    }
+export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: Partial<InvitePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!invitePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("expirationDateTime", invitePostRequestBody.expirationDateTime);
+    writer.writeStringValue("message", invitePostRequestBody.message);
+    writer.writeStringValue("password", invitePostRequestBody.password);
+    writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", invitePostRequestBody.recipients, serializeDriveRecipient);
+    writer.writeBooleanValue("requireSignIn", invitePostRequestBody.requireSignIn);
+    writer.writeBooleanValue("retainInheritedPermissions", invitePostRequestBody.retainInheritedPermissions);
+    writer.writeCollectionOfPrimitiveValues<string>("roles", invitePostRequestBody.roles);
+    writer.writeBooleanValue("sendInvitation", invitePostRequestBody.sendInvitation);
+    writer.writeAdditionalData(invitePostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param InvitePostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeInvitePostResponse(writer: SerializationWriter, invitePostResponse: Partial<InvitePostResponse> | undefined | null = {}) : void {
-    if (invitePostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, invitePostResponse)
-        writer.writeCollectionOfObjectValues<Permission>("value", invitePostResponse.value, serializePermission);
-    }
+export function serializeInvitePostResponse(writer: SerializationWriter, invitePostResponse: Partial<InvitePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!invitePostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, invitePostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Permission>("value", invitePostResponse.value, serializePermission);
 }
 /**
  * Uri template for the request builder.

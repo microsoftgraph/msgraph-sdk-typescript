@@ -17,6 +17,7 @@ export function createSetPresencePostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param SetPresencePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,27 +32,24 @@ export function deserializeIntoSetPresencePostRequestBody(setPresencePostRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SetPresencePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSetPresencePostRequestBody(writer: SerializationWriter, setPresencePostRequestBody: Partial<SetPresencePostRequestBody> | undefined | null = {}) : void {
-    if (setPresencePostRequestBody) {
-        writer.writeStringValue("activity", setPresencePostRequestBody.activity);
-        writer.writeStringValue("availability", setPresencePostRequestBody.availability);
-        writer.writeDurationValue("expirationDuration", setPresencePostRequestBody.expirationDuration);
-        writer.writeStringValue("sessionId", setPresencePostRequestBody.sessionId);
-        writer.writeAdditionalData(setPresencePostRequestBody.additionalData);
-    }
+export function serializeSetPresencePostRequestBody(writer: SerializationWriter, setPresencePostRequestBody: Partial<SetPresencePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!setPresencePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("activity", setPresencePostRequestBody.activity);
+    writer.writeStringValue("availability", setPresencePostRequestBody.availability);
+    writer.writeDurationValue("expirationDuration", setPresencePostRequestBody.expirationDuration);
+    writer.writeStringValue("sessionId", setPresencePostRequestBody.sessionId);
+    writer.writeAdditionalData(setPresencePostRequestBody.additionalData);
 }
 export interface SetPresencePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * The activity property
      */
     activity?: string | null;
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The availability property
      */

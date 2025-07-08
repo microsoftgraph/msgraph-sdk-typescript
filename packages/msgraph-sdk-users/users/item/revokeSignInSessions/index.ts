@@ -17,6 +17,7 @@ export function createRevokeSignInSessionsPostResponseFromDiscriminatorValue(par
 }
 /**
  * The deserialization information for the current model
+ * @param RevokeSignInSessionsPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoRevokeSignInSessionsPostResponse(revokeSignInSess
     }
 }
 export interface RevokeSignInSessionsPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -61,14 +58,15 @@ export interface RevokeSignInSessionsRequestBuilder extends BaseRequestBuilder<R
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RevokeSignInSessionsPostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRevokeSignInSessionsPostResponse(writer: SerializationWriter, revokeSignInSessionsPostResponse: Partial<RevokeSignInSessionsPostResponse> | undefined | null = {}) : void {
-    if (revokeSignInSessionsPostResponse) {
-        writer.writeBooleanValue("value", revokeSignInSessionsPostResponse.value);
-        writer.writeAdditionalData(revokeSignInSessionsPostResponse.additionalData);
-    }
+export function serializeRevokeSignInSessionsPostResponse(writer: SerializationWriter, revokeSignInSessionsPostResponse: Partial<RevokeSignInSessionsPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!revokeSignInSessionsPostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", revokeSignInSessionsPostResponse.value);
+    writer.writeAdditionalData(revokeSignInSessionsPostResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

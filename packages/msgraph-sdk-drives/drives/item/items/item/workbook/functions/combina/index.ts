@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface CombinaPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createCombinaPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param CombinaPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoCombinaPostRequestBody(combinaPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param CombinaPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCombinaPostRequestBody(writer: SerializationWriter, combinaPostRequestBody: Partial<CombinaPostRequestBody> | undefined | null = {}) : void {
-    if (combinaPostRequestBody) {
-        writer.writeObjectValue("number", combinaPostRequestBody.number);
-        writer.writeObjectValue("numberChosen", combinaPostRequestBody.numberChosen);
-        writer.writeAdditionalData(combinaPostRequestBody.additionalData);
-    }
+export function serializeCombinaPostRequestBody(writer: SerializationWriter, combinaPostRequestBody: Partial<CombinaPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!combinaPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", combinaPostRequestBody.number);
+    writer.writeObjectValue("numberChosen", combinaPostRequestBody.numberChosen);
+    writer.writeAdditionalData(combinaPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

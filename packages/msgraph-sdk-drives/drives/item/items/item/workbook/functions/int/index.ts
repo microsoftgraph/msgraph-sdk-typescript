@@ -19,6 +19,7 @@ export function createIntPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param IntPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoIntPostRequestBody(intPostRequestBody: Partial<In
     }
 }
 export interface IntPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface IntRequestBuilder extends BaseRequestBuilder<IntRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param IntPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIntPostRequestBody(writer: SerializationWriter, intPostRequestBody: Partial<IntPostRequestBody> | undefined | null = {}) : void {
-    if (intPostRequestBody) {
-        writer.writeObjectValue("number", intPostRequestBody.number);
-        writer.writeAdditionalData(intPostRequestBody.additionalData);
-    }
+export function serializeIntPostRequestBody(writer: SerializationWriter, intPostRequestBody: Partial<IntPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!intPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", intPostRequestBody.number);
+    writer.writeAdditionalData(intPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

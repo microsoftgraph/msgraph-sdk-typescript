@@ -17,6 +17,7 @@ export function createMergePostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param MergePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export interface MergePostRequestBody extends AdditionalDataHolder, BackedModel,
      * The across property
      */
     across?: boolean | null;
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -61,14 +58,15 @@ export interface MergeRequestBuilder extends BaseRequestBuilder<MergeRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MergePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMergePostRequestBody(writer: SerializationWriter, mergePostRequestBody: Partial<MergePostRequestBody> | undefined | null = {}) : void {
-    if (mergePostRequestBody) {
-        writer.writeBooleanValue("across", mergePostRequestBody.across);
-        writer.writeAdditionalData(mergePostRequestBody.additionalData);
-    }
+export function serializeMergePostRequestBody(writer: SerializationWriter, mergePostRequestBody: Partial<MergePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!mergePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("across", mergePostRequestBody.across);
+    writer.writeAdditionalData(mergePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

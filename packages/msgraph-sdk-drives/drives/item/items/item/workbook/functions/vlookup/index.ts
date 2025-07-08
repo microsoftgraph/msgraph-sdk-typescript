@@ -19,6 +19,7 @@ export function createVlookupPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param VlookupPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,23 +34,20 @@ export function deserializeIntoVlookupPostRequestBody(vlookupPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param VlookupPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeVlookupPostRequestBody(writer: SerializationWriter, vlookupPostRequestBody: Partial<VlookupPostRequestBody> | undefined | null = {}) : void {
-    if (vlookupPostRequestBody) {
-        writer.writeObjectValue("colIndexNum", vlookupPostRequestBody.colIndexNum);
-        writer.writeObjectValue("lookupValue", vlookupPostRequestBody.lookupValue);
-        writer.writeObjectValue("rangeLookup", vlookupPostRequestBody.rangeLookup);
-        writer.writeObjectValue("tableArray", vlookupPostRequestBody.tableArray);
-        writer.writeAdditionalData(vlookupPostRequestBody.additionalData);
-    }
+export function serializeVlookupPostRequestBody(writer: SerializationWriter, vlookupPostRequestBody: Partial<VlookupPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!vlookupPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("colIndexNum", vlookupPostRequestBody.colIndexNum);
+    writer.writeObjectValue("lookupValue", vlookupPostRequestBody.lookupValue);
+    writer.writeObjectValue("rangeLookup", vlookupPostRequestBody.rangeLookup);
+    writer.writeObjectValue("tableArray", vlookupPostRequestBody.tableArray);
+    writer.writeAdditionalData(vlookupPostRequestBody.additionalData);
 }
 export interface VlookupPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

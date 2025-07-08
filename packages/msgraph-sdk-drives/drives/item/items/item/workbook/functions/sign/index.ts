@@ -19,6 +19,7 @@ export function createSignPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param SignPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoSignPostRequestBody(signPostRequestBody: Partial<
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SignPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSignPostRequestBody(writer: SerializationWriter, signPostRequestBody: Partial<SignPostRequestBody> | undefined | null = {}) : void {
-    if (signPostRequestBody) {
-        writer.writeObjectValue("number", signPostRequestBody.number);
-        writer.writeAdditionalData(signPostRequestBody.additionalData);
-    }
+export function serializeSignPostRequestBody(writer: SerializationWriter, signPostRequestBody: Partial<SignPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!signPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", signPostRequestBody.number);
+    writer.writeAdditionalData(signPostRequestBody.additionalData);
 }
 export interface SignPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

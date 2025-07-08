@@ -17,10 +17,6 @@ export function createCreateDownloadUrlPostResponseFromDiscriminatorValue(parseN
 }
 export interface CreateDownloadUrlPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -49,6 +45,7 @@ export interface CreateDownloadUrlRequestBuilder extends BaseRequestBuilder<Crea
 }
 /**
  * The deserialization information for the current model
+ * @param CreateDownloadUrlPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -60,14 +57,15 @@ export function deserializeIntoCreateDownloadUrlPostResponse(createDownloadUrlPo
 }
 /**
  * Serializes information the current object
+ * @param CreateDownloadUrlPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCreateDownloadUrlPostResponse(writer: SerializationWriter, createDownloadUrlPostResponse: Partial<CreateDownloadUrlPostResponse> | undefined | null = {}) : void {
-    if (createDownloadUrlPostResponse) {
-        writer.writeStringValue("value", createDownloadUrlPostResponse.value);
-        writer.writeAdditionalData(createDownloadUrlPostResponse.additionalData);
-    }
+export function serializeCreateDownloadUrlPostResponse(writer: SerializationWriter, createDownloadUrlPostResponse: Partial<CreateDownloadUrlPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!createDownloadUrlPostResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("value", createDownloadUrlPostResponse.value);
+    writer.writeAdditionalData(createDownloadUrlPostResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

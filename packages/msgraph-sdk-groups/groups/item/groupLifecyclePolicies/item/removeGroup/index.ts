@@ -26,6 +26,7 @@ export function createRemoveGroupPostResponseFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param RemoveGroupPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -37,6 +38,7 @@ export function deserializeIntoRemoveGroupPostRequestBody(removeGroupPostRequest
 }
 /**
  * The deserialization information for the current model
+ * @param RemoveGroupPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -48,10 +50,6 @@ export function deserializeIntoRemoveGroupPostResponse(removeGroupPostResponse: 
 }
 export interface RemoveGroupPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,10 +59,6 @@ export interface RemoveGroupPostRequestBody extends AdditionalDataHolder, Backed
     groupId?: string | null;
 }
 export interface RemoveGroupPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -97,25 +91,27 @@ export interface RemoveGroupRequestBuilder extends BaseRequestBuilder<RemoveGrou
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RemoveGroupPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRemoveGroupPostRequestBody(writer: SerializationWriter, removeGroupPostRequestBody: Partial<RemoveGroupPostRequestBody> | undefined | null = {}) : void {
-    if (removeGroupPostRequestBody) {
-        writer.writeStringValue("groupId", removeGroupPostRequestBody.groupId);
-        writer.writeAdditionalData(removeGroupPostRequestBody.additionalData);
-    }
+export function serializeRemoveGroupPostRequestBody(writer: SerializationWriter, removeGroupPostRequestBody: Partial<RemoveGroupPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!removeGroupPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("groupId", removeGroupPostRequestBody.groupId);
+    writer.writeAdditionalData(removeGroupPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RemoveGroupPostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRemoveGroupPostResponse(writer: SerializationWriter, removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined | null = {}) : void {
-    if (removeGroupPostResponse) {
-        writer.writeBooleanValue("value", removeGroupPostResponse.value);
-        writer.writeAdditionalData(removeGroupPostResponse.additionalData);
-    }
+export function serializeRemoveGroupPostResponse(writer: SerializationWriter, removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!removeGroupPostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", removeGroupPostResponse.value);
+    writer.writeAdditionalData(removeGroupPostResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

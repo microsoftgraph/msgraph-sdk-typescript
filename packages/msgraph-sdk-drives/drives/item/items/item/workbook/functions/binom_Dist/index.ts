@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface Binom_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -65,6 +61,7 @@ export function createBinom_DistPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param Binom_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -79,17 +76,18 @@ export function deserializeIntoBinom_DistPostRequestBody(binom_DistPostRequestBo
 }
 /**
  * Serializes information the current object
+ * @param Binom_DistPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBinom_DistPostRequestBody(writer: SerializationWriter, binom_DistPostRequestBody: Partial<Binom_DistPostRequestBody> | undefined | null = {}) : void {
-    if (binom_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", binom_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("numberS", binom_DistPostRequestBody.numberS);
-        writer.writeObjectValue("probabilityS", binom_DistPostRequestBody.probabilityS);
-        writer.writeObjectValue("trials", binom_DistPostRequestBody.trials);
-        writer.writeAdditionalData(binom_DistPostRequestBody.additionalData);
-    }
+export function serializeBinom_DistPostRequestBody(writer: SerializationWriter, binom_DistPostRequestBody: Partial<Binom_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!binom_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", binom_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("numberS", binom_DistPostRequestBody.numberS);
+    writer.writeObjectValue("probabilityS", binom_DistPostRequestBody.probabilityS);
+    writer.writeObjectValue("trials", binom_DistPostRequestBody.trials);
+    writer.writeAdditionalData(binom_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

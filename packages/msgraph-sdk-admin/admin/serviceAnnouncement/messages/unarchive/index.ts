@@ -26,6 +26,7 @@ export function createUnarchivePostResponseFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param UnarchivePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -37,6 +38,7 @@ export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody
 }
 /**
  * The deserialization information for the current model
+ * @param UnarchivePostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -48,31 +50,29 @@ export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Part
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UnarchivePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUnarchivePostRequestBody(writer: SerializationWriter, unarchivePostRequestBody: Partial<UnarchivePostRequestBody> | undefined | null = {}) : void {
-    if (unarchivePostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", unarchivePostRequestBody.messageIds);
-        writer.writeAdditionalData(unarchivePostRequestBody.additionalData);
-    }
+export function serializeUnarchivePostRequestBody(writer: SerializationWriter, unarchivePostRequestBody: Partial<UnarchivePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!unarchivePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", unarchivePostRequestBody.messageIds);
+    writer.writeAdditionalData(unarchivePostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UnarchivePostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: Partial<UnarchivePostResponse> | undefined | null = {}) : void {
-    if (unarchivePostResponse) {
-        writer.writeBooleanValue("value", unarchivePostResponse.value);
-        writer.writeAdditionalData(unarchivePostResponse.additionalData);
-    }
+export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: Partial<UnarchivePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!unarchivePostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", unarchivePostResponse.value);
+    writer.writeAdditionalData(unarchivePostResponse.additionalData);
 }
 export interface UnarchivePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -83,10 +83,6 @@ export interface UnarchivePostRequestBody extends AdditionalDataHolder, BackedMo
     messageIds?: string[] | null;
 }
 export interface UnarchivePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

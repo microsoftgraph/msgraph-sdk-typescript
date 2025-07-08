@@ -19,6 +19,7 @@ export function createSumPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param SumPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoSumPostRequestBody(sumPostRequestBody: Partial<Su
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SumPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSumPostRequestBody(writer: SerializationWriter, sumPostRequestBody: Partial<SumPostRequestBody> | undefined | null = {}) : void {
-    if (sumPostRequestBody) {
-        writer.writeObjectValue("values", sumPostRequestBody.values);
-        writer.writeAdditionalData(sumPostRequestBody.additionalData);
-    }
+export function serializeSumPostRequestBody(writer: SerializationWriter, sumPostRequestBody: Partial<SumPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sumPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", sumPostRequestBody.values);
+    writer.writeAdditionalData(sumPostRequestBody.additionalData);
 }
 export interface SumPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

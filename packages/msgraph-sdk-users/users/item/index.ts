@@ -40,6 +40,8 @@ import { ContactsRequestBuilderNavigationMetadata, ContactsRequestBuilderRequest
 // @ts-ignore
 import { CreatedObjectsRequestBuilderNavigationMetadata, CreatedObjectsRequestBuilderRequestsMetadata, type CreatedObjectsRequestBuilder } from './createdObjects/index.js';
 // @ts-ignore
+import { DataSecurityAndGovernanceRequestBuilderNavigationMetadata, DataSecurityAndGovernanceRequestBuilderRequestsMetadata, type DataSecurityAndGovernanceRequestBuilder } from './dataSecurityAndGovernance/index.js';
+// @ts-ignore
 import { DeviceManagementTroubleshootingEventsRequestBuilderNavigationMetadata, DeviceManagementTroubleshootingEventsRequestBuilderRequestsMetadata, type DeviceManagementTroubleshootingEventsRequestBuilder } from './deviceManagementTroubleshootingEvents/index.js';
 // @ts-ignore
 import { DirectReportsRequestBuilderNavigationMetadata, DirectReportsRequestBuilderRequestsMetadata, type DirectReportsRequestBuilder } from './directReports/index.js';
@@ -232,6 +234,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * Provides operations to manage the createdObjects property of the microsoft.graph.user entity.
      */
     get createdObjects(): CreatedObjectsRequestBuilder;
+    /**
+     * Provides operations to manage the dataSecurityAndGovernance property of the microsoft.graph.user entity.
+     */
+    get dataSecurityAndGovernance(): DataSecurityAndGovernanceRequestBuilder;
     /**
      * Provides operations to manage the deviceManagementTroubleshootingEvents property of the microsoft.graph.user entity.
      */
@@ -461,10 +467,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
     get wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder;
     /**
-     * Delete a user object.   When deleted, user resources, including their mailbox and license assignments, are moved to a temporary container and if the user is restored within 30 days, these objects are restored to them. The user is also restored to any groups they were a member of. After 30 days and if not restored, the user object is permanently deleted and their assigned resources freed. To manage the deleted user object, see deletedItems.
+     * Deletes a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-user-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -488,7 +494,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-user-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: User, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<User | undefined>;
     /**
@@ -499,7 +505,7 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      */
      reminderViewWithStartDateTimeWithEndDateTime(endDateTime: string | undefined, startDateTime: string | undefined) : ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder;
     /**
-     * Delete a user object.   When deleted, user resources, including their mailbox and license assignments, are moved to a temporary container and if the user is restored within 30 days, these objects are restored to them. The user is also restored to any groups they were a member of. After 30 days and if not restored, the user object is permanently deleted and their assigned resources freed. To manage the deleted user object, see deletedItems.
+     * Deletes a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -617,6 +623,10 @@ export const UserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof User
     createdObjects: {
         requestsMetadata: CreatedObjectsRequestBuilderRequestsMetadata,
         navigationMetadata: CreatedObjectsRequestBuilderNavigationMetadata,
+    },
+    dataSecurityAndGovernance: {
+        requestsMetadata: DataSecurityAndGovernanceRequestBuilderRequestsMetadata,
+        navigationMetadata: DataSecurityAndGovernanceRequestBuilderNavigationMetadata,
     },
     deviceManagementTroubleshootingEvents: {
         requestsMetadata: DeviceManagementTroubleshootingEventsRequestBuilderRequestsMetadata,

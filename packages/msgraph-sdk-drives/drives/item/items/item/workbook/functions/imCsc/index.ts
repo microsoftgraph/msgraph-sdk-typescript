@@ -19,6 +19,7 @@ export function createImCscPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param ImCscPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoImCscPostRequestBody(imCscPostRequestBody: Partia
     }
 }
 export interface ImCscPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ImCscRequestBuilder extends BaseRequestBuilder<ImCscRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param ImCscPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImCscPostRequestBody(writer: SerializationWriter, imCscPostRequestBody: Partial<ImCscPostRequestBody> | undefined | null = {}) : void {
-    if (imCscPostRequestBody) {
-        writer.writeObjectValue("inumber", imCscPostRequestBody.inumber);
-        writer.writeAdditionalData(imCscPostRequestBody.additionalData);
-    }
+export function serializeImCscPostRequestBody(writer: SerializationWriter, imCscPostRequestBody: Partial<ImCscPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imCscPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("inumber", imCscPostRequestBody.inumber);
+    writer.writeAdditionalData(imCscPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

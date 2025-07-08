@@ -19,10 +19,6 @@ export function createDec2OctPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 export interface Dec2OctPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export interface Dec2OctRequestBuilder extends BaseRequestBuilder<Dec2OctRequest
 }
 /**
  * The deserialization information for the current model
+ * @param Dec2OctPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoDec2OctPostRequestBody(dec2OctPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param Dec2OctPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDec2OctPostRequestBody(writer: SerializationWriter, dec2OctPostRequestBody: Partial<Dec2OctPostRequestBody> | undefined | null = {}) : void {
-    if (dec2OctPostRequestBody) {
-        writer.writeObjectValue("number", dec2OctPostRequestBody.number);
-        writer.writeObjectValue("places", dec2OctPostRequestBody.places);
-        writer.writeAdditionalData(dec2OctPostRequestBody.additionalData);
-    }
+export function serializeDec2OctPostRequestBody(writer: SerializationWriter, dec2OctPostRequestBody: Partial<Dec2OctPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dec2OctPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", dec2OctPostRequestBody.number);
+    writer.writeObjectValue("places", dec2OctPostRequestBody.places);
+    writer.writeAdditionalData(dec2OctPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

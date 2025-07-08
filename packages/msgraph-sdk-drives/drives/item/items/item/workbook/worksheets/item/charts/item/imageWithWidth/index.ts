@@ -17,6 +17,7 @@ export function createImageWithWidthGetResponseFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param ImageWithWidthGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoImageWithWidthGetResponse(imageWithWidthGetRespon
     }
 }
 export interface ImageWithWidthGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -60,14 +57,15 @@ export interface ImageWithWidthRequestBuilder extends BaseRequestBuilder<ImageWi
 }
 /**
  * Serializes information the current object
+ * @param ImageWithWidthGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImageWithWidthGetResponse(writer: SerializationWriter, imageWithWidthGetResponse: Partial<ImageWithWidthGetResponse> | undefined | null = {}) : void {
-    if (imageWithWidthGetResponse) {
-        writer.writeStringValue("value", imageWithWidthGetResponse.value);
-        writer.writeAdditionalData(imageWithWidthGetResponse.additionalData);
-    }
+export function serializeImageWithWidthGetResponse(writer: SerializationWriter, imageWithWidthGetResponse: Partial<ImageWithWidthGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imageWithWidthGetResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("value", imageWithWidthGetResponse.value);
+    writer.writeAdditionalData(imageWithWidthGetResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

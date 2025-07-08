@@ -19,6 +19,7 @@ export function createGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithE
 }
 /**
  * The deserialization information for the current model
+ * @param GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDat
 }
 /**
  * Serializes information the current object
+ * @param GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse: Partial<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
-    if (getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
-    }
+export function serializeGetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse: Partial<GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ArchivedPrintJob>("value", getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeGetResponse.value, serializeArchivedPrintJob);
 }
 /**
  * Uri template for the request builder.

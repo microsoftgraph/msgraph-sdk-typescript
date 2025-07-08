@@ -19,6 +19,7 @@ export function createRoundUpPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param RoundUpPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoRoundUpPostRequestBody(roundUpPostRequestBody: Pa
     }
 }
 export interface RoundUpPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface RoundUpRequestBuilder extends BaseRequestBuilder<RoundUpRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RoundUpPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRoundUpPostRequestBody(writer: SerializationWriter, roundUpPostRequestBody: Partial<RoundUpPostRequestBody> | undefined | null = {}) : void {
-    if (roundUpPostRequestBody) {
-        writer.writeObjectValue("number", roundUpPostRequestBody.number);
-        writer.writeObjectValue("numDigits", roundUpPostRequestBody.numDigits);
-        writer.writeAdditionalData(roundUpPostRequestBody.additionalData);
-    }
+export function serializeRoundUpPostRequestBody(writer: SerializationWriter, roundUpPostRequestBody: Partial<RoundUpPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!roundUpPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", roundUpPostRequestBody.number);
+    writer.writeObjectValue("numDigits", roundUpPostRequestBody.numDigits);
+    writer.writeAdditionalData(roundUpPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

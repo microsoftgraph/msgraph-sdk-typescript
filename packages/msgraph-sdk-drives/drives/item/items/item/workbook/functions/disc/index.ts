@@ -19,6 +19,7 @@ export function createDiscPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param DiscPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,10 +34,6 @@ export function deserializeIntoDiscPostRequestBody(discPostRequestBody: Partial<
     }
 }
 export interface DiscPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -84,18 +81,19 @@ export interface DiscRequestBuilder extends BaseRequestBuilder<DiscRequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param DiscPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDiscPostRequestBody(writer: SerializationWriter, discPostRequestBody: Partial<DiscPostRequestBody> | undefined | null = {}) : void {
-    if (discPostRequestBody) {
-        writer.writeObjectValue("basis", discPostRequestBody.basis);
-        writer.writeObjectValue("maturity", discPostRequestBody.maturity);
-        writer.writeObjectValue("pr", discPostRequestBody.pr);
-        writer.writeObjectValue("redemption", discPostRequestBody.redemption);
-        writer.writeObjectValue("settlement", discPostRequestBody.settlement);
-        writer.writeAdditionalData(discPostRequestBody.additionalData);
-    }
+export function serializeDiscPostRequestBody(writer: SerializationWriter, discPostRequestBody: Partial<DiscPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!discPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", discPostRequestBody.basis);
+    writer.writeObjectValue("maturity", discPostRequestBody.maturity);
+    writer.writeObjectValue("pr", discPostRequestBody.pr);
+    writer.writeObjectValue("redemption", discPostRequestBody.redemption);
+    writer.writeObjectValue("settlement", discPostRequestBody.settlement);
+    writer.writeAdditionalData(discPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

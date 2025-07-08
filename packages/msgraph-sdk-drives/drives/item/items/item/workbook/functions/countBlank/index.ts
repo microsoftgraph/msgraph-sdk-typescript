@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface CountBlankPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export function createCountBlankPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param CountBlankPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoCountBlankPostRequestBody(countBlankPostRequestBo
 }
 /**
  * Serializes information the current object
+ * @param CountBlankPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCountBlankPostRequestBody(writer: SerializationWriter, countBlankPostRequestBody: Partial<CountBlankPostRequestBody> | undefined | null = {}) : void {
-    if (countBlankPostRequestBody) {
-        writer.writeObjectValue("range", countBlankPostRequestBody.range);
-        writer.writeAdditionalData(countBlankPostRequestBody.additionalData);
-    }
+export function serializeCountBlankPostRequestBody(writer: SerializationWriter, countBlankPostRequestBody: Partial<CountBlankPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!countBlankPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("range", countBlankPostRequestBody.range);
+    writer.writeAdditionalData(countBlankPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

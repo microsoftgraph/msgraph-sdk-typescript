@@ -19,6 +19,7 @@ export function createRank_AvgPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param Rank_AvgPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoRank_AvgPostRequestBody(rank_AvgPostRequestBody: 
     }
 }
 export interface Rank_AvgPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface Rank_AvgRequestBuilder extends BaseRequestBuilder<Rank_AvgReque
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Rank_AvgPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRank_AvgPostRequestBody(writer: SerializationWriter, rank_AvgPostRequestBody: Partial<Rank_AvgPostRequestBody> | undefined | null = {}) : void {
-    if (rank_AvgPostRequestBody) {
-        writer.writeObjectValue("number", rank_AvgPostRequestBody.number);
-        writer.writeObjectValue("order", rank_AvgPostRequestBody.order);
-        writer.writeObjectValue("ref", rank_AvgPostRequestBody.ref);
-        writer.writeAdditionalData(rank_AvgPostRequestBody.additionalData);
-    }
+export function serializeRank_AvgPostRequestBody(writer: SerializationWriter, rank_AvgPostRequestBody: Partial<Rank_AvgPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!rank_AvgPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", rank_AvgPostRequestBody.number);
+    writer.writeObjectValue("order", rank_AvgPostRequestBody.order);
+    writer.writeObjectValue("ref", rank_AvgPostRequestBody.ref);
+    writer.writeAdditionalData(rank_AvgPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

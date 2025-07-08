@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface VerifyRequestBuilder extends BaseRequestBuilder<VerifyRequestBuilder> {
     /**
-     * Validates the ownership of the domain.
+     * Validate the ownership of a domain. This operation only applies to an unverified domain. For an unverified domain, the isVerified property is false.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Domain>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -21,7 +21,7 @@ export interface VerifyRequestBuilder extends BaseRequestBuilder<VerifyRequestBu
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Domain | undefined>;
     /**
-     * Validates the ownership of the domain.
+     * Validate the ownership of a domain. This operation only applies to an unverified domain. For an unverified domain, the isVerified property is false.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

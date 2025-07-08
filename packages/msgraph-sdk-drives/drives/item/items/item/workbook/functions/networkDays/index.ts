@@ -19,6 +19,7 @@ export function createNetworkDaysPostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param NetworkDaysPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoNetworkDaysPostRequestBody(networkDaysPostRequest
     }
 }
 export interface NetworkDaysPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface NetworkDaysRequestBuilder extends BaseRequestBuilder<NetworkDay
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param NetworkDaysPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeNetworkDaysPostRequestBody(writer: SerializationWriter, networkDaysPostRequestBody: Partial<NetworkDaysPostRequestBody> | undefined | null = {}) : void {
-    if (networkDaysPostRequestBody) {
-        writer.writeObjectValue("endDate", networkDaysPostRequestBody.endDate);
-        writer.writeObjectValue("holidays", networkDaysPostRequestBody.holidays);
-        writer.writeObjectValue("startDate", networkDaysPostRequestBody.startDate);
-        writer.writeAdditionalData(networkDaysPostRequestBody.additionalData);
-    }
+export function serializeNetworkDaysPostRequestBody(writer: SerializationWriter, networkDaysPostRequestBody: Partial<NetworkDaysPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!networkDaysPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("endDate", networkDaysPostRequestBody.endDate);
+    writer.writeObjectValue("holidays", networkDaysPostRequestBody.holidays);
+    writer.writeObjectValue("startDate", networkDaysPostRequestBody.startDate);
+    writer.writeAdditionalData(networkDaysPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

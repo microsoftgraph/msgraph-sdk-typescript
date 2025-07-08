@@ -19,6 +19,7 @@ export function createGcdPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param GcdPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoGcdPostRequestBody(gcdPostRequestBody: Partial<Gc
     }
 }
 export interface GcdPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface GcdRequestBuilder extends BaseRequestBuilder<GcdRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param GcdPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGcdPostRequestBody(writer: SerializationWriter, gcdPostRequestBody: Partial<GcdPostRequestBody> | undefined | null = {}) : void {
-    if (gcdPostRequestBody) {
-        writer.writeObjectValue("values", gcdPostRequestBody.values);
-        writer.writeAdditionalData(gcdPostRequestBody.additionalData);
-    }
+export function serializeGcdPostRequestBody(writer: SerializationWriter, gcdPostRequestBody: Partial<GcdPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!gcdPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", gcdPostRequestBody.values);
+    writer.writeAdditionalData(gcdPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

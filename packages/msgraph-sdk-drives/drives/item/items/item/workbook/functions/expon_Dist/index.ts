@@ -19,6 +19,7 @@ export function createExpon_DistPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param Expon_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoExpon_DistPostRequestBody(expon_DistPostRequestBo
     }
 }
 export interface Expon_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface Expon_DistRequestBuilder extends BaseRequestBuilder<Expon_DistR
 }
 /**
  * Serializes information the current object
+ * @param Expon_DistPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeExpon_DistPostRequestBody(writer: SerializationWriter, expon_DistPostRequestBody: Partial<Expon_DistPostRequestBody> | undefined | null = {}) : void {
-    if (expon_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", expon_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("lambda", expon_DistPostRequestBody.lambda);
-        writer.writeObjectValue("x", expon_DistPostRequestBody.x);
-        writer.writeAdditionalData(expon_DistPostRequestBody.additionalData);
-    }
+export function serializeExpon_DistPostRequestBody(writer: SerializationWriter, expon_DistPostRequestBody: Partial<Expon_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!expon_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", expon_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("lambda", expon_DistPostRequestBody.lambda);
+    writer.writeObjectValue("x", expon_DistPostRequestBody.x);
+    writer.writeAdditionalData(expon_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

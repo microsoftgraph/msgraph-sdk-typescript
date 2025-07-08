@@ -19,6 +19,7 @@ export function createGetAttackSimulationRepeatOffendersGetResponseFromDiscrimin
 }
 /**
  * The deserialization information for the current model
+ * @param GetAttackSimulationRepeatOffendersGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface GetAttackSimulationRepeatOffendersRequestBuilderGetQueryParamet
 }
 /**
  * Serializes information the current object
+ * @param GetAttackSimulationRepeatOffendersGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAttackSimulationRepeatOffendersGetResponse(writer: SerializationWriter, getAttackSimulationRepeatOffendersGetResponse: Partial<GetAttackSimulationRepeatOffendersGetResponse> | undefined | null = {}) : void {
-    if (getAttackSimulationRepeatOffendersGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationRepeatOffendersGetResponse)
-        writer.writeCollectionOfObjectValues<AttackSimulationRepeatOffender>("value", getAttackSimulationRepeatOffendersGetResponse.value, serializeAttackSimulationRepeatOffender);
-    }
+export function serializeGetAttackSimulationRepeatOffendersGetResponse(writer: SerializationWriter, getAttackSimulationRepeatOffendersGetResponse: Partial<GetAttackSimulationRepeatOffendersGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getAttackSimulationRepeatOffendersGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationRepeatOffendersGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AttackSimulationRepeatOffender>("value", getAttackSimulationRepeatOffendersGetResponse.value, serializeAttackSimulationRepeatOffender);
 }
 /**
  * Uri template for the request builder.

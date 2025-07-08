@@ -19,10 +19,6 @@ export function createDeltaPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 export interface DeltaPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuil
 }
 /**
  * The deserialization information for the current model
+ * @param DeltaPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoDeltaPostRequestBody(deltaPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param DeltaPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeltaPostRequestBody(writer: SerializationWriter, deltaPostRequestBody: Partial<DeltaPostRequestBody> | undefined | null = {}) : void {
-    if (deltaPostRequestBody) {
-        writer.writeObjectValue("number1", deltaPostRequestBody.number1);
-        writer.writeObjectValue("number2", deltaPostRequestBody.number2);
-        writer.writeAdditionalData(deltaPostRequestBody.additionalData);
-    }
+export function serializeDeltaPostRequestBody(writer: SerializationWriter, deltaPostRequestBody: Partial<DeltaPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!deltaPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number1", deltaPostRequestBody.number1);
+    writer.writeObjectValue("number2", deltaPostRequestBody.number2);
+    writer.writeAdditionalData(deltaPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

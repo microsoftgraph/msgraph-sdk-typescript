@@ -28,6 +28,7 @@ export function createGrantPostResponseFromDiscriminatorValue(parseNode: ParseNo
 }
 /**
  * The deserialization information for the current model
+ * @param GrantPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -40,6 +41,7 @@ export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param GrantPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -50,10 +52,6 @@ export function deserializeIntoGrantPostResponse(grantPostResponse: Partial<Gran
     }
 }
 export interface GrantPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -96,26 +94,28 @@ export interface GrantRequestBuilder extends BaseRequestBuilder<GrantRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param GrantPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGrantPostRequestBody(writer: SerializationWriter, grantPostRequestBody: Partial<GrantPostRequestBody> | undefined | null = {}) : void {
-    if (grantPostRequestBody) {
-        writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", grantPostRequestBody.recipients, serializeDriveRecipient);
-        writer.writeCollectionOfPrimitiveValues<string>("roles", grantPostRequestBody.roles);
-        writer.writeAdditionalData(grantPostRequestBody.additionalData);
-    }
+export function serializeGrantPostRequestBody(writer: SerializationWriter, grantPostRequestBody: Partial<GrantPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!grantPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", grantPostRequestBody.recipients, serializeDriveRecipient);
+    writer.writeCollectionOfPrimitiveValues<string>("roles", grantPostRequestBody.roles);
+    writer.writeAdditionalData(grantPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param GrantPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGrantPostResponse(writer: SerializationWriter, grantPostResponse: Partial<GrantPostResponse> | undefined | null = {}) : void {
-    if (grantPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, grantPostResponse)
-        writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, serializePermission);
-    }
+export function serializeGrantPostResponse(writer: SerializationWriter, grantPostResponse: Partial<GrantPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!grantPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, grantPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Permission>("value", grantPostResponse.value, serializePermission);
 }
 /**
  * Uri template for the request builder.

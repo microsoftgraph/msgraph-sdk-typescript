@@ -19,6 +19,7 @@ export function createRank_EqPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param Rank_EqPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoRank_EqPostRequestBody(rank_EqPostRequestBody: Pa
     }
 }
 export interface Rank_EqPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface Rank_EqRequestBuilder extends BaseRequestBuilder<Rank_EqRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Rank_EqPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRank_EqPostRequestBody(writer: SerializationWriter, rank_EqPostRequestBody: Partial<Rank_EqPostRequestBody> | undefined | null = {}) : void {
-    if (rank_EqPostRequestBody) {
-        writer.writeObjectValue("number", rank_EqPostRequestBody.number);
-        writer.writeObjectValue("order", rank_EqPostRequestBody.order);
-        writer.writeObjectValue("ref", rank_EqPostRequestBody.ref);
-        writer.writeAdditionalData(rank_EqPostRequestBody.additionalData);
-    }
+export function serializeRank_EqPostRequestBody(writer: SerializationWriter, rank_EqPostRequestBody: Partial<Rank_EqPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!rank_EqPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", rank_EqPostRequestBody.number);
+    writer.writeObjectValue("order", rank_EqPostRequestBody.order);
+    writer.writeObjectValue("ref", rank_EqPostRequestBody.ref);
+    writer.writeAdditionalData(rank_EqPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createLogNorm_DistPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param LogNorm_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,10 +33,6 @@ export function deserializeIntoLogNorm_DistPostRequestBody(logNorm_DistPostReque
     }
 }
 export interface LogNorm_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -79,17 +76,18 @@ export interface LogNorm_DistRequestBuilder extends BaseRequestBuilder<LogNorm_D
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LogNorm_DistPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLogNorm_DistPostRequestBody(writer: SerializationWriter, logNorm_DistPostRequestBody: Partial<LogNorm_DistPostRequestBody> | undefined | null = {}) : void {
-    if (logNorm_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", logNorm_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("mean", logNorm_DistPostRequestBody.mean);
-        writer.writeObjectValue("standardDev", logNorm_DistPostRequestBody.standardDev);
-        writer.writeObjectValue("x", logNorm_DistPostRequestBody.x);
-        writer.writeAdditionalData(logNorm_DistPostRequestBody.additionalData);
-    }
+export function serializeLogNorm_DistPostRequestBody(writer: SerializationWriter, logNorm_DistPostRequestBody: Partial<LogNorm_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!logNorm_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", logNorm_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("mean", logNorm_DistPostRequestBody.mean);
+    writer.writeObjectValue("standardDev", logNorm_DistPostRequestBody.standardDev);
+    writer.writeObjectValue("x", logNorm_DistPostRequestBody.x);
+    writer.writeAdditionalData(logNorm_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

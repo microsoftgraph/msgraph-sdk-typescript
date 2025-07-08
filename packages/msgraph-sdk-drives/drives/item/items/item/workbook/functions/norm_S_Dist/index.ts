@@ -19,6 +19,7 @@ export function createNorm_S_DistPostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param Norm_S_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoNorm_S_DistPostRequestBody(norm_S_DistPostRequest
     }
 }
 export interface Norm_S_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface Norm_S_DistRequestBuilder extends BaseRequestBuilder<Norm_S_Dis
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Norm_S_DistPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeNorm_S_DistPostRequestBody(writer: SerializationWriter, norm_S_DistPostRequestBody: Partial<Norm_S_DistPostRequestBody> | undefined | null = {}) : void {
-    if (norm_S_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", norm_S_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("z", norm_S_DistPostRequestBody.z);
-        writer.writeAdditionalData(norm_S_DistPostRequestBody.additionalData);
-    }
+export function serializeNorm_S_DistPostRequestBody(writer: SerializationWriter, norm_S_DistPostRequestBody: Partial<Norm_S_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!norm_S_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", norm_S_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("z", norm_S_DistPostRequestBody.z);
+    writer.writeAdditionalData(norm_S_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

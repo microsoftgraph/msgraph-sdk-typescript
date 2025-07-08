@@ -28,6 +28,7 @@ export function createGetMailTipsPostResponseFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param GetMailTipsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -40,6 +41,7 @@ export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequest
 }
 /**
  * The deserialization information for the current model
+ * @param GetMailTipsPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -50,10 +52,6 @@ export function deserializeIntoGetMailTipsPostResponse(getMailTipsPostResponse: 
     }
 }
 export interface GetMailTipsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -96,26 +94,28 @@ export interface GetMailTipsRequestBuilder extends BaseRequestBuilder<GetMailTip
 }
 /**
  * Serializes information the current object
+ * @param GetMailTipsPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter, getMailTipsPostRequestBody: Partial<GetMailTipsPostRequestBody> | undefined | null = {}) : void {
-    if (getMailTipsPostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("EmailAddresses", getMailTipsPostRequestBody.emailAddresses);
-        writer.writeEnumValue<MailTipsType[]>("MailTipsOptions", getMailTipsPostRequestBody.mailTipsOptions);
-        writer.writeAdditionalData(getMailTipsPostRequestBody.additionalData);
-    }
+export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter, getMailTipsPostRequestBody: Partial<GetMailTipsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getMailTipsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("EmailAddresses", getMailTipsPostRequestBody.emailAddresses);
+    writer.writeEnumValue<MailTipsType[]>("MailTipsOptions", getMailTipsPostRequestBody.mailTipsOptions);
+    writer.writeAdditionalData(getMailTipsPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param GetMailTipsPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetMailTipsPostResponse(writer: SerializationWriter, getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined | null = {}) : void {
-    if (getMailTipsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getMailTipsPostResponse)
-        writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
-    }
+export function serializeGetMailTipsPostResponse(writer: SerializationWriter, getMailTipsPostResponse: Partial<GetMailTipsPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getMailTipsPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getMailTipsPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<MailTips>("value", getMailTipsPostResponse.value, serializeMailTips);
 }
 /**
  * Uri template for the request builder.

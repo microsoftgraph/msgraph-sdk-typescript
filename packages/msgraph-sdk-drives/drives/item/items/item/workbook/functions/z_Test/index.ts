@@ -19,6 +19,7 @@ export function createZ_TestPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param Z_TestPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,22 +33,19 @@ export function deserializeIntoZ_TestPostRequestBody(z_TestPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
+ * @param Z_TestPostRequestBody The instance to serialize from.
  */
 // @ts-ignore
-export function serializeZ_TestPostRequestBody(writer: SerializationWriter, z_TestPostRequestBody: Partial<Z_TestPostRequestBody> | undefined | null = {}) : void {
-    if (z_TestPostRequestBody) {
-        writer.writeObjectValue("array", z_TestPostRequestBody.array);
-        writer.writeObjectValue("sigma", z_TestPostRequestBody.sigma);
-        writer.writeObjectValue("x", z_TestPostRequestBody.x);
-        writer.writeAdditionalData(z_TestPostRequestBody.additionalData);
-    }
+export function serializeZ_TestPostRequestBody(writer: SerializationWriter, z_TestPostRequestBody: Partial<Z_TestPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!z_TestPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("array", z_TestPostRequestBody.array);
+    writer.writeObjectValue("sigma", z_TestPostRequestBody.sigma);
+    writer.writeObjectValue("x", z_TestPostRequestBody.x);
+    writer.writeAdditionalData(z_TestPostRequestBody.additionalData);
 }
 export interface Z_TestPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The array property
      */

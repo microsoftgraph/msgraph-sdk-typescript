@@ -19,6 +19,7 @@ export function createIsLogicalPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param IsLogicalPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoIsLogicalPostRequestBody(isLogicalPostRequestBody
     }
 }
 export interface IsLogicalPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface IsLogicalRequestBuilder extends BaseRequestBuilder<IsLogicalReq
 }
 /**
  * Serializes information the current object
+ * @param IsLogicalPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIsLogicalPostRequestBody(writer: SerializationWriter, isLogicalPostRequestBody: Partial<IsLogicalPostRequestBody> | undefined | null = {}) : void {
-    if (isLogicalPostRequestBody) {
-        writer.writeObjectValue("value", isLogicalPostRequestBody.value);
-        writer.writeAdditionalData(isLogicalPostRequestBody.additionalData);
-    }
+export function serializeIsLogicalPostRequestBody(writer: SerializationWriter, isLogicalPostRequestBody: Partial<IsLogicalPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!isLogicalPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("value", isLogicalPostRequestBody.value);
+    writer.writeAdditionalData(isLogicalPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

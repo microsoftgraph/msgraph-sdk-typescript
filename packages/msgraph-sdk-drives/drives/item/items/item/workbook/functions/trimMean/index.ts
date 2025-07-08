@@ -19,6 +19,7 @@ export function createTrimMeanPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param TrimMeanPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoTrimMeanPostRequestBody(trimMeanPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TrimMeanPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTrimMeanPostRequestBody(writer: SerializationWriter, trimMeanPostRequestBody: Partial<TrimMeanPostRequestBody> | undefined | null = {}) : void {
-    if (trimMeanPostRequestBody) {
-        writer.writeObjectValue("array", trimMeanPostRequestBody.array);
-        writer.writeObjectValue("percent", trimMeanPostRequestBody.percent);
-        writer.writeAdditionalData(trimMeanPostRequestBody.additionalData);
-    }
+export function serializeTrimMeanPostRequestBody(writer: SerializationWriter, trimMeanPostRequestBody: Partial<TrimMeanPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!trimMeanPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("array", trimMeanPostRequestBody.array);
+    writer.writeObjectValue("percent", trimMeanPostRequestBody.percent);
+    writer.writeAdditionalData(trimMeanPostRequestBody.additionalData);
 }
 export interface TrimMeanPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The array property
      */

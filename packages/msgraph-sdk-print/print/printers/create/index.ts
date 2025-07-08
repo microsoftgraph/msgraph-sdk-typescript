@@ -19,10 +19,6 @@ export function createCreatePostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 export interface CreatePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -77,6 +73,7 @@ export interface CreateRequestBuilder extends BaseRequestBuilder<CreateRequestBu
 }
 /**
  * The deserialization information for the current model
+ * @param CreatePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -94,20 +91,21 @@ export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param CreatePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: Partial<CreatePostRequestBody> | undefined | null = {}) : void {
-    if (createPostRequestBody) {
-        writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);
-        writer.writeStringValue("connectorId", createPostRequestBody.connectorId);
-        writer.writeStringValue("displayName", createPostRequestBody.displayName);
-        writer.writeBooleanValue("hasPhysicalDevice", createPostRequestBody.hasPhysicalDevice);
-        writer.writeStringValue("manufacturer", createPostRequestBody.manufacturer);
-        writer.writeStringValue("model", createPostRequestBody.model);
-        writer.writeStringValue("physicalDeviceId", createPostRequestBody.physicalDeviceId);
-        writer.writeAdditionalData(createPostRequestBody.additionalData);
-    }
+export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: Partial<CreatePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!createPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);
+    writer.writeStringValue("connectorId", createPostRequestBody.connectorId);
+    writer.writeStringValue("displayName", createPostRequestBody.displayName);
+    writer.writeBooleanValue("hasPhysicalDevice", createPostRequestBody.hasPhysicalDevice);
+    writer.writeStringValue("manufacturer", createPostRequestBody.manufacturer);
+    writer.writeStringValue("model", createPostRequestBody.model);
+    writer.writeStringValue("physicalDeviceId", createPostRequestBody.physicalDeviceId);
+    writer.writeAdditionalData(createPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -17,6 +17,7 @@ export function createForceDeletePostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param ForceDeletePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoForceDeletePostRequestBody(forceDeletePostRequest
     }
 }
 export interface ForceDeletePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -62,14 +59,15 @@ export interface ForceDeleteRequestBuilder extends BaseRequestBuilder<ForceDelet
 }
 /**
  * Serializes information the current object
+ * @param ForceDeletePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeForceDeletePostRequestBody(writer: SerializationWriter, forceDeletePostRequestBody: Partial<ForceDeletePostRequestBody> | undefined | null = {}) : void {
-    if (forceDeletePostRequestBody) {
-        writer.writeBooleanValue("disableUserAccounts", forceDeletePostRequestBody.disableUserAccounts);
-        writer.writeAdditionalData(forceDeletePostRequestBody.additionalData);
-    }
+export function serializeForceDeletePostRequestBody(writer: SerializationWriter, forceDeletePostRequestBody: Partial<ForceDeletePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!forceDeletePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("disableUserAccounts", forceDeletePostRequestBody.disableUserAccounts);
+    writer.writeAdditionalData(forceDeletePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

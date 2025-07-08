@@ -21,6 +21,7 @@ export function createTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTi
 }
 /**
  * The deserialization information for the current model
+ * @param TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -76,14 +77,15 @@ export interface MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWit
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse: Partial<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
-    if (topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<TopWorkflowsInsightsSummary>("value", topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse.value, serializeTopWorkflowsInsightsSummary);
-    }
+export function serializeTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse: Partial<TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TopWorkflowsInsightsSummary>("value", topWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse.value, serializeTopWorkflowsInsightsSummary);
 }
 export interface TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

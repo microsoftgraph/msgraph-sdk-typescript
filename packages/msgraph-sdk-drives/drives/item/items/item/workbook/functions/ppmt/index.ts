@@ -19,6 +19,7 @@ export function createPpmtPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param PpmtPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -34,10 +35,6 @@ export function deserializeIntoPpmtPostRequestBody(ppmtPostRequestBody: Partial<
     }
 }
 export interface PpmtPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -89,19 +86,20 @@ export interface PpmtRequestBuilder extends BaseRequestBuilder<PpmtRequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PpmtPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePpmtPostRequestBody(writer: SerializationWriter, ppmtPostRequestBody: Partial<PpmtPostRequestBody> | undefined | null = {}) : void {
-    if (ppmtPostRequestBody) {
-        writer.writeObjectValue("fv", ppmtPostRequestBody.fv);
-        writer.writeObjectValue("nper", ppmtPostRequestBody.nper);
-        writer.writeObjectValue("per", ppmtPostRequestBody.per);
-        writer.writeObjectValue("pv", ppmtPostRequestBody.pv);
-        writer.writeObjectValue("rate", ppmtPostRequestBody.rate);
-        writer.writeObjectValue("type", ppmtPostRequestBody.type);
-        writer.writeAdditionalData(ppmtPostRequestBody.additionalData);
-    }
+export function serializePpmtPostRequestBody(writer: SerializationWriter, ppmtPostRequestBody: Partial<PpmtPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!ppmtPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("fv", ppmtPostRequestBody.fv);
+    writer.writeObjectValue("nper", ppmtPostRequestBody.nper);
+    writer.writeObjectValue("per", ppmtPostRequestBody.per);
+    writer.writeObjectValue("pv", ppmtPostRequestBody.pv);
+    writer.writeObjectValue("rate", ppmtPostRequestBody.rate);
+    writer.writeObjectValue("type", ppmtPostRequestBody.type);
+    writer.writeAdditionalData(ppmtPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

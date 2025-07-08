@@ -17,6 +17,7 @@ export function createSetExternalEventInformationPostRequestBodyFromDiscriminato
 }
 /**
  * The deserialization information for the current model
+ * @param SetExternalEventInformationPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -28,20 +29,17 @@ export function deserializeIntoSetExternalEventInformationPostRequestBody(setExt
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SetExternalEventInformationPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSetExternalEventInformationPostRequestBody(writer: SerializationWriter, setExternalEventInformationPostRequestBody: Partial<SetExternalEventInformationPostRequestBody> | undefined | null = {}) : void {
-    if (setExternalEventInformationPostRequestBody) {
-        writer.writeStringValue("externalEventId", setExternalEventInformationPostRequestBody.externalEventId);
-        writer.writeAdditionalData(setExternalEventInformationPostRequestBody.additionalData);
-    }
+export function serializeSetExternalEventInformationPostRequestBody(writer: SerializationWriter, setExternalEventInformationPostRequestBody: Partial<SetExternalEventInformationPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!setExternalEventInformationPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("externalEventId", setExternalEventInformationPostRequestBody.externalEventId);
+    writer.writeAdditionalData(setExternalEventInformationPostRequestBody.additionalData);
 }
 export interface SetExternalEventInformationPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

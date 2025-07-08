@@ -19,6 +19,7 @@ export function createGammaLnPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param GammaLnPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoGammaLnPostRequestBody(gammaLnPostRequestBody: Pa
     }
 }
 export interface GammaLnPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface GammaLnRequestBuilder extends BaseRequestBuilder<GammaLnRequest
 }
 /**
  * Serializes information the current object
+ * @param GammaLnPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGammaLnPostRequestBody(writer: SerializationWriter, gammaLnPostRequestBody: Partial<GammaLnPostRequestBody> | undefined | null = {}) : void {
-    if (gammaLnPostRequestBody) {
-        writer.writeObjectValue("x", gammaLnPostRequestBody.x);
-        writer.writeAdditionalData(gammaLnPostRequestBody.additionalData);
-    }
+export function serializeGammaLnPostRequestBody(writer: SerializationWriter, gammaLnPostRequestBody: Partial<GammaLnPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!gammaLnPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("x", gammaLnPostRequestBody.x);
+    writer.writeAdditionalData(gammaLnPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -26,6 +26,7 @@ export function createUnfavoritePostResponseFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param UnfavoritePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -37,6 +38,7 @@ export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBo
 }
 /**
  * The deserialization information for the current model
+ * @param UnfavoritePostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -48,31 +50,29 @@ export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Pa
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UnfavoritePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, unfavoritePostRequestBody: Partial<UnfavoritePostRequestBody> | undefined | null = {}) : void {
-    if (unfavoritePostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", unfavoritePostRequestBody.messageIds);
-        writer.writeAdditionalData(unfavoritePostRequestBody.additionalData);
-    }
+export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, unfavoritePostRequestBody: Partial<UnfavoritePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!unfavoritePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", unfavoritePostRequestBody.messageIds);
+    writer.writeAdditionalData(unfavoritePostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UnfavoritePostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined | null = {}) : void {
-    if (unfavoritePostResponse) {
-        writer.writeBooleanValue("value", unfavoritePostResponse.value);
-        writer.writeAdditionalData(unfavoritePostResponse.additionalData);
-    }
+export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!unfavoritePostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", unfavoritePostResponse.value);
+    writer.writeAdditionalData(unfavoritePostResponse.additionalData);
 }
 export interface UnfavoritePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -83,10 +83,6 @@ export interface UnfavoritePostRequestBody extends AdditionalDataHolder, BackedM
     messageIds?: string[] | null;
 }
 export interface UnfavoritePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

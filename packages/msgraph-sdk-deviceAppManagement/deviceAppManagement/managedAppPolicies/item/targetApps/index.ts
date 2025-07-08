@@ -19,6 +19,7 @@ export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param TargetAppsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBo
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TargetAppsPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined | null = {}) : void {
-    if (targetAppsPostRequestBody) {
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);
-        writer.writeAdditionalData(targetAppsPostRequestBody.additionalData);
-    }
+export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!targetAppsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);
+    writer.writeAdditionalData(targetAppsPostRequestBody.additionalData);
 }
 export interface TargetAppsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The apps property
      */
@@ -62,7 +60,7 @@ export interface TargetAppsRequestBuilder extends BaseRequestBuilder<TargetAppsR
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappprotection-targetapps?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedapppolicy-targetapps?view=graph-rest-1.0|Find more info here}
      */
      post(body: TargetAppsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**

@@ -19,6 +19,7 @@ export function createPoisson_DistPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param Poisson_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoPoisson_DistPostRequestBody(poisson_DistPostReque
     }
 }
 export interface Poisson_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface Poisson_DistRequestBuilder extends BaseRequestBuilder<Poisson_D
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Poisson_DistPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePoisson_DistPostRequestBody(writer: SerializationWriter, poisson_DistPostRequestBody: Partial<Poisson_DistPostRequestBody> | undefined | null = {}) : void {
-    if (poisson_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", poisson_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("mean", poisson_DistPostRequestBody.mean);
-        writer.writeObjectValue("x", poisson_DistPostRequestBody.x);
-        writer.writeAdditionalData(poisson_DistPostRequestBody.additionalData);
-    }
+export function serializePoisson_DistPostRequestBody(writer: SerializationWriter, poisson_DistPostRequestBody: Partial<Poisson_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!poisson_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", poisson_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("mean", poisson_DistPostRequestBody.mean);
+    writer.writeObjectValue("x", poisson_DistPostRequestBody.x);
+    writer.writeAdditionalData(poisson_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

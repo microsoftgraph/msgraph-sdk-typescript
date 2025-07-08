@@ -19,6 +19,7 @@ export function createLeftbPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param LeftbPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoLeftbPostRequestBody(leftbPostRequestBody: Partia
     }
 }
 export interface LeftbPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface LeftbRequestBuilder extends BaseRequestBuilder<LeftbRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LeftbPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLeftbPostRequestBody(writer: SerializationWriter, leftbPostRequestBody: Partial<LeftbPostRequestBody> | undefined | null = {}) : void {
-    if (leftbPostRequestBody) {
-        writer.writeObjectValue("numBytes", leftbPostRequestBody.numBytes);
-        writer.writeObjectValue("text", leftbPostRequestBody.text);
-        writer.writeAdditionalData(leftbPostRequestBody.additionalData);
-    }
+export function serializeLeftbPostRequestBody(writer: SerializationWriter, leftbPostRequestBody: Partial<LeftbPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!leftbPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("numBytes", leftbPostRequestBody.numBytes);
+    writer.writeObjectValue("text", leftbPostRequestBody.text);
+    writer.writeAdditionalData(leftbPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

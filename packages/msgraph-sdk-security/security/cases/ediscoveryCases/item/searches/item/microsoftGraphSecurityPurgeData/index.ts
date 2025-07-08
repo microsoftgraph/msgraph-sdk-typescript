@@ -19,6 +19,7 @@ export function createPurgeDataPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param PurgeDataPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -51,10 +52,6 @@ export interface MicrosoftGraphSecurityPurgeDataRequestBuilder extends BaseReque
 }
 export interface PurgeDataPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -69,15 +66,16 @@ export interface PurgeDataPostRequestBody extends AdditionalDataHolder, BackedMo
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PurgeDataPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePurgeDataPostRequestBody(writer: SerializationWriter, purgeDataPostRequestBody: Partial<PurgeDataPostRequestBody> | undefined | null = {}) : void {
-    if (purgeDataPostRequestBody) {
-        writer.writeEnumValue<PurgeAreas[]>("purgeAreas", purgeDataPostRequestBody.purgeAreas);
-        writer.writeEnumValue<PurgeType>("purgeType", purgeDataPostRequestBody.purgeType);
-        writer.writeAdditionalData(purgeDataPostRequestBody.additionalData);
-    }
+export function serializePurgeDataPostRequestBody(writer: SerializationWriter, purgeDataPostRequestBody: Partial<PurgeDataPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!purgeDataPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<PurgeAreas[]>("purgeAreas", purgeDataPostRequestBody.purgeAreas);
+    writer.writeEnumValue<PurgeType>("purgeType", purgeDataPostRequestBody.purgeType);
+    writer.writeAdditionalData(purgeDataPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

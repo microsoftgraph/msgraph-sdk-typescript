@@ -19,6 +19,7 @@ export function createSharedWithMeGetResponseFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param SharedWithMeGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,14 +31,15 @@ export function deserializeIntoSharedWithMeGetResponse(sharedWithMeGetResponse: 
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SharedWithMeGetResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSharedWithMeGetResponse(writer: SerializationWriter, sharedWithMeGetResponse: Partial<SharedWithMeGetResponse> | undefined | null = {}) : void {
-    if (sharedWithMeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, sharedWithMeGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", sharedWithMeGetResponse.value, serializeDriveItem);
-    }
+export function serializeSharedWithMeGetResponse(writer: SerializationWriter, sharedWithMeGetResponse: Partial<SharedWithMeGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sharedWithMeGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, sharedWithMeGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<DriveItem>("value", sharedWithMeGetResponse.value, serializeDriveItem);
 }
 export interface SharedWithMeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

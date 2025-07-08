@@ -17,6 +17,7 @@ export function createGetHistoricalReportPostRequestBodyFromDiscriminatorValue(p
 }
 /**
  * The deserialization information for the current model
+ * @param GetHistoricalReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -34,10 +35,6 @@ export function deserializeIntoGetHistoricalReportPostRequestBody(getHistoricalR
     }
 }
 export interface GetHistoricalReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -98,21 +95,22 @@ export interface GetHistoricalReportRequestBuilder extends BaseRequestBuilder<Ge
 }
 /**
  * Serializes information the current object
+ * @param GetHistoricalReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetHistoricalReportPostRequestBody(writer: SerializationWriter, getHistoricalReportPostRequestBody: Partial<GetHistoricalReportPostRequestBody> | undefined | null = {}) : void {
-    if (getHistoricalReportPostRequestBody) {
-        writer.writeStringValue("filter", getHistoricalReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getHistoricalReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getHistoricalReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getHistoricalReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getHistoricalReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getHistoricalReportPostRequestBody.select);
-        writer.writeNumberValue("skip", getHistoricalReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getHistoricalReportPostRequestBody.top);
-        writer.writeAdditionalData(getHistoricalReportPostRequestBody.additionalData);
-    }
+export function serializeGetHistoricalReportPostRequestBody(writer: SerializationWriter, getHistoricalReportPostRequestBody: Partial<GetHistoricalReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getHistoricalReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getHistoricalReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getHistoricalReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getHistoricalReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getHistoricalReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getHistoricalReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getHistoricalReportPostRequestBody.select);
+    writer.writeNumberValue("skip", getHistoricalReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getHistoricalReportPostRequestBody.top);
+    writer.writeAdditionalData(getHistoricalReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

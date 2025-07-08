@@ -19,6 +19,7 @@ export function createRestartPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param RestartPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoRestartPostRequestBody(restartPostRequestBody: Pa
     }
 }
 export interface RestartPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface RestartRequestBuilder extends BaseRequestBuilder<RestartRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RestartPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRestartPostRequestBody(writer: SerializationWriter, restartPostRequestBody: Partial<RestartPostRequestBody> | undefined | null = {}) : void {
-    if (restartPostRequestBody) {
-        writer.writeObjectValue<SynchronizationJobRestartCriteria>("criteria", restartPostRequestBody.criteria, serializeSynchronizationJobRestartCriteria);
-        writer.writeAdditionalData(restartPostRequestBody.additionalData);
-    }
+export function serializeRestartPostRequestBody(writer: SerializationWriter, restartPostRequestBody: Partial<RestartPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!restartPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<SynchronizationJobRestartCriteria>("criteria", restartPostRequestBody.criteria, serializeSynchronizationJobRestartCriteria);
+    writer.writeAdditionalData(restartPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

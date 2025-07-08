@@ -17,6 +17,7 @@ export function createGetDeviceManagementIntentPerSettingContributingProfilesPos
 }
 /**
  * The deserialization information for the current model
+ * @param GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetDeviceManagementIntentPerSettingContributingPr
     }
 }
 export interface GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetDeviceManagementIntentPerSettingContributingProfilesRequestB
 }
 /**
  * Serializes information the current object
+ * @param GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody(writer: SerializationWriter, getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody: Partial<GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody> | undefined | null = {}) : void {
-    if (getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody) {
-        writer.writeStringValue("filter", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.groupBy);
-        writer.writeStringValue("name", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.orderBy);
-        writer.writeStringValue("search", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.select);
-        writer.writeStringValue("sessionId", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.skip);
-        writer.writeNumberValue("top", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.top);
-        writer.writeAdditionalData(getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.additionalData);
-    }
+export function serializeGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody(writer: SerializationWriter, getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody: Partial<GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.groupBy);
+    writer.writeStringValue("name", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.orderBy);
+    writer.writeStringValue("search", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.select);
+    writer.writeStringValue("sessionId", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.skip);
+    writer.writeNumberValue("top", getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.top);
+    writer.writeAdditionalData(getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

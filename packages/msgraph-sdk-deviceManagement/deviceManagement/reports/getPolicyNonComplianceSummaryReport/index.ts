@@ -17,6 +17,7 @@ export function createGetPolicyNonComplianceSummaryReportPostRequestBodyFromDisc
 }
 /**
  * The deserialization information for the current model
+ * @param GetPolicyNonComplianceSummaryReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetPolicyNonComplianceSummaryReportPostRequestBod
     }
 }
 export interface GetPolicyNonComplianceSummaryReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetPolicyNonComplianceSummaryReportRequestBuilder extends BaseR
 }
 /**
  * Serializes information the current object
+ * @param GetPolicyNonComplianceSummaryReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetPolicyNonComplianceSummaryReportPostRequestBody(writer: SerializationWriter, getPolicyNonComplianceSummaryReportPostRequestBody: Partial<GetPolicyNonComplianceSummaryReportPostRequestBody> | undefined | null = {}) : void {
-    if (getPolicyNonComplianceSummaryReportPostRequestBody) {
-        writer.writeStringValue("filter", getPolicyNonComplianceSummaryReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getPolicyNonComplianceSummaryReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getPolicyNonComplianceSummaryReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getPolicyNonComplianceSummaryReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getPolicyNonComplianceSummaryReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getPolicyNonComplianceSummaryReportPostRequestBody.select);
-        writer.writeStringValue("sessionId", getPolicyNonComplianceSummaryReportPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getPolicyNonComplianceSummaryReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getPolicyNonComplianceSummaryReportPostRequestBody.top);
-        writer.writeAdditionalData(getPolicyNonComplianceSummaryReportPostRequestBody.additionalData);
-    }
+export function serializeGetPolicyNonComplianceSummaryReportPostRequestBody(writer: SerializationWriter, getPolicyNonComplianceSummaryReportPostRequestBody: Partial<GetPolicyNonComplianceSummaryReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getPolicyNonComplianceSummaryReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getPolicyNonComplianceSummaryReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getPolicyNonComplianceSummaryReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getPolicyNonComplianceSummaryReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getPolicyNonComplianceSummaryReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getPolicyNonComplianceSummaryReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getPolicyNonComplianceSummaryReportPostRequestBody.select);
+    writer.writeStringValue("sessionId", getPolicyNonComplianceSummaryReportPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getPolicyNonComplianceSummaryReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getPolicyNonComplianceSummaryReportPostRequestBody.top);
+    writer.writeAdditionalData(getPolicyNonComplianceSummaryReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

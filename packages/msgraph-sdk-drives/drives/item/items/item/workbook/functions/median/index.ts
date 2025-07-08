@@ -19,6 +19,7 @@ export function createMedianPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param MedianPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoMedianPostRequestBody(medianPostRequestBody: Part
     }
 }
 export interface MedianPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface MedianRequestBuilder extends BaseRequestBuilder<MedianRequestBu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MedianPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMedianPostRequestBody(writer: SerializationWriter, medianPostRequestBody: Partial<MedianPostRequestBody> | undefined | null = {}) : void {
-    if (medianPostRequestBody) {
-        writer.writeObjectValue("values", medianPostRequestBody.values);
-        writer.writeAdditionalData(medianPostRequestBody.additionalData);
-    }
+export function serializeMedianPostRequestBody(writer: SerializationWriter, medianPostRequestBody: Partial<MedianPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!medianPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", medianPostRequestBody.values);
+    writer.writeAdditionalData(medianPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

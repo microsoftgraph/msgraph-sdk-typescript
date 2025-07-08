@@ -8,10 +8,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface AddGroupPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -21,10 +17,6 @@ export interface AddGroupPostRequestBody extends AdditionalDataHolder, BackedMod
     groupId?: string | null;
 }
 export interface AddGroupPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -75,6 +67,7 @@ export function createAddGroupPostResponseFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param AddGroupPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -86,6 +79,7 @@ export function deserializeIntoAddGroupPostRequestBody(addGroupPostRequestBody: 
 }
 /**
  * The deserialization information for the current model
+ * @param AddGroupPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -97,25 +91,27 @@ export function deserializeIntoAddGroupPostResponse(addGroupPostResponse: Partia
 }
 /**
  * Serializes information the current object
+ * @param AddGroupPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddGroupPostRequestBody(writer: SerializationWriter, addGroupPostRequestBody: Partial<AddGroupPostRequestBody> | undefined | null = {}) : void {
-    if (addGroupPostRequestBody) {
-        writer.writeStringValue("groupId", addGroupPostRequestBody.groupId);
-        writer.writeAdditionalData(addGroupPostRequestBody.additionalData);
-    }
+export function serializeAddGroupPostRequestBody(writer: SerializationWriter, addGroupPostRequestBody: Partial<AddGroupPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!addGroupPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("groupId", addGroupPostRequestBody.groupId);
+    writer.writeAdditionalData(addGroupPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param AddGroupPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddGroupPostResponse(writer: SerializationWriter, addGroupPostResponse: Partial<AddGroupPostResponse> | undefined | null = {}) : void {
-    if (addGroupPostResponse) {
-        writer.writeBooleanValue("value", addGroupPostResponse.value);
-        writer.writeAdditionalData(addGroupPostResponse.additionalData);
-    }
+export function serializeAddGroupPostResponse(writer: SerializationWriter, addGroupPostResponse: Partial<AddGroupPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!addGroupPostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", addGroupPostResponse.value);
+    writer.writeAdditionalData(addGroupPostResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

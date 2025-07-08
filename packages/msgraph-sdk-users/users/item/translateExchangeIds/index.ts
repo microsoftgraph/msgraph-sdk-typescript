@@ -28,6 +28,7 @@ export function createTranslateExchangeIdsPostResponseFromDiscriminatorValue(par
 }
 /**
  * The deserialization information for the current model
+ * @param TranslateExchangeIdsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -41,6 +42,7 @@ export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExch
 }
 /**
  * The deserialization information for the current model
+ * @param TranslateExchangeIdsPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -52,33 +54,31 @@ export function deserializeIntoTranslateExchangeIdsPostResponse(translateExchang
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TranslateExchangeIdsPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTranslateExchangeIdsPostRequestBody(writer: SerializationWriter, translateExchangeIdsPostRequestBody: Partial<TranslateExchangeIdsPostRequestBody> | undefined | null = {}) : void {
-    if (translateExchangeIdsPostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("InputIds", translateExchangeIdsPostRequestBody.inputIds);
-        writer.writeEnumValue<ExchangeIdFormat>("SourceIdType", translateExchangeIdsPostRequestBody.sourceIdType);
-        writer.writeEnumValue<ExchangeIdFormat>("TargetIdType", translateExchangeIdsPostRequestBody.targetIdType);
-        writer.writeAdditionalData(translateExchangeIdsPostRequestBody.additionalData);
-    }
+export function serializeTranslateExchangeIdsPostRequestBody(writer: SerializationWriter, translateExchangeIdsPostRequestBody: Partial<TranslateExchangeIdsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!translateExchangeIdsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("InputIds", translateExchangeIdsPostRequestBody.inputIds);
+    writer.writeEnumValue<ExchangeIdFormat>("SourceIdType", translateExchangeIdsPostRequestBody.sourceIdType);
+    writer.writeEnumValue<ExchangeIdFormat>("TargetIdType", translateExchangeIdsPostRequestBody.targetIdType);
+    writer.writeAdditionalData(translateExchangeIdsPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TranslateExchangeIdsPostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTranslateExchangeIdsPostResponse(writer: SerializationWriter, translateExchangeIdsPostResponse: Partial<TranslateExchangeIdsPostResponse> | undefined | null = {}) : void {
-    if (translateExchangeIdsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, translateExchangeIdsPostResponse)
-        writer.writeCollectionOfObjectValues<ConvertIdResult>("value", translateExchangeIdsPostResponse.value, serializeConvertIdResult);
-    }
+export function serializeTranslateExchangeIdsPostResponse(writer: SerializationWriter, translateExchangeIdsPostResponse: Partial<TranslateExchangeIdsPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!translateExchangeIdsPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, translateExchangeIdsPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ConvertIdResult>("value", translateExchangeIdsPostResponse.value, serializeConvertIdResult);
 }
 export interface TranslateExchangeIdsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

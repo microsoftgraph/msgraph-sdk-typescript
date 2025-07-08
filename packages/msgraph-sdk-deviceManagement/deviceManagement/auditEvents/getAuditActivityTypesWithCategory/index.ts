@@ -19,6 +19,7 @@ export function createGetAuditActivityTypesWithCategoryGetResponseFromDiscrimina
 }
 /**
  * The deserialization information for the current model
+ * @param GetAuditActivityTypesWithCategoryGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -79,14 +80,15 @@ export interface GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParamete
 }
 /**
  * Serializes information the current object
+ * @param GetAuditActivityTypesWithCategoryGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAuditActivityTypesWithCategoryGetResponse(writer: SerializationWriter, getAuditActivityTypesWithCategoryGetResponse: Partial<GetAuditActivityTypesWithCategoryGetResponse> | undefined | null = {}) : void {
-    if (getAuditActivityTypesWithCategoryGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesWithCategoryGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesWithCategoryGetResponse.value);
-    }
+export function serializeGetAuditActivityTypesWithCategoryGetResponse(writer: SerializationWriter, getAuditActivityTypesWithCategoryGetResponse: Partial<GetAuditActivityTypesWithCategoryGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getAuditActivityTypesWithCategoryGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesWithCategoryGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesWithCategoryGetResponse.value);
 }
 /**
  * Uri template for the request builder.

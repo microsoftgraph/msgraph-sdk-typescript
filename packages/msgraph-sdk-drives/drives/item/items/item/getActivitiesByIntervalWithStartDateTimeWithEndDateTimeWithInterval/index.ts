@@ -19,6 +19,7 @@ export function createGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWit
 }
 /**
  * The deserialization information for the current model
+ * @param GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -91,14 +92,15 @@ export interface GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInte
 }
 /**
  * Serializes information the current object
+ * @param GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse> | undefined | null = {}) : void {
-    if (getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse)
-        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse.value, serializeItemActivityStat);
-    }
+export function serializeGetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse: Partial<GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalGetResponse.value, serializeItemActivityStat);
 }
 /**
  * Uri template for the request builder.

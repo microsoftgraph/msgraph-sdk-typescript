@@ -19,6 +19,7 @@ export function createWeibull_DistPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param Weibull_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,23 +34,20 @@ export function deserializeIntoWeibull_DistPostRequestBody(weibull_DistPostReque
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Weibull_DistPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeWeibull_DistPostRequestBody(writer: SerializationWriter, weibull_DistPostRequestBody: Partial<Weibull_DistPostRequestBody> | undefined | null = {}) : void {
-    if (weibull_DistPostRequestBody) {
-        writer.writeObjectValue("alpha", weibull_DistPostRequestBody.alpha);
-        writer.writeObjectValue("beta", weibull_DistPostRequestBody.beta);
-        writer.writeObjectValue("cumulative", weibull_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("x", weibull_DistPostRequestBody.x);
-        writer.writeAdditionalData(weibull_DistPostRequestBody.additionalData);
-    }
+export function serializeWeibull_DistPostRequestBody(writer: SerializationWriter, weibull_DistPostRequestBody: Partial<Weibull_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!weibull_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("alpha", weibull_DistPostRequestBody.alpha);
+    writer.writeObjectValue("beta", weibull_DistPostRequestBody.beta);
+    writer.writeObjectValue("cumulative", weibull_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("x", weibull_DistPostRequestBody.x);
+    writer.writeAdditionalData(weibull_DistPostRequestBody.additionalData);
 }
 export interface Weibull_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The alpha property
      */

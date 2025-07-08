@@ -14,10 +14,6 @@ export interface AnswerPostRequestBody extends AdditionalDataHolder, BackedModel
      */
     acceptedModalities?: Modality[] | null;
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -69,6 +65,7 @@ export function createAnswerPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param AnswerPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -84,19 +81,20 @@ export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param AnswerPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined | null = {}) : void {
-    if (answerPostRequestBody) {
-        if(answerPostRequestBody.acceptedModalities)
-        writer.writeCollectionOfEnumValues<Modality>("acceptedModalities", answerPostRequestBody.acceptedModalities);
-        writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);
-        writer.writeObjectValue<IncomingCallOptions>("callOptions", answerPostRequestBody.callOptions, serializeIncomingCallOptions);
-        writer.writeObjectValue<MediaConfig>("mediaConfig", answerPostRequestBody.mediaConfig, serializeMediaConfig);
-        writer.writeNumberValue("participantCapacity", answerPostRequestBody.participantCapacity);
-        writer.writeAdditionalData(answerPostRequestBody.additionalData);
-    }
+export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: Partial<AnswerPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!answerPostRequestBody || isSerializingDerivedType) { return; }
+    if(answerPostRequestBody.acceptedModalities)
+    writer.writeCollectionOfEnumValues<Modality>("acceptedModalities", answerPostRequestBody.acceptedModalities);
+    writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);
+    writer.writeObjectValue<IncomingCallOptions>("callOptions", answerPostRequestBody.callOptions, serializeIncomingCallOptions);
+    writer.writeObjectValue<MediaConfig>("mediaConfig", answerPostRequestBody.mediaConfig, serializeMediaConfig);
+    writer.writeNumberValue("participantCapacity", answerPostRequestBody.participantCapacity);
+    writer.writeAdditionalData(answerPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

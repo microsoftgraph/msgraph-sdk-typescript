@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface AveragePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export function createAveragePostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param AveragePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoAveragePostRequestBody(averagePostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param AveragePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAveragePostRequestBody(writer: SerializationWriter, averagePostRequestBody: Partial<AveragePostRequestBody> | undefined | null = {}) : void {
-    if (averagePostRequestBody) {
-        writer.writeObjectValue("values", averagePostRequestBody.values);
-        writer.writeAdditionalData(averagePostRequestBody.additionalData);
-    }
+export function serializeAveragePostRequestBody(writer: SerializationWriter, averagePostRequestBody: Partial<AveragePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!averagePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", averagePostRequestBody.values);
+    writer.writeAdditionalData(averagePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

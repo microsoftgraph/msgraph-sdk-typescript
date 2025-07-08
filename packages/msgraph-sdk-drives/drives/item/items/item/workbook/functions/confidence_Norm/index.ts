@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface Confidence_NormPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The alpha property
      */
     alpha?: UntypedNode | null;
@@ -61,6 +57,7 @@ export function createConfidence_NormPostRequestBodyFromDiscriminatorValue(parse
 }
 /**
  * The deserialization information for the current model
+ * @param Confidence_NormPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoConfidence_NormPostRequestBody(confidence_NormPos
 }
 /**
  * Serializes information the current object
+ * @param Confidence_NormPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeConfidence_NormPostRequestBody(writer: SerializationWriter, confidence_NormPostRequestBody: Partial<Confidence_NormPostRequestBody> | undefined | null = {}) : void {
-    if (confidence_NormPostRequestBody) {
-        writer.writeObjectValue("alpha", confidence_NormPostRequestBody.alpha);
-        writer.writeObjectValue("size", confidence_NormPostRequestBody.size);
-        writer.writeObjectValue("standardDev", confidence_NormPostRequestBody.standardDev);
-        writer.writeAdditionalData(confidence_NormPostRequestBody.additionalData);
-    }
+export function serializeConfidence_NormPostRequestBody(writer: SerializationWriter, confidence_NormPostRequestBody: Partial<Confidence_NormPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!confidence_NormPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("alpha", confidence_NormPostRequestBody.alpha);
+    writer.writeObjectValue("size", confidence_NormPostRequestBody.size);
+    writer.writeObjectValue("standardDev", confidence_NormPostRequestBody.standardDev);
+    writer.writeAdditionalData(confidence_NormPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

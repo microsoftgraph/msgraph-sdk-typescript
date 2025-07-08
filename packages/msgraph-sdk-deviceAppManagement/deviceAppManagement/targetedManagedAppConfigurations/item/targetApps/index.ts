@@ -19,6 +19,7 @@ export function createTargetAppsPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param TargetAppsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoTargetAppsPostRequestBody(targetAppsPostRequestBo
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TargetAppsPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined | null = {}) : void {
-    if (targetAppsPostRequestBody) {
-        writer.writeEnumValue<TargetedManagedAppGroupType>("appGroupType", targetAppsPostRequestBody.appGroupType);
-        writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);
-        writer.writeAdditionalData(targetAppsPostRequestBody.additionalData);
-    }
+export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: Partial<TargetAppsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!targetAppsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<TargetedManagedAppGroupType>("appGroupType", targetAppsPostRequestBody.appGroupType);
+    writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", targetAppsPostRequestBody.apps, serializeManagedMobileApp);
+    writer.writeAdditionalData(targetAppsPostRequestBody.additionalData);
 }
 export interface TargetAppsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The appGroupType property
      */

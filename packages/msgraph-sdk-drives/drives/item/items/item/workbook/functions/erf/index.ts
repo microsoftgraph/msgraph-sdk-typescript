@@ -19,6 +19,7 @@ export function createErfPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param ErfPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoErfPostRequestBody(erfPostRequestBody: Partial<Er
     }
 }
 export interface ErfPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface ErfRequestBuilder extends BaseRequestBuilder<ErfRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param ErfPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeErfPostRequestBody(writer: SerializationWriter, erfPostRequestBody: Partial<ErfPostRequestBody> | undefined | null = {}) : void {
-    if (erfPostRequestBody) {
-        writer.writeObjectValue("lowerLimit", erfPostRequestBody.lowerLimit);
-        writer.writeObjectValue("upperLimit", erfPostRequestBody.upperLimit);
-        writer.writeAdditionalData(erfPostRequestBody.additionalData);
-    }
+export function serializeErfPostRequestBody(writer: SerializationWriter, erfPostRequestBody: Partial<ErfPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!erfPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("lowerLimit", erfPostRequestBody.lowerLimit);
+    writer.writeObjectValue("upperLimit", erfPostRequestBody.upperLimit);
+    writer.writeAdditionalData(erfPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

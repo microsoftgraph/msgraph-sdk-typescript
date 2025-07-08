@@ -19,6 +19,7 @@ export function createVar_PPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param Var_PPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoVar_PPostRequestBody(var_PPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Var_PPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeVar_PPostRequestBody(writer: SerializationWriter, var_PPostRequestBody: Partial<Var_PPostRequestBody> | undefined | null = {}) : void {
-    if (var_PPostRequestBody) {
-        writer.writeObjectValue("values", var_PPostRequestBody.values);
-        writer.writeAdditionalData(var_PPostRequestBody.additionalData);
-    }
+export function serializeVar_PPostRequestBody(writer: SerializationWriter, var_PPostRequestBody: Partial<Var_PPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!var_PPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", var_PPostRequestBody.values);
+    writer.writeAdditionalData(var_PPostRequestBody.additionalData);
 }
 export interface Var_PPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface CopyToNotebookPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -70,6 +66,7 @@ export function createCopyToNotebookPostRequestBodyFromDiscriminatorValue(parseN
 }
 /**
  * The deserialization information for the current model
+ * @param CopyToNotebookPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -85,18 +82,19 @@ export function deserializeIntoCopyToNotebookPostRequestBody(copyToNotebookPostR
 }
 /**
  * Serializes information the current object
+ * @param CopyToNotebookPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCopyToNotebookPostRequestBody(writer: SerializationWriter, copyToNotebookPostRequestBody: Partial<CopyToNotebookPostRequestBody> | undefined | null = {}) : void {
-    if (copyToNotebookPostRequestBody) {
-        writer.writeStringValue("groupId", copyToNotebookPostRequestBody.groupId);
-        writer.writeStringValue("id", copyToNotebookPostRequestBody.id);
-        writer.writeStringValue("renameAs", copyToNotebookPostRequestBody.renameAs);
-        writer.writeStringValue("siteCollectionId", copyToNotebookPostRequestBody.siteCollectionId);
-        writer.writeStringValue("siteId", copyToNotebookPostRequestBody.siteId);
-        writer.writeAdditionalData(copyToNotebookPostRequestBody.additionalData);
-    }
+export function serializeCopyToNotebookPostRequestBody(writer: SerializationWriter, copyToNotebookPostRequestBody: Partial<CopyToNotebookPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copyToNotebookPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("groupId", copyToNotebookPostRequestBody.groupId);
+    writer.writeStringValue("id", copyToNotebookPostRequestBody.id);
+    writer.writeStringValue("renameAs", copyToNotebookPostRequestBody.renameAs);
+    writer.writeStringValue("siteCollectionId", copyToNotebookPostRequestBody.siteCollectionId);
+    writer.writeStringValue("siteId", copyToNotebookPostRequestBody.siteId);
+    writer.writeAdditionalData(copyToNotebookPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

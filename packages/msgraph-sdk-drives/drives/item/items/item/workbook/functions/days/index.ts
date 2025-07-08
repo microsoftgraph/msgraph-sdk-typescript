@@ -19,10 +19,6 @@ export function createDaysPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 export interface DaysPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export interface DaysRequestBuilder extends BaseRequestBuilder<DaysRequestBuilde
 }
 /**
  * The deserialization information for the current model
+ * @param DaysPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoDaysPostRequestBody(daysPostRequestBody: Partial<
 }
 /**
  * Serializes information the current object
+ * @param DaysPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDaysPostRequestBody(writer: SerializationWriter, daysPostRequestBody: Partial<DaysPostRequestBody> | undefined | null = {}) : void {
-    if (daysPostRequestBody) {
-        writer.writeObjectValue("endDate", daysPostRequestBody.endDate);
-        writer.writeObjectValue("startDate", daysPostRequestBody.startDate);
-        writer.writeAdditionalData(daysPostRequestBody.additionalData);
-    }
+export function serializeDaysPostRequestBody(writer: SerializationWriter, daysPostRequestBody: Partial<DaysPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!daysPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("endDate", daysPostRequestBody.endDate);
+    writer.writeObjectValue("startDate", daysPostRequestBody.startDate);
+    writer.writeAdditionalData(daysPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

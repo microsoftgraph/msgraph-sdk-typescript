@@ -19,6 +19,7 @@ export function createSupportedTimeZonesGetResponseFromDiscriminatorValue(parseN
 }
 /**
  * The deserialization information for the current model
+ * @param SupportedTimeZonesGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,14 +31,15 @@ export function deserializeIntoSupportedTimeZonesGetResponse(supportedTimeZonesG
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SupportedTimeZonesGetResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSupportedTimeZonesGetResponse(writer: SerializationWriter, supportedTimeZonesGetResponse: Partial<SupportedTimeZonesGetResponse> | undefined | null = {}) : void {
-    if (supportedTimeZonesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesGetResponse)
-        writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesGetResponse.value, serializeTimeZoneInformation);
-    }
+export function serializeSupportedTimeZonesGetResponse(writer: SerializationWriter, supportedTimeZonesGetResponse: Partial<SupportedTimeZonesGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!supportedTimeZonesGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesGetResponse.value, serializeTimeZoneInformation);
 }
 export interface SupportedTimeZonesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

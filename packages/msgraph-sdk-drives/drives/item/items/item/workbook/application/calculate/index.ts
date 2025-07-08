@@ -8,10 +8,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface CalculatePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -51,6 +47,7 @@ export function createCalculatePostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param CalculatePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -62,14 +59,15 @@ export function deserializeIntoCalculatePostRequestBody(calculatePostRequestBody
 }
 /**
  * Serializes information the current object
+ * @param CalculatePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCalculatePostRequestBody(writer: SerializationWriter, calculatePostRequestBody: Partial<CalculatePostRequestBody> | undefined | null = {}) : void {
-    if (calculatePostRequestBody) {
-        writer.writeStringValue("calculationType", calculatePostRequestBody.calculationType);
-        writer.writeAdditionalData(calculatePostRequestBody.additionalData);
-    }
+export function serializeCalculatePostRequestBody(writer: SerializationWriter, calculatePostRequestBody: Partial<CalculatePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!calculatePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("calculationType", calculatePostRequestBody.calculationType);
+    writer.writeAdditionalData(calculatePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

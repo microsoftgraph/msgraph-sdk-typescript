@@ -19,6 +19,7 @@ export function createImDivPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param ImDivPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoImDivPostRequestBody(imDivPostRequestBody: Partia
     }
 }
 export interface ImDivPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface ImDivRequestBuilder extends BaseRequestBuilder<ImDivRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param ImDivPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImDivPostRequestBody(writer: SerializationWriter, imDivPostRequestBody: Partial<ImDivPostRequestBody> | undefined | null = {}) : void {
-    if (imDivPostRequestBody) {
-        writer.writeObjectValue("inumber1", imDivPostRequestBody.inumber1);
-        writer.writeObjectValue("inumber2", imDivPostRequestBody.inumber2);
-        writer.writeAdditionalData(imDivPostRequestBody.additionalData);
-    }
+export function serializeImDivPostRequestBody(writer: SerializationWriter, imDivPostRequestBody: Partial<ImDivPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imDivPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("inumber1", imDivPostRequestBody.inumber1);
+    writer.writeObjectValue("inumber2", imDivPostRequestBody.inumber2);
+    writer.writeAdditionalData(imDivPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

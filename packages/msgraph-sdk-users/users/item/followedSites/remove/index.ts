@@ -28,6 +28,7 @@ export function createRemovePostResponseFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param RemovePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -39,6 +40,7 @@ export function deserializeIntoRemovePostRequestBody(removePostRequestBody: Part
 }
 /**
  * The deserialization information for the current model
+ * @param RemovePostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -49,10 +51,6 @@ export function deserializeIntoRemovePostResponse(removePostResponse: Partial<Re
     }
 }
 export interface RemovePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -91,25 +89,27 @@ export interface RemoveRequestBuilder extends BaseRequestBuilder<RemoveRequestBu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RemovePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRemovePostRequestBody(writer: SerializationWriter, removePostRequestBody: Partial<RemovePostRequestBody> | undefined | null = {}) : void {
-    if (removePostRequestBody) {
-        writer.writeCollectionOfObjectValues<Site>("value", removePostRequestBody.value, serializeSite);
-        writer.writeAdditionalData(removePostRequestBody.additionalData);
-    }
+export function serializeRemovePostRequestBody(writer: SerializationWriter, removePostRequestBody: Partial<RemovePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!removePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<Site>("value", removePostRequestBody.value, serializeSite);
+    writer.writeAdditionalData(removePostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RemovePostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRemovePostResponse(writer: SerializationWriter, removePostResponse: Partial<RemovePostResponse> | undefined | null = {}) : void {
-    if (removePostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, removePostResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", removePostResponse.value, serializeSite);
-    }
+export function serializeRemovePostResponse(writer: SerializationWriter, removePostResponse: Partial<RemovePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!removePostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, removePostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Site>("value", removePostResponse.value, serializeSite);
 }
 /**
  * Uri template for the request builder.

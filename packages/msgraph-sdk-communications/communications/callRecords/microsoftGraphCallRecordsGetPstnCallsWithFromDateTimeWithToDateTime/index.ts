@@ -21,6 +21,7 @@ export function createGetPstnCallsWithFromDateTimeWithToDateTimeGetResponseFromD
 }
 /**
  * The deserialization information for the current model
+ * @param GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -81,14 +82,15 @@ export interface MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDate
 }
 /**
  * Serializes information the current object
+ * @param GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetPstnCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined | null = {}) : void {
-    if (getPstnCallsWithFromDateTimeWithToDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<PstnCallLogRow>("value", getPstnCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializePstnCallLogRow);
-    }
+export function serializeGetPstnCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetPstnCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getPstnCallsWithFromDateTimeWithToDateTimeGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getPstnCallsWithFromDateTimeWithToDateTimeGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<PstnCallLogRow>("value", getPstnCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializePstnCallLogRow);
 }
 /**
  * Uri template for the request builder.

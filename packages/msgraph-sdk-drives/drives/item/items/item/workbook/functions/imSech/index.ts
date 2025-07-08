@@ -19,6 +19,7 @@ export function createImSechPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param ImSechPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoImSechPostRequestBody(imSechPostRequestBody: Part
     }
 }
 export interface ImSechPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ImSechRequestBuilder extends BaseRequestBuilder<ImSechRequestBu
 }
 /**
  * Serializes information the current object
+ * @param ImSechPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImSechPostRequestBody(writer: SerializationWriter, imSechPostRequestBody: Partial<ImSechPostRequestBody> | undefined | null = {}) : void {
-    if (imSechPostRequestBody) {
-        writer.writeObjectValue("inumber", imSechPostRequestBody.inumber);
-        writer.writeAdditionalData(imSechPostRequestBody.additionalData);
-    }
+export function serializeImSechPostRequestBody(writer: SerializationWriter, imSechPostRequestBody: Partial<ImSechPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imSechPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("inumber", imSechPostRequestBody.inumber);
+    writer.writeAdditionalData(imSechPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

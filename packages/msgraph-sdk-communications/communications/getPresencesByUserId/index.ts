@@ -28,6 +28,7 @@ export function createGetPresencesByUserIdPostResponseFromDiscriminatorValue(par
 }
 /**
  * The deserialization information for the current model
+ * @param GetPresencesByUserIdPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -39,6 +40,7 @@ export function deserializeIntoGetPresencesByUserIdPostRequestBody(getPresencesB
 }
 /**
  * The deserialization information for the current model
+ * @param GetPresencesByUserIdPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -49,10 +51,6 @@ export function deserializeIntoGetPresencesByUserIdPostResponse(getPresencesByUs
     }
 }
 export interface GetPresencesByUserIdPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -91,25 +89,27 @@ export interface GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder<G
 }
 /**
  * Serializes information the current object
+ * @param GetPresencesByUserIdPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetPresencesByUserIdPostRequestBody(writer: SerializationWriter, getPresencesByUserIdPostRequestBody: Partial<GetPresencesByUserIdPostRequestBody> | undefined | null = {}) : void {
-    if (getPresencesByUserIdPostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("ids", getPresencesByUserIdPostRequestBody.ids);
-        writer.writeAdditionalData(getPresencesByUserIdPostRequestBody.additionalData);
-    }
+export function serializeGetPresencesByUserIdPostRequestBody(writer: SerializationWriter, getPresencesByUserIdPostRequestBody: Partial<GetPresencesByUserIdPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getPresencesByUserIdPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("ids", getPresencesByUserIdPostRequestBody.ids);
+    writer.writeAdditionalData(getPresencesByUserIdPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param GetPresencesByUserIdPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetPresencesByUserIdPostResponse(writer: SerializationWriter, getPresencesByUserIdPostResponse: Partial<GetPresencesByUserIdPostResponse> | undefined | null = {}) : void {
-    if (getPresencesByUserIdPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getPresencesByUserIdPostResponse)
-        writer.writeCollectionOfObjectValues<Presence>("value", getPresencesByUserIdPostResponse.value, serializePresence);
-    }
+export function serializeGetPresencesByUserIdPostResponse(writer: SerializationWriter, getPresencesByUserIdPostResponse: Partial<GetPresencesByUserIdPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getPresencesByUserIdPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getPresencesByUserIdPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Presence>("value", getPresencesByUserIdPostResponse.value, serializePresence);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createGetByUserIdAndRoleWithUserIdWithRoleGetResponseFromDiscrim
 }
 /**
  * The deserialization information for the current model
+ * @param GetByUserIdAndRoleWithUserIdWithRoleGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParam
 }
 /**
  * Serializes information the current object
+ * @param GetByUserIdAndRoleWithUserIdWithRoleGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetByUserIdAndRoleWithUserIdWithRoleGetResponse(writer: SerializationWriter, getByUserIdAndRoleWithUserIdWithRoleGetResponse: Partial<GetByUserIdAndRoleWithUserIdWithRoleGetResponse> | undefined | null = {}) : void {
-    if (getByUserIdAndRoleWithUserIdWithRoleGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getByUserIdAndRoleWithUserIdWithRoleGetResponse)
-        writer.writeCollectionOfObjectValues<VirtualEventTownhall>("value", getByUserIdAndRoleWithUserIdWithRoleGetResponse.value, serializeVirtualEventTownhall);
-    }
+export function serializeGetByUserIdAndRoleWithUserIdWithRoleGetResponse(writer: SerializationWriter, getByUserIdAndRoleWithUserIdWithRoleGetResponse: Partial<GetByUserIdAndRoleWithUserIdWithRoleGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getByUserIdAndRoleWithUserIdWithRoleGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getByUserIdAndRoleWithUserIdWithRoleGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<VirtualEventTownhall>("value", getByUserIdAndRoleWithUserIdWithRoleGetResponse.value, serializeVirtualEventTownhall);
 }
 /**
  * Uri template for the request builder.

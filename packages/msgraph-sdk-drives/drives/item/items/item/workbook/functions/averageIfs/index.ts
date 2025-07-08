@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface AverageIfsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The averageRange property
      */
     averageRange?: UntypedNode | null;
@@ -57,6 +53,7 @@ export function createAverageIfsPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param AverageIfsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoAverageIfsPostRequestBody(averageIfsPostRequestBo
 }
 /**
  * Serializes information the current object
+ * @param AverageIfsPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAverageIfsPostRequestBody(writer: SerializationWriter, averageIfsPostRequestBody: Partial<AverageIfsPostRequestBody> | undefined | null = {}) : void {
-    if (averageIfsPostRequestBody) {
-        writer.writeObjectValue("averageRange", averageIfsPostRequestBody.averageRange);
-        writer.writeObjectValue("values", averageIfsPostRequestBody.values);
-        writer.writeAdditionalData(averageIfsPostRequestBody.additionalData);
-    }
+export function serializeAverageIfsPostRequestBody(writer: SerializationWriter, averageIfsPostRequestBody: Partial<AverageIfsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!averageIfsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("averageRange", averageIfsPostRequestBody.averageRange);
+    writer.writeObjectValue("values", averageIfsPostRequestBody.values);
+    writer.writeAdditionalData(averageIfsPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

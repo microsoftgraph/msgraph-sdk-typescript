@@ -19,6 +19,7 @@ export function createGetUserIdsWithFlaggedAppRegistrationGetResponseFromDiscrim
 }
 /**
  * The deserialization information for the current model
+ * @param GetUserIdsWithFlaggedAppRegistrationGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetQueryParam
 }
 /**
  * Serializes information the current object
+ * @param GetUserIdsWithFlaggedAppRegistrationGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetUserIdsWithFlaggedAppRegistrationGetResponse(writer: SerializationWriter, getUserIdsWithFlaggedAppRegistrationGetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationGetResponse> | undefined | null = {}) : void {
-    if (getUserIdsWithFlaggedAppRegistrationGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getUserIdsWithFlaggedAppRegistrationGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getUserIdsWithFlaggedAppRegistrationGetResponse.value);
-    }
+export function serializeGetUserIdsWithFlaggedAppRegistrationGetResponse(writer: SerializationWriter, getUserIdsWithFlaggedAppRegistrationGetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getUserIdsWithFlaggedAppRegistrationGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getUserIdsWithFlaggedAppRegistrationGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getUserIdsWithFlaggedAppRegistrationGetResponse.value);
 }
 /**
  * Uri template for the request builder.

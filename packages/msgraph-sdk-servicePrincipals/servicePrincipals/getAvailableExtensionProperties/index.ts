@@ -28,6 +28,7 @@ export function createGetAvailableExtensionPropertiesPostResponseFromDiscriminat
 }
 /**
  * The deserialization information for the current model
+ * @param GetAvailableExtensionPropertiesPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -39,6 +40,7 @@ export function deserializeIntoGetAvailableExtensionPropertiesPostRequestBody(ge
 }
 /**
  * The deserialization information for the current model
+ * @param GetAvailableExtensionPropertiesPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -49,10 +51,6 @@ export function deserializeIntoGetAvailableExtensionPropertiesPostResponse(getAv
     }
 }
 export interface GetAvailableExtensionPropertiesPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -73,7 +71,7 @@ export interface GetAvailableExtensionPropertiesPostResponse extends BaseCollect
  */
 export interface GetAvailableExtensionPropertiesRequestBuilder extends BaseRequestBuilder<GetAvailableExtensionPropertiesRequestBuilder> {
     /**
-     * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:
+     * Return all directory extension definitions that are registered in a directory, including through multitenant apps. The following entities support extension properties:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAvailableExtensionPropertiesPostResponse>}
@@ -82,7 +80,7 @@ export interface GetAvailableExtensionPropertiesRequestBuilder extends BaseReque
      */
      post(body: GetAvailableExtensionPropertiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetAvailableExtensionPropertiesPostResponse | undefined>;
     /**
-     * Return all directory extension definitions that have been registered in a directory, including through multi-tenant apps. The following entities support extension properties:
+     * Return all directory extension definitions that are registered in a directory, including through multitenant apps. The following entities support extension properties:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -91,25 +89,27 @@ export interface GetAvailableExtensionPropertiesRequestBuilder extends BaseReque
 }
 /**
  * Serializes information the current object
+ * @param GetAvailableExtensionPropertiesPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAvailableExtensionPropertiesPostRequestBody(writer: SerializationWriter, getAvailableExtensionPropertiesPostRequestBody: Partial<GetAvailableExtensionPropertiesPostRequestBody> | undefined | null = {}) : void {
-    if (getAvailableExtensionPropertiesPostRequestBody) {
-        writer.writeBooleanValue("isSyncedFromOnPremises", getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises);
-        writer.writeAdditionalData(getAvailableExtensionPropertiesPostRequestBody.additionalData);
-    }
+export function serializeGetAvailableExtensionPropertiesPostRequestBody(writer: SerializationWriter, getAvailableExtensionPropertiesPostRequestBody: Partial<GetAvailableExtensionPropertiesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getAvailableExtensionPropertiesPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("isSyncedFromOnPremises", getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises);
+    writer.writeAdditionalData(getAvailableExtensionPropertiesPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param GetAvailableExtensionPropertiesPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAvailableExtensionPropertiesPostResponse(writer: SerializationWriter, getAvailableExtensionPropertiesPostResponse: Partial<GetAvailableExtensionPropertiesPostResponse> | undefined | null = {}) : void {
-    if (getAvailableExtensionPropertiesPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAvailableExtensionPropertiesPostResponse)
-        writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiesPostResponse.value, serializeExtensionProperty);
-    }
+export function serializeGetAvailableExtensionPropertiesPostResponse(writer: SerializationWriter, getAvailableExtensionPropertiesPostResponse: Partial<GetAvailableExtensionPropertiesPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getAvailableExtensionPropertiesPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getAvailableExtensionPropertiesPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ExtensionProperty>("value", getAvailableExtensionPropertiesPostResponse.value, serializeExtensionProperty);
 }
 /**
  * Uri template for the request builder.

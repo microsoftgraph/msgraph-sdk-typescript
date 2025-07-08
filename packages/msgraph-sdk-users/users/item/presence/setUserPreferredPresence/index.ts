@@ -17,6 +17,7 @@ export function createSetUserPreferredPresencePostRequestBodyFromDiscriminatorVa
 }
 /**
  * The deserialization information for the current model
+ * @param SetUserPreferredPresencePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,26 +31,23 @@ export function deserializeIntoSetUserPreferredPresencePostRequestBody(setUserPr
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SetUserPreferredPresencePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSetUserPreferredPresencePostRequestBody(writer: SerializationWriter, setUserPreferredPresencePostRequestBody: Partial<SetUserPreferredPresencePostRequestBody> | undefined | null = {}) : void {
-    if (setUserPreferredPresencePostRequestBody) {
-        writer.writeStringValue("activity", setUserPreferredPresencePostRequestBody.activity);
-        writer.writeStringValue("availability", setUserPreferredPresencePostRequestBody.availability);
-        writer.writeDurationValue("expirationDuration", setUserPreferredPresencePostRequestBody.expirationDuration);
-        writer.writeAdditionalData(setUserPreferredPresencePostRequestBody.additionalData);
-    }
+export function serializeSetUserPreferredPresencePostRequestBody(writer: SerializationWriter, setUserPreferredPresencePostRequestBody: Partial<SetUserPreferredPresencePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!setUserPreferredPresencePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("activity", setUserPreferredPresencePostRequestBody.activity);
+    writer.writeStringValue("availability", setUserPreferredPresencePostRequestBody.availability);
+    writer.writeDurationValue("expirationDuration", setUserPreferredPresencePostRequestBody.expirationDuration);
+    writer.writeAdditionalData(setUserPreferredPresencePostRequestBody.additionalData);
 }
 export interface SetUserPreferredPresencePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * The activity property
      */
     activity?: string | null;
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The availability property
      */

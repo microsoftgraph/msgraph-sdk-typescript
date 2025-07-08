@@ -19,6 +19,7 @@ export function createGetManagedDevicesWithAppFailuresGetResponseFromDiscriminat
 }
 /**
  * The deserialization information for the current model
+ * @param GetManagedDevicesWithAppFailuresGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface GetManagedDevicesWithAppFailuresRequestBuilderGetQueryParameter
 }
 /**
  * Serializes information the current object
+ * @param GetManagedDevicesWithAppFailuresGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetManagedDevicesWithAppFailuresGetResponse(writer: SerializationWriter, getManagedDevicesWithAppFailuresGetResponse: Partial<GetManagedDevicesWithAppFailuresGetResponse> | undefined | null = {}) : void {
-    if (getManagedDevicesWithAppFailuresGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getManagedDevicesWithAppFailuresGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getManagedDevicesWithAppFailuresGetResponse.value);
-    }
+export function serializeGetManagedDevicesWithAppFailuresGetResponse(writer: SerializationWriter, getManagedDevicesWithAppFailuresGetResponse: Partial<GetManagedDevicesWithAppFailuresGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getManagedDevicesWithAppFailuresGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getManagedDevicesWithAppFailuresGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getManagedDevicesWithAppFailuresGetResponse.value);
 }
 /**
  * Uri template for the request builder.

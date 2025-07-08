@@ -19,6 +19,7 @@ export function createFilterOperatorsGetResponseFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param FilterOperatorsGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface FilterOperatorsRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param FilterOperatorsGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFilterOperatorsGetResponse(writer: SerializationWriter, filterOperatorsGetResponse: Partial<FilterOperatorsGetResponse> | undefined | null = {}) : void {
-    if (filterOperatorsGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsGetResponse)
-        writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsGetResponse.value, serializeFilterOperatorSchema);
-    }
+export function serializeFilterOperatorsGetResponse(writer: SerializationWriter, filterOperatorsGetResponse: Partial<FilterOperatorsGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!filterOperatorsGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsGetResponse.value, serializeFilterOperatorSchema);
 }
 /**
  * Uri template for the request builder.

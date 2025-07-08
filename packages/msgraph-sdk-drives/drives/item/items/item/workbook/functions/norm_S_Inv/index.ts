@@ -19,6 +19,7 @@ export function createNorm_S_InvPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param Norm_S_InvPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoNorm_S_InvPostRequestBody(norm_S_InvPostRequestBo
     }
 }
 export interface Norm_S_InvPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface Norm_S_InvRequestBuilder extends BaseRequestBuilder<Norm_S_InvR
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Norm_S_InvPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeNorm_S_InvPostRequestBody(writer: SerializationWriter, norm_S_InvPostRequestBody: Partial<Norm_S_InvPostRequestBody> | undefined | null = {}) : void {
-    if (norm_S_InvPostRequestBody) {
-        writer.writeObjectValue("probability", norm_S_InvPostRequestBody.probability);
-        writer.writeAdditionalData(norm_S_InvPostRequestBody.additionalData);
-    }
+export function serializeNorm_S_InvPostRequestBody(writer: SerializationWriter, norm_S_InvPostRequestBody: Partial<Norm_S_InvPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!norm_S_InvPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("probability", norm_S_InvPostRequestBody.probability);
+    writer.writeAdditionalData(norm_S_InvPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

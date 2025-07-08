@@ -19,6 +19,7 @@ export function createSupportedTimeZonesWithTimeZoneStandardGetResponseFromDiscr
 }
 /**
  * The deserialization information for the current model
+ * @param SupportedTimeZonesWithTimeZoneStandardGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,14 +31,15 @@ export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardGetResponse
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SupportedTimeZonesWithTimeZoneStandardGetResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSupportedTimeZonesWithTimeZoneStandardGetResponse(writer: SerializationWriter, supportedTimeZonesWithTimeZoneStandardGetResponse: Partial<SupportedTimeZonesWithTimeZoneStandardGetResponse> | undefined | null = {}) : void {
-    if (supportedTimeZonesWithTimeZoneStandardGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesWithTimeZoneStandardGetResponse)
-        writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesWithTimeZoneStandardGetResponse.value, serializeTimeZoneInformation);
-    }
+export function serializeSupportedTimeZonesWithTimeZoneStandardGetResponse(writer: SerializationWriter, supportedTimeZonesWithTimeZoneStandardGetResponse: Partial<SupportedTimeZonesWithTimeZoneStandardGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!supportedTimeZonesWithTimeZoneStandardGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, supportedTimeZonesWithTimeZoneStandardGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TimeZoneInformation>("value", supportedTimeZonesWithTimeZoneStandardGetResponse.value, serializeTimeZoneInformation);
 }
 export interface SupportedTimeZonesWithTimeZoneStandardGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

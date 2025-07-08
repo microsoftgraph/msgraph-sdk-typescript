@@ -30,6 +30,7 @@ export function createSecretsPutResponseFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param SecretsPutRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -41,6 +42,7 @@ export function deserializeIntoSecretsPutRequestBody(secretsPutRequestBody: Part
 }
 /**
  * The deserialization information for the current model
+ * @param SecretsPutResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -52,10 +54,6 @@ export function deserializeIntoSecretsPutResponse(secretsPutResponse: Partial<Se
 }
 export interface SecretsPutRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -65,10 +63,6 @@ export interface SecretsPutRequestBody extends AdditionalDataHolder, BackedModel
     value?: SynchronizationSecretKeyStringValuePair[] | null;
 }
 export interface SecretsPutResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -104,25 +98,27 @@ export interface SecretsRequestBuilder extends BaseRequestBuilder<SecretsRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SecretsPutRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSecretsPutRequestBody(writer: SerializationWriter, secretsPutRequestBody: Partial<SecretsPutRequestBody> | undefined | null = {}) : void {
-    if (secretsPutRequestBody) {
-        writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("value", secretsPutRequestBody.value, serializeSynchronizationSecretKeyStringValuePair);
-        writer.writeAdditionalData(secretsPutRequestBody.additionalData);
-    }
+export function serializeSecretsPutRequestBody(writer: SerializationWriter, secretsPutRequestBody: Partial<SecretsPutRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!secretsPutRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("value", secretsPutRequestBody.value, serializeSynchronizationSecretKeyStringValuePair);
+    writer.writeAdditionalData(secretsPutRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SecretsPutResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSecretsPutResponse(writer: SerializationWriter, secretsPutResponse: Partial<SecretsPutResponse> | undefined | null = {}) : void {
-    if (secretsPutResponse) {
-        writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("value", secretsPutResponse.value, serializeSynchronizationSecretKeyStringValuePair);
-        writer.writeAdditionalData(secretsPutResponse.additionalData);
-    }
+export function serializeSecretsPutResponse(writer: SerializationWriter, secretsPutResponse: Partial<SecretsPutResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!secretsPutResponse || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("value", secretsPutResponse.value, serializeSynchronizationSecretKeyStringValuePair);
+    writer.writeAdditionalData(secretsPutResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

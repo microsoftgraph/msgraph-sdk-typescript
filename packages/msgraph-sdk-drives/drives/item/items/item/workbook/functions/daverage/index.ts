@@ -19,10 +19,6 @@ export function createDaveragePostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 export interface DaveragePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,6 +57,7 @@ export interface DaverageRequestBuilder extends BaseRequestBuilder<DaverageReque
 }
 /**
  * The deserialization information for the current model
+ * @param DaveragePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoDaveragePostRequestBody(daveragePostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param DaveragePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDaveragePostRequestBody(writer: SerializationWriter, daveragePostRequestBody: Partial<DaveragePostRequestBody> | undefined | null = {}) : void {
-    if (daveragePostRequestBody) {
-        writer.writeObjectValue("criteria", daveragePostRequestBody.criteria);
-        writer.writeObjectValue("database", daveragePostRequestBody.database);
-        writer.writeObjectValue("field", daveragePostRequestBody.field);
-        writer.writeAdditionalData(daveragePostRequestBody.additionalData);
-    }
+export function serializeDaveragePostRequestBody(writer: SerializationWriter, daveragePostRequestBody: Partial<DaveragePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!daveragePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("criteria", daveragePostRequestBody.criteria);
+    writer.writeObjectValue("database", daveragePostRequestBody.database);
+    writer.writeObjectValue("field", daveragePostRequestBody.field);
+    writer.writeAdditionalData(daveragePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -17,6 +17,7 @@ export function createExportPersonalDataPostRequestBodyFromDiscriminatorValue(pa
 }
 /**
  * The deserialization information for the current model
+ * @param ExportPersonalDataPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoExportPersonalDataPostRequestBody(exportPersonalD
     }
 }
 export interface ExportPersonalDataPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -62,14 +59,15 @@ export interface ExportPersonalDataRequestBuilder extends BaseRequestBuilder<Exp
 }
 /**
  * Serializes information the current object
+ * @param ExportPersonalDataPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeExportPersonalDataPostRequestBody(writer: SerializationWriter, exportPersonalDataPostRequestBody: Partial<ExportPersonalDataPostRequestBody> | undefined | null = {}) : void {
-    if (exportPersonalDataPostRequestBody) {
-        writer.writeStringValue("storageLocation", exportPersonalDataPostRequestBody.storageLocation);
-        writer.writeAdditionalData(exportPersonalDataPostRequestBody.additionalData);
-    }
+export function serializeExportPersonalDataPostRequestBody(writer: SerializationWriter, exportPersonalDataPostRequestBody: Partial<ExportPersonalDataPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!exportPersonalDataPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("storageLocation", exportPersonalDataPostRequestBody.storageLocation);
+    writer.writeAdditionalData(exportPersonalDataPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

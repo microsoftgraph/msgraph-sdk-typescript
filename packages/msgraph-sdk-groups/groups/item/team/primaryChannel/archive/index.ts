@@ -8,10 +8,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface ArchivePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -51,6 +47,7 @@ export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param ArchivePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -62,14 +59,15 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param ArchivePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined | null = {}) : void {
-    if (archivePostRequestBody) {
-        writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers);
-        writer.writeAdditionalData(archivePostRequestBody.additionalData);
-    }
+export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!archivePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers);
+    writer.writeAdditionalData(archivePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

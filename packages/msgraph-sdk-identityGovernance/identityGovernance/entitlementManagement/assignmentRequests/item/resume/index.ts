@@ -19,6 +19,7 @@ export function createResumePostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param ResumePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoResumePostRequestBody(resumePostRequestBody: Part
     }
 }
 export interface ResumePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface ResumeRequestBuilder extends BaseRequestBuilder<ResumeRequestBu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResumePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: Partial<ResumePostRequestBody> | undefined | null = {}) : void {
-    if (resumePostRequestBody) {
-        writer.writeObjectValue<CustomExtensionData>("data", resumePostRequestBody.data, serializeCustomExtensionData);
-        writer.writeStringValue("source", resumePostRequestBody.source);
-        writer.writeStringValue("type", resumePostRequestBody.type);
-        writer.writeAdditionalData(resumePostRequestBody.additionalData);
-    }
+export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: Partial<ResumePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resumePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<CustomExtensionData>("data", resumePostRequestBody.data, serializeCustomExtensionData);
+    writer.writeStringValue("source", resumePostRequestBody.source);
+    writer.writeStringValue("type", resumePostRequestBody.type);
+    writer.writeAdditionalData(resumePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createStartHoldMusicPostRequestBodyFromDiscriminatorValue(parseN
 }
 /**
  * The deserialization information for the current model
+ * @param StartHoldMusicPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoStartHoldMusicPostRequestBody(startHoldMusicPostR
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param StartHoldMusicPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeStartHoldMusicPostRequestBody(writer: SerializationWriter, startHoldMusicPostRequestBody: Partial<StartHoldMusicPostRequestBody> | undefined | null = {}) : void {
-    if (startHoldMusicPostRequestBody) {
-        writer.writeStringValue("clientContext", startHoldMusicPostRequestBody.clientContext);
-        writer.writeObjectValue<Prompt>("customPrompt", startHoldMusicPostRequestBody.customPrompt, serializePrompt);
-        writer.writeAdditionalData(startHoldMusicPostRequestBody.additionalData);
-    }
+export function serializeStartHoldMusicPostRequestBody(writer: SerializationWriter, startHoldMusicPostRequestBody: Partial<StartHoldMusicPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!startHoldMusicPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("clientContext", startHoldMusicPostRequestBody.clientContext);
+    writer.writeObjectValue<Prompt>("customPrompt", startHoldMusicPostRequestBody.customPrompt, serializePrompt);
+    writer.writeAdditionalData(startHoldMusicPostRequestBody.additionalData);
 }
 export interface StartHoldMusicPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

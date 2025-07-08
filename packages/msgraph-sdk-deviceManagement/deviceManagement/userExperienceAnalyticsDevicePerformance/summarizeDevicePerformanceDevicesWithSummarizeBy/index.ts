@@ -19,6 +19,7 @@ export function createSummarizeDevicePerformanceDevicesWithSummarizeByGetRespons
 }
 /**
  * The deserialization information for the current model
+ * @param SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,14 +31,15 @@ export function deserializeIntoSummarizeDevicePerformanceDevicesWithSummarizeByG
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(writer: SerializationWriter, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse> | undefined | null = {}) : void {
-    if (summarizeDevicePerformanceDevicesWithSummarizeByGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse)
-        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>("value", summarizeDevicePerformanceDevicesWithSummarizeByGetResponse.value, serializeUserExperienceAnalyticsDevicePerformance);
-    }
+export function serializeSummarizeDevicePerformanceDevicesWithSummarizeByGetResponse(writer: SerializationWriter, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse: Partial<SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!summarizeDevicePerformanceDevicesWithSummarizeByGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, summarizeDevicePerformanceDevicesWithSummarizeByGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDevicePerformance>("value", summarizeDevicePerformanceDevicesWithSummarizeByGetResponse.value, serializeUserExperienceAnalyticsDevicePerformance);
 }
 export interface SummarizeDevicePerformanceDevicesWithSummarizeByGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
