@@ -26,6 +26,7 @@ export function createMarkReadPostResponseFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param MarkReadPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -37,6 +38,7 @@ export function deserializeIntoMarkReadPostRequestBody(markReadPostRequestBody: 
 }
 /**
  * The deserialization information for the current model
+ * @param MarkReadPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -48,10 +50,6 @@ export function deserializeIntoMarkReadPostResponse(markReadPostResponse: Partia
 }
 export interface MarkReadPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,10 +59,6 @@ export interface MarkReadPostRequestBody extends AdditionalDataHolder, BackedMod
     messageIds?: string[] | null;
 }
 export interface MarkReadPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -97,25 +91,27 @@ export interface MarkReadRequestBuilder extends BaseRequestBuilder<MarkReadReque
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MarkReadPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMarkReadPostRequestBody(writer: SerializationWriter, markReadPostRequestBody: Partial<MarkReadPostRequestBody> | undefined | null = {}) : void {
-    if (markReadPostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", markReadPostRequestBody.messageIds);
-        writer.writeAdditionalData(markReadPostRequestBody.additionalData);
-    }
+export function serializeMarkReadPostRequestBody(writer: SerializationWriter, markReadPostRequestBody: Partial<MarkReadPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!markReadPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", markReadPostRequestBody.messageIds);
+    writer.writeAdditionalData(markReadPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MarkReadPostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMarkReadPostResponse(writer: SerializationWriter, markReadPostResponse: Partial<MarkReadPostResponse> | undefined | null = {}) : void {
-    if (markReadPostResponse) {
-        writer.writeBooleanValue("value", markReadPostResponse.value);
-        writer.writeAdditionalData(markReadPostResponse.additionalData);
-    }
+export function serializeMarkReadPostResponse(writer: SerializationWriter, markReadPostResponse: Partial<MarkReadPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!markReadPostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", markReadPostResponse.value);
+    writer.writeAdditionalData(markReadPostResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

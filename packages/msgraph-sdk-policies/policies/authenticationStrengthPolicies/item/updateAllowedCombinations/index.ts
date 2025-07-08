@@ -19,6 +19,7 @@ export function createUpdateAllowedCombinationsPostRequestBodyFromDiscriminatorV
 }
 /**
  * The deserialization information for the current model
+ * @param UpdateAllowedCombinationsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,21 +31,18 @@ export function deserializeIntoUpdateAllowedCombinationsPostRequestBody(updateAl
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UpdateAllowedCombinationsPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUpdateAllowedCombinationsPostRequestBody(writer: SerializationWriter, updateAllowedCombinationsPostRequestBody: Partial<UpdateAllowedCombinationsPostRequestBody> | undefined | null = {}) : void {
-    if (updateAllowedCombinationsPostRequestBody) {
-        if(updateAllowedCombinationsPostRequestBody.allowedCombinations)
-        writer.writeCollectionOfEnumValues<AuthenticationMethodModes>("allowedCombinations", updateAllowedCombinationsPostRequestBody.allowedCombinations);
-        writer.writeAdditionalData(updateAllowedCombinationsPostRequestBody.additionalData);
-    }
+export function serializeUpdateAllowedCombinationsPostRequestBody(writer: SerializationWriter, updateAllowedCombinationsPostRequestBody: Partial<UpdateAllowedCombinationsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!updateAllowedCombinationsPostRequestBody || isSerializingDerivedType) { return; }
+    if(updateAllowedCombinationsPostRequestBody.allowedCombinations)
+    writer.writeCollectionOfEnumValues<AuthenticationMethodModes>("allowedCombinations", updateAllowedCombinationsPostRequestBody.allowedCombinations);
+    writer.writeAdditionalData(updateAllowedCombinationsPostRequestBody.additionalData);
 }
 export interface UpdateAllowedCombinationsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The allowedCombinations property
      */

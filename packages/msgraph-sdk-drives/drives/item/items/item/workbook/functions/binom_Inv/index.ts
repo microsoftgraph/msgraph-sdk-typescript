@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface Binom_InvPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The alpha property
      */
     alpha?: UntypedNode | null;
@@ -61,6 +57,7 @@ export function createBinom_InvPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param Binom_InvPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoBinom_InvPostRequestBody(binom_InvPostRequestBody
 }
 /**
  * Serializes information the current object
+ * @param Binom_InvPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBinom_InvPostRequestBody(writer: SerializationWriter, binom_InvPostRequestBody: Partial<Binom_InvPostRequestBody> | undefined | null = {}) : void {
-    if (binom_InvPostRequestBody) {
-        writer.writeObjectValue("alpha", binom_InvPostRequestBody.alpha);
-        writer.writeObjectValue("probabilityS", binom_InvPostRequestBody.probabilityS);
-        writer.writeObjectValue("trials", binom_InvPostRequestBody.trials);
-        writer.writeAdditionalData(binom_InvPostRequestBody.additionalData);
-    }
+export function serializeBinom_InvPostRequestBody(writer: SerializationWriter, binom_InvPostRequestBody: Partial<Binom_InvPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!binom_InvPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("alpha", binom_InvPostRequestBody.alpha);
+    writer.writeObjectValue("probabilityS", binom_InvPostRequestBody.probabilityS);
+    writer.writeObjectValue("trials", binom_InvPostRequestBody.trials);
+    writer.writeAdditionalData(binom_InvPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

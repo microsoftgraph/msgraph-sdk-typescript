@@ -19,10 +19,6 @@ export function createCumIPmtPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 export interface CumIPmtPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -73,6 +69,7 @@ export interface CumIPmtRequestBuilder extends BaseRequestBuilder<CumIPmtRequest
 }
 /**
  * The deserialization information for the current model
+ * @param CumIPmtPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -89,19 +86,20 @@ export function deserializeIntoCumIPmtPostRequestBody(cumIPmtPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param CumIPmtPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCumIPmtPostRequestBody(writer: SerializationWriter, cumIPmtPostRequestBody: Partial<CumIPmtPostRequestBody> | undefined | null = {}) : void {
-    if (cumIPmtPostRequestBody) {
-        writer.writeObjectValue("endPeriod", cumIPmtPostRequestBody.endPeriod);
-        writer.writeObjectValue("nper", cumIPmtPostRequestBody.nper);
-        writer.writeObjectValue("pv", cumIPmtPostRequestBody.pv);
-        writer.writeObjectValue("rate", cumIPmtPostRequestBody.rate);
-        writer.writeObjectValue("startPeriod", cumIPmtPostRequestBody.startPeriod);
-        writer.writeObjectValue("type", cumIPmtPostRequestBody.type);
-        writer.writeAdditionalData(cumIPmtPostRequestBody.additionalData);
-    }
+export function serializeCumIPmtPostRequestBody(writer: SerializationWriter, cumIPmtPostRequestBody: Partial<CumIPmtPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!cumIPmtPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("endPeriod", cumIPmtPostRequestBody.endPeriod);
+    writer.writeObjectValue("nper", cumIPmtPostRequestBody.nper);
+    writer.writeObjectValue("pv", cumIPmtPostRequestBody.pv);
+    writer.writeObjectValue("rate", cumIPmtPostRequestBody.rate);
+    writer.writeObjectValue("startPeriod", cumIPmtPostRequestBody.startPeriod);
+    writer.writeObjectValue("type", cumIPmtPostRequestBody.type);
+    writer.writeAdditionalData(cumIPmtPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -17,6 +17,7 @@ export function createGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetRe
 }
 /**
  * The deserialization information for the current model
+ * @param GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceVal
     }
 }
 export interface GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -60,14 +57,15 @@ export interface GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBui
 }
 /**
  * Serializes information the current object
+ * @param GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse(writer: SerializationWriter, getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse: Partial<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse> | undefined | null = {}) : void {
-    if (getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse) {
-        writer.writeStringValue("value", getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.value);
-        writer.writeAdditionalData(getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.additionalData);
-    }
+export function serializeGetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse(writer: SerializationWriter, getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse: Partial<GetOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("value", getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.value);
+    writer.writeAdditionalData(getOmaSettingPlainTextValueWithSecretReferenceValueIdGetResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

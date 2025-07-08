@@ -19,6 +19,7 @@ export function createHideForUserPostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param HideForUserPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoHideForUserPostRequestBody(hideForUserPostRequest
     }
 }
 export interface HideForUserPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface HideForUserRequestBuilder extends BaseRequestBuilder<HideForUse
 }
 /**
  * Serializes information the current object
+ * @param HideForUserPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeHideForUserPostRequestBody(writer: SerializationWriter, hideForUserPostRequestBody: Partial<HideForUserPostRequestBody> | undefined | null = {}) : void {
-    if (hideForUserPostRequestBody) {
-        writer.writeObjectValue<TeamworkUserIdentity>("user", hideForUserPostRequestBody.user, serializeTeamworkUserIdentity);
-        writer.writeAdditionalData(hideForUserPostRequestBody.additionalData);
-    }
+export function serializeHideForUserPostRequestBody(writer: SerializationWriter, hideForUserPostRequestBody: Partial<HideForUserPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!hideForUserPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<TeamworkUserIdentity>("user", hideForUserPostRequestBody.user, serializeTeamworkUserIdentity);
+    writer.writeAdditionalData(hideForUserPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createNpvPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param NpvPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoNpvPostRequestBody(npvPostRequestBody: Partial<Np
     }
 }
 export interface NpvPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface NpvRequestBuilder extends BaseRequestBuilder<NpvRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param NpvPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeNpvPostRequestBody(writer: SerializationWriter, npvPostRequestBody: Partial<NpvPostRequestBody> | undefined | null = {}) : void {
-    if (npvPostRequestBody) {
-        writer.writeObjectValue("rate", npvPostRequestBody.rate);
-        writer.writeObjectValue("values", npvPostRequestBody.values);
-        writer.writeAdditionalData(npvPostRequestBody.additionalData);
-    }
+export function serializeNpvPostRequestBody(writer: SerializationWriter, npvPostRequestBody: Partial<NpvPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!npvPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("rate", npvPostRequestBody.rate);
+    writer.writeObjectValue("values", npvPostRequestBody.values);
+    writer.writeAdditionalData(npvPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

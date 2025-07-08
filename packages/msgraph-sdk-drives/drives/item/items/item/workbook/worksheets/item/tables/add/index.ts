@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface AddPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The address property
      */
     address?: string | null;
@@ -31,16 +27,16 @@ export interface AddPostRequestBody extends AdditionalDataHolder, BackedModel, P
  */
 export interface AddRequestBuilder extends BaseRequestBuilder<AddRequestBuilder> {
     /**
-     * Use this API to create a new Table.
+     * Create a new table. The range source address determines the worksheet under which the table will be added. If the table can't be added (for example, because the address is invalid, or the table would overlap with another table), an error is generated.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTable>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/workbook-post-tables?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablecollection-add?view=graph-rest-1.0|Find more info here}
      */
      post(body: AddPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTable | undefined>;
     /**
-     * Use this API to create a new Table.
+     * Create a new table. The range source address determines the worksheet under which the table will be added. If the table can't be added (for example, because the address is invalid, or the table would overlap with another table), an error is generated.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,6 +54,7 @@ export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param AddPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -70,15 +67,16 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<Ad
 }
 /**
  * Serializes information the current object
+ * @param AddPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined | null = {}) : void {
-    if (addPostRequestBody) {
-        writer.writeStringValue("address", addPostRequestBody.address);
-        writer.writeBooleanValue("hasHeaders", addPostRequestBody.hasHeaders);
-        writer.writeAdditionalData(addPostRequestBody.additionalData);
-    }
+export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!addPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("address", addPostRequestBody.address);
+    writer.writeBooleanValue("hasHeaders", addPostRequestBody.hasHeaders);
+    writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

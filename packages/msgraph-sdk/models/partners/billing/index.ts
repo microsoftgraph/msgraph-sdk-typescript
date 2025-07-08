@@ -52,10 +52,6 @@ export interface BillingReconciliation extends Entity, Parsable {
 }
 export interface Blob extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -224,6 +220,7 @@ export function createUnbilledUsageFromDiscriminatorValue(parseNode: ParseNode |
 }
 /**
  * The deserialization information for the current model
+ * @param AzureUsage The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -236,6 +233,7 @@ export function deserializeIntoAzureUsage(azureUsage: Partial<AzureUsage> | unde
 }
 /**
  * The deserialization information for the current model
+ * @param BilledReconciliation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -246,6 +244,7 @@ export function deserializeIntoBilledReconciliation(billedReconciliation: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param BilledUsage The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -256,6 +255,7 @@ export function deserializeIntoBilledUsage(billedUsage: Partial<BilledUsage> | u
 }
 /**
  * The deserialization information for the current model
+ * @param Billing The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -270,6 +270,7 @@ export function deserializeIntoBilling(billing: Partial<Billing> | undefined = {
 }
 /**
  * The deserialization information for the current model
+ * @param BillingReconciliation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -282,6 +283,7 @@ export function deserializeIntoBillingReconciliation(billingReconciliation: Part
 }
 /**
  * The deserialization information for the current model
+ * @param Blob The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -295,6 +297,7 @@ export function deserializeIntoBlob(blob: Partial<Blob> | undefined = {}) : Reco
 }
 /**
  * The deserialization information for the current model
+ * @param ExportSuccessOperation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -306,6 +309,7 @@ export function deserializeIntoExportSuccessOperation(exportSuccessOperation: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param FailedOperation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -317,6 +321,7 @@ export function deserializeIntoFailedOperation(failedOperation: Partial<FailedOp
 }
 /**
  * The deserialization information for the current model
+ * @param Manifest The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -337,6 +342,7 @@ export function deserializeIntoManifest(manifest: Partial<Manifest> | undefined 
 }
 /**
  * The deserialization information for the current model
+ * @param ManifestCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -348,6 +354,7 @@ export function deserializeIntoManifestCollectionResponse(manifestCollectionResp
 }
 /**
  * The deserialization information for the current model
+ * @param Operation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -361,6 +368,7 @@ export function deserializeIntoOperation(operation: Partial<Operation> | undefin
 }
 /**
  * The deserialization information for the current model
+ * @param OperationCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -372,6 +380,7 @@ export function deserializeIntoOperationCollectionResponse(operationCollectionRe
 }
 /**
  * The deserialization information for the current model
+ * @param RunningOperation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -382,6 +391,7 @@ export function deserializeIntoRunningOperation(runningOperation: Partial<Runnin
 }
 /**
  * The deserialization information for the current model
+ * @param UnbilledReconciliation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -392,6 +402,7 @@ export function deserializeIntoUnbilledReconciliation(unbilledReconciliation: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param UnbilledUsage The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -484,181 +495,207 @@ export interface RunningOperation extends Operation, Parsable {
 }
 /**
  * Serializes information the current object
+ * @param AzureUsage The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAzureUsage(writer: SerializationWriter, azureUsage: Partial<AzureUsage> | undefined | null = {}) : void {
-    if (azureUsage) {
-        serializeEntity(writer, azureUsage)
-        writer.writeObjectValue<BilledUsage>("billed", azureUsage.billed, serializeBilledUsage);
-        writer.writeObjectValue<UnbilledUsage>("unbilled", azureUsage.unbilled, serializeUnbilledUsage);
+export function serializeAzureUsage(writer: SerializationWriter, azureUsage: Partial<AzureUsage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!azureUsage || isSerializingDerivedType) { return; }
+    serializeEntity(writer, azureUsage, isSerializingDerivedType)
+    writer.writeObjectValue<BilledUsage>("billed", azureUsage.billed, serializeBilledUsage);
+    writer.writeObjectValue<UnbilledUsage>("unbilled", azureUsage.unbilled, serializeUnbilledUsage);
+}
+/**
+ * Serializes information the current object
+ * @param BilledReconciliation The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBilledReconciliation(writer: SerializationWriter, billedReconciliation: Partial<BilledReconciliation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!billedReconciliation || isSerializingDerivedType) { return; }
+    serializeEntity(writer, billedReconciliation, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param BilledUsage The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBilledUsage(writer: SerializationWriter, billedUsage: Partial<BilledUsage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!billedUsage || isSerializingDerivedType) { return; }
+    serializeEntity(writer, billedUsage, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param Billing The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBilling(writer: SerializationWriter, billing: Partial<Billing> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!billing || isSerializingDerivedType) { return; }
+    serializeEntity(writer, billing, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Manifest>("manifests", billing.manifests, serializeManifest);
+    writer.writeCollectionOfObjectValues<Operation>("operations", billing.operations, serializeOperation);
+    writer.writeObjectValue<BillingReconciliation>("reconciliation", billing.reconciliation, serializeBillingReconciliation);
+    writer.writeObjectValue<AzureUsage>("usage", billing.usage, serializeAzureUsage);
+}
+/**
+ * Serializes information the current object
+ * @param BillingReconciliation The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBillingReconciliation(writer: SerializationWriter, billingReconciliation: Partial<BillingReconciliation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!billingReconciliation || isSerializingDerivedType) { return; }
+    serializeEntity(writer, billingReconciliation, isSerializingDerivedType)
+    writer.writeObjectValue<BilledReconciliation>("billed", billingReconciliation.billed, serializeBilledReconciliation);
+    writer.writeObjectValue<UnbilledReconciliation>("unbilled", billingReconciliation.unbilled, serializeUnbilledReconciliation);
+}
+/**
+ * Serializes information the current object
+ * @param Blob The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBlob(writer: SerializationWriter, blob: Partial<Blob> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!blob || isSerializingDerivedType) { return; }
+    writer.writeStringValue("name", blob.name);
+    writer.writeStringValue("@odata.type", blob.odataType);
+    writer.writeStringValue("partitionValue", blob.partitionValue);
+    writer.writeAdditionalData(blob.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param ExportSuccessOperation The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeExportSuccessOperation(writer: SerializationWriter, exportSuccessOperation: Partial<ExportSuccessOperation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!exportSuccessOperation || isSerializingDerivedType) { return; }
+    serializeOperation(writer, exportSuccessOperation, isSerializingDerivedType)
+    writer.writeObjectValue<Manifest>("resourceLocation", exportSuccessOperation.resourceLocation, serializeManifest);
+}
+/**
+ * Serializes information the current object
+ * @param FailedOperation The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeFailedOperation(writer: SerializationWriter, failedOperation: Partial<FailedOperation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!failedOperation || isSerializingDerivedType) { return; }
+    serializeOperation(writer, failedOperation, isSerializingDerivedType)
+    writer.writeObjectValue<PublicError>("error", failedOperation.errorEscaped, serializePublicError);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Manifest The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeManifest(writer: SerializationWriter, manifest: Partial<Manifest> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!manifest || isSerializingDerivedType) { return; }
+    serializeEntity(writer, manifest, isSerializingDerivedType)
+    writer.writeNumberValue("blobCount", manifest.blobCount);
+    writer.writeCollectionOfObjectValues<Blob>("blobs", manifest.blobs, serializeBlob);
+    writer.writeDateValue("createdDateTime", manifest.createdDateTime);
+    writer.writeStringValue("dataFormat", manifest.dataFormat);
+    writer.writeStringValue("eTag", manifest.eTag);
+    writer.writeStringValue("partitionType", manifest.partitionType);
+    writer.writeStringValue("partnerTenantId", manifest.partnerTenantId);
+    writer.writeStringValue("rootDirectory", manifest.rootDirectory);
+    writer.writeStringValue("sasToken", manifest.sasToken);
+    writer.writeStringValue("schemaVersion", manifest.schemaVersion);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ManifestCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeManifestCollectionResponse(writer: SerializationWriter, manifestCollectionResponse: Partial<ManifestCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!manifestCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, manifestCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Manifest>("value", manifestCollectionResponse.value, serializeManifest);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Operation The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeOperation(writer: SerializationWriter, operation: Partial<Operation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!operation || isSerializingDerivedType) { return; }
+    serializeEntity(writer, operation, isSerializingDerivedType)
+    writer.writeDateValue("createdDateTime", operation.createdDateTime);
+    writer.writeDateValue("lastActionDateTime", operation.lastActionDateTime);
+    writer.writeEnumValue<LongRunningOperationStatus>("status", operation.status);
+    switch (operation.odataType) {
+        case "#microsoft.graph.partners.billing.exportSuccessOperation":
+            serializeExportSuccessOperation(writer, operation as ExportSuccessOperation, true);
+        break;
+        case "#microsoft.graph.partners.billing.failedOperation":
+            serializeFailedOperation(writer, operation as FailedOperation, true);
+        break;
+        case "#microsoft.graph.partners.billing.runningOperation":
+            serializeRunningOperation(writer, operation as RunningOperation, true);
+        break;
     }
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OperationCollectionResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBilledReconciliation(writer: SerializationWriter, billedReconciliation: Partial<BilledReconciliation> | undefined | null = {}) : void {
-    if (billedReconciliation) {
-        serializeEntity(writer, billedReconciliation)
-    }
+export function serializeOperationCollectionResponse(writer: SerializationWriter, operationCollectionResponse: Partial<OperationCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!operationCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, operationCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Operation>("value", operationCollectionResponse.value, serializeOperation);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RunningOperation The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBilledUsage(writer: SerializationWriter, billedUsage: Partial<BilledUsage> | undefined | null = {}) : void {
-    if (billedUsage) {
-        serializeEntity(writer, billedUsage)
-    }
+export function serializeRunningOperation(writer: SerializationWriter, runningOperation: Partial<RunningOperation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!runningOperation || isSerializingDerivedType) { return; }
+    serializeOperation(writer, runningOperation, isSerializingDerivedType)
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UnbilledReconciliation The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBilling(writer: SerializationWriter, billing: Partial<Billing> | undefined | null = {}) : void {
-    if (billing) {
-        serializeEntity(writer, billing)
-        writer.writeCollectionOfObjectValues<Manifest>("manifests", billing.manifests, serializeManifest);
-        writer.writeCollectionOfObjectValues<Operation>("operations", billing.operations, serializeOperation);
-        writer.writeObjectValue<BillingReconciliation>("reconciliation", billing.reconciliation, serializeBillingReconciliation);
-        writer.writeObjectValue<AzureUsage>("usage", billing.usage, serializeAzureUsage);
-    }
+export function serializeUnbilledReconciliation(writer: SerializationWriter, unbilledReconciliation: Partial<UnbilledReconciliation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!unbilledReconciliation || isSerializingDerivedType) { return; }
+    serializeEntity(writer, unbilledReconciliation, isSerializingDerivedType)
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UnbilledUsage The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBillingReconciliation(writer: SerializationWriter, billingReconciliation: Partial<BillingReconciliation> | undefined | null = {}) : void {
-    if (billingReconciliation) {
-        serializeEntity(writer, billingReconciliation)
-        writer.writeObjectValue<BilledReconciliation>("billed", billingReconciliation.billed, serializeBilledReconciliation);
-        writer.writeObjectValue<UnbilledReconciliation>("unbilled", billingReconciliation.unbilled, serializeUnbilledReconciliation);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeBlob(writer: SerializationWriter, blob: Partial<Blob> | undefined | null = {}) : void {
-    if (blob) {
-        writer.writeStringValue("name", blob.name);
-        writer.writeStringValue("@odata.type", blob.odataType);
-        writer.writeStringValue("partitionValue", blob.partitionValue);
-        writer.writeAdditionalData(blob.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeExportSuccessOperation(writer: SerializationWriter, exportSuccessOperation: Partial<ExportSuccessOperation> | undefined | null = {}) : void {
-    if (exportSuccessOperation) {
-        serializeOperation(writer, exportSuccessOperation)
-        writer.writeObjectValue<Manifest>("resourceLocation", exportSuccessOperation.resourceLocation, serializeManifest);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeFailedOperation(writer: SerializationWriter, failedOperation: Partial<FailedOperation> | undefined | null = {}) : void {
-    if (failedOperation) {
-        serializeOperation(writer, failedOperation)
-        writer.writeObjectValue<PublicError>("error", failedOperation.errorEscaped, serializePublicError);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeManifest(writer: SerializationWriter, manifest: Partial<Manifest> | undefined | null = {}) : void {
-    if (manifest) {
-        serializeEntity(writer, manifest)
-        writer.writeNumberValue("blobCount", manifest.blobCount);
-        writer.writeCollectionOfObjectValues<Blob>("blobs", manifest.blobs, serializeBlob);
-        writer.writeDateValue("createdDateTime", manifest.createdDateTime);
-        writer.writeStringValue("dataFormat", manifest.dataFormat);
-        writer.writeStringValue("eTag", manifest.eTag);
-        writer.writeStringValue("partitionType", manifest.partitionType);
-        writer.writeStringValue("partnerTenantId", manifest.partnerTenantId);
-        writer.writeStringValue("rootDirectory", manifest.rootDirectory);
-        writer.writeStringValue("sasToken", manifest.sasToken);
-        writer.writeStringValue("schemaVersion", manifest.schemaVersion);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeManifestCollectionResponse(writer: SerializationWriter, manifestCollectionResponse: Partial<ManifestCollectionResponse> | undefined | null = {}) : void {
-    if (manifestCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, manifestCollectionResponse)
-        writer.writeCollectionOfObjectValues<Manifest>("value", manifestCollectionResponse.value, serializeManifest);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeOperation(writer: SerializationWriter, operation: Partial<Operation> | undefined | null = {}) : void {
-    if (operation) {
-        serializeEntity(writer, operation)
-        writer.writeDateValue("createdDateTime", operation.createdDateTime);
-        writer.writeDateValue("lastActionDateTime", operation.lastActionDateTime);
-        writer.writeEnumValue<LongRunningOperationStatus>("status", operation.status);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeOperationCollectionResponse(writer: SerializationWriter, operationCollectionResponse: Partial<OperationCollectionResponse> | undefined | null = {}) : void {
-    if (operationCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, operationCollectionResponse)
-        writer.writeCollectionOfObjectValues<Operation>("value", operationCollectionResponse.value, serializeOperation);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeRunningOperation(writer: SerializationWriter, runningOperation: Partial<RunningOperation> | undefined | null = {}) : void {
-    if (runningOperation) {
-        serializeOperation(writer, runningOperation)
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeUnbilledReconciliation(writer: SerializationWriter, unbilledReconciliation: Partial<UnbilledReconciliation> | undefined | null = {}) : void {
-    if (unbilledReconciliation) {
-        serializeEntity(writer, unbilledReconciliation)
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeUnbilledUsage(writer: SerializationWriter, unbilledUsage: Partial<UnbilledUsage> | undefined | null = {}) : void {
-    if (unbilledUsage) {
-        serializeEntity(writer, unbilledUsage)
-    }
+export function serializeUnbilledUsage(writer: SerializationWriter, unbilledUsage: Partial<UnbilledUsage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!unbilledUsage || isSerializingDerivedType) { return; }
+    serializeEntity(writer, unbilledUsage, isSerializingDerivedType)
 }
 export interface UnbilledReconciliation extends Entity, Parsable {
 }

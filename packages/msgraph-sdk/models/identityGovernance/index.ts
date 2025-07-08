@@ -519,6 +519,7 @@ export interface CustomTaskExtensionCollectionResponse extends BaseCollectionPag
 export type CustomTaskExtensionOperationStatus = (typeof CustomTaskExtensionOperationStatusObject)[keyof typeof CustomTaskExtensionOperationStatusObject];
 /**
  * The deserialization information for the current model
+ * @param AttributeChangeTrigger The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -530,6 +531,7 @@ export function deserializeIntoAttributeChangeTrigger(attributeChangeTrigger: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param CustomTaskExtension The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -545,6 +547,7 @@ export function deserializeIntoCustomTaskExtension(customTaskExtension: Partial<
 }
 /**
  * The deserialization information for the current model
+ * @param CustomTaskExtensionCallbackConfiguration The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -556,6 +559,7 @@ export function deserializeIntoCustomTaskExtensionCallbackConfiguration(customTa
 }
 /**
  * The deserialization information for the current model
+ * @param CustomTaskExtensionCallbackData The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -567,6 +571,7 @@ export function deserializeIntoCustomTaskExtensionCallbackData(customTaskExtensi
 }
 /**
  * The deserialization information for the current model
+ * @param CustomTaskExtensionCalloutData The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -581,6 +586,7 @@ export function deserializeIntoCustomTaskExtensionCalloutData(customTaskExtensio
 }
 /**
  * The deserialization information for the current model
+ * @param CustomTaskExtensionCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -592,6 +598,7 @@ export function deserializeIntoCustomTaskExtensionCollectionResponse(customTaskE
 }
 /**
  * The deserialization information for the current model
+ * @param GroupBasedSubjectSet The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -603,6 +610,7 @@ export function deserializeIntoGroupBasedSubjectSet(groupBasedSubjectSet: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param Insights The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -613,6 +621,7 @@ export function deserializeIntoInsights(insights: Partial<Insights> | undefined 
 }
 /**
  * The deserialization information for the current model
+ * @param LifecycleManagementSettings The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -625,6 +634,7 @@ export function deserializeIntoLifecycleManagementSettings(lifecycleManagementSe
 }
 /**
  * The deserialization information for the current model
+ * @param LifecycleWorkflowsContainer The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -642,6 +652,7 @@ export function deserializeIntoLifecycleWorkflowsContainer(lifecycleWorkflowsCon
 }
 /**
  * The deserialization information for the current model
+ * @param MembershipChangeTrigger The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -653,6 +664,7 @@ export function deserializeIntoMembershipChangeTrigger(membershipChangeTrigger: 
 }
 /**
  * The deserialization information for the current model
+ * @param OnDemandExecutionOnly The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -663,6 +675,7 @@ export function deserializeIntoOnDemandExecutionOnly(onDemandExecutionOnly: Part
 }
 /**
  * The deserialization information for the current model
+ * @param Parameter The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -677,6 +690,7 @@ export function deserializeIntoParameter(parameter: Partial<Parameter> | undefin
 }
 /**
  * The deserialization information for the current model
+ * @param RuleBasedSubjectSet The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -688,6 +702,7 @@ export function deserializeIntoRuleBasedSubjectSet(ruleBasedSubjectSet: Partial<
 }
 /**
  * The deserialization information for the current model
+ * @param Run The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -712,6 +727,7 @@ export function deserializeIntoRun(run: Partial<Run> | undefined = {}) : Record<
 }
 /**
  * The deserialization information for the current model
+ * @param RunCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -723,6 +739,7 @@ export function deserializeIntoRunCollectionResponse(runCollectionResponse: Part
 }
 /**
  * The deserialization information for the current model
+ * @param RunSummary The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -740,6 +757,7 @@ export function deserializeIntoRunSummary(runSummary: Partial<RunSummary> | unde
 }
 /**
  * The deserialization information for the current model
+ * @param Task The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -759,6 +777,7 @@ export function deserializeIntoTask(task: Partial<Task> | undefined = {}) : Reco
 }
 /**
  * The deserialization information for the current model
+ * @param TaskCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -770,6 +789,7 @@ export function deserializeIntoTaskCollectionResponse(taskCollectionResponse: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param TaskDefinition The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -786,6 +806,7 @@ export function deserializeIntoTaskDefinition(taskDefinition: Partial<TaskDefini
 }
 /**
  * The deserialization information for the current model
+ * @param TaskDefinitionCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -797,6 +818,7 @@ export function deserializeIntoTaskDefinitionCollectionResponse(taskDefinitionCo
 }
 /**
  * The deserialization information for the current model
+ * @param TaskProcessingResult The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -814,6 +836,7 @@ export function deserializeIntoTaskProcessingResult(taskProcessingResult: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param TaskProcessingResultCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -825,6 +848,7 @@ export function deserializeIntoTaskProcessingResultCollectionResponse(taskProces
 }
 /**
  * The deserialization information for the current model
+ * @param TaskReport The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -847,6 +871,7 @@ export function deserializeIntoTaskReport(taskReport: Partial<TaskReport> | unde
 }
 /**
  * The deserialization information for the current model
+ * @param TaskReportCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -858,6 +883,7 @@ export function deserializeIntoTaskReportCollectionResponse(taskReportCollection
 }
 /**
  * The deserialization information for the current model
+ * @param TaskReportSummary The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -873,6 +899,7 @@ export function deserializeIntoTaskReportSummary(taskReportSummary: Partial<Task
 }
 /**
  * The deserialization information for the current model
+ * @param TimeBasedAttributeTrigger The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -885,6 +912,7 @@ export function deserializeIntoTimeBasedAttributeTrigger(timeBasedAttributeTrigg
 }
 /**
  * The deserialization information for the current model
+ * @param TopTasksInsightsSummary The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -904,6 +932,7 @@ export function deserializeIntoTopTasksInsightsSummary(topTasksInsightsSummary: 
 }
 /**
  * The deserialization information for the current model
+ * @param TopWorkflowsInsightsSummary The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -925,6 +954,7 @@ export function deserializeIntoTopWorkflowsInsightsSummary(topWorkflowsInsightsS
 }
 /**
  * The deserialization information for the current model
+ * @param TriggerAndScopeBasedConditions The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -937,6 +967,7 @@ export function deserializeIntoTriggerAndScopeBasedConditions(triggerAndScopeBas
 }
 /**
  * The deserialization information for the current model
+ * @param TriggerAttribute The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -949,6 +980,7 @@ export function deserializeIntoTriggerAttribute(triggerAttribute: Partial<Trigge
 }
 /**
  * The deserialization information for the current model
+ * @param UserProcessingResult The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -970,6 +1002,7 @@ export function deserializeIntoUserProcessingResult(userProcessingResult: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param UserProcessingResultCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -981,6 +1014,7 @@ export function deserializeIntoUserProcessingResultCollectionResponse(userProces
 }
 /**
  * The deserialization information for the current model
+ * @param UserSummary The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -997,6 +1031,7 @@ export function deserializeIntoUserSummary(userSummary: Partial<UserSummary> | u
 }
 /**
  * The deserialization information for the current model
+ * @param Workflow The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1016,6 +1051,7 @@ export function deserializeIntoWorkflow(workflow: Partial<Workflow> | undefined 
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowBase The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1038,6 +1074,7 @@ export function deserializeIntoWorkflowBase(workflowBase: Partial<WorkflowBase> 
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1049,6 +1086,7 @@ export function deserializeIntoWorkflowCollectionResponse(workflowCollectionResp
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowExecutionConditions The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1060,6 +1098,7 @@ export function deserializeIntoWorkflowExecutionConditions(workflowExecutionCond
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowExecutionTrigger The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1071,6 +1110,7 @@ export function deserializeIntoWorkflowExecutionTrigger(workflowExecutionTrigger
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowsInsightsByCategory The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1091,6 +1131,7 @@ export function deserializeIntoWorkflowsInsightsByCategory(workflowsInsightsByCa
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowsInsightsSummary The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1111,6 +1152,7 @@ export function deserializeIntoWorkflowsInsightsSummary(workflowsInsightsSummary
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowTemplate The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1126,6 +1168,7 @@ export function deserializeIntoWorkflowTemplate(workflowTemplate: Partial<Workfl
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowTemplateCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1137,6 +1180,7 @@ export function deserializeIntoWorkflowTemplateCollectionResponse(workflowTempla
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowVersion The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1148,6 +1192,7 @@ export function deserializeIntoWorkflowVersion(workflowVersion: Partial<Workflow
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowVersionCollectionResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -1218,10 +1263,6 @@ export type MembershipChangeType = (typeof MembershipChangeTypeObject)[keyof typ
 export interface OnDemandExecutionOnly extends Parsable, WorkflowExecutionConditions {
 }
 export interface Parameter extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -1315,10 +1356,6 @@ export interface RunCollectionResponse extends BaseCollectionPaginationCountResp
 }
 export interface RunSummary extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -1353,643 +1390,715 @@ export interface RunSummary extends AdditionalDataHolder, BackedModel, Parsable 
 }
 /**
  * Serializes information the current object
+ * @param AttributeChangeTrigger The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAttributeChangeTrigger(writer: SerializationWriter, attributeChangeTrigger: Partial<AttributeChangeTrigger> | undefined | null = {}) : void {
-    if (attributeChangeTrigger) {
-        serializeWorkflowExecutionTrigger(writer, attributeChangeTrigger)
-        writer.writeCollectionOfObjectValues<TriggerAttribute>("triggerAttributes", attributeChangeTrigger.triggerAttributes, serializeTriggerAttribute);
+export function serializeAttributeChangeTrigger(writer: SerializationWriter, attributeChangeTrigger: Partial<AttributeChangeTrigger> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!attributeChangeTrigger || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionTrigger(writer, attributeChangeTrigger, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TriggerAttribute>("triggerAttributes", attributeChangeTrigger.triggerAttributes, serializeTriggerAttribute);
+}
+/**
+ * Serializes information the current object
+ * @param CustomTaskExtension The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomTaskExtension(writer: SerializationWriter, customTaskExtension: Partial<CustomTaskExtension> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customTaskExtension || isSerializingDerivedType) { return; }
+    serializeCustomCalloutExtension(writer, customTaskExtension, isSerializingDerivedType)
+    writer.writeObjectValue<CustomExtensionCallbackConfiguration>("callbackConfiguration", customTaskExtension.callbackConfiguration, serializeCustomExtensionCallbackConfiguration);
+    writer.writeObjectValue<User>("createdBy", customTaskExtension.createdBy, serializeUser);
+    writer.writeDateValue("createdDateTime", customTaskExtension.createdDateTime);
+    writer.writeObjectValue<User>("lastModifiedBy", customTaskExtension.lastModifiedBy, serializeUser);
+    writer.writeDateValue("lastModifiedDateTime", customTaskExtension.lastModifiedDateTime);
+}
+/**
+ * Serializes information the current object
+ * @param CustomTaskExtensionCallbackConfiguration The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomTaskExtensionCallbackConfiguration(writer: SerializationWriter, customTaskExtensionCallbackConfiguration: Partial<CustomTaskExtensionCallbackConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customTaskExtensionCallbackConfiguration || isSerializingDerivedType) { return; }
+    serializeCustomExtensionCallbackConfiguration(writer, customTaskExtensionCallbackConfiguration, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Application>("authorizedApps", customTaskExtensionCallbackConfiguration.authorizedApps, serializeApplication);
+}
+/**
+ * Serializes information the current object
+ * @param CustomTaskExtensionCallbackData The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomTaskExtensionCallbackData(writer: SerializationWriter, customTaskExtensionCallbackData: Partial<CustomTaskExtensionCallbackData> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customTaskExtensionCallbackData || isSerializingDerivedType) { return; }
+    serializeCustomExtensionData(writer, customTaskExtensionCallbackData, isSerializingDerivedType)
+    writer.writeEnumValue<CustomTaskExtensionOperationStatus>("operationStatus", customTaskExtensionCallbackData.operationStatus);
+}
+/**
+ * Serializes information the current object
+ * @param CustomTaskExtensionCalloutData The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomTaskExtensionCalloutData(writer: SerializationWriter, customTaskExtensionCalloutData: Partial<CustomTaskExtensionCalloutData> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customTaskExtensionCalloutData || isSerializingDerivedType) { return; }
+    serializeCustomExtensionData(writer, customTaskExtensionCalloutData, isSerializingDerivedType)
+    writer.writeObjectValue<User>("subject", customTaskExtensionCalloutData.subject, serializeUser);
+    writer.writeObjectValue<Task>("task", customTaskExtensionCalloutData.task, serializeTask);
+    writer.writeObjectValue<TaskProcessingResult>("taskProcessingresult", customTaskExtensionCalloutData.taskProcessingresult, serializeTaskProcessingResult);
+    writer.writeObjectValue<Workflow>("workflow", customTaskExtensionCalloutData.workflow, serializeWorkflow);
+}
+/**
+ * Serializes information the current object
+ * @param CustomTaskExtensionCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomTaskExtensionCollectionResponse(writer: SerializationWriter, customTaskExtensionCollectionResponse: Partial<CustomTaskExtensionCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customTaskExtensionCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, customTaskExtensionCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CustomTaskExtension>("value", customTaskExtensionCollectionResponse.value, serializeCustomTaskExtension);
+}
+/**
+ * Serializes information the current object
+ * @param GroupBasedSubjectSet The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeGroupBasedSubjectSet(writer: SerializationWriter, groupBasedSubjectSet: Partial<GroupBasedSubjectSet> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!groupBasedSubjectSet || isSerializingDerivedType) { return; }
+    serializeSubjectSet(writer, groupBasedSubjectSet, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Group>("groups", groupBasedSubjectSet.groups, serializeGroup);
+}
+/**
+ * Serializes information the current object
+ * @param Insights The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeInsights(writer: SerializationWriter, insights: Partial<Insights> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!insights || isSerializingDerivedType) { return; }
+    serializeEntity(writer, insights, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LifecycleManagementSettings The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeLifecycleManagementSettings(writer: SerializationWriter, lifecycleManagementSettings: Partial<LifecycleManagementSettings> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!lifecycleManagementSettings || isSerializingDerivedType) { return; }
+    serializeEntity(writer, lifecycleManagementSettings, isSerializingDerivedType)
+    writer.writeObjectValue<EmailSettings>("emailSettings", lifecycleManagementSettings.emailSettings, serializeEmailSettings);
+    writer.writeNumberValue("workflowScheduleIntervalInHours", lifecycleManagementSettings.workflowScheduleIntervalInHours);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LifecycleWorkflowsContainer The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeLifecycleWorkflowsContainer(writer: SerializationWriter, lifecycleWorkflowsContainer: Partial<LifecycleWorkflowsContainer> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!lifecycleWorkflowsContainer || isSerializingDerivedType) { return; }
+    serializeEntity(writer, lifecycleWorkflowsContainer, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CustomTaskExtension>("customTaskExtensions", lifecycleWorkflowsContainer.customTaskExtensions, serializeCustomTaskExtension);
+    writer.writeObjectValue<DeletedItemContainer>("deletedItems", lifecycleWorkflowsContainer.deletedItems, serializeDeletedItemContainer);
+    writer.writeObjectValue<Insights>("insights", lifecycleWorkflowsContainer.insights, serializeInsights);
+    writer.writeObjectValue<LifecycleManagementSettings>("settings", lifecycleWorkflowsContainer.settings, serializeLifecycleManagementSettings);
+    writer.writeCollectionOfObjectValues<TaskDefinition>("taskDefinitions", lifecycleWorkflowsContainer.taskDefinitions, serializeTaskDefinition);
+    writer.writeCollectionOfObjectValues<Workflow>("workflows", lifecycleWorkflowsContainer.workflows, serializeWorkflow);
+    writer.writeCollectionOfObjectValues<WorkflowTemplate>("workflowTemplates", lifecycleWorkflowsContainer.workflowTemplates, serializeWorkflowTemplate);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MembershipChangeTrigger The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMembershipChangeTrigger(writer: SerializationWriter, membershipChangeTrigger: Partial<MembershipChangeTrigger> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!membershipChangeTrigger || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionTrigger(writer, membershipChangeTrigger, isSerializingDerivedType)
+    writer.writeEnumValue<MembershipChangeType>("changeType", membershipChangeTrigger.changeType);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OnDemandExecutionOnly The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeOnDemandExecutionOnly(writer: SerializationWriter, onDemandExecutionOnly: Partial<OnDemandExecutionOnly> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!onDemandExecutionOnly || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionConditions(writer, onDemandExecutionOnly, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Parameter The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeParameter(writer: SerializationWriter, parameter: Partial<Parameter> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!parameter || isSerializingDerivedType) { return; }
+    writer.writeStringValue("name", parameter.name);
+    writer.writeStringValue("@odata.type", parameter.odataType);
+    writer.writeCollectionOfPrimitiveValues<string>("values", parameter.values);
+    writer.writeEnumValue<ValueType>("valueType", parameter.valueType);
+    writer.writeAdditionalData(parameter.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RuleBasedSubjectSet The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRuleBasedSubjectSet(writer: SerializationWriter, ruleBasedSubjectSet: Partial<RuleBasedSubjectSet> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!ruleBasedSubjectSet || isSerializingDerivedType) { return; }
+    serializeSubjectSet(writer, ruleBasedSubjectSet, isSerializingDerivedType)
+    writer.writeStringValue("rule", ruleBasedSubjectSet.rule);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Run The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRun(writer: SerializationWriter, run: Partial<Run> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!run || isSerializingDerivedType) { return; }
+    serializeEntity(writer, run, isSerializingDerivedType)
+    writer.writeDateValue("completedDateTime", run.completedDateTime);
+    writer.writeNumberValue("failedTasksCount", run.failedTasksCount);
+    writer.writeNumberValue("failedUsersCount", run.failedUsersCount);
+    writer.writeDateValue("lastUpdatedDateTime", run.lastUpdatedDateTime);
+    writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", run.processingStatus);
+    writer.writeDateValue("scheduledDateTime", run.scheduledDateTime);
+    writer.writeDateValue("startedDateTime", run.startedDateTime);
+    writer.writeNumberValue("successfulUsersCount", run.successfulUsersCount);
+    writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", run.taskProcessingResults, serializeTaskProcessingResult);
+    writer.writeNumberValue("totalTasksCount", run.totalTasksCount);
+    writer.writeNumberValue("totalUnprocessedTasksCount", run.totalUnprocessedTasksCount);
+    writer.writeNumberValue("totalUsersCount", run.totalUsersCount);
+    writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", run.userProcessingResults, serializeUserProcessingResult);
+    writer.writeEnumValue<WorkflowExecutionType>("workflowExecutionType", run.workflowExecutionType);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RunCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRunCollectionResponse(writer: SerializationWriter, runCollectionResponse: Partial<RunCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!runCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, runCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Run>("value", runCollectionResponse.value, serializeRun);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RunSummary The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRunSummary(writer: SerializationWriter, runSummary: Partial<RunSummary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!runSummary || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("failedRuns", runSummary.failedRuns);
+    writer.writeNumberValue("failedTasks", runSummary.failedTasks);
+    writer.writeStringValue("@odata.type", runSummary.odataType);
+    writer.writeNumberValue("successfulRuns", runSummary.successfulRuns);
+    writer.writeNumberValue("totalRuns", runSummary.totalRuns);
+    writer.writeNumberValue("totalTasks", runSummary.totalTasks);
+    writer.writeNumberValue("totalUsers", runSummary.totalUsers);
+    writer.writeAdditionalData(runSummary.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Task The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTask(writer: SerializationWriter, task: Partial<Task> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!task || isSerializingDerivedType) { return; }
+    serializeEntity(writer, task, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<KeyValuePair>("arguments", task.arguments, serializeKeyValuePair);
+    writer.writeEnumValue<LifecycleTaskCategory[]>("category", task.category);
+    writer.writeBooleanValue("continueOnError", task.continueOnError);
+    writer.writeStringValue("description", task.description);
+    writer.writeStringValue("displayName", task.displayName);
+    writer.writeNumberValue("executionSequence", task.executionSequence);
+    writer.writeBooleanValue("isEnabled", task.isEnabled);
+    writer.writeStringValue("taskDefinitionId", task.taskDefinitionId);
+    writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", task.taskProcessingResults, serializeTaskProcessingResult);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TaskCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTaskCollectionResponse(writer: SerializationWriter, taskCollectionResponse: Partial<TaskCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!taskCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, taskCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Task>("value", taskCollectionResponse.value, serializeTask);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TaskDefinition The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTaskDefinition(writer: SerializationWriter, taskDefinition: Partial<TaskDefinition> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!taskDefinition || isSerializingDerivedType) { return; }
+    serializeEntity(writer, taskDefinition, isSerializingDerivedType)
+    writer.writeEnumValue<LifecycleTaskCategory[]>("category", taskDefinition.category);
+    writer.writeBooleanValue("continueOnError", taskDefinition.continueOnError);
+    writer.writeStringValue("description", taskDefinition.description);
+    writer.writeStringValue("displayName", taskDefinition.displayName);
+    writer.writeCollectionOfObjectValues<Parameter>("parameters", taskDefinition.parameters, serializeParameter);
+    writer.writeNumberValue("version", taskDefinition.version);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TaskDefinitionCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTaskDefinitionCollectionResponse(writer: SerializationWriter, taskDefinitionCollectionResponse: Partial<TaskDefinitionCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!taskDefinitionCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, taskDefinitionCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TaskDefinition>("value", taskDefinitionCollectionResponse.value, serializeTaskDefinition);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TaskProcessingResult The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTaskProcessingResult(writer: SerializationWriter, taskProcessingResult: Partial<TaskProcessingResult> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!taskProcessingResult || isSerializingDerivedType) { return; }
+    serializeEntity(writer, taskProcessingResult, isSerializingDerivedType)
+    writer.writeDateValue("completedDateTime", taskProcessingResult.completedDateTime);
+    writer.writeDateValue("createdDateTime", taskProcessingResult.createdDateTime);
+    writer.writeStringValue("failureReason", taskProcessingResult.failureReason);
+    writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", taskProcessingResult.processingStatus);
+    writer.writeDateValue("startedDateTime", taskProcessingResult.startedDateTime);
+    writer.writeObjectValue<User>("subject", taskProcessingResult.subject, serializeUser);
+    writer.writeObjectValue<Task>("task", taskProcessingResult.task, serializeTask);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TaskProcessingResultCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTaskProcessingResultCollectionResponse(writer: SerializationWriter, taskProcessingResultCollectionResponse: Partial<TaskProcessingResultCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!taskProcessingResultCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, taskProcessingResultCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TaskProcessingResult>("value", taskProcessingResultCollectionResponse.value, serializeTaskProcessingResult);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TaskReport The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTaskReport(writer: SerializationWriter, taskReport: Partial<TaskReport> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!taskReport || isSerializingDerivedType) { return; }
+    serializeEntity(writer, taskReport, isSerializingDerivedType)
+    writer.writeDateValue("completedDateTime", taskReport.completedDateTime);
+    writer.writeNumberValue("failedUsersCount", taskReport.failedUsersCount);
+    writer.writeDateValue("lastUpdatedDateTime", taskReport.lastUpdatedDateTime);
+    writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", taskReport.processingStatus);
+    writer.writeStringValue("runId", taskReport.runId);
+    writer.writeDateValue("startedDateTime", taskReport.startedDateTime);
+    writer.writeNumberValue("successfulUsersCount", taskReport.successfulUsersCount);
+    writer.writeObjectValue<Task>("task", taskReport.task, serializeTask);
+    writer.writeObjectValue<TaskDefinition>("taskDefinition", taskReport.taskDefinition, serializeTaskDefinition);
+    writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", taskReport.taskProcessingResults, serializeTaskProcessingResult);
+    writer.writeNumberValue("totalUsersCount", taskReport.totalUsersCount);
+    writer.writeNumberValue("unprocessedUsersCount", taskReport.unprocessedUsersCount);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TaskReportCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTaskReportCollectionResponse(writer: SerializationWriter, taskReportCollectionResponse: Partial<TaskReportCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!taskReportCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, taskReportCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TaskReport>("value", taskReportCollectionResponse.value, serializeTaskReport);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TaskReportSummary The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTaskReportSummary(writer: SerializationWriter, taskReportSummary: Partial<TaskReportSummary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!taskReportSummary || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("failedTasks", taskReportSummary.failedTasks);
+    writer.writeStringValue("@odata.type", taskReportSummary.odataType);
+    writer.writeNumberValue("successfulTasks", taskReportSummary.successfulTasks);
+    writer.writeNumberValue("totalTasks", taskReportSummary.totalTasks);
+    writer.writeNumberValue("unprocessedTasks", taskReportSummary.unprocessedTasks);
+    writer.writeAdditionalData(taskReportSummary.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TimeBasedAttributeTrigger The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTimeBasedAttributeTrigger(writer: SerializationWriter, timeBasedAttributeTrigger: Partial<TimeBasedAttributeTrigger> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!timeBasedAttributeTrigger || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionTrigger(writer, timeBasedAttributeTrigger, isSerializingDerivedType)
+    writer.writeNumberValue("offsetInDays", timeBasedAttributeTrigger.offsetInDays);
+    writer.writeEnumValue<WorkflowTriggerTimeBasedAttribute>("timeBasedAttribute", timeBasedAttributeTrigger.timeBasedAttribute);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TopTasksInsightsSummary The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTopTasksInsightsSummary(writer: SerializationWriter, topTasksInsightsSummary: Partial<TopTasksInsightsSummary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!topTasksInsightsSummary || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("failedTasks", topTasksInsightsSummary.failedTasks);
+    writer.writeNumberValue("failedUsers", topTasksInsightsSummary.failedUsers);
+    writer.writeStringValue("@odata.type", topTasksInsightsSummary.odataType);
+    writer.writeNumberValue("successfulTasks", topTasksInsightsSummary.successfulTasks);
+    writer.writeNumberValue("successfulUsers", topTasksInsightsSummary.successfulUsers);
+    writer.writeStringValue("taskDefinitionDisplayName", topTasksInsightsSummary.taskDefinitionDisplayName);
+    writer.writeStringValue("taskDefinitionId", topTasksInsightsSummary.taskDefinitionId);
+    writer.writeNumberValue("totalTasks", topTasksInsightsSummary.totalTasks);
+    writer.writeNumberValue("totalUsers", topTasksInsightsSummary.totalUsers);
+    writer.writeAdditionalData(topTasksInsightsSummary.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TopWorkflowsInsightsSummary The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTopWorkflowsInsightsSummary(writer: SerializationWriter, topWorkflowsInsightsSummary: Partial<TopWorkflowsInsightsSummary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!topWorkflowsInsightsSummary || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("failedRuns", topWorkflowsInsightsSummary.failedRuns);
+    writer.writeNumberValue("failedUsers", topWorkflowsInsightsSummary.failedUsers);
+    writer.writeStringValue("@odata.type", topWorkflowsInsightsSummary.odataType);
+    writer.writeNumberValue("successfulRuns", topWorkflowsInsightsSummary.successfulRuns);
+    writer.writeNumberValue("successfulUsers", topWorkflowsInsightsSummary.successfulUsers);
+    writer.writeNumberValue("totalRuns", topWorkflowsInsightsSummary.totalRuns);
+    writer.writeNumberValue("totalUsers", topWorkflowsInsightsSummary.totalUsers);
+    writer.writeEnumValue<LifecycleWorkflowCategory>("workflowCategory", topWorkflowsInsightsSummary.workflowCategory);
+    writer.writeStringValue("workflowDisplayName", topWorkflowsInsightsSummary.workflowDisplayName);
+    writer.writeStringValue("workflowId", topWorkflowsInsightsSummary.workflowId);
+    writer.writeNumberValue("workflowVersion", topWorkflowsInsightsSummary.workflowVersion);
+    writer.writeAdditionalData(topWorkflowsInsightsSummary.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TriggerAndScopeBasedConditions The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTriggerAndScopeBasedConditions(writer: SerializationWriter, triggerAndScopeBasedConditions: Partial<TriggerAndScopeBasedConditions> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!triggerAndScopeBasedConditions || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionConditions(writer, triggerAndScopeBasedConditions, isSerializingDerivedType)
+    writer.writeObjectValue<SubjectSet>("scope", triggerAndScopeBasedConditions.scope, serializeSubjectSet);
+    writer.writeObjectValue<WorkflowExecutionTrigger>("trigger", triggerAndScopeBasedConditions.trigger, serializeWorkflowExecutionTrigger);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TriggerAttribute The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTriggerAttribute(writer: SerializationWriter, triggerAttribute: Partial<TriggerAttribute> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!triggerAttribute || isSerializingDerivedType) { return; }
+    writer.writeStringValue("name", triggerAttribute.name);
+    writer.writeStringValue("@odata.type", triggerAttribute.odataType);
+    writer.writeAdditionalData(triggerAttribute.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UserProcessingResult The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeUserProcessingResult(writer: SerializationWriter, userProcessingResult: Partial<UserProcessingResult> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!userProcessingResult || isSerializingDerivedType) { return; }
+    serializeEntity(writer, userProcessingResult, isSerializingDerivedType)
+    writer.writeDateValue("completedDateTime", userProcessingResult.completedDateTime);
+    writer.writeNumberValue("failedTasksCount", userProcessingResult.failedTasksCount);
+    writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", userProcessingResult.processingStatus);
+    writer.writeDateValue("scheduledDateTime", userProcessingResult.scheduledDateTime);
+    writer.writeDateValue("startedDateTime", userProcessingResult.startedDateTime);
+    writer.writeObjectValue<User>("subject", userProcessingResult.subject, serializeUser);
+    writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", userProcessingResult.taskProcessingResults, serializeTaskProcessingResult);
+    writer.writeNumberValue("totalTasksCount", userProcessingResult.totalTasksCount);
+    writer.writeNumberValue("totalUnprocessedTasksCount", userProcessingResult.totalUnprocessedTasksCount);
+    writer.writeEnumValue<WorkflowExecutionType>("workflowExecutionType", userProcessingResult.workflowExecutionType);
+    writer.writeNumberValue("workflowVersion", userProcessingResult.workflowVersion);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UserProcessingResultCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeUserProcessingResultCollectionResponse(writer: SerializationWriter, userProcessingResultCollectionResponse: Partial<UserProcessingResultCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!userProcessingResultCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, userProcessingResultCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<UserProcessingResult>("value", userProcessingResultCollectionResponse.value, serializeUserProcessingResult);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UserSummary The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeUserSummary(writer: SerializationWriter, userSummary: Partial<UserSummary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!userSummary || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("failedTasks", userSummary.failedTasks);
+    writer.writeNumberValue("failedUsers", userSummary.failedUsers);
+    writer.writeStringValue("@odata.type", userSummary.odataType);
+    writer.writeNumberValue("successfulUsers", userSummary.successfulUsers);
+    writer.writeNumberValue("totalTasks", userSummary.totalTasks);
+    writer.writeNumberValue("totalUsers", userSummary.totalUsers);
+    writer.writeAdditionalData(userSummary.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Workflow The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeWorkflow(writer: SerializationWriter, workflow: Partial<Workflow> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflow || isSerializingDerivedType) { return; }
+    serializeWorkflowBase(writer, workflow, isSerializingDerivedType)
+    writer.writeDateValue("deletedDateTime", workflow.deletedDateTime);
+    writer.writeCollectionOfObjectValues<UserProcessingResult>("executionScope", workflow.executionScope, serializeUserProcessingResult);
+    writer.writeStringValue("id", workflow.id);
+    writer.writeDateValue("nextScheduleRunDateTime", workflow.nextScheduleRunDateTime);
+    writer.writeCollectionOfObjectValues<Run>("runs", workflow.runs, serializeRun);
+    writer.writeCollectionOfObjectValues<TaskReport>("taskReports", workflow.taskReports, serializeTaskReport);
+    writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", workflow.userProcessingResults, serializeUserProcessingResult);
+    writer.writeNumberValue("version", workflow.version);
+    writer.writeCollectionOfObjectValues<WorkflowVersion>("versions", workflow.versions, serializeWorkflowVersion);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowBase The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeWorkflowBase(writer: SerializationWriter, workflowBase: Partial<WorkflowBase> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowBase || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowBase.category);
+    writer.writeObjectValue<User>("createdBy", workflowBase.createdBy, serializeUser);
+    writer.writeDateValue("createdDateTime", workflowBase.createdDateTime);
+    writer.writeStringValue("description", workflowBase.description);
+    writer.writeStringValue("displayName", workflowBase.displayName);
+    writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowBase.executionConditions, serializeWorkflowExecutionConditions);
+    writer.writeBooleanValue("isEnabled", workflowBase.isEnabled);
+    writer.writeBooleanValue("isSchedulingEnabled", workflowBase.isSchedulingEnabled);
+    writer.writeObjectValue<User>("lastModifiedBy", workflowBase.lastModifiedBy, serializeUser);
+    writer.writeDateValue("lastModifiedDateTime", workflowBase.lastModifiedDateTime);
+    writer.writeStringValue("@odata.type", workflowBase.odataType);
+    writer.writeCollectionOfObjectValues<Task>("tasks", workflowBase.tasks, serializeTask);
+    writer.writeAdditionalData(workflowBase.additionalData);
+    switch (workflowBase.odataType) {
+        case "#microsoft.graph.identityGovernance.workflow":
+            serializeWorkflow(writer, workflowBase as Workflow, true);
+        break;
+        case "#microsoft.graph.identityGovernance.workflowVersion":
+            serializeWorkflowVersion(writer, workflowBase as WorkflowVersion, true);
+        break;
     }
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowCollectionResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCustomTaskExtension(writer: SerializationWriter, customTaskExtension: Partial<CustomTaskExtension> | undefined | null = {}) : void {
-    if (customTaskExtension) {
-        serializeCustomCalloutExtension(writer, customTaskExtension)
-        writer.writeObjectValue<CustomExtensionCallbackConfiguration>("callbackConfiguration", customTaskExtension.callbackConfiguration, serializeCustomExtensionCallbackConfiguration);
-        writer.writeObjectValue<User>("createdBy", customTaskExtension.createdBy, serializeUser);
-        writer.writeDateValue("createdDateTime", customTaskExtension.createdDateTime);
-        writer.writeObjectValue<User>("lastModifiedBy", customTaskExtension.lastModifiedBy, serializeUser);
-        writer.writeDateValue("lastModifiedDateTime", customTaskExtension.lastModifiedDateTime);
+export function serializeWorkflowCollectionResponse(writer: SerializationWriter, workflowCollectionResponse: Partial<WorkflowCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, workflowCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Workflow>("value", workflowCollectionResponse.value, serializeWorkflow);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowExecutionConditions The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeWorkflowExecutionConditions(writer: SerializationWriter, workflowExecutionConditions: Partial<WorkflowExecutionConditions> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowExecutionConditions || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", workflowExecutionConditions.odataType);
+    writer.writeAdditionalData(workflowExecutionConditions.additionalData);
+    switch (workflowExecutionConditions.odataType) {
+        case "#microsoft.graph.identityGovernance.onDemandExecutionOnly":
+            serializeOnDemandExecutionOnly(writer, workflowExecutionConditions as OnDemandExecutionOnly, true);
+        break;
+        case "#microsoft.graph.identityGovernance.triggerAndScopeBasedConditions":
+            serializeTriggerAndScopeBasedConditions(writer, workflowExecutionConditions as TriggerAndScopeBasedConditions, true);
+        break;
     }
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowExecutionTrigger The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCustomTaskExtensionCallbackConfiguration(writer: SerializationWriter, customTaskExtensionCallbackConfiguration: Partial<CustomTaskExtensionCallbackConfiguration> | undefined | null = {}) : void {
-    if (customTaskExtensionCallbackConfiguration) {
-        serializeCustomExtensionCallbackConfiguration(writer, customTaskExtensionCallbackConfiguration)
-        writer.writeCollectionOfObjectValues<Application>("authorizedApps", customTaskExtensionCallbackConfiguration.authorizedApps, serializeApplication);
+export function serializeWorkflowExecutionTrigger(writer: SerializationWriter, workflowExecutionTrigger: Partial<WorkflowExecutionTrigger> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowExecutionTrigger || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", workflowExecutionTrigger.odataType);
+    writer.writeAdditionalData(workflowExecutionTrigger.additionalData);
+    switch (workflowExecutionTrigger.odataType) {
+        case "#microsoft.graph.identityGovernance.attributeChangeTrigger":
+            serializeAttributeChangeTrigger(writer, workflowExecutionTrigger as AttributeChangeTrigger, true);
+        break;
+        case "#microsoft.graph.identityGovernance.membershipChangeTrigger":
+            serializeMembershipChangeTrigger(writer, workflowExecutionTrigger as MembershipChangeTrigger, true);
+        break;
+        case "#microsoft.graph.identityGovernance.timeBasedAttributeTrigger":
+            serializeTimeBasedAttributeTrigger(writer, workflowExecutionTrigger as TimeBasedAttributeTrigger, true);
+        break;
     }
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowsInsightsByCategory The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCustomTaskExtensionCallbackData(writer: SerializationWriter, customTaskExtensionCallbackData: Partial<CustomTaskExtensionCallbackData> | undefined | null = {}) : void {
-    if (customTaskExtensionCallbackData) {
-        serializeCustomExtensionData(writer, customTaskExtensionCallbackData)
-        writer.writeEnumValue<CustomTaskExtensionOperationStatus>("operationStatus", customTaskExtensionCallbackData.operationStatus);
-    }
+export function serializeWorkflowsInsightsByCategory(writer: SerializationWriter, workflowsInsightsByCategory: Partial<WorkflowsInsightsByCategory> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowsInsightsByCategory || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("failedJoinerRuns", workflowsInsightsByCategory.failedJoinerRuns);
+    writer.writeNumberValue("failedLeaverRuns", workflowsInsightsByCategory.failedLeaverRuns);
+    writer.writeNumberValue("failedMoverRuns", workflowsInsightsByCategory.failedMoverRuns);
+    writer.writeStringValue("@odata.type", workflowsInsightsByCategory.odataType);
+    writer.writeNumberValue("successfulJoinerRuns", workflowsInsightsByCategory.successfulJoinerRuns);
+    writer.writeNumberValue("successfulLeaverRuns", workflowsInsightsByCategory.successfulLeaverRuns);
+    writer.writeNumberValue("successfulMoverRuns", workflowsInsightsByCategory.successfulMoverRuns);
+    writer.writeNumberValue("totalJoinerRuns", workflowsInsightsByCategory.totalJoinerRuns);
+    writer.writeNumberValue("totalLeaverRuns", workflowsInsightsByCategory.totalLeaverRuns);
+    writer.writeNumberValue("totalMoverRuns", workflowsInsightsByCategory.totalMoverRuns);
+    writer.writeAdditionalData(workflowsInsightsByCategory.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowsInsightsSummary The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCustomTaskExtensionCalloutData(writer: SerializationWriter, customTaskExtensionCalloutData: Partial<CustomTaskExtensionCalloutData> | undefined | null = {}) : void {
-    if (customTaskExtensionCalloutData) {
-        serializeCustomExtensionData(writer, customTaskExtensionCalloutData)
-        writer.writeObjectValue<User>("subject", customTaskExtensionCalloutData.subject, serializeUser);
-        writer.writeObjectValue<Task>("task", customTaskExtensionCalloutData.task, serializeTask);
-        writer.writeObjectValue<TaskProcessingResult>("taskProcessingresult", customTaskExtensionCalloutData.taskProcessingresult, serializeTaskProcessingResult);
-        writer.writeObjectValue<Workflow>("workflow", customTaskExtensionCalloutData.workflow, serializeWorkflow);
-    }
+export function serializeWorkflowsInsightsSummary(writer: SerializationWriter, workflowsInsightsSummary: Partial<WorkflowsInsightsSummary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowsInsightsSummary || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("failedRuns", workflowsInsightsSummary.failedRuns);
+    writer.writeNumberValue("failedTasks", workflowsInsightsSummary.failedTasks);
+    writer.writeNumberValue("failedUsers", workflowsInsightsSummary.failedUsers);
+    writer.writeStringValue("@odata.type", workflowsInsightsSummary.odataType);
+    writer.writeNumberValue("successfulRuns", workflowsInsightsSummary.successfulRuns);
+    writer.writeNumberValue("successfulTasks", workflowsInsightsSummary.successfulTasks);
+    writer.writeNumberValue("successfulUsers", workflowsInsightsSummary.successfulUsers);
+    writer.writeNumberValue("totalRuns", workflowsInsightsSummary.totalRuns);
+    writer.writeNumberValue("totalTasks", workflowsInsightsSummary.totalTasks);
+    writer.writeNumberValue("totalUsers", workflowsInsightsSummary.totalUsers);
+    writer.writeAdditionalData(workflowsInsightsSummary.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowTemplate The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCustomTaskExtensionCollectionResponse(writer: SerializationWriter, customTaskExtensionCollectionResponse: Partial<CustomTaskExtensionCollectionResponse> | undefined | null = {}) : void {
-    if (customTaskExtensionCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, customTaskExtensionCollectionResponse)
-        writer.writeCollectionOfObjectValues<CustomTaskExtension>("value", customTaskExtensionCollectionResponse.value, serializeCustomTaskExtension);
-    }
+export function serializeWorkflowTemplate(writer: SerializationWriter, workflowTemplate: Partial<WorkflowTemplate> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowTemplate || isSerializingDerivedType) { return; }
+    serializeEntity(writer, workflowTemplate, isSerializingDerivedType)
+    writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowTemplate.category);
+    writer.writeStringValue("description", workflowTemplate.description);
+    writer.writeStringValue("displayName", workflowTemplate.displayName);
+    writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowTemplate.executionConditions, serializeWorkflowExecutionConditions);
+    writer.writeCollectionOfObjectValues<Task>("tasks", workflowTemplate.tasks, serializeTask);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowTemplateCollectionResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGroupBasedSubjectSet(writer: SerializationWriter, groupBasedSubjectSet: Partial<GroupBasedSubjectSet> | undefined | null = {}) : void {
-    if (groupBasedSubjectSet) {
-        serializeSubjectSet(writer, groupBasedSubjectSet)
-        writer.writeCollectionOfObjectValues<Group>("groups", groupBasedSubjectSet.groups, serializeGroup);
-    }
+export function serializeWorkflowTemplateCollectionResponse(writer: SerializationWriter, workflowTemplateCollectionResponse: Partial<WorkflowTemplateCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowTemplateCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, workflowTemplateCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<WorkflowTemplate>("value", workflowTemplateCollectionResponse.value, serializeWorkflowTemplate);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowVersion The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeInsights(writer: SerializationWriter, insights: Partial<Insights> | undefined | null = {}) : void {
-    if (insights) {
-        serializeEntity(writer, insights)
-    }
+export function serializeWorkflowVersion(writer: SerializationWriter, workflowVersion: Partial<WorkflowVersion> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowVersion || isSerializingDerivedType) { return; }
+    serializeWorkflowBase(writer, workflowVersion, isSerializingDerivedType)
+    writer.writeNumberValue("versionNumber", workflowVersion.versionNumber);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowVersionCollectionResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLifecycleManagementSettings(writer: SerializationWriter, lifecycleManagementSettings: Partial<LifecycleManagementSettings> | undefined | null = {}) : void {
-    if (lifecycleManagementSettings) {
-        serializeEntity(writer, lifecycleManagementSettings)
-        writer.writeObjectValue<EmailSettings>("emailSettings", lifecycleManagementSettings.emailSettings, serializeEmailSettings);
-        writer.writeNumberValue("workflowScheduleIntervalInHours", lifecycleManagementSettings.workflowScheduleIntervalInHours);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeLifecycleWorkflowsContainer(writer: SerializationWriter, lifecycleWorkflowsContainer: Partial<LifecycleWorkflowsContainer> | undefined | null = {}) : void {
-    if (lifecycleWorkflowsContainer) {
-        serializeEntity(writer, lifecycleWorkflowsContainer)
-        writer.writeCollectionOfObjectValues<CustomTaskExtension>("customTaskExtensions", lifecycleWorkflowsContainer.customTaskExtensions, serializeCustomTaskExtension);
-        writer.writeObjectValue<DeletedItemContainer>("deletedItems", lifecycleWorkflowsContainer.deletedItems, serializeDeletedItemContainer);
-        writer.writeObjectValue<Insights>("insights", lifecycleWorkflowsContainer.insights, serializeInsights);
-        writer.writeObjectValue<LifecycleManagementSettings>("settings", lifecycleWorkflowsContainer.settings, serializeLifecycleManagementSettings);
-        writer.writeCollectionOfObjectValues<TaskDefinition>("taskDefinitions", lifecycleWorkflowsContainer.taskDefinitions, serializeTaskDefinition);
-        writer.writeCollectionOfObjectValues<Workflow>("workflows", lifecycleWorkflowsContainer.workflows, serializeWorkflow);
-        writer.writeCollectionOfObjectValues<WorkflowTemplate>("workflowTemplates", lifecycleWorkflowsContainer.workflowTemplates, serializeWorkflowTemplate);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeMembershipChangeTrigger(writer: SerializationWriter, membershipChangeTrigger: Partial<MembershipChangeTrigger> | undefined | null = {}) : void {
-    if (membershipChangeTrigger) {
-        serializeWorkflowExecutionTrigger(writer, membershipChangeTrigger)
-        writer.writeEnumValue<MembershipChangeType>("changeType", membershipChangeTrigger.changeType);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeOnDemandExecutionOnly(writer: SerializationWriter, onDemandExecutionOnly: Partial<OnDemandExecutionOnly> | undefined | null = {}) : void {
-    if (onDemandExecutionOnly) {
-        serializeWorkflowExecutionConditions(writer, onDemandExecutionOnly)
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeParameter(writer: SerializationWriter, parameter: Partial<Parameter> | undefined | null = {}) : void {
-    if (parameter) {
-        writer.writeStringValue("name", parameter.name);
-        writer.writeStringValue("@odata.type", parameter.odataType);
-        writer.writeCollectionOfPrimitiveValues<string>("values", parameter.values);
-        writer.writeEnumValue<ValueType>("valueType", parameter.valueType);
-        writer.writeAdditionalData(parameter.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeRuleBasedSubjectSet(writer: SerializationWriter, ruleBasedSubjectSet: Partial<RuleBasedSubjectSet> | undefined | null = {}) : void {
-    if (ruleBasedSubjectSet) {
-        serializeSubjectSet(writer, ruleBasedSubjectSet)
-        writer.writeStringValue("rule", ruleBasedSubjectSet.rule);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeRun(writer: SerializationWriter, run: Partial<Run> | undefined | null = {}) : void {
-    if (run) {
-        serializeEntity(writer, run)
-        writer.writeDateValue("completedDateTime", run.completedDateTime);
-        writer.writeNumberValue("failedTasksCount", run.failedTasksCount);
-        writer.writeNumberValue("failedUsersCount", run.failedUsersCount);
-        writer.writeDateValue("lastUpdatedDateTime", run.lastUpdatedDateTime);
-        writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", run.processingStatus);
-        writer.writeDateValue("scheduledDateTime", run.scheduledDateTime);
-        writer.writeDateValue("startedDateTime", run.startedDateTime);
-        writer.writeNumberValue("successfulUsersCount", run.successfulUsersCount);
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", run.taskProcessingResults, serializeTaskProcessingResult);
-        writer.writeNumberValue("totalTasksCount", run.totalTasksCount);
-        writer.writeNumberValue("totalUnprocessedTasksCount", run.totalUnprocessedTasksCount);
-        writer.writeNumberValue("totalUsersCount", run.totalUsersCount);
-        writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", run.userProcessingResults, serializeUserProcessingResult);
-        writer.writeEnumValue<WorkflowExecutionType>("workflowExecutionType", run.workflowExecutionType);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeRunCollectionResponse(writer: SerializationWriter, runCollectionResponse: Partial<RunCollectionResponse> | undefined | null = {}) : void {
-    if (runCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, runCollectionResponse)
-        writer.writeCollectionOfObjectValues<Run>("value", runCollectionResponse.value, serializeRun);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeRunSummary(writer: SerializationWriter, runSummary: Partial<RunSummary> | undefined | null = {}) : void {
-    if (runSummary) {
-        writer.writeNumberValue("failedRuns", runSummary.failedRuns);
-        writer.writeNumberValue("failedTasks", runSummary.failedTasks);
-        writer.writeStringValue("@odata.type", runSummary.odataType);
-        writer.writeNumberValue("successfulRuns", runSummary.successfulRuns);
-        writer.writeNumberValue("totalRuns", runSummary.totalRuns);
-        writer.writeNumberValue("totalTasks", runSummary.totalTasks);
-        writer.writeNumberValue("totalUsers", runSummary.totalUsers);
-        writer.writeAdditionalData(runSummary.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTask(writer: SerializationWriter, task: Partial<Task> | undefined | null = {}) : void {
-    if (task) {
-        serializeEntity(writer, task)
-        writer.writeCollectionOfObjectValues<KeyValuePair>("arguments", task.arguments, serializeKeyValuePair);
-        writer.writeEnumValue<LifecycleTaskCategory[]>("category", task.category);
-        writer.writeBooleanValue("continueOnError", task.continueOnError);
-        writer.writeStringValue("description", task.description);
-        writer.writeStringValue("displayName", task.displayName);
-        writer.writeNumberValue("executionSequence", task.executionSequence);
-        writer.writeBooleanValue("isEnabled", task.isEnabled);
-        writer.writeStringValue("taskDefinitionId", task.taskDefinitionId);
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", task.taskProcessingResults, serializeTaskProcessingResult);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTaskCollectionResponse(writer: SerializationWriter, taskCollectionResponse: Partial<TaskCollectionResponse> | undefined | null = {}) : void {
-    if (taskCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, taskCollectionResponse)
-        writer.writeCollectionOfObjectValues<Task>("value", taskCollectionResponse.value, serializeTask);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTaskDefinition(writer: SerializationWriter, taskDefinition: Partial<TaskDefinition> | undefined | null = {}) : void {
-    if (taskDefinition) {
-        serializeEntity(writer, taskDefinition)
-        writer.writeEnumValue<LifecycleTaskCategory[]>("category", taskDefinition.category);
-        writer.writeBooleanValue("continueOnError", taskDefinition.continueOnError);
-        writer.writeStringValue("description", taskDefinition.description);
-        writer.writeStringValue("displayName", taskDefinition.displayName);
-        writer.writeCollectionOfObjectValues<Parameter>("parameters", taskDefinition.parameters, serializeParameter);
-        writer.writeNumberValue("version", taskDefinition.version);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTaskDefinitionCollectionResponse(writer: SerializationWriter, taskDefinitionCollectionResponse: Partial<TaskDefinitionCollectionResponse> | undefined | null = {}) : void {
-    if (taskDefinitionCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, taskDefinitionCollectionResponse)
-        writer.writeCollectionOfObjectValues<TaskDefinition>("value", taskDefinitionCollectionResponse.value, serializeTaskDefinition);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTaskProcessingResult(writer: SerializationWriter, taskProcessingResult: Partial<TaskProcessingResult> | undefined | null = {}) : void {
-    if (taskProcessingResult) {
-        serializeEntity(writer, taskProcessingResult)
-        writer.writeDateValue("completedDateTime", taskProcessingResult.completedDateTime);
-        writer.writeDateValue("createdDateTime", taskProcessingResult.createdDateTime);
-        writer.writeStringValue("failureReason", taskProcessingResult.failureReason);
-        writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", taskProcessingResult.processingStatus);
-        writer.writeDateValue("startedDateTime", taskProcessingResult.startedDateTime);
-        writer.writeObjectValue<User>("subject", taskProcessingResult.subject, serializeUser);
-        writer.writeObjectValue<Task>("task", taskProcessingResult.task, serializeTask);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTaskProcessingResultCollectionResponse(writer: SerializationWriter, taskProcessingResultCollectionResponse: Partial<TaskProcessingResultCollectionResponse> | undefined | null = {}) : void {
-    if (taskProcessingResultCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, taskProcessingResultCollectionResponse)
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("value", taskProcessingResultCollectionResponse.value, serializeTaskProcessingResult);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTaskReport(writer: SerializationWriter, taskReport: Partial<TaskReport> | undefined | null = {}) : void {
-    if (taskReport) {
-        serializeEntity(writer, taskReport)
-        writer.writeDateValue("completedDateTime", taskReport.completedDateTime);
-        writer.writeNumberValue("failedUsersCount", taskReport.failedUsersCount);
-        writer.writeDateValue("lastUpdatedDateTime", taskReport.lastUpdatedDateTime);
-        writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", taskReport.processingStatus);
-        writer.writeStringValue("runId", taskReport.runId);
-        writer.writeDateValue("startedDateTime", taskReport.startedDateTime);
-        writer.writeNumberValue("successfulUsersCount", taskReport.successfulUsersCount);
-        writer.writeObjectValue<Task>("task", taskReport.task, serializeTask);
-        writer.writeObjectValue<TaskDefinition>("taskDefinition", taskReport.taskDefinition, serializeTaskDefinition);
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", taskReport.taskProcessingResults, serializeTaskProcessingResult);
-        writer.writeNumberValue("totalUsersCount", taskReport.totalUsersCount);
-        writer.writeNumberValue("unprocessedUsersCount", taskReport.unprocessedUsersCount);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTaskReportCollectionResponse(writer: SerializationWriter, taskReportCollectionResponse: Partial<TaskReportCollectionResponse> | undefined | null = {}) : void {
-    if (taskReportCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, taskReportCollectionResponse)
-        writer.writeCollectionOfObjectValues<TaskReport>("value", taskReportCollectionResponse.value, serializeTaskReport);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTaskReportSummary(writer: SerializationWriter, taskReportSummary: Partial<TaskReportSummary> | undefined | null = {}) : void {
-    if (taskReportSummary) {
-        writer.writeNumberValue("failedTasks", taskReportSummary.failedTasks);
-        writer.writeStringValue("@odata.type", taskReportSummary.odataType);
-        writer.writeNumberValue("successfulTasks", taskReportSummary.successfulTasks);
-        writer.writeNumberValue("totalTasks", taskReportSummary.totalTasks);
-        writer.writeNumberValue("unprocessedTasks", taskReportSummary.unprocessedTasks);
-        writer.writeAdditionalData(taskReportSummary.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTimeBasedAttributeTrigger(writer: SerializationWriter, timeBasedAttributeTrigger: Partial<TimeBasedAttributeTrigger> | undefined | null = {}) : void {
-    if (timeBasedAttributeTrigger) {
-        serializeWorkflowExecutionTrigger(writer, timeBasedAttributeTrigger)
-        writer.writeNumberValue("offsetInDays", timeBasedAttributeTrigger.offsetInDays);
-        writer.writeEnumValue<WorkflowTriggerTimeBasedAttribute>("timeBasedAttribute", timeBasedAttributeTrigger.timeBasedAttribute);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTopTasksInsightsSummary(writer: SerializationWriter, topTasksInsightsSummary: Partial<TopTasksInsightsSummary> | undefined | null = {}) : void {
-    if (topTasksInsightsSummary) {
-        writer.writeNumberValue("failedTasks", topTasksInsightsSummary.failedTasks);
-        writer.writeNumberValue("failedUsers", topTasksInsightsSummary.failedUsers);
-        writer.writeStringValue("@odata.type", topTasksInsightsSummary.odataType);
-        writer.writeNumberValue("successfulTasks", topTasksInsightsSummary.successfulTasks);
-        writer.writeNumberValue("successfulUsers", topTasksInsightsSummary.successfulUsers);
-        writer.writeStringValue("taskDefinitionDisplayName", topTasksInsightsSummary.taskDefinitionDisplayName);
-        writer.writeStringValue("taskDefinitionId", topTasksInsightsSummary.taskDefinitionId);
-        writer.writeNumberValue("totalTasks", topTasksInsightsSummary.totalTasks);
-        writer.writeNumberValue("totalUsers", topTasksInsightsSummary.totalUsers);
-        writer.writeAdditionalData(topTasksInsightsSummary.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTopWorkflowsInsightsSummary(writer: SerializationWriter, topWorkflowsInsightsSummary: Partial<TopWorkflowsInsightsSummary> | undefined | null = {}) : void {
-    if (topWorkflowsInsightsSummary) {
-        writer.writeNumberValue("failedRuns", topWorkflowsInsightsSummary.failedRuns);
-        writer.writeNumberValue("failedUsers", topWorkflowsInsightsSummary.failedUsers);
-        writer.writeStringValue("@odata.type", topWorkflowsInsightsSummary.odataType);
-        writer.writeNumberValue("successfulRuns", topWorkflowsInsightsSummary.successfulRuns);
-        writer.writeNumberValue("successfulUsers", topWorkflowsInsightsSummary.successfulUsers);
-        writer.writeNumberValue("totalRuns", topWorkflowsInsightsSummary.totalRuns);
-        writer.writeNumberValue("totalUsers", topWorkflowsInsightsSummary.totalUsers);
-        writer.writeEnumValue<LifecycleWorkflowCategory>("workflowCategory", topWorkflowsInsightsSummary.workflowCategory);
-        writer.writeStringValue("workflowDisplayName", topWorkflowsInsightsSummary.workflowDisplayName);
-        writer.writeStringValue("workflowId", topWorkflowsInsightsSummary.workflowId);
-        writer.writeNumberValue("workflowVersion", topWorkflowsInsightsSummary.workflowVersion);
-        writer.writeAdditionalData(topWorkflowsInsightsSummary.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTriggerAndScopeBasedConditions(writer: SerializationWriter, triggerAndScopeBasedConditions: Partial<TriggerAndScopeBasedConditions> | undefined | null = {}) : void {
-    if (triggerAndScopeBasedConditions) {
-        serializeWorkflowExecutionConditions(writer, triggerAndScopeBasedConditions)
-        writer.writeObjectValue<SubjectSet>("scope", triggerAndScopeBasedConditions.scope, serializeSubjectSet);
-        writer.writeObjectValue<WorkflowExecutionTrigger>("trigger", triggerAndScopeBasedConditions.trigger, serializeWorkflowExecutionTrigger);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeTriggerAttribute(writer: SerializationWriter, triggerAttribute: Partial<TriggerAttribute> | undefined | null = {}) : void {
-    if (triggerAttribute) {
-        writer.writeStringValue("name", triggerAttribute.name);
-        writer.writeStringValue("@odata.type", triggerAttribute.odataType);
-        writer.writeAdditionalData(triggerAttribute.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeUserProcessingResult(writer: SerializationWriter, userProcessingResult: Partial<UserProcessingResult> | undefined | null = {}) : void {
-    if (userProcessingResult) {
-        serializeEntity(writer, userProcessingResult)
-        writer.writeDateValue("completedDateTime", userProcessingResult.completedDateTime);
-        writer.writeNumberValue("failedTasksCount", userProcessingResult.failedTasksCount);
-        writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", userProcessingResult.processingStatus);
-        writer.writeDateValue("scheduledDateTime", userProcessingResult.scheduledDateTime);
-        writer.writeDateValue("startedDateTime", userProcessingResult.startedDateTime);
-        writer.writeObjectValue<User>("subject", userProcessingResult.subject, serializeUser);
-        writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", userProcessingResult.taskProcessingResults, serializeTaskProcessingResult);
-        writer.writeNumberValue("totalTasksCount", userProcessingResult.totalTasksCount);
-        writer.writeNumberValue("totalUnprocessedTasksCount", userProcessingResult.totalUnprocessedTasksCount);
-        writer.writeEnumValue<WorkflowExecutionType>("workflowExecutionType", userProcessingResult.workflowExecutionType);
-        writer.writeNumberValue("workflowVersion", userProcessingResult.workflowVersion);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeUserProcessingResultCollectionResponse(writer: SerializationWriter, userProcessingResultCollectionResponse: Partial<UserProcessingResultCollectionResponse> | undefined | null = {}) : void {
-    if (userProcessingResultCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, userProcessingResultCollectionResponse)
-        writer.writeCollectionOfObjectValues<UserProcessingResult>("value", userProcessingResultCollectionResponse.value, serializeUserProcessingResult);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeUserSummary(writer: SerializationWriter, userSummary: Partial<UserSummary> | undefined | null = {}) : void {
-    if (userSummary) {
-        writer.writeNumberValue("failedTasks", userSummary.failedTasks);
-        writer.writeNumberValue("failedUsers", userSummary.failedUsers);
-        writer.writeStringValue("@odata.type", userSummary.odataType);
-        writer.writeNumberValue("successfulUsers", userSummary.successfulUsers);
-        writer.writeNumberValue("totalTasks", userSummary.totalTasks);
-        writer.writeNumberValue("totalUsers", userSummary.totalUsers);
-        writer.writeAdditionalData(userSummary.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflow(writer: SerializationWriter, workflow: Partial<Workflow> | undefined | null = {}) : void {
-    if (workflow) {
-        serializeWorkflowBase(writer, workflow)
-        writer.writeDateValue("deletedDateTime", workflow.deletedDateTime);
-        writer.writeCollectionOfObjectValues<UserProcessingResult>("executionScope", workflow.executionScope, serializeUserProcessingResult);
-        writer.writeStringValue("id", workflow.id);
-        writer.writeDateValue("nextScheduleRunDateTime", workflow.nextScheduleRunDateTime);
-        writer.writeCollectionOfObjectValues<Run>("runs", workflow.runs, serializeRun);
-        writer.writeCollectionOfObjectValues<TaskReport>("taskReports", workflow.taskReports, serializeTaskReport);
-        writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", workflow.userProcessingResults, serializeUserProcessingResult);
-        writer.writeNumberValue("version", workflow.version);
-        writer.writeCollectionOfObjectValues<WorkflowVersion>("versions", workflow.versions, serializeWorkflowVersion);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowBase(writer: SerializationWriter, workflowBase: Partial<WorkflowBase> | undefined | null = {}) : void {
-    if (workflowBase) {
-        writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowBase.category);
-        writer.writeObjectValue<User>("createdBy", workflowBase.createdBy, serializeUser);
-        writer.writeDateValue("createdDateTime", workflowBase.createdDateTime);
-        writer.writeStringValue("description", workflowBase.description);
-        writer.writeStringValue("displayName", workflowBase.displayName);
-        writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowBase.executionConditions, serializeWorkflowExecutionConditions);
-        writer.writeBooleanValue("isEnabled", workflowBase.isEnabled);
-        writer.writeBooleanValue("isSchedulingEnabled", workflowBase.isSchedulingEnabled);
-        writer.writeObjectValue<User>("lastModifiedBy", workflowBase.lastModifiedBy, serializeUser);
-        writer.writeDateValue("lastModifiedDateTime", workflowBase.lastModifiedDateTime);
-        writer.writeStringValue("@odata.type", workflowBase.odataType);
-        writer.writeCollectionOfObjectValues<Task>("tasks", workflowBase.tasks, serializeTask);
-        writer.writeAdditionalData(workflowBase.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowCollectionResponse(writer: SerializationWriter, workflowCollectionResponse: Partial<WorkflowCollectionResponse> | undefined | null = {}) : void {
-    if (workflowCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, workflowCollectionResponse)
-        writer.writeCollectionOfObjectValues<Workflow>("value", workflowCollectionResponse.value, serializeWorkflow);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowExecutionConditions(writer: SerializationWriter, workflowExecutionConditions: Partial<WorkflowExecutionConditions> | undefined | null = {}) : void {
-    if (workflowExecutionConditions) {
-        writer.writeStringValue("@odata.type", workflowExecutionConditions.odataType);
-        writer.writeAdditionalData(workflowExecutionConditions.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowExecutionTrigger(writer: SerializationWriter, workflowExecutionTrigger: Partial<WorkflowExecutionTrigger> | undefined | null = {}) : void {
-    if (workflowExecutionTrigger) {
-        writer.writeStringValue("@odata.type", workflowExecutionTrigger.odataType);
-        writer.writeAdditionalData(workflowExecutionTrigger.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowsInsightsByCategory(writer: SerializationWriter, workflowsInsightsByCategory: Partial<WorkflowsInsightsByCategory> | undefined | null = {}) : void {
-    if (workflowsInsightsByCategory) {
-        writer.writeNumberValue("failedJoinerRuns", workflowsInsightsByCategory.failedJoinerRuns);
-        writer.writeNumberValue("failedLeaverRuns", workflowsInsightsByCategory.failedLeaverRuns);
-        writer.writeNumberValue("failedMoverRuns", workflowsInsightsByCategory.failedMoverRuns);
-        writer.writeStringValue("@odata.type", workflowsInsightsByCategory.odataType);
-        writer.writeNumberValue("successfulJoinerRuns", workflowsInsightsByCategory.successfulJoinerRuns);
-        writer.writeNumberValue("successfulLeaverRuns", workflowsInsightsByCategory.successfulLeaverRuns);
-        writer.writeNumberValue("successfulMoverRuns", workflowsInsightsByCategory.successfulMoverRuns);
-        writer.writeNumberValue("totalJoinerRuns", workflowsInsightsByCategory.totalJoinerRuns);
-        writer.writeNumberValue("totalLeaverRuns", workflowsInsightsByCategory.totalLeaverRuns);
-        writer.writeNumberValue("totalMoverRuns", workflowsInsightsByCategory.totalMoverRuns);
-        writer.writeAdditionalData(workflowsInsightsByCategory.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowsInsightsSummary(writer: SerializationWriter, workflowsInsightsSummary: Partial<WorkflowsInsightsSummary> | undefined | null = {}) : void {
-    if (workflowsInsightsSummary) {
-        writer.writeNumberValue("failedRuns", workflowsInsightsSummary.failedRuns);
-        writer.writeNumberValue("failedTasks", workflowsInsightsSummary.failedTasks);
-        writer.writeNumberValue("failedUsers", workflowsInsightsSummary.failedUsers);
-        writer.writeStringValue("@odata.type", workflowsInsightsSummary.odataType);
-        writer.writeNumberValue("successfulRuns", workflowsInsightsSummary.successfulRuns);
-        writer.writeNumberValue("successfulTasks", workflowsInsightsSummary.successfulTasks);
-        writer.writeNumberValue("successfulUsers", workflowsInsightsSummary.successfulUsers);
-        writer.writeNumberValue("totalRuns", workflowsInsightsSummary.totalRuns);
-        writer.writeNumberValue("totalTasks", workflowsInsightsSummary.totalTasks);
-        writer.writeNumberValue("totalUsers", workflowsInsightsSummary.totalUsers);
-        writer.writeAdditionalData(workflowsInsightsSummary.additionalData);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowTemplate(writer: SerializationWriter, workflowTemplate: Partial<WorkflowTemplate> | undefined | null = {}) : void {
-    if (workflowTemplate) {
-        serializeEntity(writer, workflowTemplate)
-        writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowTemplate.category);
-        writer.writeStringValue("description", workflowTemplate.description);
-        writer.writeStringValue("displayName", workflowTemplate.displayName);
-        writer.writeObjectValue<WorkflowExecutionConditions>("executionConditions", workflowTemplate.executionConditions, serializeWorkflowExecutionConditions);
-        writer.writeCollectionOfObjectValues<Task>("tasks", workflowTemplate.tasks, serializeTask);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowTemplateCollectionResponse(writer: SerializationWriter, workflowTemplateCollectionResponse: Partial<WorkflowTemplateCollectionResponse> | undefined | null = {}) : void {
-    if (workflowTemplateCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, workflowTemplateCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkflowTemplate>("value", workflowTemplateCollectionResponse.value, serializeWorkflowTemplate);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowVersion(writer: SerializationWriter, workflowVersion: Partial<WorkflowVersion> | undefined | null = {}) : void {
-    if (workflowVersion) {
-        serializeWorkflowBase(writer, workflowVersion)
-        writer.writeNumberValue("versionNumber", workflowVersion.versionNumber);
-    }
-}
-/**
- * Serializes information the current object
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeWorkflowVersionCollectionResponse(writer: SerializationWriter, workflowVersionCollectionResponse: Partial<WorkflowVersionCollectionResponse> | undefined | null = {}) : void {
-    if (workflowVersionCollectionResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, workflowVersionCollectionResponse)
-        writer.writeCollectionOfObjectValues<WorkflowVersion>("value", workflowVersionCollectionResponse.value, serializeWorkflowVersion);
-    }
+export function serializeWorkflowVersionCollectionResponse(writer: SerializationWriter, workflowVersionCollectionResponse: Partial<WorkflowVersionCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowVersionCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, workflowVersionCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<WorkflowVersion>("value", workflowVersionCollectionResponse.value, serializeWorkflowVersion);
 }
 export interface Task extends Entity, Parsable {
     /**
@@ -2161,10 +2270,6 @@ export interface TaskReportCollectionResponse extends BaseCollectionPaginationCo
 }
 export interface TaskReportSummary extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -2200,10 +2305,6 @@ export interface TimeBasedAttributeTrigger extends Parsable, WorkflowExecutionTr
     timeBasedAttribute?: WorkflowTriggerTimeBasedAttribute | null;
 }
 export interface TopTasksInsightsSummary extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -2246,10 +2347,6 @@ export interface TopTasksInsightsSummary extends AdditionalDataHolder, BackedMod
     totalUsers?: number | null;
 }
 export interface TopWorkflowsInsightsSummary extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -2310,10 +2407,6 @@ export interface TriggerAndScopeBasedConditions extends Parsable, WorkflowExecut
     trigger?: WorkflowExecutionTrigger | null;
 }
 export interface TriggerAttribute extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -2380,10 +2473,6 @@ export interface UserProcessingResultCollectionResponse extends BaseCollectionPa
     value?: UserProcessingResult[] | null;
 }
 export interface UserSummary extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -2454,10 +2543,6 @@ export interface Workflow extends Parsable, WorkflowBase {
 }
 export interface WorkflowBase extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -2518,10 +2603,6 @@ export interface WorkflowCollectionResponse extends BaseCollectionPaginationCoun
 }
 export interface WorkflowExecutionConditions extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -2531,10 +2612,6 @@ export interface WorkflowExecutionConditions extends AdditionalDataHolder, Backe
     odataType?: string | null;
 }
 export interface WorkflowExecutionTrigger extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -2546,10 +2623,6 @@ export interface WorkflowExecutionTrigger extends AdditionalDataHolder, BackedMo
 }
 export type WorkflowExecutionType = (typeof WorkflowExecutionTypeObject)[keyof typeof WorkflowExecutionTypeObject];
 export interface WorkflowsInsightsByCategory extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -2596,10 +2669,6 @@ export interface WorkflowsInsightsByCategory extends AdditionalDataHolder, Backe
     totalMoverRuns?: number | null;
 }
 export interface WorkflowsInsightsSummary extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

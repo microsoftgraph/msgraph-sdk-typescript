@@ -19,6 +19,7 @@ export function createGetRecentNotebooksWithIncludePersonalNotebooksGetResponseF
 }
 /**
  * The deserialization information for the current model
+ * @param GetRecentNotebooksWithIncludePersonalNotebooksGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGet
 }
 /**
  * Serializes information the current object
+ * @param GetRecentNotebooksWithIncludePersonalNotebooksGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetRecentNotebooksWithIncludePersonalNotebooksGetResponse(writer: SerializationWriter, getRecentNotebooksWithIncludePersonalNotebooksGetResponse: Partial<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse> | undefined | null = {}) : void {
-    if (getRecentNotebooksWithIncludePersonalNotebooksGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getRecentNotebooksWithIncludePersonalNotebooksGetResponse)
-        writer.writeCollectionOfObjectValues<RecentNotebook>("value", getRecentNotebooksWithIncludePersonalNotebooksGetResponse.value, serializeRecentNotebook);
-    }
+export function serializeGetRecentNotebooksWithIncludePersonalNotebooksGetResponse(writer: SerializationWriter, getRecentNotebooksWithIncludePersonalNotebooksGetResponse: Partial<GetRecentNotebooksWithIncludePersonalNotebooksGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getRecentNotebooksWithIncludePersonalNotebooksGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getRecentNotebooksWithIncludePersonalNotebooksGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RecentNotebook>("value", getRecentNotebooksWithIncludePersonalNotebooksGetResponse.value, serializeRecentNotebook);
 }
 /**
  * Uri template for the request builder.

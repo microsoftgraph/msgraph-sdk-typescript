@@ -17,6 +17,7 @@ export function createValidatePropertiesPostRequestBodyFromDiscriminatorValue(pa
 }
 /**
  * The deserialization information for the current model
+ * @param ValidatePropertiesPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,22 +31,19 @@ export function deserializeIntoValidatePropertiesPostRequestBody(validatePropert
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ValidatePropertiesPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeValidatePropertiesPostRequestBody(writer: SerializationWriter, validatePropertiesPostRequestBody: Partial<ValidatePropertiesPostRequestBody> | undefined | null = {}) : void {
-    if (validatePropertiesPostRequestBody) {
-        writer.writeStringValue("displayName", validatePropertiesPostRequestBody.displayName);
-        writer.writeStringValue("mailNickname", validatePropertiesPostRequestBody.mailNickname);
-        writer.writeGuidValue("onBehalfOfUserId", validatePropertiesPostRequestBody.onBehalfOfUserId);
-        writer.writeAdditionalData(validatePropertiesPostRequestBody.additionalData);
-    }
+export function serializeValidatePropertiesPostRequestBody(writer: SerializationWriter, validatePropertiesPostRequestBody: Partial<ValidatePropertiesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!validatePropertiesPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("displayName", validatePropertiesPostRequestBody.displayName);
+    writer.writeStringValue("mailNickname", validatePropertiesPostRequestBody.mailNickname);
+    writer.writeGuidValue("onBehalfOfUserId", validatePropertiesPostRequestBody.onBehalfOfUserId);
+    writer.writeAdditionalData(validatePropertiesPostRequestBody.additionalData);
 }
 export interface ValidatePropertiesPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

@@ -19,6 +19,7 @@ export function createSecondPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param SecondPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoSecondPostRequestBody(secondPostRequestBody: Part
     }
 }
 export interface SecondPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface SecondRequestBuilder extends BaseRequestBuilder<SecondRequestBu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SecondPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSecondPostRequestBody(writer: SerializationWriter, secondPostRequestBody: Partial<SecondPostRequestBody> | undefined | null = {}) : void {
-    if (secondPostRequestBody) {
-        writer.writeObjectValue("serialNumber", secondPostRequestBody.serialNumber);
-        writer.writeAdditionalData(secondPostRequestBody.additionalData);
-    }
+export function serializeSecondPostRequestBody(writer: SerializationWriter, secondPostRequestBody: Partial<SecondPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!secondPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("serialNumber", secondPostRequestBody.serialNumber);
+    writer.writeAdditionalData(secondPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

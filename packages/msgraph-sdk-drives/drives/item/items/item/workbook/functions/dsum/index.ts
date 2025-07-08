@@ -19,6 +19,7 @@ export function createDsumPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param DsumPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoDsumPostRequestBody(dsumPostRequestBody: Partial<
     }
 }
 export interface DsumPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface DsumRequestBuilder extends BaseRequestBuilder<DsumRequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param DsumPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDsumPostRequestBody(writer: SerializationWriter, dsumPostRequestBody: Partial<DsumPostRequestBody> | undefined | null = {}) : void {
-    if (dsumPostRequestBody) {
-        writer.writeObjectValue("criteria", dsumPostRequestBody.criteria);
-        writer.writeObjectValue("database", dsumPostRequestBody.database);
-        writer.writeObjectValue("field", dsumPostRequestBody.field);
-        writer.writeAdditionalData(dsumPostRequestBody.additionalData);
-    }
+export function serializeDsumPostRequestBody(writer: SerializationWriter, dsumPostRequestBody: Partial<DsumPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dsumPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("criteria", dsumPostRequestBody.criteria);
+    writer.writeObjectValue("database", dsumPostRequestBody.database);
+    writer.writeObjectValue("field", dsumPostRequestBody.field);
+    writer.writeAdditionalData(dsumPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

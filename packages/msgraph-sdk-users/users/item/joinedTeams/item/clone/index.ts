@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface ClonePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -73,6 +69,7 @@ export function createClonePostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param ClonePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -89,19 +86,20 @@ export function deserializeIntoClonePostRequestBody(clonePostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param ClonePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeClonePostRequestBody(writer: SerializationWriter, clonePostRequestBody: Partial<ClonePostRequestBody> | undefined | null = {}) : void {
-    if (clonePostRequestBody) {
-        writer.writeStringValue("classification", clonePostRequestBody.classification);
-        writer.writeStringValue("description", clonePostRequestBody.description);
-        writer.writeStringValue("displayName", clonePostRequestBody.displayName);
-        writer.writeStringValue("mailNickname", clonePostRequestBody.mailNickname);
-        writer.writeEnumValue<ClonableTeamParts[]>("partsToClone", clonePostRequestBody.partsToClone);
-        writer.writeEnumValue<TeamVisibilityType>("visibility", clonePostRequestBody.visibility);
-        writer.writeAdditionalData(clonePostRequestBody.additionalData);
-    }
+export function serializeClonePostRequestBody(writer: SerializationWriter, clonePostRequestBody: Partial<ClonePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!clonePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("classification", clonePostRequestBody.classification);
+    writer.writeStringValue("description", clonePostRequestBody.description);
+    writer.writeStringValue("displayName", clonePostRequestBody.displayName);
+    writer.writeStringValue("mailNickname", clonePostRequestBody.mailNickname);
+    writer.writeEnumValue<ClonableTeamParts[]>("partsToClone", clonePostRequestBody.partsToClone);
+    writer.writeEnumValue<TeamVisibilityType>("visibility", clonePostRequestBody.visibility);
+    writer.writeAdditionalData(clonePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

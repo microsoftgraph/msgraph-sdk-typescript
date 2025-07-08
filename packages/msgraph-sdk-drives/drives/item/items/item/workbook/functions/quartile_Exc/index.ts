@@ -19,6 +19,7 @@ export function createQuartile_ExcPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param Quartile_ExcPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoQuartile_ExcPostRequestBody(quartile_ExcPostReque
     }
 }
 export interface Quartile_ExcPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The array property
      */
@@ -69,15 +66,16 @@ export interface Quartile_ExcRequestBuilder extends BaseRequestBuilder<Quartile_
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Quartile_ExcPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeQuartile_ExcPostRequestBody(writer: SerializationWriter, quartile_ExcPostRequestBody: Partial<Quartile_ExcPostRequestBody> | undefined | null = {}) : void {
-    if (quartile_ExcPostRequestBody) {
-        writer.writeObjectValue("array", quartile_ExcPostRequestBody.array);
-        writer.writeObjectValue("quart", quartile_ExcPostRequestBody.quart);
-        writer.writeAdditionalData(quartile_ExcPostRequestBody.additionalData);
-    }
+export function serializeQuartile_ExcPostRequestBody(writer: SerializationWriter, quartile_ExcPostRequestBody: Partial<Quartile_ExcPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!quartile_ExcPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("array", quartile_ExcPostRequestBody.array);
+    writer.writeObjectValue("quart", quartile_ExcPostRequestBody.quart);
+    writer.writeAdditionalData(quartile_ExcPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

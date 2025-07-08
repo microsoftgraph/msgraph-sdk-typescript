@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface BitxorPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createBitxorPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param BitxorPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoBitxorPostRequestBody(bitxorPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param BitxorPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBitxorPostRequestBody(writer: SerializationWriter, bitxorPostRequestBody: Partial<BitxorPostRequestBody> | undefined | null = {}) : void {
-    if (bitxorPostRequestBody) {
-        writer.writeObjectValue("number1", bitxorPostRequestBody.number1);
-        writer.writeObjectValue("number2", bitxorPostRequestBody.number2);
-        writer.writeAdditionalData(bitxorPostRequestBody.additionalData);
-    }
+export function serializeBitxorPostRequestBody(writer: SerializationWriter, bitxorPostRequestBody: Partial<BitxorPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!bitxorPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number1", bitxorPostRequestBody.number1);
+    writer.writeObjectValue("number2", bitxorPostRequestBody.number2);
+    writer.writeAdditionalData(bitxorPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

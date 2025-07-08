@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface ChoosePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createChoosePostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param ChoosePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoChoosePostRequestBody(choosePostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param ChoosePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeChoosePostRequestBody(writer: SerializationWriter, choosePostRequestBody: Partial<ChoosePostRequestBody> | undefined | null = {}) : void {
-    if (choosePostRequestBody) {
-        writer.writeObjectValue("indexNum", choosePostRequestBody.indexNum);
-        writer.writeObjectValue("values", choosePostRequestBody.values);
-        writer.writeAdditionalData(choosePostRequestBody.additionalData);
-    }
+export function serializeChoosePostRequestBody(writer: SerializationWriter, choosePostRequestBody: Partial<ChoosePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!choosePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("indexNum", choosePostRequestBody.indexNum);
+    writer.writeObjectValue("values", choosePostRequestBody.values);
+    writer.writeAdditionalData(choosePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

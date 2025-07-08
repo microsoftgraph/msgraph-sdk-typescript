@@ -19,6 +19,7 @@ export function createGaussPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param GaussPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoGaussPostRequestBody(gaussPostRequestBody: Partia
     }
 }
 export interface GaussPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface GaussRequestBuilder extends BaseRequestBuilder<GaussRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param GaussPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGaussPostRequestBody(writer: SerializationWriter, gaussPostRequestBody: Partial<GaussPostRequestBody> | undefined | null = {}) : void {
-    if (gaussPostRequestBody) {
-        writer.writeObjectValue("x", gaussPostRequestBody.x);
-        writer.writeAdditionalData(gaussPostRequestBody.additionalData);
-    }
+export function serializeGaussPostRequestBody(writer: SerializationWriter, gaussPostRequestBody: Partial<GaussPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!gaussPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("x", gaussPostRequestBody.x);
+    writer.writeAdditionalData(gaussPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

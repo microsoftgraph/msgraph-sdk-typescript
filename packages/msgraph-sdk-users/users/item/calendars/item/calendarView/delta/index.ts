@@ -89,6 +89,7 @@ export interface DeltaRequestBuilderGetQueryParameters {
 }
 /**
  * The deserialization information for the current model
+ * @param DeltaGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -100,14 +101,15 @@ export function deserializeIntoDeltaGetResponse(deltaGetResponse: Partial<DeltaG
 }
 /**
  * Serializes information the current object
+ * @param DeltaGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: Partial<DeltaGetResponse> | undefined | null = {}) : void {
-    if (deltaGetResponse) {
-        serializeBaseDeltaFunctionResponse(writer, deltaGetResponse)
-        writer.writeCollectionOfObjectValues<Event>("value", deltaGetResponse.value, serializeEvent);
-    }
+export function serializeDeltaGetResponse(writer: SerializationWriter, deltaGetResponse: Partial<DeltaGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!deltaGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseDeltaFunctionResponse(writer, deltaGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Event>("value", deltaGetResponse.value, serializeEvent);
 }
 /**
  * Uri template for the request builder.

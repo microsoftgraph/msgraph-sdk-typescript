@@ -19,6 +19,7 @@ export function createProductPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param ProductPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoProductPostRequestBody(productPostRequestBody: Pa
     }
 }
 export interface ProductPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ProductRequestBuilder extends BaseRequestBuilder<ProductRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ProductPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeProductPostRequestBody(writer: SerializationWriter, productPostRequestBody: Partial<ProductPostRequestBody> | undefined | null = {}) : void {
-    if (productPostRequestBody) {
-        writer.writeObjectValue("values", productPostRequestBody.values);
-        writer.writeAdditionalData(productPostRequestBody.additionalData);
-    }
+export function serializeProductPostRequestBody(writer: SerializationWriter, productPostRequestBody: Partial<ProductPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!productPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", productPostRequestBody.values);
+    writer.writeAdditionalData(productPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

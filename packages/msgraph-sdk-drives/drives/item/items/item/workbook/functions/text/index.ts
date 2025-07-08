@@ -19,6 +19,7 @@ export function createTextPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param TextPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoTextPostRequestBody(textPostRequestBody: Partial<
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TextPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTextPostRequestBody(writer: SerializationWriter, textPostRequestBody: Partial<TextPostRequestBody> | undefined | null = {}) : void {
-    if (textPostRequestBody) {
-        writer.writeObjectValue("formatText", textPostRequestBody.formatText);
-        writer.writeObjectValue("value", textPostRequestBody.value);
-        writer.writeAdditionalData(textPostRequestBody.additionalData);
-    }
+export function serializeTextPostRequestBody(writer: SerializationWriter, textPostRequestBody: Partial<TextPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!textPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("formatText", textPostRequestBody.formatText);
+    writer.writeObjectValue("value", textPostRequestBody.value);
+    writer.writeAdditionalData(textPostRequestBody.additionalData);
 }
 export interface TextPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

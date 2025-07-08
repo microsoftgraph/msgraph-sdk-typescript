@@ -14,10 +14,6 @@ export interface Beta_InvPostRequestBody extends AdditionalDataHolder, BackedMod
      */
     a?: UntypedNode | null;
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The alpha property
      */
     alpha?: UntypedNode | null;
@@ -69,6 +65,7 @@ export function createBeta_InvPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param Beta_InvPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -84,18 +81,19 @@ export function deserializeIntoBeta_InvPostRequestBody(beta_InvPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param Beta_InvPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBeta_InvPostRequestBody(writer: SerializationWriter, beta_InvPostRequestBody: Partial<Beta_InvPostRequestBody> | undefined | null = {}) : void {
-    if (beta_InvPostRequestBody) {
-        writer.writeObjectValue("A", beta_InvPostRequestBody.a);
-        writer.writeObjectValue("alpha", beta_InvPostRequestBody.alpha);
-        writer.writeObjectValue("B", beta_InvPostRequestBody.b);
-        writer.writeObjectValue("beta", beta_InvPostRequestBody.beta);
-        writer.writeObjectValue("probability", beta_InvPostRequestBody.probability);
-        writer.writeAdditionalData(beta_InvPostRequestBody.additionalData);
-    }
+export function serializeBeta_InvPostRequestBody(writer: SerializationWriter, beta_InvPostRequestBody: Partial<Beta_InvPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!beta_InvPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("A", beta_InvPostRequestBody.a);
+    writer.writeObjectValue("alpha", beta_InvPostRequestBody.alpha);
+    writer.writeObjectValue("B", beta_InvPostRequestBody.b);
+    writer.writeObjectValue("beta", beta_InvPostRequestBody.beta);
+    writer.writeObjectValue("probability", beta_InvPostRequestBody.probability);
+    writer.writeAdditionalData(beta_InvPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

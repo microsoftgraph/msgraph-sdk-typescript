@@ -19,6 +19,7 @@ export function createSubstitutePostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param SubstitutePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,23 +34,20 @@ export function deserializeIntoSubstitutePostRequestBody(substitutePostRequestBo
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SubstitutePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSubstitutePostRequestBody(writer: SerializationWriter, substitutePostRequestBody: Partial<SubstitutePostRequestBody> | undefined | null = {}) : void {
-    if (substitutePostRequestBody) {
-        writer.writeObjectValue("instanceNum", substitutePostRequestBody.instanceNum);
-        writer.writeObjectValue("newText", substitutePostRequestBody.newText);
-        writer.writeObjectValue("oldText", substitutePostRequestBody.oldText);
-        writer.writeObjectValue("text", substitutePostRequestBody.text);
-        writer.writeAdditionalData(substitutePostRequestBody.additionalData);
-    }
+export function serializeSubstitutePostRequestBody(writer: SerializationWriter, substitutePostRequestBody: Partial<SubstitutePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!substitutePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("instanceNum", substitutePostRequestBody.instanceNum);
+    writer.writeObjectValue("newText", substitutePostRequestBody.newText);
+    writer.writeObjectValue("oldText", substitutePostRequestBody.oldText);
+    writer.writeObjectValue("text", substitutePostRequestBody.text);
+    writer.writeAdditionalData(substitutePostRequestBody.additionalData);
 }
 export interface SubstitutePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

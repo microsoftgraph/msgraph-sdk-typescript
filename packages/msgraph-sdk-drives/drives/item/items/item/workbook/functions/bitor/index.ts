@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface BitorPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createBitorPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param BitorPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoBitorPostRequestBody(bitorPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param BitorPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBitorPostRequestBody(writer: SerializationWriter, bitorPostRequestBody: Partial<BitorPostRequestBody> | undefined | null = {}) : void {
-    if (bitorPostRequestBody) {
-        writer.writeObjectValue("number1", bitorPostRequestBody.number1);
-        writer.writeObjectValue("number2", bitorPostRequestBody.number2);
-        writer.writeAdditionalData(bitorPostRequestBody.additionalData);
-    }
+export function serializeBitorPostRequestBody(writer: SerializationWriter, bitorPostRequestBody: Partial<BitorPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!bitorPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number1", bitorPostRequestBody.number1);
+    writer.writeObjectValue("number2", bitorPostRequestBody.number2);
+    writer.writeAdditionalData(bitorPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

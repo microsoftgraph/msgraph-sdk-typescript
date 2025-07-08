@@ -19,6 +19,7 @@ export function createHlookupPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param HlookupPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,10 +33,6 @@ export function deserializeIntoHlookupPostRequestBody(hlookupPostRequestBody: Pa
     }
 }
 export interface HlookupPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -79,17 +76,18 @@ export interface HlookupRequestBuilder extends BaseRequestBuilder<HlookupRequest
 }
 /**
  * Serializes information the current object
+ * @param HlookupPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeHlookupPostRequestBody(writer: SerializationWriter, hlookupPostRequestBody: Partial<HlookupPostRequestBody> | undefined | null = {}) : void {
-    if (hlookupPostRequestBody) {
-        writer.writeObjectValue("lookupValue", hlookupPostRequestBody.lookupValue);
-        writer.writeObjectValue("rangeLookup", hlookupPostRequestBody.rangeLookup);
-        writer.writeObjectValue("rowIndexNum", hlookupPostRequestBody.rowIndexNum);
-        writer.writeObjectValue("tableArray", hlookupPostRequestBody.tableArray);
-        writer.writeAdditionalData(hlookupPostRequestBody.additionalData);
-    }
+export function serializeHlookupPostRequestBody(writer: SerializationWriter, hlookupPostRequestBody: Partial<HlookupPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!hlookupPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("lookupValue", hlookupPostRequestBody.lookupValue);
+    writer.writeObjectValue("rangeLookup", hlookupPostRequestBody.rangeLookup);
+    writer.writeObjectValue("rowIndexNum", hlookupPostRequestBody.rowIndexNum);
+    writer.writeObjectValue("tableArray", hlookupPostRequestBody.tableArray);
+    writer.writeAdditionalData(hlookupPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createDollarFrPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param DollarFrPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoDollarFrPostRequestBody(dollarFrPostRequestBody: 
     }
 }
 export interface DollarFrPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface DollarFrRequestBuilder extends BaseRequestBuilder<DollarFrReque
 }
 /**
  * Serializes information the current object
+ * @param DollarFrPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDollarFrPostRequestBody(writer: SerializationWriter, dollarFrPostRequestBody: Partial<DollarFrPostRequestBody> | undefined | null = {}) : void {
-    if (dollarFrPostRequestBody) {
-        writer.writeObjectValue("decimalDollar", dollarFrPostRequestBody.decimalDollar);
-        writer.writeObjectValue("fraction", dollarFrPostRequestBody.fraction);
-        writer.writeAdditionalData(dollarFrPostRequestBody.additionalData);
-    }
+export function serializeDollarFrPostRequestBody(writer: SerializationWriter, dollarFrPostRequestBody: Partial<DollarFrPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dollarFrPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("decimalDollar", dollarFrPostRequestBody.decimalDollar);
+    writer.writeObjectValue("fraction", dollarFrPostRequestBody.fraction);
+    writer.writeAdditionalData(dollarFrPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

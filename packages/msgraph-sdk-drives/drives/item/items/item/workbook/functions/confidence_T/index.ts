@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface Confidence_TPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The alpha property
      */
     alpha?: UntypedNode | null;
@@ -61,6 +57,7 @@ export function createConfidence_TPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param Confidence_TPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoConfidence_TPostRequestBody(confidence_TPostReque
 }
 /**
  * Serializes information the current object
+ * @param Confidence_TPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeConfidence_TPostRequestBody(writer: SerializationWriter, confidence_TPostRequestBody: Partial<Confidence_TPostRequestBody> | undefined | null = {}) : void {
-    if (confidence_TPostRequestBody) {
-        writer.writeObjectValue("alpha", confidence_TPostRequestBody.alpha);
-        writer.writeObjectValue("size", confidence_TPostRequestBody.size);
-        writer.writeObjectValue("standardDev", confidence_TPostRequestBody.standardDev);
-        writer.writeAdditionalData(confidence_TPostRequestBody.additionalData);
-    }
+export function serializeConfidence_TPostRequestBody(writer: SerializationWriter, confidence_TPostRequestBody: Partial<Confidence_TPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!confidence_TPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("alpha", confidence_TPostRequestBody.alpha);
+    writer.writeObjectValue("size", confidence_TPostRequestBody.size);
+    writer.writeObjectValue("standardDev", confidence_TPostRequestBody.standardDev);
+    writer.writeAdditionalData(confidence_TPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

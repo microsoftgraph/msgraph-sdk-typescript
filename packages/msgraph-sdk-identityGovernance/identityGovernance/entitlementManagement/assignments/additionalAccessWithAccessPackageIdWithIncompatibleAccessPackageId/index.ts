@@ -80,6 +80,7 @@ export function createAdditionalAccessWithAccessPackageIdWithIncompatibleAccessP
 }
 /**
  * The deserialization information for the current model
+ * @param AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -91,14 +92,15 @@ export function deserializeIntoAdditionalAccessWithAccessPackageIdWithIncompatib
 }
 /**
  * Serializes information the current object
+ * @param AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse> | undefined | null = {}) : void {
-    if (additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value, serializeAccessPackageAssignment);
-    }
+export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse: Partial<AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdGetResponse.value, serializeAccessPackageAssignment);
 }
 /**
  * Uri template for the request builder.

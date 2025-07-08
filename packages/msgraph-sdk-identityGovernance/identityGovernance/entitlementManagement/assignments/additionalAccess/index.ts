@@ -81,6 +81,7 @@ export function createAdditionalAccessGetResponseFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param AdditionalAccessGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export function deserializeIntoAdditionalAccessGetResponse(additionalAccessGetRe
 }
 /**
  * Serializes information the current object
+ * @param AdditionalAccessGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAdditionalAccessGetResponse(writer: SerializationWriter, additionalAccessGetResponse: Partial<AdditionalAccessGetResponse> | undefined | null = {}) : void {
-    if (additionalAccessGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, additionalAccessGetResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessGetResponse.value, serializeAccessPackageAssignment);
-    }
+export function serializeAdditionalAccessGetResponse(writer: SerializationWriter, additionalAccessGetResponse: Partial<AdditionalAccessGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!additionalAccessGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, additionalAccessGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessGetResponse.value, serializeAccessPackageAssignment);
 }
 /**
  * Uri template for the request builder.

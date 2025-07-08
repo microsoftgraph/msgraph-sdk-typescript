@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface CountIfsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export function createCountIfsPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param CountIfsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoCountIfsPostRequestBody(countIfsPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param CountIfsPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCountIfsPostRequestBody(writer: SerializationWriter, countIfsPostRequestBody: Partial<CountIfsPostRequestBody> | undefined | null = {}) : void {
-    if (countIfsPostRequestBody) {
-        writer.writeObjectValue("values", countIfsPostRequestBody.values);
-        writer.writeAdditionalData(countIfsPostRequestBody.additionalData);
-    }
+export function serializeCountIfsPostRequestBody(writer: SerializationWriter, countIfsPostRequestBody: Partial<CountIfsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!countIfsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", countIfsPostRequestBody.values);
+    writer.writeAdditionalData(countIfsPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

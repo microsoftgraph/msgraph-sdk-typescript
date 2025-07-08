@@ -19,6 +19,7 @@ export function createEnablePostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param EnablePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoEnablePostRequestBody(enablePostRequestBody: Part
     }
 }
 export interface EnablePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The appOwnerTenantId property
      */
@@ -65,14 +62,15 @@ export interface EnableRequestBuilder extends BaseRequestBuilder<EnableRequestBu
 }
 /**
  * Serializes information the current object
+ * @param EnablePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeEnablePostRequestBody(writer: SerializationWriter, enablePostRequestBody: Partial<EnablePostRequestBody> | undefined | null = {}) : void {
-    if (enablePostRequestBody) {
-        writer.writeStringValue("appOwnerTenantId", enablePostRequestBody.appOwnerTenantId);
-        writer.writeAdditionalData(enablePostRequestBody.additionalData);
-    }
+export function serializeEnablePostRequestBody(writer: SerializationWriter, enablePostRequestBody: Partial<EnablePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!enablePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("appOwnerTenantId", enablePostRequestBody.appOwnerTenantId);
+    writer.writeAdditionalData(enablePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

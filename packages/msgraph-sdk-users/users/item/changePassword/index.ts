@@ -8,10 +8,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface ChangePasswordPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -55,6 +51,7 @@ export function createChangePasswordPostRequestBodyFromDiscriminatorValue(parseN
 }
 /**
  * The deserialization information for the current model
+ * @param ChangePasswordPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -67,15 +64,16 @@ export function deserializeIntoChangePasswordPostRequestBody(changePasswordPostR
 }
 /**
  * Serializes information the current object
+ * @param ChangePasswordPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeChangePasswordPostRequestBody(writer: SerializationWriter, changePasswordPostRequestBody: Partial<ChangePasswordPostRequestBody> | undefined | null = {}) : void {
-    if (changePasswordPostRequestBody) {
-        writer.writeStringValue("currentPassword", changePasswordPostRequestBody.currentPassword);
-        writer.writeStringValue("newPassword", changePasswordPostRequestBody.newPassword);
-        writer.writeAdditionalData(changePasswordPostRequestBody.additionalData);
-    }
+export function serializeChangePasswordPostRequestBody(writer: SerializationWriter, changePasswordPostRequestBody: Partial<ChangePasswordPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!changePasswordPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("currentPassword", changePasswordPostRequestBody.currentPassword);
+    writer.writeStringValue("newPassword", changePasswordPostRequestBody.newPassword);
+    writer.writeAdditionalData(changePasswordPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

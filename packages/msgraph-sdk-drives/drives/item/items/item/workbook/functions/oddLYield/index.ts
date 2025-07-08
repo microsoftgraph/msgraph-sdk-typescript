@@ -19,6 +19,7 @@ export function createOddLYieldPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param OddLYieldPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -36,10 +37,6 @@ export function deserializeIntoOddLYieldPostRequestBody(oddLYieldPostRequestBody
     }
 }
 export interface OddLYieldPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -99,21 +96,22 @@ export interface OddLYieldRequestBuilder extends BaseRequestBuilder<OddLYieldReq
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OddLYieldPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeOddLYieldPostRequestBody(writer: SerializationWriter, oddLYieldPostRequestBody: Partial<OddLYieldPostRequestBody> | undefined | null = {}) : void {
-    if (oddLYieldPostRequestBody) {
-        writer.writeObjectValue("basis", oddLYieldPostRequestBody.basis);
-        writer.writeObjectValue("frequency", oddLYieldPostRequestBody.frequency);
-        writer.writeObjectValue("lastInterest", oddLYieldPostRequestBody.lastInterest);
-        writer.writeObjectValue("maturity", oddLYieldPostRequestBody.maturity);
-        writer.writeObjectValue("pr", oddLYieldPostRequestBody.pr);
-        writer.writeObjectValue("rate", oddLYieldPostRequestBody.rate);
-        writer.writeObjectValue("redemption", oddLYieldPostRequestBody.redemption);
-        writer.writeObjectValue("settlement", oddLYieldPostRequestBody.settlement);
-        writer.writeAdditionalData(oddLYieldPostRequestBody.additionalData);
-    }
+export function serializeOddLYieldPostRequestBody(writer: SerializationWriter, oddLYieldPostRequestBody: Partial<OddLYieldPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!oddLYieldPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", oddLYieldPostRequestBody.basis);
+    writer.writeObjectValue("frequency", oddLYieldPostRequestBody.frequency);
+    writer.writeObjectValue("lastInterest", oddLYieldPostRequestBody.lastInterest);
+    writer.writeObjectValue("maturity", oddLYieldPostRequestBody.maturity);
+    writer.writeObjectValue("pr", oddLYieldPostRequestBody.pr);
+    writer.writeObjectValue("rate", oddLYieldPostRequestBody.rate);
+    writer.writeObjectValue("redemption", oddLYieldPostRequestBody.redemption);
+    writer.writeObjectValue("settlement", oddLYieldPostRequestBody.settlement);
+    writer.writeAdditionalData(oddLYieldPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

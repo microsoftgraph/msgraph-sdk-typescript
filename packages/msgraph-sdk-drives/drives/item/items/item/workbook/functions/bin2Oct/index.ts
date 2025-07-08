@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface Bin2OctPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createBin2OctPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param Bin2OctPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoBin2OctPostRequestBody(bin2OctPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param Bin2OctPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBin2OctPostRequestBody(writer: SerializationWriter, bin2OctPostRequestBody: Partial<Bin2OctPostRequestBody> | undefined | null = {}) : void {
-    if (bin2OctPostRequestBody) {
-        writer.writeObjectValue("number", bin2OctPostRequestBody.number);
-        writer.writeObjectValue("places", bin2OctPostRequestBody.places);
-        writer.writeAdditionalData(bin2OctPostRequestBody.additionalData);
-    }
+export function serializeBin2OctPostRequestBody(writer: SerializationWriter, bin2OctPostRequestBody: Partial<Bin2OctPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!bin2OctPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", bin2OctPostRequestBody.number);
+    writer.writeObjectValue("places", bin2OctPostRequestBody.places);
+    writer.writeAdditionalData(bin2OctPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

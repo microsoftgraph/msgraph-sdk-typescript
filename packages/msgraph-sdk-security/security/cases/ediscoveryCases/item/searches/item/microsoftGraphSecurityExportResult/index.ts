@@ -19,6 +19,7 @@ export function createExportResultPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param ExportResultPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -37,10 +38,6 @@ export function deserializeIntoExportResultPostRequestBody(exportResultPostReque
     }
 }
 export interface ExportResultPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The additionalOptions property
      */
@@ -104,22 +101,23 @@ export interface MicrosoftGraphSecurityExportResultRequestBuilder extends BaseRe
 }
 /**
  * Serializes information the current object
+ * @param ExportResultPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeExportResultPostRequestBody(writer: SerializationWriter, exportResultPostRequestBody: Partial<ExportResultPostRequestBody> | undefined | null = {}) : void {
-    if (exportResultPostRequestBody) {
-        writer.writeEnumValue<AdditionalOptions[]>("additionalOptions", exportResultPostRequestBody.additionalOptions);
-        writer.writeEnumValue<CloudAttachmentVersion>("cloudAttachmentVersion", exportResultPostRequestBody.cloudAttachmentVersion);
-        writer.writeStringValue("description", exportResultPostRequestBody.description);
-        writer.writeStringValue("displayName", exportResultPostRequestBody.displayName);
-        writer.writeEnumValue<DocumentVersion>("documentVersion", exportResultPostRequestBody.documentVersion);
-        writer.writeEnumValue<ExportCriteria[]>("exportCriteria", exportResultPostRequestBody.exportCriteria);
-        writer.writeEnumValue<ExportFormat>("exportFormat", exportResultPostRequestBody.exportFormat);
-        writer.writeEnumValue<ExportLocation[]>("exportLocation", exportResultPostRequestBody.exportLocation);
-        writer.writeBooleanValue("exportSingleItems", exportResultPostRequestBody.exportSingleItems);
-        writer.writeAdditionalData(exportResultPostRequestBody.additionalData);
-    }
+export function serializeExportResultPostRequestBody(writer: SerializationWriter, exportResultPostRequestBody: Partial<ExportResultPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!exportResultPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<AdditionalOptions[]>("additionalOptions", exportResultPostRequestBody.additionalOptions);
+    writer.writeEnumValue<CloudAttachmentVersion>("cloudAttachmentVersion", exportResultPostRequestBody.cloudAttachmentVersion);
+    writer.writeStringValue("description", exportResultPostRequestBody.description);
+    writer.writeStringValue("displayName", exportResultPostRequestBody.displayName);
+    writer.writeEnumValue<DocumentVersion>("documentVersion", exportResultPostRequestBody.documentVersion);
+    writer.writeEnumValue<ExportCriteria[]>("exportCriteria", exportResultPostRequestBody.exportCriteria);
+    writer.writeEnumValue<ExportFormat>("exportFormat", exportResultPostRequestBody.exportFormat);
+    writer.writeEnumValue<ExportLocation[]>("exportLocation", exportResultPostRequestBody.exportLocation);
+    writer.writeBooleanValue("exportSingleItems", exportResultPostRequestBody.exportSingleItems);
+    writer.writeAdditionalData(exportResultPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

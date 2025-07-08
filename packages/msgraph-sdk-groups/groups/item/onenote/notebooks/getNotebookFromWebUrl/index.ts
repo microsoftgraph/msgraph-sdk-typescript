@@ -19,6 +19,7 @@ export function createGetNotebookFromWebUrlPostRequestBodyFromDiscriminatorValue
 }
 /**
  * The deserialization information for the current model
+ * @param GetNotebookFromWebUrlPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoGetNotebookFromWebUrlPostRequestBody(getNotebookF
     }
 }
 export interface GetNotebookFromWebUrlPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -65,14 +62,15 @@ export interface GetNotebookFromWebUrlRequestBuilder extends BaseRequestBuilder<
 }
 /**
  * Serializes information the current object
+ * @param GetNotebookFromWebUrlPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetNotebookFromWebUrlPostRequestBody(writer: SerializationWriter, getNotebookFromWebUrlPostRequestBody: Partial<GetNotebookFromWebUrlPostRequestBody> | undefined | null = {}) : void {
-    if (getNotebookFromWebUrlPostRequestBody) {
-        writer.writeStringValue("webUrl", getNotebookFromWebUrlPostRequestBody.webUrl);
-        writer.writeAdditionalData(getNotebookFromWebUrlPostRequestBody.additionalData);
-    }
+export function serializeGetNotebookFromWebUrlPostRequestBody(writer: SerializationWriter, getNotebookFromWebUrlPostRequestBody: Partial<GetNotebookFromWebUrlPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getNotebookFromWebUrlPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("webUrl", getNotebookFromWebUrlPostRequestBody.webUrl);
+    writer.writeAdditionalData(getNotebookFromWebUrlPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

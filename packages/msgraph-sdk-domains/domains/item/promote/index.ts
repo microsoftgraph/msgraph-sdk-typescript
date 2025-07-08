@@ -17,6 +17,7 @@ export function createPromotePostResponseFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param PromotePostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoPromotePostResponse(promotePostResponse: Partial<
     }
 }
 export interface PromotePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -61,14 +58,15 @@ export interface PromoteRequestBuilder extends BaseRequestBuilder<PromoteRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PromotePostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePromotePostResponse(writer: SerializationWriter, promotePostResponse: Partial<PromotePostResponse> | undefined | null = {}) : void {
-    if (promotePostResponse) {
-        writer.writeBooleanValue("value", promotePostResponse.value);
-        writer.writeAdditionalData(promotePostResponse.additionalData);
-    }
+export function serializePromotePostResponse(writer: SerializationWriter, promotePostResponse: Partial<PromotePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!promotePostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", promotePostResponse.value);
+    writer.writeAdditionalData(promotePostResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

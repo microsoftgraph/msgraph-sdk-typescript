@@ -19,6 +19,7 @@ export function createRunHuntingQueryPostRequestBodyFromDiscriminatorValue(parse
 }
 /**
  * The deserialization information for the current model
+ * @param RunHuntingQueryPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -51,10 +52,6 @@ export interface MicrosoftGraphSecurityRunHuntingQueryRequestBuilder extends Bas
 }
 export interface RunHuntingQueryPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -69,15 +66,16 @@ export interface RunHuntingQueryPostRequestBody extends AdditionalDataHolder, Ba
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RunHuntingQueryPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRunHuntingQueryPostRequestBody(writer: SerializationWriter, runHuntingQueryPostRequestBody: Partial<RunHuntingQueryPostRequestBody> | undefined | null = {}) : void {
-    if (runHuntingQueryPostRequestBody) {
-        writer.writeStringValue("query", runHuntingQueryPostRequestBody.query);
-        writer.writeStringValue("timespan", runHuntingQueryPostRequestBody.timespan);
-        writer.writeAdditionalData(runHuntingQueryPostRequestBody.additionalData);
-    }
+export function serializeRunHuntingQueryPostRequestBody(writer: SerializationWriter, runHuntingQueryPostRequestBody: Partial<RunHuntingQueryPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!runHuntingQueryPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("query", runHuntingQueryPostRequestBody.query);
+    writer.writeStringValue("timespan", runHuntingQueryPostRequestBody.timespan);
+    writer.writeAdditionalData(runHuntingQueryPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

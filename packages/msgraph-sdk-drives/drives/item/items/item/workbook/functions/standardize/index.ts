@@ -19,6 +19,7 @@ export function createStandardizePostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param StandardizePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,22 +33,19 @@ export function deserializeIntoStandardizePostRequestBody(standardizePostRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param StandardizePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeStandardizePostRequestBody(writer: SerializationWriter, standardizePostRequestBody: Partial<StandardizePostRequestBody> | undefined | null = {}) : void {
-    if (standardizePostRequestBody) {
-        writer.writeObjectValue("mean", standardizePostRequestBody.mean);
-        writer.writeObjectValue("standardDev", standardizePostRequestBody.standardDev);
-        writer.writeObjectValue("x", standardizePostRequestBody.x);
-        writer.writeAdditionalData(standardizePostRequestBody.additionalData);
-    }
+export function serializeStandardizePostRequestBody(writer: SerializationWriter, standardizePostRequestBody: Partial<StandardizePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!standardizePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("mean", standardizePostRequestBody.mean);
+    writer.writeObjectValue("standardDev", standardizePostRequestBody.standardDev);
+    writer.writeObjectValue("x", standardizePostRequestBody.x);
+    writer.writeAdditionalData(standardizePostRequestBody.additionalData);
 }
 export interface StandardizePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

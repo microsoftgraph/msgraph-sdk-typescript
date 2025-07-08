@@ -19,10 +19,6 @@ export function createDecimalPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 export interface DecimalPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export interface DecimalRequestBuilder extends BaseRequestBuilder<DecimalRequest
 }
 /**
  * The deserialization information for the current model
+ * @param DecimalPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoDecimalPostRequestBody(decimalPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param DecimalPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDecimalPostRequestBody(writer: SerializationWriter, decimalPostRequestBody: Partial<DecimalPostRequestBody> | undefined | null = {}) : void {
-    if (decimalPostRequestBody) {
-        writer.writeObjectValue("number", decimalPostRequestBody.number);
-        writer.writeObjectValue("radix", decimalPostRequestBody.radix);
-        writer.writeAdditionalData(decimalPostRequestBody.additionalData);
-    }
+export function serializeDecimalPostRequestBody(writer: SerializationWriter, decimalPostRequestBody: Partial<DecimalPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!decimalPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", decimalPostRequestBody.number);
+    writer.writeObjectValue("radix", decimalPostRequestBody.radix);
+    writer.writeAdditionalData(decimalPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

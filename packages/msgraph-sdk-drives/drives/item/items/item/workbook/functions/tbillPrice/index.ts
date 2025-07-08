@@ -19,6 +19,7 @@ export function createTbillPricePostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param TbillPricePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,22 +33,19 @@ export function deserializeIntoTbillPricePostRequestBody(tbillPricePostRequestBo
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TbillPricePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTbillPricePostRequestBody(writer: SerializationWriter, tbillPricePostRequestBody: Partial<TbillPricePostRequestBody> | undefined | null = {}) : void {
-    if (tbillPricePostRequestBody) {
-        writer.writeObjectValue("discount", tbillPricePostRequestBody.discount);
-        writer.writeObjectValue("maturity", tbillPricePostRequestBody.maturity);
-        writer.writeObjectValue("settlement", tbillPricePostRequestBody.settlement);
-        writer.writeAdditionalData(tbillPricePostRequestBody.additionalData);
-    }
+export function serializeTbillPricePostRequestBody(writer: SerializationWriter, tbillPricePostRequestBody: Partial<TbillPricePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!tbillPricePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("discount", tbillPricePostRequestBody.discount);
+    writer.writeObjectValue("maturity", tbillPricePostRequestBody.maturity);
+    writer.writeObjectValue("settlement", tbillPricePostRequestBody.settlement);
+    writer.writeAdditionalData(tbillPricePostRequestBody.additionalData);
 }
 export interface TbillPricePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

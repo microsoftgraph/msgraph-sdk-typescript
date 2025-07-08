@@ -19,6 +19,7 @@ export function createGetApplicableContentTypesForListWithListIdGetResponseFromD
 }
 /**
  * The deserialization information for the current model
+ * @param GetApplicableContentTypesForListWithListIdGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface GetApplicableContentTypesForListWithListIdRequestBuilderGetQuer
 }
 /**
  * Serializes information the current object
+ * @param GetApplicableContentTypesForListWithListIdGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetApplicableContentTypesForListWithListIdGetResponse(writer: SerializationWriter, getApplicableContentTypesForListWithListIdGetResponse: Partial<GetApplicableContentTypesForListWithListIdGetResponse> | undefined | null = {}) : void {
-    if (getApplicableContentTypesForListWithListIdGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getApplicableContentTypesForListWithListIdGetResponse)
-        writer.writeCollectionOfObjectValues<ContentType>("value", getApplicableContentTypesForListWithListIdGetResponse.value, serializeContentType);
-    }
+export function serializeGetApplicableContentTypesForListWithListIdGetResponse(writer: SerializationWriter, getApplicableContentTypesForListWithListIdGetResponse: Partial<GetApplicableContentTypesForListWithListIdGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getApplicableContentTypesForListWithListIdGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getApplicableContentTypesForListWithListIdGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ContentType>("value", getApplicableContentTypesForListWithListIdGetResponse.value, serializeContentType);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createT_DistPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param T_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,22 +33,19 @@ export function deserializeIntoT_DistPostRequestBody(t_DistPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param T_DistPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeT_DistPostRequestBody(writer: SerializationWriter, t_DistPostRequestBody: Partial<T_DistPostRequestBody> | undefined | null = {}) : void {
-    if (t_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", t_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("degFreedom", t_DistPostRequestBody.degFreedom);
-        writer.writeObjectValue("x", t_DistPostRequestBody.x);
-        writer.writeAdditionalData(t_DistPostRequestBody.additionalData);
-    }
+export function serializeT_DistPostRequestBody(writer: SerializationWriter, t_DistPostRequestBody: Partial<T_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!t_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", t_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("degFreedom", t_DistPostRequestBody.degFreedom);
+    writer.writeObjectValue("x", t_DistPostRequestBody.x);
+    writer.writeAdditionalData(t_DistPostRequestBody.additionalData);
 }
 export interface T_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

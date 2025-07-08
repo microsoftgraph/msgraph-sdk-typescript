@@ -19,6 +19,7 @@ export function createReplacePostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param ReplacePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,10 +33,6 @@ export function deserializeIntoReplacePostRequestBody(replacePostRequestBody: Pa
     }
 }
 export interface ReplacePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -79,17 +76,18 @@ export interface ReplaceRequestBuilder extends BaseRequestBuilder<ReplaceRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ReplacePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeReplacePostRequestBody(writer: SerializationWriter, replacePostRequestBody: Partial<ReplacePostRequestBody> | undefined | null = {}) : void {
-    if (replacePostRequestBody) {
-        writer.writeObjectValue("newText", replacePostRequestBody.newText);
-        writer.writeObjectValue("numChars", replacePostRequestBody.numChars);
-        writer.writeObjectValue("oldText", replacePostRequestBody.oldText);
-        writer.writeObjectValue("startNum", replacePostRequestBody.startNum);
-        writer.writeAdditionalData(replacePostRequestBody.additionalData);
-    }
+export function serializeReplacePostRequestBody(writer: SerializationWriter, replacePostRequestBody: Partial<ReplacePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!replacePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("newText", replacePostRequestBody.newText);
+    writer.writeObjectValue("numChars", replacePostRequestBody.numChars);
+    writer.writeObjectValue("oldText", replacePostRequestBody.oldText);
+    writer.writeObjectValue("startNum", replacePostRequestBody.startNum);
+    writer.writeAdditionalData(replacePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

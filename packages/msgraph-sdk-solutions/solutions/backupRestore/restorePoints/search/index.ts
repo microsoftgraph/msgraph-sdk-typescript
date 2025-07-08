@@ -19,6 +19,7 @@ export function createSearchPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param SearchPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,10 +34,6 @@ export function deserializeIntoSearchPostRequestBody(searchPostRequestBody: Part
     }
 }
 export interface SearchPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The artifactQuery property
      */
@@ -85,18 +82,19 @@ export interface SearchRequestBuilder extends BaseRequestBuilder<SearchRequestBu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SearchPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSearchPostRequestBody(writer: SerializationWriter, searchPostRequestBody: Partial<SearchPostRequestBody> | undefined | null = {}) : void {
-    if (searchPostRequestBody) {
-        writer.writeObjectValue<ArtifactQuery>("artifactQuery", searchPostRequestBody.artifactQuery, serializeArtifactQuery);
-        writer.writeObjectValue<TimePeriod>("protectionTimePeriod", searchPostRequestBody.protectionTimePeriod, serializeTimePeriod);
-        writer.writeCollectionOfPrimitiveValues<string>("protectionUnitIds", searchPostRequestBody.protectionUnitIds);
-        writer.writeEnumValue<RestorePointPreference>("restorePointPreference", searchPostRequestBody.restorePointPreference);
-        writer.writeEnumValue<RestorePointTags[]>("tags", searchPostRequestBody.tags);
-        writer.writeAdditionalData(searchPostRequestBody.additionalData);
-    }
+export function serializeSearchPostRequestBody(writer: SerializationWriter, searchPostRequestBody: Partial<SearchPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!searchPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<ArtifactQuery>("artifactQuery", searchPostRequestBody.artifactQuery, serializeArtifactQuery);
+    writer.writeObjectValue<TimePeriod>("protectionTimePeriod", searchPostRequestBody.protectionTimePeriod, serializeTimePeriod);
+    writer.writeCollectionOfPrimitiveValues<string>("protectionUnitIds", searchPostRequestBody.protectionUnitIds);
+    writer.writeEnumValue<RestorePointPreference>("restorePointPreference", searchPostRequestBody.restorePointPreference);
+    writer.writeEnumValue<RestorePointTags[]>("tags", searchPostRequestBody.tags);
+    writer.writeAdditionalData(searchPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

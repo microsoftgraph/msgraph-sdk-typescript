@@ -19,6 +19,7 @@ export function createIsFormulaPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param IsFormulaPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoIsFormulaPostRequestBody(isFormulaPostRequestBody
     }
 }
 export interface IsFormulaPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface IsFormulaRequestBuilder extends BaseRequestBuilder<IsFormulaReq
 }
 /**
  * Serializes information the current object
+ * @param IsFormulaPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIsFormulaPostRequestBody(writer: SerializationWriter, isFormulaPostRequestBody: Partial<IsFormulaPostRequestBody> | undefined | null = {}) : void {
-    if (isFormulaPostRequestBody) {
-        writer.writeObjectValue("reference", isFormulaPostRequestBody.reference);
-        writer.writeAdditionalData(isFormulaPostRequestBody.additionalData);
-    }
+export function serializeIsFormulaPostRequestBody(writer: SerializationWriter, isFormulaPostRequestBody: Partial<IsFormulaPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!isFormulaPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("reference", isFormulaPostRequestBody.reference);
+    writer.writeAdditionalData(isFormulaPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createNegBinom_DistPostRequestBodyFromDiscriminatorValue(parseNo
 }
 /**
  * The deserialization information for the current model
+ * @param NegBinom_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,10 +33,6 @@ export function deserializeIntoNegBinom_DistPostRequestBody(negBinom_DistPostReq
     }
 }
 export interface NegBinom_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -79,17 +76,18 @@ export interface NegBinom_DistRequestBuilder extends BaseRequestBuilder<NegBinom
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param NegBinom_DistPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeNegBinom_DistPostRequestBody(writer: SerializationWriter, negBinom_DistPostRequestBody: Partial<NegBinom_DistPostRequestBody> | undefined | null = {}) : void {
-    if (negBinom_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", negBinom_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("numberF", negBinom_DistPostRequestBody.numberF);
-        writer.writeObjectValue("numberS", negBinom_DistPostRequestBody.numberS);
-        writer.writeObjectValue("probabilityS", negBinom_DistPostRequestBody.probabilityS);
-        writer.writeAdditionalData(negBinom_DistPostRequestBody.additionalData);
-    }
+export function serializeNegBinom_DistPostRequestBody(writer: SerializationWriter, negBinom_DistPostRequestBody: Partial<NegBinom_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!negBinom_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", negBinom_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("numberF", negBinom_DistPostRequestBody.numberF);
+    writer.writeObjectValue("numberS", negBinom_DistPostRequestBody.numberS);
+    writer.writeObjectValue("probabilityS", negBinom_DistPostRequestBody.probabilityS);
+    writer.writeAdditionalData(negBinom_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,10 +19,6 @@ export function createDbcsPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 export interface DbcsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export interface DbcsRequestBuilder extends BaseRequestBuilder<DbcsRequestBuilde
 }
 /**
  * The deserialization information for the current model
+ * @param DbcsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoDbcsPostRequestBody(dbcsPostRequestBody: Partial<
 }
 /**
  * Serializes information the current object
+ * @param DbcsPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDbcsPostRequestBody(writer: SerializationWriter, dbcsPostRequestBody: Partial<DbcsPostRequestBody> | undefined | null = {}) : void {
-    if (dbcsPostRequestBody) {
-        writer.writeObjectValue("text", dbcsPostRequestBody.text);
-        writer.writeAdditionalData(dbcsPostRequestBody.additionalData);
-    }
+export function serializeDbcsPostRequestBody(writer: SerializationWriter, dbcsPostRequestBody: Partial<DbcsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dbcsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("text", dbcsPostRequestBody.text);
+    writer.writeAdditionalData(dbcsPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

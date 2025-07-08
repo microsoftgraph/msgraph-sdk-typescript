@@ -8,10 +8,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface CountGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -49,6 +45,7 @@ export function createCountGetResponseFromDiscriminatorValue(parseNode: ParseNod
 }
 /**
  * The deserialization information for the current model
+ * @param CountGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -60,14 +57,15 @@ export function deserializeIntoCountGetResponse(countGetResponse: Partial<CountG
 }
 /**
  * Serializes information the current object
+ * @param CountGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCountGetResponse(writer: SerializationWriter, countGetResponse: Partial<CountGetResponse> | undefined | null = {}) : void {
-    if (countGetResponse) {
-        writer.writeNumberValue("value", countGetResponse.value);
-        writer.writeAdditionalData(countGetResponse.additionalData);
-    }
+export function serializeCountGetResponse(writer: SerializationWriter, countGetResponse: Partial<CountGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!countGetResponse || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("value", countGetResponse.value);
+    writer.writeAdditionalData(countGetResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

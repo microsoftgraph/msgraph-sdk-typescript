@@ -19,6 +19,7 @@ export function createErf_PrecisePostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param Erf_PrecisePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoErf_PrecisePostRequestBody(erf_PrecisePostRequest
     }
 }
 export interface Erf_PrecisePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface Erf_PreciseRequestBuilder extends BaseRequestBuilder<Erf_Precis
 }
 /**
  * Serializes information the current object
+ * @param Erf_PrecisePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeErf_PrecisePostRequestBody(writer: SerializationWriter, erf_PrecisePostRequestBody: Partial<Erf_PrecisePostRequestBody> | undefined | null = {}) : void {
-    if (erf_PrecisePostRequestBody) {
-        writer.writeObjectValue("X", erf_PrecisePostRequestBody.x);
-        writer.writeAdditionalData(erf_PrecisePostRequestBody.additionalData);
-    }
+export function serializeErf_PrecisePostRequestBody(writer: SerializationWriter, erf_PrecisePostRequestBody: Partial<Erf_PrecisePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!erf_PrecisePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("X", erf_PrecisePostRequestBody.x);
+    writer.writeAdditionalData(erf_PrecisePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

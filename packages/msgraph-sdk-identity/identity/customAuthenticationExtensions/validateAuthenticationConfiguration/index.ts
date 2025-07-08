@@ -19,6 +19,7 @@ export function createValidateAuthenticationConfigurationPostRequestBodyFromDisc
 }
 /**
  * The deserialization information for the current model
+ * @param ValidateAuthenticationConfigurationPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoValidateAuthenticationConfigurationPostRequestBod
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ValidateAuthenticationConfigurationPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeValidateAuthenticationConfigurationPostRequestBody(writer: SerializationWriter, validateAuthenticationConfigurationPostRequestBody: Partial<ValidateAuthenticationConfigurationPostRequestBody> | undefined | null = {}) : void {
-    if (validateAuthenticationConfigurationPostRequestBody) {
-        writer.writeObjectValue<CustomExtensionAuthenticationConfiguration>("authenticationConfiguration", validateAuthenticationConfigurationPostRequestBody.authenticationConfiguration, serializeCustomExtensionAuthenticationConfiguration);
-        writer.writeObjectValue<CustomExtensionEndpointConfiguration>("endpointConfiguration", validateAuthenticationConfigurationPostRequestBody.endpointConfiguration, serializeCustomExtensionEndpointConfiguration);
-        writer.writeAdditionalData(validateAuthenticationConfigurationPostRequestBody.additionalData);
-    }
+export function serializeValidateAuthenticationConfigurationPostRequestBody(writer: SerializationWriter, validateAuthenticationConfigurationPostRequestBody: Partial<ValidateAuthenticationConfigurationPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!validateAuthenticationConfigurationPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<CustomExtensionAuthenticationConfiguration>("authenticationConfiguration", validateAuthenticationConfigurationPostRequestBody.authenticationConfiguration, serializeCustomExtensionAuthenticationConfiguration);
+    writer.writeObjectValue<CustomExtensionEndpointConfiguration>("endpointConfiguration", validateAuthenticationConfigurationPostRequestBody.endpointConfiguration, serializeCustomExtensionEndpointConfiguration);
+    writer.writeAdditionalData(validateAuthenticationConfigurationPostRequestBody.additionalData);
 }
 export interface ValidateAuthenticationConfigurationPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The authenticationConfiguration property
      */

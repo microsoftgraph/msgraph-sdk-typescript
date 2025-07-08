@@ -19,6 +19,7 @@ export function createSydPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param SydPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,23 +34,20 @@ export function deserializeIntoSydPostRequestBody(sydPostRequestBody: Partial<Sy
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SydPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSydPostRequestBody(writer: SerializationWriter, sydPostRequestBody: Partial<SydPostRequestBody> | undefined | null = {}) : void {
-    if (sydPostRequestBody) {
-        writer.writeObjectValue("cost", sydPostRequestBody.cost);
-        writer.writeObjectValue("life", sydPostRequestBody.life);
-        writer.writeObjectValue("per", sydPostRequestBody.per);
-        writer.writeObjectValue("salvage", sydPostRequestBody.salvage);
-        writer.writeAdditionalData(sydPostRequestBody.additionalData);
-    }
+export function serializeSydPostRequestBody(writer: SerializationWriter, sydPostRequestBody: Partial<SydPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sydPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cost", sydPostRequestBody.cost);
+    writer.writeObjectValue("life", sydPostRequestBody.life);
+    writer.writeObjectValue("per", sydPostRequestBody.per);
+    writer.writeObjectValue("salvage", sydPostRequestBody.salvage);
+    writer.writeAdditionalData(sydPostRequestBody.additionalData);
 }
 export interface SydPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

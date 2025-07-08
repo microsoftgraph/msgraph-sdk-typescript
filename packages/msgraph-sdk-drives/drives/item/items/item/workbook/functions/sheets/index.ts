@@ -19,6 +19,7 @@ export function createSheetsPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param SheetsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoSheetsPostRequestBody(sheetsPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SheetsPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSheetsPostRequestBody(writer: SerializationWriter, sheetsPostRequestBody: Partial<SheetsPostRequestBody> | undefined | null = {}) : void {
-    if (sheetsPostRequestBody) {
-        writer.writeObjectValue("reference", sheetsPostRequestBody.reference);
-        writer.writeAdditionalData(sheetsPostRequestBody.additionalData);
-    }
+export function serializeSheetsPostRequestBody(writer: SerializationWriter, sheetsPostRequestBody: Partial<SheetsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sheetsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("reference", sheetsPostRequestBody.reference);
+    writer.writeAdditionalData(sheetsPostRequestBody.additionalData);
 }
 export interface SheetsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

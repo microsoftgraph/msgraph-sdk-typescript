@@ -17,6 +17,7 @@ export function createGetConfigurationPolicyNonComplianceSummaryReportPostReques
 }
 /**
  * The deserialization information for the current model
+ * @param GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetConfigurationPolicyNonComplianceSummaryReportP
     }
 }
 export interface GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder 
 }
 /**
  * Serializes information the current object
+ * @param GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody(writer: SerializationWriter, getConfigurationPolicyNonComplianceSummaryReportPostRequestBody: Partial<GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody> | undefined | null = {}) : void {
-    if (getConfigurationPolicyNonComplianceSummaryReportPostRequestBody) {
-        writer.writeStringValue("filter", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.select);
-        writer.writeStringValue("sessionId", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.top);
-        writer.writeAdditionalData(getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.additionalData);
-    }
+export function serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody(writer: SerializationWriter, getConfigurationPolicyNonComplianceSummaryReportPostRequestBody: Partial<GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getConfigurationPolicyNonComplianceSummaryReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.select);
+    writer.writeStringValue("sessionId", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.top);
+    writer.writeAdditionalData(getConfigurationPolicyNonComplianceSummaryReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

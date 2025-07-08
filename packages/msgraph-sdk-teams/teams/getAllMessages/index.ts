@@ -19,6 +19,7 @@ export function createGetAllMessagesGetResponseFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param GetAllMessagesGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -95,14 +96,15 @@ export interface GetAllMessagesRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param GetAllMessagesGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined | null = {}) : void {
-    if (getAllMessagesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesGetResponse)
-        writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
-    }
+export function serializeGetAllMessagesGetResponse(writer: SerializationWriter, getAllMessagesGetResponse: Partial<GetAllMessagesGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getAllMessagesGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getAllMessagesGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ChatMessage>("value", getAllMessagesGetResponse.value, serializeChatMessage);
 }
 /**
  * Uri template for the request builder.

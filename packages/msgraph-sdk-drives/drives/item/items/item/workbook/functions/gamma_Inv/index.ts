@@ -19,6 +19,7 @@ export function createGamma_InvPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param Gamma_InvPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoGamma_InvPostRequestBody(gamma_InvPostRequestBody
     }
 }
 export interface Gamma_InvPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The alpha property
      */
@@ -74,16 +71,17 @@ export interface Gamma_InvRequestBuilder extends BaseRequestBuilder<Gamma_InvReq
 }
 /**
  * Serializes information the current object
+ * @param Gamma_InvPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGamma_InvPostRequestBody(writer: SerializationWriter, gamma_InvPostRequestBody: Partial<Gamma_InvPostRequestBody> | undefined | null = {}) : void {
-    if (gamma_InvPostRequestBody) {
-        writer.writeObjectValue("alpha", gamma_InvPostRequestBody.alpha);
-        writer.writeObjectValue("beta", gamma_InvPostRequestBody.beta);
-        writer.writeObjectValue("probability", gamma_InvPostRequestBody.probability);
-        writer.writeAdditionalData(gamma_InvPostRequestBody.additionalData);
-    }
+export function serializeGamma_InvPostRequestBody(writer: SerializationWriter, gamma_InvPostRequestBody: Partial<Gamma_InvPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!gamma_InvPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("alpha", gamma_InvPostRequestBody.alpha);
+    writer.writeObjectValue("beta", gamma_InvPostRequestBody.beta);
+    writer.writeObjectValue("probability", gamma_InvPostRequestBody.probability);
+    writer.writeAdditionalData(gamma_InvPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createImSubPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param ImSubPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoImSubPostRequestBody(imSubPostRequestBody: Partia
     }
 }
 export interface ImSubPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface ImSubRequestBuilder extends BaseRequestBuilder<ImSubRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param ImSubPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImSubPostRequestBody(writer: SerializationWriter, imSubPostRequestBody: Partial<ImSubPostRequestBody> | undefined | null = {}) : void {
-    if (imSubPostRequestBody) {
-        writer.writeObjectValue("inumber1", imSubPostRequestBody.inumber1);
-        writer.writeObjectValue("inumber2", imSubPostRequestBody.inumber2);
-        writer.writeAdditionalData(imSubPostRequestBody.additionalData);
-    }
+export function serializeImSubPostRequestBody(writer: SerializationWriter, imSubPostRequestBody: Partial<ImSubPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imSubPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("inumber1", imSubPostRequestBody.inumber1);
+    writer.writeObjectValue("inumber2", imSubPostRequestBody.inumber2);
+    writer.writeAdditionalData(imSubPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createEdatePostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param EdatePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoEdatePostRequestBody(edatePostRequestBody: Partia
     }
 }
 export interface EdatePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface EdateRequestBuilder extends BaseRequestBuilder<EdateRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param EdatePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeEdatePostRequestBody(writer: SerializationWriter, edatePostRequestBody: Partial<EdatePostRequestBody> | undefined | null = {}) : void {
-    if (edatePostRequestBody) {
-        writer.writeObjectValue("months", edatePostRequestBody.months);
-        writer.writeObjectValue("startDate", edatePostRequestBody.startDate);
-        writer.writeAdditionalData(edatePostRequestBody.additionalData);
-    }
+export function serializeEdatePostRequestBody(writer: SerializationWriter, edatePostRequestBody: Partial<EdatePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!edatePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("months", edatePostRequestBody.months);
+    writer.writeObjectValue("startDate", edatePostRequestBody.startDate);
+    writer.writeAdditionalData(edatePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createOnenotePatchContentPostRequestBodyFromDiscriminatorValue(p
 }
 /**
  * The deserialization information for the current model
+ * @param OnenotePatchContentPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoOnenotePatchContentPostRequestBody(onenotePatchCo
     }
 }
 export interface OnenotePatchContentPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -63,14 +60,15 @@ export interface OnenotePatchContentRequestBuilder extends BaseRequestBuilder<On
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OnenotePatchContentPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeOnenotePatchContentPostRequestBody(writer: SerializationWriter, onenotePatchContentPostRequestBody: Partial<OnenotePatchContentPostRequestBody> | undefined | null = {}) : void {
-    if (onenotePatchContentPostRequestBody) {
-        writer.writeCollectionOfObjectValues<OnenotePatchContentCommand>("commands", onenotePatchContentPostRequestBody.commands, serializeOnenotePatchContentCommand);
-        writer.writeAdditionalData(onenotePatchContentPostRequestBody.additionalData);
-    }
+export function serializeOnenotePatchContentPostRequestBody(writer: SerializationWriter, onenotePatchContentPostRequestBody: Partial<OnenotePatchContentPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!onenotePatchContentPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<OnenotePatchContentCommand>("commands", onenotePatchContentPostRequestBody.commands, serializeOnenotePatchContentCommand);
+    writer.writeAdditionalData(onenotePatchContentPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

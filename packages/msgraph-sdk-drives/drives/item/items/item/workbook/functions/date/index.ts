@@ -19,10 +19,6 @@ export function createDatePostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 export interface DatePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,6 +57,7 @@ export interface DateRequestBuilder extends BaseRequestBuilder<DateRequestBuilde
 }
 /**
  * The deserialization information for the current model
+ * @param DatePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoDatePostRequestBody(datePostRequestBody: Partial<
 }
 /**
  * Serializes information the current object
+ * @param DatePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDatePostRequestBody(writer: SerializationWriter, datePostRequestBody: Partial<DatePostRequestBody> | undefined | null = {}) : void {
-    if (datePostRequestBody) {
-        writer.writeObjectValue("day", datePostRequestBody.day);
-        writer.writeObjectValue("month", datePostRequestBody.month);
-        writer.writeObjectValue("year", datePostRequestBody.year);
-        writer.writeAdditionalData(datePostRequestBody.additionalData);
-    }
+export function serializeDatePostRequestBody(writer: SerializationWriter, datePostRequestBody: Partial<DatePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!datePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("day", datePostRequestBody.day);
+    writer.writeObjectValue("month", datePostRequestBody.month);
+    writer.writeObjectValue("year", datePostRequestBody.year);
+    writer.writeAdditionalData(datePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -80,6 +80,7 @@ export interface DeltaWithTokenRequestBuilderGetQueryParameters {
 }
 /**
  * The deserialization information for the current model
+ * @param DeltaWithTokenGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -91,14 +92,15 @@ export function deserializeIntoDeltaWithTokenGetResponse(deltaWithTokenGetRespon
 }
 /**
  * Serializes information the current object
+ * @param DeltaWithTokenGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeltaWithTokenGetResponse(writer: SerializationWriter, deltaWithTokenGetResponse: Partial<DeltaWithTokenGetResponse> | undefined | null = {}) : void {
-    if (deltaWithTokenGetResponse) {
-        serializeBaseDeltaFunctionResponse(writer, deltaWithTokenGetResponse)
-        writer.writeCollectionOfObjectValues<DriveItem>("value", deltaWithTokenGetResponse.value, serializeDriveItem);
-    }
+export function serializeDeltaWithTokenGetResponse(writer: SerializationWriter, deltaWithTokenGetResponse: Partial<DeltaWithTokenGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!deltaWithTokenGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseDeltaFunctionResponse(writer, deltaWithTokenGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<DriveItem>("value", deltaWithTokenGetResponse.value, serializeDriveItem);
 }
 /**
  * Uri template for the request builder.

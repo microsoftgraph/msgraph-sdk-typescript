@@ -27,6 +27,7 @@ export function createAsHierarchyGetResponseFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param AsHierarchyGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -93,14 +94,15 @@ export interface MicrosoftGraphSecurityAsHierarchyRequestBuilderGetQueryParamete
 }
 /**
  * Serializes information the current object
+ * @param AsHierarchyGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAsHierarchyGetResponse(writer: SerializationWriter, asHierarchyGetResponse: Partial<AsHierarchyGetResponse> | undefined | null = {}) : void {
-    if (asHierarchyGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, asHierarchyGetResponse)
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", asHierarchyGetResponse.value, serializeEdiscoveryReviewTag);
-    }
+export function serializeAsHierarchyGetResponse(writer: SerializationWriter, asHierarchyGetResponse: Partial<AsHierarchyGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!asHierarchyGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, asHierarchyGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("value", asHierarchyGetResponse.value, serializeEdiscoveryReviewTag);
 }
 /**
  * Uri template for the request builder.

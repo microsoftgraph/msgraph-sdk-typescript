@@ -28,6 +28,7 @@ export function createGetSchedulePostResponseFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param GetSchedulePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -42,6 +43,7 @@ export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequest
 }
 /**
  * The deserialization information for the current model
+ * @param GetSchedulePostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -52,10 +54,6 @@ export function deserializeIntoGetSchedulePostResponse(getSchedulePostResponse: 
     }
 }
 export interface GetSchedulePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The AvailabilityViewInterval property
      */
@@ -106,28 +104,30 @@ export interface GetScheduleRequestBuilder extends BaseRequestBuilder<GetSchedul
 }
 /**
  * Serializes information the current object
+ * @param GetSchedulePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetSchedulePostRequestBody(writer: SerializationWriter, getSchedulePostRequestBody: Partial<GetSchedulePostRequestBody> | undefined | null = {}) : void {
-    if (getSchedulePostRequestBody) {
-        writer.writeNumberValue("AvailabilityViewInterval", getSchedulePostRequestBody.availabilityViewInterval);
-        writer.writeObjectValue<DateTimeTimeZone>("EndTime", getSchedulePostRequestBody.endTime, serializeDateTimeTimeZone);
-        writer.writeCollectionOfPrimitiveValues<string>("Schedules", getSchedulePostRequestBody.schedules);
-        writer.writeObjectValue<DateTimeTimeZone>("StartTime", getSchedulePostRequestBody.startTime, serializeDateTimeTimeZone);
-        writer.writeAdditionalData(getSchedulePostRequestBody.additionalData);
-    }
+export function serializeGetSchedulePostRequestBody(writer: SerializationWriter, getSchedulePostRequestBody: Partial<GetSchedulePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getSchedulePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("AvailabilityViewInterval", getSchedulePostRequestBody.availabilityViewInterval);
+    writer.writeObjectValue<DateTimeTimeZone>("EndTime", getSchedulePostRequestBody.endTime, serializeDateTimeTimeZone);
+    writer.writeCollectionOfPrimitiveValues<string>("Schedules", getSchedulePostRequestBody.schedules);
+    writer.writeObjectValue<DateTimeTimeZone>("StartTime", getSchedulePostRequestBody.startTime, serializeDateTimeTimeZone);
+    writer.writeAdditionalData(getSchedulePostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param GetSchedulePostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetSchedulePostResponse(writer: SerializationWriter, getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined | null = {}) : void {
-    if (getSchedulePostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getSchedulePostResponse)
-        writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulePostResponse.value, serializeScheduleInformation);
-    }
+export function serializeGetSchedulePostResponse(writer: SerializationWriter, getSchedulePostResponse: Partial<GetSchedulePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getSchedulePostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getSchedulePostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getSchedulePostResponse.value, serializeScheduleInformation);
 }
 /**
  * Uri template for the request builder.

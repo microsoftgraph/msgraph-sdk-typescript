@@ -17,6 +17,7 @@ export function createDownloadApplePushNotificationCertificateSigningRequestGetR
 }
 /**
  * The deserialization information for the current model
+ * @param DownloadApplePushNotificationCertificateSigningRequestGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoDownloadApplePushNotificationCertificateSigningRe
     }
 }
 export interface DownloadApplePushNotificationCertificateSigningRequestGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -61,14 +58,15 @@ export interface DownloadApplePushNotificationCertificateSigningRequestRequestBu
 }
 /**
  * Serializes information the current object
+ * @param DownloadApplePushNotificationCertificateSigningRequestGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDownloadApplePushNotificationCertificateSigningRequestGetResponse(writer: SerializationWriter, downloadApplePushNotificationCertificateSigningRequestGetResponse: Partial<DownloadApplePushNotificationCertificateSigningRequestGetResponse> | undefined | null = {}) : void {
-    if (downloadApplePushNotificationCertificateSigningRequestGetResponse) {
-        writer.writeStringValue("value", downloadApplePushNotificationCertificateSigningRequestGetResponse.value);
-        writer.writeAdditionalData(downloadApplePushNotificationCertificateSigningRequestGetResponse.additionalData);
-    }
+export function serializeDownloadApplePushNotificationCertificateSigningRequestGetResponse(writer: SerializationWriter, downloadApplePushNotificationCertificateSigningRequestGetResponse: Partial<DownloadApplePushNotificationCertificateSigningRequestGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!downloadApplePushNotificationCertificateSigningRequestGetResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("value", downloadApplePushNotificationCertificateSigningRequestGetResponse.value);
+    writer.writeAdditionalData(downloadApplePushNotificationCertificateSigningRequestGetResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

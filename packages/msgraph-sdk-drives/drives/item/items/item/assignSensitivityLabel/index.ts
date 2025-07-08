@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface AssignSensitivityLabelPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The assignmentMethod property
      */
     assignmentMethod?: SensitivityLabelAssignmentMethod | null;
@@ -60,6 +56,7 @@ export function createAssignSensitivityLabelPostRequestBodyFromDiscriminatorValu
 }
 /**
  * The deserialization information for the current model
+ * @param AssignSensitivityLabelPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -73,16 +70,17 @@ export function deserializeIntoAssignSensitivityLabelPostRequestBody(assignSensi
 }
 /**
  * Serializes information the current object
+ * @param AssignSensitivityLabelPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAssignSensitivityLabelPostRequestBody(writer: SerializationWriter, assignSensitivityLabelPostRequestBody: Partial<AssignSensitivityLabelPostRequestBody> | undefined | null = {}) : void {
-    if (assignSensitivityLabelPostRequestBody) {
-        writer.writeEnumValue<SensitivityLabelAssignmentMethod>("assignmentMethod", assignSensitivityLabelPostRequestBody.assignmentMethod);
-        writer.writeStringValue("justificationText", assignSensitivityLabelPostRequestBody.justificationText);
-        writer.writeStringValue("sensitivityLabelId", assignSensitivityLabelPostRequestBody.sensitivityLabelId);
-        writer.writeAdditionalData(assignSensitivityLabelPostRequestBody.additionalData);
-    }
+export function serializeAssignSensitivityLabelPostRequestBody(writer: SerializationWriter, assignSensitivityLabelPostRequestBody: Partial<AssignSensitivityLabelPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!assignSensitivityLabelPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<SensitivityLabelAssignmentMethod>("assignmentMethod", assignSensitivityLabelPostRequestBody.assignmentMethod);
+    writer.writeStringValue("justificationText", assignSensitivityLabelPostRequestBody.justificationText);
+    writer.writeStringValue("sensitivityLabelId", assignSensitivityLabelPostRequestBody.sensitivityLabelId);
+    writer.writeAdditionalData(assignSensitivityLabelPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

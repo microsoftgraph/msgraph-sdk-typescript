@@ -19,6 +19,7 @@ export function createT_InvPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param T_InvPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoT_InvPostRequestBody(t_InvPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param T_InvPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeT_InvPostRequestBody(writer: SerializationWriter, t_InvPostRequestBody: Partial<T_InvPostRequestBody> | undefined | null = {}) : void {
-    if (t_InvPostRequestBody) {
-        writer.writeObjectValue("degFreedom", t_InvPostRequestBody.degFreedom);
-        writer.writeObjectValue("probability", t_InvPostRequestBody.probability);
-        writer.writeAdditionalData(t_InvPostRequestBody.additionalData);
-    }
+export function serializeT_InvPostRequestBody(writer: SerializationWriter, t_InvPostRequestBody: Partial<T_InvPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!t_InvPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("degFreedom", t_InvPostRequestBody.degFreedom);
+    writer.writeObjectValue("probability", t_InvPostRequestBody.probability);
+    writer.writeAdditionalData(t_InvPostRequestBody.additionalData);
 }
 export interface T_InvPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

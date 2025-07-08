@@ -17,10 +17,6 @@ export function createDeleteUserFromSharedAppleDevicePostRequestBodyFromDiscrimi
 }
 export interface DeleteUserFromSharedAppleDevicePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -51,6 +47,7 @@ export interface DeleteUserFromSharedAppleDeviceRequestBuilder extends BaseReque
 }
 /**
  * The deserialization information for the current model
+ * @param DeleteUserFromSharedAppleDevicePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -62,14 +59,15 @@ export function deserializeIntoDeleteUserFromSharedAppleDevicePostRequestBody(de
 }
 /**
  * Serializes information the current object
+ * @param DeleteUserFromSharedAppleDevicePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeleteUserFromSharedAppleDevicePostRequestBody(writer: SerializationWriter, deleteUserFromSharedAppleDevicePostRequestBody: Partial<DeleteUserFromSharedAppleDevicePostRequestBody> | undefined | null = {}) : void {
-    if (deleteUserFromSharedAppleDevicePostRequestBody) {
-        writer.writeStringValue("userPrincipalName", deleteUserFromSharedAppleDevicePostRequestBody.userPrincipalName);
-        writer.writeAdditionalData(deleteUserFromSharedAppleDevicePostRequestBody.additionalData);
-    }
+export function serializeDeleteUserFromSharedAppleDevicePostRequestBody(writer: SerializationWriter, deleteUserFromSharedAppleDevicePostRequestBody: Partial<DeleteUserFromSharedAppleDevicePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!deleteUserFromSharedAppleDevicePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("userPrincipalName", deleteUserFromSharedAppleDevicePostRequestBody.userPrincipalName);
+    writer.writeAdditionalData(deleteUserFromSharedAppleDevicePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,10 +19,6 @@ export function createDdbPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 export interface DdbPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -69,6 +65,7 @@ export interface DdbRequestBuilder extends BaseRequestBuilder<DdbRequestBuilder>
 }
 /**
  * The deserialization information for the current model
+ * @param DdbPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -84,18 +81,19 @@ export function deserializeIntoDdbPostRequestBody(ddbPostRequestBody: Partial<Dd
 }
 /**
  * Serializes information the current object
+ * @param DdbPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDdbPostRequestBody(writer: SerializationWriter, ddbPostRequestBody: Partial<DdbPostRequestBody> | undefined | null = {}) : void {
-    if (ddbPostRequestBody) {
-        writer.writeObjectValue("cost", ddbPostRequestBody.cost);
-        writer.writeObjectValue("factor", ddbPostRequestBody.factor);
-        writer.writeObjectValue("life", ddbPostRequestBody.life);
-        writer.writeObjectValue("period", ddbPostRequestBody.period);
-        writer.writeObjectValue("salvage", ddbPostRequestBody.salvage);
-        writer.writeAdditionalData(ddbPostRequestBody.additionalData);
-    }
+export function serializeDdbPostRequestBody(writer: SerializationWriter, ddbPostRequestBody: Partial<DdbPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!ddbPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cost", ddbPostRequestBody.cost);
+    writer.writeObjectValue("factor", ddbPostRequestBody.factor);
+    writer.writeObjectValue("life", ddbPostRequestBody.life);
+    writer.writeObjectValue("period", ddbPostRequestBody.period);
+    writer.writeObjectValue("salvage", ddbPostRequestBody.salvage);
+    writer.writeAdditionalData(ddbPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

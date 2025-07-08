@@ -19,6 +19,7 @@ export function createTransferPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param TransferPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoTransferPostRequestBody(transferPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TransferPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTransferPostRequestBody(writer: SerializationWriter, transferPostRequestBody: Partial<TransferPostRequestBody> | undefined | null = {}) : void {
-    if (transferPostRequestBody) {
-        writer.writeObjectValue<ParticipantInfo>("transferee", transferPostRequestBody.transferee, serializeParticipantInfo);
-        writer.writeObjectValue<InvitationParticipantInfo>("transferTarget", transferPostRequestBody.transferTarget, serializeInvitationParticipantInfo);
-        writer.writeAdditionalData(transferPostRequestBody.additionalData);
-    }
+export function serializeTransferPostRequestBody(writer: SerializationWriter, transferPostRequestBody: Partial<TransferPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!transferPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<ParticipantInfo>("transferee", transferPostRequestBody.transferee, serializeParticipantInfo);
+    writer.writeObjectValue<InvitationParticipantInfo>("transferTarget", transferPostRequestBody.transferTarget, serializeInvitationParticipantInfo);
+    writer.writeAdditionalData(transferPostRequestBody.additionalData);
 }
 export interface TransferPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

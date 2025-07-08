@@ -19,6 +19,7 @@ export function createUpperPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param UpperPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoUpperPostRequestBody(upperPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UpperPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUpperPostRequestBody(writer: SerializationWriter, upperPostRequestBody: Partial<UpperPostRequestBody> | undefined | null = {}) : void {
-    if (upperPostRequestBody) {
-        writer.writeObjectValue("text", upperPostRequestBody.text);
-        writer.writeAdditionalData(upperPostRequestBody.additionalData);
-    }
+export function serializeUpperPostRequestBody(writer: SerializationWriter, upperPostRequestBody: Partial<UpperPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!upperPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("text", upperPostRequestBody.text);
+    writer.writeAdditionalData(upperPostRequestBody.additionalData);
 }
 export interface UpperPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

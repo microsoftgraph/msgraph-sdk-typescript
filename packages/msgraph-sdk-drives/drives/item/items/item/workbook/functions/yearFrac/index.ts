@@ -19,6 +19,7 @@ export function createYearFracPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param YearFracPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,22 +33,19 @@ export function deserializeIntoYearFracPostRequestBody(yearFracPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
+ * @param YearFracPostRequestBody The instance to serialize from.
  */
 // @ts-ignore
-export function serializeYearFracPostRequestBody(writer: SerializationWriter, yearFracPostRequestBody: Partial<YearFracPostRequestBody> | undefined | null = {}) : void {
-    if (yearFracPostRequestBody) {
-        writer.writeObjectValue("basis", yearFracPostRequestBody.basis);
-        writer.writeObjectValue("endDate", yearFracPostRequestBody.endDate);
-        writer.writeObjectValue("startDate", yearFracPostRequestBody.startDate);
-        writer.writeAdditionalData(yearFracPostRequestBody.additionalData);
-    }
+export function serializeYearFracPostRequestBody(writer: SerializationWriter, yearFracPostRequestBody: Partial<YearFracPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!yearFracPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", yearFracPostRequestBody.basis);
+    writer.writeObjectValue("endDate", yearFracPostRequestBody.endDate);
+    writer.writeObjectValue("startDate", yearFracPostRequestBody.startDate);
+    writer.writeAdditionalData(yearFracPostRequestBody.additionalData);
 }
 export interface YearFracPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

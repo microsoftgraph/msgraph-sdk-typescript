@@ -16,10 +16,6 @@ export interface AddActivitiesPostRequestBody extends AdditionalDataHolder, Back
      */
     activities?: ExternalActivity[] | null;
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -50,6 +46,7 @@ export function createAddActivitiesPostResponseFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param AddActivitiesPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -61,6 +58,7 @@ export function deserializeIntoAddActivitiesPostRequestBody(addActivitiesPostReq
 }
 /**
  * The deserialization information for the current model
+ * @param AddActivitiesPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,25 +90,27 @@ export interface MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder ext
 }
 /**
  * Serializes information the current object
+ * @param AddActivitiesPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddActivitiesPostRequestBody(writer: SerializationWriter, addActivitiesPostRequestBody: Partial<AddActivitiesPostRequestBody> | undefined | null = {}) : void {
-    if (addActivitiesPostRequestBody) {
-        writer.writeCollectionOfObjectValues<ExternalActivity>("activities", addActivitiesPostRequestBody.activities, serializeExternalActivity);
-        writer.writeAdditionalData(addActivitiesPostRequestBody.additionalData);
-    }
+export function serializeAddActivitiesPostRequestBody(writer: SerializationWriter, addActivitiesPostRequestBody: Partial<AddActivitiesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!addActivitiesPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<ExternalActivity>("activities", addActivitiesPostRequestBody.activities, serializeExternalActivity);
+    writer.writeAdditionalData(addActivitiesPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param AddActivitiesPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddActivitiesPostResponse(writer: SerializationWriter, addActivitiesPostResponse: Partial<AddActivitiesPostResponse> | undefined | null = {}) : void {
-    if (addActivitiesPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, addActivitiesPostResponse)
-        writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiesPostResponse.value, serializeExternalActivityResult);
-    }
+export function serializeAddActivitiesPostResponse(writer: SerializationWriter, addActivitiesPostResponse: Partial<AddActivitiesPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!addActivitiesPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, addActivitiesPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiesPostResponse.value, serializeExternalActivityResult);
 }
 /**
  * Uri template for the request builder.

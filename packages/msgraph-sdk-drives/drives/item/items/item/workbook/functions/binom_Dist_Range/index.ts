@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface Binom_Dist_RangePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -65,6 +61,7 @@ export function createBinom_Dist_RangePostRequestBodyFromDiscriminatorValue(pars
 }
 /**
  * The deserialization information for the current model
+ * @param Binom_Dist_RangePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -79,17 +76,18 @@ export function deserializeIntoBinom_Dist_RangePostRequestBody(binom_Dist_RangeP
 }
 /**
  * Serializes information the current object
+ * @param Binom_Dist_RangePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBinom_Dist_RangePostRequestBody(writer: SerializationWriter, binom_Dist_RangePostRequestBody: Partial<Binom_Dist_RangePostRequestBody> | undefined | null = {}) : void {
-    if (binom_Dist_RangePostRequestBody) {
-        writer.writeObjectValue("numberS", binom_Dist_RangePostRequestBody.numberS);
-        writer.writeObjectValue("numberS2", binom_Dist_RangePostRequestBody.numberS2);
-        writer.writeObjectValue("probabilityS", binom_Dist_RangePostRequestBody.probabilityS);
-        writer.writeObjectValue("trials", binom_Dist_RangePostRequestBody.trials);
-        writer.writeAdditionalData(binom_Dist_RangePostRequestBody.additionalData);
-    }
+export function serializeBinom_Dist_RangePostRequestBody(writer: SerializationWriter, binom_Dist_RangePostRequestBody: Partial<Binom_Dist_RangePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!binom_Dist_RangePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("numberS", binom_Dist_RangePostRequestBody.numberS);
+    writer.writeObjectValue("numberS2", binom_Dist_RangePostRequestBody.numberS2);
+    writer.writeObjectValue("probabilityS", binom_Dist_RangePostRequestBody.probabilityS);
+    writer.writeObjectValue("trials", binom_Dist_RangePostRequestBody.trials);
+    writer.writeAdditionalData(binom_Dist_RangePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

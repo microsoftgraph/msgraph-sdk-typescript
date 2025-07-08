@@ -19,6 +19,7 @@ export function createRightPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param RightPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoRightPostRequestBody(rightPostRequestBody: Partia
     }
 }
 export interface RightPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface RightRequestBuilder extends BaseRequestBuilder<RightRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RightPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRightPostRequestBody(writer: SerializationWriter, rightPostRequestBody: Partial<RightPostRequestBody> | undefined | null = {}) : void {
-    if (rightPostRequestBody) {
-        writer.writeObjectValue("numChars", rightPostRequestBody.numChars);
-        writer.writeObjectValue("text", rightPostRequestBody.text);
-        writer.writeAdditionalData(rightPostRequestBody.additionalData);
-    }
+export function serializeRightPostRequestBody(writer: SerializationWriter, rightPostRequestBody: Partial<RightPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!rightPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("numChars", rightPostRequestBody.numChars);
+    writer.writeObjectValue("text", rightPostRequestBody.text);
+    writer.writeAdditionalData(rightPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

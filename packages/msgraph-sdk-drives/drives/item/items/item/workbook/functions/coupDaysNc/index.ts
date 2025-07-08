@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface CoupDaysNcPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -65,6 +61,7 @@ export function createCoupDaysNcPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param CoupDaysNcPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -79,17 +76,18 @@ export function deserializeIntoCoupDaysNcPostRequestBody(coupDaysNcPostRequestBo
 }
 /**
  * Serializes information the current object
+ * @param CoupDaysNcPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCoupDaysNcPostRequestBody(writer: SerializationWriter, coupDaysNcPostRequestBody: Partial<CoupDaysNcPostRequestBody> | undefined | null = {}) : void {
-    if (coupDaysNcPostRequestBody) {
-        writer.writeObjectValue("basis", coupDaysNcPostRequestBody.basis);
-        writer.writeObjectValue("frequency", coupDaysNcPostRequestBody.frequency);
-        writer.writeObjectValue("maturity", coupDaysNcPostRequestBody.maturity);
-        writer.writeObjectValue("settlement", coupDaysNcPostRequestBody.settlement);
-        writer.writeAdditionalData(coupDaysNcPostRequestBody.additionalData);
-    }
+export function serializeCoupDaysNcPostRequestBody(writer: SerializationWriter, coupDaysNcPostRequestBody: Partial<CoupDaysNcPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!coupDaysNcPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", coupDaysNcPostRequestBody.basis);
+    writer.writeObjectValue("frequency", coupDaysNcPostRequestBody.frequency);
+    writer.writeObjectValue("maturity", coupDaysNcPostRequestBody.maturity);
+    writer.writeObjectValue("settlement", coupDaysNcPostRequestBody.settlement);
+    writer.writeAdditionalData(coupDaysNcPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

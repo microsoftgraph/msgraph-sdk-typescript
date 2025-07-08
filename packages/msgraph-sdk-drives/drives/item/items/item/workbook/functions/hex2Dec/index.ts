@@ -19,6 +19,7 @@ export function createHex2DecPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param Hex2DecPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoHex2DecPostRequestBody(hex2DecPostRequestBody: Pa
     }
 }
 export interface Hex2DecPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface Hex2DecRequestBuilder extends BaseRequestBuilder<Hex2DecRequest
 }
 /**
  * Serializes information the current object
+ * @param Hex2DecPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeHex2DecPostRequestBody(writer: SerializationWriter, hex2DecPostRequestBody: Partial<Hex2DecPostRequestBody> | undefined | null = {}) : void {
-    if (hex2DecPostRequestBody) {
-        writer.writeObjectValue("number", hex2DecPostRequestBody.number);
-        writer.writeAdditionalData(hex2DecPostRequestBody.additionalData);
-    }
+export function serializeHex2DecPostRequestBody(writer: SerializationWriter, hex2DecPostRequestBody: Partial<Hex2DecPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!hex2DecPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", hex2DecPostRequestBody.number);
+    writer.writeAdditionalData(hex2DecPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

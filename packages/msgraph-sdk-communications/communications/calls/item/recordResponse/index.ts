@@ -19,6 +19,7 @@ export function createRecordResponsePostRequestBodyFromDiscriminatorValue(parseN
 }
 /**
  * The deserialization information for the current model
+ * @param RecordResponsePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -36,10 +37,6 @@ export function deserializeIntoRecordResponsePostRequestBody(recordResponsePostR
     }
 }
 export interface RecordResponsePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -100,21 +97,22 @@ export interface RecordResponseRequestBuilder extends BaseRequestBuilder<RecordR
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RecordResponsePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRecordResponsePostRequestBody(writer: SerializationWriter, recordResponsePostRequestBody: Partial<RecordResponsePostRequestBody> | undefined | null = {}) : void {
-    if (recordResponsePostRequestBody) {
-        writer.writeBooleanValue("bargeInAllowed", recordResponsePostRequestBody.bargeInAllowed);
-        writer.writeStringValue("clientContext", recordResponsePostRequestBody.clientContext);
-        writer.writeNumberValue("initialSilenceTimeoutInSeconds", recordResponsePostRequestBody.initialSilenceTimeoutInSeconds);
-        writer.writeNumberValue("maxRecordDurationInSeconds", recordResponsePostRequestBody.maxRecordDurationInSeconds);
-        writer.writeNumberValue("maxSilenceTimeoutInSeconds", recordResponsePostRequestBody.maxSilenceTimeoutInSeconds);
-        writer.writeBooleanValue("playBeep", recordResponsePostRequestBody.playBeep);
-        writer.writeCollectionOfObjectValues<Prompt>("prompts", recordResponsePostRequestBody.prompts, serializePrompt);
-        writer.writeCollectionOfPrimitiveValues<string>("stopTones", recordResponsePostRequestBody.stopTones);
-        writer.writeAdditionalData(recordResponsePostRequestBody.additionalData);
-    }
+export function serializeRecordResponsePostRequestBody(writer: SerializationWriter, recordResponsePostRequestBody: Partial<RecordResponsePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!recordResponsePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("bargeInAllowed", recordResponsePostRequestBody.bargeInAllowed);
+    writer.writeStringValue("clientContext", recordResponsePostRequestBody.clientContext);
+    writer.writeNumberValue("initialSilenceTimeoutInSeconds", recordResponsePostRequestBody.initialSilenceTimeoutInSeconds);
+    writer.writeNumberValue("maxRecordDurationInSeconds", recordResponsePostRequestBody.maxRecordDurationInSeconds);
+    writer.writeNumberValue("maxSilenceTimeoutInSeconds", recordResponsePostRequestBody.maxSilenceTimeoutInSeconds);
+    writer.writeBooleanValue("playBeep", recordResponsePostRequestBody.playBeep);
+    writer.writeCollectionOfObjectValues<Prompt>("prompts", recordResponsePostRequestBody.prompts, serializePrompt);
+    writer.writeCollectionOfPrimitiveValues<string>("stopTones", recordResponsePostRequestBody.stopTones);
+    writer.writeAdditionalData(recordResponsePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

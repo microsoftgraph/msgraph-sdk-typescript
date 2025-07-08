@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface BasePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,6 +57,7 @@ export function createBasePostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param BasePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoBasePostRequestBody(basePostRequestBody: Partial<
 }
 /**
  * Serializes information the current object
+ * @param BasePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBasePostRequestBody(writer: SerializationWriter, basePostRequestBody: Partial<BasePostRequestBody> | undefined | null = {}) : void {
-    if (basePostRequestBody) {
-        writer.writeObjectValue("minLength", basePostRequestBody.minLength);
-        writer.writeObjectValue("number", basePostRequestBody.number);
-        writer.writeObjectValue("radix", basePostRequestBody.radix);
-        writer.writeAdditionalData(basePostRequestBody.additionalData);
-    }
+export function serializeBasePostRequestBody(writer: SerializationWriter, basePostRequestBody: Partial<BasePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!basePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("minLength", basePostRequestBody.minLength);
+    writer.writeObjectValue("number", basePostRequestBody.number);
+    writer.writeObjectValue("radix", basePostRequestBody.radix);
+    writer.writeAdditionalData(basePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

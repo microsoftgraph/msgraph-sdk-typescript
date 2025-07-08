@@ -19,6 +19,7 @@ export function createNorm_DistPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param Norm_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,10 +33,6 @@ export function deserializeIntoNorm_DistPostRequestBody(norm_DistPostRequestBody
     }
 }
 export interface Norm_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -79,17 +76,18 @@ export interface Norm_DistRequestBuilder extends BaseRequestBuilder<Norm_DistReq
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Norm_DistPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeNorm_DistPostRequestBody(writer: SerializationWriter, norm_DistPostRequestBody: Partial<Norm_DistPostRequestBody> | undefined | null = {}) : void {
-    if (norm_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", norm_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("mean", norm_DistPostRequestBody.mean);
-        writer.writeObjectValue("standardDev", norm_DistPostRequestBody.standardDev);
-        writer.writeObjectValue("x", norm_DistPostRequestBody.x);
-        writer.writeAdditionalData(norm_DistPostRequestBody.additionalData);
-    }
+export function serializeNorm_DistPostRequestBody(writer: SerializationWriter, norm_DistPostRequestBody: Partial<Norm_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!norm_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", norm_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("mean", norm_DistPostRequestBody.mean);
+    writer.writeObjectValue("standardDev", norm_DistPostRequestBody.standardDev);
+    writer.writeObjectValue("x", norm_DistPostRequestBody.x);
+    writer.writeAdditionalData(norm_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

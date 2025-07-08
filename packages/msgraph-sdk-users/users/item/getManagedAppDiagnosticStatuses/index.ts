@@ -19,6 +19,7 @@ export function createGetManagedAppDiagnosticStatusesGetResponseFromDiscriminato
 }
 /**
  * The deserialization information for the current model
+ * @param GetManagedAppDiagnosticStatusesGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface GetManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters
 }
 /**
  * Serializes information the current object
+ * @param GetManagedAppDiagnosticStatusesGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetManagedAppDiagnosticStatusesGetResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesGetResponse: Partial<GetManagedAppDiagnosticStatusesGetResponse> | undefined | null = {}) : void {
-    if (getManagedAppDiagnosticStatusesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesGetResponse)
-        writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesGetResponse.value, serializeManagedAppDiagnosticStatus);
-    }
+export function serializeGetManagedAppDiagnosticStatusesGetResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesGetResponse: Partial<GetManagedAppDiagnosticStatusesGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getManagedAppDiagnosticStatusesGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesGetResponse.value, serializeManagedAppDiagnosticStatus);
 }
 /**
  * Uri template for the request builder.

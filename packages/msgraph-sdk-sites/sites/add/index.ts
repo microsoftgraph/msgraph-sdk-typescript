@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface AddPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -69,6 +65,7 @@ export function createAddPostResponseFromDiscriminatorValue(parseNode: ParseNode
 }
 /**
  * The deserialization information for the current model
+ * @param AddPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,6 +77,7 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<Ad
 }
 /**
  * The deserialization information for the current model
+ * @param AddPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -91,25 +89,27 @@ export function deserializeIntoAddPostResponse(addPostResponse: Partial<AddPostR
 }
 /**
  * Serializes information the current object
+ * @param AddPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined | null = {}) : void {
-    if (addPostRequestBody) {
-        writer.writeCollectionOfObjectValues<Site>("value", addPostRequestBody.value, serializeSite);
-        writer.writeAdditionalData(addPostRequestBody.additionalData);
-    }
+export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!addPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<Site>("value", addPostRequestBody.value, serializeSite);
+    writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param AddPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddPostResponse(writer: SerializationWriter, addPostResponse: Partial<AddPostResponse> | undefined | null = {}) : void {
-    if (addPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, addPostResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", addPostResponse.value, serializeSite);
-    }
+export function serializeAddPostResponse(writer: SerializationWriter, addPostResponse: Partial<AddPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!addPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, addPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Site>("value", addPostResponse.value, serializeSite);
 }
 /**
  * Uri template for the request builder.

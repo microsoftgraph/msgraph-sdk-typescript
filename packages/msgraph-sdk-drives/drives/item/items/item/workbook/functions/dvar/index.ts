@@ -19,6 +19,7 @@ export function createDvarPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param DvarPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoDvarPostRequestBody(dvarPostRequestBody: Partial<
     }
 }
 export interface DvarPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface DvarRequestBuilder extends BaseRequestBuilder<DvarRequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param DvarPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDvarPostRequestBody(writer: SerializationWriter, dvarPostRequestBody: Partial<DvarPostRequestBody> | undefined | null = {}) : void {
-    if (dvarPostRequestBody) {
-        writer.writeObjectValue("criteria", dvarPostRequestBody.criteria);
-        writer.writeObjectValue("database", dvarPostRequestBody.database);
-        writer.writeObjectValue("field", dvarPostRequestBody.field);
-        writer.writeAdditionalData(dvarPostRequestBody.additionalData);
-    }
+export function serializeDvarPostRequestBody(writer: SerializationWriter, dvarPostRequestBody: Partial<DvarPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dvarPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("criteria", dvarPostRequestBody.criteria);
+    writer.writeObjectValue("database", dvarPostRequestBody.database);
+    writer.writeObjectValue("field", dvarPostRequestBody.field);
+    writer.writeAdditionalData(dvarPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

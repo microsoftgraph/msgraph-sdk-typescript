@@ -17,6 +17,7 @@ export function createGetCompliancePolicyNonComplianceReportPostRequestBodyFromD
 }
 /**
  * The deserialization information for the current model
+ * @param GetCompliancePolicyNonComplianceReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetCompliancePolicyNonComplianceReportPostRequest
     }
 }
 export interface GetCompliancePolicyNonComplianceReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetCompliancePolicyNonComplianceReportRequestBuilder extends Ba
 }
 /**
  * Serializes information the current object
+ * @param GetCompliancePolicyNonComplianceReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetCompliancePolicyNonComplianceReportPostRequestBody(writer: SerializationWriter, getCompliancePolicyNonComplianceReportPostRequestBody: Partial<GetCompliancePolicyNonComplianceReportPostRequestBody> | undefined | null = {}) : void {
-    if (getCompliancePolicyNonComplianceReportPostRequestBody) {
-        writer.writeStringValue("filter", getCompliancePolicyNonComplianceReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getCompliancePolicyNonComplianceReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getCompliancePolicyNonComplianceReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getCompliancePolicyNonComplianceReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getCompliancePolicyNonComplianceReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getCompliancePolicyNonComplianceReportPostRequestBody.select);
-        writer.writeStringValue("sessionId", getCompliancePolicyNonComplianceReportPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getCompliancePolicyNonComplianceReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getCompliancePolicyNonComplianceReportPostRequestBody.top);
-        writer.writeAdditionalData(getCompliancePolicyNonComplianceReportPostRequestBody.additionalData);
-    }
+export function serializeGetCompliancePolicyNonComplianceReportPostRequestBody(writer: SerializationWriter, getCompliancePolicyNonComplianceReportPostRequestBody: Partial<GetCompliancePolicyNonComplianceReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getCompliancePolicyNonComplianceReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getCompliancePolicyNonComplianceReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getCompliancePolicyNonComplianceReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getCompliancePolicyNonComplianceReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getCompliancePolicyNonComplianceReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getCompliancePolicyNonComplianceReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getCompliancePolicyNonComplianceReportPostRequestBody.select);
+    writer.writeStringValue("sessionId", getCompliancePolicyNonComplianceReportPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getCompliancePolicyNonComplianceReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getCompliancePolicyNonComplianceReportPostRequestBody.top);
+    writer.writeAdditionalData(getCompliancePolicyNonComplianceReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

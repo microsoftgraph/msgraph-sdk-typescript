@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface CopyToDefaultContentLocationPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createCopyToDefaultContentLocationPostRequestBodyFromDiscriminat
 }
 /**
  * The deserialization information for the current model
+ * @param CopyToDefaultContentLocationPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoCopyToDefaultContentLocationPostRequestBody(copyT
 }
 /**
  * Serializes information the current object
+ * @param CopyToDefaultContentLocationPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCopyToDefaultContentLocationPostRequestBody(writer: SerializationWriter, copyToDefaultContentLocationPostRequestBody: Partial<CopyToDefaultContentLocationPostRequestBody> | undefined | null = {}) : void {
-    if (copyToDefaultContentLocationPostRequestBody) {
-        writer.writeStringValue("destinationFileName", copyToDefaultContentLocationPostRequestBody.destinationFileName);
-        writer.writeObjectValue<ItemReference>("sourceFile", copyToDefaultContentLocationPostRequestBody.sourceFile, serializeItemReference);
-        writer.writeAdditionalData(copyToDefaultContentLocationPostRequestBody.additionalData);
-    }
+export function serializeCopyToDefaultContentLocationPostRequestBody(writer: SerializationWriter, copyToDefaultContentLocationPostRequestBody: Partial<CopyToDefaultContentLocationPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copyToDefaultContentLocationPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("destinationFileName", copyToDefaultContentLocationPostRequestBody.destinationFileName);
+    writer.writeObjectValue<ItemReference>("sourceFile", copyToDefaultContentLocationPostRequestBody.sourceFile, serializeItemReference);
+    writer.writeAdditionalData(copyToDefaultContentLocationPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

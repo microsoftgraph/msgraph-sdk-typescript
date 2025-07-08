@@ -19,6 +19,7 @@ export function createYieldDiscPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param YieldDiscPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -34,24 +35,21 @@ export function deserializeIntoYieldDiscPostRequestBody(yieldDiscPostRequestBody
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
+ * @param YieldDiscPostRequestBody The instance to serialize from.
  */
 // @ts-ignore
-export function serializeYieldDiscPostRequestBody(writer: SerializationWriter, yieldDiscPostRequestBody: Partial<YieldDiscPostRequestBody> | undefined | null = {}) : void {
-    if (yieldDiscPostRequestBody) {
-        writer.writeObjectValue("basis", yieldDiscPostRequestBody.basis);
-        writer.writeObjectValue("maturity", yieldDiscPostRequestBody.maturity);
-        writer.writeObjectValue("pr", yieldDiscPostRequestBody.pr);
-        writer.writeObjectValue("redemption", yieldDiscPostRequestBody.redemption);
-        writer.writeObjectValue("settlement", yieldDiscPostRequestBody.settlement);
-        writer.writeAdditionalData(yieldDiscPostRequestBody.additionalData);
-    }
+export function serializeYieldDiscPostRequestBody(writer: SerializationWriter, yieldDiscPostRequestBody: Partial<YieldDiscPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!yieldDiscPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", yieldDiscPostRequestBody.basis);
+    writer.writeObjectValue("maturity", yieldDiscPostRequestBody.maturity);
+    writer.writeObjectValue("pr", yieldDiscPostRequestBody.pr);
+    writer.writeObjectValue("redemption", yieldDiscPostRequestBody.redemption);
+    writer.writeObjectValue("settlement", yieldDiscPostRequestBody.settlement);
+    writer.writeAdditionalData(yieldDiscPostRequestBody.additionalData);
 }
 export interface YieldDiscPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

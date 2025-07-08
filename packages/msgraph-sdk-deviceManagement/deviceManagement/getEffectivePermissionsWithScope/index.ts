@@ -19,6 +19,7 @@ export function createGetEffectivePermissionsWithScopeGetResponseFromDiscriminat
 }
 /**
  * The deserialization information for the current model
+ * @param GetEffectivePermissionsWithScopeGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameter
 }
 /**
  * Serializes information the current object
+ * @param GetEffectivePermissionsWithScopeGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetEffectivePermissionsWithScopeGetResponse(writer: SerializationWriter, getEffectivePermissionsWithScopeGetResponse: Partial<GetEffectivePermissionsWithScopeGetResponse> | undefined | null = {}) : void {
-    if (getEffectivePermissionsWithScopeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getEffectivePermissionsWithScopeGetResponse)
-        writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopeGetResponse.value, serializeRolePermission);
-    }
+export function serializeGetEffectivePermissionsWithScopeGetResponse(writer: SerializationWriter, getEffectivePermissionsWithScopeGetResponse: Partial<GetEffectivePermissionsWithScopeGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getEffectivePermissionsWithScopeGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getEffectivePermissionsWithScopeGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopeGetResponse.value, serializeRolePermission);
 }
 /**
  * Uri template for the request builder.

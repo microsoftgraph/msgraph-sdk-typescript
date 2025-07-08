@@ -19,6 +19,7 @@ export function createT_Inv_2TPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param T_Inv_2TPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoT_Inv_2TPostRequestBody(t_Inv_2TPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param T_Inv_2TPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeT_Inv_2TPostRequestBody(writer: SerializationWriter, t_Inv_2TPostRequestBody: Partial<T_Inv_2TPostRequestBody> | undefined | null = {}) : void {
-    if (t_Inv_2TPostRequestBody) {
-        writer.writeObjectValue("degFreedom", t_Inv_2TPostRequestBody.degFreedom);
-        writer.writeObjectValue("probability", t_Inv_2TPostRequestBody.probability);
-        writer.writeAdditionalData(t_Inv_2TPostRequestBody.additionalData);
-    }
+export function serializeT_Inv_2TPostRequestBody(writer: SerializationWriter, t_Inv_2TPostRequestBody: Partial<T_Inv_2TPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!t_Inv_2TPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("degFreedom", t_Inv_2TPostRequestBody.degFreedom);
+    writer.writeObjectValue("probability", t_Inv_2TPostRequestBody.probability);
+    writer.writeAdditionalData(t_Inv_2TPostRequestBody.additionalData);
 }
 export interface T_Inv_2TPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

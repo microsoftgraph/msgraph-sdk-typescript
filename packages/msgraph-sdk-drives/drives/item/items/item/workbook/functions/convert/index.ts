@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface ConvertPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,6 +57,7 @@ export function createConvertPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param ConvertPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoConvertPostRequestBody(convertPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param ConvertPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeConvertPostRequestBody(writer: SerializationWriter, convertPostRequestBody: Partial<ConvertPostRequestBody> | undefined | null = {}) : void {
-    if (convertPostRequestBody) {
-        writer.writeObjectValue("fromUnit", convertPostRequestBody.fromUnit);
-        writer.writeObjectValue("number", convertPostRequestBody.number);
-        writer.writeObjectValue("toUnit", convertPostRequestBody.toUnit);
-        writer.writeAdditionalData(convertPostRequestBody.additionalData);
-    }
+export function serializeConvertPostRequestBody(writer: SerializationWriter, convertPostRequestBody: Partial<ConvertPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!convertPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("fromUnit", convertPostRequestBody.fromUnit);
+    writer.writeObjectValue("number", convertPostRequestBody.number);
+    writer.writeObjectValue("toUnit", convertPostRequestBody.toUnit);
+    writer.writeAdditionalData(convertPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

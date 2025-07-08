@@ -19,6 +19,7 @@ export function createDmaxPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param DmaxPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoDmaxPostRequestBody(dmaxPostRequestBody: Partial<
     }
 }
 export interface DmaxPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface DmaxRequestBuilder extends BaseRequestBuilder<DmaxRequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param DmaxPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDmaxPostRequestBody(writer: SerializationWriter, dmaxPostRequestBody: Partial<DmaxPostRequestBody> | undefined | null = {}) : void {
-    if (dmaxPostRequestBody) {
-        writer.writeObjectValue("criteria", dmaxPostRequestBody.criteria);
-        writer.writeObjectValue("database", dmaxPostRequestBody.database);
-        writer.writeObjectValue("field", dmaxPostRequestBody.field);
-        writer.writeAdditionalData(dmaxPostRequestBody.additionalData);
-    }
+export function serializeDmaxPostRequestBody(writer: SerializationWriter, dmaxPostRequestBody: Partial<DmaxPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dmaxPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("criteria", dmaxPostRequestBody.criteria);
+    writer.writeObjectValue("database", dmaxPostRequestBody.database);
+    writer.writeObjectValue("field", dmaxPostRequestBody.field);
+    writer.writeAdditionalData(dmaxPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

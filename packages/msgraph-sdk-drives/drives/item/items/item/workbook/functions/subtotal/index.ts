@@ -19,6 +19,7 @@ export function createSubtotalPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param SubtotalPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoSubtotalPostRequestBody(subtotalPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SubtotalPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSubtotalPostRequestBody(writer: SerializationWriter, subtotalPostRequestBody: Partial<SubtotalPostRequestBody> | undefined | null = {}) : void {
-    if (subtotalPostRequestBody) {
-        writer.writeObjectValue("functionNum", subtotalPostRequestBody.functionNum);
-        writer.writeObjectValue("values", subtotalPostRequestBody.values);
-        writer.writeAdditionalData(subtotalPostRequestBody.additionalData);
-    }
+export function serializeSubtotalPostRequestBody(writer: SerializationWriter, subtotalPostRequestBody: Partial<SubtotalPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!subtotalPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("functionNum", subtotalPostRequestBody.functionNum);
+    writer.writeObjectValue("values", subtotalPostRequestBody.values);
+    writer.writeAdditionalData(subtotalPostRequestBody.additionalData);
 }
 export interface SubtotalPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

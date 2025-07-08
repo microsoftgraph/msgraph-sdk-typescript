@@ -19,10 +19,6 @@ export function createCreateOrGetPostRequestBodyFromDiscriminatorValue(parseNode
 }
 export interface CreateOrGetPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -74,6 +70,7 @@ export interface CreateOrGetRequestBuilder extends BaseRequestBuilder<CreateOrGe
 }
 /**
  * The deserialization information for the current model
+ * @param CreateOrGetPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -90,19 +87,20 @@ export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequest
 }
 /**
  * Serializes information the current object
+ * @param CreateOrGetPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined | null = {}) : void {
-    if (createOrGetPostRequestBody) {
-        writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);
-        writer.writeDateValue("endDateTime", createOrGetPostRequestBody.endDateTime);
-        writer.writeStringValue("externalId", createOrGetPostRequestBody.externalId);
-        writer.writeObjectValue<MeetingParticipants>("participants", createOrGetPostRequestBody.participants, serializeMeetingParticipants);
-        writer.writeDateValue("startDateTime", createOrGetPostRequestBody.startDateTime);
-        writer.writeStringValue("subject", createOrGetPostRequestBody.subject);
-        writer.writeAdditionalData(createOrGetPostRequestBody.additionalData);
-    }
+export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: Partial<CreateOrGetPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!createOrGetPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);
+    writer.writeDateValue("endDateTime", createOrGetPostRequestBody.endDateTime);
+    writer.writeStringValue("externalId", createOrGetPostRequestBody.externalId);
+    writer.writeObjectValue<MeetingParticipants>("participants", createOrGetPostRequestBody.participants, serializeMeetingParticipants);
+    writer.writeDateValue("startDateTime", createOrGetPostRequestBody.startDateTime);
+    writer.writeStringValue("subject", createOrGetPostRequestBody.subject);
+    writer.writeAdditionalData(createOrGetPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

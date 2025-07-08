@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface AssignPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * The assignments property
      */
     assignments?: DeviceCompliancePolicyAssignment[] | null;
@@ -69,6 +65,7 @@ export function createAssignPostResponseFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param AssignPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,6 +77,7 @@ export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: Part
 }
 /**
  * The deserialization information for the current model
+ * @param AssignPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -91,25 +89,27 @@ export function deserializeIntoAssignPostResponse(assignPostResponse: Partial<As
 }
 /**
  * Serializes information the current object
+ * @param AssignPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: Partial<AssignPostRequestBody> | undefined | null = {}) : void {
-    if (assignPostRequestBody) {
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("assignments", assignPostRequestBody.assignments, serializeDeviceCompliancePolicyAssignment);
-        writer.writeAdditionalData(assignPostRequestBody.additionalData);
-    }
+export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: Partial<AssignPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!assignPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("assignments", assignPostRequestBody.assignments, serializeDeviceCompliancePolicyAssignment);
+    writer.writeAdditionalData(assignPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param AssignPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAssignPostResponse(writer: SerializationWriter, assignPostResponse: Partial<AssignPostResponse> | undefined | null = {}) : void {
-    if (assignPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, assignPostResponse)
-        writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("value", assignPostResponse.value, serializeDeviceCompliancePolicyAssignment);
-    }
+export function serializeAssignPostResponse(writer: SerializationWriter, assignPostResponse: Partial<AssignPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!assignPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, assignPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("value", assignPostResponse.value, serializeDeviceCompliancePolicyAssignment);
 }
 /**
  * Uri template for the request builder.

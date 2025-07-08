@@ -19,6 +19,7 @@ export function createGeStepPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param GeStepPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoGeStepPostRequestBody(geStepPostRequestBody: Part
     }
 }
 export interface GeStepPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface GeStepRequestBuilder extends BaseRequestBuilder<GeStepRequestBu
 }
 /**
  * Serializes information the current object
+ * @param GeStepPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGeStepPostRequestBody(writer: SerializationWriter, geStepPostRequestBody: Partial<GeStepPostRequestBody> | undefined | null = {}) : void {
-    if (geStepPostRequestBody) {
-        writer.writeObjectValue("number", geStepPostRequestBody.number);
-        writer.writeObjectValue("step", geStepPostRequestBody.step);
-        writer.writeAdditionalData(geStepPostRequestBody.additionalData);
-    }
+export function serializeGeStepPostRequestBody(writer: SerializationWriter, geStepPostRequestBody: Partial<GeStepPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!geStepPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", geStepPostRequestBody.number);
+    writer.writeObjectValue("step", geStepPostRequestBody.step);
+    writer.writeAdditionalData(geStepPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

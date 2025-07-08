@@ -19,6 +19,7 @@ export function createExactPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param ExactPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoExactPostRequestBody(exactPostRequestBody: Partia
     }
 }
 export interface ExactPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface ExactRequestBuilder extends BaseRequestBuilder<ExactRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param ExactPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeExactPostRequestBody(writer: SerializationWriter, exactPostRequestBody: Partial<ExactPostRequestBody> | undefined | null = {}) : void {
-    if (exactPostRequestBody) {
-        writer.writeObjectValue("text1", exactPostRequestBody.text1);
-        writer.writeObjectValue("text2", exactPostRequestBody.text2);
-        writer.writeAdditionalData(exactPostRequestBody.additionalData);
-    }
+export function serializeExactPostRequestBody(writer: SerializationWriter, exactPostRequestBody: Partial<ExactPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!exactPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("text1", exactPostRequestBody.text1);
+    writer.writeObjectValue("text2", exactPostRequestBody.text2);
+    writer.writeAdditionalData(exactPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

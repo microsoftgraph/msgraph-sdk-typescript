@@ -19,6 +19,7 @@ export function createImProductPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param ImProductPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoImProductPostRequestBody(imProductPostRequestBody
     }
 }
 export interface ImProductPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ImProductRequestBuilder extends BaseRequestBuilder<ImProductReq
 }
 /**
  * Serializes information the current object
+ * @param ImProductPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImProductPostRequestBody(writer: SerializationWriter, imProductPostRequestBody: Partial<ImProductPostRequestBody> | undefined | null = {}) : void {
-    if (imProductPostRequestBody) {
-        writer.writeObjectValue("values", imProductPostRequestBody.values);
-        writer.writeAdditionalData(imProductPostRequestBody.additionalData);
-    }
+export function serializeImProductPostRequestBody(writer: SerializationWriter, imProductPostRequestBody: Partial<ImProductPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imProductPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", imProductPostRequestBody.values);
+    writer.writeAdditionalData(imProductPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

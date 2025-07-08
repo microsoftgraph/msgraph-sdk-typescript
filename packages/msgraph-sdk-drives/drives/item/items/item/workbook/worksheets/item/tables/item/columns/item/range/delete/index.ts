@@ -17,10 +17,6 @@ export function createDeletePostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 export interface DeletePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -50,6 +46,7 @@ export interface DeleteRequestBuilder extends BaseRequestBuilder<DeleteRequestBu
 }
 /**
  * The deserialization information for the current model
+ * @param DeletePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -61,14 +58,15 @@ export function deserializeIntoDeletePostRequestBody(deletePostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param DeletePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeletePostRequestBody(writer: SerializationWriter, deletePostRequestBody: Partial<DeletePostRequestBody> | undefined | null = {}) : void {
-    if (deletePostRequestBody) {
-        writer.writeStringValue("shift", deletePostRequestBody.shift);
-        writer.writeAdditionalData(deletePostRequestBody.additionalData);
-    }
+export function serializeDeletePostRequestBody(writer: SerializationWriter, deletePostRequestBody: Partial<DeletePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!deletePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("shift", deletePostRequestBody.shift);
+    writer.writeAdditionalData(deletePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createErfCPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param ErfCPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoErfCPostRequestBody(erfCPostRequestBody: Partial<
     }
 }
 export interface ErfCPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ErfCRequestBuilder extends BaseRequestBuilder<ErfCRequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param ErfCPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeErfCPostRequestBody(writer: SerializationWriter, erfCPostRequestBody: Partial<ErfCPostRequestBody> | undefined | null = {}) : void {
-    if (erfCPostRequestBody) {
-        writer.writeObjectValue("x", erfCPostRequestBody.x);
-        writer.writeAdditionalData(erfCPostRequestBody.additionalData);
-    }
+export function serializeErfCPostRequestBody(writer: SerializationWriter, erfCPostRequestBody: Partial<ErfCPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!erfCPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("x", erfCPostRequestBody.x);
+    writer.writeAdditionalData(erfCPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

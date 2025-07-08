@@ -19,6 +19,7 @@ export function createPmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param PmtPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,10 +34,6 @@ export function deserializeIntoPmtPostRequestBody(pmtPostRequestBody: Partial<Pm
     }
 }
 export interface PmtPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -84,18 +81,19 @@ export interface PmtRequestBuilder extends BaseRequestBuilder<PmtRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PmtPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePmtPostRequestBody(writer: SerializationWriter, pmtPostRequestBody: Partial<PmtPostRequestBody> | undefined | null = {}) : void {
-    if (pmtPostRequestBody) {
-        writer.writeObjectValue("fv", pmtPostRequestBody.fv);
-        writer.writeObjectValue("nper", pmtPostRequestBody.nper);
-        writer.writeObjectValue("pv", pmtPostRequestBody.pv);
-        writer.writeObjectValue("rate", pmtPostRequestBody.rate);
-        writer.writeObjectValue("type", pmtPostRequestBody.type);
-        writer.writeAdditionalData(pmtPostRequestBody.additionalData);
-    }
+export function serializePmtPostRequestBody(writer: SerializationWriter, pmtPostRequestBody: Partial<PmtPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!pmtPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("fv", pmtPostRequestBody.fv);
+    writer.writeObjectValue("nper", pmtPostRequestBody.nper);
+    writer.writeObjectValue("pv", pmtPostRequestBody.pv);
+    writer.writeObjectValue("rate", pmtPostRequestBody.rate);
+    writer.writeObjectValue("type", pmtPostRequestBody.type);
+    writer.writeAdditionalData(pmtPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createHypGeom_DistPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param HypGeom_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,10 +34,6 @@ export function deserializeIntoHypGeom_DistPostRequestBody(hypGeom_DistPostReque
     }
 }
 export interface HypGeom_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -84,18 +81,19 @@ export interface HypGeom_DistRequestBuilder extends BaseRequestBuilder<HypGeom_D
 }
 /**
  * Serializes information the current object
+ * @param HypGeom_DistPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeHypGeom_DistPostRequestBody(writer: SerializationWriter, hypGeom_DistPostRequestBody: Partial<HypGeom_DistPostRequestBody> | undefined | null = {}) : void {
-    if (hypGeom_DistPostRequestBody) {
-        writer.writeObjectValue("cumulative", hypGeom_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("numberPop", hypGeom_DistPostRequestBody.numberPop);
-        writer.writeObjectValue("numberSample", hypGeom_DistPostRequestBody.numberSample);
-        writer.writeObjectValue("populationS", hypGeom_DistPostRequestBody.populationS);
-        writer.writeObjectValue("sampleS", hypGeom_DistPostRequestBody.sampleS);
-        writer.writeAdditionalData(hypGeom_DistPostRequestBody.additionalData);
-    }
+export function serializeHypGeom_DistPostRequestBody(writer: SerializationWriter, hypGeom_DistPostRequestBody: Partial<HypGeom_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!hypGeom_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cumulative", hypGeom_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("numberPop", hypGeom_DistPostRequestBody.numberPop);
+    writer.writeObjectValue("numberSample", hypGeom_DistPostRequestBody.numberSample);
+    writer.writeObjectValue("populationS", hypGeom_DistPostRequestBody.populationS);
+    writer.writeObjectValue("sampleS", hypGeom_DistPostRequestBody.sampleS);
+    writer.writeAdditionalData(hypGeom_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createSetOrderPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param SetOrderPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoSetOrderPostRequestBody(setOrderPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SetOrderPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSetOrderPostRequestBody(writer: SerializationWriter, setOrderPostRequestBody: Partial<SetOrderPostRequestBody> | undefined | null = {}) : void {
-    if (setOrderPostRequestBody) {
-        writer.writeObjectValue<AssignmentOrder>("newAssignmentOrder", setOrderPostRequestBody.newAssignmentOrder, serializeAssignmentOrder);
-        writer.writeAdditionalData(setOrderPostRequestBody.additionalData);
-    }
+export function serializeSetOrderPostRequestBody(writer: SerializationWriter, setOrderPostRequestBody: Partial<SetOrderPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!setOrderPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<AssignmentOrder>("newAssignmentOrder", setOrderPostRequestBody.newAssignmentOrder, serializeAssignmentOrder);
+    writer.writeAdditionalData(setOrderPostRequestBody.additionalData);
 }
 export interface SetOrderPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

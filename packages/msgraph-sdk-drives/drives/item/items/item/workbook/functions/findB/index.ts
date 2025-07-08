@@ -19,6 +19,7 @@ export function createFindBPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param FindBPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoFindBPostRequestBody(findBPostRequestBody: Partia
     }
 }
 export interface FindBPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface FindBRequestBuilder extends BaseRequestBuilder<FindBRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param FindBPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFindBPostRequestBody(writer: SerializationWriter, findBPostRequestBody: Partial<FindBPostRequestBody> | undefined | null = {}) : void {
-    if (findBPostRequestBody) {
-        writer.writeObjectValue("findText", findBPostRequestBody.findText);
-        writer.writeObjectValue("startNum", findBPostRequestBody.startNum);
-        writer.writeObjectValue("withinText", findBPostRequestBody.withinText);
-        writer.writeAdditionalData(findBPostRequestBody.additionalData);
-    }
+export function serializeFindBPostRequestBody(writer: SerializationWriter, findBPostRequestBody: Partial<FindBPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!findBPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("findText", findBPostRequestBody.findText);
+    writer.writeObjectValue("startNum", findBPostRequestBody.startNum);
+    writer.writeObjectValue("withinText", findBPostRequestBody.withinText);
+    writer.writeAdditionalData(findBPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.
