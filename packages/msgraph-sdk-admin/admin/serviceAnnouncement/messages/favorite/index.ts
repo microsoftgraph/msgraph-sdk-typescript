@@ -26,6 +26,7 @@ export function createFavoritePostResponseFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param FavoritePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -37,6 +38,7 @@ export function deserializeIntoFavoritePostRequestBody(favoritePostRequestBody: 
 }
 /**
  * The deserialization information for the current model
+ * @param FavoritePostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -48,10 +50,6 @@ export function deserializeIntoFavoritePostResponse(favoritePostResponse: Partia
 }
 export interface FavoritePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,10 +59,6 @@ export interface FavoritePostRequestBody extends AdditionalDataHolder, BackedMod
     messageIds?: string[] | null;
 }
 export interface FavoritePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -97,25 +91,27 @@ export interface FavoriteRequestBuilder extends BaseRequestBuilder<FavoriteReque
 }
 /**
  * Serializes information the current object
+ * @param FavoritePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFavoritePostRequestBody(writer: SerializationWriter, favoritePostRequestBody: Partial<FavoritePostRequestBody> | undefined | null = {}) : void {
-    if (favoritePostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", favoritePostRequestBody.messageIds);
-        writer.writeAdditionalData(favoritePostRequestBody.additionalData);
-    }
+export function serializeFavoritePostRequestBody(writer: SerializationWriter, favoritePostRequestBody: Partial<FavoritePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!favoritePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", favoritePostRequestBody.messageIds);
+    writer.writeAdditionalData(favoritePostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param FavoritePostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFavoritePostResponse(writer: SerializationWriter, favoritePostResponse: Partial<FavoritePostResponse> | undefined | null = {}) : void {
-    if (favoritePostResponse) {
-        writer.writeBooleanValue("value", favoritePostResponse.value);
-        writer.writeAdditionalData(favoritePostResponse.additionalData);
-    }
+export function serializeFavoritePostResponse(writer: SerializationWriter, favoritePostResponse: Partial<FavoritePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!favoritePostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", favoritePostResponse.value);
+    writer.writeAdditionalData(favoritePostResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

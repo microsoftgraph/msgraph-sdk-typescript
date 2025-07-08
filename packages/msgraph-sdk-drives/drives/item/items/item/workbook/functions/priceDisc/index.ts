@@ -19,6 +19,7 @@ export function createPriceDiscPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param PriceDiscPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,10 +34,6 @@ export function deserializeIntoPriceDiscPostRequestBody(priceDiscPostRequestBody
     }
 }
 export interface PriceDiscPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -84,18 +81,19 @@ export interface PriceDiscRequestBuilder extends BaseRequestBuilder<PriceDiscReq
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PriceDiscPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePriceDiscPostRequestBody(writer: SerializationWriter, priceDiscPostRequestBody: Partial<PriceDiscPostRequestBody> | undefined | null = {}) : void {
-    if (priceDiscPostRequestBody) {
-        writer.writeObjectValue("basis", priceDiscPostRequestBody.basis);
-        writer.writeObjectValue("discount", priceDiscPostRequestBody.discount);
-        writer.writeObjectValue("maturity", priceDiscPostRequestBody.maturity);
-        writer.writeObjectValue("redemption", priceDiscPostRequestBody.redemption);
-        writer.writeObjectValue("settlement", priceDiscPostRequestBody.settlement);
-        writer.writeAdditionalData(priceDiscPostRequestBody.additionalData);
-    }
+export function serializePriceDiscPostRequestBody(writer: SerializationWriter, priceDiscPostRequestBody: Partial<PriceDiscPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!priceDiscPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", priceDiscPostRequestBody.basis);
+    writer.writeObjectValue("discount", priceDiscPostRequestBody.discount);
+    writer.writeObjectValue("maturity", priceDiscPostRequestBody.maturity);
+    writer.writeObjectValue("redemption", priceDiscPostRequestBody.redemption);
+    writer.writeObjectValue("settlement", priceDiscPostRequestBody.settlement);
+    writer.writeAdditionalData(priceDiscPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

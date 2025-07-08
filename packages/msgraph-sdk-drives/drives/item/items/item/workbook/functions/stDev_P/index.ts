@@ -19,6 +19,7 @@ export function createStDev_PPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param StDev_PPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoStDev_PPostRequestBody(stDev_PPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param StDev_PPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeStDev_PPostRequestBody(writer: SerializationWriter, stDev_PPostRequestBody: Partial<StDev_PPostRequestBody> | undefined | null = {}) : void {
-    if (stDev_PPostRequestBody) {
-        writer.writeObjectValue("values", stDev_PPostRequestBody.values);
-        writer.writeAdditionalData(stDev_PPostRequestBody.additionalData);
-    }
+export function serializeStDev_PPostRequestBody(writer: SerializationWriter, stDev_PPostRequestBody: Partial<StDev_PPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!stDev_PPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", stDev_PPostRequestBody.values);
+    writer.writeAdditionalData(stDev_PPostRequestBody.additionalData);
 }
 export interface StDev_PPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

@@ -19,6 +19,7 @@ export function createLenPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param LenPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoLenPostRequestBody(lenPostRequestBody: Partial<Le
     }
 }
 export interface LenPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface LenRequestBuilder extends BaseRequestBuilder<LenRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LenPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLenPostRequestBody(writer: SerializationWriter, lenPostRequestBody: Partial<LenPostRequestBody> | undefined | null = {}) : void {
-    if (lenPostRequestBody) {
-        writer.writeObjectValue("text", lenPostRequestBody.text);
-        writer.writeAdditionalData(lenPostRequestBody.additionalData);
-    }
+export function serializeLenPostRequestBody(writer: SerializationWriter, lenPostRequestBody: Partial<LenPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!lenPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("text", lenPostRequestBody.text);
+    writer.writeAdditionalData(lenPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

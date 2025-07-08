@@ -19,6 +19,7 @@ export function createPricePostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param PricePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoPricePostRequestBody(pricePostRequestBody: Partia
     }
 }
 export interface PricePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -94,20 +91,21 @@ export interface PriceRequestBuilder extends BaseRequestBuilder<PriceRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PricePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePricePostRequestBody(writer: SerializationWriter, pricePostRequestBody: Partial<PricePostRequestBody> | undefined | null = {}) : void {
-    if (pricePostRequestBody) {
-        writer.writeObjectValue("basis", pricePostRequestBody.basis);
-        writer.writeObjectValue("frequency", pricePostRequestBody.frequency);
-        writer.writeObjectValue("maturity", pricePostRequestBody.maturity);
-        writer.writeObjectValue("rate", pricePostRequestBody.rate);
-        writer.writeObjectValue("redemption", pricePostRequestBody.redemption);
-        writer.writeObjectValue("settlement", pricePostRequestBody.settlement);
-        writer.writeObjectValue("yld", pricePostRequestBody.yld);
-        writer.writeAdditionalData(pricePostRequestBody.additionalData);
-    }
+export function serializePricePostRequestBody(writer: SerializationWriter, pricePostRequestBody: Partial<PricePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!pricePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", pricePostRequestBody.basis);
+    writer.writeObjectValue("frequency", pricePostRequestBody.frequency);
+    writer.writeObjectValue("maturity", pricePostRequestBody.maturity);
+    writer.writeObjectValue("rate", pricePostRequestBody.rate);
+    writer.writeObjectValue("redemption", pricePostRequestBody.redemption);
+    writer.writeObjectValue("settlement", pricePostRequestBody.settlement);
+    writer.writeObjectValue("yld", pricePostRequestBody.yld);
+    writer.writeAdditionalData(pricePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

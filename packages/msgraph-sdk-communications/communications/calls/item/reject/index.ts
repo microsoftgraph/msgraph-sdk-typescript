@@ -19,6 +19,7 @@ export function createRejectPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param RejectPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoRejectPostRequestBody(rejectPostRequestBody: Part
     }
 }
 export interface RejectPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface RejectRequestBuilder extends BaseRequestBuilder<RejectRequestBu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RejectPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRejectPostRequestBody(writer: SerializationWriter, rejectPostRequestBody: Partial<RejectPostRequestBody> | undefined | null = {}) : void {
-    if (rejectPostRequestBody) {
-        writer.writeStringValue("callbackUri", rejectPostRequestBody.callbackUri);
-        writer.writeEnumValue<RejectReason>("reason", rejectPostRequestBody.reason);
-        writer.writeAdditionalData(rejectPostRequestBody.additionalData);
-    }
+export function serializeRejectPostRequestBody(writer: SerializationWriter, rejectPostRequestBody: Partial<RejectPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!rejectPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("callbackUri", rejectPostRequestBody.callbackUri);
+    writer.writeEnumValue<RejectReason>("reason", rejectPostRequestBody.reason);
+    writer.writeAdditionalData(rejectPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

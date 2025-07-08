@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface ChiSq_Inv_RTPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createChiSq_Inv_RTPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param ChiSq_Inv_RTPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoChiSq_Inv_RTPostRequestBody(chiSq_Inv_RTPostReque
 }
 /**
  * Serializes information the current object
+ * @param ChiSq_Inv_RTPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeChiSq_Inv_RTPostRequestBody(writer: SerializationWriter, chiSq_Inv_RTPostRequestBody: Partial<ChiSq_Inv_RTPostRequestBody> | undefined | null = {}) : void {
-    if (chiSq_Inv_RTPostRequestBody) {
-        writer.writeObjectValue("degFreedom", chiSq_Inv_RTPostRequestBody.degFreedom);
-        writer.writeObjectValue("probability", chiSq_Inv_RTPostRequestBody.probability);
-        writer.writeAdditionalData(chiSq_Inv_RTPostRequestBody.additionalData);
-    }
+export function serializeChiSq_Inv_RTPostRequestBody(writer: SerializationWriter, chiSq_Inv_RTPostRequestBody: Partial<ChiSq_Inv_RTPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!chiSq_Inv_RTPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("degFreedom", chiSq_Inv_RTPostRequestBody.degFreedom);
+    writer.writeObjectValue("probability", chiSq_Inv_RTPostRequestBody.probability);
+    writer.writeAdditionalData(chiSq_Inv_RTPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

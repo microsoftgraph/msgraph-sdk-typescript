@@ -19,6 +19,7 @@ export function createPermutationaPostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param PermutationaPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoPermutationaPostRequestBody(permutationaPostReque
     }
 }
 export interface PermutationaPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface PermutationaRequestBuilder extends BaseRequestBuilder<Permutati
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PermutationaPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePermutationaPostRequestBody(writer: SerializationWriter, permutationaPostRequestBody: Partial<PermutationaPostRequestBody> | undefined | null = {}) : void {
-    if (permutationaPostRequestBody) {
-        writer.writeObjectValue("number", permutationaPostRequestBody.number);
-        writer.writeObjectValue("numberChosen", permutationaPostRequestBody.numberChosen);
-        writer.writeAdditionalData(permutationaPostRequestBody.additionalData);
-    }
+export function serializePermutationaPostRequestBody(writer: SerializationWriter, permutationaPostRequestBody: Partial<PermutationaPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!permutationaPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", permutationaPostRequestBody.number);
+    writer.writeObjectValue("numberChosen", permutationaPostRequestBody.numberChosen);
+    writer.writeAdditionalData(permutationaPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

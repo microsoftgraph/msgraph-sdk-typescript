@@ -19,6 +19,7 @@ export function createRandBetweenPostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param RandBetweenPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoRandBetweenPostRequestBody(randBetweenPostRequest
     }
 }
 export interface RandBetweenPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface RandBetweenRequestBuilder extends BaseRequestBuilder<RandBetwee
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RandBetweenPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRandBetweenPostRequestBody(writer: SerializationWriter, randBetweenPostRequestBody: Partial<RandBetweenPostRequestBody> | undefined | null = {}) : void {
-    if (randBetweenPostRequestBody) {
-        writer.writeObjectValue("bottom", randBetweenPostRequestBody.bottom);
-        writer.writeObjectValue("top", randBetweenPostRequestBody.top);
-        writer.writeAdditionalData(randBetweenPostRequestBody.additionalData);
-    }
+export function serializeRandBetweenPostRequestBody(writer: SerializationWriter, randBetweenPostRequestBody: Partial<RandBetweenPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!randBetweenPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("bottom", randBetweenPostRequestBody.bottom);
+    writer.writeObjectValue("top", randBetweenPostRequestBody.top);
+    writer.writeAdditionalData(randBetweenPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

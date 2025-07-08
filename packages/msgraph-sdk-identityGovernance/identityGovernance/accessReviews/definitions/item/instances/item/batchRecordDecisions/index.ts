@@ -8,10 +8,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface BatchRecordDecisionsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -63,6 +59,7 @@ export function createBatchRecordDecisionsPostRequestBodyFromDiscriminatorValue(
 }
 /**
  * The deserialization information for the current model
+ * @param BatchRecordDecisionsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -77,17 +74,18 @@ export function deserializeIntoBatchRecordDecisionsPostRequestBody(batchRecordDe
 }
 /**
  * Serializes information the current object
+ * @param BatchRecordDecisionsPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBatchRecordDecisionsPostRequestBody(writer: SerializationWriter, batchRecordDecisionsPostRequestBody: Partial<BatchRecordDecisionsPostRequestBody> | undefined | null = {}) : void {
-    if (batchRecordDecisionsPostRequestBody) {
-        writer.writeStringValue("decision", batchRecordDecisionsPostRequestBody.decision);
-        writer.writeStringValue("justification", batchRecordDecisionsPostRequestBody.justification);
-        writer.writeStringValue("principalId", batchRecordDecisionsPostRequestBody.principalId);
-        writer.writeStringValue("resourceId", batchRecordDecisionsPostRequestBody.resourceId);
-        writer.writeAdditionalData(batchRecordDecisionsPostRequestBody.additionalData);
-    }
+export function serializeBatchRecordDecisionsPostRequestBody(writer: SerializationWriter, batchRecordDecisionsPostRequestBody: Partial<BatchRecordDecisionsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!batchRecordDecisionsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("decision", batchRecordDecisionsPostRequestBody.decision);
+    writer.writeStringValue("justification", batchRecordDecisionsPostRequestBody.justification);
+    writer.writeStringValue("principalId", batchRecordDecisionsPostRequestBody.principalId);
+    writer.writeStringValue("resourceId", batchRecordDecisionsPostRequestBody.resourceId);
+    writer.writeAdditionalData(batchRecordDecisionsPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

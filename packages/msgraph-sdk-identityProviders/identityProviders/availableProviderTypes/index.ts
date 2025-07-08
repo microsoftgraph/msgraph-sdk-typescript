@@ -71,6 +71,7 @@ export function createAvailableProviderTypesGetResponseFromDiscriminatorValue(pa
 }
 /**
  * The deserialization information for the current model
+ * @param AvailableProviderTypesGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -82,14 +83,15 @@ export function deserializeIntoAvailableProviderTypesGetResponse(availableProvid
 }
 /**
  * Serializes information the current object
+ * @param AvailableProviderTypesGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAvailableProviderTypesGetResponse(writer: SerializationWriter, availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined | null = {}) : void {
-    if (availableProviderTypesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesGetResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesGetResponse.value);
-    }
+export function serializeAvailableProviderTypesGetResponse(writer: SerializationWriter, availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!availableProviderTypesGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesGetResponse.value);
 }
 /**
  * Uri template for the request builder.

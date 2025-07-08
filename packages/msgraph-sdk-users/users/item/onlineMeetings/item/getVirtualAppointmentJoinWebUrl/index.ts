@@ -17,6 +17,7 @@ export function createGetVirtualAppointmentJoinWebUrlGetResponseFromDiscriminato
 }
 /**
  * The deserialization information for the current model
+ * @param GetVirtualAppointmentJoinWebUrlGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoGetVirtualAppointmentJoinWebUrlGetResponse(getVir
     }
 }
 export interface GetVirtualAppointmentJoinWebUrlGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -61,14 +58,15 @@ export interface GetVirtualAppointmentJoinWebUrlRequestBuilder extends BaseReque
 }
 /**
  * Serializes information the current object
+ * @param GetVirtualAppointmentJoinWebUrlGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetVirtualAppointmentJoinWebUrlGetResponse(writer: SerializationWriter, getVirtualAppointmentJoinWebUrlGetResponse: Partial<GetVirtualAppointmentJoinWebUrlGetResponse> | undefined | null = {}) : void {
-    if (getVirtualAppointmentJoinWebUrlGetResponse) {
-        writer.writeStringValue("value", getVirtualAppointmentJoinWebUrlGetResponse.value);
-        writer.writeAdditionalData(getVirtualAppointmentJoinWebUrlGetResponse.additionalData);
-    }
+export function serializeGetVirtualAppointmentJoinWebUrlGetResponse(writer: SerializationWriter, getVirtualAppointmentJoinWebUrlGetResponse: Partial<GetVirtualAppointmentJoinWebUrlGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getVirtualAppointmentJoinWebUrlGetResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("value", getVirtualAppointmentJoinWebUrlGetResponse.value);
+    writer.writeAdditionalData(getVirtualAppointmentJoinWebUrlGetResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

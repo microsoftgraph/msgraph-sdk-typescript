@@ -21,6 +21,7 @@ export function createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResp
 }
 /**
  * The deserialization information for the current model
+ * @param GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -81,14 +82,15 @@ export interface MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeW
 }
 /**
  * Serializes information the current object
+ * @param GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined | null = {}) : void {
-    if (getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<DirectRoutingLogRow>("value", getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializeDirectRoutingLogRow);
-    }
+export function serializeGetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse(writer: SerializationWriter, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse: Partial<GetDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<DirectRoutingLogRow>("value", getDirectRoutingCallsWithFromDateTimeWithToDateTimeGetResponse.value, serializeDirectRoutingLogRow);
 }
 /**
  * Uri template for the request builder.

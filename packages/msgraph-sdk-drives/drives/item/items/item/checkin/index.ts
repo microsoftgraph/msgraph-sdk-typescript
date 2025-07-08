@@ -8,10 +8,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface CheckinPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -55,6 +51,7 @@ export function createCheckinPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param CheckinPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -67,15 +64,16 @@ export function deserializeIntoCheckinPostRequestBody(checkinPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param CheckinPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCheckinPostRequestBody(writer: SerializationWriter, checkinPostRequestBody: Partial<CheckinPostRequestBody> | undefined | null = {}) : void {
-    if (checkinPostRequestBody) {
-        writer.writeStringValue("checkInAs", checkinPostRequestBody.checkInAs);
-        writer.writeStringValue("comment", checkinPostRequestBody.comment);
-        writer.writeAdditionalData(checkinPostRequestBody.additionalData);
-    }
+export function serializeCheckinPostRequestBody(writer: SerializationWriter, checkinPostRequestBody: Partial<CheckinPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!checkinPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("checkInAs", checkinPostRequestBody.checkInAs);
+    writer.writeStringValue("comment", checkinPostRequestBody.comment);
+    writer.writeAdditionalData(checkinPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

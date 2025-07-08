@@ -19,6 +19,7 @@ export function createEoMonthPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param EoMonthPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoEoMonthPostRequestBody(eoMonthPostRequestBody: Pa
     }
 }
 export interface EoMonthPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface EoMonthRequestBuilder extends BaseRequestBuilder<EoMonthRequest
 }
 /**
  * Serializes information the current object
+ * @param EoMonthPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeEoMonthPostRequestBody(writer: SerializationWriter, eoMonthPostRequestBody: Partial<EoMonthPostRequestBody> | undefined | null = {}) : void {
-    if (eoMonthPostRequestBody) {
-        writer.writeObjectValue("months", eoMonthPostRequestBody.months);
-        writer.writeObjectValue("startDate", eoMonthPostRequestBody.startDate);
-        writer.writeAdditionalData(eoMonthPostRequestBody.additionalData);
-    }
+export function serializeEoMonthPostRequestBody(writer: SerializationWriter, eoMonthPostRequestBody: Partial<EoMonthPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!eoMonthPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("months", eoMonthPostRequestBody.months);
+    writer.writeObjectValue("startDate", eoMonthPostRequestBody.startDate);
+    writer.writeAdditionalData(eoMonthPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

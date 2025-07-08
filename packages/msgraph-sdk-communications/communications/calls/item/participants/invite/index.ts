@@ -19,6 +19,7 @@ export function createInvitePostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param InvitePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: Part
     }
 }
 export interface InvitePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -70,15 +67,16 @@ export interface InviteRequestBuilder extends BaseRequestBuilder<InviteRequestBu
 }
 /**
  * Serializes information the current object
+ * @param InvitePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: Partial<InvitePostRequestBody> | undefined | null = {}) : void {
-    if (invitePostRequestBody) {
-        writer.writeStringValue("clientContext", invitePostRequestBody.clientContext);
-        writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("participants", invitePostRequestBody.participants, serializeInvitationParticipantInfo);
-        writer.writeAdditionalData(invitePostRequestBody.additionalData);
-    }
+export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: Partial<InvitePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!invitePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("clientContext", invitePostRequestBody.clientContext);
+    writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("participants", invitePostRequestBody.participants, serializeInvitationParticipantInfo);
+    writer.writeAdditionalData(invitePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

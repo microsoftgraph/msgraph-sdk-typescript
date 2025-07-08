@@ -17,6 +17,7 @@ export function createGetConfigurationSettingNonComplianceReportPostRequestBodyF
 }
 /**
  * The deserialization information for the current model
+ * @param GetConfigurationSettingNonComplianceReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetConfigurationSettingNonComplianceReportPostReq
     }
 }
 export interface GetConfigurationSettingNonComplianceReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetConfigurationSettingNonComplianceReportRequestBuilder extend
 }
 /**
  * Serializes information the current object
+ * @param GetConfigurationSettingNonComplianceReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetConfigurationSettingNonComplianceReportPostRequestBody(writer: SerializationWriter, getConfigurationSettingNonComplianceReportPostRequestBody: Partial<GetConfigurationSettingNonComplianceReportPostRequestBody> | undefined | null = {}) : void {
-    if (getConfigurationSettingNonComplianceReportPostRequestBody) {
-        writer.writeStringValue("filter", getConfigurationSettingNonComplianceReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationSettingNonComplianceReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getConfigurationSettingNonComplianceReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getConfigurationSettingNonComplianceReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getConfigurationSettingNonComplianceReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getConfigurationSettingNonComplianceReportPostRequestBody.select);
-        writer.writeStringValue("sessionId", getConfigurationSettingNonComplianceReportPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getConfigurationSettingNonComplianceReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getConfigurationSettingNonComplianceReportPostRequestBody.top);
-        writer.writeAdditionalData(getConfigurationSettingNonComplianceReportPostRequestBody.additionalData);
-    }
+export function serializeGetConfigurationSettingNonComplianceReportPostRequestBody(writer: SerializationWriter, getConfigurationSettingNonComplianceReportPostRequestBody: Partial<GetConfigurationSettingNonComplianceReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getConfigurationSettingNonComplianceReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getConfigurationSettingNonComplianceReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getConfigurationSettingNonComplianceReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getConfigurationSettingNonComplianceReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getConfigurationSettingNonComplianceReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getConfigurationSettingNonComplianceReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getConfigurationSettingNonComplianceReportPostRequestBody.select);
+    writer.writeStringValue("sessionId", getConfigurationSettingNonComplianceReportPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getConfigurationSettingNonComplianceReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getConfigurationSettingNonComplianceReportPostRequestBody.top);
+    writer.writeAdditionalData(getConfigurationSettingNonComplianceReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

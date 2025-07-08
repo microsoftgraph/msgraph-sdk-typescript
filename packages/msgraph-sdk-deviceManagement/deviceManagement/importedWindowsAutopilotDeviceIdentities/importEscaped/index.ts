@@ -28,6 +28,7 @@ export function createImportPostResponseFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param ImportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -39,6 +40,7 @@ export function deserializeIntoImportPostRequestBody(importPostRequestBody: Part
 }
 /**
  * The deserialization information for the current model
+ * @param ImportPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -49,10 +51,6 @@ export function deserializeIntoImportPostResponse(importPostResponse: Partial<Im
     }
 }
 export interface ImportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -91,25 +89,27 @@ export interface ImportRequestBuilder extends BaseRequestBuilder<ImportRequestBu
 }
 /**
  * Serializes information the current object
+ * @param ImportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImportPostRequestBody(writer: SerializationWriter, importPostRequestBody: Partial<ImportPostRequestBody> | undefined | null = {}) : void {
-    if (importPostRequestBody) {
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", importPostRequestBody.importedWindowsAutopilotDeviceIdentities, serializeImportedWindowsAutopilotDeviceIdentity);
-        writer.writeAdditionalData(importPostRequestBody.additionalData);
-    }
+export function serializeImportPostRequestBody(writer: SerializationWriter, importPostRequestBody: Partial<ImportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!importPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", importPostRequestBody.importedWindowsAutopilotDeviceIdentities, serializeImportedWindowsAutopilotDeviceIdentity);
+    writer.writeAdditionalData(importPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param ImportPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImportPostResponse(writer: SerializationWriter, importPostResponse: Partial<ImportPostResponse> | undefined | null = {}) : void {
-    if (importPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, importPostResponse)
-        writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importPostResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
-    }
+export function serializeImportPostResponse(writer: SerializationWriter, importPostResponse: Partial<ImportPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!importPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, importPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importPostResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
 }
 /**
  * Uri template for the request builder.

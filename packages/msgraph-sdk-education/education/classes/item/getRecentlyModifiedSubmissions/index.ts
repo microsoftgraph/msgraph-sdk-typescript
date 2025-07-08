@@ -19,6 +19,7 @@ export function createGetRecentlyModifiedSubmissionsGetResponseFromDiscriminator
 }
 /**
  * The deserialization information for the current model
+ * @param GetRecentlyModifiedSubmissionsGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface GetRecentlyModifiedSubmissionsRequestBuilderGetQueryParameters 
 }
 /**
  * Serializes information the current object
+ * @param GetRecentlyModifiedSubmissionsGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetRecentlyModifiedSubmissionsGetResponse(writer: SerializationWriter, getRecentlyModifiedSubmissionsGetResponse: Partial<GetRecentlyModifiedSubmissionsGetResponse> | undefined | null = {}) : void {
-    if (getRecentlyModifiedSubmissionsGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getRecentlyModifiedSubmissionsGetResponse)
-        writer.writeCollectionOfObjectValues<EducationSubmission>("value", getRecentlyModifiedSubmissionsGetResponse.value, serializeEducationSubmission);
-    }
+export function serializeGetRecentlyModifiedSubmissionsGetResponse(writer: SerializationWriter, getRecentlyModifiedSubmissionsGetResponse: Partial<GetRecentlyModifiedSubmissionsGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getRecentlyModifiedSubmissionsGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getRecentlyModifiedSubmissionsGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<EducationSubmission>("value", getRecentlyModifiedSubmissionsGetResponse.value, serializeEducationSubmission);
 }
 /**
  * Uri template for the request builder.

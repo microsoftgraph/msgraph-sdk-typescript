@@ -14,6 +14,8 @@ import { AttackSimulationRequestBuilderNavigationMetadata, AttackSimulationReque
 // @ts-ignore
 import { CasesRequestBuilderNavigationMetadata, CasesRequestBuilderRequestsMetadata, type CasesRequestBuilder } from './cases/index.js';
 // @ts-ignore
+import { DataSecurityAndGovernanceRequestBuilderNavigationMetadata, DataSecurityAndGovernanceRequestBuilderRequestsMetadata, type DataSecurityAndGovernanceRequestBuilder } from './dataSecurityAndGovernance/index.js';
+// @ts-ignore
 import { IdentitiesRequestBuilderNavigationMetadata, IdentitiesRequestBuilderRequestsMetadata, type IdentitiesRequestBuilder } from './identities/index.js';
 // @ts-ignore
 import { IncidentsRequestBuilderNavigationMetadata, IncidentsRequestBuilderRequestsMetadata, type IncidentsRequestBuilder } from './incidents/index.js';
@@ -56,6 +58,10 @@ export interface SecurityRequestBuilder extends BaseRequestBuilder<SecurityReque
      * Provides operations to manage the cases property of the microsoft.graph.security entity.
      */
     get cases(): CasesRequestBuilder;
+    /**
+     * Provides operations to manage the dataSecurityAndGovernance property of the microsoft.graph.security entity.
+     */
+    get dataSecurityAndGovernance(): DataSecurityAndGovernanceRequestBuilder;
     /**
      * Provides operations to manage the identities property of the microsoft.graph.security entity.
      */
@@ -168,6 +174,10 @@ export const SecurityRequestBuilderNavigationMetadata: Record<Exclude<keyof Secu
     cases: {
         requestsMetadata: CasesRequestBuilderRequestsMetadata,
         navigationMetadata: CasesRequestBuilderNavigationMetadata,
+    },
+    dataSecurityAndGovernance: {
+        requestsMetadata: DataSecurityAndGovernanceRequestBuilderRequestsMetadata,
+        navigationMetadata: DataSecurityAndGovernanceRequestBuilderNavigationMetadata,
     },
     identities: {
         requestsMetadata: IdentitiesRequestBuilderRequestsMetadata,

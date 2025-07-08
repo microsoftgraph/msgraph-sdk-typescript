@@ -19,6 +19,7 @@ export function createNominalPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param NominalPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoNominalPostRequestBody(nominalPostRequestBody: Pa
     }
 }
 export interface NominalPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface NominalRequestBuilder extends BaseRequestBuilder<NominalRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param NominalPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeNominalPostRequestBody(writer: SerializationWriter, nominalPostRequestBody: Partial<NominalPostRequestBody> | undefined | null = {}) : void {
-    if (nominalPostRequestBody) {
-        writer.writeObjectValue("effectRate", nominalPostRequestBody.effectRate);
-        writer.writeObjectValue("npery", nominalPostRequestBody.npery);
-        writer.writeAdditionalData(nominalPostRequestBody.additionalData);
-    }
+export function serializeNominalPostRequestBody(writer: SerializationWriter, nominalPostRequestBody: Partial<NominalPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!nominalPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("effectRate", nominalPostRequestBody.effectRate);
+    writer.writeObjectValue("npery", nominalPostRequestBody.npery);
+    writer.writeAdditionalData(nominalPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

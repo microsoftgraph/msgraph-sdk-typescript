@@ -19,6 +19,7 @@ export function createFilterByCurrentUserWithOnGetResponseFromDiscriminatorValue
 }
 /**
  * The deserialization information for the current model
+ * @param FilterByCurrentUserWithOnGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param FilterByCurrentUserWithOnGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: Partial<FilterByCurrentUserWithOnGetResponse> | undefined | null = {}) : void {
-    if (filterByCurrentUserWithOnGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse)
-        writer.writeCollectionOfObjectValues<Approval>("value", filterByCurrentUserWithOnGetResponse.value, serializeApproval);
-    }
+export function serializeFilterByCurrentUserWithOnGetResponse(writer: SerializationWriter, filterByCurrentUserWithOnGetResponse: Partial<FilterByCurrentUserWithOnGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!filterByCurrentUserWithOnGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Approval>("value", filterByCurrentUserWithOnGetResponse.value, serializeApproval);
 }
 /**
  * Uri template for the request builder.

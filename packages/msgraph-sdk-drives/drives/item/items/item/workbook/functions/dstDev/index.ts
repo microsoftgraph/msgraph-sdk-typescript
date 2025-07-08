@@ -19,6 +19,7 @@ export function createDstDevPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param DstDevPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoDstDevPostRequestBody(dstDevPostRequestBody: Part
     }
 }
 export interface DstDevPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface DstDevRequestBuilder extends BaseRequestBuilder<DstDevRequestBu
 }
 /**
  * Serializes information the current object
+ * @param DstDevPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDstDevPostRequestBody(writer: SerializationWriter, dstDevPostRequestBody: Partial<DstDevPostRequestBody> | undefined | null = {}) : void {
-    if (dstDevPostRequestBody) {
-        writer.writeObjectValue("criteria", dstDevPostRequestBody.criteria);
-        writer.writeObjectValue("database", dstDevPostRequestBody.database);
-        writer.writeObjectValue("field", dstDevPostRequestBody.field);
-        writer.writeAdditionalData(dstDevPostRequestBody.additionalData);
-    }
+export function serializeDstDevPostRequestBody(writer: SerializationWriter, dstDevPostRequestBody: Partial<DstDevPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dstDevPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("criteria", dstDevPostRequestBody.criteria);
+    writer.writeObjectValue("database", dstDevPostRequestBody.database);
+    writer.writeObjectValue("field", dstDevPostRequestBody.field);
+    writer.writeAdditionalData(dstDevPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

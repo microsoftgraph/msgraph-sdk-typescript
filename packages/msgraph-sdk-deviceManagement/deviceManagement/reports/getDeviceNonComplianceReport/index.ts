@@ -17,6 +17,7 @@ export function createGetDeviceNonComplianceReportPostRequestBodyFromDiscriminat
 }
 /**
  * The deserialization information for the current model
+ * @param GetDeviceNonComplianceReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetDeviceNonComplianceReportPostRequestBody(getDe
     }
 }
 export interface GetDeviceNonComplianceReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetDeviceNonComplianceReportRequestBuilder extends BaseRequestB
 }
 /**
  * Serializes information the current object
+ * @param GetDeviceNonComplianceReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetDeviceNonComplianceReportPostRequestBody(writer: SerializationWriter, getDeviceNonComplianceReportPostRequestBody: Partial<GetDeviceNonComplianceReportPostRequestBody> | undefined | null = {}) : void {
-    if (getDeviceNonComplianceReportPostRequestBody) {
-        writer.writeStringValue("filter", getDeviceNonComplianceReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceNonComplianceReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getDeviceNonComplianceReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDeviceNonComplianceReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getDeviceNonComplianceReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getDeviceNonComplianceReportPostRequestBody.select);
-        writer.writeStringValue("sessionId", getDeviceNonComplianceReportPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getDeviceNonComplianceReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getDeviceNonComplianceReportPostRequestBody.top);
-        writer.writeAdditionalData(getDeviceNonComplianceReportPostRequestBody.additionalData);
-    }
+export function serializeGetDeviceNonComplianceReportPostRequestBody(writer: SerializationWriter, getDeviceNonComplianceReportPostRequestBody: Partial<GetDeviceNonComplianceReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getDeviceNonComplianceReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getDeviceNonComplianceReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceNonComplianceReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getDeviceNonComplianceReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDeviceNonComplianceReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getDeviceNonComplianceReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getDeviceNonComplianceReportPostRequestBody.select);
+    writer.writeStringValue("sessionId", getDeviceNonComplianceReportPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getDeviceNonComplianceReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getDeviceNonComplianceReportPostRequestBody.top);
+    writer.writeAdditionalData(getDeviceNonComplianceReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

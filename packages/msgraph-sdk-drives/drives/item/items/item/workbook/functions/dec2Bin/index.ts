@@ -19,10 +19,6 @@ export function createDec2BinPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 export interface Dec2BinPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export interface Dec2BinRequestBuilder extends BaseRequestBuilder<Dec2BinRequest
 }
 /**
  * The deserialization information for the current model
+ * @param Dec2BinPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoDec2BinPostRequestBody(dec2BinPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param Dec2BinPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDec2BinPostRequestBody(writer: SerializationWriter, dec2BinPostRequestBody: Partial<Dec2BinPostRequestBody> | undefined | null = {}) : void {
-    if (dec2BinPostRequestBody) {
-        writer.writeObjectValue("number", dec2BinPostRequestBody.number);
-        writer.writeObjectValue("places", dec2BinPostRequestBody.places);
-        writer.writeAdditionalData(dec2BinPostRequestBody.additionalData);
-    }
+export function serializeDec2BinPostRequestBody(writer: SerializationWriter, dec2BinPostRequestBody: Partial<Dec2BinPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dec2BinPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", dec2BinPostRequestBody.number);
+    writer.writeObjectValue("places", dec2BinPostRequestBody.places);
+    writer.writeAdditionalData(dec2BinPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

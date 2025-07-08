@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface Bin2DecPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export function createBin2DecPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param Bin2DecPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoBin2DecPostRequestBody(bin2DecPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param Bin2DecPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBin2DecPostRequestBody(writer: SerializationWriter, bin2DecPostRequestBody: Partial<Bin2DecPostRequestBody> | undefined | null = {}) : void {
-    if (bin2DecPostRequestBody) {
-        writer.writeObjectValue("number", bin2DecPostRequestBody.number);
-        writer.writeAdditionalData(bin2DecPostRequestBody.additionalData);
-    }
+export function serializeBin2DecPostRequestBody(writer: SerializationWriter, bin2DecPostRequestBody: Partial<Bin2DecPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!bin2DecPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", bin2DecPostRequestBody.number);
+    writer.writeAdditionalData(bin2DecPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

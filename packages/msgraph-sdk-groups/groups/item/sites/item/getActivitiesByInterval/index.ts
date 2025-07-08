@@ -19,6 +19,7 @@ export function createGetActivitiesByIntervalGetResponseFromDiscriminatorValue(p
 }
 /**
  * The deserialization information for the current model
+ * @param GetActivitiesByIntervalGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -91,14 +92,15 @@ export interface GetActivitiesByIntervalRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param GetActivitiesByIntervalGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetActivitiesByIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalGetResponse: Partial<GetActivitiesByIntervalGetResponse> | undefined | null = {}) : void {
-    if (getActivitiesByIntervalGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalGetResponse)
-        writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalGetResponse.value, serializeItemActivityStat);
-    }
+export function serializeGetActivitiesByIntervalGetResponse(writer: SerializationWriter, getActivitiesByIntervalGetResponse: Partial<GetActivitiesByIntervalGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getActivitiesByIntervalGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalGetResponse.value, serializeItemActivityStat);
 }
 /**
  * Uri template for the request builder.

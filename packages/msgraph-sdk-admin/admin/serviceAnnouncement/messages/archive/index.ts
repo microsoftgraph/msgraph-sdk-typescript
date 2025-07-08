@@ -8,10 +8,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface ArchivePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -21,10 +17,6 @@ export interface ArchivePostRequestBody extends AdditionalDataHolder, BackedMode
     messageIds?: string[] | null;
 }
 export interface ArchivePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -75,6 +67,7 @@ export function createArchivePostResponseFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param ArchivePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -86,6 +79,7 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param ArchivePostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -97,25 +91,27 @@ export function deserializeIntoArchivePostResponse(archivePostResponse: Partial<
 }
 /**
  * Serializes information the current object
+ * @param ArchivePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined | null = {}) : void {
-    if (archivePostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("messageIds", archivePostRequestBody.messageIds);
-        writer.writeAdditionalData(archivePostRequestBody.additionalData);
-    }
+export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!archivePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("messageIds", archivePostRequestBody.messageIds);
+    writer.writeAdditionalData(archivePostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param ArchivePostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeArchivePostResponse(writer: SerializationWriter, archivePostResponse: Partial<ArchivePostResponse> | undefined | null = {}) : void {
-    if (archivePostResponse) {
-        writer.writeBooleanValue("value", archivePostResponse.value);
-        writer.writeAdditionalData(archivePostResponse.additionalData);
-    }
+export function serializeArchivePostResponse(writer: SerializationWriter, archivePostResponse: Partial<ArchivePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!archivePostResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", archivePostResponse.value);
+    writer.writeAdditionalData(archivePostResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

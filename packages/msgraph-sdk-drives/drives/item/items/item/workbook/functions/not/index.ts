@@ -19,6 +19,7 @@ export function createNotPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param NotPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoNotPostRequestBody(notPostRequestBody: Partial<No
     }
 }
 export interface NotPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface NotRequestBuilder extends BaseRequestBuilder<NotRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param NotPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeNotPostRequestBody(writer: SerializationWriter, notPostRequestBody: Partial<NotPostRequestBody> | undefined | null = {}) : void {
-    if (notPostRequestBody) {
-        writer.writeObjectValue("logical", notPostRequestBody.logical);
-        writer.writeAdditionalData(notPostRequestBody.additionalData);
-    }
+export function serializeNotPostRequestBody(writer: SerializationWriter, notPostRequestBody: Partial<NotPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!notPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("logical", notPostRequestBody.logical);
+    writer.writeAdditionalData(notPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

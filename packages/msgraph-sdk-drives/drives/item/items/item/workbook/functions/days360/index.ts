@@ -19,10 +19,6 @@ export function createDays360PostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 export interface Days360PostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,6 +57,7 @@ export interface Days360RequestBuilder extends BaseRequestBuilder<Days360Request
 }
 /**
  * The deserialization information for the current model
+ * @param Days360PostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param Days360PostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDays360PostRequestBody(writer: SerializationWriter, days360PostRequestBody: Partial<Days360PostRequestBody> | undefined | null = {}) : void {
-    if (days360PostRequestBody) {
-        writer.writeObjectValue("endDate", days360PostRequestBody.endDate);
-        writer.writeObjectValue("method", days360PostRequestBody.method);
-        writer.writeObjectValue("startDate", days360PostRequestBody.startDate);
-        writer.writeAdditionalData(days360PostRequestBody.additionalData);
-    }
+export function serializeDays360PostRequestBody(writer: SerializationWriter, days360PostRequestBody: Partial<Days360PostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!days360PostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("endDate", days360PostRequestBody.endDate);
+    writer.writeObjectValue("method", days360PostRequestBody.method);
+    writer.writeObjectValue("startDate", days360PostRequestBody.startDate);
+    writer.writeAdditionalData(days360PostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

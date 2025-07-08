@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface Bin2HexPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createBin2HexPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param Bin2HexPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoBin2HexPostRequestBody(bin2HexPostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param Bin2HexPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBin2HexPostRequestBody(writer: SerializationWriter, bin2HexPostRequestBody: Partial<Bin2HexPostRequestBody> | undefined | null = {}) : void {
-    if (bin2HexPostRequestBody) {
-        writer.writeObjectValue("number", bin2HexPostRequestBody.number);
-        writer.writeObjectValue("places", bin2HexPostRequestBody.places);
-        writer.writeAdditionalData(bin2HexPostRequestBody.additionalData);
-    }
+export function serializeBin2HexPostRequestBody(writer: SerializationWriter, bin2HexPostRequestBody: Partial<Bin2HexPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!bin2HexPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", bin2HexPostRequestBody.number);
+    writer.writeObjectValue("places", bin2HexPostRequestBody.places);
+    writer.writeAdditionalData(bin2HexPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

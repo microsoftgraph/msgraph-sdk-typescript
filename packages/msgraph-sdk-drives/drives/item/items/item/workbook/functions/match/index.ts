@@ -19,6 +19,7 @@ export function createMatchPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param MatchPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoMatchPostRequestBody(matchPostRequestBody: Partia
     }
 }
 export interface MatchPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface MatchRequestBuilder extends BaseRequestBuilder<MatchRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MatchPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMatchPostRequestBody(writer: SerializationWriter, matchPostRequestBody: Partial<MatchPostRequestBody> | undefined | null = {}) : void {
-    if (matchPostRequestBody) {
-        writer.writeObjectValue("lookupArray", matchPostRequestBody.lookupArray);
-        writer.writeObjectValue("lookupValue", matchPostRequestBody.lookupValue);
-        writer.writeObjectValue("matchType", matchPostRequestBody.matchType);
-        writer.writeAdditionalData(matchPostRequestBody.additionalData);
-    }
+export function serializeMatchPostRequestBody(writer: SerializationWriter, matchPostRequestBody: Partial<MatchPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!matchPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("lookupArray", matchPostRequestBody.lookupArray);
+    writer.writeObjectValue("lookupValue", matchPostRequestBody.lookupValue);
+    writer.writeObjectValue("matchType", matchPostRequestBody.matchType);
+    writer.writeAdditionalData(matchPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

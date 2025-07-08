@@ -19,6 +19,7 @@ export function createIsrefPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param IsrefPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoIsrefPostRequestBody(isrefPostRequestBody: Partia
     }
 }
 export interface IsrefPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface IsrefRequestBuilder extends BaseRequestBuilder<IsrefRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param IsrefPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIsrefPostRequestBody(writer: SerializationWriter, isrefPostRequestBody: Partial<IsrefPostRequestBody> | undefined | null = {}) : void {
-    if (isrefPostRequestBody) {
-        writer.writeObjectValue("value", isrefPostRequestBody.value);
-        writer.writeAdditionalData(isrefPostRequestBody.additionalData);
-    }
+export function serializeIsrefPostRequestBody(writer: SerializationWriter, isrefPostRequestBody: Partial<IsrefPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!isrefPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("value", isrefPostRequestBody.value);
+    writer.writeAdditionalData(isrefPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,10 +19,6 @@ export function createDbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNo
 }
 export interface DbPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -69,6 +65,7 @@ export interface DbRequestBuilder extends BaseRequestBuilder<DbRequestBuilder> {
 }
 /**
  * The deserialization information for the current model
+ * @param DbPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -84,18 +81,19 @@ export function deserializeIntoDbPostRequestBody(dbPostRequestBody: Partial<DbPo
 }
 /**
  * Serializes information the current object
+ * @param DbPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDbPostRequestBody(writer: SerializationWriter, dbPostRequestBody: Partial<DbPostRequestBody> | undefined | null = {}) : void {
-    if (dbPostRequestBody) {
-        writer.writeObjectValue("cost", dbPostRequestBody.cost);
-        writer.writeObjectValue("life", dbPostRequestBody.life);
-        writer.writeObjectValue("month", dbPostRequestBody.month);
-        writer.writeObjectValue("period", dbPostRequestBody.period);
-        writer.writeObjectValue("salvage", dbPostRequestBody.salvage);
-        writer.writeAdditionalData(dbPostRequestBody.additionalData);
-    }
+export function serializeDbPostRequestBody(writer: SerializationWriter, dbPostRequestBody: Partial<DbPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dbPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("cost", dbPostRequestBody.cost);
+    writer.writeObjectValue("life", dbPostRequestBody.life);
+    writer.writeObjectValue("month", dbPostRequestBody.month);
+    writer.writeObjectValue("period", dbPostRequestBody.period);
+    writer.writeObjectValue("salvage", dbPostRequestBody.salvage);
+    writer.writeAdditionalData(dbPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface CopyToSectionPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -66,6 +62,7 @@ export function createCopyToSectionPostRequestBodyFromDiscriminatorValue(parseNo
 }
 /**
  * The deserialization information for the current model
+ * @param CopyToSectionPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,17 +77,18 @@ export function deserializeIntoCopyToSectionPostRequestBody(copyToSectionPostReq
 }
 /**
  * Serializes information the current object
+ * @param CopyToSectionPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCopyToSectionPostRequestBody(writer: SerializationWriter, copyToSectionPostRequestBody: Partial<CopyToSectionPostRequestBody> | undefined | null = {}) : void {
-    if (copyToSectionPostRequestBody) {
-        writer.writeStringValue("groupId", copyToSectionPostRequestBody.groupId);
-        writer.writeStringValue("id", copyToSectionPostRequestBody.id);
-        writer.writeStringValue("siteCollectionId", copyToSectionPostRequestBody.siteCollectionId);
-        writer.writeStringValue("siteId", copyToSectionPostRequestBody.siteId);
-        writer.writeAdditionalData(copyToSectionPostRequestBody.additionalData);
-    }
+export function serializeCopyToSectionPostRequestBody(writer: SerializationWriter, copyToSectionPostRequestBody: Partial<CopyToSectionPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copyToSectionPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("groupId", copyToSectionPostRequestBody.groupId);
+    writer.writeStringValue("id", copyToSectionPostRequestBody.id);
+    writer.writeStringValue("siteCollectionId", copyToSectionPostRequestBody.siteCollectionId);
+    writer.writeStringValue("siteId", copyToSectionPostRequestBody.siteId);
+    writer.writeAdditionalData(copyToSectionPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

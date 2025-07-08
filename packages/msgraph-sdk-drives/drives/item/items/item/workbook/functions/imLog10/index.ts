@@ -19,6 +19,7 @@ export function createImLog10PostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param ImLog10PostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoImLog10PostRequestBody(imLog10PostRequestBody: Pa
     }
 }
 export interface ImLog10PostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ImLog10RequestBuilder extends BaseRequestBuilder<ImLog10Request
 }
 /**
  * Serializes information the current object
+ * @param ImLog10PostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImLog10PostRequestBody(writer: SerializationWriter, imLog10PostRequestBody: Partial<ImLog10PostRequestBody> | undefined | null = {}) : void {
-    if (imLog10PostRequestBody) {
-        writer.writeObjectValue("inumber", imLog10PostRequestBody.inumber);
-        writer.writeAdditionalData(imLog10PostRequestBody.additionalData);
-    }
+export function serializeImLog10PostRequestBody(writer: SerializationWriter, imLog10PostRequestBody: Partial<ImLog10PostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imLog10PostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("inumber", imLog10PostRequestBody.inumber);
+    writer.writeAdditionalData(imLog10PostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

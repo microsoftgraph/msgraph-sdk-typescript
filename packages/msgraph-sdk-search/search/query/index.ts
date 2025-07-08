@@ -28,6 +28,7 @@ export function createQueryPostResponseFromDiscriminatorValue(parseNode: ParseNo
 }
 /**
  * The deserialization information for the current model
+ * @param QueryPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -39,6 +40,7 @@ export function deserializeIntoQueryPostRequestBody(queryPostRequestBody: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param QueryPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -49,10 +51,6 @@ export function deserializeIntoQueryPostResponse(queryPostResponse: Partial<Quer
     }
 }
 export interface QueryPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -91,25 +89,27 @@ export interface QueryRequestBuilder extends BaseRequestBuilder<QueryRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param QueryPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeQueryPostRequestBody(writer: SerializationWriter, queryPostRequestBody: Partial<QueryPostRequestBody> | undefined | null = {}) : void {
-    if (queryPostRequestBody) {
-        writer.writeCollectionOfObjectValues<SearchRequest>("requests", queryPostRequestBody.requests, serializeSearchRequest);
-        writer.writeAdditionalData(queryPostRequestBody.additionalData);
-    }
+export function serializeQueryPostRequestBody(writer: SerializationWriter, queryPostRequestBody: Partial<QueryPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!queryPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<SearchRequest>("requests", queryPostRequestBody.requests, serializeSearchRequest);
+    writer.writeAdditionalData(queryPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param QueryPostResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeQueryPostResponse(writer: SerializationWriter, queryPostResponse: Partial<QueryPostResponse> | undefined | null = {}) : void {
-    if (queryPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, queryPostResponse)
-        writer.writeCollectionOfObjectValues<SearchResponse>("value", queryPostResponse.value, serializeSearchResponse);
-    }
+export function serializeQueryPostResponse(writer: SerializationWriter, queryPostResponse: Partial<QueryPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!queryPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, queryPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<SearchResponse>("value", queryPostResponse.value, serializeSearchResponse);
 }
 /**
  * Uri template for the request builder.

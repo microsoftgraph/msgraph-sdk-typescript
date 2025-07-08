@@ -17,6 +17,7 @@ export function createIsPublishedGetResponseFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param IsPublishedGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoIsPublishedGetResponse(isPublishedGetResponse: Pa
     }
 }
 export interface IsPublishedGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -61,14 +58,15 @@ export interface IsPublishedRequestBuilder extends BaseRequestBuilder<IsPublishe
 }
 /**
  * Serializes information the current object
+ * @param IsPublishedGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIsPublishedGetResponse(writer: SerializationWriter, isPublishedGetResponse: Partial<IsPublishedGetResponse> | undefined | null = {}) : void {
-    if (isPublishedGetResponse) {
-        writer.writeBooleanValue("value", isPublishedGetResponse.value);
-        writer.writeAdditionalData(isPublishedGetResponse.additionalData);
-    }
+export function serializeIsPublishedGetResponse(writer: SerializationWriter, isPublishedGetResponse: Partial<IsPublishedGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!isPublishedGetResponse || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("value", isPublishedGetResponse.value);
+    writer.writeAdditionalData(isPublishedGetResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

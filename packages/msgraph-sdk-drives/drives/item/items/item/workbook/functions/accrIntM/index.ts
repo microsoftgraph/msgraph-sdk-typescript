@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface AccrIntMPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -69,6 +65,7 @@ export function createAccrIntMPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param AccrIntMPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -84,18 +81,19 @@ export function deserializeIntoAccrIntMPostRequestBody(accrIntMPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param AccrIntMPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAccrIntMPostRequestBody(writer: SerializationWriter, accrIntMPostRequestBody: Partial<AccrIntMPostRequestBody> | undefined | null = {}) : void {
-    if (accrIntMPostRequestBody) {
-        writer.writeObjectValue("basis", accrIntMPostRequestBody.basis);
-        writer.writeObjectValue("issue", accrIntMPostRequestBody.issue);
-        writer.writeObjectValue("par", accrIntMPostRequestBody.par);
-        writer.writeObjectValue("rate", accrIntMPostRequestBody.rate);
-        writer.writeObjectValue("settlement", accrIntMPostRequestBody.settlement);
-        writer.writeAdditionalData(accrIntMPostRequestBody.additionalData);
-    }
+export function serializeAccrIntMPostRequestBody(writer: SerializationWriter, accrIntMPostRequestBody: Partial<AccrIntMPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!accrIntMPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", accrIntMPostRequestBody.basis);
+    writer.writeObjectValue("issue", accrIntMPostRequestBody.issue);
+    writer.writeObjectValue("par", accrIntMPostRequestBody.par);
+    writer.writeObjectValue("rate", accrIntMPostRequestBody.rate);
+    writer.writeObjectValue("settlement", accrIntMPostRequestBody.settlement);
+    writer.writeAdditionalData(accrIntMPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

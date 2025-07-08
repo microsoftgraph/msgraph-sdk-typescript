@@ -19,6 +19,7 @@ export function createUpdateWindowsDeviceAccountPostRequestBodyFromDiscriminator
 }
 /**
  * The deserialization information for the current model
+ * @param UpdateWindowsDeviceAccountPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoUpdateWindowsDeviceAccountPostRequestBody(updateW
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UpdateWindowsDeviceAccountPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUpdateWindowsDeviceAccountPostRequestBody(writer: SerializationWriter, updateWindowsDeviceAccountPostRequestBody: Partial<UpdateWindowsDeviceAccountPostRequestBody> | undefined | null = {}) : void {
-    if (updateWindowsDeviceAccountPostRequestBody) {
-        writer.writeObjectValue<UpdateWindowsDeviceAccountActionParameter>("updateWindowsDeviceAccountActionParameter", updateWindowsDeviceAccountPostRequestBody.updateWindowsDeviceAccountActionParameter, serializeUpdateWindowsDeviceAccountActionParameter);
-        writer.writeAdditionalData(updateWindowsDeviceAccountPostRequestBody.additionalData);
-    }
+export function serializeUpdateWindowsDeviceAccountPostRequestBody(writer: SerializationWriter, updateWindowsDeviceAccountPostRequestBody: Partial<UpdateWindowsDeviceAccountPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!updateWindowsDeviceAccountPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<UpdateWindowsDeviceAccountActionParameter>("updateWindowsDeviceAccountActionParameter", updateWindowsDeviceAccountPostRequestBody.updateWindowsDeviceAccountActionParameter, serializeUpdateWindowsDeviceAccountActionParameter);
+    writer.writeAdditionalData(updateWindowsDeviceAccountPostRequestBody.additionalData);
 }
 export interface UpdateWindowsDeviceAccountPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

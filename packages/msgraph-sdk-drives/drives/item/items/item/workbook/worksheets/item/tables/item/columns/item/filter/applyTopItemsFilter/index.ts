@@ -8,10 +8,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface ApplyTopItemsFilterPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -50,6 +46,7 @@ export function createApplyTopItemsFilterPostRequestBodyFromDiscriminatorValue(p
 }
 /**
  * The deserialization information for the current model
+ * @param ApplyTopItemsFilterPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -61,14 +58,15 @@ export function deserializeIntoApplyTopItemsFilterPostRequestBody(applyTopItemsF
 }
 /**
  * Serializes information the current object
+ * @param ApplyTopItemsFilterPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeApplyTopItemsFilterPostRequestBody(writer: SerializationWriter, applyTopItemsFilterPostRequestBody: Partial<ApplyTopItemsFilterPostRequestBody> | undefined | null = {}) : void {
-    if (applyTopItemsFilterPostRequestBody) {
-        writer.writeNumberValue("count", applyTopItemsFilterPostRequestBody.count);
-        writer.writeAdditionalData(applyTopItemsFilterPostRequestBody.additionalData);
-    }
+export function serializeApplyTopItemsFilterPostRequestBody(writer: SerializationWriter, applyTopItemsFilterPostRequestBody: Partial<ApplyTopItemsFilterPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!applyTopItemsFilterPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("count", applyTopItemsFilterPostRequestBody.count);
+    writer.writeAdditionalData(applyTopItemsFilterPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

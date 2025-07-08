@@ -19,6 +19,7 @@ export function createGeoMeanPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param GeoMeanPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoGeoMeanPostRequestBody(geoMeanPostRequestBody: Pa
     }
 }
 export interface GeoMeanPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface GeoMeanRequestBuilder extends BaseRequestBuilder<GeoMeanRequest
 }
 /**
  * Serializes information the current object
+ * @param GeoMeanPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGeoMeanPostRequestBody(writer: SerializationWriter, geoMeanPostRequestBody: Partial<GeoMeanPostRequestBody> | undefined | null = {}) : void {
-    if (geoMeanPostRequestBody) {
-        writer.writeObjectValue("values", geoMeanPostRequestBody.values);
-        writer.writeAdditionalData(geoMeanPostRequestBody.additionalData);
-    }
+export function serializeGeoMeanPostRequestBody(writer: SerializationWriter, geoMeanPostRequestBody: Partial<GeoMeanPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!geoMeanPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", geoMeanPostRequestBody.values);
+    writer.writeAdditionalData(geoMeanPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

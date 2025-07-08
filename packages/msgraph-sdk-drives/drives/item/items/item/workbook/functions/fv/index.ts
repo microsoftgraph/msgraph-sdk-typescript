@@ -19,6 +19,7 @@ export function createFvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNo
 }
 /**
  * The deserialization information for the current model
+ * @param FvPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,10 +34,6 @@ export function deserializeIntoFvPostRequestBody(fvPostRequestBody: Partial<FvPo
     }
 }
 export interface FvPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -84,18 +81,19 @@ export interface FvRequestBuilder extends BaseRequestBuilder<FvRequestBuilder> {
 }
 /**
  * Serializes information the current object
+ * @param FvPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFvPostRequestBody(writer: SerializationWriter, fvPostRequestBody: Partial<FvPostRequestBody> | undefined | null = {}) : void {
-    if (fvPostRequestBody) {
-        writer.writeObjectValue("nper", fvPostRequestBody.nper);
-        writer.writeObjectValue("pmt", fvPostRequestBody.pmt);
-        writer.writeObjectValue("pv", fvPostRequestBody.pv);
-        writer.writeObjectValue("rate", fvPostRequestBody.rate);
-        writer.writeObjectValue("type", fvPostRequestBody.type);
-        writer.writeAdditionalData(fvPostRequestBody.additionalData);
-    }
+export function serializeFvPostRequestBody(writer: SerializationWriter, fvPostRequestBody: Partial<FvPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!fvPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("nper", fvPostRequestBody.nper);
+    writer.writeObjectValue("pmt", fvPostRequestBody.pmt);
+    writer.writeObjectValue("pv", fvPostRequestBody.pv);
+    writer.writeObjectValue("rate", fvPostRequestBody.rate);
+    writer.writeObjectValue("type", fvPostRequestBody.type);
+    writer.writeAdditionalData(fvPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

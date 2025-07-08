@@ -19,6 +19,7 @@ export function createPriceMatPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param PriceMatPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -34,10 +35,6 @@ export function deserializeIntoPriceMatPostRequestBody(priceMatPostRequestBody: 
     }
 }
 export interface PriceMatPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -89,19 +86,20 @@ export interface PriceMatRequestBuilder extends BaseRequestBuilder<PriceMatReque
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PriceMatPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePriceMatPostRequestBody(writer: SerializationWriter, priceMatPostRequestBody: Partial<PriceMatPostRequestBody> | undefined | null = {}) : void {
-    if (priceMatPostRequestBody) {
-        writer.writeObjectValue("basis", priceMatPostRequestBody.basis);
-        writer.writeObjectValue("issue", priceMatPostRequestBody.issue);
-        writer.writeObjectValue("maturity", priceMatPostRequestBody.maturity);
-        writer.writeObjectValue("rate", priceMatPostRequestBody.rate);
-        writer.writeObjectValue("settlement", priceMatPostRequestBody.settlement);
-        writer.writeObjectValue("yld", priceMatPostRequestBody.yld);
-        writer.writeAdditionalData(priceMatPostRequestBody.additionalData);
-    }
+export function serializePriceMatPostRequestBody(writer: SerializationWriter, priceMatPostRequestBody: Partial<PriceMatPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!priceMatPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", priceMatPostRequestBody.basis);
+    writer.writeObjectValue("issue", priceMatPostRequestBody.issue);
+    writer.writeObjectValue("maturity", priceMatPostRequestBody.maturity);
+    writer.writeObjectValue("rate", priceMatPostRequestBody.rate);
+    writer.writeObjectValue("settlement", priceMatPostRequestBody.settlement);
+    writer.writeObjectValue("yld", priceMatPostRequestBody.yld);
+    writer.writeAdditionalData(priceMatPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

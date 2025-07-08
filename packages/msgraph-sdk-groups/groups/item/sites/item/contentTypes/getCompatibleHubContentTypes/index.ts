@@ -19,6 +19,7 @@ export function createGetCompatibleHubContentTypesGetResponseFromDiscriminatorVa
 }
 /**
  * The deserialization information for the current model
+ * @param GetCompatibleHubContentTypesGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface GetCompatibleHubContentTypesRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param GetCompatibleHubContentTypesGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetCompatibleHubContentTypesGetResponse(writer: SerializationWriter, getCompatibleHubContentTypesGetResponse: Partial<GetCompatibleHubContentTypesGetResponse> | undefined | null = {}) : void {
-    if (getCompatibleHubContentTypesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getCompatibleHubContentTypesGetResponse)
-        writer.writeCollectionOfObjectValues<ContentType>("value", getCompatibleHubContentTypesGetResponse.value, serializeContentType);
-    }
+export function serializeGetCompatibleHubContentTypesGetResponse(writer: SerializationWriter, getCompatibleHubContentTypesGetResponse: Partial<GetCompatibleHubContentTypesGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getCompatibleHubContentTypesGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getCompatibleHubContentTypesGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ContentType>("value", getCompatibleHubContentTypesGetResponse.value, serializeContentType);
 }
 /**
  * Uri template for the request builder.

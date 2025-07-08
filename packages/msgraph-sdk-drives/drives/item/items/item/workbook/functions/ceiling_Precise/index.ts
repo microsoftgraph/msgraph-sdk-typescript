@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface Ceiling_PrecisePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createCeiling_PrecisePostRequestBodyFromDiscriminatorValue(parse
 }
 /**
  * The deserialization information for the current model
+ * @param Ceiling_PrecisePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoCeiling_PrecisePostRequestBody(ceiling_PrecisePos
 }
 /**
  * Serializes information the current object
+ * @param Ceiling_PrecisePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCeiling_PrecisePostRequestBody(writer: SerializationWriter, ceiling_PrecisePostRequestBody: Partial<Ceiling_PrecisePostRequestBody> | undefined | null = {}) : void {
-    if (ceiling_PrecisePostRequestBody) {
-        writer.writeObjectValue("number", ceiling_PrecisePostRequestBody.number);
-        writer.writeObjectValue("significance", ceiling_PrecisePostRequestBody.significance);
-        writer.writeAdditionalData(ceiling_PrecisePostRequestBody.additionalData);
-    }
+export function serializeCeiling_PrecisePostRequestBody(writer: SerializationWriter, ceiling_PrecisePostRequestBody: Partial<Ceiling_PrecisePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!ceiling_PrecisePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", ceiling_PrecisePostRequestBody.number);
+    writer.writeObjectValue("significance", ceiling_PrecisePostRequestBody.significance);
+    writer.writeAdditionalData(ceiling_PrecisePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

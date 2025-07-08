@@ -19,6 +19,7 @@ export function createNetworkDays_IntlPostRequestBodyFromDiscriminatorValue(pars
 }
 /**
  * The deserialization information for the current model
+ * @param NetworkDays_IntlPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,10 +33,6 @@ export function deserializeIntoNetworkDays_IntlPostRequestBody(networkDays_IntlP
     }
 }
 export interface NetworkDays_IntlPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -79,17 +76,18 @@ export interface NetworkDays_IntlRequestBuilder extends BaseRequestBuilder<Netwo
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param NetworkDays_IntlPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeNetworkDays_IntlPostRequestBody(writer: SerializationWriter, networkDays_IntlPostRequestBody: Partial<NetworkDays_IntlPostRequestBody> | undefined | null = {}) : void {
-    if (networkDays_IntlPostRequestBody) {
-        writer.writeObjectValue("endDate", networkDays_IntlPostRequestBody.endDate);
-        writer.writeObjectValue("holidays", networkDays_IntlPostRequestBody.holidays);
-        writer.writeObjectValue("startDate", networkDays_IntlPostRequestBody.startDate);
-        writer.writeObjectValue("weekend", networkDays_IntlPostRequestBody.weekend);
-        writer.writeAdditionalData(networkDays_IntlPostRequestBody.additionalData);
-    }
+export function serializeNetworkDays_IntlPostRequestBody(writer: SerializationWriter, networkDays_IntlPostRequestBody: Partial<NetworkDays_IntlPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!networkDays_IntlPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("endDate", networkDays_IntlPostRequestBody.endDate);
+    writer.writeObjectValue("holidays", networkDays_IntlPostRequestBody.holidays);
+    writer.writeObjectValue("startDate", networkDays_IntlPostRequestBody.startDate);
+    writer.writeObjectValue("weekend", networkDays_IntlPostRequestBody.weekend);
+    writer.writeAdditionalData(networkDays_IntlPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

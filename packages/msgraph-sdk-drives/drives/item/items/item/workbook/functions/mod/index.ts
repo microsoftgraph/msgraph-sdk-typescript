@@ -19,6 +19,7 @@ export function createModPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param ModPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoModPostRequestBody(modPostRequestBody: Partial<Mo
     }
 }
 export interface ModPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface ModRequestBuilder extends BaseRequestBuilder<ModRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ModPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeModPostRequestBody(writer: SerializationWriter, modPostRequestBody: Partial<ModPostRequestBody> | undefined | null = {}) : void {
-    if (modPostRequestBody) {
-        writer.writeObjectValue("divisor", modPostRequestBody.divisor);
-        writer.writeObjectValue("number", modPostRequestBody.number);
-        writer.writeAdditionalData(modPostRequestBody.additionalData);
-    }
+export function serializeModPostRequestBody(writer: SerializationWriter, modPostRequestBody: Partial<ModPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!modPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("divisor", modPostRequestBody.divisor);
+    writer.writeObjectValue("number", modPostRequestBody.number);
+    writer.writeAdditionalData(modPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

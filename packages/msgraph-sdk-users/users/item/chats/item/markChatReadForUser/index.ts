@@ -19,6 +19,7 @@ export function createMarkChatReadForUserPostRequestBodyFromDiscriminatorValue(p
 }
 /**
  * The deserialization information for the current model
+ * @param MarkChatReadForUserPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoMarkChatReadForUserPostRequestBody(markChatReadFo
     }
 }
 export interface MarkChatReadForUserPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface MarkChatReadForUserRequestBuilder extends BaseRequestBuilder<Ma
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MarkChatReadForUserPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMarkChatReadForUserPostRequestBody(writer: SerializationWriter, markChatReadForUserPostRequestBody: Partial<MarkChatReadForUserPostRequestBody> | undefined | null = {}) : void {
-    if (markChatReadForUserPostRequestBody) {
-        writer.writeObjectValue<TeamworkUserIdentity>("user", markChatReadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
-        writer.writeAdditionalData(markChatReadForUserPostRequestBody.additionalData);
-    }
+export function serializeMarkChatReadForUserPostRequestBody(writer: SerializationWriter, markChatReadForUserPostRequestBody: Partial<MarkChatReadForUserPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!markChatReadForUserPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<TeamworkUserIdentity>("user", markChatReadForUserPostRequestBody.user, serializeTeamworkUserIdentity);
+    writer.writeAdditionalData(markChatReadForUserPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

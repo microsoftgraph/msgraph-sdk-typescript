@@ -43,6 +43,7 @@ export function createCheckGrantedPermissionsForAppPostResponseFromDiscriminator
 }
 /**
  * The deserialization information for the current model
+ * @param CheckGrantedPermissionsForAppPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -54,14 +55,15 @@ export function deserializeIntoCheckGrantedPermissionsForAppPostResponse(checkGr
 }
 /**
  * Serializes information the current object
+ * @param CheckGrantedPermissionsForAppPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCheckGrantedPermissionsForAppPostResponse(writer: SerializationWriter, checkGrantedPermissionsForAppPostResponse: Partial<CheckGrantedPermissionsForAppPostResponse> | undefined | null = {}) : void {
-    if (checkGrantedPermissionsForAppPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, checkGrantedPermissionsForAppPostResponse)
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", checkGrantedPermissionsForAppPostResponse.value, serializeResourceSpecificPermissionGrant);
-    }
+export function serializeCheckGrantedPermissionsForAppPostResponse(writer: SerializationWriter, checkGrantedPermissionsForAppPostResponse: Partial<CheckGrantedPermissionsForAppPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!checkGrantedPermissionsForAppPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, checkGrantedPermissionsForAppPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", checkGrantedPermissionsForAppPostResponse.value, serializeResourceSpecificPermissionGrant);
 }
 /**
  * Uri template for the request builder.

@@ -17,6 +17,7 @@ export function createRemoveKeyPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param RemoveKeyPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -28,10 +29,6 @@ export function deserializeIntoRemoveKeyPostRequestBody(removeKeyPostRequestBody
     }
 }
 export interface RemoveKeyPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -67,15 +64,16 @@ export interface RemoveKeyRequestBuilder extends BaseRequestBuilder<RemoveKeyReq
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RemoveKeyPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRemoveKeyPostRequestBody(writer: SerializationWriter, removeKeyPostRequestBody: Partial<RemoveKeyPostRequestBody> | undefined | null = {}) : void {
-    if (removeKeyPostRequestBody) {
-        writer.writeGuidValue("keyId", removeKeyPostRequestBody.keyId);
-        writer.writeStringValue("proof", removeKeyPostRequestBody.proof);
-        writer.writeAdditionalData(removeKeyPostRequestBody.additionalData);
-    }
+export function serializeRemoveKeyPostRequestBody(writer: SerializationWriter, removeKeyPostRequestBody: Partial<RemoveKeyPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!removeKeyPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeGuidValue("keyId", removeKeyPostRequestBody.keyId);
+    writer.writeStringValue("proof", removeKeyPostRequestBody.proof);
+    writer.writeAdditionalData(removeKeyPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

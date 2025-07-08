@@ -17,6 +17,7 @@ export function createUnsetReactionPostRequestBodyFromDiscriminatorValue(parseNo
 }
 /**
  * The deserialization information for the current model
+ * @param UnsetReactionPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -28,20 +29,17 @@ export function deserializeIntoUnsetReactionPostRequestBody(unsetReactionPostReq
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UnsetReactionPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeUnsetReactionPostRequestBody(writer: SerializationWriter, unsetReactionPostRequestBody: Partial<UnsetReactionPostRequestBody> | undefined | null = {}) : void {
-    if (unsetReactionPostRequestBody) {
-        writer.writeStringValue("reactionType", unsetReactionPostRequestBody.reactionType);
-        writer.writeAdditionalData(unsetReactionPostRequestBody.additionalData);
-    }
+export function serializeUnsetReactionPostRequestBody(writer: SerializationWriter, unsetReactionPostRequestBody: Partial<UnsetReactionPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!unsetReactionPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("reactionType", unsetReactionPostRequestBody.reactionType);
+    writer.writeAdditionalData(unsetReactionPostRequestBody.additionalData);
 }
 export interface UnsetReactionPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

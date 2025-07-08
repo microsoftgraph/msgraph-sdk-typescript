@@ -19,6 +19,7 @@ export function createOct2DecPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param Oct2DecPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoOct2DecPostRequestBody(oct2DecPostRequestBody: Pa
     }
 }
 export interface Oct2DecPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface Oct2DecRequestBuilder extends BaseRequestBuilder<Oct2DecRequest
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Oct2DecPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeOct2DecPostRequestBody(writer: SerializationWriter, oct2DecPostRequestBody: Partial<Oct2DecPostRequestBody> | undefined | null = {}) : void {
-    if (oct2DecPostRequestBody) {
-        writer.writeObjectValue("number", oct2DecPostRequestBody.number);
-        writer.writeAdditionalData(oct2DecPostRequestBody.additionalData);
-    }
+export function serializeOct2DecPostRequestBody(writer: SerializationWriter, oct2DecPostRequestBody: Partial<Oct2DecPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!oct2DecPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", oct2DecPostRequestBody.number);
+    writer.writeAdditionalData(oct2DecPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -21,6 +21,7 @@ export function createTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGe
 }
 /**
  * The deserialization information for the current model
+ * @param TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -76,14 +77,15 @@ export interface MicrosoftGraphIdentityGovernanceTopTasksProcessedSummaryWithSta
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse: Partial<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}) : void {
-    if (topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse)
-        writer.writeCollectionOfObjectValues<TopTasksInsightsSummary>("value", topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse.value, serializeTopTasksInsightsSummary);
-    }
+export function serializeTopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse(writer: SerializationWriter, topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse: Partial<TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TopTasksInsightsSummary>("value", topTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse.value, serializeTopTasksInsightsSummary);
 }
 export interface TopTasksProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

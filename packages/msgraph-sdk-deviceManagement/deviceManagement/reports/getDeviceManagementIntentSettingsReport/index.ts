@@ -17,6 +17,7 @@ export function createGetDeviceManagementIntentSettingsReportPostRequestBodyFrom
 }
 /**
  * The deserialization information for the current model
+ * @param GetDeviceManagementIntentSettingsReportPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetDeviceManagementIntentSettingsReportPostReques
     }
 }
 export interface GetDeviceManagementIntentSettingsReportPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetDeviceManagementIntentSettingsReportRequestBuilder extends B
 }
 /**
  * Serializes information the current object
+ * @param GetDeviceManagementIntentSettingsReportPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetDeviceManagementIntentSettingsReportPostRequestBody(writer: SerializationWriter, getDeviceManagementIntentSettingsReportPostRequestBody: Partial<GetDeviceManagementIntentSettingsReportPostRequestBody> | undefined | null = {}) : void {
-    if (getDeviceManagementIntentSettingsReportPostRequestBody) {
-        writer.writeStringValue("filter", getDeviceManagementIntentSettingsReportPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceManagementIntentSettingsReportPostRequestBody.groupBy);
-        writer.writeStringValue("name", getDeviceManagementIntentSettingsReportPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDeviceManagementIntentSettingsReportPostRequestBody.orderBy);
-        writer.writeStringValue("search", getDeviceManagementIntentSettingsReportPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getDeviceManagementIntentSettingsReportPostRequestBody.select);
-        writer.writeStringValue("sessionId", getDeviceManagementIntentSettingsReportPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getDeviceManagementIntentSettingsReportPostRequestBody.skip);
-        writer.writeNumberValue("top", getDeviceManagementIntentSettingsReportPostRequestBody.top);
-        writer.writeAdditionalData(getDeviceManagementIntentSettingsReportPostRequestBody.additionalData);
-    }
+export function serializeGetDeviceManagementIntentSettingsReportPostRequestBody(writer: SerializationWriter, getDeviceManagementIntentSettingsReportPostRequestBody: Partial<GetDeviceManagementIntentSettingsReportPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getDeviceManagementIntentSettingsReportPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getDeviceManagementIntentSettingsReportPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getDeviceManagementIntentSettingsReportPostRequestBody.groupBy);
+    writer.writeStringValue("name", getDeviceManagementIntentSettingsReportPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getDeviceManagementIntentSettingsReportPostRequestBody.orderBy);
+    writer.writeStringValue("search", getDeviceManagementIntentSettingsReportPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getDeviceManagementIntentSettingsReportPostRequestBody.select);
+    writer.writeStringValue("sessionId", getDeviceManagementIntentSettingsReportPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getDeviceManagementIntentSettingsReportPostRequestBody.skip);
+    writer.writeNumberValue("top", getDeviceManagementIntentSettingsReportPostRequestBody.top);
+    writer.writeAdditionalData(getDeviceManagementIntentSettingsReportPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

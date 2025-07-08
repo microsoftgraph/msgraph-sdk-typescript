@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface AreasPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export function createAreasPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param AreasPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoAreasPostRequestBody(areasPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param AreasPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAreasPostRequestBody(writer: SerializationWriter, areasPostRequestBody: Partial<AreasPostRequestBody> | undefined | null = {}) : void {
-    if (areasPostRequestBody) {
-        writer.writeObjectValue("reference", areasPostRequestBody.reference);
-        writer.writeAdditionalData(areasPostRequestBody.additionalData);
-    }
+export function serializeAreasPostRequestBody(writer: SerializationWriter, areasPostRequestBody: Partial<AreasPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!areasPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("reference", areasPostRequestBody.reference);
+    writer.writeAdditionalData(areasPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

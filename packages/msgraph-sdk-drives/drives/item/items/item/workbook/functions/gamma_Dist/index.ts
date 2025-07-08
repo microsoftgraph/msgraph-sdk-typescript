@@ -19,6 +19,7 @@ export function createGamma_DistPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param Gamma_DistPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -32,10 +33,6 @@ export function deserializeIntoGamma_DistPostRequestBody(gamma_DistPostRequestBo
     }
 }
 export interface Gamma_DistPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The alpha property
      */
@@ -79,17 +76,18 @@ export interface Gamma_DistRequestBuilder extends BaseRequestBuilder<Gamma_DistR
 }
 /**
  * Serializes information the current object
+ * @param Gamma_DistPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGamma_DistPostRequestBody(writer: SerializationWriter, gamma_DistPostRequestBody: Partial<Gamma_DistPostRequestBody> | undefined | null = {}) : void {
-    if (gamma_DistPostRequestBody) {
-        writer.writeObjectValue("alpha", gamma_DistPostRequestBody.alpha);
-        writer.writeObjectValue("beta", gamma_DistPostRequestBody.beta);
-        writer.writeObjectValue("cumulative", gamma_DistPostRequestBody.cumulative);
-        writer.writeObjectValue("x", gamma_DistPostRequestBody.x);
-        writer.writeAdditionalData(gamma_DistPostRequestBody.additionalData);
-    }
+export function serializeGamma_DistPostRequestBody(writer: SerializationWriter, gamma_DistPostRequestBody: Partial<Gamma_DistPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!gamma_DistPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("alpha", gamma_DistPostRequestBody.alpha);
+    writer.writeObjectValue("beta", gamma_DistPostRequestBody.beta);
+    writer.writeObjectValue("cumulative", gamma_DistPostRequestBody.cumulative);
+    writer.writeObjectValue("x", gamma_DistPostRequestBody.x);
+    writer.writeAdditionalData(gamma_DistPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

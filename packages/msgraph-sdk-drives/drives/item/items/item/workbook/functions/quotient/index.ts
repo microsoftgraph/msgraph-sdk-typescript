@@ -19,6 +19,7 @@ export function createQuotientPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param QuotientPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoQuotientPostRequestBody(quotientPostRequestBody: 
     }
 }
 export interface QuotientPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface QuotientRequestBuilder extends BaseRequestBuilder<QuotientReque
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param QuotientPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeQuotientPostRequestBody(writer: SerializationWriter, quotientPostRequestBody: Partial<QuotientPostRequestBody> | undefined | null = {}) : void {
-    if (quotientPostRequestBody) {
-        writer.writeObjectValue("denominator", quotientPostRequestBody.denominator);
-        writer.writeObjectValue("numerator", quotientPostRequestBody.numerator);
-        writer.writeAdditionalData(quotientPostRequestBody.additionalData);
-    }
+export function serializeQuotientPostRequestBody(writer: SerializationWriter, quotientPostRequestBody: Partial<QuotientPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!quotientPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("denominator", quotientPostRequestBody.denominator);
+    writer.writeObjectValue("numerator", quotientPostRequestBody.numerator);
+    writer.writeAdditionalData(quotientPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

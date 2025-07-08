@@ -19,6 +19,7 @@ export function createSmallPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param SmallPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoSmallPostRequestBody(smallPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SmallPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSmallPostRequestBody(writer: SerializationWriter, smallPostRequestBody: Partial<SmallPostRequestBody> | undefined | null = {}) : void {
-    if (smallPostRequestBody) {
-        writer.writeObjectValue("array", smallPostRequestBody.array);
-        writer.writeObjectValue("k", smallPostRequestBody.k);
-        writer.writeAdditionalData(smallPostRequestBody.additionalData);
-    }
+export function serializeSmallPostRequestBody(writer: SerializationWriter, smallPostRequestBody: Partial<SmallPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!smallPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("array", smallPostRequestBody.array);
+    writer.writeObjectValue("k", smallPostRequestBody.k);
+    writer.writeAdditionalData(smallPostRequestBody.additionalData);
 }
 export interface SmallPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The array property
      */

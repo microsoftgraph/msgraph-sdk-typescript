@@ -19,6 +19,7 @@ export function createGetAllSitesGetResponseFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param GetAllSitesGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -92,14 +93,15 @@ export interface GetAllSitesRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param GetAllSitesGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAllSitesGetResponse(writer: SerializationWriter, getAllSitesGetResponse: Partial<GetAllSitesGetResponse> | undefined | null = {}) : void {
-    if (getAllSitesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAllSitesGetResponse)
-        writer.writeCollectionOfObjectValues<Site>("value", getAllSitesGetResponse.value, serializeSite);
-    }
+export function serializeGetAllSitesGetResponse(writer: SerializationWriter, getAllSitesGetResponse: Partial<GetAllSitesGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getAllSitesGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getAllSitesGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Site>("value", getAllSitesGetResponse.value, serializeSite);
 }
 /**
  * Uri template for the request builder.

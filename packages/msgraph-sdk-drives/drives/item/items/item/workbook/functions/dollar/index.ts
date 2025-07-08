@@ -19,6 +19,7 @@ export function createDollarPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param DollarPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoDollarPostRequestBody(dollarPostRequestBody: Part
     }
 }
 export interface DollarPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface DollarRequestBuilder extends BaseRequestBuilder<DollarRequestBu
 }
 /**
  * Serializes information the current object
+ * @param DollarPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDollarPostRequestBody(writer: SerializationWriter, dollarPostRequestBody: Partial<DollarPostRequestBody> | undefined | null = {}) : void {
-    if (dollarPostRequestBody) {
-        writer.writeObjectValue("decimals", dollarPostRequestBody.decimals);
-        writer.writeObjectValue("number", dollarPostRequestBody.number);
-        writer.writeAdditionalData(dollarPostRequestBody.additionalData);
-    }
+export function serializeDollarPostRequestBody(writer: SerializationWriter, dollarPostRequestBody: Partial<DollarPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dollarPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("decimals", dollarPostRequestBody.decimals);
+    writer.writeObjectValue("number", dollarPostRequestBody.number);
+    writer.writeAdditionalData(dollarPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

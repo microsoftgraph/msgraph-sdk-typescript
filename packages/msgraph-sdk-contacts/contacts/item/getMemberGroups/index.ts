@@ -28,6 +28,7 @@ export function createGetMemberGroupsPostResponseFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param GetMemberGroupsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -39,6 +40,7 @@ export function deserializeIntoGetMemberGroupsPostRequestBody(getMemberGroupsPos
 }
 /**
  * The deserialization information for the current model
+ * @param GetMemberGroupsPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -49,10 +51,6 @@ export function deserializeIntoGetMemberGroupsPostResponse(getMemberGroupsPostRe
     }
 }
 export interface GetMemberGroupsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -91,25 +89,27 @@ export interface GetMemberGroupsRequestBuilder extends BaseRequestBuilder<GetMem
 }
 /**
  * Serializes information the current object
+ * @param GetMemberGroupsPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetMemberGroupsPostRequestBody(writer: SerializationWriter, getMemberGroupsPostRequestBody: Partial<GetMemberGroupsPostRequestBody> | undefined | null = {}) : void {
-    if (getMemberGroupsPostRequestBody) {
-        writer.writeBooleanValue("securityEnabledOnly", getMemberGroupsPostRequestBody.securityEnabledOnly);
-        writer.writeAdditionalData(getMemberGroupsPostRequestBody.additionalData);
-    }
+export function serializeGetMemberGroupsPostRequestBody(writer: SerializationWriter, getMemberGroupsPostRequestBody: Partial<GetMemberGroupsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getMemberGroupsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("securityEnabledOnly", getMemberGroupsPostRequestBody.securityEnabledOnly);
+    writer.writeAdditionalData(getMemberGroupsPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param GetMemberGroupsPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetMemberGroupsPostResponse(writer: SerializationWriter, getMemberGroupsPostResponse: Partial<GetMemberGroupsPostResponse> | undefined | null = {}) : void {
-    if (getMemberGroupsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getMemberGroupsPostResponse)
-        writer.writeCollectionOfPrimitiveValues<string>("value", getMemberGroupsPostResponse.value);
-    }
+export function serializeGetMemberGroupsPostResponse(writer: SerializationWriter, getMemberGroupsPostResponse: Partial<GetMemberGroupsPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getMemberGroupsPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getMemberGroupsPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfPrimitiveValues<string>("value", getMemberGroupsPostResponse.value);
 }
 /**
  * Uri template for the request builder.

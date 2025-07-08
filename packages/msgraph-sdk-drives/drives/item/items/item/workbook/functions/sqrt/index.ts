@@ -19,6 +19,7 @@ export function createSqrtPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param SqrtPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoSqrtPostRequestBody(sqrtPostRequestBody: Partial<
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SqrtPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSqrtPostRequestBody(writer: SerializationWriter, sqrtPostRequestBody: Partial<SqrtPostRequestBody> | undefined | null = {}) : void {
-    if (sqrtPostRequestBody) {
-        writer.writeObjectValue("number", sqrtPostRequestBody.number);
-        writer.writeAdditionalData(sqrtPostRequestBody.additionalData);
-    }
+export function serializeSqrtPostRequestBody(writer: SerializationWriter, sqrtPostRequestBody: Partial<SqrtPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sqrtPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", sqrtPostRequestBody.number);
+    writer.writeAdditionalData(sqrtPostRequestBody.additionalData);
 }
 export interface SqrtPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

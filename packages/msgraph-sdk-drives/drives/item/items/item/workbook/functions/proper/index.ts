@@ -19,6 +19,7 @@ export function createProperPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param ProperPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoProperPostRequestBody(properPostRequestBody: Part
     }
 }
 export interface ProperPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ProperRequestBuilder extends BaseRequestBuilder<ProperRequestBu
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ProperPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeProperPostRequestBody(writer: SerializationWriter, properPostRequestBody: Partial<ProperPostRequestBody> | undefined | null = {}) : void {
-    if (properPostRequestBody) {
-        writer.writeObjectValue("text", properPostRequestBody.text);
-        writer.writeAdditionalData(properPostRequestBody.additionalData);
-    }
+export function serializeProperPostRequestBody(writer: SerializationWriter, properPostRequestBody: Partial<ProperPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!properPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("text", properPostRequestBody.text);
+    writer.writeAdditionalData(properPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

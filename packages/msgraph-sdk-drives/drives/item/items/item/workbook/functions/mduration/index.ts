@@ -19,6 +19,7 @@ export function createMdurationPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param MdurationPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -34,10 +35,6 @@ export function deserializeIntoMdurationPostRequestBody(mdurationPostRequestBody
     }
 }
 export interface MdurationPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -89,19 +86,20 @@ export interface MdurationRequestBuilder extends BaseRequestBuilder<MdurationReq
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MdurationPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMdurationPostRequestBody(writer: SerializationWriter, mdurationPostRequestBody: Partial<MdurationPostRequestBody> | undefined | null = {}) : void {
-    if (mdurationPostRequestBody) {
-        writer.writeObjectValue("basis", mdurationPostRequestBody.basis);
-        writer.writeObjectValue("coupon", mdurationPostRequestBody.coupon);
-        writer.writeObjectValue("frequency", mdurationPostRequestBody.frequency);
-        writer.writeObjectValue("maturity", mdurationPostRequestBody.maturity);
-        writer.writeObjectValue("settlement", mdurationPostRequestBody.settlement);
-        writer.writeObjectValue("yld", mdurationPostRequestBody.yld);
-        writer.writeAdditionalData(mdurationPostRequestBody.additionalData);
-    }
+export function serializeMdurationPostRequestBody(writer: SerializationWriter, mdurationPostRequestBody: Partial<MdurationPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!mdurationPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", mdurationPostRequestBody.basis);
+    writer.writeObjectValue("coupon", mdurationPostRequestBody.coupon);
+    writer.writeObjectValue("frequency", mdurationPostRequestBody.frequency);
+    writer.writeObjectValue("maturity", mdurationPostRequestBody.maturity);
+    writer.writeObjectValue("settlement", mdurationPostRequestBody.settlement);
+    writer.writeObjectValue("yld", mdurationPostRequestBody.yld);
+    writer.writeAdditionalData(mdurationPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

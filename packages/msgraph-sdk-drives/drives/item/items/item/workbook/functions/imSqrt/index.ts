@@ -19,6 +19,7 @@ export function createImSqrtPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param ImSqrtPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoImSqrtPostRequestBody(imSqrtPostRequestBody: Part
     }
 }
 export interface ImSqrtPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ImSqrtRequestBuilder extends BaseRequestBuilder<ImSqrtRequestBu
 }
 /**
  * Serializes information the current object
+ * @param ImSqrtPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImSqrtPostRequestBody(writer: SerializationWriter, imSqrtPostRequestBody: Partial<ImSqrtPostRequestBody> | undefined | null = {}) : void {
-    if (imSqrtPostRequestBody) {
-        writer.writeObjectValue("inumber", imSqrtPostRequestBody.inumber);
-        writer.writeAdditionalData(imSqrtPostRequestBody.additionalData);
-    }
+export function serializeImSqrtPostRequestBody(writer: SerializationWriter, imSqrtPostRequestBody: Partial<ImSqrtPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imSqrtPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("inumber", imSqrtPostRequestBody.inumber);
+    writer.writeAdditionalData(imSqrtPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

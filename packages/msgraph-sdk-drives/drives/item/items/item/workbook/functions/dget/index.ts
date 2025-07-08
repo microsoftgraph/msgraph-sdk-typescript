@@ -19,6 +19,7 @@ export function createDgetPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param DgetPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoDgetPostRequestBody(dgetPostRequestBody: Partial<
     }
 }
 export interface DgetPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface DgetRequestBuilder extends BaseRequestBuilder<DgetRequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param DgetPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDgetPostRequestBody(writer: SerializationWriter, dgetPostRequestBody: Partial<DgetPostRequestBody> | undefined | null = {}) : void {
-    if (dgetPostRequestBody) {
-        writer.writeObjectValue("criteria", dgetPostRequestBody.criteria);
-        writer.writeObjectValue("database", dgetPostRequestBody.database);
-        writer.writeObjectValue("field", dgetPostRequestBody.field);
-        writer.writeAdditionalData(dgetPostRequestBody.additionalData);
-    }
+export function serializeDgetPostRequestBody(writer: SerializationWriter, dgetPostRequestBody: Partial<DgetPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dgetPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("criteria", dgetPostRequestBody.criteria);
+    writer.writeObjectValue("database", dgetPostRequestBody.database);
+    writer.writeObjectValue("field", dgetPostRequestBody.field);
+    writer.writeAdditionalData(dgetPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

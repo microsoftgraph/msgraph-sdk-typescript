@@ -19,6 +19,7 @@ export function createImRealPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param ImRealPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoImRealPostRequestBody(imRealPostRequestBody: Part
     }
 }
 export interface ImRealPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ImRealRequestBuilder extends BaseRequestBuilder<ImRealRequestBu
 }
 /**
  * Serializes information the current object
+ * @param ImRealPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImRealPostRequestBody(writer: SerializationWriter, imRealPostRequestBody: Partial<ImRealPostRequestBody> | undefined | null = {}) : void {
-    if (imRealPostRequestBody) {
-        writer.writeObjectValue("inumber", imRealPostRequestBody.inumber);
-        writer.writeAdditionalData(imRealPostRequestBody.additionalData);
-    }
+export function serializeImRealPostRequestBody(writer: SerializationWriter, imRealPostRequestBody: Partial<ImRealPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imRealPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("inumber", imRealPostRequestBody.inumber);
+    writer.writeAdditionalData(imRealPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createLargePostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param LargePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoLargePostRequestBody(largePostRequestBody: Partia
     }
 }
 export interface LargePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The array property
      */
@@ -69,15 +66,16 @@ export interface LargeRequestBuilder extends BaseRequestBuilder<LargeRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param LargePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeLargePostRequestBody(writer: SerializationWriter, largePostRequestBody: Partial<LargePostRequestBody> | undefined | null = {}) : void {
-    if (largePostRequestBody) {
-        writer.writeObjectValue("array", largePostRequestBody.array);
-        writer.writeObjectValue("k", largePostRequestBody.k);
-        writer.writeAdditionalData(largePostRequestBody.additionalData);
-    }
+export function serializeLargePostRequestBody(writer: SerializationWriter, largePostRequestBody: Partial<LargePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!largePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("array", largePostRequestBody.array);
+    writer.writeObjectValue("k", largePostRequestBody.k);
+    writer.writeAdditionalData(largePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

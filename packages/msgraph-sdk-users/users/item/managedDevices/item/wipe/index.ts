@@ -17,6 +17,7 @@ export function createWipePostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param WipePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,23 +32,20 @@ export function deserializeIntoWipePostRequestBody(wipePostRequestBody: Partial<
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WipePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeWipePostRequestBody(writer: SerializationWriter, wipePostRequestBody: Partial<WipePostRequestBody> | undefined | null = {}) : void {
-    if (wipePostRequestBody) {
-        writer.writeBooleanValue("keepEnrollmentData", wipePostRequestBody.keepEnrollmentData);
-        writer.writeBooleanValue("keepUserData", wipePostRequestBody.keepUserData);
-        writer.writeStringValue("macOsUnlockCode", wipePostRequestBody.macOsUnlockCode);
-        writer.writeBooleanValue("persistEsimDataPlan", wipePostRequestBody.persistEsimDataPlan);
-        writer.writeAdditionalData(wipePostRequestBody.additionalData);
-    }
+export function serializeWipePostRequestBody(writer: SerializationWriter, wipePostRequestBody: Partial<WipePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!wipePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("keepEnrollmentData", wipePostRequestBody.keepEnrollmentData);
+    writer.writeBooleanValue("keepUserData", wipePostRequestBody.keepUserData);
+    writer.writeStringValue("macOsUnlockCode", wipePostRequestBody.macOsUnlockCode);
+    writer.writeBooleanValue("persistEsimDataPlan", wipePostRequestBody.persistEsimDataPlan);
+    writer.writeAdditionalData(wipePostRequestBody.additionalData);
 }
 export interface WipePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

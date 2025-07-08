@@ -19,6 +19,7 @@ export function createMonthPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param MonthPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoMonthPostRequestBody(monthPostRequestBody: Partia
     }
 }
 export interface MonthPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface MonthRequestBuilder extends BaseRequestBuilder<MonthRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MonthPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeMonthPostRequestBody(writer: SerializationWriter, monthPostRequestBody: Partial<MonthPostRequestBody> | undefined | null = {}) : void {
-    if (monthPostRequestBody) {
-        writer.writeObjectValue("serialNumber", monthPostRequestBody.serialNumber);
-        writer.writeAdditionalData(monthPostRequestBody.additionalData);
-    }
+export function serializeMonthPostRequestBody(writer: SerializationWriter, monthPostRequestBody: Partial<MonthPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!monthPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("serialNumber", monthPostRequestBody.serialNumber);
+    writer.writeAdditionalData(monthPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

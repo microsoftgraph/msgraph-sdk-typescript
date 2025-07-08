@@ -19,6 +19,7 @@ export function createT_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param T_Dist_RTPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,21 +32,18 @@ export function deserializeIntoT_Dist_RTPostRequestBody(t_Dist_RTPostRequestBody
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param T_Dist_RTPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeT_Dist_RTPostRequestBody(writer: SerializationWriter, t_Dist_RTPostRequestBody: Partial<T_Dist_RTPostRequestBody> | undefined | null = {}) : void {
-    if (t_Dist_RTPostRequestBody) {
-        writer.writeObjectValue("degFreedom", t_Dist_RTPostRequestBody.degFreedom);
-        writer.writeObjectValue("x", t_Dist_RTPostRequestBody.x);
-        writer.writeAdditionalData(t_Dist_RTPostRequestBody.additionalData);
-    }
+export function serializeT_Dist_RTPostRequestBody(writer: SerializationWriter, t_Dist_RTPostRequestBody: Partial<T_Dist_RTPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!t_Dist_RTPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("degFreedom", t_Dist_RTPostRequestBody.degFreedom);
+    writer.writeObjectValue("x", t_Dist_RTPostRequestBody.x);
+    writer.writeAdditionalData(t_Dist_RTPostRequestBody.additionalData);
 }
 export interface T_Dist_RTPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

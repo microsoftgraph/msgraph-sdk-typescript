@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface BitlshiftPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createBitlshiftPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param BitlshiftPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoBitlshiftPostRequestBody(bitlshiftPostRequestBody
 }
 /**
  * Serializes information the current object
+ * @param BitlshiftPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBitlshiftPostRequestBody(writer: SerializationWriter, bitlshiftPostRequestBody: Partial<BitlshiftPostRequestBody> | undefined | null = {}) : void {
-    if (bitlshiftPostRequestBody) {
-        writer.writeObjectValue("number", bitlshiftPostRequestBody.number);
-        writer.writeObjectValue("shiftAmount", bitlshiftPostRequestBody.shiftAmount);
-        writer.writeAdditionalData(bitlshiftPostRequestBody.additionalData);
-    }
+export function serializeBitlshiftPostRequestBody(writer: SerializationWriter, bitlshiftPostRequestBody: Partial<BitlshiftPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!bitlshiftPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", bitlshiftPostRequestBody.number);
+    writer.writeObjectValue("shiftAmount", bitlshiftPostRequestBody.shiftAmount);
+    writer.writeAdditionalData(bitlshiftPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

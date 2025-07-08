@@ -19,6 +19,7 @@ export function createTypePostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param TypePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoTypePostRequestBody(typePostRequestBody: Partial<
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TypePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeTypePostRequestBody(writer: SerializationWriter, typePostRequestBody: Partial<TypePostRequestBody> | undefined | null = {}) : void {
-    if (typePostRequestBody) {
-        writer.writeObjectValue("value", typePostRequestBody.value);
-        writer.writeAdditionalData(typePostRequestBody.additionalData);
-    }
+export function serializeTypePostRequestBody(writer: SerializationWriter, typePostRequestBody: Partial<TypePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!typePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("value", typePostRequestBody.value);
+    writer.writeAdditionalData(typePostRequestBody.additionalData);
 }
 export interface TypePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

@@ -19,6 +19,7 @@ export function createGetAttackSimulationSimulationUserCoverageGetResponseFromDi
 }
 /**
  * The deserialization information for the current model
+ * @param GetAttackSimulationSimulationUserCoverageGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface GetAttackSimulationSimulationUserCoverageRequestBuilderGetQuery
 }
 /**
  * Serializes information the current object
+ * @param GetAttackSimulationSimulationUserCoverageGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetAttackSimulationSimulationUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageGetResponse: Partial<GetAttackSimulationSimulationUserCoverageGetResponse> | undefined | null = {}) : void {
-    if (getAttackSimulationSimulationUserCoverageGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageGetResponse)
-        writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, serializeAttackSimulationSimulationUserCoverage);
-    }
+export function serializeGetAttackSimulationSimulationUserCoverageGetResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageGetResponse: Partial<GetAttackSimulationSimulationUserCoverageGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getAttackSimulationSimulationUserCoverageGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AttackSimulationSimulationUserCoverage>("value", getAttackSimulationSimulationUserCoverageGetResponse.value, serializeAttackSimulationSimulationUserCoverage);
 }
 /**
  * Uri template for the request builder.

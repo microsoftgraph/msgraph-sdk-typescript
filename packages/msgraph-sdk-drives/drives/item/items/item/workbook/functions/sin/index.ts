@@ -19,6 +19,7 @@ export function createSinPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param SinPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoSinPostRequestBody(sinPostRequestBody: Partial<Si
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SinPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSinPostRequestBody(writer: SerializationWriter, sinPostRequestBody: Partial<SinPostRequestBody> | undefined | null = {}) : void {
-    if (sinPostRequestBody) {
-        writer.writeObjectValue("number", sinPostRequestBody.number);
-        writer.writeAdditionalData(sinPostRequestBody.additionalData);
-    }
+export function serializeSinPostRequestBody(writer: SerializationWriter, sinPostRequestBody: Partial<SinPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sinPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", sinPostRequestBody.number);
+    writer.writeAdditionalData(sinPostRequestBody.additionalData);
 }
 export interface SinPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

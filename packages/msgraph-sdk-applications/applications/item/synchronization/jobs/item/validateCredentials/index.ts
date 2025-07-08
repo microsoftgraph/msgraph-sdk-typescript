@@ -19,6 +19,7 @@ export function createValidateCredentialsPostRequestBodyFromDiscriminatorValue(p
 }
 /**
  * The deserialization information for the current model
+ * @param ValidateCredentialsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -33,23 +34,20 @@ export function deserializeIntoValidateCredentialsPostRequestBody(validateCreden
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ValidateCredentialsPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeValidateCredentialsPostRequestBody(writer: SerializationWriter, validateCredentialsPostRequestBody: Partial<ValidateCredentialsPostRequestBody> | undefined | null = {}) : void {
-    if (validateCredentialsPostRequestBody) {
-        writer.writeStringValue("applicationIdentifier", validateCredentialsPostRequestBody.applicationIdentifier);
-        writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", validateCredentialsPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
-        writer.writeStringValue("templateId", validateCredentialsPostRequestBody.templateId);
-        writer.writeBooleanValue("useSavedCredentials", validateCredentialsPostRequestBody.useSavedCredentials);
-        writer.writeAdditionalData(validateCredentialsPostRequestBody.additionalData);
-    }
+export function serializeValidateCredentialsPostRequestBody(writer: SerializationWriter, validateCredentialsPostRequestBody: Partial<ValidateCredentialsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!validateCredentialsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("applicationIdentifier", validateCredentialsPostRequestBody.applicationIdentifier);
+    writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", validateCredentialsPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
+    writer.writeStringValue("templateId", validateCredentialsPostRequestBody.templateId);
+    writer.writeBooleanValue("useSavedCredentials", validateCredentialsPostRequestBody.useSavedCredentials);
+    writer.writeAdditionalData(validateCredentialsPostRequestBody.additionalData);
 }
 export interface ValidateCredentialsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The applicationIdentifier property
      */

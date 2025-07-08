@@ -19,6 +19,7 @@ export function createInstantiatePostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param InstantiatePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoInstantiatePostRequestBody(instantiatePostRequest
     }
 }
 export interface InstantiatePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -70,15 +67,16 @@ export interface InstantiateRequestBuilder extends BaseRequestBuilder<Instantiat
 }
 /**
  * Serializes information the current object
+ * @param InstantiatePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeInstantiatePostRequestBody(writer: SerializationWriter, instantiatePostRequestBody: Partial<InstantiatePostRequestBody> | undefined | null = {}) : void {
-    if (instantiatePostRequestBody) {
-        writer.writeStringValue("displayName", instantiatePostRequestBody.displayName);
-        writer.writeStringValue("serviceManagementReference", instantiatePostRequestBody.serviceManagementReference);
-        writer.writeAdditionalData(instantiatePostRequestBody.additionalData);
-    }
+export function serializeInstantiatePostRequestBody(writer: SerializationWriter, instantiatePostRequestBody: Partial<InstantiatePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!instantiatePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("displayName", instantiatePostRequestBody.displayName);
+    writer.writeStringValue("serviceManagementReference", instantiatePostRequestBody.serviceManagementReference);
+    writer.writeAdditionalData(instantiatePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

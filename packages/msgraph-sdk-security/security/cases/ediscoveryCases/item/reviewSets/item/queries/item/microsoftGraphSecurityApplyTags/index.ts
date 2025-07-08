@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface ApplyTagsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -37,6 +33,7 @@ export function createApplyTagsPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param ApplyTagsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export interface MicrosoftGraphSecurityApplyTagsRequestBuilder extends BaseReque
 }
 /**
  * Serializes information the current object
+ * @param ApplyTagsPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeApplyTagsPostRequestBody(writer: SerializationWriter, applyTagsPostRequestBody: Partial<ApplyTagsPostRequestBody> | undefined | null = {}) : void {
-    if (applyTagsPostRequestBody) {
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToAdd", applyTagsPostRequestBody.tagsToAdd, serializeEdiscoveryReviewTag);
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToRemove", applyTagsPostRequestBody.tagsToRemove, serializeEdiscoveryReviewTag);
-        writer.writeAdditionalData(applyTagsPostRequestBody.additionalData);
-    }
+export function serializeApplyTagsPostRequestBody(writer: SerializationWriter, applyTagsPostRequestBody: Partial<ApplyTagsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!applyTagsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToAdd", applyTagsPostRequestBody.tagsToAdd, serializeEdiscoveryReviewTag);
+    writer.writeCollectionOfObjectValues<EdiscoveryReviewTag>("tagsToRemove", applyTagsPostRequestBody.tagsToRemove, serializeEdiscoveryReviewTag);
+    writer.writeAdditionalData(applyTagsPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

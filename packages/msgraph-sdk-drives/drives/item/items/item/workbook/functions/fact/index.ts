@@ -19,6 +19,7 @@ export function createFactPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 }
 /**
  * The deserialization information for the current model
+ * @param FactPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoFactPostRequestBody(factPostRequestBody: Partial<
     }
 }
 export interface FactPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface FactRequestBuilder extends BaseRequestBuilder<FactRequestBuilde
 }
 /**
  * Serializes information the current object
+ * @param FactPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFactPostRequestBody(writer: SerializationWriter, factPostRequestBody: Partial<FactPostRequestBody> | undefined | null = {}) : void {
-    if (factPostRequestBody) {
-        writer.writeObjectValue("number", factPostRequestBody.number);
-        writer.writeAdditionalData(factPostRequestBody.additionalData);
-    }
+export function serializeFactPostRequestBody(writer: SerializationWriter, factPostRequestBody: Partial<FactPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!factPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", factPostRequestBody.number);
+    writer.writeAdditionalData(factPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

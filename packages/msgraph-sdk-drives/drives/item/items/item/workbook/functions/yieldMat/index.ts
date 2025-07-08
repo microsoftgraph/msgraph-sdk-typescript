@@ -19,6 +19,7 @@ export function createYieldMatPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param YieldMatPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,25 +36,22 @@ export function deserializeIntoYieldMatPostRequestBody(yieldMatPostRequestBody: 
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
+ * @param YieldMatPostRequestBody The instance to serialize from.
  */
 // @ts-ignore
-export function serializeYieldMatPostRequestBody(writer: SerializationWriter, yieldMatPostRequestBody: Partial<YieldMatPostRequestBody> | undefined | null = {}) : void {
-    if (yieldMatPostRequestBody) {
-        writer.writeObjectValue("basis", yieldMatPostRequestBody.basis);
-        writer.writeObjectValue("issue", yieldMatPostRequestBody.issue);
-        writer.writeObjectValue("maturity", yieldMatPostRequestBody.maturity);
-        writer.writeObjectValue("pr", yieldMatPostRequestBody.pr);
-        writer.writeObjectValue("rate", yieldMatPostRequestBody.rate);
-        writer.writeObjectValue("settlement", yieldMatPostRequestBody.settlement);
-        writer.writeAdditionalData(yieldMatPostRequestBody.additionalData);
-    }
+export function serializeYieldMatPostRequestBody(writer: SerializationWriter, yieldMatPostRequestBody: Partial<YieldMatPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!yieldMatPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("basis", yieldMatPostRequestBody.basis);
+    writer.writeObjectValue("issue", yieldMatPostRequestBody.issue);
+    writer.writeObjectValue("maturity", yieldMatPostRequestBody.maturity);
+    writer.writeObjectValue("pr", yieldMatPostRequestBody.pr);
+    writer.writeObjectValue("rate", yieldMatPostRequestBody.rate);
+    writer.writeObjectValue("settlement", yieldMatPostRequestBody.settlement);
+    writer.writeAdditionalData(yieldMatPostRequestBody.additionalData);
 }
 export interface YieldMatPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

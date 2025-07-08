@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface AcoshPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -53,6 +49,7 @@ export function createAcoshPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param AcoshPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -64,14 +61,15 @@ export function deserializeIntoAcoshPostRequestBody(acoshPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param AcoshPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAcoshPostRequestBody(writer: SerializationWriter, acoshPostRequestBody: Partial<AcoshPostRequestBody> | undefined | null = {}) : void {
-    if (acoshPostRequestBody) {
-        writer.writeObjectValue("number", acoshPostRequestBody.number);
-        writer.writeAdditionalData(acoshPostRequestBody.additionalData);
-    }
+export function serializeAcoshPostRequestBody(writer: SerializationWriter, acoshPostRequestBody: Partial<AcoshPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!acoshPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", acoshPostRequestBody.number);
+    writer.writeAdditionalData(acoshPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

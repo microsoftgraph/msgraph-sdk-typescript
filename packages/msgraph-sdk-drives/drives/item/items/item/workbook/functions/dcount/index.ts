@@ -19,10 +19,6 @@ export function createDcountPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 export interface DcountPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,6 +57,7 @@ export interface DcountRequestBuilder extends BaseRequestBuilder<DcountRequestBu
 }
 /**
  * The deserialization information for the current model
+ * @param DcountPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoDcountPostRequestBody(dcountPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param DcountPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDcountPostRequestBody(writer: SerializationWriter, dcountPostRequestBody: Partial<DcountPostRequestBody> | undefined | null = {}) : void {
-    if (dcountPostRequestBody) {
-        writer.writeObjectValue("criteria", dcountPostRequestBody.criteria);
-        writer.writeObjectValue("database", dcountPostRequestBody.database);
-        writer.writeObjectValue("field", dcountPostRequestBody.field);
-        writer.writeAdditionalData(dcountPostRequestBody.additionalData);
-    }
+export function serializeDcountPostRequestBody(writer: SerializationWriter, dcountPostRequestBody: Partial<DcountPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dcountPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("criteria", dcountPostRequestBody.criteria);
+    writer.writeObjectValue("database", dcountPostRequestBody.database);
+    writer.writeObjectValue("field", dcountPostRequestBody.field);
+    writer.writeAdditionalData(dcountPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

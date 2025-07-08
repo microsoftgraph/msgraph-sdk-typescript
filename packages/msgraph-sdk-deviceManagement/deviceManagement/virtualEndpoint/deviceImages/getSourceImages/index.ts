@@ -19,6 +19,7 @@ export function createGetSourceImagesGetResponseFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param GetSourceImagesGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -80,14 +81,15 @@ export interface GetSourceImagesRequestBuilderGetQueryParameters {
 }
 /**
  * Serializes information the current object
+ * @param GetSourceImagesGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetSourceImagesGetResponse(writer: SerializationWriter, getSourceImagesGetResponse: Partial<GetSourceImagesGetResponse> | undefined | null = {}) : void {
-    if (getSourceImagesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getSourceImagesGetResponse)
-        writer.writeCollectionOfObjectValues<CloudPcSourceDeviceImage>("value", getSourceImagesGetResponse.value, serializeCloudPcSourceDeviceImage);
-    }
+export function serializeGetSourceImagesGetResponse(writer: SerializationWriter, getSourceImagesGetResponse: Partial<GetSourceImagesGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getSourceImagesGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getSourceImagesGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CloudPcSourceDeviceImage>("value", getSourceImagesGetResponse.value, serializeCloudPcSourceDeviceImage);
 }
 /**
  * Uri template for the request builder.

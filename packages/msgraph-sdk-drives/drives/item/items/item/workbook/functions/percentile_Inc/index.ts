@@ -19,6 +19,7 @@ export function createPercentile_IncPostRequestBodyFromDiscriminatorValue(parseN
 }
 /**
  * The deserialization information for the current model
+ * @param Percentile_IncPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoPercentile_IncPostRequestBody(percentile_IncPostR
     }
 }
 export interface Percentile_IncPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The array property
      */
@@ -69,15 +66,16 @@ export interface Percentile_IncRequestBuilder extends BaseRequestBuilder<Percent
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Percentile_IncPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializePercentile_IncPostRequestBody(writer: SerializationWriter, percentile_IncPostRequestBody: Partial<Percentile_IncPostRequestBody> | undefined | null = {}) : void {
-    if (percentile_IncPostRequestBody) {
-        writer.writeObjectValue("array", percentile_IncPostRequestBody.array);
-        writer.writeObjectValue("k", percentile_IncPostRequestBody.k);
-        writer.writeAdditionalData(percentile_IncPostRequestBody.additionalData);
-    }
+export function serializePercentile_IncPostRequestBody(writer: SerializationWriter, percentile_IncPostRequestBody: Partial<Percentile_IncPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!percentile_IncPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("array", percentile_IncPostRequestBody.array);
+    writer.writeObjectValue("k", percentile_IncPostRequestBody.k);
+    writer.writeAdditionalData(percentile_IncPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

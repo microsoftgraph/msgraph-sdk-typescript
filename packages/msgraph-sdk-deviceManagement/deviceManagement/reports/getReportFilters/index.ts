@@ -17,6 +17,7 @@ export function createGetReportFiltersPostRequestBodyFromDiscriminatorValue(pars
 }
 /**
  * The deserialization information for the current model
+ * @param GetReportFiltersPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -35,10 +36,6 @@ export function deserializeIntoGetReportFiltersPostRequestBody(getReportFiltersP
     }
 }
 export interface GetReportFiltersPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -103,22 +100,23 @@ export interface GetReportFiltersRequestBuilder extends BaseRequestBuilder<GetRe
 }
 /**
  * Serializes information the current object
+ * @param GetReportFiltersPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetReportFiltersPostRequestBody(writer: SerializationWriter, getReportFiltersPostRequestBody: Partial<GetReportFiltersPostRequestBody> | undefined | null = {}) : void {
-    if (getReportFiltersPostRequestBody) {
-        writer.writeStringValue("filter", getReportFiltersPostRequestBody.filter);
-        writer.writeCollectionOfPrimitiveValues<string>("groupBy", getReportFiltersPostRequestBody.groupBy);
-        writer.writeStringValue("name", getReportFiltersPostRequestBody.name);
-        writer.writeCollectionOfPrimitiveValues<string>("orderBy", getReportFiltersPostRequestBody.orderBy);
-        writer.writeStringValue("search", getReportFiltersPostRequestBody.search);
-        writer.writeCollectionOfPrimitiveValues<string>("select", getReportFiltersPostRequestBody.select);
-        writer.writeStringValue("sessionId", getReportFiltersPostRequestBody.sessionId);
-        writer.writeNumberValue("skip", getReportFiltersPostRequestBody.skip);
-        writer.writeNumberValue("top", getReportFiltersPostRequestBody.top);
-        writer.writeAdditionalData(getReportFiltersPostRequestBody.additionalData);
-    }
+export function serializeGetReportFiltersPostRequestBody(writer: SerializationWriter, getReportFiltersPostRequestBody: Partial<GetReportFiltersPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getReportFiltersPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("filter", getReportFiltersPostRequestBody.filter);
+    writer.writeCollectionOfPrimitiveValues<string>("groupBy", getReportFiltersPostRequestBody.groupBy);
+    writer.writeStringValue("name", getReportFiltersPostRequestBody.name);
+    writer.writeCollectionOfPrimitiveValues<string>("orderBy", getReportFiltersPostRequestBody.orderBy);
+    writer.writeStringValue("search", getReportFiltersPostRequestBody.search);
+    writer.writeCollectionOfPrimitiveValues<string>("select", getReportFiltersPostRequestBody.select);
+    writer.writeStringValue("sessionId", getReportFiltersPostRequestBody.sessionId);
+    writer.writeNumberValue("skip", getReportFiltersPostRequestBody.skip);
+    writer.writeNumberValue("top", getReportFiltersPostRequestBody.top);
+    writer.writeAdditionalData(getReportFiltersPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createHyperlinkPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param HyperlinkPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoHyperlinkPostRequestBody(hyperlinkPostRequestBody
     }
 }
 export interface HyperlinkPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface HyperlinkRequestBuilder extends BaseRequestBuilder<HyperlinkReq
 }
 /**
  * Serializes information the current object
+ * @param HyperlinkPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeHyperlinkPostRequestBody(writer: SerializationWriter, hyperlinkPostRequestBody: Partial<HyperlinkPostRequestBody> | undefined | null = {}) : void {
-    if (hyperlinkPostRequestBody) {
-        writer.writeObjectValue("friendlyName", hyperlinkPostRequestBody.friendlyName);
-        writer.writeObjectValue("linkLocation", hyperlinkPostRequestBody.linkLocation);
-        writer.writeAdditionalData(hyperlinkPostRequestBody.additionalData);
-    }
+export function serializeHyperlinkPostRequestBody(writer: SerializationWriter, hyperlinkPostRequestBody: Partial<HyperlinkPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!hyperlinkPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("friendlyName", hyperlinkPostRequestBody.friendlyName);
+    writer.writeObjectValue("linkLocation", hyperlinkPostRequestBody.linkLocation);
+    writer.writeAdditionalData(hyperlinkPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

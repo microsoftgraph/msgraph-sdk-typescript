@@ -19,6 +19,7 @@ export function createOrPostRequestBodyFromDiscriminatorValue(parseNode: ParseNo
 }
 /**
  * The deserialization information for the current model
+ * @param OrPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoOrPostRequestBody(orPostRequestBody: Partial<OrPo
     }
 }
 export interface OrPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface OrRequestBuilder extends BaseRequestBuilder<OrRequestBuilder> {
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OrPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeOrPostRequestBody(writer: SerializationWriter, orPostRequestBody: Partial<OrPostRequestBody> | undefined | null = {}) : void {
-    if (orPostRequestBody) {
-        writer.writeObjectValue("values", orPostRequestBody.values);
-        writer.writeAdditionalData(orPostRequestBody.additionalData);
-    }
+export function serializeOrPostRequestBody(writer: SerializationWriter, orPostRequestBody: Partial<OrPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!orPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("values", orPostRequestBody.values);
+    writer.writeAdditionalData(orPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

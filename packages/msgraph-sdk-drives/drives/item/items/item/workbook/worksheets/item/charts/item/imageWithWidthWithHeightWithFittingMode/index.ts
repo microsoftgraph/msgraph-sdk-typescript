@@ -17,6 +17,7 @@ export function createImageWithWidthWithHeightWithFittingModeGetResponseFromDisc
 }
 /**
  * The deserialization information for the current model
+ * @param ImageWithWidthWithHeightWithFittingModeGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -27,10 +28,6 @@ export function deserializeIntoImageWithWidthWithHeightWithFittingModeGetRespons
     }
 }
 export interface ImageWithWidthWithHeightWithFittingModeGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -60,14 +57,15 @@ export interface ImageWithWidthWithHeightWithFittingModeRequestBuilder extends B
 }
 /**
  * Serializes information the current object
+ * @param ImageWithWidthWithHeightWithFittingModeGetResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeImageWithWidthWithHeightWithFittingModeGetResponse(writer: SerializationWriter, imageWithWidthWithHeightWithFittingModeGetResponse: Partial<ImageWithWidthWithHeightWithFittingModeGetResponse> | undefined | null = {}) : void {
-    if (imageWithWidthWithHeightWithFittingModeGetResponse) {
-        writer.writeStringValue("value", imageWithWidthWithHeightWithFittingModeGetResponse.value);
-        writer.writeAdditionalData(imageWithWidthWithHeightWithFittingModeGetResponse.additionalData);
-    }
+export function serializeImageWithWidthWithHeightWithFittingModeGetResponse(writer: SerializationWriter, imageWithWidthWithHeightWithFittingModeGetResponse: Partial<ImageWithWidthWithHeightWithFittingModeGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!imageWithWidthWithHeightWithFittingModeGetResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("value", imageWithWidthWithHeightWithFittingModeGetResponse.value);
+    writer.writeAdditionalData(imageWithWidthWithHeightWithFittingModeGetResponse.additionalData);
 }
 /**
  * Uri template for the request builder.

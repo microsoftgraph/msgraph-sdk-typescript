@@ -19,6 +19,7 @@ export function createSubscribeToTonePostRequestBodyFromDiscriminatorValue(parse
 }
 /**
  * The deserialization information for the current model
+ * @param SubscribeToTonePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,20 +31,17 @@ export function deserializeIntoSubscribeToTonePostRequestBody(subscribeToTonePos
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SubscribeToTonePostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSubscribeToTonePostRequestBody(writer: SerializationWriter, subscribeToTonePostRequestBody: Partial<SubscribeToTonePostRequestBody> | undefined | null = {}) : void {
-    if (subscribeToTonePostRequestBody) {
-        writer.writeStringValue("clientContext", subscribeToTonePostRequestBody.clientContext);
-        writer.writeAdditionalData(subscribeToTonePostRequestBody.additionalData);
-    }
+export function serializeSubscribeToTonePostRequestBody(writer: SerializationWriter, subscribeToTonePostRequestBody: Partial<SubscribeToTonePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!subscribeToTonePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("clientContext", subscribeToTonePostRequestBody.clientContext);
+    writer.writeAdditionalData(subscribeToTonePostRequestBody.additionalData);
 }
 export interface SubscribeToTonePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */

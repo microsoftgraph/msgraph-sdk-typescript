@@ -19,6 +19,7 @@ export function createDollarDePostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param DollarDePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoDollarDePostRequestBody(dollarDePostRequestBody: 
     }
 }
 export interface DollarDePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface DollarDeRequestBuilder extends BaseRequestBuilder<DollarDeReque
 }
 /**
  * Serializes information the current object
+ * @param DollarDePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDollarDePostRequestBody(writer: SerializationWriter, dollarDePostRequestBody: Partial<DollarDePostRequestBody> | undefined | null = {}) : void {
-    if (dollarDePostRequestBody) {
-        writer.writeObjectValue("fraction", dollarDePostRequestBody.fraction);
-        writer.writeObjectValue("fractionalDollar", dollarDePostRequestBody.fractionalDollar);
-        writer.writeAdditionalData(dollarDePostRequestBody.additionalData);
-    }
+export function serializeDollarDePostRequestBody(writer: SerializationWriter, dollarDePostRequestBody: Partial<DollarDePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!dollarDePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("fraction", dollarDePostRequestBody.fraction);
+    writer.writeObjectValue("fractionalDollar", dollarDePostRequestBody.fractionalDollar);
+    writer.writeAdditionalData(dollarDePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

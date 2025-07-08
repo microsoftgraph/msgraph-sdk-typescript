@@ -19,6 +19,7 @@ export function createSupportedLanguagesGetResponseFromDiscriminatorValue(parseN
 }
 /**
  * The deserialization information for the current model
+ * @param SupportedLanguagesGetResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,14 +31,15 @@ export function deserializeIntoSupportedLanguagesGetResponse(supportedLanguagesG
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SupportedLanguagesGetResponse The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSupportedLanguagesGetResponse(writer: SerializationWriter, supportedLanguagesGetResponse: Partial<SupportedLanguagesGetResponse> | undefined | null = {}) : void {
-    if (supportedLanguagesGetResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, supportedLanguagesGetResponse)
-        writer.writeCollectionOfObjectValues<LocaleInfo>("value", supportedLanguagesGetResponse.value, serializeLocaleInfo);
-    }
+export function serializeSupportedLanguagesGetResponse(writer: SerializationWriter, supportedLanguagesGetResponse: Partial<SupportedLanguagesGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!supportedLanguagesGetResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, supportedLanguagesGetResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<LocaleInfo>("value", supportedLanguagesGetResponse.value, serializeLocaleInfo);
 }
 export interface SupportedLanguagesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -19,10 +19,6 @@ export function createCreateLinkPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 export interface CreateLinkPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -81,6 +77,7 @@ export interface CreateLinkRequestBuilder extends BaseRequestBuilder<CreateLinkR
 }
 /**
  * The deserialization information for the current model
+ * @param CreateLinkPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -99,21 +96,22 @@ export function deserializeIntoCreateLinkPostRequestBody(createLinkPostRequestBo
 }
 /**
  * Serializes information the current object
+ * @param CreateLinkPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCreateLinkPostRequestBody(writer: SerializationWriter, createLinkPostRequestBody: Partial<CreateLinkPostRequestBody> | undefined | null = {}) : void {
-    if (createLinkPostRequestBody) {
-        writer.writeDateValue("expirationDateTime", createLinkPostRequestBody.expirationDateTime);
-        writer.writeStringValue("message", createLinkPostRequestBody.message);
-        writer.writeStringValue("password", createLinkPostRequestBody.password);
-        writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", createLinkPostRequestBody.recipients, serializeDriveRecipient);
-        writer.writeBooleanValue("retainInheritedPermissions", createLinkPostRequestBody.retainInheritedPermissions);
-        writer.writeStringValue("scope", createLinkPostRequestBody.scope);
-        writer.writeBooleanValue("sendNotification", createLinkPostRequestBody.sendNotification);
-        writer.writeStringValue("type", createLinkPostRequestBody.type);
-        writer.writeAdditionalData(createLinkPostRequestBody.additionalData);
-    }
+export function serializeCreateLinkPostRequestBody(writer: SerializationWriter, createLinkPostRequestBody: Partial<CreateLinkPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!createLinkPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeDateValue("expirationDateTime", createLinkPostRequestBody.expirationDateTime);
+    writer.writeStringValue("message", createLinkPostRequestBody.message);
+    writer.writeStringValue("password", createLinkPostRequestBody.password);
+    writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", createLinkPostRequestBody.recipients, serializeDriveRecipient);
+    writer.writeBooleanValue("retainInheritedPermissions", createLinkPostRequestBody.retainInheritedPermissions);
+    writer.writeStringValue("scope", createLinkPostRequestBody.scope);
+    writer.writeBooleanValue("sendNotification", createLinkPostRequestBody.sendNotification);
+    writer.writeStringValue("type", createLinkPostRequestBody.type);
+    writer.writeAdditionalData(createLinkPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

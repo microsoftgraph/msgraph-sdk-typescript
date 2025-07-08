@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface AddTokenSigningCertificatePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -58,6 +54,7 @@ export function createAddTokenSigningCertificatePostRequestBodyFromDiscriminator
 }
 /**
  * The deserialization information for the current model
+ * @param AddTokenSigningCertificatePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -70,15 +67,16 @@ export function deserializeIntoAddTokenSigningCertificatePostRequestBody(addToke
 }
 /**
  * Serializes information the current object
+ * @param AddTokenSigningCertificatePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeAddTokenSigningCertificatePostRequestBody(writer: SerializationWriter, addTokenSigningCertificatePostRequestBody: Partial<AddTokenSigningCertificatePostRequestBody> | undefined | null = {}) : void {
-    if (addTokenSigningCertificatePostRequestBody) {
-        writer.writeStringValue("displayName", addTokenSigningCertificatePostRequestBody.displayName);
-        writer.writeDateValue("endDateTime", addTokenSigningCertificatePostRequestBody.endDateTime);
-        writer.writeAdditionalData(addTokenSigningCertificatePostRequestBody.additionalData);
-    }
+export function serializeAddTokenSigningCertificatePostRequestBody(writer: SerializationWriter, addTokenSigningCertificatePostRequestBody: Partial<AddTokenSigningCertificatePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!addTokenSigningCertificatePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("displayName", addTokenSigningCertificatePostRequestBody.displayName);
+    writer.writeDateValue("endDateTime", addTokenSigningCertificatePostRequestBody.endDateTime);
+    writer.writeAdditionalData(addTokenSigningCertificatePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

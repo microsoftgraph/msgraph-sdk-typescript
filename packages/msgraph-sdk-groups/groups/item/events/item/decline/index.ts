@@ -19,10 +19,6 @@ export function createDeclinePostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 export interface DeclinePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,6 +57,7 @@ export interface DeclineRequestBuilder extends BaseRequestBuilder<DeclineRequest
 }
 /**
  * The deserialization information for the current model
+ * @param DeclinePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: Pa
 }
 /**
  * Serializes information the current object
+ * @param DeclinePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeDeclinePostRequestBody(writer: SerializationWriter, declinePostRequestBody: Partial<DeclinePostRequestBody> | undefined | null = {}) : void {
-    if (declinePostRequestBody) {
-        writer.writeStringValue("Comment", declinePostRequestBody.comment);
-        writer.writeObjectValue<TimeSlot>("ProposedNewTime", declinePostRequestBody.proposedNewTime, serializeTimeSlot);
-        writer.writeBooleanValue("SendResponse", declinePostRequestBody.sendResponse);
-        writer.writeAdditionalData(declinePostRequestBody.additionalData);
-    }
+export function serializeDeclinePostRequestBody(writer: SerializationWriter, declinePostRequestBody: Partial<DeclinePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!declinePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("Comment", declinePostRequestBody.comment);
+    writer.writeObjectValue<TimeSlot>("ProposedNewTime", declinePostRequestBody.proposedNewTime, serializeTimeSlot);
+    writer.writeBooleanValue("SendResponse", declinePostRequestBody.sendResponse);
+    writer.writeAdditionalData(declinePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

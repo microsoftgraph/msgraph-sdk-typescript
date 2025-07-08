@@ -19,6 +19,7 @@ export function createIso_CeilingPostRequestBodyFromDiscriminatorValue(parseNode
 }
 /**
  * The deserialization information for the current model
+ * @param Iso_CeilingPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoIso_CeilingPostRequestBody(iso_CeilingPostRequest
     }
 }
 export interface Iso_CeilingPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface Iso_CeilingRequestBuilder extends BaseRequestBuilder<Iso_Ceilin
 }
 /**
  * Serializes information the current object
+ * @param Iso_CeilingPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIso_CeilingPostRequestBody(writer: SerializationWriter, iso_CeilingPostRequestBody: Partial<Iso_CeilingPostRequestBody> | undefined | null = {}) : void {
-    if (iso_CeilingPostRequestBody) {
-        writer.writeObjectValue("number", iso_CeilingPostRequestBody.number);
-        writer.writeObjectValue("significance", iso_CeilingPostRequestBody.significance);
-        writer.writeAdditionalData(iso_CeilingPostRequestBody.additionalData);
-    }
+export function serializeIso_CeilingPostRequestBody(writer: SerializationWriter, iso_CeilingPostRequestBody: Partial<Iso_CeilingPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!iso_CeilingPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", iso_CeilingPostRequestBody.number);
+    writer.writeObjectValue("significance", iso_CeilingPostRequestBody.significance);
+    writer.writeAdditionalData(iso_CeilingPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

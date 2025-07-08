@@ -19,6 +19,7 @@ export function createGetApplicablePolicyRequirementsPostResponseFromDiscriminat
 }
 /**
  * The deserialization information for the current model
+ * @param GetApplicablePolicyRequirementsPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -55,14 +56,15 @@ export interface GetApplicablePolicyRequirementsRequestBuilder extends BaseReque
 }
 /**
  * Serializes information the current object
+ * @param GetApplicablePolicyRequirementsPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetApplicablePolicyRequirementsPostResponse(writer: SerializationWriter, getApplicablePolicyRequirementsPostResponse: Partial<GetApplicablePolicyRequirementsPostResponse> | undefined | null = {}) : void {
-    if (getApplicablePolicyRequirementsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getApplicablePolicyRequirementsPostResponse)
-        writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", getApplicablePolicyRequirementsPostResponse.value, serializeAccessPackageAssignmentRequestRequirements);
-    }
+export function serializeGetApplicablePolicyRequirementsPostResponse(writer: SerializationWriter, getApplicablePolicyRequirementsPostResponse: Partial<GetApplicablePolicyRequirementsPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getApplicablePolicyRequirementsPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getApplicablePolicyRequirementsPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", getApplicablePolicyRequirementsPostResponse.value, serializeAccessPackageAssignmentRequestRequirements);
 }
 /**
  * Uri template for the request builder.

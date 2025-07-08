@@ -19,6 +19,7 @@ export function createF_Dist_RTPostRequestBodyFromDiscriminatorValue(parseNode: 
 }
 /**
  * The deserialization information for the current model
+ * @param F_Dist_RTPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoF_Dist_RTPostRequestBody(f_Dist_RTPostRequestBody
     }
 }
 export interface F_Dist_RTPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface F_Dist_RTRequestBuilder extends BaseRequestBuilder<F_Dist_RTReq
 }
 /**
  * Serializes information the current object
+ * @param F_Dist_RTPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeF_Dist_RTPostRequestBody(writer: SerializationWriter, f_Dist_RTPostRequestBody: Partial<F_Dist_RTPostRequestBody> | undefined | null = {}) : void {
-    if (f_Dist_RTPostRequestBody) {
-        writer.writeObjectValue("degFreedom1", f_Dist_RTPostRequestBody.degFreedom1);
-        writer.writeObjectValue("degFreedom2", f_Dist_RTPostRequestBody.degFreedom2);
-        writer.writeObjectValue("x", f_Dist_RTPostRequestBody.x);
-        writer.writeAdditionalData(f_Dist_RTPostRequestBody.additionalData);
-    }
+export function serializeF_Dist_RTPostRequestBody(writer: SerializationWriter, f_Dist_RTPostRequestBody: Partial<F_Dist_RTPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!f_Dist_RTPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("degFreedom1", f_Dist_RTPostRequestBody.degFreedom1);
+    writer.writeObjectValue("degFreedom2", f_Dist_RTPostRequestBody.degFreedom2);
+    writer.writeObjectValue("x", f_Dist_RTPostRequestBody.x);
+    writer.writeAdditionalData(f_Dist_RTPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

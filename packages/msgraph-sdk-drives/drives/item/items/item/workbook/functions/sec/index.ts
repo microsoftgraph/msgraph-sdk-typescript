@@ -19,6 +19,7 @@ export function createSecPostRequestBodyFromDiscriminatorValue(parseNode: ParseN
 }
 /**
  * The deserialization information for the current model
+ * @param SecPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoSecPostRequestBody(secPostRequestBody: Partial<Se
     }
 }
 export interface SecPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface SecRequestBuilder extends BaseRequestBuilder<SecRequestBuilder>
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SecPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeSecPostRequestBody(writer: SerializationWriter, secPostRequestBody: Partial<SecPostRequestBody> | undefined | null = {}) : void {
-    if (secPostRequestBody) {
-        writer.writeObjectValue("number", secPostRequestBody.number);
-        writer.writeAdditionalData(secPostRequestBody.additionalData);
-    }
+export function serializeSecPostRequestBody(writer: SerializationWriter, secPostRequestBody: Partial<SecPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!secPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", secPostRequestBody.number);
+    writer.writeAdditionalData(secPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

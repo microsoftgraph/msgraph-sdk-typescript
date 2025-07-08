@@ -19,6 +19,7 @@ export function createRoundPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param RoundPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoRoundPostRequestBody(roundPostRequestBody: Partia
     }
 }
 export interface RoundPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface RoundRequestBuilder extends BaseRequestBuilder<RoundRequestBuil
 }
 /**
  * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RoundPostRequestBody The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeRoundPostRequestBody(writer: SerializationWriter, roundPostRequestBody: Partial<RoundPostRequestBody> | undefined | null = {}) : void {
-    if (roundPostRequestBody) {
-        writer.writeObjectValue("number", roundPostRequestBody.number);
-        writer.writeObjectValue("numDigits", roundPostRequestBody.numDigits);
-        writer.writeAdditionalData(roundPostRequestBody.additionalData);
-    }
+export function serializeRoundPostRequestBody(writer: SerializationWriter, roundPostRequestBody: Partial<RoundPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!roundPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", roundPostRequestBody.number);
+    writer.writeObjectValue("numDigits", roundPostRequestBody.numDigits);
+    writer.writeAdditionalData(roundPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface ApplyPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -61,6 +57,7 @@ export function createApplyPostRequestBodyFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param ApplyPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -74,16 +71,17 @@ export function deserializeIntoApplyPostRequestBody(applyPostRequestBody: Partia
 }
 /**
  * Serializes information the current object
+ * @param ApplyPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeApplyPostRequestBody(writer: SerializationWriter, applyPostRequestBody: Partial<ApplyPostRequestBody> | undefined | null = {}) : void {
-    if (applyPostRequestBody) {
-        writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", applyPostRequestBody.fields, serializeWorkbookSortField);
-        writer.writeBooleanValue("matchCase", applyPostRequestBody.matchCase);
-        writer.writeStringValue("method", applyPostRequestBody.method);
-        writer.writeAdditionalData(applyPostRequestBody.additionalData);
-    }
+export function serializeApplyPostRequestBody(writer: SerializationWriter, applyPostRequestBody: Partial<ApplyPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!applyPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", applyPostRequestBody.fields, serializeWorkbookSortField);
+    writer.writeBooleanValue("matchCase", applyPostRequestBody.matchCase);
+    writer.writeStringValue("method", applyPostRequestBody.method);
+    writer.writeAdditionalData(applyPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createHex2OctPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param Hex2OctPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -30,10 +31,6 @@ export function deserializeIntoHex2OctPostRequestBody(hex2OctPostRequestBody: Pa
     }
 }
 export interface Hex2OctPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -69,15 +66,16 @@ export interface Hex2OctRequestBuilder extends BaseRequestBuilder<Hex2OctRequest
 }
 /**
  * Serializes information the current object
+ * @param Hex2OctPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeHex2OctPostRequestBody(writer: SerializationWriter, hex2OctPostRequestBody: Partial<Hex2OctPostRequestBody> | undefined | null = {}) : void {
-    if (hex2OctPostRequestBody) {
-        writer.writeObjectValue("number", hex2OctPostRequestBody.number);
-        writer.writeObjectValue("places", hex2OctPostRequestBody.places);
-        writer.writeAdditionalData(hex2OctPostRequestBody.additionalData);
-    }
+export function serializeHex2OctPostRequestBody(writer: SerializationWriter, hex2OctPostRequestBody: Partial<Hex2OctPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!hex2OctPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number", hex2OctPostRequestBody.number);
+    writer.writeObjectValue("places", hex2OctPostRequestBody.places);
+    writer.writeAdditionalData(hex2OctPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

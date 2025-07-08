@@ -28,6 +28,7 @@ export function createGetByIdsPostResponseFromDiscriminatorValue(parseNode: Pars
 }
 /**
  * The deserialization information for the current model
+ * @param GetByIdsPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -40,6 +41,7 @@ export function deserializeIntoGetByIdsPostRequestBody(getByIdsPostRequestBody: 
 }
 /**
  * The deserialization information for the current model
+ * @param GetByIdsPostResponse The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -50,10 +52,6 @@ export function deserializeIntoGetByIdsPostResponse(getByIdsPostResponse: Partia
     }
 }
 export interface GetByIdsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -96,26 +94,28 @@ export interface GetByIdsRequestBuilder extends BaseRequestBuilder<GetByIdsReque
 }
 /**
  * Serializes information the current object
+ * @param GetByIdsPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, getByIdsPostRequestBody: Partial<GetByIdsPostRequestBody> | undefined | null = {}) : void {
-    if (getByIdsPostRequestBody) {
-        writer.writeCollectionOfPrimitiveValues<string>("ids", getByIdsPostRequestBody.ids);
-        writer.writeCollectionOfPrimitiveValues<string>("types", getByIdsPostRequestBody.types);
-        writer.writeAdditionalData(getByIdsPostRequestBody.additionalData);
-    }
+export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, getByIdsPostRequestBody: Partial<GetByIdsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getByIdsPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfPrimitiveValues<string>("ids", getByIdsPostRequestBody.ids);
+    writer.writeCollectionOfPrimitiveValues<string>("types", getByIdsPostRequestBody.types);
+    writer.writeAdditionalData(getByIdsPostRequestBody.additionalData);
 }
 /**
  * Serializes information the current object
+ * @param GetByIdsPostResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeGetByIdsPostResponse(writer: SerializationWriter, getByIdsPostResponse: Partial<GetByIdsPostResponse> | undefined | null = {}) : void {
-    if (getByIdsPostResponse) {
-        serializeBaseCollectionPaginationCountResponse(writer, getByIdsPostResponse)
-        writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, serializeDirectoryObject);
-    }
+export function serializeGetByIdsPostResponse(writer: SerializationWriter, getByIdsPostResponse: Partial<GetByIdsPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getByIdsPostResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, getByIdsPostResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsPostResponse.value, serializeDirectoryObject);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createFindMeetingTimesPostRequestBodyFromDiscriminatorValue(pars
 }
 /**
  * The deserialization information for the current model
+ * @param FindMeetingTimesPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -36,10 +37,6 @@ export function deserializeIntoFindMeetingTimesPostRequestBody(findMeetingTimesP
     }
 }
 export interface FindMeetingTimesPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * The attendees property
      */
@@ -100,21 +97,22 @@ export interface FindMeetingTimesRequestBuilder extends BaseRequestBuilder<FindM
 }
 /**
  * Serializes information the current object
+ * @param FindMeetingTimesPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFindMeetingTimesPostRequestBody(writer: SerializationWriter, findMeetingTimesPostRequestBody: Partial<FindMeetingTimesPostRequestBody> | undefined | null = {}) : void {
-    if (findMeetingTimesPostRequestBody) {
-        writer.writeCollectionOfObjectValues<AttendeeBase>("attendees", findMeetingTimesPostRequestBody.attendees, serializeAttendeeBase);
-        writer.writeBooleanValue("isOrganizerOptional", findMeetingTimesPostRequestBody.isOrganizerOptional);
-        writer.writeObjectValue<LocationConstraint>("locationConstraint", findMeetingTimesPostRequestBody.locationConstraint, serializeLocationConstraint);
-        writer.writeNumberValue("maxCandidates", findMeetingTimesPostRequestBody.maxCandidates);
-        writer.writeDurationValue("meetingDuration", findMeetingTimesPostRequestBody.meetingDuration);
-        writer.writeNumberValue("minimumAttendeePercentage", findMeetingTimesPostRequestBody.minimumAttendeePercentage);
-        writer.writeBooleanValue("returnSuggestionReasons", findMeetingTimesPostRequestBody.returnSuggestionReasons);
-        writer.writeObjectValue<TimeConstraint>("timeConstraint", findMeetingTimesPostRequestBody.timeConstraint, serializeTimeConstraint);
-        writer.writeAdditionalData(findMeetingTimesPostRequestBody.additionalData);
-    }
+export function serializeFindMeetingTimesPostRequestBody(writer: SerializationWriter, findMeetingTimesPostRequestBody: Partial<FindMeetingTimesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!findMeetingTimesPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<AttendeeBase>("attendees", findMeetingTimesPostRequestBody.attendees, serializeAttendeeBase);
+    writer.writeBooleanValue("isOrganizerOptional", findMeetingTimesPostRequestBody.isOrganizerOptional);
+    writer.writeObjectValue<LocationConstraint>("locationConstraint", findMeetingTimesPostRequestBody.locationConstraint, serializeLocationConstraint);
+    writer.writeNumberValue("maxCandidates", findMeetingTimesPostRequestBody.maxCandidates);
+    writer.writeDurationValue("meetingDuration", findMeetingTimesPostRequestBody.meetingDuration);
+    writer.writeNumberValue("minimumAttendeePercentage", findMeetingTimesPostRequestBody.minimumAttendeePercentage);
+    writer.writeBooleanValue("returnSuggestionReasons", findMeetingTimesPostRequestBody.returnSuggestionReasons);
+    writer.writeObjectValue<TimeConstraint>("timeConstraint", findMeetingTimesPostRequestBody.timeConstraint, serializeTimeConstraint);
+    writer.writeAdditionalData(findMeetingTimesPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

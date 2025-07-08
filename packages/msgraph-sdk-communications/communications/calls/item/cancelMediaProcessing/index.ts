@@ -10,10 +10,6 @@ import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Ba
 
 export interface CancelMediaProcessingPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -54,6 +50,7 @@ export function createCancelMediaProcessingPostRequestBodyFromDiscriminatorValue
 }
 /**
  * The deserialization information for the current model
+ * @param CancelMediaProcessingPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -65,14 +62,15 @@ export function deserializeIntoCancelMediaProcessingPostRequestBody(cancelMediaP
 }
 /**
  * Serializes information the current object
+ * @param CancelMediaProcessingPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeCancelMediaProcessingPostRequestBody(writer: SerializationWriter, cancelMediaProcessingPostRequestBody: Partial<CancelMediaProcessingPostRequestBody> | undefined | null = {}) : void {
-    if (cancelMediaProcessingPostRequestBody) {
-        writer.writeStringValue("clientContext", cancelMediaProcessingPostRequestBody.clientContext);
-        writer.writeAdditionalData(cancelMediaProcessingPostRequestBody.additionalData);
-    }
+export function serializeCancelMediaProcessingPostRequestBody(writer: SerializationWriter, cancelMediaProcessingPostRequestBody: Partial<CancelMediaProcessingPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!cancelMediaProcessingPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeStringValue("clientContext", cancelMediaProcessingPostRequestBody.clientContext);
+    writer.writeAdditionalData(cancelMediaProcessingPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

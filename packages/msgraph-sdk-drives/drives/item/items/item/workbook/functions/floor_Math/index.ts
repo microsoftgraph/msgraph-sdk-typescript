@@ -19,6 +19,7 @@ export function createFloor_MathPostRequestBodyFromDiscriminatorValue(parseNode:
 }
 /**
  * The deserialization information for the current model
+ * @param Floor_MathPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoFloor_MathPostRequestBody(floor_MathPostRequestBo
     }
 }
 export interface Floor_MathPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface Floor_MathRequestBuilder extends BaseRequestBuilder<Floor_MathR
 }
 /**
  * Serializes information the current object
+ * @param Floor_MathPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeFloor_MathPostRequestBody(writer: SerializationWriter, floor_MathPostRequestBody: Partial<Floor_MathPostRequestBody> | undefined | null = {}) : void {
-    if (floor_MathPostRequestBody) {
-        writer.writeObjectValue("mode", floor_MathPostRequestBody.mode);
-        writer.writeObjectValue("number", floor_MathPostRequestBody.number);
-        writer.writeObjectValue("significance", floor_MathPostRequestBody.significance);
-        writer.writeAdditionalData(floor_MathPostRequestBody.additionalData);
-    }
+export function serializeFloor_MathPostRequestBody(writer: SerializationWriter, floor_MathPostRequestBody: Partial<Floor_MathPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!floor_MathPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("mode", floor_MathPostRequestBody.mode);
+    writer.writeObjectValue("number", floor_MathPostRequestBody.number);
+    writer.writeObjectValue("significance", floor_MathPostRequestBody.significance);
+    writer.writeAdditionalData(floor_MathPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

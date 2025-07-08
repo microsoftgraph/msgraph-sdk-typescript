@@ -10,10 +10,6 @@ import { createUntypedNodeFromDiscriminatorValue, type AdditionalDataHolder, typ
 
 export interface BitandPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
-    /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
@@ -57,6 +53,7 @@ export function createBitandPostRequestBodyFromDiscriminatorValue(parseNode: Par
 }
 /**
  * The deserialization information for the current model
+ * @param BitandPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -69,15 +66,16 @@ export function deserializeIntoBitandPostRequestBody(bitandPostRequestBody: Part
 }
 /**
  * Serializes information the current object
+ * @param BitandPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeBitandPostRequestBody(writer: SerializationWriter, bitandPostRequestBody: Partial<BitandPostRequestBody> | undefined | null = {}) : void {
-    if (bitandPostRequestBody) {
-        writer.writeObjectValue("number1", bitandPostRequestBody.number1);
-        writer.writeObjectValue("number2", bitandPostRequestBody.number2);
-        writer.writeAdditionalData(bitandPostRequestBody.additionalData);
-    }
+export function serializeBitandPostRequestBody(writer: SerializationWriter, bitandPostRequestBody: Partial<BitandPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!bitandPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("number1", bitandPostRequestBody.number1);
+    writer.writeObjectValue("number2", bitandPostRequestBody.number2);
+    writer.writeAdditionalData(bitandPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

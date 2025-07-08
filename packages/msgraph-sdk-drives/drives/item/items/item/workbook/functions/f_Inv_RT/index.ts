@@ -19,6 +19,7 @@ export function createF_Inv_RTPostRequestBodyFromDiscriminatorValue(parseNode: P
 }
 /**
  * The deserialization information for the current model
+ * @param F_Inv_RTPostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -31,10 +32,6 @@ export function deserializeIntoF_Inv_RTPostRequestBody(f_Inv_RTPostRequestBody: 
     }
 }
 export interface F_Inv_RTPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -74,16 +71,17 @@ export interface F_Inv_RTRequestBuilder extends BaseRequestBuilder<F_Inv_RTReque
 }
 /**
  * Serializes information the current object
+ * @param F_Inv_RTPostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeF_Inv_RTPostRequestBody(writer: SerializationWriter, f_Inv_RTPostRequestBody: Partial<F_Inv_RTPostRequestBody> | undefined | null = {}) : void {
-    if (f_Inv_RTPostRequestBody) {
-        writer.writeObjectValue("degFreedom1", f_Inv_RTPostRequestBody.degFreedom1);
-        writer.writeObjectValue("degFreedom2", f_Inv_RTPostRequestBody.degFreedom2);
-        writer.writeObjectValue("probability", f_Inv_RTPostRequestBody.probability);
-        writer.writeAdditionalData(f_Inv_RTPostRequestBody.additionalData);
-    }
+export function serializeF_Inv_RTPostRequestBody(writer: SerializationWriter, f_Inv_RTPostRequestBody: Partial<F_Inv_RTPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!f_Inv_RTPostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("degFreedom1", f_Inv_RTPostRequestBody.degFreedom1);
+    writer.writeObjectValue("degFreedom2", f_Inv_RTPostRequestBody.degFreedom2);
+    writer.writeObjectValue("probability", f_Inv_RTPostRequestBody.probability);
+    writer.writeAdditionalData(f_Inv_RTPostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.

@@ -19,6 +19,7 @@ export function createErfC_PrecisePostRequestBodyFromDiscriminatorValue(parseNod
 }
 /**
  * The deserialization information for the current model
+ * @param ErfC_PrecisePostRequestBody The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
@@ -29,10 +30,6 @@ export function deserializeIntoErfC_PrecisePostRequestBody(erfC_PrecisePostReque
     }
 }
 export interface ErfC_PrecisePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     */
-    additionalData?: Record<string, unknown>;
     /**
      * Stores model information.
      */
@@ -64,14 +61,15 @@ export interface ErfC_PreciseRequestBuilder extends BaseRequestBuilder<ErfC_Prec
 }
 /**
  * Serializes information the current object
+ * @param ErfC_PrecisePostRequestBody The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeErfC_PrecisePostRequestBody(writer: SerializationWriter, erfC_PrecisePostRequestBody: Partial<ErfC_PrecisePostRequestBody> | undefined | null = {}) : void {
-    if (erfC_PrecisePostRequestBody) {
-        writer.writeObjectValue("X", erfC_PrecisePostRequestBody.x);
-        writer.writeAdditionalData(erfC_PrecisePostRequestBody.additionalData);
-    }
+export function serializeErfC_PrecisePostRequestBody(writer: SerializationWriter, erfC_PrecisePostRequestBody: Partial<ErfC_PrecisePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!erfC_PrecisePostRequestBody || isSerializingDerivedType) { return; }
+    writer.writeObjectValue("X", erfC_PrecisePostRequestBody.x);
+    writer.writeAdditionalData(erfC_PrecisePostRequestBody.additionalData);
 }
 /**
  * Uri template for the request builder.
