@@ -279,15 +279,6 @@ export function createPropertiesFromDiscriminatorValue(parseNode: ParseNode | un
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {Property}
- */
-// @ts-ignore
-export function createPropertyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoProperty;
-}
-/**
- * Creates a new instance of the appropriate class based on discriminator value
- * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {PropertyRule}
  */
 // @ts-ignore
@@ -626,26 +617,6 @@ export function deserializeIntoProperties(properties: Partial<Properties> | unde
 }
 /**
  * The deserialization information for the current model
- * @param Property The instance to deserialize into.
- * @returns {Record<string, (node: ParseNode) => void>}
- */
-// @ts-ignore
-export function deserializeIntoProperty(property: Partial<Property> | undefined = {}) : Record<string, (node: ParseNode) => void> {
-    return {
-        "aliases": n => { property.aliases = n.getCollectionOfPrimitiveValues<string>(); },
-        "backingStoreEnabled": n => { property.backingStoreEnabled = true; },
-        "isQueryable": n => { property.isQueryable = n.getBooleanValue(); },
-        "isRefinable": n => { property.isRefinable = n.getBooleanValue(); },
-        "isRetrievable": n => { property.isRetrievable = n.getBooleanValue(); },
-        "isSearchable": n => { property.isSearchable = n.getBooleanValue(); },
-        "labels": n => { property.labels = n.getCollectionOfEnumValues<Label>(LabelObject); },
-        "name": n => { property.name = n.getStringValue(); },
-        "@odata.type": n => { property.odataType = n.getStringValue(); },
-        "type": n => { property.type = n.getEnumValue<PropertyType>(PropertyTypeObject); },
-    }
-}
-/**
- * The deserialization information for the current model
  * @param PropertyRule The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -669,8 +640,6 @@ export function deserializeIntoPropertyRule(propertyRule: Partial<PropertyRule> 
 export function deserializeIntoSchema(schema: Partial<Schema> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(schema),
-        "baseType": n => { schema.baseType = n.getStringValue(); },
-        "properties": n => { schema.properties = n.getCollectionOfObjectValues<Property>(createPropertyFromDiscriminatorValue); },
     }
 }
 /**
@@ -918,7 +887,6 @@ export interface ItemIdResolver extends Parsable, UrlToItemResolverBase {
      */
     urlMatchInfo?: UrlMatchInfo | null;
 }
-export type Label = (typeof LabelObject)[keyof typeof LabelObject];
 export interface Properties extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -928,48 +896,6 @@ export interface Properties extends AdditionalDataHolder, BackedModel, Parsable 
      * The OdataType property
      */
     odataType?: string | null;
-}
-export interface Property extends AdditionalDataHolder, BackedModel, Parsable {
-    /**
-     * A set of aliases or a friendly name for the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^. Optional.
-     */
-    aliases?: string[] | null;
-    /**
-     * Stores model information.
-     */
-    backingStoreEnabled?: boolean | null;
-    /**
-     * Specifies if the property is queryable. Queryable properties can be used in Keyword Query Language (KQL) queries. Optional.
-     */
-    isQueryable?: boolean | null;
-    /**
-     * Specifies if the property is refinable.  Refinable properties can be used to filter search results in the Search API and add a refiner control in the Microsoft Search user experience. Optional.
-     */
-    isRefinable?: boolean | null;
-    /**
-     * Specifies if the property is retrievable. Retrievable properties are returned in the result set when items are returned by the search API. Retrievable properties are also available to add to the display template used to render search results. Optional.
-     */
-    isRetrievable?: boolean | null;
-    /**
-     * Specifies if the property is searchable. Only properties of type String or StringCollection can be searchable. Nonsearchable properties aren't added to the search index. Optional.
-     */
-    isSearchable?: boolean | null;
-    /**
-     * Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (for example, better relevance). Optional.The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, unknownFutureValue, iconUrl. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: iconUrl.
-     */
-    labels?: Label[] | null;
-    /**
-     * The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &, ?, @, #, /, ~, ', ', <, >, `, ^.  Required.
-     */
-    name?: string | null;
-    /**
-     * The OdataType property
-     */
-    odataType?: string | null;
-    /**
-     * The type property
-     */
-    type?: PropertyType | null;
 }
 export interface PropertyRule extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -997,17 +923,8 @@ export interface PropertyRule extends AdditionalDataHolder, BackedModel, Parsabl
      */
     valuesJoinedBy?: BinaryOperator | null;
 }
-export type PropertyType = (typeof PropertyTypeObject)[keyof typeof PropertyTypeObject];
 export type RuleOperation = (typeof RuleOperationObject)[keyof typeof RuleOperationObject];
 export interface Schema extends Entity, Parsable {
-    /**
-     * Must be set to microsoft.graph.externalConnector.externalItem. Required.
-     */
-    baseType?: string | null;
-    /**
-     * The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.
-     */
-    properties?: Property[] | null;
 }
 export interface SearchSettings extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -1133,7 +1050,7 @@ export function serializeExternalActivity(writer: SerializationWriter, externalA
     writer.writeEnumValue<ExternalActivityType>("type", externalActivity.type);
     switch (externalActivity.odataType) {
         case "#microsoft.graph.externalConnectors.externalActivityResult":
-            serializeExternalActivityResult(writer, externalActivity as ExternalActivityResult, true);
+            serializeExternalActivityResult(writer, externalActivity, true);
         break;
     }
 }
@@ -1313,27 +1230,6 @@ export function serializeProperties(writer: SerializationWriter, properties: Par
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
- * @param Property The instance to serialize from.
- * @param writer Serialization writer to use to serialize this model
- */
-// @ts-ignore
-export function serializeProperty(writer: SerializationWriter, property: Partial<Property> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
-    if (!property || isSerializingDerivedType) { return; }
-    writer.writeCollectionOfPrimitiveValues<string>("aliases", property.aliases);
-    writer.writeBooleanValue("isQueryable", property.isQueryable);
-    writer.writeBooleanValue("isRefinable", property.isRefinable);
-    writer.writeBooleanValue("isRetrievable", property.isRetrievable);
-    writer.writeBooleanValue("isSearchable", property.isSearchable);
-    if(property.labels)
-    writer.writeCollectionOfEnumValues<Label>("labels", property.labels);
-    writer.writeStringValue("name", property.name);
-    writer.writeStringValue("@odata.type", property.odataType);
-    writer.writeEnumValue<PropertyType>("type", property.type);
-    writer.writeAdditionalData(property.additionalData);
-}
-/**
- * Serializes information the current object
- * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param PropertyRule The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -1357,8 +1253,6 @@ export function serializePropertyRule(writer: SerializationWriter, propertyRule:
 export function serializeSchema(writer: SerializationWriter, schema: Partial<Schema> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!schema || isSerializingDerivedType) { return; }
     serializeEntity(writer, schema, isSerializingDerivedType)
-    writer.writeStringValue("baseType", schema.baseType);
-    writer.writeCollectionOfObjectValues<Property>("properties", schema.properties, serializeProperty);
 }
 /**
  * Serializes information the current object
@@ -1401,7 +1295,7 @@ export function serializeUrlToItemResolverBase(writer: SerializationWriter, urlT
     writer.writeAdditionalData(urlToItemResolverBase.additionalData);
     switch (urlToItemResolverBase.odataType) {
         case "#microsoft.graph.externalConnectors.itemIdResolver":
-            serializeItemIdResolver(writer, urlToItemResolverBase as ItemIdResolver, true);
+            serializeItemIdResolver(writer, urlToItemResolverBase, true);
         break;
     }
 }
@@ -1480,31 +1374,6 @@ export const IdentityTypeObject = {
     User: "user",
     Group: "group",
     ExternalGroup: "externalGroup",
-    UnknownFutureValue: "unknownFutureValue",
-} as const;
-export const LabelObject = {
-    Title: "title",
-    Url: "url",
-    CreatedBy: "createdBy",
-    LastModifiedBy: "lastModifiedBy",
-    Authors: "authors",
-    CreatedDateTime: "createdDateTime",
-    LastModifiedDateTime: "lastModifiedDateTime",
-    FileName: "fileName",
-    FileExtension: "fileExtension",
-    UnknownFutureValue: "unknownFutureValue",
-    IconUrl: "iconUrl",
-} as const;
-export const PropertyTypeObject = {
-    String: "string",
-    Int64: "int64",
-    Double: "double",
-    DateTime: "dateTime",
-    Boolean: "boolean",
-    StringCollection: "stringCollection",
-    Int64Collection: "int64Collection",
-    DoubleCollection: "doubleCollection",
-    DateTimeCollection: "dateTimeCollection",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const RuleOperationObject = {

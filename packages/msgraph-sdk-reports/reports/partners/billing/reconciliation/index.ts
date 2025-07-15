@@ -31,7 +31,7 @@ export interface ReconciliationRequestBuilder extends BaseRequestBuilder<Reconci
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents details for billed invoice reconciliation data.
+     * Represents details for billed and unbilled invoice reconciliation data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BillingReconciliation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface ReconciliationRequestBuilder extends BaseRequestBuilder<Reconci
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents details for billed invoice reconciliation data.
+     * Represents details for billed and unbilled invoice reconciliation data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface ReconciliationRequestBuilder extends BaseRequestBuilder<Reconci
      toPatchRequestInformation(body: BillingReconciliation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents details for billed invoice reconciliation data.
+ * Represents details for billed and unbilled invoice reconciliation data.
  */
 export interface ReconciliationRequestBuilderGetQueryParameters {
     /**

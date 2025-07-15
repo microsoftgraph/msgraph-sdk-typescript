@@ -44,7 +44,6 @@ export interface CopyNotebookRequestBuilder extends BaseRequestBuilder<CopyNoteb
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnenoteOperation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/notebook-copynotebook?view=graph-rest-1.0|Find more info here}
      */
      post(body: CopyNotebookPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnenoteOperation | undefined>;
     /**

@@ -14,7 +14,6 @@ export interface CancelRequestBuilder extends BaseRequestBuilder<CancelRequestBu
      * Cancel an access assignment request to a group whose membership and ownership are governed by PIM.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentschedulerequest-cancel?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**

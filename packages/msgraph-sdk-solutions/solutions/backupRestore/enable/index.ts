@@ -49,7 +49,6 @@ export interface EnableRequestBuilder extends BaseRequestBuilder<EnableRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServiceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/backuprestoreroot-enable?view=graph-rest-1.0|Find more info here}
      */
      post(body: EnablePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServiceStatus | undefined>;
     /**

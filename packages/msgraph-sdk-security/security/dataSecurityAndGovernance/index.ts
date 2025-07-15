@@ -10,6 +10,8 @@ import { ProcessContentAsyncRequestBuilderRequestsMetadata, type ProcessContentA
 // @ts-ignore
 import { ProtectionScopesRequestBuilderNavigationMetadata, ProtectionScopesRequestBuilderRequestsMetadata, type ProtectionScopesRequestBuilder } from './protectionScopes/index.js';
 // @ts-ignore
+import { SensitivityLabelsRequestBuilderNavigationMetadata, SensitivityLabelsRequestBuilderRequestsMetadata, type SensitivityLabelsRequestBuilder } from './sensitivityLabels/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +26,10 @@ export interface DataSecurityAndGovernanceRequestBuilder extends BaseRequestBuil
      * Provides operations to manage the protectionScopes property of the microsoft.graph.tenantDataSecurityAndGovernance entity.
      */
     get protectionScopes(): ProtectionScopesRequestBuilder;
+    /**
+     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.dataSecurityAndGovernance entity.
+     */
+    get sensitivityLabels(): SensitivityLabelsRequestBuilder;
     /**
      * Delete navigation property dataSecurityAndGovernance for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -99,6 +105,10 @@ export const DataSecurityAndGovernanceRequestBuilderNavigationMetadata: Record<E
     protectionScopes: {
         requestsMetadata: ProtectionScopesRequestBuilderRequestsMetadata,
         navigationMetadata: ProtectionScopesRequestBuilderNavigationMetadata,
+    },
+    sensitivityLabels: {
+        requestsMetadata: SensitivityLabelsRequestBuilderRequestsMetadata,
+        navigationMetadata: SensitivityLabelsRequestBuilderNavigationMetadata,
     },
 };
 /**

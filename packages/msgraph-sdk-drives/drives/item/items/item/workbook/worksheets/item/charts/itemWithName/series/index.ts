@@ -58,10 +58,6 @@ export interface SeriesRequestBuilderGetQueryParameters {
      */
     filter?: string;
     /**
-     * Order items by property values
-     */
-    orderby?: string[];
-    /**
      * Search items by search phrases
      */
     search?: string;
@@ -81,7 +77,7 @@ export interface SeriesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SeriesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/series{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SeriesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/series{?%24count,%24expand,%24filter,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -89,7 +85,6 @@ const SeriesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
     "expand": "%24expand",
     "filter": "%24filter",
-    "orderby": "%24orderby",
     "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",

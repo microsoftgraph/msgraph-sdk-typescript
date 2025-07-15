@@ -1944,10 +1944,10 @@ export function serializeWorkflowBase(writer: SerializationWriter, workflowBase:
     writer.writeAdditionalData(workflowBase.additionalData);
     switch (workflowBase.odataType) {
         case "#microsoft.graph.identityGovernance.workflow":
-            serializeWorkflow(writer, workflowBase as Workflow, true);
+            serializeWorkflow(writer, workflowBase, true);
         break;
         case "#microsoft.graph.identityGovernance.workflowVersion":
-            serializeWorkflowVersion(writer, workflowBase as WorkflowVersion, true);
+            serializeWorkflowVersion(writer, workflowBase, true);
         break;
     }
 }
@@ -1976,10 +1976,10 @@ export function serializeWorkflowExecutionConditions(writer: SerializationWriter
     writer.writeAdditionalData(workflowExecutionConditions.additionalData);
     switch (workflowExecutionConditions.odataType) {
         case "#microsoft.graph.identityGovernance.onDemandExecutionOnly":
-            serializeOnDemandExecutionOnly(writer, workflowExecutionConditions as OnDemandExecutionOnly, true);
+            serializeOnDemandExecutionOnly(writer, workflowExecutionConditions, true);
         break;
         case "#microsoft.graph.identityGovernance.triggerAndScopeBasedConditions":
-            serializeTriggerAndScopeBasedConditions(writer, workflowExecutionConditions as TriggerAndScopeBasedConditions, true);
+            serializeTriggerAndScopeBasedConditions(writer, workflowExecutionConditions, true);
         break;
     }
 }
@@ -1996,13 +1996,13 @@ export function serializeWorkflowExecutionTrigger(writer: SerializationWriter, w
     writer.writeAdditionalData(workflowExecutionTrigger.additionalData);
     switch (workflowExecutionTrigger.odataType) {
         case "#microsoft.graph.identityGovernance.attributeChangeTrigger":
-            serializeAttributeChangeTrigger(writer, workflowExecutionTrigger as AttributeChangeTrigger, true);
+            serializeAttributeChangeTrigger(writer, workflowExecutionTrigger, true);
         break;
         case "#microsoft.graph.identityGovernance.membershipChangeTrigger":
-            serializeMembershipChangeTrigger(writer, workflowExecutionTrigger as MembershipChangeTrigger, true);
+            serializeMembershipChangeTrigger(writer, workflowExecutionTrigger, true);
         break;
         case "#microsoft.graph.identityGovernance.timeBasedAttributeTrigger":
-            serializeTimeBasedAttributeTrigger(writer, workflowExecutionTrigger as TimeBasedAttributeTrigger, true);
+            serializeTimeBasedAttributeTrigger(writer, workflowExecutionTrigger, true);
         break;
     }
 }

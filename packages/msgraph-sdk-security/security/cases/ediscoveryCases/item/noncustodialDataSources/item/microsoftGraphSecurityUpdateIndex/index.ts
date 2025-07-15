@@ -14,7 +14,6 @@ export interface MicrosoftGraphSecurityUpdateIndexRequestBuilder extends BaseReq
      * Trigger an indexOperation to make a non-custodial data source and its associated data source searchable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverynoncustodialdatasource-updateindex?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**

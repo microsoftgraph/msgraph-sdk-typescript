@@ -23,7 +23,6 @@ export interface ItemAtWithIndexRequestBuilder extends BaseRequestBuilder<ItemAt
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookTableRow>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/tablerowcollection-itemat?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookTableRow | undefined>;
     /**

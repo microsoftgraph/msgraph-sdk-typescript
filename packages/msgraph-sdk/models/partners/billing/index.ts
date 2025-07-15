@@ -22,22 +22,6 @@ export interface BilledReconciliation extends Entity, Parsable {
 export interface BilledUsage extends Entity, Parsable {
 }
 export interface Billing extends Entity, Parsable {
-    /**
-     * Represents metadata for the exported data.
-     */
-    manifests?: Manifest[] | null;
-    /**
-     * Represents an operation to export the billing data of a partner.
-     */
-    operations?: Operation[] | null;
-    /**
-     * The reconciliation property
-     */
-    reconciliation?: BillingReconciliation | null;
-    /**
-     * The usage property
-     */
-    usage?: AzureUsage | null;
 }
 export type BillingPeriod = (typeof BillingPeriodObject)[keyof typeof BillingPeriodObject];
 export interface BillingReconciliation extends Entity, Parsable {
@@ -262,10 +246,6 @@ export function deserializeIntoBilledUsage(billedUsage: Partial<BilledUsage> | u
 export function deserializeIntoBilling(billing: Partial<Billing> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(billing),
-        "manifests": n => { billing.manifests = n.getCollectionOfObjectValues<Manifest>(createManifestFromDiscriminatorValue); },
-        "operations": n => { billing.operations = n.getCollectionOfObjectValues<Operation>(createOperationFromDiscriminatorValue); },
-        "reconciliation": n => { billing.reconciliation = n.getObjectValue<BillingReconciliation>(createBillingReconciliationFromDiscriminatorValue); },
-        "usage": n => { billing.usage = n.getObjectValue<AzureUsage>(createAzureUsageFromDiscriminatorValue); },
     }
 }
 /**
@@ -538,10 +518,6 @@ export function serializeBilledUsage(writer: SerializationWriter, billedUsage: P
 export function serializeBilling(writer: SerializationWriter, billing: Partial<Billing> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!billing || isSerializingDerivedType) { return; }
     serializeEntity(writer, billing, isSerializingDerivedType)
-    writer.writeCollectionOfObjectValues<Manifest>("manifests", billing.manifests, serializeManifest);
-    writer.writeCollectionOfObjectValues<Operation>("operations", billing.operations, serializeOperation);
-    writer.writeObjectValue<BillingReconciliation>("reconciliation", billing.reconciliation, serializeBillingReconciliation);
-    writer.writeObjectValue<AzureUsage>("usage", billing.usage, serializeAzureUsage);
 }
 /**
  * Serializes information the current object
@@ -642,13 +618,13 @@ export function serializeOperation(writer: SerializationWriter, operation: Parti
     writer.writeEnumValue<LongRunningOperationStatus>("status", operation.status);
     switch (operation.odataType) {
         case "#microsoft.graph.partners.billing.exportSuccessOperation":
-            serializeExportSuccessOperation(writer, operation as ExportSuccessOperation, true);
+            serializeExportSuccessOperation(writer, operation, true);
         break;
         case "#microsoft.graph.partners.billing.failedOperation":
-            serializeFailedOperation(writer, operation as FailedOperation, true);
+            serializeFailedOperation(writer, operation, true);
         break;
         case "#microsoft.graph.partners.billing.runningOperation":
-            serializeRunningOperation(writer, operation as RunningOperation, true);
+            serializeRunningOperation(writer, operation, true);
         break;
     }
 }

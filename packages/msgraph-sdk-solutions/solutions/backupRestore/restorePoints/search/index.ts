@@ -69,7 +69,6 @@ export interface SearchRequestBuilder extends BaseRequestBuilder<SearchRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RestorePointSearchResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/restorepoint-search?view=graph-rest-1.0|Find more info here}
      */
      post(body: SearchPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RestorePointSearchResponse | undefined>;
     /**

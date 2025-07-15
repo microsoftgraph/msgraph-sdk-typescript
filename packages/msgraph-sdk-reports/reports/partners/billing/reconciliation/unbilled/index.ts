@@ -25,7 +25,7 @@ export interface UnbilledRequestBuilder extends BaseRequestBuilder<UnbilledReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get unbilled from reports
+     * Represents details for unbilled invoice reconciliation data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnbilledReconciliation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface UnbilledRequestBuilder extends BaseRequestBuilder<UnbilledReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get unbilled from reports
+     * Represents details for unbilled invoice reconciliation data.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface UnbilledRequestBuilder extends BaseRequestBuilder<UnbilledReque
      toPatchRequestInformation(body: UnbilledReconciliation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get unbilled from reports
+ * Represents details for unbilled invoice reconciliation data.
  */
 export interface UnbilledRequestBuilderGetQueryParameters {
     /**
