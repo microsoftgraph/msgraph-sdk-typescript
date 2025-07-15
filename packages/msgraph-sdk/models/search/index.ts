@@ -686,13 +686,13 @@ export function serializeSearchAnswer(writer: SerializationWriter, searchAnswer:
     writer.writeStringValue("webUrl", searchAnswer.webUrl);
     switch (searchAnswer.odataType) {
         case "#microsoft.graph.search.acronym":
-            serializeAcronym(writer, searchAnswer as Acronym, true);
+            serializeAcronym(writer, searchAnswer, true);
         break;
         case "#microsoft.graph.search.bookmark":
-            serializeBookmark(writer, searchAnswer as Bookmark, true);
+            serializeBookmark(writer, searchAnswer, true);
         break;
         case "#microsoft.graph.search.qna":
-            serializeQna(writer, searchAnswer as Qna, true);
+            serializeQna(writer, searchAnswer, true);
         break;
     }
 }

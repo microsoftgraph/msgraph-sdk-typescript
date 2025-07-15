@@ -81,7 +81,6 @@ export interface GetMailTipsRequestBuilder extends BaseRequestBuilder<GetMailTip
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetMailTipsPostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-getmailtips?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetMailTipsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetMailTipsPostResponse | undefined>;
     /**

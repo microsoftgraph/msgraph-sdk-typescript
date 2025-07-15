@@ -54,7 +54,7 @@ export interface ExportPostRequestBody extends AdditionalDataHolder, BackedModel
  */
 export interface MicrosoftGraphPartnersBillingExportRequestBuilder extends BaseRequestBuilder<MicrosoftGraphPartnersBillingExportRequestBuilder> {
     /**
-     * Invoke action export
+     * Export the unbilled invoice reconciliation data for a specific billing period and a given currency.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Operation>}
@@ -62,7 +62,7 @@ export interface MicrosoftGraphPartnersBillingExportRequestBuilder extends BaseR
      */
      post(body: ExportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Operation | undefined>;
     /**
-     * Invoke action export
+     * Export the unbilled invoice reconciliation data for a specific billing period and a given currency.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
