@@ -49,6 +49,7 @@ export interface MoveRequestBuilder extends BaseRequestBuilder<MoveRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Message>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/message-move?view=graph-rest-1.0|Find more info here}
      */
      post(body: MovePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Message | undefined>;
     /**

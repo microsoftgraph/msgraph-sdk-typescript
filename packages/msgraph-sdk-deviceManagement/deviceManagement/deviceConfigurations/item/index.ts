@@ -57,10 +57,10 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      */
     get userStatusOverview(): UserStatusOverviewRequestBuilder;
     /**
-     * Deletes a iosCustomConfiguration.
+     * Deletes a windows10TeamGeneralConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-ioscustomconfiguration-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windows10teamgeneralconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -78,16 +78,16 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      */
      getOmaSettingPlainTextValueWithSecretReferenceValueId(secretReferenceValueId: string | undefined) : GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder;
     /**
-     * Update the properties of a iosGeneralDeviceConfiguration object.
+     * Update the properties of a windowsUpdateForBusinessConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosgeneraldeviceconfiguration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-windowsupdateforbusinessconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfiguration | undefined>;
     /**
-     * Deletes a iosCustomConfiguration.
+     * Deletes a windows10TeamGeneralConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -99,7 +99,7 @@ export interface DeviceConfigurationItemRequestBuilder extends BaseRequestBuilde
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a iosGeneralDeviceConfiguration object.
+     * Update the properties of a windowsUpdateForBusinessConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

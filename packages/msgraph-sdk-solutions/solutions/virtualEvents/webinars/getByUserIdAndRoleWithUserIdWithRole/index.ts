@@ -44,6 +44,7 @@ export interface GetByUserIdAndRoleWithUserIdWithRoleRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetByUserIdAndRoleWithUserIdWithRoleGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/virtualeventwebinar-getbyuseridandrole?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetByUserIdAndRoleWithUserIdWithRoleRequestBuilderGetQueryParameters> | undefined) : Promise<GetByUserIdAndRoleWithUserIdWithRoleGetResponse | undefined>;
     /**

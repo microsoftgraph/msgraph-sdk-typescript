@@ -14,6 +14,7 @@ export interface ReauthorizeRequestBuilder extends BaseRequestBuilder<Reauthoriz
      * Reauthorize a subscription when you receive a reauthorizationRequired challenge.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/subscription-reauthorize?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**

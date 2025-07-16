@@ -43,6 +43,10 @@ export interface ItemsRequestBuilderGetQueryParameters {
      */
     filter?: string;
     /**
+     * Order items by property values
+     */
+    orderby?: string[];
+    /**
      * Search items by search phrases
      */
     search?: string;
@@ -62,7 +66,7 @@ export interface ItemsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ItemsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/items{?%24count,%24expand,%24filter,%24search,%24select,%24skip,%24top}";
+export const ItemsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/items{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -70,6 +74,7 @@ const ItemsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "count": "%24count",
     "expand": "%24expand",
     "filter": "%24filter",
+    "orderby": "%24orderby",
     "search": "%24search",
     "select": "%24select",
     "skip": "%24skip",
