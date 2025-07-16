@@ -14,6 +14,7 @@ export interface BeginOnboardingRequestBuilder extends BaseRequestBuilder<BeginO
      * A request to start onboarding.  Must be coupled with the appropriate TeamViewer account information
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-beginonboarding?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**

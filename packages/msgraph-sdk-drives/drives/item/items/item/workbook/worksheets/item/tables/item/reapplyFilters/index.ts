@@ -14,6 +14,7 @@ export interface ReapplyFiltersRequestBuilder extends BaseRequestBuilder<Reapply
      * Reapplies all the filters currently on the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/table-reapplyfilters?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**

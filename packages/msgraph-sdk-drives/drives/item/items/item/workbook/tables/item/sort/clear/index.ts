@@ -14,6 +14,7 @@ export interface ClearRequestBuilder extends BaseRequestBuilder<ClearRequestBuil
      * Clears the sorting that is currently on the table. While this doesn't modify the table's ordering, it clears the state of the header buttons.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tablesort-clear?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**

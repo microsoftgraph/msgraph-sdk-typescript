@@ -26,11 +26,11 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceAndAppManagementRoleDefinition object.
+     * Read properties and relationships of the roleDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<RoleDefinition | undefined>;
     /**
@@ -49,7 +49,7 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceAndAppManagementRoleDefinition object.
+     * Read properties and relationships of the roleDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -63,7 +63,7 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      toPatchRequestInformation(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceAndAppManagementRoleDefinition object.
+ * Read properties and relationships of the roleDefinition object.
  */
 export interface RoleDefinitionItemRequestBuilderGetQueryParameters {
     /**

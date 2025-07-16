@@ -49,6 +49,7 @@ export interface GetNotebookFromWebUrlRequestBuilder extends BaseRequestBuilder<
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CopyNotebookModel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/notebook-getnotebookfromweburl?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetNotebookFromWebUrlPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CopyNotebookModel | undefined>;
     /**
