@@ -14,6 +14,7 @@ export interface ResetToSystemDefaultRequestBuilder extends BaseRequestBuilder<R
      * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-resettosystemdefault?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**

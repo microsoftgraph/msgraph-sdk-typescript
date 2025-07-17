@@ -37,6 +37,7 @@ export interface CreateUploadSessionRequestBuilder extends BaseRequestBuilder<Cr
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UploadSession>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/taskfileattachment-createuploadsession?view=graph-rest-1.0|Find more info here}
      */
      post(body: CreateUploadSessionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UploadSession | undefined>;
     /**

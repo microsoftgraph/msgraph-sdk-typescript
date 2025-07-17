@@ -47,12 +47,12 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      */
      get(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationMemberCollectionResponse | undefined>;
     /**
-     * Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Add a conversationMember to a channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0|Find more info here}
      */
      post(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationMember | undefined>;
     /**
@@ -62,7 +62,7 @@ export interface MembersRequestBuilder extends BaseRequestBuilder<MembersRequest
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MembersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Add a conversationMember to a channel. This operation is allowed only for channels with a membershipType value of private or shared.
+     * Add a conversationMember to a channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

@@ -44,6 +44,7 @@ export interface SearchWithQRequestBuilder extends BaseRequestBuilder<SearchWith
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SearchWithQGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-search?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SearchWithQRequestBuilderGetQueryParameters> | undefined) : Promise<SearchWithQGetResponse | undefined>;
     /**
