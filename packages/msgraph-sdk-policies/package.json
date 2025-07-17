@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-policies",
-  "version": "1.0.0-preview.63",
+  "version": "1.0.0-preview.64",
   "description": "Policies fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
