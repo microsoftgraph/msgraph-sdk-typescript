@@ -25,10 +25,11 @@ export interface TrainingItemRequestBuilder extends BaseRequestBuilder<TrainingI
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents details about attack simulation trainings.
+     * Get an attack simulation training for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Training>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/training-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TrainingItemRequestBuilderGetQueryParameters> | undefined) : Promise<Training | undefined>;
     /**
@@ -46,7 +47,7 @@ export interface TrainingItemRequestBuilder extends BaseRequestBuilder<TrainingI
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents details about attack simulation trainings.
+     * Get an attack simulation training for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +61,7 @@ export interface TrainingItemRequestBuilder extends BaseRequestBuilder<TrainingI
      toPatchRequestInformation(body: Training, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents details about attack simulation trainings.
+ * Get an attack simulation training for a tenant.
  */
 export interface TrainingItemRequestBuilderGetQueryParameters {
     /**

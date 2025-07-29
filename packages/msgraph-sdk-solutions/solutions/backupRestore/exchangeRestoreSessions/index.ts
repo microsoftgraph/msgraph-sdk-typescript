@@ -34,11 +34,12 @@ export interface ExchangeRestoreSessionsRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<ExchangeRestoreSessionsRequestBuilderGetQueryParameters> | undefined) : Promise<ExchangeRestoreSessionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to exchangeRestoreSessions for solutions
+     * Create a new exchangeRestoreSession object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExchangeRestoreSession>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/backuprestoreroot-post-exchangerestoresessions?view=graph-rest-1.0|Find more info here}
      */
      post(body: ExchangeRestoreSession, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExchangeRestoreSession | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface ExchangeRestoreSessionsRequestBuilder extends BaseRequestBuilde
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExchangeRestoreSessionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to exchangeRestoreSessions for solutions
+     * Create a new exchangeRestoreSession object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

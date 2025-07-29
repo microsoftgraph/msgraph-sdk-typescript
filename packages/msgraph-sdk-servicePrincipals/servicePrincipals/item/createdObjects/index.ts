@@ -33,21 +33,22 @@ export interface CreatedObjectsRequestBuilder extends BaseRequestBuilder<Created
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Directory objects created by this service principal. Read-only. Nullable.
+     * Retrieve a list of directoryobject objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-createdobjects?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CreatedObjectsRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Directory objects created by this service principal. Read-only. Nullable.
+     * Retrieve a list of directoryobject objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CreatedObjectsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Directory objects created by this service principal. Read-only. Nullable.
+ * Retrieve a list of directoryobject objects.
  */
 export interface CreatedObjectsRequestBuilderGetQueryParameters {
     /**

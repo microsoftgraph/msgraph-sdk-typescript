@@ -73,15 +73,16 @@ export function deserializeIntoAddActivitiesPostResponse(addActivitiesPostRespon
  */
 export interface MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder extends BaseRequestBuilder<MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder> {
     /**
-     * Invoke action addActivities
+     * Append additional instances of externalActivity objects on an externalItem.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AddActivitiesPostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-addactivities?view=graph-rest-1.0|Find more info here}
      */
      post(body: AddActivitiesPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AddActivitiesPostResponse | undefined>;
     /**
-     * Invoke action addActivities
+     * Append additional instances of externalActivity objects on an externalItem.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

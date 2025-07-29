@@ -34,11 +34,12 @@ export interface OneDriveForBusinessRestoreSessionsRequestBuilder extends BaseRe
      */
      get(requestConfiguration?: RequestConfiguration<OneDriveForBusinessRestoreSessionsRequestBuilderGetQueryParameters> | undefined) : Promise<OneDriveForBusinessRestoreSessionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to oneDriveForBusinessRestoreSessions for solutions
+     * Create a new oneDriveForBusinessRestoreSession object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OneDriveForBusinessRestoreSession>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/backuprestoreroot-post-onedriveforbusinessrestoresessions?view=graph-rest-1.0|Find more info here}
      */
      post(body: OneDriveForBusinessRestoreSession, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OneDriveForBusinessRestoreSession | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface OneDriveForBusinessRestoreSessionsRequestBuilder extends BaseRe
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OneDriveForBusinessRestoreSessionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to oneDriveForBusinessRestoreSessions for solutions
+     * Create a new oneDriveForBusinessRestoreSession object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

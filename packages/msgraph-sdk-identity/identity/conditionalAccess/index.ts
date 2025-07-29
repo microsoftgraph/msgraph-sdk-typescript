@@ -6,6 +6,8 @@ import { AuthenticationContextClassReferencesRequestBuilderNavigationMetadata, A
 // @ts-ignore
 import { AuthenticationStrengthRequestBuilderNavigationMetadata, AuthenticationStrengthRequestBuilderRequestsMetadata, type AuthenticationStrengthRequestBuilder } from './authenticationStrength/index.js';
 // @ts-ignore
+import { EvaluateRequestBuilderRequestsMetadata, type EvaluateRequestBuilder } from './evaluate/index.js';
+// @ts-ignore
 import { NamedLocationsRequestBuilderNavigationMetadata, NamedLocationsRequestBuilderRequestsMetadata, type NamedLocationsRequestBuilder } from './namedLocations/index.js';
 // @ts-ignore
 import { PoliciesRequestBuilderNavigationMetadata, PoliciesRequestBuilderRequestsMetadata, type PoliciesRequestBuilder } from './policies/index.js';
@@ -26,6 +28,10 @@ export interface ConditionalAccessRequestBuilder extends BaseRequestBuilder<Cond
      * Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity.
      */
     get authenticationStrength(): AuthenticationStrengthRequestBuilder;
+    /**
+     * Provides operations to call the evaluate method.
+     */
+    get evaluate(): EvaluateRequestBuilder;
     /**
      * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
      */
@@ -54,6 +60,9 @@ export const ConditionalAccessRequestBuilderNavigationMetadata: Record<Exclude<k
     authenticationStrength: {
         requestsMetadata: AuthenticationStrengthRequestBuilderRequestsMetadata,
         navigationMetadata: AuthenticationStrengthRequestBuilderNavigationMetadata,
+    },
+    evaluate: {
+        requestsMetadata: EvaluateRequestBuilderRequestsMetadata,
     },
     namedLocations: {
         requestsMetadata: NamedLocationsRequestBuilderRequestsMetadata,

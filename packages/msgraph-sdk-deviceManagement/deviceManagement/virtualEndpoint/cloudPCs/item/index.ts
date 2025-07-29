@@ -12,6 +12,8 @@ import { RebootRequestBuilderRequestsMetadata, type RebootRequestBuilder } from 
 // @ts-ignore
 import { RenameRequestBuilderRequestsMetadata, type RenameRequestBuilder } from './rename/index.js';
 // @ts-ignore
+import { ResizeRequestBuilderRequestsMetadata, type ResizeRequestBuilder } from './resize/index.js';
+// @ts-ignore
 import { RestoreRequestBuilderRequestsMetadata, type RestoreRequestBuilder } from './restore/index.js';
 // @ts-ignore
 import { TroubleshootRequestBuilderRequestsMetadata, type TroubleshootRequestBuilder } from './troubleshoot/index.js';
@@ -34,6 +36,10 @@ export interface CloudPCItemRequestBuilder extends BaseRequestBuilder<CloudPCIte
      * Provides operations to call the rename method.
      */
     get rename(): RenameRequestBuilder;
+    /**
+     * Provides operations to call the resize method.
+     */
+    get resize(): ResizeRequestBuilder;
     /**
      * Provides operations to call the restore method.
      */
@@ -120,6 +126,9 @@ export const CloudPCItemRequestBuilderNavigationMetadata: Record<Exclude<keyof C
     },
     rename: {
         requestsMetadata: RenameRequestBuilderRequestsMetadata,
+    },
+    resize: {
+        requestsMetadata: ResizeRequestBuilderRequestsMetadata,
     },
     restore: {
         requestsMetadata: RestoreRequestBuilderRequestsMetadata,

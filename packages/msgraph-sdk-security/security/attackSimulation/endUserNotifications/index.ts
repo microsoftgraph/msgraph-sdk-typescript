@@ -27,11 +27,11 @@ export interface EndUserNotificationsRequestBuilder extends BaseRequestBuilder<E
      */
      byEndUserNotificationId(endUserNotificationId: string) : EndUserNotificationItemRequestBuilder;
     /**
-     * Get a list of endUserNotification objects and their properties.
+     * Read the properties and relationships of an endUserNotification object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EndUserNotificationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-endusernotifications?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/endusernotification-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EndUserNotificationsRequestBuilderGetQueryParameters> | undefined) : Promise<EndUserNotificationCollectionResponse | undefined>;
     /**
@@ -43,7 +43,7 @@ export interface EndUserNotificationsRequestBuilder extends BaseRequestBuilder<E
      */
      post(body: EndUserNotification, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EndUserNotification | undefined>;
     /**
-     * Get a list of endUserNotification objects and their properties.
+     * Read the properties and relationships of an endUserNotification object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +57,7 @@ export interface EndUserNotificationsRequestBuilder extends BaseRequestBuilder<E
      toPostRequestInformation(body: EndUserNotification, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of endUserNotification objects and their properties.
+ * Read the properties and relationships of an endUserNotification object.
  */
 export interface EndUserNotificationsRequestBuilderGetQueryParameters {
     /**

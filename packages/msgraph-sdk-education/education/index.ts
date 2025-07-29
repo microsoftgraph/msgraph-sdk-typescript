@@ -10,6 +10,8 @@ import { ClassesRequestBuilderNavigationMetadata, ClassesRequestBuilderRequestsM
 // @ts-ignore
 import { MeRequestBuilderNavigationMetadata, MeRequestBuilderRequestsMetadata, type MeRequestBuilder } from './me/index.js';
 // @ts-ignore
+import { ReportsRequestBuilderNavigationMetadata, ReportsRequestBuilderRequestsMetadata, type ReportsRequestBuilder } from './reports/index.js';
+// @ts-ignore
 import { SchoolsRequestBuilderNavigationMetadata, SchoolsRequestBuilderRequestsMetadata, type SchoolsRequestBuilder } from './schools/index.js';
 // @ts-ignore
 import { type UsersRequestBuilder, UsersRequestBuilderNavigationMetadata, UsersRequestBuilderRequestsMetadata } from './users/index.js';
@@ -28,6 +30,10 @@ export interface EducationRequestBuilder extends BaseRequestBuilder<EducationReq
      * Provides operations to manage the me property of the microsoft.graph.educationRoot entity.
      */
     get me(): MeRequestBuilder;
+    /**
+     * Provides operations to manage the reports property of the microsoft.graph.educationRoot entity.
+     */
+    get reports(): ReportsRequestBuilder;
     /**
      * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
      */
@@ -100,6 +106,10 @@ export const EducationRequestBuilderNavigationMetadata: Record<Exclude<keyof Edu
     me: {
         requestsMetadata: MeRequestBuilderRequestsMetadata,
         navigationMetadata: MeRequestBuilderNavigationMetadata,
+    },
+    reports: {
+        requestsMetadata: ReportsRequestBuilderRequestsMetadata,
+        navigationMetadata: ReportsRequestBuilderNavigationMetadata,
     },
     schools: {
         requestsMetadata: SchoolsRequestBuilderRequestsMetadata,

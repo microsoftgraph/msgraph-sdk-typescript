@@ -8,7 +8,9 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { TokenIssuancePolicyItemRequestBuilderRequestsMetadata, type TokenIssuancePolicyItemRequestBuilder } from './item/index.js';
+import { TokenIssuancePolicyItemRequestBuilderNavigationMetadata, type TokenIssuancePolicyItemRequestBuilder } from './item/index.js';
+// @ts-ignore
+import { RefRequestBuilderRequestsMetadata, type RefRequestBuilder } from './ref/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -21,7 +23,11 @@ export interface TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder<
      */
     get count(): CountRequestBuilder;
     /**
-     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity.
+     * Provides operations to manage the collection of servicePrincipal entities.
+     */
+    get ref(): RefRequestBuilder;
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.tokenIssuancePolicies.item collection
      * @param tokenIssuancePolicyId The unique identifier of tokenIssuancePolicy
      * @returns {TokenIssuancePolicyItemRequestBuilder}
      */
@@ -99,11 +105,14 @@ const TokenIssuancePoliciesRequestBuilderGetQueryParametersMapper: Record<string
  */
 export const TokenIssuancePoliciesRequestBuilderNavigationMetadata: Record<Exclude<keyof TokenIssuancePoliciesRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byTokenIssuancePolicyId: {
-        requestsMetadata: TokenIssuancePolicyItemRequestBuilderRequestsMetadata,
+        navigationMetadata: TokenIssuancePolicyItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["tokenIssuancePolicy%2Did"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    ref: {
+        requestsMetadata: RefRequestBuilderRequestsMetadata,
     },
 };
 /**

@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface Fido2AuthenticationMethodItemRequestBuilder extends BaseRequestBuilder<Fido2AuthenticationMethodItemRequestBuilder> {
     /**
-     * Deletes a user's FIDO2 Security Key Authentication Method object.
+     * Deletes a user's FIDO2 security key authentication method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/fido2authenticationmethod-delete?view=graph-rest-1.0|Find more info here}
@@ -27,7 +27,7 @@ export interface Fido2AuthenticationMethodItemRequestBuilder extends BaseRequest
      */
      get(requestConfiguration?: RequestConfiguration<Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters> | undefined) : Promise<Fido2AuthenticationMethod | undefined>;
     /**
-     * Deletes a user's FIDO2 Security Key Authentication Method object.
+     * Deletes a user's FIDO2 security key authentication method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

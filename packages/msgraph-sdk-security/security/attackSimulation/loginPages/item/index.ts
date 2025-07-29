@@ -19,10 +19,11 @@ export interface LoginPageItemRequestBuilder extends BaseRequestBuilder<LoginPag
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents an attack simulation training login page.
+     * Get a loginPage associated with an attack simulation campaign for a tenant. Login pages are shown to users in attack simulations that use credential harvest and link in attachment social engineering techniques.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LoginPage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/loginpage-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LoginPageItemRequestBuilderGetQueryParameters> | undefined) : Promise<LoginPage | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface LoginPageItemRequestBuilder extends BaseRequestBuilder<LoginPag
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents an attack simulation training login page.
+     * Get a loginPage associated with an attack simulation campaign for a tenant. Login pages are shown to users in attack simulations that use credential harvest and link in attachment social engineering techniques.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface LoginPageItemRequestBuilder extends BaseRequestBuilder<LoginPag
      toPatchRequestInformation(body: LoginPage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents an attack simulation training login page.
+ * Get a loginPage associated with an attack simulation campaign for a tenant. Login pages are shown to users in attack simulations that use credential harvest and link in attachment social engineering techniques.
  */
 export interface LoginPageItemRequestBuilderGetQueryParameters {
     /**

@@ -64,7 +64,7 @@ export function deserializeIntoAddToReviewSetPostRequestBody(addToReviewSetPostR
  */
 export interface MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends BaseRequestBuilder<MicrosoftGraphSecurityAddToReviewSetRequestBuilder> {
     /**
-     * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the Location parameter from the response headers. The location provides a URL that will return a Add to review set operation.
+     * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the Location parameter from the response headers. The location provides a URL that returns an Add to review set operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -72,7 +72,7 @@ export interface MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends Base
      */
      post(body: AddToReviewSetPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the Location parameter from the response headers. The location provides a URL that will return a Add to review set operation.
+     * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the Location parameter from the response headers. The location provides a URL that returns an Add to review set operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

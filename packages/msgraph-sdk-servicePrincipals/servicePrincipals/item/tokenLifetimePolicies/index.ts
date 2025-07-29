@@ -8,7 +8,9 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { TokenLifetimePolicyItemRequestBuilderRequestsMetadata, type TokenLifetimePolicyItemRequestBuilder } from './item/index.js';
+import { TokenLifetimePolicyItemRequestBuilderNavigationMetadata, type TokenLifetimePolicyItemRequestBuilder } from './item/index.js';
+// @ts-ignore
+import { RefRequestBuilderRequestsMetadata, type RefRequestBuilder } from './ref/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -21,7 +23,11 @@ export interface TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder<
      */
     get count(): CountRequestBuilder;
     /**
-     * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.servicePrincipal entity.
+     * Provides operations to manage the collection of servicePrincipal entities.
+     */
+    get ref(): RefRequestBuilder;
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.tokenLifetimePolicies.item collection
      * @param tokenLifetimePolicyId The unique identifier of tokenLifetimePolicy
      * @returns {TokenLifetimePolicyItemRequestBuilder}
      */
@@ -100,11 +106,14 @@ const TokenLifetimePoliciesRequestBuilderGetQueryParametersMapper: Record<string
  */
 export const TokenLifetimePoliciesRequestBuilderNavigationMetadata: Record<Exclude<keyof TokenLifetimePoliciesRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byTokenLifetimePolicyId: {
-        requestsMetadata: TokenLifetimePolicyItemRequestBuilderRequestsMetadata,
+        navigationMetadata: TokenLifetimePolicyItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["tokenLifetimePolicy%2Did"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    ref: {
+        requestsMetadata: RefRequestBuilderRequestsMetadata,
     },
 };
 /**
