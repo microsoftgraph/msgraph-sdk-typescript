@@ -39,7 +39,7 @@ export interface AllMembersRequestBuilder extends BaseRequestBuilder<AllMembersR
      */
      byConversationMemberId(conversationMemberId: string) : ConversationMemberItemRequestBuilder;
     /**
-     * Get a list of all members in a channel. It supports all types of channels. In the case of shared channels, it includes all cross-tenant and cross-team members in a channel.
+     * Get a list of all members in a channel. This API supports all channel types, including shared channels. For shared channels, the response includes:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMemberCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -55,7 +55,7 @@ export interface AllMembersRequestBuilder extends BaseRequestBuilder<AllMembersR
      */
      post(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ConversationMember | undefined>;
     /**
-     * Get a list of all members in a channel. It supports all types of channels. In the case of shared channels, it includes all cross-tenant and cross-team members in a channel.
+     * Get a list of all members in a channel. This API supports all channel types, including shared channels. For shared channels, the response includes:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -69,7 +69,7 @@ export interface AllMembersRequestBuilder extends BaseRequestBuilder<AllMembersR
      toPostRequestInformation(body: ConversationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of all members in a channel. It supports all types of channels. In the case of shared channels, it includes all cross-tenant and cross-team members in a channel.
+ * Get a list of all members in a channel. This API supports all channel types, including shared channels. For shared channels, the response includes:
  */
 export interface AllMembersRequestBuilderGetQueryParameters {
     /**
