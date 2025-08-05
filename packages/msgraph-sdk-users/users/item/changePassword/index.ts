@@ -25,7 +25,7 @@ export interface ChangePasswordPostRequestBody extends AdditionalDataHolder, Bac
  */
 export interface ChangePasswordRequestBuilder extends BaseRequestBuilder<ChangePasswordRequestBuilder> {
     /**
-     * Update the signed-in user's password. Any user can update their password without belonging to any administrator role.
+     * Update the signed-in user's password. Any user can update their password without belonging to any administrator role.To update another user's password in either delegated or app-only scenarios, update the passwordProfile property of the user instead. See Example 3: Update the passwordProfile of a user and reset their password.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -33,7 +33,7 @@ export interface ChangePasswordRequestBuilder extends BaseRequestBuilder<ChangeP
      */
      post(body: ChangePasswordPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Update the signed-in user's password. Any user can update their password without belonging to any administrator role.
+     * Update the signed-in user's password. Any user can update their password without belonging to any administrator role.To update another user's password in either delegated or app-only scenarios, update the passwordProfile property of the user instead. See Example 3: Update the passwordProfile of a user and reset their password.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
