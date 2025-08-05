@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-identityproviders",
-  "version": "1.0.0-preview.66",
+  "version": "1.0.0-preview.67",
   "description": "IdentityProviders fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",

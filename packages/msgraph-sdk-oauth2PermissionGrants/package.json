@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-oauth2permissiongrants",
-  "version": "1.0.0-preview.66",
+  "version": "1.0.0-preview.67",
   "description": "Oauth2PermissionGrants fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
