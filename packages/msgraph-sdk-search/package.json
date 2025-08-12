@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-search",
-  "version": "1.0.0-preview.67",
+  "version": "1.0.0-preview.68",
   "description": "Search fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
