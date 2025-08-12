@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-invitations",
-  "version": "1.0.0-preview.67",
+  "version": "1.0.0-preview.68",
   "description": "Invitations fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
