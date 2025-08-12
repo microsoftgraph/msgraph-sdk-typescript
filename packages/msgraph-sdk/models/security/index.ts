@@ -2339,6 +2339,24 @@ export function createRegistryValueEvidenceFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ReportFileMetadata}
+ */
+// @ts-ignore
+export function createReportFileMetadataFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoReportFileMetadata;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourceAccessEvent}
+ */
+// @ts-ignore
+export function createResourceAccessEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourceAccessEvent;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RetentionDurationForever}
  */
 // @ts-ignore
@@ -3700,6 +3718,7 @@ export function deserializeIntoEdiscoveryAddToReviewSetOperation(ediscoveryAddTo
         "cloudAttachmentVersion": n => { ediscoveryAddToReviewSetOperation.cloudAttachmentVersion = n.getEnumValue<CloudAttachmentVersion>(CloudAttachmentVersionObject); },
         "documentVersion": n => { ediscoveryAddToReviewSetOperation.documentVersion = n.getEnumValue<DocumentVersion>(DocumentVersionObject); },
         "itemsToInclude": n => { ediscoveryAddToReviewSetOperation.itemsToInclude = n.getCollectionOfEnumValues<ItemsToInclude>(ItemsToIncludeObject); },
+        "reportFileMetadata": n => { ediscoveryAddToReviewSetOperation.reportFileMetadata = n.getCollectionOfObjectValues<ReportFileMetadata>(createReportFileMetadataFromDiscriminatorValue); },
         "reviewSet": n => { ediscoveryAddToReviewSetOperation.reviewSet = n.getObjectValue<EdiscoveryReviewSet>(createEdiscoveryReviewSetFromDiscriminatorValue); },
         "search": n => { ediscoveryAddToReviewSetOperation.search = n.getObjectValue<EdiscoverySearch>(createEdiscoverySearchFromDiscriminatorValue); },
     }
@@ -3792,6 +3811,7 @@ export function deserializeIntoEdiscoveryEstimateOperation(ediscoveryEstimateOpe
         "indexedItemCount": n => { ediscoveryEstimateOperation.indexedItemCount = n.getNumberValue(); },
         "indexedItemsSize": n => { ediscoveryEstimateOperation.indexedItemsSize = n.getNumberValue(); },
         "mailboxCount": n => { ediscoveryEstimateOperation.mailboxCount = n.getNumberValue(); },
+        "reportFileMetadata": n => { ediscoveryEstimateOperation.reportFileMetadata = n.getCollectionOfObjectValues<ReportFileMetadata>(createReportFileMetadataFromDiscriminatorValue); },
         "search": n => { ediscoveryEstimateOperation.search = n.getObjectValue<EdiscoverySearch>(createEdiscoverySearchFromDiscriminatorValue); },
         "siteCount": n => { ediscoveryEstimateOperation.siteCount = n.getNumberValue(); },
         "statisticsOptions": n => { ediscoveryEstimateOperation.statisticsOptions = n.getCollectionOfEnumValues<StatisticsOptions>(StatisticsOptionsObject); },
@@ -5369,6 +5389,37 @@ export function deserializeIntoRegistryValueEvidence(registryValueEvidence: Part
 }
 /**
  * The deserialization information for the current model
+ * @param ReportFileMetadata The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoReportFileMetadata(reportFileMetadata: Partial<ReportFileMetadata> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { reportFileMetadata.backingStoreEnabled = true; },
+        "downloadUrl": n => { reportFileMetadata.downloadUrl = n.getStringValue(); },
+        "fileName": n => { reportFileMetadata.fileName = n.getStringValue(); },
+        "@odata.type": n => { reportFileMetadata.odataType = n.getStringValue(); },
+        "size": n => { reportFileMetadata.size = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourceAccessEvent The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourceAccessEvent(resourceAccessEvent: Partial<ResourceAccessEvent> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "accessDateTime": n => { resourceAccessEvent.accessDateTime = n.getDateValue(); },
+        "accountId": n => { resourceAccessEvent.accountId = n.getStringValue(); },
+        "backingStoreEnabled": n => { resourceAccessEvent.backingStoreEnabled = true; },
+        "ipAddress": n => { resourceAccessEvent.ipAddress = n.getStringValue(); },
+        "@odata.type": n => { resourceAccessEvent.odataType = n.getStringValue(); },
+        "resourceIdentifier": n => { resourceAccessEvent.resourceIdentifier = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param RetentionDuration The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -6007,6 +6058,7 @@ export function deserializeIntoUserAccount(userAccount: Partial<UserAccount> | u
         "displayName": n => { userAccount.displayName = n.getStringValue(); },
         "domainName": n => { userAccount.domainName = n.getStringValue(); },
         "@odata.type": n => { userAccount.odataType = n.getStringValue(); },
+        "resourceAccessEvents": n => { userAccount.resourceAccessEvents = n.getCollectionOfObjectValues<ResourceAccessEvent>(createResourceAccessEventFromDiscriminatorValue); },
         "userPrincipalName": n => { userAccount.userPrincipalName = n.getStringValue(); },
         "userSid": n => { userAccount.userSid = n.getStringValue(); },
     }
@@ -6396,6 +6448,10 @@ export interface EdiscoveryAddToReviewSetOperation extends CaseOperation, Parsab
      */
     itemsToInclude?: ItemsToInclude[] | null;
     /**
+     * Contains the properties for report file metadata, including downloadUrl, fileName, and size.
+     */
+    reportFileMetadata?: ReportFileMetadata[] | null;
+    /**
      * eDiscovery review set to which items matching source collection query gets added.
      */
     reviewSet?: EdiscoveryReviewSet | null;
@@ -6511,6 +6567,10 @@ export interface EdiscoveryEstimateOperation extends CaseOperation, Parsable {
      * The number of mailboxes that had search hits.
      */
     mailboxCount?: number | null;
+    /**
+     * Contains the properties for report file metadata, including downloadUrl, fileName, and size.
+     */
+    reportFileMetadata?: ReportFileMetadata[] | null;
     /**
      * eDiscovery search.
      */
@@ -8552,6 +8612,54 @@ export interface RegistryValueEvidence extends AlertEvidence, Parsable {
      */
     registryValueType?: string | null;
 }
+export interface ReportFileMetadata extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The URL to download the report.
+     */
+    downloadUrl?: string | null;
+    /**
+     * The name of the file.
+     */
+    fileName?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The size of the file.
+     */
+    size?: number | null;
+}
+export interface ResourceAccessEvent extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * The time of the access event.
+     */
+    accessDateTime?: Date | null;
+    /**
+     * The identifier of the user account.
+     */
+    accountId?: string | null;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * IP address of the resource.
+     */
+    ipAddress?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The protocol and host name pairs describing the connection.
+     */
+    resourceIdentifier?: string | null;
+}
 export interface RetentionDuration extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -9850,6 +9958,7 @@ export function serializeEdiscoveryAddToReviewSetOperation(writer: Serialization
     writer.writeEnumValue<CloudAttachmentVersion>("cloudAttachmentVersion", ediscoveryAddToReviewSetOperation.cloudAttachmentVersion);
     writer.writeEnumValue<DocumentVersion>("documentVersion", ediscoveryAddToReviewSetOperation.documentVersion);
     writer.writeEnumValue<ItemsToInclude[]>("itemsToInclude", ediscoveryAddToReviewSetOperation.itemsToInclude);
+    writer.writeCollectionOfObjectValues<ReportFileMetadata>("reportFileMetadata", ediscoveryAddToReviewSetOperation.reportFileMetadata, serializeReportFileMetadata);
     writer.writeObjectValue<EdiscoveryReviewSet>("reviewSet", ediscoveryAddToReviewSetOperation.reviewSet, serializeEdiscoveryReviewSet);
     writer.writeObjectValue<EdiscoverySearch>("search", ediscoveryAddToReviewSetOperation.search, serializeEdiscoverySearch);
 }
@@ -9942,6 +10051,7 @@ export function serializeEdiscoveryEstimateOperation(writer: SerializationWriter
     writer.writeNumberValue("indexedItemCount", ediscoveryEstimateOperation.indexedItemCount);
     writer.writeNumberValue("indexedItemsSize", ediscoveryEstimateOperation.indexedItemsSize);
     writer.writeNumberValue("mailboxCount", ediscoveryEstimateOperation.mailboxCount);
+    writer.writeCollectionOfObjectValues<ReportFileMetadata>("reportFileMetadata", ediscoveryEstimateOperation.reportFileMetadata, serializeReportFileMetadata);
     writer.writeObjectValue<EdiscoverySearch>("search", ediscoveryEstimateOperation.search, serializeEdiscoverySearch);
     writer.writeNumberValue("siteCount", ediscoveryEstimateOperation.siteCount);
     writer.writeEnumValue<StatisticsOptions[]>("statisticsOptions", ediscoveryEstimateOperation.statisticsOptions);
@@ -11575,6 +11685,37 @@ export function serializeRegistryValueEvidence(writer: SerializationWriter, regi
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ReportFileMetadata The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeReportFileMetadata(writer: SerializationWriter, reportFileMetadata: Partial<ReportFileMetadata> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!reportFileMetadata || isSerializingDerivedType) { return; }
+    writer.writeStringValue("downloadUrl", reportFileMetadata.downloadUrl);
+    writer.writeStringValue("fileName", reportFileMetadata.fileName);
+    writer.writeStringValue("@odata.type", reportFileMetadata.odataType);
+    writer.writeNumberValue("size", reportFileMetadata.size);
+    writer.writeAdditionalData(reportFileMetadata.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourceAccessEvent The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourceAccessEvent(writer: SerializationWriter, resourceAccessEvent: Partial<ResourceAccessEvent> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourceAccessEvent || isSerializingDerivedType) { return; }
+    writer.writeDateValue("accessDateTime", resourceAccessEvent.accessDateTime);
+    writer.writeStringValue("accountId", resourceAccessEvent.accountId);
+    writer.writeStringValue("ipAddress", resourceAccessEvent.ipAddress);
+    writer.writeStringValue("@odata.type", resourceAccessEvent.odataType);
+    writer.writeStringValue("resourceIdentifier", resourceAccessEvent.resourceIdentifier);
+    writer.writeAdditionalData(resourceAccessEvent.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param RetentionDuration The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -12233,6 +12374,7 @@ export function serializeUserAccount(writer: SerializationWriter, userAccount: P
     writer.writeStringValue("displayName", userAccount.displayName);
     writer.writeStringValue("domainName", userAccount.domainName);
     writer.writeStringValue("@odata.type", userAccount.odataType);
+    writer.writeCollectionOfObjectValues<ResourceAccessEvent>("resourceAccessEvents", userAccount.resourceAccessEvents, serializeResourceAccessEvent);
     writer.writeStringValue("userPrincipalName", userAccount.userPrincipalName);
     writer.writeStringValue("userSid", userAccount.userSid);
     writer.writeAdditionalData(userAccount.additionalData);
@@ -12986,6 +13128,10 @@ export interface UserAccount extends AdditionalDataHolder, BackedModel, Parsable
      * The OdataType property
      */
     odataType?: string | null;
+    /**
+     * Information on resource access attempts made by the user account.
+     */
+    resourceAccessEvents?: ResourceAccessEvent[] | null;
     /**
      * The user principal name of the account in Microsoft Entra ID.
      */
