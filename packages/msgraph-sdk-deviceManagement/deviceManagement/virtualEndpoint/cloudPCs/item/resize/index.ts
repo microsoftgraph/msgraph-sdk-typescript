@@ -42,14 +42,15 @@ export interface ResizePostRequestBody extends AdditionalDataHolder, BackedModel
  */
 export interface ResizeRequestBuilder extends BaseRequestBuilder<ResizeRequestBuilder> {
     /**
-     * Invoke action resize
+     * Upgrade or downgrade an existing Cloud PC to a configuration with a new virtual CPU (vCPU) and storage size.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpc-resize?view=graph-rest-1.0|Find more info here}
      */
      post(body: ResizePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Invoke action resize
+     * Upgrade or downgrade an existing Cloud PC to a configuration with a new virtual CPU (vCPU) and storage size.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

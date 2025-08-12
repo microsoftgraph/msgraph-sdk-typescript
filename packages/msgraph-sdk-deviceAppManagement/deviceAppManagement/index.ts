@@ -26,6 +26,8 @@ import { MobileAppCategoriesRequestBuilderNavigationMetadata, MobileAppCategorie
 // @ts-ignore
 import { MobileAppConfigurationsRequestBuilderNavigationMetadata, MobileAppConfigurationsRequestBuilderRequestsMetadata, type MobileAppConfigurationsRequestBuilder } from './mobileAppConfigurations/index.js';
 // @ts-ignore
+import { MobileAppRelationshipsRequestBuilderNavigationMetadata, MobileAppRelationshipsRequestBuilderRequestsMetadata, type MobileAppRelationshipsRequestBuilder } from './mobileAppRelationships/index.js';
+// @ts-ignore
 import { MobileAppsRequestBuilderNavigationMetadata, MobileAppsRequestBuilderRequestsMetadata, type MobileAppsRequestBuilder } from './mobileApps/index.js';
 // @ts-ignore
 import { SyncMicrosoftStoreForBusinessAppsRequestBuilderRequestsMetadata, type SyncMicrosoftStoreForBusinessAppsRequestBuilder } from './syncMicrosoftStoreForBusinessApps/index.js';
@@ -83,6 +85,10 @@ export interface DeviceAppManagementRequestBuilder extends BaseRequestBuilder<De
      */
     get mobileAppConfigurations(): MobileAppConfigurationsRequestBuilder;
     /**
+     * Provides operations to manage the mobileAppRelationships property of the microsoft.graph.deviceAppManagement entity.
+     */
+    get mobileAppRelationships(): MobileAppRelationshipsRequestBuilder;
+    /**
      * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
      */
     get mobileApps(): MobileAppsRequestBuilder;
@@ -116,7 +122,7 @@ export interface DeviceAppManagementRequestBuilder extends BaseRequestBuilder<De
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceAppManagement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-partnerintegration-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceAppManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceAppManagement | undefined>;
     /**
@@ -200,6 +206,10 @@ export const DeviceAppManagementRequestBuilderNavigationMetadata: Record<Exclude
     mobileAppConfigurations: {
         requestsMetadata: MobileAppConfigurationsRequestBuilderRequestsMetadata,
         navigationMetadata: MobileAppConfigurationsRequestBuilderNavigationMetadata,
+    },
+    mobileAppRelationships: {
+        requestsMetadata: MobileAppRelationshipsRequestBuilderRequestsMetadata,
+        navigationMetadata: MobileAppRelationshipsRequestBuilderNavigationMetadata,
     },
     mobileApps: {
         requestsMetadata: MobileAppsRequestBuilderRequestsMetadata,
