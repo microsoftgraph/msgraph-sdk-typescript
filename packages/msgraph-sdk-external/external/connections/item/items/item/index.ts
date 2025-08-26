@@ -40,12 +40,12 @@ export interface ExternalItemItemRequestBuilder extends BaseRequestBuilder<Exter
      */
      get(requestConfiguration?: RequestConfiguration<ExternalItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<ExternalItem | undefined>;
     /**
-     * Update the properties of an externalItem object.
+     * Create a new externalItem object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-put-items?view=graph-rest-1.0|Find more info here}
      */
      put(body: ExternalItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExternalItem | undefined>;
     /**
@@ -61,7 +61,7 @@ export interface ExternalItemItemRequestBuilder extends BaseRequestBuilder<Exter
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExternalItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of an externalItem object.
+     * Create a new externalItem object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

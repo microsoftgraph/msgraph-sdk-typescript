@@ -182,11 +182,11 @@ export interface RangeRequestBuilder extends BaseRequestBuilder<RangeRequestBuil
      */
      columnWithColumn(column: number | undefined) : ColumnWithColumnRequestBuilder;
     /**
-     * Retrieve the properties and relationships of range object.
+     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkbookRange>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/range-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/nameditem-range?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkbookRange | undefined>;
     /**
@@ -228,7 +228,7 @@ export interface RangeRequestBuilder extends BaseRequestBuilder<RangeRequestBuil
      */
      rowWithRow(row: number | undefined) : RowWithRowRequestBuilder;
     /**
-     * Retrieve the properties and relationships of range object.
+     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

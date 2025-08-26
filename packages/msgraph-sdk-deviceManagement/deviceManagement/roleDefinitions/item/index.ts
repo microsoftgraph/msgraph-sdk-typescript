@@ -34,12 +34,12 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
      get(requestConfiguration?: RequestConfiguration<RoleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : Promise<RoleDefinition | undefined>;
     /**
-     * Update the properties of a deviceAndAppManagementRoleDefinition object.
+     * Update the properties of a roleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: RoleDefinition, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleDefinition | undefined>;
     /**
@@ -55,7 +55,7 @@ export interface RoleDefinitionItemRequestBuilder extends BaseRequestBuilder<Rol
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleDefinitionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceAndAppManagementRoleDefinition object.
+     * Update the properties of a roleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
