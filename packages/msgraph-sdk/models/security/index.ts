@@ -5619,8 +5619,12 @@ export function deserializeIntoSearch(search: Partial<Search> | undefined = {}) 
 export function deserializeIntoSecurityGroupEvidence(securityGroupEvidence: Partial<SecurityGroupEvidence> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoAlertEvidence(securityGroupEvidence),
+        "activeDirectoryObjectGuid": n => { securityGroupEvidence.activeDirectoryObjectGuid = n.getGuidValue(); },
         "displayName": n => { securityGroupEvidence.displayName = n.getStringValue(); },
+        "distinguishedName": n => { securityGroupEvidence.distinguishedName = n.getStringValue(); },
+        "friendlyName": n => { securityGroupEvidence.friendlyName = n.getStringValue(); },
         "securityGroupId": n => { securityGroupEvidence.securityGroupId = n.getStringValue(); },
+        "sid": n => { securityGroupEvidence.sid = n.getStringValue(); },
     }
 }
 /**
@@ -6053,6 +6057,7 @@ export function deserializeIntoUrlEvidence(urlEvidence: Partial<UrlEvidence> | u
 export function deserializeIntoUserAccount(userAccount: Partial<UserAccount> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "accountName": n => { userAccount.accountName = n.getStringValue(); },
+        "activeDirectoryObjectGuid": n => { userAccount.activeDirectoryObjectGuid = n.getGuidValue(); },
         "azureAdUserId": n => { userAccount.azureAdUserId = n.getStringValue(); },
         "backingStoreEnabled": n => { userAccount.backingStoreEnabled = true; },
         "displayName": n => { userAccount.displayName = n.getStringValue(); },
@@ -8935,13 +8940,29 @@ export interface Search extends Entity, Parsable {
 }
 export interface SecurityGroupEvidence extends AlertEvidence, Parsable {
     /**
+     * The activeDirectoryObjectGuid property
+     */
+    activeDirectoryObjectGuid?: Guid | null;
+    /**
      * The name of the security group.
      */
     displayName?: string | null;
     /**
+     * The distinguishedName property
+     */
+    distinguishedName?: string | null;
+    /**
+     * The friendlyName property
+     */
+    friendlyName?: string | null;
+    /**
      * Unique identifier of the security group.
      */
     securityGroupId?: string | null;
+    /**
+     * The sid property
+     */
+    sid?: string | null;
 }
 export interface Sensor extends Entity, Parsable {
     /**
@@ -11931,8 +11952,12 @@ export function serializeSearch(writer: SerializationWriter, search: Partial<Sea
 export function serializeSecurityGroupEvidence(writer: SerializationWriter, securityGroupEvidence: Partial<SecurityGroupEvidence> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!securityGroupEvidence || isSerializingDerivedType) { return; }
     serializeAlertEvidence(writer, securityGroupEvidence, isSerializingDerivedType)
+    writer.writeGuidValue("activeDirectoryObjectGuid", securityGroupEvidence.activeDirectoryObjectGuid);
     writer.writeStringValue("displayName", securityGroupEvidence.displayName);
+    writer.writeStringValue("distinguishedName", securityGroupEvidence.distinguishedName);
+    writer.writeStringValue("friendlyName", securityGroupEvidence.friendlyName);
     writer.writeStringValue("securityGroupId", securityGroupEvidence.securityGroupId);
+    writer.writeStringValue("sid", securityGroupEvidence.sid);
 }
 /**
  * Serializes information the current object
@@ -12370,6 +12395,7 @@ export function serializeUrlEvidence(writer: SerializationWriter, urlEvidence: P
 export function serializeUserAccount(writer: SerializationWriter, userAccount: Partial<UserAccount> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!userAccount || isSerializingDerivedType) { return; }
     writer.writeStringValue("accountName", userAccount.accountName);
+    writer.writeGuidValue("activeDirectoryObjectGuid", userAccount.activeDirectoryObjectGuid);
     writer.writeStringValue("azureAdUserId", userAccount.azureAdUserId);
     writer.writeStringValue("displayName", userAccount.displayName);
     writer.writeStringValue("domainName", userAccount.domainName);
@@ -13108,6 +13134,10 @@ export interface UserAccount extends AdditionalDataHolder, BackedModel, Parsable
      * The displayed name of the user account.
      */
     accountName?: string | null;
+    /**
+     * The activeDirectoryObjectGuid property
+     */
+    activeDirectoryObjectGuid?: Guid | null;
     /**
      * The user object identifier in Microsoft Entra ID.
      */
