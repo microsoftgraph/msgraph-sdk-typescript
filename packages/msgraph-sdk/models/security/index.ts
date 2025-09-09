@@ -55,7 +55,7 @@ export interface Alert extends Entity, Parsable {
      */
     description?: string | null;
     /**
-     * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence.
+     * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot.
      */
     detectionSource?: DetectionSource | null;
     /**
@@ -516,6 +516,7 @@ export interface CasesRoot extends Entity, Parsable {
     ediscoveryCases?: EdiscoveryCase[] | null;
 }
 export type CaseStatus = (typeof CaseStatusObject)[keyof typeof CaseStatusObject];
+export type CaseType = (typeof CaseTypeObject)[keyof typeof CaseTypeObject];
 export interface CategoryTemplate extends FilePlanDescriptorTemplate, Parsable {
     /**
      * Represents all subcategories under a particular category.
@@ -3765,8 +3766,10 @@ export function deserializeIntoEdiscoveryCaseCollectionResponse(ediscoveryCaseCo
 export function deserializeIntoEdiscoveryCaseSettings(ediscoveryCaseSettings: Partial<EdiscoveryCaseSettings> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(ediscoveryCaseSettings),
+        "caseType": n => { ediscoveryCaseSettings.caseType = n.getEnumValue<CaseType>(CaseTypeObject); },
         "ocr": n => { ediscoveryCaseSettings.ocr = n.getObjectValue<OcrSettings>(createOcrSettingsFromDiscriminatorValue); },
         "redundancyDetection": n => { ediscoveryCaseSettings.redundancyDetection = n.getObjectValue<RedundancyDetectionSettings>(createRedundancyDetectionSettingsFromDiscriminatorValue); },
+        "reviewSetSettings": n => { ediscoveryCaseSettings.reviewSetSettings = n.getCollectionOfEnumValues<ReviewSetSettings>(ReviewSetSettingsObject); },
         "topicModeling": n => { ediscoveryCaseSettings.topicModeling = n.getObjectValue<TopicModelingSettings>(createTopicModelingSettingsFromDiscriminatorValue); },
     }
 }
@@ -5619,8 +5622,12 @@ export function deserializeIntoSearch(search: Partial<Search> | undefined = {}) 
 export function deserializeIntoSecurityGroupEvidence(securityGroupEvidence: Partial<SecurityGroupEvidence> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoAlertEvidence(securityGroupEvidence),
+        "activeDirectoryObjectGuid": n => { securityGroupEvidence.activeDirectoryObjectGuid = n.getGuidValue(); },
         "displayName": n => { securityGroupEvidence.displayName = n.getStringValue(); },
+        "distinguishedName": n => { securityGroupEvidence.distinguishedName = n.getStringValue(); },
+        "friendlyName": n => { securityGroupEvidence.friendlyName = n.getStringValue(); },
         "securityGroupId": n => { securityGroupEvidence.securityGroupId = n.getStringValue(); },
+        "sid": n => { securityGroupEvidence.sid = n.getStringValue(); },
     }
 }
 /**
@@ -6053,6 +6060,7 @@ export function deserializeIntoUrlEvidence(urlEvidence: Partial<UrlEvidence> | u
 export function deserializeIntoUserAccount(userAccount: Partial<UserAccount> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "accountName": n => { userAccount.accountName = n.getStringValue(); },
+        "activeDirectoryObjectGuid": n => { userAccount.activeDirectoryObjectGuid = n.getGuidValue(); },
         "azureAdUserId": n => { userAccount.azureAdUserId = n.getStringValue(); },
         "backingStoreEnabled": n => { userAccount.backingStoreEnabled = true; },
         "displayName": n => { userAccount.displayName = n.getStringValue(); },
@@ -6510,6 +6518,10 @@ export interface EdiscoveryCaseCollectionResponse extends BaseCollectionPaginati
 }
 export interface EdiscoveryCaseSettings extends Entity, Parsable {
     /**
+     * The caseType property
+     */
+    caseType?: CaseType | null;
+    /**
      * The OCR (Optical Character Recognition) settings for the case.
      */
     ocr?: OcrSettings | null;
@@ -6517,6 +6529,10 @@ export interface EdiscoveryCaseSettings extends Entity, Parsable {
      * The redundancy (near duplicate and email threading) detection settings for the case.
      */
     redundancyDetection?: RedundancyDetectionSettings | null;
+    /**
+     * The settings of the review set for the case. Possible values are: none, disableGrouping, unknownFutureValue.
+     */
+    reviewSetSettings?: ReviewSetSettings[] | null;
     /**
      * The Topic Modeling (Themes) settings for the case.
      */
@@ -8861,6 +8877,7 @@ export interface RetentionLabelCollectionResponse extends BaseCollectionPaginati
     value?: RetentionLabel[] | null;
 }
 export type RetentionTrigger = (typeof RetentionTriggerObject)[keyof typeof RetentionTriggerObject];
+export type ReviewSetSettings = (typeof ReviewSetSettingsObject)[keyof typeof ReviewSetSettingsObject];
 export interface SasTokenEvidence extends AlertEvidence, Parsable {
     /**
      * The allowedIpAddresses property
@@ -8935,13 +8952,29 @@ export interface Search extends Entity, Parsable {
 }
 export interface SecurityGroupEvidence extends AlertEvidence, Parsable {
     /**
+     * The unique group identifier assigned by the on-premises Active Directory.
+     */
+    activeDirectoryObjectGuid?: Guid | null;
+    /**
      * The name of the security group.
      */
     displayName?: string | null;
     /**
+     * The distinguished name of the security group.
+     */
+    distinguishedName?: string | null;
+    /**
+     * The friendly name of the security group.
+     */
+    friendlyName?: string | null;
+    /**
      * Unique identifier of the security group.
      */
     securityGroupId?: string | null;
+    /**
+     * The security identifier of the group.
+     */
+    sid?: string | null;
 }
 export interface Sensor extends Entity, Parsable {
     /**
@@ -10005,8 +10038,10 @@ export function serializeEdiscoveryCaseCollectionResponse(writer: SerializationW
 export function serializeEdiscoveryCaseSettings(writer: SerializationWriter, ediscoveryCaseSettings: Partial<EdiscoveryCaseSettings> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!ediscoveryCaseSettings || isSerializingDerivedType) { return; }
     serializeEntity(writer, ediscoveryCaseSettings, isSerializingDerivedType)
+    writer.writeEnumValue<CaseType>("caseType", ediscoveryCaseSettings.caseType);
     writer.writeObjectValue<OcrSettings>("ocr", ediscoveryCaseSettings.ocr, serializeOcrSettings);
     writer.writeObjectValue<RedundancyDetectionSettings>("redundancyDetection", ediscoveryCaseSettings.redundancyDetection, serializeRedundancyDetectionSettings);
+    writer.writeEnumValue<ReviewSetSettings[]>("reviewSetSettings", ediscoveryCaseSettings.reviewSetSettings);
     writer.writeObjectValue<TopicModelingSettings>("topicModeling", ediscoveryCaseSettings.topicModeling, serializeTopicModelingSettings);
 }
 /**
@@ -11931,8 +11966,12 @@ export function serializeSearch(writer: SerializationWriter, search: Partial<Sea
 export function serializeSecurityGroupEvidence(writer: SerializationWriter, securityGroupEvidence: Partial<SecurityGroupEvidence> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!securityGroupEvidence || isSerializingDerivedType) { return; }
     serializeAlertEvidence(writer, securityGroupEvidence, isSerializingDerivedType)
+    writer.writeGuidValue("activeDirectoryObjectGuid", securityGroupEvidence.activeDirectoryObjectGuid);
     writer.writeStringValue("displayName", securityGroupEvidence.displayName);
+    writer.writeStringValue("distinguishedName", securityGroupEvidence.distinguishedName);
+    writer.writeStringValue("friendlyName", securityGroupEvidence.friendlyName);
     writer.writeStringValue("securityGroupId", securityGroupEvidence.securityGroupId);
+    writer.writeStringValue("sid", securityGroupEvidence.sid);
 }
 /**
  * Serializes information the current object
@@ -12370,6 +12409,7 @@ export function serializeUrlEvidence(writer: SerializationWriter, urlEvidence: P
 export function serializeUserAccount(writer: SerializationWriter, userAccount: Partial<UserAccount> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!userAccount || isSerializingDerivedType) { return; }
     writer.writeStringValue("accountName", userAccount.accountName);
+    writer.writeGuidValue("activeDirectoryObjectGuid", userAccount.activeDirectoryObjectGuid);
     writer.writeStringValue("azureAdUserId", userAccount.azureAdUserId);
     writer.writeStringValue("displayName", userAccount.displayName);
     writer.writeStringValue("domainName", userAccount.domainName);
@@ -13109,6 +13149,10 @@ export interface UserAccount extends AdditionalDataHolder, BackedModel, Parsable
      */
     accountName?: string | null;
     /**
+     * The unique user identifier assigned by the on-premises Active Directory.
+     */
+    activeDirectoryObjectGuid?: Guid | null;
+    /**
      * The user object identifier in Microsoft Entra ID.
      */
     azureAdUserId?: string | null;
@@ -13557,6 +13601,11 @@ export const CaseStatusObject = {
     ClosedWithError: "closedWithError",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const CaseTypeObject = {
+    Standard: "standard",
+    Premium: "premium",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const ChildSelectabilityObject = {
     One: "One",
     Many: "Many",
@@ -13928,6 +13977,11 @@ export const RetentionTriggerObject = {
     DateCreated: "dateCreated",
     DateModified: "dateModified",
     DateOfEvent: "dateOfEvent",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const ReviewSetSettingsObject = {
+    None: "none",
+    DisableGrouping: "disableGrouping",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const SensorHealthStatusObject = {
