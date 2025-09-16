@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-certificatebasedauthconfiguration",
-  "version": "1.0.0-preview.70",
+  "version": "1.0.0-preview.71",
   "description": "CertificateBasedAuthConfiguration fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
