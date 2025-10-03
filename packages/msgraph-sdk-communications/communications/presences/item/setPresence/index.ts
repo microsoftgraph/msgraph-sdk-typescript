@@ -72,7 +72,7 @@ export interface SetPresencePostRequestBody extends AdditionalDataHolder, Backed
  */
 export interface SetPresenceRequestBuilder extends BaseRequestBuilder<SetPresenceRequestBuilder> {
     /**
-     * Set the state of a user's presence session as an application.
+     * Set the state of a user's presence session as an application. For more information about presence sessions, states permutations, and timeouts, see Manage presence state using the Microsoft Graph API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -80,7 +80,7 @@ export interface SetPresenceRequestBuilder extends BaseRequestBuilder<SetPresenc
      */
      post(body: SetPresencePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Set the state of a user's presence session as an application.
+     * Set the state of a user's presence session as an application. For more information about presence sessions, states permutations, and timeouts, see Manage presence state using the Microsoft Graph API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

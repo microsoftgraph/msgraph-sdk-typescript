@@ -19,7 +19,7 @@ export interface ReflectCheckInResponseItemRequestBuilder extends BaseRequestBui
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get reflectCheckInResponses from education
+     * Details of check-in responses.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ReflectCheckInResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -40,7 +40,7 @@ export interface ReflectCheckInResponseItemRequestBuilder extends BaseRequestBui
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get reflectCheckInResponses from education
+     * Details of check-in responses.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface ReflectCheckInResponseItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: ReflectCheckInResponse, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get reflectCheckInResponses from education
+ * Details of check-in responses.
  */
 export interface ReflectCheckInResponseItemRequestBuilderGetQueryParameters {
     /**
