@@ -8,7 +8,11 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { ReadingAssignmentSubmissionsRequestBuilderNavigationMetadata, ReadingAssignmentSubmissionsRequestBuilderRequestsMetadata, type ReadingAssignmentSubmissionsRequestBuilder } from './readingAssignmentSubmissions/index.js';
 // @ts-ignore
+import { ReadingCoachPassagesRequestBuilderNavigationMetadata, ReadingCoachPassagesRequestBuilderRequestsMetadata, type ReadingCoachPassagesRequestBuilder } from './readingCoachPassages/index.js';
+// @ts-ignore
 import { ReflectCheckInResponsesRequestBuilderNavigationMetadata, ReflectCheckInResponsesRequestBuilderRequestsMetadata, type ReflectCheckInResponsesRequestBuilder } from './reflectCheckInResponses/index.js';
+// @ts-ignore
+import { SpeakerAssignmentSubmissionsRequestBuilderNavigationMetadata, SpeakerAssignmentSubmissionsRequestBuilderRequestsMetadata, type SpeakerAssignmentSubmissionsRequestBuilder } from './speakerAssignmentSubmissions/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -21,9 +25,17 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      */
     get readingAssignmentSubmissions(): ReadingAssignmentSubmissionsRequestBuilder;
     /**
+     * Provides operations to manage the readingCoachPassages property of the microsoft.graph.reportsRoot entity.
+     */
+    get readingCoachPassages(): ReadingCoachPassagesRequestBuilder;
+    /**
      * Provides operations to manage the reflectCheckInResponses property of the microsoft.graph.reportsRoot entity.
      */
     get reflectCheckInResponses(): ReflectCheckInResponsesRequestBuilder;
+    /**
+     * Provides operations to manage the speakerAssignmentSubmissions property of the microsoft.graph.reportsRoot entity.
+     */
+    get speakerAssignmentSubmissions(): SpeakerAssignmentSubmissionsRequestBuilder;
     /**
      * Delete navigation property reports for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -97,9 +109,17 @@ export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof Repor
         requestsMetadata: ReadingAssignmentSubmissionsRequestBuilderRequestsMetadata,
         navigationMetadata: ReadingAssignmentSubmissionsRequestBuilderNavigationMetadata,
     },
+    readingCoachPassages: {
+        requestsMetadata: ReadingCoachPassagesRequestBuilderRequestsMetadata,
+        navigationMetadata: ReadingCoachPassagesRequestBuilderNavigationMetadata,
+    },
     reflectCheckInResponses: {
         requestsMetadata: ReflectCheckInResponsesRequestBuilderRequestsMetadata,
         navigationMetadata: ReflectCheckInResponsesRequestBuilderNavigationMetadata,
+    },
+    speakerAssignmentSubmissions: {
+        requestsMetadata: SpeakerAssignmentSubmissionsRequestBuilderRequestsMetadata,
+        navigationMetadata: SpeakerAssignmentSubmissionsRequestBuilderNavigationMetadata,
     },
 };
 /**
