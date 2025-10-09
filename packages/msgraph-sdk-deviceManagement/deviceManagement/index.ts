@@ -62,8 +62,6 @@ import { RoleDefinitionsRequestBuilderNavigationMetadata, RoleDefinitionsRequest
 // @ts-ignore
 import { SoftwareUpdateStatusSummaryRequestBuilderRequestsMetadata, type SoftwareUpdateStatusSummaryRequestBuilder } from './softwareUpdateStatusSummary/index.js';
 // @ts-ignore
-import { TelecomExpenseManagementPartnersRequestBuilderNavigationMetadata, TelecomExpenseManagementPartnersRequestBuilderRequestsMetadata, type TelecomExpenseManagementPartnersRequestBuilder } from './telecomExpenseManagementPartners/index.js';
-// @ts-ignore
 import { TermsAndConditionsRequestBuilderNavigationMetadata, TermsAndConditionsRequestBuilderRequestsMetadata, type TermsAndConditionsRequestBuilder } from './termsAndConditions/index.js';
 // @ts-ignore
 import { TroubleshootingEventsRequestBuilderNavigationMetadata, TroubleshootingEventsRequestBuilderRequestsMetadata, type TroubleshootingEventsRequestBuilder } from './troubleshootingEvents/index.js';
@@ -243,10 +241,6 @@ export interface DeviceManagementRequestBuilder extends BaseRequestBuilder<Devic
      */
     get softwareUpdateStatusSummary(): SoftwareUpdateStatusSummaryRequestBuilder;
     /**
-     * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
-     */
-    get telecomExpenseManagementPartners(): TelecomExpenseManagementPartnersRequestBuilder;
-    /**
      * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
      */
     get termsAndConditions(): TermsAndConditionsRequestBuilder;
@@ -375,7 +369,7 @@ export interface DeviceManagementRequestBuilder extends BaseRequestBuilder<Devic
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-devicemanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-androidforwork-devicemanagement-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceManagementRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagement | undefined>;
     /**
@@ -390,7 +384,7 @@ export interface DeviceManagementRequestBuilder extends BaseRequestBuilder<Devic
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-tem-devicemanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-androidforwork-devicemanagement-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagement | undefined>;
     /**
@@ -551,10 +545,6 @@ export const DeviceManagementRequestBuilderNavigationMetadata: Record<Exclude<ke
     },
     softwareUpdateStatusSummary: {
         requestsMetadata: SoftwareUpdateStatusSummaryRequestBuilderRequestsMetadata,
-    },
-    telecomExpenseManagementPartners: {
-        requestsMetadata: TelecomExpenseManagementPartnersRequestBuilderRequestsMetadata,
-        navigationMetadata: TelecomExpenseManagementPartnersRequestBuilderNavigationMetadata,
     },
     termsAndConditions: {
         requestsMetadata: TermsAndConditionsRequestBuilderRequestsMetadata,

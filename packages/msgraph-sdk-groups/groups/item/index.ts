@@ -50,6 +50,8 @@ import { MembersWithLicenseErrorsRequestBuilderNavigationMetadata, MembersWithLi
 // @ts-ignore
 import { OnenoteRequestBuilderNavigationMetadata, OnenoteRequestBuilderRequestsMetadata, type OnenoteRequestBuilder } from './onenote/index.js';
 // @ts-ignore
+import { OnPremisesSyncBehaviorRequestBuilderRequestsMetadata, type OnPremisesSyncBehaviorRequestBuilder } from './onPremisesSyncBehavior/index.js';
+// @ts-ignore
 import { OwnersRequestBuilderNavigationMetadata, OwnersRequestBuilderRequestsMetadata, type OwnersRequestBuilder } from './owners/index.js';
 // @ts-ignore
 import { PermissionGrantsRequestBuilderNavigationMetadata, PermissionGrantsRequestBuilderRequestsMetadata, type PermissionGrantsRequestBuilder } from './permissionGrants/index.js';
@@ -186,6 +188,10 @@ export interface GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemReq
      * Provides operations to manage the onenote property of the microsoft.graph.group entity.
      */
     get onenote(): OnenoteRequestBuilder;
+    /**
+     * Provides operations to manage the onPremisesSyncBehavior property of the microsoft.graph.group entity.
+     */
+    get onPremisesSyncBehavior(): OnPremisesSyncBehaviorRequestBuilder;
     /**
      * Provides operations to manage the owners property of the microsoft.graph.group entity.
      */
@@ -420,6 +426,9 @@ export const GroupItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Gro
     onenote: {
         requestsMetadata: OnenoteRequestBuilderRequestsMetadata,
         navigationMetadata: OnenoteRequestBuilderNavigationMetadata,
+    },
+    onPremisesSyncBehavior: {
+        requestsMetadata: OnPremisesSyncBehaviorRequestBuilderRequestsMetadata,
     },
     owners: {
         requestsMetadata: OwnersRequestBuilderRequestsMetadata,
