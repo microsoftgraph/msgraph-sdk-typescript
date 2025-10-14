@@ -287,11 +287,10 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      */
     get security(): SecurityRequestBuilder;
     /**
-     * Read properties and relationships of the reportRoot object.
+     * Get reports
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ReportRoot>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-reportroot-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ReportsRequestBuilderGetQueryParameters> | undefined) : Promise<ReportRoot | undefined>;
     /**
@@ -874,22 +873,21 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      */
      managedDeviceEnrollmentTopFailuresWithPeriod(period: string | undefined) : ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder;
     /**
-     * Update the properties of a reportRoot object.
+     * Update reports
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ReportRoot>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-reportroot-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ReportRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ReportRoot | undefined>;
     /**
-     * Read properties and relationships of the reportRoot object.
+     * Get reports
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ReportsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a reportRoot object.
+     * Update reports
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -897,7 +895,7 @@ export interface ReportsRequestBuilder extends BaseRequestBuilder<ReportsRequest
      toPatchRequestInformation(body: ReportRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the reportRoot object.
+ * Get reports
  */
 export interface ReportsRequestBuilderGetQueryParameters {
     /**

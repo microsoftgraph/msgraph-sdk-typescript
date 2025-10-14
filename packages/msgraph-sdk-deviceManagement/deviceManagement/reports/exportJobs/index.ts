@@ -27,30 +27,28 @@ export interface ExportJobsRequestBuilder extends BaseRequestBuilder<ExportJobsR
      */
      byDeviceManagementExportJobId(deviceManagementExportJobId: string) : DeviceManagementExportJobItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceManagementExportJob objects.
+     * Entity representing a job to export a report.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementExportJobCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ExportJobsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagementExportJobCollectionResponse | undefined>;
     /**
-     * Create a new deviceManagementExportJob object.
+     * Create new navigation property to exportJobs for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementExportJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceManagementExportJob, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagementExportJob | undefined>;
     /**
-     * List properties and relationships of the deviceManagementExportJob objects.
+     * Entity representing a job to export a report.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExportJobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new deviceManagementExportJob object.
+     * Create new navigation property to exportJobs for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface ExportJobsRequestBuilder extends BaseRequestBuilder<ExportJobsR
      toPostRequestInformation(body: DeviceManagementExportJob, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceManagementExportJob objects.
+ * Entity representing a job to export a report.
  */
 export interface ExportJobsRequestBuilderGetQueryParameters {
     /**

@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseRequestBuilder<EnrollmentConfigurationAssignmentItemRequestBuilder> {
     /**
-     * Deletes a enrollmentConfigurationAssignment.
+     * Delete navigation property assignments for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the enrollmentConfigurationAssignment object.
+     * The list of group assignments for the device configuration profile
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EnrollmentConfigurationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<EnrollmentConfigurationAssignmentItemRequestBuilderGetQueryParameters> | undefined) : Promise<EnrollmentConfigurationAssignment | undefined>;
     /**
-     * Update the properties of a enrollmentConfigurationAssignment object.
+     * Update the navigation property assignments in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<EnrollmentConfigurationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: EnrollmentConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EnrollmentConfigurationAssignment | undefined>;
     /**
-     * Deletes a enrollmentConfigurationAssignment.
+     * Delete navigation property assignments for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the enrollmentConfigurationAssignment object.
+     * The list of group assignments for the device configuration profile
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<EnrollmentConfigurationAssignmentItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a enrollmentConfigurationAssignment object.
+     * Update the navigation property assignments in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface EnrollmentConfigurationAssignmentItemRequestBuilder extends Bas
      toPatchRequestInformation(body: EnrollmentConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the enrollmentConfigurationAssignment object.
+ * The list of group assignments for the device configuration profile
  */
 export interface EnrollmentConfigurationAssignmentItemRequestBuilderGetQueryParameters {
     /**

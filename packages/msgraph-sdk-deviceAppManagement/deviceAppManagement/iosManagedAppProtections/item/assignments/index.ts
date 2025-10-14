@@ -27,11 +27,10 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      byTargetedManagedAppPolicyAssignmentId(targetedManagedAppPolicyAssignmentId: string) : TargetedManagedAppPolicyAssignmentItemRequestBuilder;
     /**
-     * List properties and relationships of the targetedManagedAppPolicyAssignment objects.
+     * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TargetedManagedAppPolicyAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedapppolicyassignment-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<TargetedManagedAppPolicyAssignmentCollectionResponse | undefined>;
     /**
@@ -43,7 +42,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      post(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined>;
     /**
-     * List properties and relationships of the targetedManagedAppPolicyAssignment objects.
+     * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +56,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      toPostRequestInformation(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the targetedManagedAppPolicyAssignment objects.
+ * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
  */
 export interface AssignmentsRequestBuilderGetQueryParameters {
     /**

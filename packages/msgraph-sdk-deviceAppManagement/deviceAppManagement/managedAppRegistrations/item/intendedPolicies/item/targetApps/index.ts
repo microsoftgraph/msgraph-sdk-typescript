@@ -56,15 +56,14 @@ export interface TargetAppsPostRequestBody extends AdditionalDataHolder, BackedM
  */
 export interface TargetAppsRequestBuilder extends BaseRequestBuilder<TargetAppsRequestBuilder> {
     /**
-     * Not yet documented
+     * Invoke action targetApps
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedapppolicy-targetapps?view=graph-rest-1.0|Find more info here}
      */
      post(body: TargetAppsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Not yet documented
+     * Invoke action targetApps
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

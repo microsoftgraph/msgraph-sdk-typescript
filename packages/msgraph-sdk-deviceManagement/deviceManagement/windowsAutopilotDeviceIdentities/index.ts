@@ -27,30 +27,28 @@ export interface WindowsAutopilotDeviceIdentitiesRequestBuilder extends BaseRequ
      */
      byWindowsAutopilotDeviceIdentityId(windowsAutopilotDeviceIdentityId: string) : WindowsAutopilotDeviceIdentityItemRequestBuilder;
     /**
-     * List properties and relationships of the windowsAutopilotDeviceIdentity objects.
+     * The Windows autopilot device identities contained collection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsAutopilotDeviceIdentityCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsAutopilotDeviceIdentityCollectionResponse | undefined>;
     /**
-     * Create a new windowsAutopilotDeviceIdentity object.
+     * Create new navigation property to windowsAutopilotDeviceIdentities for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsAutopilotDeviceIdentity>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: WindowsAutopilotDeviceIdentity, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined>;
     /**
-     * List properties and relationships of the windowsAutopilotDeviceIdentity objects.
+     * The Windows autopilot device identities contained collection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new windowsAutopilotDeviceIdentity object.
+     * Create new navigation property to windowsAutopilotDeviceIdentities for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface WindowsAutopilotDeviceIdentitiesRequestBuilder extends BaseRequ
      toPostRequestInformation(body: WindowsAutopilotDeviceIdentity, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the windowsAutopilotDeviceIdentity objects.
+ * The Windows autopilot device identities contained collection.
  */
 export interface WindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameters {
     /**

@@ -31,43 +31,40 @@ export interface IosManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      */
     get deploymentSummary(): DeploymentSummaryRequestBuilder;
     /**
-     * Deletes a iosManagedAppProtection.
+     * Delete navigation property iosManagedAppProtections for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappprotection-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the iosManagedAppProtection object.
+     * iOS managed app policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IosManagedAppProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IosManagedAppProtectionItemRequestBuilderGetQueryParameters> | undefined) : Promise<IosManagedAppProtection | undefined>;
     /**
-     * Update the properties of a iosManagedAppProtection object.
+     * Update the navigation property iosManagedAppProtections in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IosManagedAppProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappprotection-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: IosManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IosManagedAppProtection | undefined>;
     /**
-     * Deletes a iosManagedAppProtection.
+     * Delete navigation property iosManagedAppProtections for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the iosManagedAppProtection object.
+     * iOS managed app policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IosManagedAppProtectionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a iosManagedAppProtection object.
+     * Update the navigation property iosManagedAppProtections in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -75,7 +72,7 @@ export interface IosManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: IosManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the iosManagedAppProtection object.
+ * iOS managed app policies.
  */
 export interface IosManagedAppProtectionItemRequestBuilderGetQueryParameters {
     /**

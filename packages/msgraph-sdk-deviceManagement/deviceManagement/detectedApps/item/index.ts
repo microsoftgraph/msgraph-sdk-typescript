@@ -19,43 +19,40 @@ export interface DetectedAppItemRequestBuilder extends BaseRequestBuilder<Detect
      */
     get managedDevices(): ManagedDevicesRequestBuilder;
     /**
-     * Deletes a detectedApp.
+     * Delete navigation property detectedApps for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the detectedApp object.
+     * The list of detected apps associated with a device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DetectedApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DetectedAppItemRequestBuilderGetQueryParameters> | undefined) : Promise<DetectedApp | undefined>;
     /**
-     * Update the properties of a detectedApp object.
+     * Update the navigation property detectedApps in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DetectedApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DetectedApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DetectedApp | undefined>;
     /**
-     * Deletes a detectedApp.
+     * Delete navigation property detectedApps for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the detectedApp object.
+     * The list of detected apps associated with a device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DetectedAppItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a detectedApp object.
+     * Update the navigation property detectedApps in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface DetectedAppItemRequestBuilder extends BaseRequestBuilder<Detect
      toPatchRequestInformation(body: DetectedApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the detectedApp object.
+ * The list of detected apps associated with a device.
  */
 export interface DetectedAppItemRequestBuilderGetQueryParameters {
     /**

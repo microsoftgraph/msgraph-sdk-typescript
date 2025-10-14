@@ -31,18 +31,16 @@ export interface WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseRe
      */
     get updateDeviceProperties(): UpdateDevicePropertiesRequestBuilder;
     /**
-     * Deletes a windowsAutopilotDeviceIdentity.
+     * Delete navigation property windowsAutopilotDeviceIdentities for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the windowsAutopilotDeviceIdentity object.
+     * The Windows autopilot device identities contained collection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsAutopilotDeviceIdentity>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined>;
     /**
@@ -54,13 +52,13 @@ export interface WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseRe
      */
      patch(body: WindowsAutopilotDeviceIdentity, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined>;
     /**
-     * Deletes a windowsAutopilotDeviceIdentity.
+     * Delete navigation property windowsAutopilotDeviceIdentities for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the windowsAutopilotDeviceIdentity object.
+     * The Windows autopilot device identities contained collection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -74,7 +72,7 @@ export interface WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseRe
      toPatchRequestInformation(body: WindowsAutopilotDeviceIdentity, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the windowsAutopilotDeviceIdentity object.
+ * The Windows autopilot device identities contained collection.
  */
 export interface WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParameters {
     /**

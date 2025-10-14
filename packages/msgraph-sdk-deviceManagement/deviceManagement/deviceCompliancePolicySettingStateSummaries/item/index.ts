@@ -19,43 +19,40 @@ export interface DeviceCompliancePolicySettingStateSummaryItemRequestBuilder ext
      */
     get deviceComplianceSettingStates(): DeviceComplianceSettingStatesRequestBuilder;
     /**
-     * Deletes a deviceCompliancePolicySettingStateSummary.
+     * Delete navigation property deviceCompliancePolicySettingStateSummaries for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicysettingstatesummary-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceCompliancePolicySettingStateSummary object.
+     * The summary states of compliance policy settings for this account.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicySettingStateSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicysettingstatesummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicySettingStateSummary | undefined>;
     /**
-     * Update the properties of a deviceCompliancePolicySettingStateSummary object.
+     * Update the navigation property deviceCompliancePolicySettingStateSummaries in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicySettingStateSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicysettingstatesummary-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceCompliancePolicySettingStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicySettingStateSummary | undefined>;
     /**
-     * Deletes a deviceCompliancePolicySettingStateSummary.
+     * Delete navigation property deviceCompliancePolicySettingStateSummaries for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceCompliancePolicySettingStateSummary object.
+     * The summary states of compliance policy settings for this account.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceCompliancePolicySettingStateSummary object.
+     * Update the navigation property deviceCompliancePolicySettingStateSummaries in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface DeviceCompliancePolicySettingStateSummaryItemRequestBuilder ext
      toPatchRequestInformation(body: DeviceCompliancePolicySettingStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceCompliancePolicySettingStateSummary object.
+ * The summary states of compliance policy settings for this account.
  */
 export interface DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQueryParameters {
     /**

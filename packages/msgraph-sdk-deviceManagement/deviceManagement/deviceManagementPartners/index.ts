@@ -27,30 +27,28 @@ export interface DeviceManagementPartnersRequestBuilder extends BaseRequestBuild
      */
      byDeviceManagementPartnerId(deviceManagementPartnerId: string) : DeviceManagementPartnerItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceManagementPartner objects.
+     * The list of Device Management Partners configured by the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementPartnerCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceManagementPartnersRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagementPartnerCollectionResponse | undefined>;
     /**
-     * Create a new deviceManagementPartner object.
+     * Create new navigation property to deviceManagementPartners for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementPartner>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagementPartner | undefined>;
     /**
-     * List properties and relationships of the deviceManagementPartner objects.
+     * The list of Device Management Partners configured by the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceManagementPartnersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new deviceManagementPartner object.
+     * Create new navigation property to deviceManagementPartners for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface DeviceManagementPartnersRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: DeviceManagementPartner, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceManagementPartner objects.
+ * The list of Device Management Partners configured by the tenant.
  */
 export interface DeviceManagementPartnersRequestBuilderGetQueryParameters {
     /**

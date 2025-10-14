@@ -27,30 +27,28 @@ export interface RoleAssignmentsRequestBuilder extends BaseRequestBuilder<RoleAs
      */
      byDeviceAndAppManagementRoleAssignmentId(deviceAndAppManagementRoleAssignmentId: string) : DeviceAndAppManagementRoleAssignmentItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceAndAppManagementRoleAssignment objects.
+     * The Role Assignments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceAndAppManagementRoleAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceAndAppManagementRoleAssignmentCollectionResponse | undefined>;
     /**
-     * Create a new deviceAndAppManagementRoleAssignment object.
+     * Create new navigation property to roleAssignments for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceAndAppManagementRoleAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceAndAppManagementRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined>;
     /**
-     * List properties and relationships of the deviceAndAppManagementRoleAssignment objects.
+     * The Role Assignments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleAssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new deviceAndAppManagementRoleAssignment object.
+     * Create new navigation property to roleAssignments for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface RoleAssignmentsRequestBuilder extends BaseRequestBuilder<RoleAs
      toPostRequestInformation(body: DeviceAndAppManagementRoleAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceAndAppManagementRoleAssignment objects.
+ * The Role Assignments.
  */
 export interface RoleAssignmentsRequestBuilderGetQueryParameters {
     /**

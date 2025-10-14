@@ -25,43 +25,40 @@ export interface TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder
      */
     get assignments(): AssignmentsRequestBuilder;
     /**
-     * Deletes a termsAndConditions.
+     * Delete navigation property termsAndConditions for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditions-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the termsAndConditions object.
+     * The terms and conditions associated with device management of the company.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditions>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditions-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<TermsAndConditionsItemRequestBuilderGetQueryParameters> | undefined) : Promise<TermsAndConditions | undefined>;
     /**
-     * Update the properties of a termsAndConditions object.
+     * Update the navigation property termsAndConditions in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditions>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditions-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TermsAndConditions, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TermsAndConditions | undefined>;
     /**
-     * Deletes a termsAndConditions.
+     * Delete navigation property termsAndConditions for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the termsAndConditions object.
+     * The terms and conditions associated with device management of the company.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TermsAndConditionsItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a termsAndConditions object.
+     * Update the navigation property termsAndConditions in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -69,7 +66,7 @@ export interface TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: TermsAndConditions, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the termsAndConditions object.
+ * The terms and conditions associated with device management of the company.
  */
 export interface TermsAndConditionsItemRequestBuilderGetQueryParameters {
     /**

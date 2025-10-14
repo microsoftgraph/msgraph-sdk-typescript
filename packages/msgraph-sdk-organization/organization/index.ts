@@ -51,11 +51,11 @@ export interface OrganizationRequestBuilder extends BaseRequestBuilder<Organizat
      */
      byOrganizationId(organizationId: string) : OrganizationItemRequestBuilder;
     /**
-     * List properties and relationships of the organization objects.
+     * Retrieve a list of organization objects. There's only one organization object in the collection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OrganizationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OrganizationRequestBuilderGetQueryParameters> | undefined) : Promise<OrganizationCollectionResponse | undefined>;
     /**
@@ -67,7 +67,7 @@ export interface OrganizationRequestBuilder extends BaseRequestBuilder<Organizat
      */
      post(body: Organization, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Organization | undefined>;
     /**
-     * List properties and relationships of the organization objects.
+     * Retrieve a list of organization objects. There's only one organization object in the collection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -81,7 +81,7 @@ export interface OrganizationRequestBuilder extends BaseRequestBuilder<Organizat
      toPostRequestInformation(body: Organization, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the organization objects.
+ * Retrieve a list of organization objects. There's only one organization object in the collection.
  */
 export interface OrganizationRequestBuilderGetQueryParameters {
     /**

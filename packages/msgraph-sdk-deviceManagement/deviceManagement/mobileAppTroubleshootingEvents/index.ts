@@ -27,30 +27,28 @@ export interface MobileAppTroubleshootingEventsRequestBuilder extends BaseReques
      */
      byMobileAppTroubleshootingEventId(mobileAppTroubleshootingEventId: string) : MobileAppTroubleshootingEventItemRequestBuilder;
     /**
-     * List properties and relationships of the mobileAppTroubleshootingEvent objects.
+     * The collection property of MobileAppTroubleshootingEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppTroubleshootingEventCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MobileAppTroubleshootingEventsRequestBuilderGetQueryParameters> | undefined) : Promise<MobileAppTroubleshootingEventCollectionResponse | undefined>;
     /**
-     * Create a new mobileAppTroubleshootingEvent object.
+     * Create new navigation property to mobileAppTroubleshootingEvents for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppTroubleshootingEvent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: MobileAppTroubleshootingEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileAppTroubleshootingEvent | undefined>;
     /**
-     * List properties and relationships of the mobileAppTroubleshootingEvent objects.
+     * The collection property of MobileAppTroubleshootingEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MobileAppTroubleshootingEventsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new mobileAppTroubleshootingEvent object.
+     * Create new navigation property to mobileAppTroubleshootingEvents for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface MobileAppTroubleshootingEventsRequestBuilder extends BaseReques
      toPostRequestInformation(body: MobileAppTroubleshootingEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the mobileAppTroubleshootingEvent objects.
+ * The collection property of MobileAppTroubleshootingEvent.
  */
 export interface MobileAppTroubleshootingEventsRequestBuilderGetQueryParameters {
     /**

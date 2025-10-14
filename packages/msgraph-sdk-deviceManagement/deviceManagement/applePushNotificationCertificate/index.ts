@@ -25,20 +25,18 @@ export interface ApplePushNotificationCertificateRequestBuilder extends BaseRequ
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the applePushNotificationCertificate object.
+     * Apple push notification certificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApplePushNotificationCertificate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applepushnotificationcertificate-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ApplePushNotificationCertificateRequestBuilderGetQueryParameters> | undefined) : Promise<ApplePushNotificationCertificate | undefined>;
     /**
-     * Update the properties of a applePushNotificationCertificate object.
+     * Update the navigation property applePushNotificationCertificate in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApplePushNotificationCertificate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applepushnotificationcertificate-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ApplePushNotificationCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ApplePushNotificationCertificate | undefined>;
     /**
@@ -48,13 +46,13 @@ export interface ApplePushNotificationCertificateRequestBuilder extends BaseRequ
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the applePushNotificationCertificate object.
+     * Apple push notification certificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApplePushNotificationCertificateRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a applePushNotificationCertificate object.
+     * Update the navigation property applePushNotificationCertificate in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -62,7 +60,7 @@ export interface ApplePushNotificationCertificateRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: ApplePushNotificationCertificate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the applePushNotificationCertificate object.
+ * Apple push notification certificate.
  */
 export interface ApplePushNotificationCertificateRequestBuilderGetQueryParameters {
     /**

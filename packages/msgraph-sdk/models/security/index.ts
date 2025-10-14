@@ -474,7 +474,7 @@ export interface CaseEscaped extends Entity, Parsable {
 }
 export interface CaseOperation extends Entity, Parsable {
     /**
-     * The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult.
+     * The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult, holdPolicySync. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult, holdPolicySync.
      */
     action?: CaseAction | null;
     /**
@@ -498,7 +498,7 @@ export interface CaseOperation extends Entity, Parsable {
      */
     resultInfo?: ResultInfo | null;
     /**
-     * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
+     * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed, unknownFutureValue.
      */
     status?: CaseOperationStatus | null;
 }
@@ -6665,7 +6665,7 @@ export interface EdiscoveryHoldOperation extends CaseOperation, Parsable {
 }
 export interface EdiscoveryHoldPolicySyncOperation extends CaseOperation, Parsable {
     /**
-     * The reportFileMetadata property
+     * Contains the properties for report file metadata, including downloadUrl, fileName, and size.
      */
     reportFileMetadata?: ReportFileMetadata[] | null;
 }

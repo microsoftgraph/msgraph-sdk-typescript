@@ -27,30 +27,28 @@ export interface UserStatusesRequestBuilder extends BaseRequestBuilder<UserStatu
      */
      byDeviceComplianceUserStatusId(deviceComplianceUserStatusId: string) : DeviceComplianceUserStatusItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceComplianceUserStatus objects.
+     * List of DeviceComplianceUserStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceUserStatusCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuserstatus-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceUserStatusCollectionResponse | undefined>;
     /**
-     * Create a new deviceComplianceUserStatus object.
+     * Create new navigation property to userStatuses for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceUserStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuserstatus-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceComplianceUserStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceUserStatus | undefined>;
     /**
-     * List properties and relationships of the deviceComplianceUserStatus objects.
+     * List of DeviceComplianceUserStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserStatusesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new deviceComplianceUserStatus object.
+     * Create new navigation property to userStatuses for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface UserStatusesRequestBuilder extends BaseRequestBuilder<UserStatu
      toPostRequestInformation(body: DeviceComplianceUserStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceComplianceUserStatus objects.
+ * List of DeviceComplianceUserStatus.
  */
 export interface UserStatusesRequestBuilderGetQueryParameters {
     /**

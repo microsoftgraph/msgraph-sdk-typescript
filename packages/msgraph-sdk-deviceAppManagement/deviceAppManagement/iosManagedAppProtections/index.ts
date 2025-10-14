@@ -27,30 +27,28 @@ export interface IosManagedAppProtectionsRequestBuilder extends BaseRequestBuild
      */
      byIosManagedAppProtectionId(iosManagedAppProtectionId: string) : IosManagedAppProtectionItemRequestBuilder;
     /**
-     * List properties and relationships of the iosManagedAppProtection objects.
+     * iOS managed app policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IosManagedAppProtectionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappprotection-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<IosManagedAppProtectionsRequestBuilderGetQueryParameters> | undefined) : Promise<IosManagedAppProtectionCollectionResponse | undefined>;
     /**
-     * Create a new iosManagedAppProtection object.
+     * Create new navigation property to iosManagedAppProtections for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<IosManagedAppProtection>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappprotection-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: IosManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<IosManagedAppProtection | undefined>;
     /**
-     * List properties and relationships of the iosManagedAppProtection objects.
+     * iOS managed app policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<IosManagedAppProtectionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new iosManagedAppProtection object.
+     * Create new navigation property to iosManagedAppProtections for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface IosManagedAppProtectionsRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: IosManagedAppProtection, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the iosManagedAppProtection objects.
+ * iOS managed app policies.
  */
 export interface IosManagedAppProtectionsRequestBuilderGetQueryParameters {
     /**

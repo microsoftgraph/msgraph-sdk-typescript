@@ -27,30 +27,28 @@ export interface AppsRequestBuilder extends BaseRequestBuilder<AppsRequestBuilde
      */
      byManagedMobileAppId(managedMobileAppId: string) : ManagedMobileAppItemRequestBuilder;
     /**
-     * List properties and relationships of the managedMobileApp objects.
+     * List of apps to which the policy is deployed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedMobileAppCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedmobileapp-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppsRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedMobileAppCollectionResponse | undefined>;
     /**
-     * Create a new managedMobileApp object.
+     * Create new navigation property to apps for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedMobileApp>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedmobileapp-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedMobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedMobileApp | undefined>;
     /**
-     * List properties and relationships of the managedMobileApp objects.
+     * List of apps to which the policy is deployed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new managedMobileApp object.
+     * Create new navigation property to apps for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AppsRequestBuilder extends BaseRequestBuilder<AppsRequestBuilde
      toPostRequestInformation(body: ManagedMobileApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the managedMobileApp objects.
+ * List of apps to which the policy is deployed.
  */
 export interface AppsRequestBuilderGetQueryParameters {
     /**

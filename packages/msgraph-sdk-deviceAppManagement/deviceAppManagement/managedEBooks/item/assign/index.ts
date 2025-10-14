@@ -23,15 +23,14 @@ export interface AssignPostRequestBody extends AdditionalDataHolder, BackedModel
  */
 export interface AssignRequestBuilder extends BaseRequestBuilder<AssignRequestBuilder> {
     /**
-     * Not yet documented
+     * Invoke action assign
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebook-assign?view=graph-rest-1.0|Find more info here}
      */
      post(body: AssignPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Not yet documented
+     * Invoke action assign
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

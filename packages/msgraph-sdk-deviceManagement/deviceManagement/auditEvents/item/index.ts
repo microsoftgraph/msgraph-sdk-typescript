@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AuditEventItemRequestBuilder extends BaseRequestBuilder<AuditEventItemRequestBuilder> {
     /**
-     * Deletes a auditEvent.
+     * Delete navigation property auditEvents for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-auditing-auditevent-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the auditEvent object.
+     * The Audit Events
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuditEvent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-auditing-auditevent-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuditEventItemRequestBuilderGetQueryParameters> | undefined) : Promise<AuditEvent | undefined>;
     /**
-     * Update the properties of a auditEvent object.
+     * Update the navigation property auditEvents in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuditEvent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-auditing-auditevent-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AuditEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuditEvent | undefined>;
     /**
-     * Deletes a auditEvent.
+     * Delete navigation property auditEvents for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the auditEvent object.
+     * The Audit Events
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuditEventItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a auditEvent object.
+     * Update the navigation property auditEvents in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface AuditEventItemRequestBuilder extends BaseRequestBuilder<AuditEv
      toPatchRequestInformation(body: AuditEvent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the auditEvent object.
+ * The Audit Events
  */
 export interface AuditEventItemRequestBuilderGetQueryParameters {
     /**

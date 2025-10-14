@@ -27,30 +27,28 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      */
      byDeviceConfigurationAssignmentId(deviceConfigurationAssignmentId: string) : DeviceConfigurationAssignmentItemRequestBuilder;
     /**
-     * List properties and relationships of the deviceConfigurationAssignment objects.
+     * The list of assignments for the device configuration profile.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationAssignmentCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationAssignmentCollectionResponse | undefined>;
     /**
-     * Create a new deviceConfigurationAssignment object.
+     * Create new navigation property to assignments for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationAssignment>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfigurationAssignment | undefined>;
     /**
-     * List properties and relationships of the deviceConfigurationAssignment objects.
+     * The list of assignments for the device configuration profile.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AssignmentsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new deviceConfigurationAssignment object.
+     * Create new navigation property to assignments for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AssignmentsRequestBuilder extends BaseRequestBuilder<Assignment
      toPostRequestInformation(body: DeviceConfigurationAssignment, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the deviceConfigurationAssignment objects.
+ * The list of assignments for the device configuration profile.
  */
 export interface AssignmentsRequestBuilderGetQueryParameters {
     /**

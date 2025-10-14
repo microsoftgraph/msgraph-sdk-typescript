@@ -19,20 +19,18 @@ export interface DeviceConfigurationDeviceStateSummariesRequestBuilder extends B
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceConfigurationDeviceStateSummary object.
+     * The device configuration device state summary for this account.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationDeviceStateSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceConfigurationDeviceStateSummariesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined>;
     /**
-     * Update the properties of a deviceConfigurationDeviceStateSummary object.
+     * Update the navigation property deviceConfigurationDeviceStateSummaries in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceConfigurationDeviceStateSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceConfigurationDeviceStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface DeviceConfigurationDeviceStateSummariesRequestBuilder extends B
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceConfigurationDeviceStateSummary object.
+     * The device configuration device state summary for this account.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceConfigurationDeviceStateSummariesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceConfigurationDeviceStateSummary object.
+     * Update the navigation property deviceConfigurationDeviceStateSummaries in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface DeviceConfigurationDeviceStateSummariesRequestBuilder extends B
      toPatchRequestInformation(body: DeviceConfigurationDeviceStateSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceConfigurationDeviceStateSummary object.
+ * The device configuration device state summary for this account.
  */
 export interface DeviceConfigurationDeviceStateSummariesRequestBuilderGetQueryParameters {
     /**
