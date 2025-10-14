@@ -27,21 +27,21 @@ export interface ExecutionScopeRequestBuilder extends BaseRequestBuilder<Executi
      */
      byUserProcessingResultId(userProcessingResultId: string) : UserProcessingResultItemRequestBuilder;
     /**
-     * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
+     * The list of users that meet the workflowExecutionConditions of a workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserProcessingResultCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ExecutionScopeRequestBuilderGetQueryParameters> | undefined) : Promise<UserProcessingResultCollectionResponse | undefined>;
     /**
-     * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
+     * The list of users that meet the workflowExecutionConditions of a workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExecutionScopeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
+ * The list of users that meet the workflowExecutionConditions of a workflow.
  */
 export interface ExecutionScopeRequestBuilderGetQueryParameters {
     /**

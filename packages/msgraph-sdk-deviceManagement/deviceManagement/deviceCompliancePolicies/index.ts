@@ -27,30 +27,28 @@ export interface DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuild
      */
      byDeviceCompliancePolicyId(deviceCompliancePolicyId: string) : DeviceCompliancePolicyItemRequestBuilder;
     /**
-     * List properties and relationships of the androidCompliancePolicy objects.
+     * The device compliance policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicyCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcompliancepolicy-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceCompliancePoliciesRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceCompliancePolicyCollectionResponse | undefined>;
     /**
-     * Create a new androidCompliancePolicy object.
+     * Create new navigation property to deviceCompliancePolicies for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceCompliancePolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcompliancepolicy-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceCompliancePolicy | undefined>;
     /**
-     * List properties and relationships of the androidCompliancePolicy objects.
+     * The device compliance policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceCompliancePoliciesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new androidCompliancePolicy object.
+     * Create new navigation property to deviceCompliancePolicies for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: DeviceCompliancePolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the androidCompliancePolicy objects.
+ * The device compliance policies.
  */
 export interface DeviceCompliancePoliciesRequestBuilderGetQueryParameters {
     /**

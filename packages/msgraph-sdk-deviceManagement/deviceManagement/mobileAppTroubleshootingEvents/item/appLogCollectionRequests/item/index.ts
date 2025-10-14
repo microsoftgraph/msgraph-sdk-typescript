@@ -19,43 +19,40 @@ export interface AppLogCollectionRequestItemRequestBuilder extends BaseRequestBu
      */
     get createDownloadUrl(): CreateDownloadUrlRequestBuilder;
     /**
-     * Deletes a appLogCollectionRequest.
+     * Delete navigation property appLogCollectionRequests for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the appLogCollectionRequest object.
+     * Indicates collection of App Log Upload Request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppLogCollectionRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AppLogCollectionRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<AppLogCollectionRequest | undefined>;
     /**
-     * Update the properties of a appLogCollectionRequest object.
+     * Update the navigation property appLogCollectionRequests in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AppLogCollectionRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AppLogCollectionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AppLogCollectionRequest | undefined>;
     /**
-     * Deletes a appLogCollectionRequest.
+     * Delete navigation property appLogCollectionRequests for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the appLogCollectionRequest object.
+     * Indicates collection of App Log Upload Request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppLogCollectionRequestItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a appLogCollectionRequest object.
+     * Update the navigation property appLogCollectionRequests in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface AppLogCollectionRequestItemRequestBuilder extends BaseRequestBu
      toPatchRequestInformation(body: AppLogCollectionRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the appLogCollectionRequest object.
+ * Indicates collection of App Log Upload Request.
  */
 export interface AppLogCollectionRequestItemRequestBuilderGetQueryParameters {
     /**

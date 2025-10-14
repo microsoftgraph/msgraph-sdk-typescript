@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder extends BaseRequestBuilder<WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder> {
     /**
-     * Deletes a windowsInformationProtectionNetworkLearningSummary.
+     * Delete navigation property windowsInformationProtectionNetworkLearningSummaries for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the windowsInformationProtectionNetworkLearningSummary object.
+     * The windows information protection network learning summaries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsInformationProtectionNetworkLearningSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummary | undefined>;
     /**
-     * Update the properties of a windowsInformationProtectionNetworkLearningSummary object.
+     * Update the navigation property windowsInformationProtectionNetworkLearningSummaries in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsInformationProtectionNetworkLearningSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WindowsInformationProtectionNetworkLearningSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummary | undefined>;
     /**
-     * Deletes a windowsInformationProtectionNetworkLearningSummary.
+     * Delete navigation property windowsInformationProtectionNetworkLearningSummaries for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the windowsInformationProtectionNetworkLearningSummary object.
+     * The windows information protection network learning summaries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a windowsInformationProtectionNetworkLearningSummary object.
+     * Update the navigation property windowsInformationProtectionNetworkLearningSummaries in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface WindowsInformationProtectionNetworkLearningSummaryItemRequestBu
      toPatchRequestInformation(body: WindowsInformationProtectionNetworkLearningSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the windowsInformationProtectionNetworkLearningSummary object.
+ * The windows information protection network learning summaries.
  */
 export interface WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters {
     /**

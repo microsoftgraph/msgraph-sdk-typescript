@@ -54,15 +54,14 @@ export interface WindowsDefenderScanPostRequestBody extends AdditionalDataHolder
  */
 export interface WindowsDefenderScanRequestBuilder extends BaseRequestBuilder<WindowsDefenderScanRequestBuilder> {
     /**
-     * Not yet documented
+     * Invoke action windowsDefenderScan
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-windowsdefenderscan?view=graph-rest-1.0|Find more info here}
      */
      post(body: WindowsDefenderScanPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Not yet documented
+     * Invoke action windowsDefenderScan
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
