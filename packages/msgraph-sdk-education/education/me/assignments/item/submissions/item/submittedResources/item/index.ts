@@ -6,12 +6,18 @@ import { createEducationSubmissionResourceFromDiscriminatorValue, serializeEduca
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { DependentResourcesRequestBuilderNavigationMetadata, DependentResourcesRequestBuilderRequestsMetadata, type DependentResourcesRequestBuilder } from './dependentResources/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
  */
 export interface EducationSubmissionResourceItemRequestBuilder extends BaseRequestBuilder<EducationSubmissionResourceItemRequestBuilder> {
+    /**
+     * Provides operations to manage the dependentResources property of the microsoft.graph.educationSubmissionResource entity.
+     */
+    get dependentResources(): DependentResourcesRequestBuilder;
     /**
      * Delete navigation property submittedResources for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -76,6 +82,15 @@ export const EducationSubmissionResourceItemRequestBuilderUriTemplate = "{+baseu
 const EducationSubmissionResourceItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const EducationSubmissionResourceItemRequestBuilderNavigationMetadata: Record<Exclude<keyof EducationSubmissionResourceItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    dependentResources: {
+        requestsMetadata: DependentResourcesRequestBuilderRequestsMetadata,
+        navigationMetadata: DependentResourcesRequestBuilderNavigationMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.
