@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface WindowsInformationProtectionAppLockerFileItemRequestBuilder extends BaseRequestBuilder<WindowsInformationProtectionAppLockerFileItemRequestBuilder> {
     /**
-     * Deletes a windowsInformationProtectionAppLockerFile.
+     * Delete navigation property exemptAppLockerFiles for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-windowsinformationprotectionapplockerfile-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the windowsInformationProtectionAppLockerFile object.
+     * Another way to input exempt apps through xml files
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsInformationProtectionAppLockerFile>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-windowsinformationprotectionapplockerfile-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters> | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined>;
     /**
-     * Update the properties of a windowsInformationProtectionAppLockerFile object.
+     * Update the navigation property exemptAppLockerFiles in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WindowsInformationProtectionAppLockerFile>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-windowsinformationprotectionapplockerfile-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WindowsInformationProtectionAppLockerFile, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined>;
     /**
-     * Deletes a windowsInformationProtectionAppLockerFile.
+     * Delete navigation property exemptAppLockerFiles for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the windowsInformationProtectionAppLockerFile object.
+     * Another way to input exempt apps through xml files
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a windowsInformationProtectionAppLockerFile object.
+     * Update the navigation property exemptAppLockerFiles in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface WindowsInformationProtectionAppLockerFileItemRequestBuilder ext
      toPatchRequestInformation(body: WindowsInformationProtectionAppLockerFile, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the windowsInformationProtectionAppLockerFile object.
+ * Another way to input exempt apps through xml files
  */
 export interface WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters {
     /**

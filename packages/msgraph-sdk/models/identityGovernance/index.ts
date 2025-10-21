@@ -2509,7 +2509,7 @@ export interface Workflow extends Parsable, WorkflowBase {
      */
     deletedDateTime?: Date | null;
     /**
-     * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
+     * The list of users that meet the workflowExecutionConditions of a workflow.
      */
     executionScope?: UserProcessingResult[] | null;
     /**

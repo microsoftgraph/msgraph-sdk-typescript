@@ -49,7 +49,7 @@ export interface RestorePostRequestBody extends AdditionalDataHolder, BackedMode
  */
 export interface RestoreRequestBuilder extends BaseRequestBuilder<RestoreRequestBuilder> {
     /**
-     * Restore a driveItem that has been deleted and is currently in the recycle bin.
+     * Restore a deleted driveItem that is currently in the recycle bin.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DriveItem>}
@@ -58,7 +58,7 @@ export interface RestoreRequestBuilder extends BaseRequestBuilder<RestoreRequest
      */
      post(body: RestorePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DriveItem | undefined>;
     /**
-     * Restore a driveItem that has been deleted and is currently in the recycle bin.
+     * Restore a deleted driveItem that is currently in the recycle bin.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

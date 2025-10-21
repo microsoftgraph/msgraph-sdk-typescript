@@ -365,11 +365,10 @@ export interface DeviceManagementRequestBuilder extends BaseRequestBuilder<Devic
      */
     get windowsMalwareInformation(): WindowsMalwareInformationRequestBuilder;
     /**
-     * Read properties and relationships of the deviceManagement object.
+     * Get deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-androidforwork-devicemanagement-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceManagementRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagement | undefined>;
     /**
@@ -379,22 +378,21 @@ export interface DeviceManagementRequestBuilder extends BaseRequestBuilder<Devic
      */
      getEffectivePermissionsWithScope(scope: string | undefined) : GetEffectivePermissionsWithScopeRequestBuilder;
     /**
-     * Update the properties of a deviceManagement object.
+     * Update deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagement>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-androidforwork-devicemanagement-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagement | undefined>;
     /**
-     * Read properties and relationships of the deviceManagement object.
+     * Get deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceManagementRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceManagement object.
+     * Update deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -408,7 +406,7 @@ export interface DeviceManagementRequestBuilder extends BaseRequestBuilder<Devic
      verifyWindowsEnrollmentAutoDiscoveryWithDomainName(domainName: string | undefined) : VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder;
 }
 /**
- * Read properties and relationships of the deviceManagement object.
+ * Get deviceManagement
  */
 export interface DeviceManagementRequestBuilderGetQueryParameters {
     /**

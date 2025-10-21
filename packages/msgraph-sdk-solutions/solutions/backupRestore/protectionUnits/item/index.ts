@@ -6,11 +6,15 @@ import { createProtectionUnitBaseFromDiscriminatorValue, type ProtectionUnitBase
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { CancelOffboardRequestBuilderRequestsMetadata, type CancelOffboardRequestBuilder } from './cancelOffboard/index.js';
+// @ts-ignore
 import { GraphDriveProtectionUnitRequestBuilderRequestsMetadata, type GraphDriveProtectionUnitRequestBuilder } from './graphDriveProtectionUnit/index.js';
 // @ts-ignore
 import { GraphMailboxProtectionUnitRequestBuilderRequestsMetadata, type GraphMailboxProtectionUnitRequestBuilder } from './graphMailboxProtectionUnit/index.js';
 // @ts-ignore
 import { GraphSiteProtectionUnitRequestBuilderRequestsMetadata, type GraphSiteProtectionUnitRequestBuilder } from './graphSiteProtectionUnit/index.js';
+// @ts-ignore
+import { OffboardRequestBuilderRequestsMetadata, type OffboardRequestBuilder } from './offboard/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -18,6 +22,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the protectionUnits property of the microsoft.graph.backupRestoreRoot entity.
  */
 export interface ProtectionUnitBaseItemRequestBuilder extends BaseRequestBuilder<ProtectionUnitBaseItemRequestBuilder> {
+    /**
+     * Provides operations to call the cancelOffboard method.
+     */
+    get cancelOffboard(): CancelOffboardRequestBuilder;
     /**
      * Casts the previous resource to driveProtectionUnit.
      */
@@ -30,6 +38,10 @@ export interface ProtectionUnitBaseItemRequestBuilder extends BaseRequestBuilder
      * Casts the previous resource to siteProtectionUnit.
      */
     get graphSiteProtectionUnit(): GraphSiteProtectionUnitRequestBuilder;
+    /**
+     * Provides operations to call the offboard method.
+     */
+    get offboard(): OffboardRequestBuilder;
     /**
      * Read the properties and relationships of a protectionUnitBase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -73,6 +85,9 @@ const ProtectionUnitBaseItemRequestBuilderGetQueryParametersMapper: Record<strin
  * Metadata for all the navigation properties in the request builder.
  */
 export const ProtectionUnitBaseItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ProtectionUnitBaseItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    cancelOffboard: {
+        requestsMetadata: CancelOffboardRequestBuilderRequestsMetadata,
+    },
     graphDriveProtectionUnit: {
         requestsMetadata: GraphDriveProtectionUnitRequestBuilderRequestsMetadata,
     },
@@ -81,6 +96,9 @@ export const ProtectionUnitBaseItemRequestBuilderNavigationMetadata: Record<Excl
     },
     graphSiteProtectionUnit: {
         requestsMetadata: GraphSiteProtectionUnitRequestBuilderRequestsMetadata,
+    },
+    offboard: {
+        requestsMetadata: OffboardRequestBuilderRequestsMetadata,
     },
 };
 /**

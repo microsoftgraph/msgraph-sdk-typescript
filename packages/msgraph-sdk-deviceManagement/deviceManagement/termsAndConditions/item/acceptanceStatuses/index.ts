@@ -27,30 +27,28 @@ export interface AcceptanceStatusesRequestBuilder extends BaseRequestBuilder<Acc
      */
      byTermsAndConditionsAcceptanceStatusId(termsAndConditionsAcceptanceStatusId: string) : TermsAndConditionsAcceptanceStatusItemRequestBuilder;
     /**
-     * List properties and relationships of the termsAndConditionsAcceptanceStatus objects.
+     * The list of acceptance statuses for this T&C policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditionsAcceptanceStatusCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AcceptanceStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<TermsAndConditionsAcceptanceStatusCollectionResponse | undefined>;
     /**
-     * Create a new termsAndConditionsAcceptanceStatus object.
+     * Create new navigation property to acceptanceStatuses for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TermsAndConditionsAcceptanceStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: TermsAndConditionsAcceptanceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined>;
     /**
-     * List properties and relationships of the termsAndConditionsAcceptanceStatus objects.
+     * The list of acceptance statuses for this T&C policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AcceptanceStatusesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new termsAndConditionsAcceptanceStatus object.
+     * Create new navigation property to acceptanceStatuses for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface AcceptanceStatusesRequestBuilder extends BaseRequestBuilder<Acc
      toPostRequestInformation(body: TermsAndConditionsAcceptanceStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the termsAndConditionsAcceptanceStatus objects.
+ * The list of acceptance statuses for this T&C policy.
  */
 export interface AcceptanceStatusesRequestBuilderGetQueryParameters {
     /**

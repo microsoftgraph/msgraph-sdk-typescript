@@ -19,20 +19,18 @@ export interface DeploymentSummaryRequestBuilder extends BaseRequestBuilder<Depl
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the managedAppPolicyDeploymentSummary object.
+     * Navigation property to deployment summary of the configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppPolicyDeploymentSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedapppolicydeploymentsummary-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeploymentSummaryRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedAppPolicyDeploymentSummary | undefined>;
     /**
-     * Update the properties of a managedAppPolicyDeploymentSummary object.
+     * Update the navigation property deploymentSummary in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedAppPolicyDeploymentSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedapppolicydeploymentsummary-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: ManagedAppPolicyDeploymentSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedAppPolicyDeploymentSummary | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface DeploymentSummaryRequestBuilder extends BaseRequestBuilder<Depl
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the managedAppPolicyDeploymentSummary object.
+     * Navigation property to deployment summary of the configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeploymentSummaryRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a managedAppPolicyDeploymentSummary object.
+     * Update the navigation property deploymentSummary in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface DeploymentSummaryRequestBuilder extends BaseRequestBuilder<Depl
      toPatchRequestInformation(body: ManagedAppPolicyDeploymentSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the managedAppPolicyDeploymentSummary object.
+ * Navigation property to deployment summary of the configuration.
  */
 export interface DeploymentSummaryRequestBuilderGetQueryParameters {
     /**

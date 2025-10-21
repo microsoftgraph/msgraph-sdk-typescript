@@ -13,43 +13,40 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeviceComplianceActionItemItemRequestBuilder extends BaseRequestBuilder<DeviceComplianceActionItemItemRequestBuilder> {
     /**
-     * Deletes a deviceComplianceActionItem.
+     * Delete navigation property scheduledActionConfigurations for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceComplianceActionItem object.
+     * The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceActionItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceComplianceActionItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceActionItem | undefined>;
     /**
-     * Update the properties of a deviceComplianceActionItem object.
+     * Update the navigation property scheduledActionConfigurations in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceActionItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceComplianceActionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceActionItem | undefined>;
     /**
-     * Deletes a deviceComplianceActionItem.
+     * Delete navigation property scheduledActionConfigurations for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceComplianceActionItem object.
+     * The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceComplianceActionItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceComplianceActionItem object.
+     * Update the navigation property scheduledActionConfigurations in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -57,7 +54,7 @@ export interface DeviceComplianceActionItemItemRequestBuilder extends BaseReques
      toPatchRequestInformation(body: DeviceComplianceActionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceComplianceActionItem object.
+ * The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
  */
 export interface DeviceComplianceActionItemItemRequestBuilderGetQueryParameters {
     /**
