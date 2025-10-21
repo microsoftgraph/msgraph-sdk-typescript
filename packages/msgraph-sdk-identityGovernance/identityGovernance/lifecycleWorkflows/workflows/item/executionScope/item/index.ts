@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface UserProcessingResultItemRequestBuilder extends BaseRequestBuilder<UserProcessingResultItemRequestBuilder> {
     /**
-     * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
+     * The list of users that meet the workflowExecutionConditions of a workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserProcessingResult>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<UserProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : Promise<UserProcessingResult | undefined>;
     /**
-     * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
+     * The list of users that meet the workflowExecutionConditions of a workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The unique identifier of the Microsoft Entra identity that last modified the workflow object.
+ * The list of users that meet the workflowExecutionConditions of a workflow.
  */
 export interface UserProcessingResultItemRequestBuilderGetQueryParameters {
     /**

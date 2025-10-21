@@ -27,30 +27,28 @@ export interface UserStatusesRequestBuilder extends BaseRequestBuilder<UserStatu
      */
      byManagedDeviceMobileAppConfigurationUserStatusId(managedDeviceMobileAppConfigurationUserStatusId: string) : ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder;
     /**
-     * List properties and relationships of the managedDeviceMobileAppConfigurationUserStatus objects.
+     * List of ManagedDeviceMobileAppConfigurationUserStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationuserstatus-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserStatusesRequestBuilderGetQueryParameters> | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse | undefined>;
     /**
-     * Create a new managedDeviceMobileAppConfigurationUserStatus object.
+     * Create new navigation property to userStatuses for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ManagedDeviceMobileAppConfigurationUserStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationuserstatus-create?view=graph-rest-1.0|Find more info here}
      */
      post(body: ManagedDeviceMobileAppConfigurationUserStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatus | undefined>;
     /**
-     * List properties and relationships of the managedDeviceMobileAppConfigurationUserStatus objects.
+     * List of ManagedDeviceMobileAppConfigurationUserStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserStatusesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new managedDeviceMobileAppConfigurationUserStatus object.
+     * Create new navigation property to userStatuses for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +56,7 @@ export interface UserStatusesRequestBuilder extends BaseRequestBuilder<UserStatu
      toPostRequestInformation(body: ManagedDeviceMobileAppConfigurationUserStatus, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List properties and relationships of the managedDeviceMobileAppConfigurationUserStatus objects.
+ * List of ManagedDeviceMobileAppConfigurationUserStatus.
  */
 export interface UserStatusesRequestBuilderGetQueryParameters {
     /**

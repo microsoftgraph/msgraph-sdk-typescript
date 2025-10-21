@@ -19,20 +19,18 @@ export interface UserStatusOverviewRequestBuilder extends BaseRequestBuilder<Use
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceComplianceUserOverview object.
+     * Device compliance users status overview
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceUserOverview>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuseroverview-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UserStatusOverviewRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceComplianceUserOverview | undefined>;
     /**
-     * Update the properties of a deviceComplianceUserOverview object.
+     * Update the navigation property userStatusOverview in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceComplianceUserOverview>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuseroverview-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceComplianceUserOverview, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceComplianceUserOverview | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface UserStatusOverviewRequestBuilder extends BaseRequestBuilder<Use
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceComplianceUserOverview object.
+     * Device compliance users status overview
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserStatusOverviewRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceComplianceUserOverview object.
+     * Update the navigation property userStatusOverview in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface UserStatusOverviewRequestBuilder extends BaseRequestBuilder<Use
      toPatchRequestInformation(body: DeviceComplianceUserOverview, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceComplianceUserOverview object.
+ * Device compliance users status overview
  */
 export interface UserStatusOverviewRequestBuilderGetQueryParameters {
     /**

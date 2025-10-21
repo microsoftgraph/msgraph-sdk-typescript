@@ -31,7 +31,7 @@ export interface MobileAppContentItemRequestBuilder extends BaseRequestBuilder<M
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * The list of content versions for this app.
+     * The list of content versions for this app. This property is read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileAppContent>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface MobileAppContentItemRequestBuilder extends BaseRequestBuilder<M
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * The list of content versions for this app.
+     * The list of content versions for this app. This property is read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface MobileAppContentItemRequestBuilder extends BaseRequestBuilder<M
      toPatchRequestInformation(body: MobileAppContent, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The list of content versions for this app.
+ * The list of content versions for this app. This property is read-only.
  */
 export interface MobileAppContentItemRequestBuilderGetQueryParameters {
     /**

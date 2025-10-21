@@ -82,16 +82,15 @@ export interface GetComplianceSettingNonComplianceReportPostRequestBody extends 
  */
 export interface GetComplianceSettingNonComplianceReportRequestBuilder extends BaseRequestBuilder<GetComplianceSettingNonComplianceReportRequestBuilder> {
     /**
-     * Not yet documented
+     * Invoke action getComplianceSettingNonComplianceReport
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ArrayBuffer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getcompliancesettingnoncompliancereport?view=graph-rest-1.0|Find more info here}
      */
      post(body: GetComplianceSettingNonComplianceReportPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ArrayBuffer | undefined>;
     /**
-     * Not yet documented
+     * Invoke action getComplianceSettingNonComplianceReport
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
