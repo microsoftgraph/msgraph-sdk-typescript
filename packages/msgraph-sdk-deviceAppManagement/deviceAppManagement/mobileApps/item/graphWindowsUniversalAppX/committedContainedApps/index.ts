@@ -27,7 +27,7 @@ export interface CommittedContainedAppsRequestBuilder extends BaseRequestBuilder
      */
      byMobileContainedAppId(mobileContainedAppId: string) : MobileContainedAppItemRequestBuilder;
     /**
-     * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+     * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app. This property is read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MobileContainedAppCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface CommittedContainedAppsRequestBuilder extends BaseRequestBuilder
      */
      post(body: MobileContainedApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MobileContainedApp | undefined>;
     /**
-     * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+     * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app. This property is read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface CommittedContainedAppsRequestBuilder extends BaseRequestBuilder
      toPostRequestInformation(body: MobileContainedApp, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+ * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app. This property is read-only.
  */
 export interface CommittedContainedAppsRequestBuilderGetQueryParameters {
     /**

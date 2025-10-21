@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { EducationAssignmentResourceItemRequestBuilderRequestsMetadata, type EducationAssignmentResourceItemRequestBuilder } from './item/index.js';
+import { EducationAssignmentResourceItemRequestBuilderNavigationMetadata, EducationAssignmentResourceItemRequestBuilderRequestsMetadata, type EducationAssignmentResourceItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -117,6 +117,7 @@ const ResourcesRequestBuilderGetQueryParametersMapper: Record<string, string> = 
 export const ResourcesRequestBuilderNavigationMetadata: Record<Exclude<keyof ResourcesRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byEducationAssignmentResourceId: {
         requestsMetadata: EducationAssignmentResourceItemRequestBuilderRequestsMetadata,
+        navigationMetadata: EducationAssignmentResourceItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["educationAssignmentResource%2Did"],
     },
     count: {

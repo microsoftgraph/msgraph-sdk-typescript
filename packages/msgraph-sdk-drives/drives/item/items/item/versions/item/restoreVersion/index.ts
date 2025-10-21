@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RestoreVersionRequestBuilder extends BaseRequestBuilder<RestoreVersionRequestBuilder> {
     /**
-     * Restore a previous version of a DriveItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the file.
+     * Restore a previous version of a driveItem to be the current version. This operation creates a new version with the contents of the previous version, and it preserves all existing versions of the file.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/driveitemversion-restore?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/driveitemversion-restoreversion?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Restore a previous version of a DriveItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the file.
+     * Restore a previous version of a driveItem to be the current version. This operation creates a new version with the contents of the previous version, and it preserves all existing versions of the file.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

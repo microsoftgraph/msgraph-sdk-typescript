@@ -6,12 +6,18 @@ import { createEducationSubmissionResourceFromDiscriminatorValue, serializeEduca
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { DependentResourcesRequestBuilderNavigationMetadata, DependentResourcesRequestBuilderRequestsMetadata, type DependentResourcesRequestBuilder } from './dependentResources/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity.
  */
 export interface EducationSubmissionResourceItemRequestBuilder extends BaseRequestBuilder<EducationSubmissionResourceItemRequestBuilder> {
+    /**
+     * Provides operations to manage the dependentResources property of the microsoft.graph.educationSubmissionResource entity.
+     */
+    get dependentResources(): DependentResourcesRequestBuilder;
     /**
      * Delete an educationSubmissionResource from the submission. Only teachers and students can perform this operation. If the resource was copied from the assignment, a new copy of the resource will be created after the current copy is deleted. This allows you to 'reset' the resource to its original state. If the resource wasn't copied from the assignment but was added from the student, the resource is deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -78,6 +84,15 @@ export const EducationSubmissionResourceItemRequestBuilderUriTemplate = "{+baseu
 const EducationSubmissionResourceItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const EducationSubmissionResourceItemRequestBuilderNavigationMetadata: Record<Exclude<keyof EducationSubmissionResourceItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    dependentResources: {
+        requestsMetadata: DependentResourcesRequestBuilderRequestsMetadata,
+        navigationMetadata: DependentResourcesRequestBuilderNavigationMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

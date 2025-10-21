@@ -19,43 +19,40 @@ export interface DeviceManagementExchangeConnectorItemRequestBuilder extends Bas
      */
     get sync(): SyncRequestBuilder;
     /**
-     * Deletes a deviceManagementExchangeConnector.
+     * Delete navigation property exchangeConnectors for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the deviceManagementExchangeConnector object.
+     * The list of Exchange Connectors configured by the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementExchangeConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceManagementExchangeConnectorItemRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceManagementExchangeConnector | undefined>;
     /**
-     * Update the properties of a deviceManagementExchangeConnector object.
+     * Update the navigation property exchangeConnectors in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceManagementExchangeConnector>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: DeviceManagementExchangeConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DeviceManagementExchangeConnector | undefined>;
     /**
-     * Deletes a deviceManagementExchangeConnector.
+     * Delete navigation property exchangeConnectors for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the deviceManagementExchangeConnector object.
+     * The list of Exchange Connectors configured by the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceManagementExchangeConnectorItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a deviceManagementExchangeConnector object.
+     * Update the navigation property exchangeConnectors in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -63,7 +60,7 @@ export interface DeviceManagementExchangeConnectorItemRequestBuilder extends Bas
      toPatchRequestInformation(body: DeviceManagementExchangeConnector, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the deviceManagementExchangeConnector object.
+ * The list of Exchange Connectors configured by the tenant.
  */
 export interface DeviceManagementExchangeConnectorItemRequestBuilderGetQueryParameters {
     /**

@@ -19,20 +19,18 @@ export interface ConditionalAccessSettingsRequestBuilder extends BaseRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read properties and relationships of the onPremisesConditionalAccessSettings object.
+     * The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnPremisesConditionalAccessSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-onpremisesconditionalaccesssettings-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ConditionalAccessSettingsRequestBuilderGetQueryParameters> | undefined) : Promise<OnPremisesConditionalAccessSettings | undefined>;
     /**
-     * Update the properties of a onPremisesConditionalAccessSettings object.
+     * Update the navigation property conditionalAccessSettings in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OnPremisesConditionalAccessSettings>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-onpremisesconditionalaccesssettings-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: OnPremisesConditionalAccessSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OnPremisesConditionalAccessSettings | undefined>;
     /**
@@ -42,13 +40,13 @@ export interface ConditionalAccessSettingsRequestBuilder extends BaseRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read properties and relationships of the onPremisesConditionalAccessSettings object.
+     * The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ConditionalAccessSettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the properties of a onPremisesConditionalAccessSettings object.
+     * Update the navigation property conditionalAccessSettings in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +54,7 @@ export interface ConditionalAccessSettingsRequestBuilder extends BaseRequestBuil
      toPatchRequestInformation(body: OnPremisesConditionalAccessSettings, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read properties and relationships of the onPremisesConditionalAccessSettings object.
+ * The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
  */
 export interface ConditionalAccessSettingsRequestBuilderGetQueryParameters {
     /**
