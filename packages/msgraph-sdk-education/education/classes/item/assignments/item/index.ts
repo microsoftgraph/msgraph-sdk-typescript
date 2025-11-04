@@ -14,6 +14,8 @@ import { DeactivateRequestBuilderRequestsMetadata, type DeactivateRequestBuilder
 // @ts-ignore
 import { GradingCategoryRequestBuilderRequestsMetadata, type GradingCategoryRequestBuilder } from './gradingCategory/index.js';
 // @ts-ignore
+import { GradingSchemeRequestBuilderRequestsMetadata, type GradingSchemeRequestBuilder } from './gradingScheme/index.js';
+// @ts-ignore
 import { PublishRequestBuilderRequestsMetadata, type PublishRequestBuilder } from './publish/index.js';
 // @ts-ignore
 import { ResourcesRequestBuilderNavigationMetadata, ResourcesRequestBuilderRequestsMetadata, type ResourcesRequestBuilder } from './resources/index.js';
@@ -48,6 +50,10 @@ export interface EducationAssignmentItemRequestBuilder extends BaseRequestBuilde
      * Provides operations to manage the gradingCategory property of the microsoft.graph.educationAssignment entity.
      */
     get gradingCategory(): GradingCategoryRequestBuilder;
+    /**
+     * Provides operations to manage the gradingScheme property of the microsoft.graph.educationAssignment entity.
+     */
+    get gradingScheme(): GradingSchemeRequestBuilder;
     /**
      * Provides operations to call the publish method.
      */
@@ -156,6 +162,9 @@ export const EducationAssignmentItemRequestBuilderNavigationMetadata: Record<Exc
     },
     gradingCategory: {
         requestsMetadata: GradingCategoryRequestBuilderRequestsMetadata,
+    },
+    gradingScheme: {
+        requestsMetadata: GradingSchemeRequestBuilderRequestsMetadata,
     },
     publish: {
         requestsMetadata: PublishRequestBuilderRequestsMetadata,
