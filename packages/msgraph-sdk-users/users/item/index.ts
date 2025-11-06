@@ -34,6 +34,8 @@ import { CheckMemberObjectsRequestBuilderRequestsMetadata, type CheckMemberObjec
 // @ts-ignore
 import { CloudClipboardRequestBuilderNavigationMetadata, CloudClipboardRequestBuilderRequestsMetadata, type CloudClipboardRequestBuilder } from './cloudClipboard/index.js';
 // @ts-ignore
+import { CloudPCsRequestBuilderNavigationMetadata, CloudPCsRequestBuilderRequestsMetadata, type CloudPCsRequestBuilder } from './cloudPCs/index.js';
+// @ts-ignore
 import { ContactFoldersRequestBuilderNavigationMetadata, ContactFoldersRequestBuilderRequestsMetadata, type ContactFoldersRequestBuilder } from './contactFolders/index.js';
 // @ts-ignore
 import { ContactsRequestBuilderNavigationMetadata, ContactsRequestBuilderRequestsMetadata, type ContactsRequestBuilder } from './contacts/index.js';
@@ -222,6 +224,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * Provides operations to manage the cloudClipboard property of the microsoft.graph.user entity.
      */
     get cloudClipboard(): CloudClipboardRequestBuilder;
+    /**
+     * Provides operations to manage the cloudPCs property of the microsoft.graph.user entity.
+     */
+    get cloudPCs(): CloudPCsRequestBuilder;
     /**
      * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
      */
@@ -611,6 +617,10 @@ export const UserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof User
     cloudClipboard: {
         requestsMetadata: CloudClipboardRequestBuilderRequestsMetadata,
         navigationMetadata: CloudClipboardRequestBuilderNavigationMetadata,
+    },
+    cloudPCs: {
+        requestsMetadata: CloudPCsRequestBuilderRequestsMetadata,
+        navigationMetadata: CloudPCsRequestBuilderNavigationMetadata,
     },
     contactFolders: {
         requestsMetadata: ContactFoldersRequestBuilderRequestsMetadata,

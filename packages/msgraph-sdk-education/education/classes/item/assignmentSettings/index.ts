@@ -6,7 +6,11 @@ import { createEducationAssignmentSettingsFromDiscriminatorValue, serializeEduca
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { DefaultGradingSchemeRequestBuilderRequestsMetadata, type DefaultGradingSchemeRequestBuilder } from './defaultGradingScheme/index.js';
+// @ts-ignore
 import { GradingCategoriesRequestBuilderNavigationMetadata, GradingCategoriesRequestBuilderRequestsMetadata, type GradingCategoriesRequestBuilder } from './gradingCategories/index.js';
+// @ts-ignore
+import { GradingSchemesRequestBuilderNavigationMetadata, GradingSchemesRequestBuilderRequestsMetadata, type GradingSchemesRequestBuilder } from './gradingSchemes/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -15,9 +19,17 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  */
 export interface AssignmentSettingsRequestBuilder extends BaseRequestBuilder<AssignmentSettingsRequestBuilder> {
     /**
+     * Provides operations to manage the defaultGradingScheme property of the microsoft.graph.educationAssignmentSettings entity.
+     */
+    get defaultGradingScheme(): DefaultGradingSchemeRequestBuilder;
+    /**
      * Provides operations to manage the gradingCategories property of the microsoft.graph.educationAssignmentSettings entity.
      */
     get gradingCategories(): GradingCategoriesRequestBuilder;
+    /**
+     * Provides operations to manage the gradingSchemes property of the microsoft.graph.educationAssignmentSettings entity.
+     */
+    get gradingSchemes(): GradingSchemesRequestBuilder;
     /**
      * Delete navigation property assignmentSettings for education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -88,9 +100,16 @@ const AssignmentSettingsRequestBuilderGetQueryParametersMapper: Record<string, s
  * Metadata for all the navigation properties in the request builder.
  */
 export const AssignmentSettingsRequestBuilderNavigationMetadata: Record<Exclude<keyof AssignmentSettingsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    defaultGradingScheme: {
+        requestsMetadata: DefaultGradingSchemeRequestBuilderRequestsMetadata,
+    },
     gradingCategories: {
         requestsMetadata: GradingCategoriesRequestBuilderRequestsMetadata,
         navigationMetadata: GradingCategoriesRequestBuilderNavigationMetadata,
+    },
+    gradingSchemes: {
+        requestsMetadata: GradingSchemesRequestBuilderRequestsMetadata,
+        navigationMetadata: GradingSchemesRequestBuilderNavigationMetadata,
     },
 };
 /**
