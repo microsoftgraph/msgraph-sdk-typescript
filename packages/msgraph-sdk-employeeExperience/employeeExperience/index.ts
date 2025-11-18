@@ -16,6 +16,8 @@ import { LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderReque
 // @ts-ignore
 import { LearningProvidersRequestBuilderNavigationMetadata, LearningProvidersRequestBuilderRequestsMetadata, type LearningProvidersRequestBuilder } from './learningProviders/index.js';
 // @ts-ignore
+import { RolesRequestBuilderNavigationMetadata, RolesRequestBuilderRequestsMetadata, type RolesRequestBuilder } from './roles/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -38,6 +40,10 @@ export interface EmployeeExperienceRequestBuilder extends BaseRequestBuilder<Emp
      * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
      */
     get learningProviders(): LearningProvidersRequestBuilder;
+    /**
+     * Provides operations to manage the roles property of the microsoft.graph.employeeExperience entity.
+     */
+    get roles(): RolesRequestBuilder;
     /**
      * Get employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -115,6 +121,10 @@ export const EmployeeExperienceRequestBuilderNavigationMetadata: Record<Exclude<
     learningProviders: {
         requestsMetadata: LearningProvidersRequestBuilderRequestsMetadata,
         navigationMetadata: LearningProvidersRequestBuilderNavigationMetadata,
+    },
+    roles: {
+        requestsMetadata: RolesRequestBuilderRequestsMetadata,
+        navigationMetadata: RolesRequestBuilderNavigationMetadata,
     },
 };
 /**

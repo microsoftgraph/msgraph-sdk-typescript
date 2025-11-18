@@ -6,6 +6,8 @@ import { createEmployeeExperienceUserFromDiscriminatorValue, serializeEmployeeEx
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { AssignedRolesRequestBuilderNavigationMetadata, AssignedRolesRequestBuilderRequestsMetadata, type AssignedRolesRequestBuilder } from './assignedRoles/index.js';
+// @ts-ignore
 import { LearningCourseActivitiesRequestBuilderNavigationMetadata, LearningCourseActivitiesRequestBuilderRequestsMetadata, type LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/index.js';
 // @ts-ignore
 import { LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata, type LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilder } from './learningCourseActivitiesWithExternalcourseActivityId/index.js';
@@ -16,6 +18,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the employeeExperience property of the microsoft.graph.user entity.
  */
 export interface EmployeeExperienceRequestBuilder extends BaseRequestBuilder<EmployeeExperienceRequestBuilder> {
+    /**
+     * Provides operations to manage the assignedRoles property of the microsoft.graph.employeeExperienceUser entity.
+     */
+    get assignedRoles(): AssignedRolesRequestBuilder;
     /**
      * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
      */
@@ -98,6 +104,10 @@ export const EmployeeExperienceRequestBuilderNavigationMetadata: Record<Exclude<
     learningCourseActivitiesWithExternalcourseActivityId: {
         requestsMetadata: LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderRequestsMetadata,
         pathParametersMappings: ["externalcourseActivityId"],
+    },
+    assignedRoles: {
+        requestsMetadata: AssignedRolesRequestBuilderRequestsMetadata,
+        navigationMetadata: AssignedRolesRequestBuilderNavigationMetadata,
     },
     learningCourseActivities: {
         requestsMetadata: LearningCourseActivitiesRequestBuilderRequestsMetadata,

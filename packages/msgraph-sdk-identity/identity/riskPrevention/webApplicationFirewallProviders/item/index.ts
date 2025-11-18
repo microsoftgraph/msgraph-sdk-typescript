@@ -19,40 +19,43 @@ export interface WebApplicationFirewallProviderItemRequestBuilder extends BaseRe
      */
     get verify(): VerifyRequestBuilder;
     /**
-     * Delete navigation property webApplicationFirewallProviders for identity
+     * Delete a webApplicationFirewallProvider object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/riskpreventioncontainer-delete-webapplicationfirewallproviders?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get webApplicationFirewallProviders from identity
+     * Read the properties and relationships of webApplicationFirewallProvider object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WebApplicationFirewallProvider>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/webapplicationfirewallprovider-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WebApplicationFirewallProviderItemRequestBuilderGetQueryParameters> | undefined) : Promise<WebApplicationFirewallProvider | undefined>;
     /**
-     * Update the navigation property webApplicationFirewallProviders in identity
+     * Update the properties of a webApplicationFirewallProvider object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WebApplicationFirewallProvider>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/webapplicationfirewallprovider-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: WebApplicationFirewallProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WebApplicationFirewallProvider | undefined>;
     /**
-     * Delete navigation property webApplicationFirewallProviders for identity
+     * Delete a webApplicationFirewallProvider object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get webApplicationFirewallProviders from identity
+     * Read the properties and relationships of webApplicationFirewallProvider object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WebApplicationFirewallProviderItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property webApplicationFirewallProviders in identity
+     * Update the properties of a webApplicationFirewallProvider object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +63,7 @@ export interface WebApplicationFirewallProviderItemRequestBuilder extends BaseRe
      toPatchRequestInformation(body: WebApplicationFirewallProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get webApplicationFirewallProviders from identity
+ * Read the properties and relationships of webApplicationFirewallProvider object.
  */
 export interface WebApplicationFirewallProviderItemRequestBuilderGetQueryParameters {
     /**

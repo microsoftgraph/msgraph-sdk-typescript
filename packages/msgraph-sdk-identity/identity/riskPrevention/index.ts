@@ -6,6 +6,8 @@ import { createRiskPreventionContainerFromDiscriminatorValue, serializeRiskPreve
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { FraudProtectionProvidersRequestBuilderNavigationMetadata, FraudProtectionProvidersRequestBuilderRequestsMetadata, type FraudProtectionProvidersRequestBuilder } from './fraudProtectionProviders/index.js';
+// @ts-ignore
 import { type WebApplicationFirewallProvidersRequestBuilder, WebApplicationFirewallProvidersRequestBuilderNavigationMetadata, WebApplicationFirewallProvidersRequestBuilderRequestsMetadata } from './webApplicationFirewallProviders/index.js';
 // @ts-ignore
 import { type WebApplicationFirewallVerificationsRequestBuilder, WebApplicationFirewallVerificationsRequestBuilderNavigationMetadata, WebApplicationFirewallVerificationsRequestBuilderRequestsMetadata } from './webApplicationFirewallVerifications/index.js';
@@ -16,6 +18,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the riskPrevention property of the microsoft.graph.identityContainer entity.
  */
 export interface RiskPreventionRequestBuilder extends BaseRequestBuilder<RiskPreventionRequestBuilder> {
+    /**
+     * Provides operations to manage the fraudProtectionProviders property of the microsoft.graph.riskPreventionContainer entity.
+     */
+    get fraudProtectionProviders(): FraudProtectionProvidersRequestBuilder;
     /**
      * Provides operations to manage the webApplicationFirewallProviders property of the microsoft.graph.riskPreventionContainer entity.
      */
@@ -31,7 +37,7 @@ export interface RiskPreventionRequestBuilder extends BaseRequestBuilder<RiskPre
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get riskPrevention from identity
+     * Represents the entry point for fraud and risk prevention configurations in Microsoft Entra External ID, including third-party provider settings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RiskPreventionContainer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +58,7 @@ export interface RiskPreventionRequestBuilder extends BaseRequestBuilder<RiskPre
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get riskPrevention from identity
+     * Represents the entry point for fraud and risk prevention configurations in Microsoft Entra External ID, including third-party provider settings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +72,7 @@ export interface RiskPreventionRequestBuilder extends BaseRequestBuilder<RiskPre
      toPatchRequestInformation(body: RiskPreventionContainer, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get riskPrevention from identity
+ * Represents the entry point for fraud and risk prevention configurations in Microsoft Entra External ID, including third-party provider settings.
  */
 export interface RiskPreventionRequestBuilderGetQueryParameters {
     /**
@@ -93,6 +99,10 @@ const RiskPreventionRequestBuilderGetQueryParametersMapper: Record<string, strin
  * Metadata for all the navigation properties in the request builder.
  */
 export const RiskPreventionRequestBuilderNavigationMetadata: Record<Exclude<keyof RiskPreventionRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    fraudProtectionProviders: {
+        requestsMetadata: FraudProtectionProvidersRequestBuilderRequestsMetadata,
+        navigationMetadata: FraudProtectionProvidersRequestBuilderNavigationMetadata,
+    },
     webApplicationFirewallProviders: {
         requestsMetadata: WebApplicationFirewallProvidersRequestBuilderRequestsMetadata,
         navigationMetadata: WebApplicationFirewallProvidersRequestBuilderNavigationMetadata,

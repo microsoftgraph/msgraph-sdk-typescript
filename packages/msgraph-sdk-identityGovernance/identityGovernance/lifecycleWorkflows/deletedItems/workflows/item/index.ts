@@ -14,6 +14,8 @@ import { LastModifiedByRequestBuilderNavigationMetadata, LastModifiedByRequestBu
 // @ts-ignore
 import { MicrosoftGraphIdentityGovernanceActivateRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceActivateRequestBuilder } from './microsoftGraphIdentityGovernanceActivate/index.js';
 // @ts-ignore
+import { MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder } from './microsoftGraphIdentityGovernanceActivateWithScope/index.js';
+// @ts-ignore
 import { MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder } from './microsoftGraphIdentityGovernanceCreateNewVersion/index.js';
 // @ts-ignore
 import { MicrosoftGraphIdentityGovernanceRestoreRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceRestoreRequestBuilder } from './microsoftGraphIdentityGovernanceRestore/index.js';
@@ -50,6 +52,10 @@ export interface WorkflowItemRequestBuilder extends BaseRequestBuilder<WorkflowI
      * Provides operations to call the activate method.
      */
     get microsoftGraphIdentityGovernanceActivate(): MicrosoftGraphIdentityGovernanceActivateRequestBuilder;
+    /**
+     * Provides operations to call the activateWithScope method.
+     */
+    get microsoftGraphIdentityGovernanceActivateWithScope(): MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder;
     /**
      * Provides operations to call the createNewVersion method.
      */
@@ -148,6 +154,9 @@ export const WorkflowItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
     },
     microsoftGraphIdentityGovernanceActivate: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceActivateRequestBuilderRequestsMetadata,
+    },
+    microsoftGraphIdentityGovernanceActivateWithScope: {
+        requestsMetadata: MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata,
     },
     microsoftGraphIdentityGovernanceCreateNewVersion: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderRequestsMetadata,

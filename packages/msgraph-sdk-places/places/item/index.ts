@@ -6,7 +6,9 @@ import { createPlaceFromDiscriminatorValue, serializePlace, type Place } from '@
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { GraphRoomRequestBuilderRequestsMetadata, type GraphRoomRequestBuilder } from './graphRoom/index.js';
+import { CheckInsRequestBuilderNavigationMetadata, CheckInsRequestBuilderRequestsMetadata, type CheckInsRequestBuilder } from './checkIns/index.js';
+// @ts-ignore
+import { GraphRoomRequestBuilderNavigationMetadata, GraphRoomRequestBuilderRequestsMetadata, type GraphRoomRequestBuilder } from './graphRoom/index.js';
 // @ts-ignore
 import { GraphRoomListRequestBuilderNavigationMetadata, GraphRoomListRequestBuilderRequestsMetadata, type GraphRoomListRequestBuilder } from './graphRoomList/index.js';
 // @ts-ignore
@@ -16,6 +18,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the collection of place entities.
  */
 export interface PlaceItemRequestBuilder extends BaseRequestBuilder<PlaceItemRequestBuilder> {
+    /**
+     * Provides operations to manage the checkIns property of the microsoft.graph.place entity.
+     */
+    get checkIns(): CheckInsRequestBuilder;
     /**
      * Casts the previous resource to room.
      */
@@ -61,8 +67,13 @@ export const PlaceItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did
  * Metadata for all the navigation properties in the request builder.
  */
 export const PlaceItemRequestBuilderNavigationMetadata: Record<Exclude<keyof PlaceItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    checkIns: {
+        requestsMetadata: CheckInsRequestBuilderRequestsMetadata,
+        navigationMetadata: CheckInsRequestBuilderNavigationMetadata,
+    },
     graphRoom: {
         requestsMetadata: GraphRoomRequestBuilderRequestsMetadata,
+        navigationMetadata: GraphRoomRequestBuilderNavigationMetadata,
     },
     graphRoomList: {
         requestsMetadata: GraphRoomListRequestBuilderRequestsMetadata,

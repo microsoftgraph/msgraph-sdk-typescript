@@ -25,21 +25,21 @@ export interface SubjectRequestBuilder extends BaseRequestBuilder<SubjectRequest
      */
     get serviceProvisioningErrors(): ServiceProvisioningErrorsRequestBuilder;
     /**
-     * The unique identifier of the AAD user targeted for the taskProcessingResult.Supports $filter(eq, ne) and $expand.
+     * The unique identifier of the user targeted for the taskProcessingResult.Supports $filter(eq, ne) and $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<User>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<SubjectRequestBuilderGetQueryParameters> | undefined) : Promise<User | undefined>;
     /**
-     * The unique identifier of the AAD user targeted for the taskProcessingResult.Supports $filter(eq, ne) and $expand.
+     * The unique identifier of the user targeted for the taskProcessingResult.Supports $filter(eq, ne) and $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SubjectRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The unique identifier of the AAD user targeted for the taskProcessingResult.Supports $filter(eq, ne) and $expand.
+ * The unique identifier of the user targeted for the taskProcessingResult.Supports $filter(eq, ne) and $expand.
  */
 export interface SubjectRequestBuilderGetQueryParameters {
     /**

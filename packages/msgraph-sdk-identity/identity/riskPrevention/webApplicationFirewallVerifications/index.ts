@@ -27,10 +27,11 @@ export interface WebApplicationFirewallVerificationsRequestBuilder extends BaseR
      */
      byWebApplicationFirewallVerificationModelId(webApplicationFirewallVerificationModelId: string) : WebApplicationFirewallVerificationModelItemRequestBuilder;
     /**
-     * Get webApplicationFirewallVerifications from identity
+     * Get a list of the webApplicationFirewallVerificationModel objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WebApplicationFirewallVerificationModelCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/riskpreventioncontainer-list-webapplicationfirewallverifications?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WebApplicationFirewallVerificationsRequestBuilderGetQueryParameters> | undefined) : Promise<WebApplicationFirewallVerificationModelCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface WebApplicationFirewallVerificationsRequestBuilder extends BaseR
      */
      post(body: WebApplicationFirewallVerificationModel, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WebApplicationFirewallVerificationModel | undefined>;
     /**
-     * Get webApplicationFirewallVerifications from identity
+     * Get a list of the webApplicationFirewallVerificationModel objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface WebApplicationFirewallVerificationsRequestBuilder extends BaseR
      toPostRequestInformation(body: WebApplicationFirewallVerificationModel, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get webApplicationFirewallVerifications from identity
+ * Get a list of the webApplicationFirewallVerificationModel objects and their properties.
  */
 export interface WebApplicationFirewallVerificationsRequestBuilderGetQueryParameters {
     /**

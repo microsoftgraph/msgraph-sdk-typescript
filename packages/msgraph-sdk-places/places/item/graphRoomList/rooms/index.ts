@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { RoomItemRequestBuilderRequestsMetadata, type RoomItemRequestBuilder } from './item/index.js';
+import { RoomItemRequestBuilderNavigationMetadata, RoomItemRequestBuilderRequestsMetadata, type RoomItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -115,6 +115,7 @@ const RoomsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const RoomsRequestBuilderNavigationMetadata: Record<Exclude<keyof RoomsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byRoomId: {
         requestsMetadata: RoomItemRequestBuilderRequestsMetadata,
+        navigationMetadata: RoomItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["room%2Did"],
     },
     count: {

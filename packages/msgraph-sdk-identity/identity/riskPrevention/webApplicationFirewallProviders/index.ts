@@ -27,28 +27,30 @@ export interface WebApplicationFirewallProvidersRequestBuilder extends BaseReque
      */
      byWebApplicationFirewallProviderId(webApplicationFirewallProviderId: string) : WebApplicationFirewallProviderItemRequestBuilder;
     /**
-     * Get webApplicationFirewallProviders from identity
+     * Get a list of the webApplicationFirewallProvider objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WebApplicationFirewallProviderCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/riskpreventioncontainer-list-webapplicationfirewallproviders?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<WebApplicationFirewallProvidersRequestBuilderGetQueryParameters> | undefined) : Promise<WebApplicationFirewallProviderCollectionResponse | undefined>;
     /**
-     * Create new navigation property to webApplicationFirewallProviders for identity
+     * Create a new webApplicationFirewallProvider object. You can create one of the following subtypes that are derived from webApplicationFirewallProvider.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WebApplicationFirewallProvider>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/riskpreventioncontainer-post-webapplicationfirewallproviders?view=graph-rest-1.0|Find more info here}
      */
      post(body: WebApplicationFirewallProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WebApplicationFirewallProvider | undefined>;
     /**
-     * Get webApplicationFirewallProviders from identity
+     * Get a list of the webApplicationFirewallProvider objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WebApplicationFirewallProvidersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to webApplicationFirewallProviders for identity
+     * Create a new webApplicationFirewallProvider object. You can create one of the following subtypes that are derived from webApplicationFirewallProvider.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface WebApplicationFirewallProvidersRequestBuilder extends BaseReque
      toPostRequestInformation(body: WebApplicationFirewallProvider, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get webApplicationFirewallProviders from identity
+ * Get a list of the webApplicationFirewallProvider objects and their properties.
  */
 export interface WebApplicationFirewallProvidersRequestBuilderGetQueryParameters {
     /**
