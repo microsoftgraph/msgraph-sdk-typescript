@@ -56,15 +56,16 @@ export interface VerifyPostRequestBody extends AdditionalDataHolder, BackedModel
  */
 export interface VerifyRequestBuilder extends BaseRequestBuilder<VerifyRequestBuilder> {
     /**
-     * Invoke action verify
+     * Initiate a verification operation for a webApplicationFirewallProvider object. This API triggers provider-specific verification logic and returns a webApplicationFirewallVerificationModel object describing the verification result.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WebApplicationFirewallVerificationModel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/webapplicationfirewallprovider-verify?view=graph-rest-1.0|Find more info here}
      */
      post(body: VerifyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WebApplicationFirewallVerificationModel | undefined>;
     /**
-     * Invoke action verify
+     * Initiate a verification operation for a webApplicationFirewallProvider object. This API triggers provider-specific verification logic and returns a webApplicationFirewallVerificationModel object describing the verification result.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

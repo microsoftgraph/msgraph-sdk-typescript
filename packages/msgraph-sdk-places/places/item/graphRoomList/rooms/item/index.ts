@@ -6,12 +6,18 @@ import { createRoomFromDiscriminatorValue, serializeRoom, type Room } from '@mic
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { CheckInsRequestBuilderNavigationMetadata, CheckInsRequestBuilderRequestsMetadata, type CheckInsRequestBuilder } from './checkIns/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
  */
 export interface RoomItemRequestBuilder extends BaseRequestBuilder<RoomItemRequestBuilder> {
+    /**
+     * Provides operations to manage the checkIns property of the microsoft.graph.place entity.
+     */
+    get checkIns(): CheckInsRequestBuilder;
     /**
      * Delete navigation property rooms for places
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -76,6 +82,15 @@ export const RoomItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}
 const RoomItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const RoomItemRequestBuilderNavigationMetadata: Record<Exclude<keyof RoomItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    checkIns: {
+        requestsMetadata: CheckInsRequestBuilderRequestsMetadata,
+        navigationMetadata: CheckInsRequestBuilderNavigationMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

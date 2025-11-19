@@ -277,7 +277,7 @@ export interface GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemReq
      */
     get validateProperties(): ValidatePropertiesRequestBuilder;
     /**
-     * Delete a group. When deleted, Microsoft 365 groups are moved to a temporary container and can be restored within 30 days. After that time, they're permanently deleted. This isn't applicable to Security groups and Distribution groups which are permanently deleted immediately. To learn more, see deletedItems.
+     * Delete a group. When deleted, both Microsoft 365 and security groups are moved to a temporary container and can be restored within 30 days. After that time, they're permanently deleted. This doesn't apply to Distribution groups which are permanently deleted immediately. To learn more, see deletedItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/group-delete?view=graph-rest-1.0|Find more info here}
@@ -301,7 +301,7 @@ export interface GroupItemRequestBuilder extends BaseRequestBuilder<GroupItemReq
      */
      patch(body: Group, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Group | undefined>;
     /**
-     * Delete a group. When deleted, Microsoft 365 groups are moved to a temporary container and can be restored within 30 days. After that time, they're permanently deleted. This isn't applicable to Security groups and Distribution groups which are permanently deleted immediately. To learn more, see deletedItems.
+     * Delete a group. When deleted, both Microsoft 365 and security groups are moved to a temporary container and can be restored within 30 days. After that time, they're permanently deleted. This doesn't apply to Distribution groups which are permanently deleted immediately. To learn more, see deletedItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface ProviderRequestBuilder extends BaseRequestBuilder<ProviderRequestBuilder> {
     /**
-     * Get provider from identity
+     * Reference to a provider resource associated with this verification model. Represents a WAF provider that can be used to verify or manage the host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WebApplicationFirewallProvider>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ProviderRequestBuilderGetQueryParameters> | undefined) : Promise<WebApplicationFirewallProvider | undefined>;
     /**
-     * Get provider from identity
+     * Reference to a provider resource associated with this verification model. Represents a WAF provider that can be used to verify or manage the host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ProviderRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get provider from identity
+ * Reference to a provider resource associated with this verification model. Represents a WAF provider that can be used to verify or manage the host.
  */
 export interface ProviderRequestBuilderGetQueryParameters {
     /**

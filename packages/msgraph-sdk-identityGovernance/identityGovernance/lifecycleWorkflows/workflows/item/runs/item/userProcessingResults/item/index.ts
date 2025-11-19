@@ -6,6 +6,8 @@ import { createUserProcessingResultFromDiscriminatorValue, type UserProcessingRe
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { ReprocessedRunsRequestBuilderNavigationMetadata, ReprocessedRunsRequestBuilderRequestsMetadata, type ReprocessedRunsRequestBuilder } from './reprocessedRuns/index.js';
+// @ts-ignore
 import { SubjectRequestBuilderNavigationMetadata, SubjectRequestBuilderRequestsMetadata, type SubjectRequestBuilder } from './subject/index.js';
 // @ts-ignore
 import { TaskProcessingResultsRequestBuilderNavigationMetadata, TaskProcessingResultsRequestBuilderRequestsMetadata, type TaskProcessingResultsRequestBuilder } from './taskProcessingResults/index.js';
@@ -16,6 +18,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.run entity.
  */
 export interface UserProcessingResultItemRequestBuilder extends BaseRequestBuilder<UserProcessingResultItemRequestBuilder> {
+    /**
+     * Provides operations to manage the reprocessedRuns property of the microsoft.graph.identityGovernance.userProcessingResult entity.
+     */
+    get reprocessedRuns(): ReprocessedRunsRequestBuilder;
     /**
      * Provides operations to manage the subject property of the microsoft.graph.identityGovernance.userProcessingResult entity.
      */
@@ -67,6 +73,10 @@ const UserProcessingResultItemRequestBuilderGetQueryParametersMapper: Record<str
  * Metadata for all the navigation properties in the request builder.
  */
 export const UserProcessingResultItemRequestBuilderNavigationMetadata: Record<Exclude<keyof UserProcessingResultItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    reprocessedRuns: {
+        requestsMetadata: ReprocessedRunsRequestBuilderRequestsMetadata,
+        navigationMetadata: ReprocessedRunsRequestBuilderNavigationMetadata,
+    },
     subject: {
         requestsMetadata: SubjectRequestBuilderRequestsMetadata,
         navigationMetadata: SubjectRequestBuilderNavigationMetadata,

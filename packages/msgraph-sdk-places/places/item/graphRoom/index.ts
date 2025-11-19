@@ -6,12 +6,18 @@ import { createRoomFromDiscriminatorValue, type Room } from '@microsoft/msgraph-
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { CheckInsRequestBuilderNavigationMetadata, CheckInsRequestBuilderRequestsMetadata, type CheckInsRequestBuilder } from './checkIns/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Casts the previous resource to room.
  */
 export interface GraphRoomRequestBuilder extends BaseRequestBuilder<GraphRoomRequestBuilder> {
+    /**
+     * Provides operations to manage the checkIns property of the microsoft.graph.place entity.
+     */
+    get checkIns(): CheckInsRequestBuilder;
     /**
      * Get a collection of the specified type of place objects defined in the tenant. For example, you can get all the rooms, all the room lists, or the rooms in a specific room list in the tenant. A place object can be one of the following types: Both room and roomList are derived from the place object. By default, this operation returns 100 places per page. Compared with the findRooms and findRoomLists functions, this operation returns a richer payload for rooms and room lists. See details for how they compare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -50,6 +56,15 @@ export const GraphRoomRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did
 const GraphRoomRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const GraphRoomRequestBuilderNavigationMetadata: Record<Exclude<keyof GraphRoomRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    checkIns: {
+        requestsMetadata: CheckInsRequestBuilderRequestsMetadata,
+        navigationMetadata: CheckInsRequestBuilderNavigationMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

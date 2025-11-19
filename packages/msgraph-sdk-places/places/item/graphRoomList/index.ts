@@ -6,6 +6,8 @@ import { createRoomListFromDiscriminatorValue, type RoomList } from '@microsoft/
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { CheckInsRequestBuilderNavigationMetadata, CheckInsRequestBuilderRequestsMetadata, type CheckInsRequestBuilder } from './checkIns/index.js';
+// @ts-ignore
 import { RoomsRequestBuilderNavigationMetadata, RoomsRequestBuilderRequestsMetadata, type RoomsRequestBuilder } from './rooms/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +16,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Casts the previous resource to roomList.
  */
 export interface GraphRoomListRequestBuilder extends BaseRequestBuilder<GraphRoomListRequestBuilder> {
+    /**
+     * Provides operations to manage the checkIns property of the microsoft.graph.place entity.
+     */
+    get checkIns(): CheckInsRequestBuilder;
     /**
      * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
      */
@@ -60,6 +66,10 @@ const GraphRoomListRequestBuilderGetQueryParametersMapper: Record<string, string
  * Metadata for all the navigation properties in the request builder.
  */
 export const GraphRoomListRequestBuilderNavigationMetadata: Record<Exclude<keyof GraphRoomListRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    checkIns: {
+        requestsMetadata: CheckInsRequestBuilderRequestsMetadata,
+        navigationMetadata: CheckInsRequestBuilderNavigationMetadata,
+    },
     rooms: {
         requestsMetadata: RoomsRequestBuilderRequestsMetadata,
         navigationMetadata: RoomsRequestBuilderNavigationMetadata,

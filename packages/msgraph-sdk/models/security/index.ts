@@ -2516,6 +2516,33 @@ export function createSecurityGroupEvidenceFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SensorCandidateActivationConfiguration}
+ */
+// @ts-ignore
+export function createSensorCandidateActivationConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSensorCandidateActivationConfiguration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SensorCandidateCollectionResponse}
+ */
+// @ts-ignore
+export function createSensorCandidateCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSensorCandidateCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SensorCandidate}
+ */
+// @ts-ignore
+export function createSensorCandidateFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSensorCandidate;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SensorCollectionResponse}
  */
 // @ts-ignore
@@ -4828,6 +4855,8 @@ export function deserializeIntoIdentityContainer(identityContainer: Partial<Iden
     return {
         ...deserializeIntoEntity(identityContainer),
         "healthIssues": n => { identityContainer.healthIssues = n.getCollectionOfObjectValues<HealthIssue>(createHealthIssueFromDiscriminatorValue); },
+        "sensorCandidateActivationConfiguration": n => { identityContainer.sensorCandidateActivationConfiguration = n.getObjectValue<SensorCandidateActivationConfiguration>(createSensorCandidateActivationConfigurationFromDiscriminatorValue); },
+        "sensorCandidates": n => { identityContainer.sensorCandidates = n.getCollectionOfObjectValues<SensorCandidate>(createSensorCandidateFromDiscriminatorValue); },
         "sensors": n => { identityContainer.sensors = n.getCollectionOfObjectValues<Sensor>(createSensorFromDiscriminatorValue); },
     }
 }
@@ -5677,6 +5706,44 @@ export function deserializeIntoSensor(sensor: Partial<Sensor> | undefined = {}) 
         "sensorType": n => { sensor.sensorType = n.getEnumValue<SensorType>(SensorTypeObject); },
         "settings": n => { sensor.settings = n.getObjectValue<SensorSettings>(createSensorSettingsFromDiscriminatorValue); },
         "version": n => { sensor.version = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param SensorCandidate The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSensorCandidate(sensorCandidate: Partial<SensorCandidate> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(sensorCandidate),
+        "computerDnsName": n => { sensorCandidate.computerDnsName = n.getStringValue(); },
+        "lastSeenDateTime": n => { sensorCandidate.lastSeenDateTime = n.getDateValue(); },
+        "senseClientVersion": n => { sensorCandidate.senseClientVersion = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param SensorCandidateActivationConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSensorCandidateActivationConfiguration(sensorCandidateActivationConfiguration: Partial<SensorCandidateActivationConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(sensorCandidateActivationConfiguration),
+        "activationMode": n => { sensorCandidateActivationConfiguration.activationMode = n.getEnumValue<SensorCandidateActivationMode>(SensorCandidateActivationModeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param SensorCandidateCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSensorCandidateCollectionResponse(sensorCandidateCollectionResponse: Partial<SensorCandidateCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(sensorCandidateCollectionResponse),
+        "value": n => { sensorCandidateCollectionResponse.value = n.getCollectionOfObjectValues<SensorCandidate>(createSensorCandidateFromDiscriminatorValue); },
     }
 }
 /**
@@ -7789,6 +7856,14 @@ export interface IdentityContainer extends Entity, Parsable {
      */
     healthIssues?: HealthIssue[] | null;
     /**
+     * The sensorCandidateActivationConfiguration property
+     */
+    sensorCandidateActivationConfiguration?: SensorCandidateActivationConfiguration | null;
+    /**
+     * Represents Microsoft Defender for Identity sensors that are ready to be activated.
+     */
+    sensorCandidates?: SensorCandidate[] | null;
+    /**
      * Represents a customer's Microsoft Defender for Identity sensors.
      */
     sensors?: Sensor[] | null;
@@ -9052,6 +9127,33 @@ export interface Sensor extends Entity, Parsable {
      * The version of the sensor.
      */
     version?: string | null;
+}
+export interface SensorCandidate extends Entity, Parsable {
+    /**
+     * The DNS name of the computer associated with the sensor.
+     */
+    computerDnsName?: string | null;
+    /**
+     * The date and time when the sensor was last seen.
+     */
+    lastSeenDateTime?: Date | null;
+    /**
+     * The version of the Defender for Identity sensor client. Supports $filter (eq).
+     */
+    senseClientVersion?: string | null;
+}
+export interface SensorCandidateActivationConfiguration extends Entity, Parsable {
+    /**
+     * The activationMode property
+     */
+    activationMode?: SensorCandidateActivationMode | null;
+}
+export type SensorCandidateActivationMode = (typeof SensorCandidateActivationModeObject)[keyof typeof SensorCandidateActivationModeObject];
+export interface SensorCandidateCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: SensorCandidate[] | null;
 }
 export interface SensorCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -11171,6 +11273,8 @@ export function serializeIdentityContainer(writer: SerializationWriter, identity
     if (!identityContainer || isSerializingDerivedType) { return; }
     serializeEntity(writer, identityContainer, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<HealthIssue>("healthIssues", identityContainer.healthIssues, serializeHealthIssue);
+    writer.writeObjectValue<SensorCandidateActivationConfiguration>("sensorCandidateActivationConfiguration", identityContainer.sensorCandidateActivationConfiguration, serializeSensorCandidateActivationConfiguration);
+    writer.writeCollectionOfObjectValues<SensorCandidate>("sensorCandidates", identityContainer.sensorCandidates, serializeSensorCandidate);
     writer.writeCollectionOfObjectValues<Sensor>("sensors", identityContainer.sensors, serializeSensor);
 }
 /**
@@ -12044,6 +12148,44 @@ export function serializeSensor(writer: SerializationWriter, sensor: Partial<Sen
     writer.writeEnumValue<SensorType>("sensorType", sensor.sensorType);
     writer.writeObjectValue<SensorSettings>("settings", sensor.settings, serializeSensorSettings);
     writer.writeStringValue("version", sensor.version);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SensorCandidate The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSensorCandidate(writer: SerializationWriter, sensorCandidate: Partial<SensorCandidate> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sensorCandidate || isSerializingDerivedType) { return; }
+    serializeEntity(writer, sensorCandidate, isSerializingDerivedType)
+    writer.writeStringValue("computerDnsName", sensorCandidate.computerDnsName);
+    writer.writeDateValue("lastSeenDateTime", sensorCandidate.lastSeenDateTime);
+    writer.writeStringValue("senseClientVersion", sensorCandidate.senseClientVersion);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SensorCandidateActivationConfiguration The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSensorCandidateActivationConfiguration(writer: SerializationWriter, sensorCandidateActivationConfiguration: Partial<SensorCandidateActivationConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sensorCandidateActivationConfiguration || isSerializingDerivedType) { return; }
+    serializeEntity(writer, sensorCandidateActivationConfiguration, isSerializingDerivedType)
+    writer.writeEnumValue<SensorCandidateActivationMode>("activationMode", sensorCandidateActivationConfiguration.activationMode);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SensorCandidateCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSensorCandidateCollectionResponse(writer: SerializationWriter, sensorCandidateCollectionResponse: Partial<SensorCandidateCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!sensorCandidateCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, sensorCandidateCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<SensorCandidate>("value", sensorCandidateCollectionResponse.value, serializeSensorCandidate);
 }
 /**
  * Serializes information the current object
@@ -14057,6 +14199,11 @@ export const RetentionTriggerObject = {
 export const ReviewSetSettingsObject = {
     None: "none",
     DisableGrouping: "disableGrouping",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const SensorCandidateActivationModeObject = {
+    Manual: "manual",
+    Automated: "automated",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const SensorHealthStatusObject = {
