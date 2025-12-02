@@ -404,6 +404,15 @@ export function createTriggerAttributeFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {UserInactivityTrigger}
+ */
+// @ts-ignore
+export function createUserInactivityTriggerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoUserInactivityTrigger;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UserProcessingResultCollectionResponse}
  */
 // @ts-ignore
@@ -500,6 +509,8 @@ export function createWorkflowExecutionTriggerFromDiscriminatorValue(parseNode: 
                     return deserializeIntoMembershipChangeTrigger;
                 case "#microsoft.graph.identityGovernance.timeBasedAttributeTrigger":
                     return deserializeIntoTimeBasedAttributeTrigger;
+                case "#microsoft.graph.identityGovernance.userInactivityTrigger":
+                    return deserializeIntoUserInactivityTrigger;
             }
         }
     }
@@ -1151,6 +1162,18 @@ export function deserializeIntoTriggerAttribute(triggerAttribute: Partial<Trigge
         "backingStoreEnabled": n => { triggerAttribute.backingStoreEnabled = true; },
         "name": n => { triggerAttribute.name = n.getStringValue(); },
         "@odata.type": n => { triggerAttribute.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param UserInactivityTrigger The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoUserInactivityTrigger(userInactivityTrigger: Partial<UserInactivityTrigger> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowExecutionTrigger(userInactivityTrigger),
+        "inactivityPeriodInDays": n => { userInactivityTrigger.inactivityPeriodInDays = n.getNumberValue(); },
     }
 }
 /**
@@ -2115,6 +2138,18 @@ export function serializeTriggerAttribute(writer: SerializationWriter, triggerAt
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UserInactivityTrigger The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeUserInactivityTrigger(writer: SerializationWriter, userInactivityTrigger: Partial<UserInactivityTrigger> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!userInactivityTrigger || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionTrigger(writer, userInactivityTrigger, isSerializingDerivedType)
+    writer.writeNumberValue("inactivityPeriodInDays", userInactivityTrigger.inactivityPeriodInDays);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param UserProcessingResult The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -2267,6 +2302,9 @@ export function serializeWorkflowExecutionTrigger(writer: SerializationWriter, w
         break;
         case "#microsoft.graph.identityGovernance.timeBasedAttributeTrigger":
             serializeTimeBasedAttributeTrigger(writer, workflowExecutionTrigger, true);
+        break;
+        case "#microsoft.graph.identityGovernance.userInactivityTrigger":
+            serializeUserInactivityTrigger(writer, workflowExecutionTrigger, true);
         break;
     }
 }
@@ -2683,6 +2721,12 @@ export interface TriggerAttribute extends AdditionalDataHolder, BackedModel, Par
      * The OdataType property
      */
     odataType?: string | null;
+}
+export interface UserInactivityTrigger extends Parsable, WorkflowExecutionTrigger {
+    /**
+     * The number of days a user must be inactive before triggering workflow execution.
+     */
+    inactivityPeriodInDays?: number | null;
 }
 export interface UserProcessingResult extends Entity, Parsable {
     /**

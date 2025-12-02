@@ -20,10 +20,11 @@ export interface RetentionLabelRequestBuilder extends BaseRequestBuilder<Retenti
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Information about retention label and settings enforced on the driveItem. Read-write.
+     * Get metadata information for a retention label applied on a driveItem. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ItemRetentionLabel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-getretentionlabel?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RetentionLabelRequestBuilderGetQueryParameters> | undefined) : Promise<ItemRetentionLabel | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface RetentionLabelRequestBuilder extends BaseRequestBuilder<Retenti
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Information about retention label and settings enforced on the driveItem. Read-write.
+     * Get metadata information for a retention label applied on a driveItem. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface RetentionLabelRequestBuilder extends BaseRequestBuilder<Retenti
      toPatchRequestInformation(body: ItemRetentionLabel, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Information about retention label and settings enforced on the driveItem. Read-write.
+ * Get metadata information for a retention label applied on a driveItem. For information about retention labels from an administrator's perspective, see Use retention labels to manage the lifecycle of documents stored in SharePoint.
  */
 export interface RetentionLabelRequestBuilderGetQueryParameters {
     /**

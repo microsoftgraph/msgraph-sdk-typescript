@@ -8,9 +8,19 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
+import { GraphBuildingRequestBuilderNavigationMetadata, GraphBuildingRequestBuilderRequestsMetadata, type GraphBuildingRequestBuilder } from './graphBuilding/index.js';
+// @ts-ignore
+import { GraphDeskRequestBuilderNavigationMetadata, GraphDeskRequestBuilderRequestsMetadata, type GraphDeskRequestBuilder } from './graphDesk/index.js';
+// @ts-ignore
+import { GraphFloorRequestBuilderNavigationMetadata, GraphFloorRequestBuilderRequestsMetadata, type GraphFloorRequestBuilder } from './graphFloor/index.js';
+// @ts-ignore
 import { GraphRoomRequestBuilderNavigationMetadata, GraphRoomRequestBuilderRequestsMetadata, type GraphRoomRequestBuilder } from './graphRoom/index.js';
 // @ts-ignore
 import { GraphRoomListRequestBuilderNavigationMetadata, GraphRoomListRequestBuilderRequestsMetadata, type GraphRoomListRequestBuilder } from './graphRoomList/index.js';
+// @ts-ignore
+import { GraphSectionRequestBuilderNavigationMetadata, GraphSectionRequestBuilderRequestsMetadata, type GraphSectionRequestBuilder } from './graphSection/index.js';
+// @ts-ignore
+import { GraphWorkspaceRequestBuilderNavigationMetadata, GraphWorkspaceRequestBuilderRequestsMetadata, type GraphWorkspaceRequestBuilder } from './graphWorkspace/index.js';
 // @ts-ignore
 import { PlaceItemRequestBuilderNavigationMetadata, PlaceItemRequestBuilderRequestsMetadata, type PlaceItemRequestBuilder } from './item/index.js';
 // @ts-ignore
@@ -25,6 +35,18 @@ export interface PlacesRequestBuilder extends BaseRequestBuilder<PlacesRequestBu
      */
     get count(): CountRequestBuilder;
     /**
+     * Casts the previous resource to building.
+     */
+    get graphBuilding(): GraphBuildingRequestBuilder;
+    /**
+     * Casts the previous resource to desk.
+     */
+    get graphDesk(): GraphDeskRequestBuilder;
+    /**
+     * Casts the previous resource to floor.
+     */
+    get graphFloor(): GraphFloorRequestBuilder;
+    /**
      * Casts the previous resource to room.
      */
     get graphRoom(): GraphRoomRequestBuilder;
@@ -32,6 +54,14 @@ export interface PlacesRequestBuilder extends BaseRequestBuilder<PlacesRequestBu
      * Casts the previous resource to roomList.
      */
     get graphRoomList(): GraphRoomListRequestBuilder;
+    /**
+     * Casts the previous resource to section.
+     */
+    get graphSection(): GraphSectionRequestBuilder;
+    /**
+     * Casts the previous resource to workspace.
+     */
+    get graphWorkspace(): GraphWorkspaceRequestBuilder;
     /**
      * Provides operations to manage the collection of place entities.
      * @param placeId The unique identifier of place
@@ -70,6 +100,18 @@ export const PlacesRequestBuilderNavigationMetadata: Record<Exclude<keyof Places
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
     },
+    graphBuilding: {
+        requestsMetadata: GraphBuildingRequestBuilderRequestsMetadata,
+        navigationMetadata: GraphBuildingRequestBuilderNavigationMetadata,
+    },
+    graphDesk: {
+        requestsMetadata: GraphDeskRequestBuilderRequestsMetadata,
+        navigationMetadata: GraphDeskRequestBuilderNavigationMetadata,
+    },
+    graphFloor: {
+        requestsMetadata: GraphFloorRequestBuilderRequestsMetadata,
+        navigationMetadata: GraphFloorRequestBuilderNavigationMetadata,
+    },
     graphRoom: {
         requestsMetadata: GraphRoomRequestBuilderRequestsMetadata,
         navigationMetadata: GraphRoomRequestBuilderNavigationMetadata,
@@ -77,6 +119,14 @@ export const PlacesRequestBuilderNavigationMetadata: Record<Exclude<keyof Places
     graphRoomList: {
         requestsMetadata: GraphRoomListRequestBuilderRequestsMetadata,
         navigationMetadata: GraphRoomListRequestBuilderNavigationMetadata,
+    },
+    graphSection: {
+        requestsMetadata: GraphSectionRequestBuilderRequestsMetadata,
+        navigationMetadata: GraphSectionRequestBuilderNavigationMetadata,
+    },
+    graphWorkspace: {
+        requestsMetadata: GraphWorkspaceRequestBuilderRequestsMetadata,
+        navigationMetadata: GraphWorkspaceRequestBuilderNavigationMetadata,
     },
 };
 /**

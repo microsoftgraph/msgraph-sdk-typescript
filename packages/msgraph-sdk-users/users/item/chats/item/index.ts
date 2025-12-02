@@ -24,6 +24,8 @@ import { PermissionGrantsRequestBuilderNavigationMetadata, PermissionGrantsReque
 // @ts-ignore
 import { PinnedMessagesRequestBuilderNavigationMetadata, PinnedMessagesRequestBuilderRequestsMetadata, type PinnedMessagesRequestBuilder } from './pinnedMessages/index.js';
 // @ts-ignore
+import { RemoveAllAccessForUserRequestBuilderRequestsMetadata, type RemoveAllAccessForUserRequestBuilder } from './removeAllAccessForUser/index.js';
+// @ts-ignore
 import { SendActivityNotificationRequestBuilderRequestsMetadata, type SendActivityNotificationRequestBuilder } from './sendActivityNotification/index.js';
 // @ts-ignore
 import { TabsRequestBuilderNavigationMetadata, TabsRequestBuilderRequestsMetadata, type TabsRequestBuilder } from './tabs/index.js';
@@ -72,6 +74,10 @@ export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemReque
      * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
      */
     get pinnedMessages(): PinnedMessagesRequestBuilder;
+    /**
+     * Provides operations to call the removeAllAccessForUser method.
+     */
+    get removeAllAccessForUser(): RemoveAllAccessForUserRequestBuilder;
     /**
      * Provides operations to call the sendActivityNotification method.
      */
@@ -185,6 +191,9 @@ export const ChatItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Chat
     pinnedMessages: {
         requestsMetadata: PinnedMessagesRequestBuilderRequestsMetadata,
         navigationMetadata: PinnedMessagesRequestBuilderNavigationMetadata,
+    },
+    removeAllAccessForUser: {
+        requestsMetadata: RemoveAllAccessForUserRequestBuilderRequestsMetadata,
     },
     sendActivityNotification: {
         requestsMetadata: SendActivityNotificationRequestBuilderRequestsMetadata,
