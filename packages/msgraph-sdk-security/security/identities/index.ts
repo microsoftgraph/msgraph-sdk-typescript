@@ -8,6 +8,8 @@ import { createIdentityContainerFromDiscriminatorValue, serializeIdentityContain
 // @ts-ignore
 import { HealthIssuesRequestBuilderNavigationMetadata, HealthIssuesRequestBuilderRequestsMetadata, type HealthIssuesRequestBuilder } from './healthIssues/index.js';
 // @ts-ignore
+import { IdentityAccountsRequestBuilderNavigationMetadata, IdentityAccountsRequestBuilderRequestsMetadata, type IdentityAccountsRequestBuilder } from './identityAccounts/index.js';
+// @ts-ignore
 import { SensorCandidateActivationConfigurationRequestBuilderRequestsMetadata, type SensorCandidateActivationConfigurationRequestBuilder } from './sensorCandidateActivationConfiguration/index.js';
 // @ts-ignore
 import { SensorCandidatesRequestBuilderNavigationMetadata, SensorCandidatesRequestBuilderRequestsMetadata, type SensorCandidatesRequestBuilder } from './sensorCandidates/index.js';
@@ -24,6 +26,10 @@ export interface IdentitiesRequestBuilder extends BaseRequestBuilder<IdentitiesR
      * Provides operations to manage the healthIssues property of the microsoft.graph.security.identityContainer entity.
      */
     get healthIssues(): HealthIssuesRequestBuilder;
+    /**
+     * Provides operations to manage the identityAccounts property of the microsoft.graph.security.identityContainer entity.
+     */
+    get identityAccounts(): IdentityAccountsRequestBuilder;
     /**
      * Provides operations to manage the sensorCandidateActivationConfiguration property of the microsoft.graph.security.identityContainer entity.
      */
@@ -108,6 +114,10 @@ export const IdentitiesRequestBuilderNavigationMetadata: Record<Exclude<keyof Id
     healthIssues: {
         requestsMetadata: HealthIssuesRequestBuilderRequestsMetadata,
         navigationMetadata: HealthIssuesRequestBuilderNavigationMetadata,
+    },
+    identityAccounts: {
+        requestsMetadata: IdentityAccountsRequestBuilderRequestsMetadata,
+        navigationMetadata: IdentityAccountsRequestBuilderNavigationMetadata,
     },
     sensorCandidateActivationConfiguration: {
         requestsMetadata: SensorCandidateActivationConfigurationRequestBuilderRequestsMetadata,

@@ -10,6 +10,8 @@ import { CheckInsRequestBuilderNavigationMetadata, CheckInsRequestBuilderRequest
 // @ts-ignore
 import { RoomsRequestBuilderNavigationMetadata, RoomsRequestBuilderRequestsMetadata, type RoomsRequestBuilder } from './rooms/index.js';
 // @ts-ignore
+import { type WorkspacesRequestBuilder, WorkspacesRequestBuilderNavigationMetadata, WorkspacesRequestBuilderRequestsMetadata } from './workspaces/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +26,10 @@ export interface GraphRoomListRequestBuilder extends BaseRequestBuilder<GraphRoo
      * Provides operations to manage the rooms property of the microsoft.graph.roomList entity.
      */
     get rooms(): RoomsRequestBuilder;
+    /**
+     * Provides operations to manage the workspaces property of the microsoft.graph.roomList entity.
+     */
+    get workspaces(): WorkspacesRequestBuilder;
     /**
      * Get the item of type microsoft.graph.place as microsoft.graph.roomList
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -73,6 +79,10 @@ export const GraphRoomListRequestBuilderNavigationMetadata: Record<Exclude<keyof
     rooms: {
         requestsMetadata: RoomsRequestBuilderRequestsMetadata,
         navigationMetadata: RoomsRequestBuilderNavigationMetadata,
+    },
+    workspaces: {
+        requestsMetadata: WorkspacesRequestBuilderRequestsMetadata,
+        navigationMetadata: WorkspacesRequestBuilderNavigationMetadata,
     },
 };
 /**
