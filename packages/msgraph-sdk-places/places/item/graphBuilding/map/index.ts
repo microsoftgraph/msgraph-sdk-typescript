@@ -25,16 +25,18 @@ export interface MapRequestBuilder extends BaseRequestBuilder<MapRequestBuilder>
      */
     get levels(): LevelsRequestBuilder;
     /**
-     * Delete navigation property map for places
+     * Delete the map of a specific building.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/buildingmap-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get map from places
+     * Get the map of a building in IMDF format.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BuildingMap>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/buildingmap-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MapRequestBuilderGetQueryParameters> | undefined) : Promise<BuildingMap | undefined>;
     /**
@@ -46,13 +48,13 @@ export interface MapRequestBuilder extends BaseRequestBuilder<MapRequestBuilder>
      */
      patch(body: BuildingMap, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BuildingMap | undefined>;
     /**
-     * Delete navigation property map for places
+     * Delete the map of a specific building.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get map from places
+     * Get the map of a building in IMDF format.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +68,7 @@ export interface MapRequestBuilder extends BaseRequestBuilder<MapRequestBuilder>
      toPatchRequestInformation(body: BuildingMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get map from places
+ * Get the map of a building in IMDF format.
  */
 export interface MapRequestBuilderGetQueryParameters {
     /**

@@ -27,28 +27,29 @@ export interface CheckInsRequestBuilder extends BaseRequestBuilder<CheckInsReque
      */
      byCheckInClaimCalendarEventId(checkInClaimCalendarEventId: string) : CheckInClaimCalendarEventItemRequestBuilder;
     /**
-     * Get checkIns from places
+     * Read the properties and relationships of a checkInClaim object. This API provides the check-in status for a specific place, such as a desk, room, or workspace, associated with a particular reservation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CheckInClaimCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<CheckInsRequestBuilderGetQueryParameters> | undefined) : Promise<CheckInClaimCollectionResponse | undefined>;
     /**
-     * Create new navigation property to checkIns for places
+     * Create a new checkInClaim object to record the check-in status for a specific place, such as a desk or a room, associated with a specific calendar reservation. This check-in confirms that the reserved space is in use and prevents automatic release if auto-release policies are configured for that place.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CheckInClaim>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/place-post-checkins?view=graph-rest-1.0|Find more info here}
      */
      post(body: CheckInClaim, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CheckInClaim | undefined>;
     /**
-     * Get checkIns from places
+     * Read the properties and relationships of a checkInClaim object. This API provides the check-in status for a specific place, such as a desk, room, or workspace, associated with a particular reservation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CheckInsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to checkIns for places
+     * Create a new checkInClaim object to record the check-in status for a specific place, such as a desk or a room, associated with a specific calendar reservation. This check-in confirms that the reserved space is in use and prevents automatic release if auto-release policies are configured for that place.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +57,7 @@ export interface CheckInsRequestBuilder extends BaseRequestBuilder<CheckInsReque
      toPostRequestInformation(body: CheckInClaim, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get checkIns from places
+ * Read the properties and relationships of a checkInClaim object. This API provides the check-in status for a specific place, such as a desk, room, or workspace, associated with a particular reservation.
  */
 export interface CheckInsRequestBuilderGetQueryParameters {
     /**

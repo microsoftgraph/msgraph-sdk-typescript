@@ -42,7 +42,7 @@ export interface AiAgentEvidence extends AlertEvidence, Parsable {
      */
     agentName?: string | null;
     /**
-     * Type of the platform the agent runs on. Possible values are: unknown, azureAIFoundry, copilotStudio, copilot, unknownFutureValue.
+     * Type of the platform the agent runs on. The possible values are: unknown, azureAIFoundry, copilotStudio, copilot, unknownFutureValue.
      */
     hostingPlatformType?: AiAgentPlatform | null;
     /**
@@ -77,7 +77,7 @@ export interface Alert extends Entity, Parsable {
      */
     category?: string | null;
     /**
-     * Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
+     * Specifies whether the alert represents a true threat. The possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      */
     classification?: AlertClassification | null;
     /**
@@ -97,7 +97,7 @@ export interface Alert extends Entity, Parsable {
      */
     description?: string | null;
     /**
-     * Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot.
+     * Detection technology or sensor that identified the notable component or activity. The possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: microsoftDefenderForCloud, microsoftDefenderForIoT, microsoftDefenderForServers, microsoftDefenderForStorage, microsoftDefenderForDNS, microsoftDefenderForDatabases, microsoftDefenderForContainers, microsoftDefenderForNetwork, microsoftDefenderForAppService, microsoftDefenderForKeyVault, microsoftDefenderForResourceManager, microsoftDefenderForApiManagement, microsoftSentinel, nrtAlerts, scheduledAlerts, microsoftDefenderThreatIntelligenceAnalytics, builtInMl, microsoftThreatIntelligence, microsoftDefenderForAIServices, securityCopilot.
      */
     detectionSource?: DetectionSource | null;
     /**
@@ -105,7 +105,7 @@ export interface Alert extends Entity, Parsable {
      */
     detectorId?: string | null;
     /**
-     * Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedAccount, phishing, maliciousUserActivity, notMalicious, notEnoughDataToValidate, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
+     * Specifies the result of the investigation, whether the alert represents a true attack and if so, the nature of the attack. The possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedAccount, phishing, maliciousUserActivity, notMalicious, notEnoughDataToValidate, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      */
     determination?: AlertDetermination | null;
     /**
@@ -125,7 +125,7 @@ export interface Alert extends Entity, Parsable {
      */
     incidentWebUrl?: string | null;
     /**
-     * Information on the current status of the investigation. Possible values are: unknown, terminated, successfullyRemediated, benign, failed, partiallyRemediated, running, pendingApproval, pendingResource, queued, innerFailure, preexistingAlert, unsupportedOs, unsupportedAlertType, suppressedAlert, partiallyInvestigated, terminatedByUser, terminatedBySystem, unknownFutureValue.
+     * Information on the current status of the investigation. The possible values are: unknown, terminated, successfullyRemediated, benign, failed, partiallyRemediated, running, pendingApproval, pendingResource, queued, innerFailure, preexistingAlert, unsupportedOs, unsupportedAlertType, suppressedAlert, partiallyInvestigated, terminatedByUser, terminatedBySystem, unknownFutureValue.
      */
     investigationState?: InvestigationState | null;
     /**
@@ -520,7 +520,7 @@ export interface CaseEscaped extends Entity, Parsable {
 }
 export interface CaseOperation extends Entity, Parsable {
     /**
-     * The type of action the operation represents. Possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult, holdPolicySync. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult, holdPolicySync.
+     * The type of action the operation represents. The possible values are: contentExport,  applyTags, convertToPdf, index, estimateStatistics, addToReviewSet, holdUpdate, unknownFutureValue, purgeData, exportReport, exportResult, holdPolicySync. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: purgeData, exportReport, exportResult, holdPolicySync.
      */
     action?: CaseAction | null;
     /**
@@ -544,7 +544,7 @@ export interface CaseOperation extends Entity, Parsable {
      */
     resultInfo?: ResultInfo | null;
     /**
-     * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed, unknownFutureValue.
+     * The status of the case operation. The possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed, unknownFutureValue.
      */
     status?: CaseOperationStatus | null;
 }
@@ -3146,7 +3146,7 @@ export interface DataSourceContainer extends Entity, Parsable {
      */
     releasedDateTime?: Date | null;
     /**
-     * Latest status of the dataSourceContainer. Possible values are: Active, Released.
+     * Latest status of the dataSourceContainer. The possible values are: Active, Released.
      */
     status?: DataSourceContainerStatus | null;
 }
@@ -6733,19 +6733,19 @@ export interface DnsEvidence extends AlertEvidence, Parsable {
 export type DocumentVersion = (typeof DocumentVersionObject)[keyof typeof DocumentVersionObject];
 export interface EdiscoveryAddToReviewSetOperation extends CaseOperation, Parsable {
     /**
-     * The options to add items to the review set. Possible values are: allVersions, linkedFiles, unknownFutureValue, advancedIndexing, listAttachments, htmlTranscripts, messageConversationExpansion, locationsWithoutHits, allItemsInFolder. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: advancedIndexing, listAttachments, htmlTranscripts, messageConversationExpansion, locationsWithoutHits, allItemsInFolder.
+     * The options to add items to the review set. The possible values are: allVersions, linkedFiles, unknownFutureValue, advancedIndexing, listAttachments, htmlTranscripts, messageConversationExpansion, locationsWithoutHits, allItemsInFolder. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: advancedIndexing, listAttachments, htmlTranscripts, messageConversationExpansion, locationsWithoutHits, allItemsInFolder.
      */
     additionalDataOptions?: AdditionalDataOptions[] | null;
     /**
-     * Specifies the number of most recent versions of cloud attachments to collect. Possible values are: latest, recent10, recent100, all, unknownFutureValue.
+     * Specifies the number of most recent versions of cloud attachments to collect. The possible values are: latest, recent10, recent100, all, unknownFutureValue.
      */
     cloudAttachmentVersion?: CloudAttachmentVersion | null;
     /**
-     * Specifies the number of most recent versions of SharePoint documents to collect. Possible values are: latest, recent10, recent100, all, unknownFutureValue.
+     * Specifies the number of most recent versions of SharePoint documents to collect. The possible values are: latest, recent10, recent100, all, unknownFutureValue.
      */
     documentVersion?: DocumentVersion | null;
     /**
-     * The items to include in the review set. Possible values are: searchHits, partiallyIndexed, unknownFutureValue.
+     * The items to include in the review set. The possible values are: searchHits, partiallyIndexed, unknownFutureValue.
      */
     itemsToInclude?: ItemsToInclude[] | null;
     /**
@@ -6823,7 +6823,7 @@ export interface EdiscoveryCaseSettings extends Entity, Parsable {
      */
     redundancyDetection?: RedundancyDetectionSettings | null;
     /**
-     * The settings of the review set for the case. Possible values are: none, disableGrouping, unknownFutureValue.
+     * The settings of the review set for the case. The possible values are: none, disableGrouping, unknownFutureValue.
      */
     reviewSetSettings?: ReviewSetSettings[] | null;
     /**
@@ -6889,7 +6889,7 @@ export interface EdiscoveryEstimateOperation extends CaseOperation, Parsable {
      */
     siteCount?: number | null;
     /**
-     * The options to generate statistics. Possible values are: includeRefiners, includeQueryStats, includeUnindexedStats, advancedIndexing, locationsWithoutHits, unknownFutureValue.
+     * The options to generate statistics. The possible values are: includeRefiners, includeQueryStats, includeUnindexedStats, advancedIndexing, locationsWithoutHits, unknownFutureValue.
      */
     statisticsOptions?: StatisticsOptions[] | null;
     /**
@@ -6911,11 +6911,11 @@ export interface EdiscoveryExportOperation extends CaseOperation, Parsable {
      */
     exportFileMetadata?: ExportFileMetadata[] | null;
     /**
-     * The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, tags, unknownFutureValue, splitSource, includeFolderAndPath, friendlyName, condensePaths. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: splitSource, includeFolderAndPath, friendlyName, condensePaths.
+     * The options provided for the export. For more information, see reviewSet: export. The possible values are: originalFiles, text, pdfReplacement, tags, unknownFutureValue, splitSource, includeFolderAndPath, friendlyName, condensePaths. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: splitSource, includeFolderAndPath, friendlyName, condensePaths.
      */
     exportOptions?: ExportOptions[] | null;
     /**
-     * The options that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory (deprecated), pst, unknownFutureValue, msg. Use the Prefer: include-unknown-enum-members request header to get the following members from this evolvable enum: msg. The directory member is deprecated. It remains in v1.0 for backward compatibility. Going forward, use either pst or msg.
+     * The options that specify the structure of the export. For more information, see reviewSet: export. The possible values are: none, directory (deprecated), pst, unknownFutureValue, msg. Use the Prefer: include-unknown-enum-members request header to get the following members from this evolvable enum: msg. The directory member is deprecated. It remains in v1.0 for backward compatibility. Going forward, use either pst or msg.
      */
     exportStructure?: ExportFileStructure | null;
     /**
@@ -6981,7 +6981,7 @@ export interface EdiscoveryReviewSetQueryCollectionResponse extends BaseCollecti
 }
 export interface EdiscoveryReviewTag extends Parsable, Tag {
     /**
-     * Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
+     * Indicates whether a single or multiple child tags can be associated with a document. The possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
      */
     childSelectability?: ChildSelectability | null;
     /**
@@ -7013,7 +7013,7 @@ export interface EdiscoverySearch extends Parsable, Search {
      */
     custodianSources?: DataSource[] | null;
     /**
-     * When specified, the collection spans across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
+     * When specified, the collection spans across a service for an entire workload. The possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
      */
     dataSourceScopes?: DataSourceScopes[] | null;
     /**
@@ -7037,7 +7037,7 @@ export interface EdiscoverySearchExportOperation extends CaseOperation, Parsable
      */
     additionalOptions?: AdditionalOptions[] | null;
     /**
-     * The versions of cloud attachments to include in messages. Possible values are: latest, recent10, recent100, all, unknownFutureValue.
+     * The versions of cloud attachments to include in messages. The possible values are: latest, recent10, recent100, all, unknownFutureValue.
      */
     cloudAttachmentVersion?: CloudAttachmentVersion | null;
     /**
@@ -7049,7 +7049,7 @@ export interface EdiscoverySearchExportOperation extends CaseOperation, Parsable
      */
     displayName?: string | null;
     /**
-     * The versions of files in SharePoint to include. Possible values are: latest, recent10, recent100, all, unknownFutureValue.
+     * The versions of files in SharePoint to include. The possible values are: latest, recent10, recent100, all, unknownFutureValue.
      */
     documentVersion?: DocumentVersion | null;
     /**
@@ -7501,7 +7501,7 @@ export interface GoogleCloudResourceEvidence extends AlertEvidence, Parsable {
      */
     location?: string | null;
     /**
-     * The type of location. Possible values are: unknown, regional, zonal, global, unknownFutureValue.
+     * The type of location. The possible values are: unknown, regional, zonal, global, unknownFutureValue.
      */
     locationType?: GoogleCloudLocationType | null;
     /**
@@ -8113,7 +8113,7 @@ export interface Incident extends Entity, Parsable {
      */
     assignedTo?: string | null;
     /**
-     * The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
+     * The specification for the incident. The possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      */
     classification?: AlertClassification | null;
     /**
@@ -8133,7 +8133,7 @@ export interface Incident extends Entity, Parsable {
      */
     description?: string | null;
     /**
-     * Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
+     * Specifies the determination of the incident. The possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      */
     determination?: AlertDetermination | null;
     /**
@@ -8467,7 +8467,7 @@ export interface KubernetesClusterEvidence extends AlertEvidence, Parsable {
      */
     name?: string | null;
     /**
-     * The platform the cluster runs on. Possible values are: unknown, aks, eks, gke, arc, unknownFutureValue.
+     * The platform the cluster runs on. The possible values are: unknown, aks, eks, gke, arc, unknownFutureValue.
      */
     platform?: KubernetesPlatform | null;
     /**
@@ -8630,7 +8630,7 @@ export interface KubernetesServicePort extends AdditionalDataHolder, BackedModel
      */
     port?: number | null;
     /**
-     * The protocol name. Possible values are: udp, tcp, sctp, unknownFutureValue.
+     * The protocol name. The possible values are: udp, tcp, sctp, unknownFutureValue.
      */
     protocol?: ContainerPortProtocol | null;
     /**
@@ -13467,11 +13467,11 @@ export interface TeamsMessageEvidence extends AlertEvidence, Parsable {
      */
     channelId?: string | null;
     /**
-     * The delivery action of this Teams message. Possible values are: unknown, deliveredAsSpam, delivered, blocked, replaced, unknownFutureValue.
+     * The delivery action of this Teams message. The possible values are: unknown, deliveredAsSpam, delivered, blocked, replaced, unknownFutureValue.
      */
     deliveryAction?: TeamsMessageDeliveryAction | null;
     /**
-     * The delivery location of this Teams message. Possible values are: unknown, teams, quarantine, failed, unknownFutureValue.
+     * The delivery location of this Teams message. The possible values are: unknown, teams, quarantine, failed, unknownFutureValue.
      */
     deliveryLocation?: TeamsDeliveryLocation | null;
     /**
@@ -13679,7 +13679,7 @@ export interface UnifiedGroupSource extends DataSource, Parsable {
      */
     group?: Group | null;
     /**
-     * Specifies which sources are included in this group. Possible values are: mailbox, site.
+     * Specifies which sources are included in this group. The possible values are: mailbox, site.
      */
     includedSources?: SourceType[] | null;
 }
@@ -13763,7 +13763,7 @@ export interface UserSource extends DataSource, Parsable {
      */
     email?: string | null;
     /**
-     * Specifies which sources are included in this group. Possible values are: mailbox, site.
+     * Specifies which sources are included in this group. The possible values are: mailbox, site.
      */
     includedSources?: SourceType[] | null;
     /**

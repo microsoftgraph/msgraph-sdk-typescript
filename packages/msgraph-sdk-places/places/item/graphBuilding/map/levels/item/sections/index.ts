@@ -27,10 +27,11 @@ export interface SectionsRequestBuilder extends BaseRequestBuilder<SectionsReque
      */
      bySectionMapId(sectionMapId: string) : SectionMapItemRequestBuilder;
     /**
-     * Get sections from places
+     * Get a list of the sectionMap objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SectionMapCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/levelmap-list-sections?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SectionsRequestBuilderGetQueryParameters> | undefined) : Promise<SectionMapCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface SectionsRequestBuilder extends BaseRequestBuilder<SectionsReque
      */
      post(body: SectionMap, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SectionMap | undefined>;
     /**
-     * Get sections from places
+     * Get a list of the sectionMap objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface SectionsRequestBuilder extends BaseRequestBuilder<SectionsReque
      toPostRequestInformation(body: SectionMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get sections from places
+ * Get a list of the sectionMap objects and their properties.
  */
 export interface SectionsRequestBuilderGetQueryParameters {
     /**

@@ -13,40 +13,42 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface FixtureMapItemRequestBuilder extends BaseRequestBuilder<FixtureMapItemRequestBuilder> {
     /**
-     * Delete navigation property fixtures for places
+     * Delete a fixture on a specified floor.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/fixturemap-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get fixtures from places
+     * Collection of fixtures (such as furniture or equipment) on this level. Supports upsert.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FixtureMap>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<FixtureMapItemRequestBuilderGetQueryParameters> | undefined) : Promise<FixtureMap | undefined>;
     /**
-     * Update the navigation property fixtures in places
+     * Update the properties of an existing fixtureMap object in IMDF format on a specified floor, or create one if it doesn't exist.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FixtureMap>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/fixturemap-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: FixtureMap, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FixtureMap | undefined>;
     /**
-     * Delete navigation property fixtures for places
+     * Delete a fixture on a specified floor.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get fixtures from places
+     * Collection of fixtures (such as furniture or equipment) on this level. Supports upsert.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FixtureMapItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property fixtures in places
+     * Update the properties of an existing fixtureMap object in IMDF format on a specified floor, or create one if it doesn't exist.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface FixtureMapItemRequestBuilder extends BaseRequestBuilder<Fixture
      toPatchRequestInformation(body: FixtureMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get fixtures from places
+ * Collection of fixtures (such as furniture or equipment) on this level. Supports upsert.
  */
 export interface FixtureMapItemRequestBuilderGetQueryParameters {
     /**

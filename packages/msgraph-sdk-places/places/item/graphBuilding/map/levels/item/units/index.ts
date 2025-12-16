@@ -27,10 +27,11 @@ export interface UnitsRequestBuilder extends BaseRequestBuilder<UnitsRequestBuil
      */
      byUnitMapId(unitMapId: string) : UnitMapItemRequestBuilder;
     /**
-     * Get units from places
+     * Get a list of the unitMap objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnitMapCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/levelmap-list-units?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<UnitsRequestBuilderGetQueryParameters> | undefined) : Promise<UnitMapCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface UnitsRequestBuilder extends BaseRequestBuilder<UnitsRequestBuil
      */
      post(body: UnitMap, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnitMap | undefined>;
     /**
-     * Get units from places
+     * Get a list of the unitMap objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface UnitsRequestBuilder extends BaseRequestBuilder<UnitsRequestBuil
      toPostRequestInformation(body: UnitMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get units from places
+ * Get a list of the unitMap objects and their properties.
  */
 export interface UnitsRequestBuilderGetQueryParameters {
     /**

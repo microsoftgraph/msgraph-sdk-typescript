@@ -481,7 +481,7 @@ export interface Operation extends Entity, Parsable {
      */
     lastActionDateTime?: Date | null;
     /**
-     * The status of the operation. Possible values are: notStarted, running, completed, failed, unknownFutureValue.
+     * The status of the operation. The possible values are: notStarted, running, completed, failed, unknownFutureValue.
      */
     status?: LongRunningOperationStatus | null;
 }

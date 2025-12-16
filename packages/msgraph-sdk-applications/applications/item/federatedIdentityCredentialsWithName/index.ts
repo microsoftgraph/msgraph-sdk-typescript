@@ -20,7 +20,7 @@ export interface FederatedIdentityCredentialsWithNameRequestBuilder extends Base
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Read the properties and relationships of a federatedIdentityCredential object.
+     * Read the properties and relationships of a federatedIdentityCredential object assigned to an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FederatedIdentityCredential>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -43,7 +43,7 @@ export interface FederatedIdentityCredentialsWithNameRequestBuilder extends Base
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Read the properties and relationships of a federatedIdentityCredential object.
+     * Read the properties and relationships of a federatedIdentityCredential object assigned to an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +57,7 @@ export interface FederatedIdentityCredentialsWithNameRequestBuilder extends Base
      toPatchRequestInformation(body: FederatedIdentityCredential, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Read the properties and relationships of a federatedIdentityCredential object.
+ * Read the properties and relationships of a federatedIdentityCredential object assigned to an application.
  */
 export interface FederatedIdentityCredentialsWithNameRequestBuilderGetQueryParameters {
     /**

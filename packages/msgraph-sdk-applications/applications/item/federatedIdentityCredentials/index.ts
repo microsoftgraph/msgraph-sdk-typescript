@@ -27,11 +27,11 @@ export interface FederatedIdentityCredentialsRequestBuilder extends BaseRequestB
      */
      byFederatedIdentityCredentialId(federatedIdentityCredentialId: string) : FederatedIdentityCredentialItemRequestBuilder;
     /**
-     * Get a list of the federatedIdentityCredential objects and their properties.
+     * Get a list of the federatedIdentityCredential objects and their properties assigned to an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FederatedIdentityCredentialCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/application-list-federatedidentitycredentials?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/federatedidentitycredential-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FederatedIdentityCredentialsRequestBuilderGetQueryParameters> | undefined) : Promise<FederatedIdentityCredentialCollectionResponse | undefined>;
     /**
@@ -40,11 +40,11 @@ export interface FederatedIdentityCredentialsRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FederatedIdentityCredential>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/application-post-federatedidentitycredentials?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/federatedidentitycredential-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: FederatedIdentityCredential, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FederatedIdentityCredential | undefined>;
     /**
-     * Get a list of the federatedIdentityCredential objects and their properties.
+     * Get a list of the federatedIdentityCredential objects and their properties assigned to an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -58,7 +58,7 @@ export interface FederatedIdentityCredentialsRequestBuilder extends BaseRequestB
      toPostRequestInformation(body: FederatedIdentityCredential, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the federatedIdentityCredential objects and their properties.
+ * Get a list of the federatedIdentityCredential objects and their properties assigned to an application.
  */
 export interface FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
     /**
