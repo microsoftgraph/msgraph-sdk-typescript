@@ -13,40 +13,42 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface UnitMapItemRequestBuilder extends BaseRequestBuilder<UnitMapItemRequestBuilder> {
     /**
-     * Delete navigation property units for places
+     * Delete a unitMap object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/unitmap-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get units from places
+     * Collection of units (such as rooms or offices) on this level. Supports upsert.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnitMap>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<UnitMapItemRequestBuilderGetQueryParameters> | undefined) : Promise<UnitMap | undefined>;
     /**
-     * Update the navigation property units in places
+     * Update the properties of an existing unitMap object in IMDF format on a specified floor, or create one if it doesn't exist.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UnitMap>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/unitmap-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: UnitMap, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UnitMap | undefined>;
     /**
-     * Delete navigation property units for places
+     * Delete a unitMap object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get units from places
+     * Collection of units (such as rooms or offices) on this level. Supports upsert.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UnitMapItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property units in places
+     * Update the properties of an existing unitMap object in IMDF format on a specified floor, or create one if it doesn't exist.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface UnitMapItemRequestBuilder extends BaseRequestBuilder<UnitMapIte
      toPatchRequestInformation(body: UnitMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get units from places
+ * Collection of units (such as rooms or offices) on this level. Supports upsert.
  */
 export interface UnitMapItemRequestBuilderGetQueryParameters {
     /**

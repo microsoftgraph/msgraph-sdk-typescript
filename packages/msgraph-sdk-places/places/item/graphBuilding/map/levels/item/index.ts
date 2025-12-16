@@ -37,7 +37,7 @@ export interface LevelMapItemRequestBuilder extends BaseRequestBuilder<LevelMapI
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get levels from places
+     * Represents a physical floor structure within a building. It corresponds to level.geojson in IMDF format.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LevelMap>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -58,7 +58,7 @@ export interface LevelMapItemRequestBuilder extends BaseRequestBuilder<LevelMapI
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get levels from places
+     * Represents a physical floor structure within a building. It corresponds to level.geojson in IMDF format.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -72,7 +72,7 @@ export interface LevelMapItemRequestBuilder extends BaseRequestBuilder<LevelMapI
      toPatchRequestInformation(body: LevelMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get levels from places
+ * Represents a physical floor structure within a building. It corresponds to level.geojson in IMDF format.
  */
 export interface LevelMapItemRequestBuilderGetQueryParameters {
     /**

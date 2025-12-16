@@ -27,10 +27,11 @@ export interface LevelsRequestBuilder extends BaseRequestBuilder<LevelsRequestBu
      */
      byLevelMapId(levelMapId: string) : LevelMapItemRequestBuilder;
     /**
-     * Get levels from places
+     * Get a list of the levelMap objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<LevelMapCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/buildingmap-list-levels?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<LevelsRequestBuilderGetQueryParameters> | undefined) : Promise<LevelMapCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface LevelsRequestBuilder extends BaseRequestBuilder<LevelsRequestBu
      */
      post(body: LevelMap, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<LevelMap | undefined>;
     /**
-     * Get levels from places
+     * Get a list of the levelMap objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface LevelsRequestBuilder extends BaseRequestBuilder<LevelsRequestBu
      toPostRequestInformation(body: LevelMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get levels from places
+ * Get a list of the levelMap objects and their properties.
  */
 export interface LevelsRequestBuilderGetQueryParameters {
     /**

@@ -19,10 +19,11 @@ export interface CheckInClaimCalendarEventItemRequestBuilder extends BaseRequest
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get checkIns from places
+     * Read the properties and relationships of a checkInClaim object. This API provides the check-in status for a specific place, such as a desk, room, or workspace, associated with a particular reservation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CheckInClaim>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/checkinclaim-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CheckInClaimCalendarEventItemRequestBuilderGetQueryParameters> | undefined) : Promise<CheckInClaim | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface CheckInClaimCalendarEventItemRequestBuilder extends BaseRequest
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get checkIns from places
+     * Read the properties and relationships of a checkInClaim object. This API provides the check-in status for a specific place, such as a desk, room, or workspace, associated with a particular reservation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface CheckInClaimCalendarEventItemRequestBuilder extends BaseRequest
      toPatchRequestInformation(body: CheckInClaim, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get checkIns from places
+ * Read the properties and relationships of a checkInClaim object. This API provides the check-in status for a specific place, such as a desk, room, or workspace, associated with a particular reservation.
  */
 export interface CheckInClaimCalendarEventItemRequestBuilderGetQueryParameters {
     /**

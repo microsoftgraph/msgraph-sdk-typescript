@@ -19,7 +19,7 @@ export interface FootprintMapItemRequestBuilder extends BaseRequestBuilder<Footp
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get footprints from places
+     * Represents the approximate physical extent of a referenced building. It corresponds to footprint.geojson in IMDF format.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FootprintMap>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -40,7 +40,7 @@ export interface FootprintMapItemRequestBuilder extends BaseRequestBuilder<Footp
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get footprints from places
+     * Represents the approximate physical extent of a referenced building. It corresponds to footprint.geojson in IMDF format.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface FootprintMapItemRequestBuilder extends BaseRequestBuilder<Footp
      toPatchRequestInformation(body: FootprintMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get footprints from places
+ * Represents the approximate physical extent of a referenced building. It corresponds to footprint.geojson in IMDF format.
  */
 export interface FootprintMapItemRequestBuilderGetQueryParameters {
     /**

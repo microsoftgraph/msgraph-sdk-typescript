@@ -67,13 +67,14 @@ export interface PlaceItemRequestBuilder extends BaseRequestBuilder<PlaceItemReq
      */
     get graphWorkspace(): GraphWorkspaceRequestBuilder;
     /**
-     * Delete entity from places
+     * Delete a place object. You can also use this method to delete the following child object types: building, floor, section, or desk.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/place-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Update the properties of place object, which can be a room or roomList. You can identify the room or roomList by specifying the id or emailAddress property.
+     * Update the properties of place object that can be a building, floor, section, desk, room, workspace, or roomList. You can identify the place by specifying the id property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Place>}
@@ -82,13 +83,13 @@ export interface PlaceItemRequestBuilder extends BaseRequestBuilder<PlaceItemReq
      */
      patch(body: Place, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Place | undefined>;
     /**
-     * Delete entity from places
+     * Delete a place object. You can also use this method to delete the following child object types: building, floor, section, or desk.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Update the properties of place object, which can be a room or roomList. You can identify the room or roomList by specifying the id or emailAddress property.
+     * Update the properties of place object that can be a building, floor, section, desk, room, workspace, or roomList. You can identify the place by specifying the id property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

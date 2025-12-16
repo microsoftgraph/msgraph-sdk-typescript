@@ -67,7 +67,7 @@ export interface AnswerVariant extends AdditionalDataHolder, BackedModel, Parsab
      */
     odataType?: string | null;
     /**
-     * The device or operating system that can view this answer variation. Possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
+     * The device or operating system that can view this answer variation. The possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
      */
     platform?: DevicePlatformType | null;
     /**
@@ -105,7 +105,7 @@ export interface Bookmark extends Parsable, SearchAnswer {
      */
     languageTags?: string[] | null;
     /**
-     * List of devices and operating systems that are able to view this bookmark. Possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
+     * List of devices and operating systems that are able to view this bookmark. The possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
      */
     platforms?: DevicePlatformType[] | null;
     /**
@@ -475,7 +475,7 @@ export interface Qna extends Parsable, SearchAnswer {
      */
     languageTags?: string[] | null;
     /**
-     * List of devices and operating systems that are able to view this QnA. Possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
+     * List of devices and operating systems that are able to view this QnA. The possible values are: android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, unknown, androidASOP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
      */
     platforms?: DevicePlatformType[] | null;
     /**

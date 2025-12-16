@@ -19,21 +19,22 @@ export interface GraphDeskRequestBuilder extends BaseRequestBuilder<GraphDeskReq
      */
     get checkIns(): CheckInsRequestBuilder;
     /**
-     * Get the item of type microsoft.graph.place as microsoft.graph.desk
+     * Get a collection of the specified type of place objects defined in a tenant. You can do the following for a given tenant:- List all buildings.- List all floors.- List all sections.- List all desks.- List all rooms.- List all workspaces.- List all room lists.- List rooms in a specific room list.- List workspaces in a specific room list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Desk>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/place-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GraphDeskRequestBuilderGetQueryParameters> | undefined) : Promise<Desk | undefined>;
     /**
-     * Get the item of type microsoft.graph.place as microsoft.graph.desk
+     * Get a collection of the specified type of place objects defined in a tenant. You can do the following for a given tenant:- List all buildings.- List all floors.- List all sections.- List all desks.- List all rooms.- List all workspaces.- List all room lists.- List rooms in a specific room list.- List workspaces in a specific room list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphDeskRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the item of type microsoft.graph.place as microsoft.graph.desk
+ * Get a collection of the specified type of place objects defined in a tenant. You can do the following for a given tenant:- List all buildings.- List all floors.- List all sections.- List all desks.- List all rooms.- List all workspaces.- List all room lists.- List rooms in a specific room list.- List workspaces in a specific room list.
  */
 export interface GraphDeskRequestBuilderGetQueryParameters {
     /**

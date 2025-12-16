@@ -19,21 +19,22 @@ export interface GraphDeskRequestBuilder extends BaseRequestBuilder<GraphDeskReq
      */
     get count(): CountRequestBuilder;
     /**
-     * Get the items of type microsoft.graph.desk in the microsoft.graph.place collection
+     * Get a collection of the specified type of place objects defined in a tenant. You can do the following for a given tenant:- List all buildings.- List all floors.- List all sections.- List all desks.- List all rooms.- List all workspaces.- List all room lists.- List rooms in a specific room list.- List workspaces in a specific room list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeskCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/place-list?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GraphDeskRequestBuilderGetQueryParameters> | undefined) : Promise<DeskCollectionResponse | undefined>;
     /**
-     * Get the items of type microsoft.graph.desk in the microsoft.graph.place collection
+     * Get a collection of the specified type of place objects defined in a tenant. You can do the following for a given tenant:- List all buildings.- List all floors.- List all sections.- List all desks.- List all rooms.- List all workspaces.- List all room lists.- List rooms in a specific room list.- List workspaces in a specific room list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphDeskRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the items of type microsoft.graph.desk in the microsoft.graph.place collection
+ * Get a collection of the specified type of place objects defined in a tenant. You can do the following for a given tenant:- List all buildings.- List all floors.- List all sections.- List all desks.- List all rooms.- List all workspaces.- List all room lists.- List rooms in a specific room list.- List workspaces in a specific room list.
  */
 export interface GraphDeskRequestBuilderGetQueryParameters {
     /**
