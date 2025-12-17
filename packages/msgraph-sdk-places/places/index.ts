@@ -69,15 +69,16 @@ export interface PlacesRequestBuilder extends BaseRequestBuilder<PlacesRequestBu
      */
      byPlaceId(placeId: string) : PlaceItemRequestBuilder;
     /**
-     * Add new entity to places
+     * Create a new place object. You can also use this method to create the following child object types: building, floor, section, room, workspace, or desk.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Place>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/place-post?view=graph-rest-1.0|Find more info here}
      */
      post(body: Place, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Place | undefined>;
     /**
-     * Add new entity to places
+     * Create a new place object. You can also use this method to create the following child object types: building, floor, section, room, workspace, or desk.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

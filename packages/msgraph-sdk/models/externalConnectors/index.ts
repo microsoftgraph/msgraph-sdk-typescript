@@ -64,7 +64,7 @@ export interface ConnectionOperation extends Entity, Parsable {
      */
     errorEscaped?: PublicError | null;
     /**
-     * Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.
+     * Indicates the status of the asynchronous operation. The possible values are: unspecified, inprogress, completed, failed, unknownFutureValue.
      */
     status?: ConnectionOperationStatus | null;
 }
@@ -822,7 +822,7 @@ export interface ExternalConnection extends Entity, Parsable {
      */
     searchSettings?: SearchSettings | null;
     /**
-     * Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
+     * Indicates the current state of the connection. The possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
      */
     state?: ConnectionState | null;
 }
@@ -897,7 +897,7 @@ export interface ExternalItemContent extends AdditionalDataHolder, BackedModel, 
 export type ExternalItemContentType = (typeof ExternalItemContentTypeObject)[keyof typeof ExternalItemContentTypeObject];
 export interface Identity extends Entity, Parsable {
     /**
-     * The type of identity. Possible values are: user or group for Microsoft Entra identities and externalgroup for groups in an external system.
+     * The type of identity. The possible values are: user or group for Microsoft Entra identities and externalgroup for groups in an external system.
      */
     type?: IdentityType | null;
 }

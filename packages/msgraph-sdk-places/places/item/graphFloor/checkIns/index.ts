@@ -27,7 +27,7 @@ export interface CheckInsRequestBuilder extends BaseRequestBuilder<CheckInsReque
      */
      byCheckInClaimCalendarEventId(checkInClaimCalendarEventId: string) : CheckInClaimCalendarEventItemRequestBuilder;
     /**
-     * Get checkIns from places
+     * A subresource of a place object that indicates the check-in status of an Outlook calendar event booked at the place.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CheckInClaimCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface CheckInsRequestBuilder extends BaseRequestBuilder<CheckInsReque
      */
      post(body: CheckInClaim, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<CheckInClaim | undefined>;
     /**
-     * Get checkIns from places
+     * A subresource of a place object that indicates the check-in status of an Outlook calendar event booked at the place.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface CheckInsRequestBuilder extends BaseRequestBuilder<CheckInsReque
      toPostRequestInformation(body: CheckInClaim, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get checkIns from places
+ * A subresource of a place object that indicates the check-in status of an Outlook calendar event booked at the place.
  */
 export interface CheckInsRequestBuilderGetQueryParameters {
     /**

@@ -27,10 +27,11 @@ export interface FootprintsRequestBuilder extends BaseRequestBuilder<FootprintsR
      */
      byFootprintMapId(footprintMapId: string) : FootprintMapItemRequestBuilder;
     /**
-     * Get footprints from places
+     * Get a list of footprintMap objects for building footprints and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FootprintMapCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/buildingmap-list-footprints?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<FootprintsRequestBuilderGetQueryParameters> | undefined) : Promise<FootprintMapCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface FootprintsRequestBuilder extends BaseRequestBuilder<FootprintsR
      */
      post(body: FootprintMap, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<FootprintMap | undefined>;
     /**
-     * Get footprints from places
+     * Get a list of footprintMap objects for building footprints and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface FootprintsRequestBuilder extends BaseRequestBuilder<FootprintsR
      toPostRequestInformation(body: FootprintMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get footprints from places
+ * Get a list of footprintMap objects for building footprints and their properties.
  */
 export interface FootprintsRequestBuilderGetQueryParameters {
     /**

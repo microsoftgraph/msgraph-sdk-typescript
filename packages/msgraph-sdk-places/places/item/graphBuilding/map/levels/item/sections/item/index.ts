@@ -19,7 +19,7 @@ export interface SectionMapItemRequestBuilder extends BaseRequestBuilder<Section
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get sections from places
+     * Collection of sections (such as zones or partitions) on this level. Supports upsert.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SectionMap>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -40,7 +40,7 @@ export interface SectionMapItemRequestBuilder extends BaseRequestBuilder<Section
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get sections from places
+     * Collection of sections (such as zones or partitions) on this level. Supports upsert.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface SectionMapItemRequestBuilder extends BaseRequestBuilder<Section
      toPatchRequestInformation(body: SectionMap, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get sections from places
+ * Collection of sections (such as zones or partitions) on this level. Supports upsert.
  */
 export interface SectionMapItemRequestBuilderGetQueryParameters {
     /**

@@ -329,7 +329,7 @@ export interface Group extends Entity, Parsable {
      */
     parentSiteId?: string | null;
     /**
-     * Returns the type of the group. Possible values are: global, system, and siteCollection.
+     * Returns the type of the group. The possible values are: global, system, and siteCollection.
      */
     scope?: TermGroupScope | null;
     /**
@@ -407,7 +407,7 @@ export interface Relation extends Entity, Parsable {
      */
     fromTerm?: Term | null;
     /**
-     * The type of relation. Possible values are: pin, reuse.
+     * The type of relation. The possible values are: pin, reuse.
      */
     relationship?: RelationType | null;
     /**
