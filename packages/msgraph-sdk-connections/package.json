@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-connections",
-  "version": "1.0.0-preview.75",
+  "version": "1.0.0-preview.76",
   "description": "Connections fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",

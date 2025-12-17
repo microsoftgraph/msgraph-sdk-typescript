@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-groups",
-  "version": "1.0.0-preview.75",
+  "version": "1.0.0-preview.76",
   "description": "Groups fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
