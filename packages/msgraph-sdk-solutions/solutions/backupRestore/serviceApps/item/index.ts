@@ -25,7 +25,7 @@ export interface ServiceAppItemRequestBuilder extends BaseRequestBuilder<Service
      */
     get deactivate(): DeactivateRequestBuilder;
     /**
-     * Delete a serviceApp.
+     * Delete a serviceApp. When this API is called via Microsoft Graph PowerShell, it returns a 403 Forbidden response code.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/backuprestoreroot-delete-serviceapps?view=graph-rest-1.0|Find more info here}
@@ -48,7 +48,7 @@ export interface ServiceAppItemRequestBuilder extends BaseRequestBuilder<Service
      */
      patch(body: ServiceApp, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServiceApp | undefined>;
     /**
-     * Delete a serviceApp.
+     * Delete a serviceApp. When this API is called via Microsoft Graph PowerShell, it returns a 403 Forbidden response code.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

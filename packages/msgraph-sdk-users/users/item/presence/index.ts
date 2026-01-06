@@ -6,9 +6,17 @@ import { createPresenceFromDiscriminatorValue, serializePresence, type Presence 
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { ClearAutomaticLocationRequestBuilderRequestsMetadata, type ClearAutomaticLocationRequestBuilder } from './clearAutomaticLocation/index.js';
+// @ts-ignore
+import { ClearLocationRequestBuilderRequestsMetadata, type ClearLocationRequestBuilder } from './clearLocation/index.js';
+// @ts-ignore
 import { ClearPresenceRequestBuilderRequestsMetadata, type ClearPresenceRequestBuilder } from './clearPresence/index.js';
 // @ts-ignore
 import { ClearUserPreferredPresenceRequestBuilderRequestsMetadata, type ClearUserPreferredPresenceRequestBuilder } from './clearUserPreferredPresence/index.js';
+// @ts-ignore
+import { SetAutomaticLocationRequestBuilderRequestsMetadata, type SetAutomaticLocationRequestBuilder } from './setAutomaticLocation/index.js';
+// @ts-ignore
+import { SetManualLocationRequestBuilderRequestsMetadata, type SetManualLocationRequestBuilder } from './setManualLocation/index.js';
 // @ts-ignore
 import { SetPresenceRequestBuilderRequestsMetadata, type SetPresenceRequestBuilder } from './setPresence/index.js';
 // @ts-ignore
@@ -23,6 +31,14 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  */
 export interface PresenceRequestBuilder extends BaseRequestBuilder<PresenceRequestBuilder> {
     /**
+     * Provides operations to call the clearAutomaticLocation method.
+     */
+    get clearAutomaticLocation(): ClearAutomaticLocationRequestBuilder;
+    /**
+     * Provides operations to call the clearLocation method.
+     */
+    get clearLocation(): ClearLocationRequestBuilder;
+    /**
      * Provides operations to call the clearPresence method.
      */
     get clearPresence(): ClearPresenceRequestBuilder;
@@ -30,6 +46,14 @@ export interface PresenceRequestBuilder extends BaseRequestBuilder<PresenceReque
      * Provides operations to call the clearUserPreferredPresence method.
      */
     get clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder;
+    /**
+     * Provides operations to call the setAutomaticLocation method.
+     */
+    get setAutomaticLocation(): SetAutomaticLocationRequestBuilder;
+    /**
+     * Provides operations to call the setManualLocation method.
+     */
+    get setManualLocation(): SetManualLocationRequestBuilder;
     /**
      * Provides operations to call the setPresence method.
      */
@@ -112,11 +136,23 @@ const PresenceRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const PresenceRequestBuilderNavigationMetadata: Record<Exclude<keyof PresenceRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    clearAutomaticLocation: {
+        requestsMetadata: ClearAutomaticLocationRequestBuilderRequestsMetadata,
+    },
+    clearLocation: {
+        requestsMetadata: ClearLocationRequestBuilderRequestsMetadata,
+    },
     clearPresence: {
         requestsMetadata: ClearPresenceRequestBuilderRequestsMetadata,
     },
     clearUserPreferredPresence: {
         requestsMetadata: ClearUserPreferredPresenceRequestBuilderRequestsMetadata,
+    },
+    setAutomaticLocation: {
+        requestsMetadata: SetAutomaticLocationRequestBuilderRequestsMetadata,
+    },
+    setManualLocation: {
+        requestsMetadata: SetManualLocationRequestBuilderRequestsMetadata,
     },
     setPresence: {
         requestsMetadata: SetPresenceRequestBuilderRequestsMetadata,

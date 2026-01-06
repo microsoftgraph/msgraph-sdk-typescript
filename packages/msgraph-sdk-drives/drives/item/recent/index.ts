@@ -44,6 +44,7 @@ export interface RecentRequestBuilder extends BaseRequestBuilder<RecentRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RecentGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after November, 2027. as of 2025-11/Removal on 2025-11-13 and will be removed 2027-11-01
      * @see {@link https://learn.microsoft.com/graph/api/drive-recent?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : Promise<RecentGetResponse | undefined>;
@@ -51,6 +52,7 @@ export interface RecentRequestBuilder extends BaseRequestBuilder<RecentRequestBu
      * List a set of items recently used by the signed-in user.This collection includes items that are in the user's drive and items they have access to from other drives.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after November, 2027. as of 2025-11/Removal on 2025-11-13 and will be removed 2027-11-01
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RecentRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }

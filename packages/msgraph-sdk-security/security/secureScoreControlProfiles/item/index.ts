@@ -27,7 +27,7 @@ export interface SecureScoreControlProfileItemRequestBuilder extends BaseRequest
      */
      get(requestConfiguration?: RequestConfiguration<SecureScoreControlProfileItemRequestBuilderGetQueryParameters> | undefined) : Promise<SecureScoreControlProfile | undefined>;
     /**
-     * Update an editable secureScoreControlProfile object within any integrated solution to change various properties, such as assignedTo or tenantNote.
+     * Update an editable secureScoreControlProfile object within any integrated solution to change various properties, such as tenantNote.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SecureScoreControlProfile>}
@@ -48,7 +48,7 @@ export interface SecureScoreControlProfileItemRequestBuilder extends BaseRequest
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SecureScoreControlProfileItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update an editable secureScoreControlProfile object within any integrated solution to change various properties, such as assignedTo or tenantNote.
+     * Update an editable secureScoreControlProfile object within any integrated solution to change various properties, such as tenantNote.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

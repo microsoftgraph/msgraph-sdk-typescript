@@ -18,6 +18,8 @@ import { OnPremisesConnectionsRequestBuilderNavigationMetadata, OnPremisesConnec
 // @ts-ignore
 import { ProvisioningPoliciesRequestBuilderNavigationMetadata, ProvisioningPoliciesRequestBuilderRequestsMetadata, type ProvisioningPoliciesRequestBuilder } from './provisioningPolicies/index.js';
 // @ts-ignore
+import { ReportRequestBuilderNavigationMetadata, ReportRequestBuilderRequestsMetadata, type ReportRequestBuilder } from './report/index.js';
+// @ts-ignore
 import { type UserSettingsRequestBuilder, UserSettingsRequestBuilderNavigationMetadata, UserSettingsRequestBuilderRequestsMetadata } from './userSettings/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -50,6 +52,10 @@ export interface VirtualEndpointRequestBuilder extends BaseRequestBuilder<Virtua
      * Provides operations to manage the provisioningPolicies property of the microsoft.graph.virtualEndpoint entity.
      */
     get provisioningPolicies(): ProvisioningPoliciesRequestBuilder;
+    /**
+     * Provides operations to manage the report property of the microsoft.graph.virtualEndpoint entity.
+     */
+    get report(): ReportRequestBuilder;
     /**
      * Provides operations to manage the userSettings property of the microsoft.graph.virtualEndpoint entity.
      */
@@ -146,6 +152,10 @@ export const VirtualEndpointRequestBuilderNavigationMetadata: Record<Exclude<key
     provisioningPolicies: {
         requestsMetadata: ProvisioningPoliciesRequestBuilderRequestsMetadata,
         navigationMetadata: ProvisioningPoliciesRequestBuilderNavigationMetadata,
+    },
+    report: {
+        requestsMetadata: ReportRequestBuilderRequestsMetadata,
+        navigationMetadata: ReportRequestBuilderNavigationMetadata,
     },
     userSettings: {
         requestsMetadata: UserSettingsRequestBuilderRequestsMetadata,
