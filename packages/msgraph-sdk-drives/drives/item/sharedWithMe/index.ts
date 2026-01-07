@@ -56,6 +56,7 @@ export interface SharedWithMeRequestBuilder extends BaseRequestBuilder<SharedWit
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharedWithMeGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after November, 2027. as of 2025-11/Removal on 2025-11-13 and will be removed 2027-11-01
      * @see {@link https://learn.microsoft.com/graph/api/drive-sharedwithme?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SharedWithMeRequestBuilderGetQueryParameters> | undefined) : Promise<SharedWithMeGetResponse | undefined>;
@@ -63,6 +64,7 @@ export interface SharedWithMeRequestBuilder extends BaseRequestBuilder<SharedWit
      * Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they are items from a different drive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after November, 2027. as of 2025-11/Removal on 2025-11-13 and will be removed 2027-11-01
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharedWithMeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }

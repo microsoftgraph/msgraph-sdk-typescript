@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { ActivitiesRequestBuilderNavigationMetadata, ActivitiesRequestBuilderRequestsMetadata, type ActivitiesRequestBuilder } from './activities/index.js';
 // @ts-ignore
+import { AdhocCallsRequestBuilderNavigationMetadata, AdhocCallsRequestBuilderRequestsMetadata, type AdhocCallsRequestBuilder } from './adhocCalls/index.js';
+// @ts-ignore
 import { AgreementAcceptancesRequestBuilderNavigationMetadata, AgreementAcceptancesRequestBuilderRequestsMetadata, type AgreementAcceptancesRequestBuilder } from './agreementAcceptances/index.js';
 // @ts-ignore
 import { AppRoleAssignmentsRequestBuilderNavigationMetadata, AppRoleAssignmentsRequestBuilderRequestsMetadata, type AppRoleAssignmentsRequestBuilder } from './appRoleAssignments/index.js';
@@ -108,6 +110,8 @@ import { OnenoteRequestBuilderNavigationMetadata, OnenoteRequestBuilderRequestsM
 // @ts-ignore
 import { OnlineMeetingsRequestBuilderNavigationMetadata, OnlineMeetingsRequestBuilderRequestsMetadata, type OnlineMeetingsRequestBuilder } from './onlineMeetings/index.js';
 // @ts-ignore
+import { OnPremisesSyncBehaviorRequestBuilderRequestsMetadata, type OnPremisesSyncBehaviorRequestBuilder } from './onPremisesSyncBehavior/index.js';
+// @ts-ignore
 import { OutlookRequestBuilderNavigationMetadata, OutlookRequestBuilderRequestsMetadata, type OutlookRequestBuilder } from './outlook/index.js';
 // @ts-ignore
 import { OwnedDevicesRequestBuilderNavigationMetadata, OwnedDevicesRequestBuilderRequestsMetadata, type OwnedDevicesRequestBuilder } from './ownedDevices/index.js';
@@ -172,6 +176,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * Provides operations to manage the activities property of the microsoft.graph.user entity.
      */
     get activities(): ActivitiesRequestBuilder;
+    /**
+     * Provides operations to manage the adhocCalls property of the microsoft.graph.user entity.
+     */
+    get adhocCalls(): AdhocCallsRequestBuilder;
     /**
      * Provides operations to manage the agreementAcceptances property of the microsoft.graph.user entity.
      */
@@ -368,6 +376,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
      */
     get onlineMeetings(): OnlineMeetingsRequestBuilder;
+    /**
+     * Provides operations to manage the onPremisesSyncBehavior property of the microsoft.graph.user entity.
+     */
+    get onPremisesSyncBehavior(): OnPremisesSyncBehaviorRequestBuilder;
     /**
      * Provides operations to manage the outlook property of the microsoft.graph.user entity.
      */
@@ -570,6 +582,10 @@ export const UserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof User
         requestsMetadata: ActivitiesRequestBuilderRequestsMetadata,
         navigationMetadata: ActivitiesRequestBuilderNavigationMetadata,
     },
+    adhocCalls: {
+        requestsMetadata: AdhocCallsRequestBuilderRequestsMetadata,
+        navigationMetadata: AdhocCallsRequestBuilderNavigationMetadata,
+    },
     agreementAcceptances: {
         requestsMetadata: AgreementAcceptancesRequestBuilderRequestsMetadata,
         navigationMetadata: AgreementAcceptancesRequestBuilderNavigationMetadata,
@@ -750,6 +766,9 @@ export const UserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof User
     onlineMeetings: {
         requestsMetadata: OnlineMeetingsRequestBuilderRequestsMetadata,
         navigationMetadata: OnlineMeetingsRequestBuilderNavigationMetadata,
+    },
+    onPremisesSyncBehavior: {
+        requestsMetadata: OnPremisesSyncBehaviorRequestBuilderRequestsMetadata,
     },
     outlook: {
         requestsMetadata: OutlookRequestBuilderRequestsMetadata,

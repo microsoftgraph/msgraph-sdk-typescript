@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { createEdiscoveryCaseFromDiscriminatorValue, serializeEdiscoveryCase, type EdiscoveryCase } from '@microsoft/msgraph-sdk/models/security/index.js';
 // @ts-ignore
+import { CaseMembersRequestBuilderNavigationMetadata, CaseMembersRequestBuilderRequestsMetadata, type CaseMembersRequestBuilder } from './caseMembers/index.js';
+// @ts-ignore
 import { CustodiansRequestBuilderNavigationMetadata, CustodiansRequestBuilderRequestsMetadata, type CustodiansRequestBuilder } from './custodians/index.js';
 // @ts-ignore
 import { MicrosoftGraphSecurityCloseRequestBuilderRequestsMetadata, type MicrosoftGraphSecurityCloseRequestBuilder } from './microsoftGraphSecurityClose/index.js';
@@ -30,6 +32,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
  */
 export interface EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder<EdiscoveryCaseItemRequestBuilder> {
+    /**
+     * Provides operations to manage the caseMembers property of the microsoft.graph.security.ediscoveryCase entity.
+     */
+    get caseMembers(): CaseMembersRequestBuilder;
     /**
      * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
      */
@@ -138,6 +144,10 @@ const EdiscoveryCaseItemRequestBuilderGetQueryParametersMapper: Record<string, s
  * Metadata for all the navigation properties in the request builder.
  */
 export const EdiscoveryCaseItemRequestBuilderNavigationMetadata: Record<Exclude<keyof EdiscoveryCaseItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    caseMembers: {
+        requestsMetadata: CaseMembersRequestBuilderRequestsMetadata,
+        navigationMetadata: CaseMembersRequestBuilderNavigationMetadata,
+    },
     custodians: {
         requestsMetadata: CustodiansRequestBuilderRequestsMetadata,
         navigationMetadata: CustodiansRequestBuilderNavigationMetadata,

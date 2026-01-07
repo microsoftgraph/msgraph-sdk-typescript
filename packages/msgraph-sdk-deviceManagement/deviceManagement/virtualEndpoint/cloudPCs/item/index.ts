@@ -12,9 +12,13 @@ import { RebootRequestBuilderRequestsMetadata, type RebootRequestBuilder } from 
 // @ts-ignore
 import { RenameRequestBuilderRequestsMetadata, type RenameRequestBuilder } from './rename/index.js';
 // @ts-ignore
+import { ReprovisionRequestBuilderRequestsMetadata, type ReprovisionRequestBuilder } from './reprovision/index.js';
+// @ts-ignore
 import { ResizeRequestBuilderRequestsMetadata, type ResizeRequestBuilder } from './resize/index.js';
 // @ts-ignore
 import { RestoreRequestBuilderRequestsMetadata, type RestoreRequestBuilder } from './restore/index.js';
+// @ts-ignore
+import { RetrieveCloudPcLaunchDetailRequestBuilderRequestsMetadata, type RetrieveCloudPcLaunchDetailRequestBuilder } from './retrieveCloudPcLaunchDetail/index.js';
 // @ts-ignore
 import { TroubleshootRequestBuilderRequestsMetadata, type TroubleshootRequestBuilder } from './troubleshoot/index.js';
 // @ts-ignore
@@ -37,6 +41,10 @@ export interface CloudPCItemRequestBuilder extends BaseRequestBuilder<CloudPCIte
      */
     get rename(): RenameRequestBuilder;
     /**
+     * Provides operations to call the reprovision method.
+     */
+    get reprovision(): ReprovisionRequestBuilder;
+    /**
      * Provides operations to call the resize method.
      */
     get resize(): ResizeRequestBuilder;
@@ -44,6 +52,10 @@ export interface CloudPCItemRequestBuilder extends BaseRequestBuilder<CloudPCIte
      * Provides operations to call the restore method.
      */
     get restore(): RestoreRequestBuilder;
+    /**
+     * Provides operations to call the retrieveCloudPcLaunchDetail method.
+     */
+    get retrieveCloudPcLaunchDetail(): RetrieveCloudPcLaunchDetailRequestBuilder;
     /**
      * Provides operations to call the troubleshoot method.
      */
@@ -127,11 +139,17 @@ export const CloudPCItemRequestBuilderNavigationMetadata: Record<Exclude<keyof C
     rename: {
         requestsMetadata: RenameRequestBuilderRequestsMetadata,
     },
+    reprovision: {
+        requestsMetadata: ReprovisionRequestBuilderRequestsMetadata,
+    },
     resize: {
         requestsMetadata: ResizeRequestBuilderRequestsMetadata,
     },
     restore: {
         requestsMetadata: RestoreRequestBuilderRequestsMetadata,
+    },
+    retrieveCloudPcLaunchDetail: {
+        requestsMetadata: RetrieveCloudPcLaunchDetailRequestBuilderRequestsMetadata,
     },
     troubleshoot: {
         requestsMetadata: TroubleshootRequestBuilderRequestsMetadata,

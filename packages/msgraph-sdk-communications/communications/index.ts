@@ -6,6 +6,8 @@ import { createCloudCommunicationsFromDiscriminatorValue, serializeCloudCommunic
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { AdhocCallsRequestBuilderNavigationMetadata, AdhocCallsRequestBuilderRequestsMetadata, type AdhocCallsRequestBuilder } from './adhocCalls/index.js';
+// @ts-ignore
 import { CallRecordsRequestBuilderNavigationMetadata, CallRecordsRequestBuilderRequestsMetadata, type CallRecordsRequestBuilder } from './callRecords/index.js';
 // @ts-ignore
 import { CallsRequestBuilderNavigationMetadata, CallsRequestBuilderRequestsMetadata, type CallsRequestBuilder } from './calls/index.js';
@@ -26,6 +28,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the cloudCommunications singleton.
  */
 export interface CommunicationsRequestBuilder extends BaseRequestBuilder<CommunicationsRequestBuilder> {
+    /**
+     * Provides operations to manage the adhocCalls property of the microsoft.graph.cloudCommunications entity.
+     */
+    get adhocCalls(): AdhocCallsRequestBuilder;
     /**
      * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
      */
@@ -111,6 +117,10 @@ const CommunicationsRequestBuilderGetQueryParametersMapper: Record<string, strin
  * Metadata for all the navigation properties in the request builder.
  */
 export const CommunicationsRequestBuilderNavigationMetadata: Record<Exclude<keyof CommunicationsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    adhocCalls: {
+        requestsMetadata: AdhocCallsRequestBuilderRequestsMetadata,
+        navigationMetadata: AdhocCallsRequestBuilderNavigationMetadata,
+    },
     callRecords: {
         requestsMetadata: CallRecordsRequestBuilderRequestsMetadata,
         navigationMetadata: CallRecordsRequestBuilderNavigationMetadata,

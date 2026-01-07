@@ -18,6 +18,8 @@ import { ServiceAnnouncementRequestBuilderNavigationMetadata, ServiceAnnouncemen
 // @ts-ignore
 import { SharepointRequestBuilderNavigationMetadata, SharepointRequestBuilderRequestsMetadata, type SharepointRequestBuilder } from './sharepoint/index.js';
 // @ts-ignore
+import { TeamsRequestBuilderNavigationMetadata, TeamsRequestBuilderRequestsMetadata, type TeamsRequestBuilder } from './teams/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -48,6 +50,10 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      * Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.
      */
     get sharepoint(): SharepointRequestBuilder;
+    /**
+     * Provides operations to manage the teams property of the microsoft.graph.admin entity.
+     */
+    get teams(): TeamsRequestBuilder;
     /**
      * Get admin
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -127,6 +133,10 @@ export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRe
     sharepoint: {
         requestsMetadata: SharepointRequestBuilderRequestsMetadata,
         navigationMetadata: SharepointRequestBuilderNavigationMetadata,
+    },
+    teams: {
+        requestsMetadata: TeamsRequestBuilderRequestsMetadata,
+        navigationMetadata: TeamsRequestBuilderNavigationMetadata,
     },
 };
 /**
