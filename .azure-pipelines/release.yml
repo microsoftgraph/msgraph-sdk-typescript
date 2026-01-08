@@ -90,7 +90,7 @@ extends:
               isProduction: true
               inputs:
                 - input: pipelineArtifact
-                  artifactName: build-drop
+                  artifactName: npm_$(package_name)
                   targetPath: '$(Build.ArtifactStagingDirectory)/npm'          
 
           strategy:
