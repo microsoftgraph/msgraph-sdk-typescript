@@ -70,48 +70,48 @@ extends:
           workingDirectory: '$(Build.SourcesDirectory)' 
 
 
-    # - stage: deploy
-    #   displayName: 'Deploy v1.0 Typescript SDK packages'
-    #   # This condition deploys on successful CI runs for success builds and also allows for manual deployments from an arbitrary branch
-    #   condition: or(and(contains(variables['Build.SourceBranch'], 'refs/tags/'), succeeded()), eq(variables['Build.Reason'], 'Manual'))
-    #   dependsOn: 
-    #     - build
-    #   jobs:
-    #     - deployment: deploy_npm
-    #       pool:
-    #         name: Azure-Pipelines-1ESPT-ExDShared
-    #         os: windows
-    #         image: windows-latest
-    #       dependsOn: []
-    #       environment: msgraph-npm-org
+    - stage: deploy
+      displayName: 'Deploy v1.0 Typescript SDK packages'
+      # This condition deploys on successful CI runs for success builds and also allows for manual deployments from an arbitrary branch
+      condition: or(and(contains(variables['Build.SourceBranch'], 'refs/tags/'), succeeded()), eq(variables['Build.Reason'], 'Manual'))
+      dependsOn: 
+        - build
+      jobs:
+        - deployment: deploy_npm
+          pool:
+            name: Azure-Pipelines-1ESPT-ExDShared
+            os: windows
+            image: windows-latest
+          dependsOn: []
+          environment: msgraph-npm-org
 
-    #       templateContext:
-    #           type: releaseJob
-    #           isProduction: true
-    #           inputs:
-    #             - input: pipelineArtifact
-    #               artifactName: build-drop
-    #               targetPath: '$(Build.ArtifactStagingDirectory)/npm'          
+          templateContext:
+              type: releaseJob
+              isProduction: true
+              inputs:
+                - input: pipelineArtifact
+                  artifactName: build-drop
+                  targetPath: '$(Build.ArtifactStagingDirectory)/npm'          
 
-    #       strategy:
-    #         runOnce:
-    #           deploy:
-    #             steps:
-    #             - task: EsrpRelease@9
-    #               displayName: 'Publish V1.0 NPM package via ESRP Release'
-    #               inputs:
-    #                 connectedservicename: "Federated DevX ESRP Managed Identity Connection"
-    #                 usemanagedidentity: false
-    #                 keyvaultname: 'akv-prod-eastus'
-    #                 authcertname: 'ReferenceLibraryPrivateCert'
-    #                 signcertname: 'ReferencePackagePublisherCertificate'
-    #                 clientid: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
-    #                 intent: 'PackageDistribution'
-    #                 contenttype: 'npm'
-    #                 contentsource: 'Folder'
-    #                 folderlocation: '$(Build.ArtifactStagingDirectory)/npm'
-    #                 owners: 'mmainer@microsoft.com,mowen@microsoft.com,gavinbarron@microsoft.com'
-    #                 approvers: 'mmainer@microsoft.com,christiano@microsoft.com,mowen@microsoft.com,lramosvea@microsoft.com,gavinbarron@microsoft.com'
-    #                 serviceendpointurl: 'https://api.esrp.microsoft.com'
-    #                 mainpublisher: 'ESRPRELPACMAN'
-    #                 domaintenantid: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
+          strategy:
+            runOnce:
+              deploy:
+                steps:
+                - task: EsrpRelease@9
+                  displayName: 'Publish V1.0 NPM package via ESRP Release'
+                  inputs:
+                    connectedservicename: "Federated DevX ESRP Managed Identity Connection"
+                    usemanagedidentity: false
+                    keyvaultname: 'akv-prod-eastus'
+                    authcertname: 'ReferenceLibraryPrivateCert'
+                    signcertname: 'ReferencePackagePublisherCertificate'
+                    clientid: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
+                    intent: 'PackageDistribution'
+                    contenttype: 'npm'
+                    contentsource: 'Folder'
+                    folderlocation: '$(Build.ArtifactStagingDirectory)/npm'
+                    owners: 'mmainer@microsoft.com,mowen@microsoft.com,gavinbarron@microsoft.com'
+                    approvers: 'mmainer@microsoft.com,christiano@microsoft.com,mowen@microsoft.com,lramosvea@microsoft.com,gavinbarron@microsoft.com'
+                    serviceendpointurl: 'https://api.esrp.microsoft.com'
+                    mainpublisher: 'ESRPRELPACMAN'
+                    domaintenantid: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
