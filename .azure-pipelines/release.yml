@@ -27,45 +27,52 @@ extends:
   parameters:
     pool:
       name: Azure-Pipelines-1ESPT-ExDShared
-      image: windows-latest
-      os: windows
+      vmImage: windows-latest
     stages:
     - stage: build
       jobs:
-      - job: build_v1_0_typings
-        displayName: Pack v1.0 typings
+      - job: build_sdk
+        pool:
+          name: Azure-Pipelines-1ESPT-ExDShared
+          image: ubuntu-latest
+          os: linux
+        displayName: Build, Test, and Package v1.0 SDK
         templateContext:
           outputs:
           - output: pipelineArtifact
             displayName: 'Publish Artifact drop'
-            targetPath: '$(Build.ArtifactStagingDirectory)/npm'
+            targetPath: '$(Build.ArtifactStagingDirectory)'
             artifactName: npm_$(package_name)
         steps:
-        - checkout: self
-          displayName: checkout main
-
         - task: UseNode@1
           displayName: 'Install Node.js'
           inputs:
             version: '22.x'
 
-        - script: npm ci
-          displayName: 'Install npm dependencies'
-          workingDirectory: '$(Build.SourcesDirectory)'
+        - task: Npm@1 
+          inputs:
+            command: 'ci'
+            verbose: true
+          displayName: 'Install npm dependencies with retry'
 
         - script: npm run build
           displayName: 'Build project'
+          workingDirectory: '$(Build.SourcesDirectory)'
 
-        - script: npm run test
-          displayName: 'Run tests'
+        # excluding test for now since it requires a tenant and secrets to run
+        # TODO: create secrets to the pipeline similar to https://github.com/microsoftgraph/msgraph-sdk-typescript/settings/secrets/actions and the build.yml file
+        # - script: npm run test
+        #   displayName: 'Run tests'
+        #   workingDirectory: '$(Build.SourcesDirectory)'
 
         - task: PowerShell@2
           displayName: 'Copy README.md to packages'
           inputs:
             filePath: './scripts/copy-readme.ps1'
 
+
         # Pack Typescript sdk packages
-        - script: npm pack --pack-destination=$(Build.ArtifactStagingDirectory)/npm --workspaces
+        - script: npm pack --pack-destination=$(Build.ArtifactStagingDirectory) --workspaces
           displayName: 'Generate npm packages of the Typescript msgraph sdk'
           workingDirectory: '$(Build.SourcesDirectory)' 
 
@@ -80,8 +87,8 @@ extends:
         - deployment: deploy_npm
           pool:
             name: Azure-Pipelines-1ESPT-ExDShared
-            os: windows
-            image: windows-latest
+            image: ubuntu-latest
+            os: linux
           dependsOn: []
           environment: msgraph-npm-org
 
