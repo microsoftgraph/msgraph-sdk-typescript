@@ -75,7 +75,6 @@ extends:
 
         - task: PowerShell@2
           displayName: 'Copy README.md to packages'
-          workingDirectory: '$(Build.SourcesDirectory)'
           inputs:
             filePath: './scripts/copy-readme.ps1'
 
