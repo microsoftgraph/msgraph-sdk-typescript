@@ -46,7 +46,7 @@ extends:
           inputs:
             version: '22.x'
 
-        - script: npm ci
+        - script: npm i
           displayName: 'Install npm dependencies'
 
         - script: npm run build
