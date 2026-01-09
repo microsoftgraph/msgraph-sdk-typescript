@@ -41,7 +41,7 @@ extends:
           outputs:
           - output: pipelineArtifact
             displayName: 'Publish Artifact drop'
-            targetPath: '$(Build.ArtifactStagingDirectory)/npm'
+            targetPath: '$(Build.ArtifactStagingDirectory)'
             artifactName: npm_$(package_name)
         steps:
         - task: UseNode@1
@@ -60,6 +60,7 @@ extends:
           workingDirectory: '$(Build.SourcesDirectory)'
 
         # excluding test for now since it requires a tenant and secrets to run
+        # TODO: create secrets to the pipeline similar to https://github.com/microsoftgraph/msgraph-sdk-typescript/settings/secrets/actions and the build.yml file
         # - script: npm run test
         #   displayName: 'Run tests'
         #   workingDirectory: '$(Build.SourcesDirectory)'
@@ -69,12 +70,9 @@ extends:
           inputs:
             filePath: './scripts/copy-readme.ps1'
 
-        # Create npm output directory
-        - script: mkdir -p $(Build.ArtifactStagingDirectory)/npm
-          displayName: 'Create npm package directory'
 
         # Pack Typescript sdk packages
-        - script: npm pack --pack-destination=$(Build.ArtifactStagingDirectory)/npm --workspaces
+        - script: npm pack --pack-destination=$(Build.ArtifactStagingDirectory) --workspaces
           displayName: 'Generate npm packages of the Typescript msgraph sdk'
           workingDirectory: '$(Build.SourcesDirectory)' 
 
