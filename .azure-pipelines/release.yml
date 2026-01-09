@@ -75,9 +75,9 @@ extends:
 
         - task: PowerShell@2
           displayName: 'Copy README.md to packages'
+          workingDirectory: '$(Build.SourcesDirectory)'
           inputs:
             filePath: './scripts/copy-readme.ps1'
-          workingDirectory: '$(Build.SourcesDirectory)'
 
         # Pack Typescript sdk packages
         - script: npm pack --pack-destination=$(Build.ArtifactStagingDirectory)/npm --workspaces
