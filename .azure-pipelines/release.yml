@@ -67,9 +67,10 @@ extends:
           displayName: 'Build project'
           workingDirectory: '$(Build.SourcesDirectory)'
 
-        - script: npm run test
-          displayName: 'Run tests'
-          workingDirectory: '$(Build.SourcesDirectory)'
+        # excluding test for now since it requires a tenant and secrets to run
+        # - script: npm run test
+        #   displayName: 'Run tests'
+        #   workingDirectory: '$(Build.SourcesDirectory)'
 
         - task: PowerShell@2
           displayName: 'Copy README.md to packages'
