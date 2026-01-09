@@ -40,13 +40,18 @@ extends:
             targetPath: '$(Build.ArtifactStagingDirectory)/npm'
             artifactName: npm_$(package_name)
         steps:
-
         - task: UseNode@1
           displayName: 'Install Node.js'
           inputs:
             version: '22.x'
 
-        - script: npm i
+        - script: node --version
+          displayName: 'Install npm dependencies'
+
+        - script: npm cache clean --force                                                                                              
+          displayName: 'Clean npm cache'           
+
+        - script: npm ci
           displayName: 'Install npm dependencies'
 
         - script: npm run build
