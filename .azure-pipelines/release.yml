@@ -45,14 +45,20 @@ extends:
           inputs:
             version: '22.20.x'
 
-        - script: node --version
-          displayName: 'Install npm dependencies'
+        - script: |
+            node --version
+            npm --version
+          displayName: 'Display Node and npm versions'
 
-        - script: npm cache clean --force                                                                                              
-          displayName: 'Clean npm cache'           
+        - script: npm cache clean --force
+          displayName: 'Clean npm cache'
 
-        - script: npm ci
-          displayName: 'Install npm dependencies'
+        - script: |
+            npm ci --loglevel=verbose || npm ci --loglevel=verbose || npm install
+          displayName: 'Install npm dependencies with retry'
+          env:
+            npm_config_fund: false
+            npm_config_audit: false
 
         - script: npm run build
           displayName: 'Build project'
