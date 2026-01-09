@@ -28,12 +28,11 @@ extends:
     pool:
       name: Azure-Pipelines-1ESPT-ExDShared
       image: windows-latest
-      os: windows
     stages:
     - stage: build
       jobs:
-      - job: build_v1_0_typings
-        displayName: Pack v1.0 typings
+      - job: build_pack_v1.0
+        displayName: Pack v1.0 SDK
         templateContext:
           outputs:
           - output: pipelineArtifact
