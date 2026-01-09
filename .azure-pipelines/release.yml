@@ -47,6 +47,10 @@ extends:
           displayName: 'Install Node.js'
           inputs:
             version: '22.x'
+            
+        - script: npm cache clean --force                                                                                              
+          displayName: 'Clean npm cache'                                                                                               
+          workingDirectory: '$(Build.SourcesDirectory)'    
 
         - script: npm ci
           displayName: 'Install npm dependencies'
