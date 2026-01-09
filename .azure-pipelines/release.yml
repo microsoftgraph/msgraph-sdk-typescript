@@ -34,7 +34,7 @@ extends:
       - job: build_sdk
         pool:
           name: Azure-Pipelines-1ESPT-ExDShared
-          vmImage: ubuntu-latest
+          image: ubuntu-latest
         displayName: Build, Test, and Package v1.0 SDK
         templateContext:
           outputs:
@@ -47,6 +47,14 @@ extends:
           displayName: 'Install Node.js'
           inputs:
             version: '22.x'
+
+        - script: |
+            npm config set registry https://registry.npmjs.org/
+            npm config set strict-ssl false
+            npm config set fetch-retry-mintimeout 20000
+            npm config set fetch-retry-maxtimeout 120000
+            npm config set fetch-retries 10
+          displayName: 'Configure npm for Windows agent'
 
         - task: Npm@1 
           inputs:
