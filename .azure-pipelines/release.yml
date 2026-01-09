@@ -31,8 +31,8 @@ extends:
     stages:
     - stage: build
       jobs:
-      - job: build_pack_v1.0
-        displayName: Pack v1.0 SDK
+      - job: build_sdk
+        displayName: Build and Pack v1.0 SDK
         templateContext:
           outputs:
           - output: pipelineArtifact
