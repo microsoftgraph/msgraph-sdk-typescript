@@ -48,7 +48,7 @@ extends:
           inputs:
             version: '22.20.0'
 
-        - script: npm ci
+        - script: npm i
           displayName: 'Install npm dependencies'
           workingDirectory: '$(Build.SourcesDirectory)'
 
