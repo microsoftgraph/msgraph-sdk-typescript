@@ -49,14 +49,6 @@ extends:
           inputs:
             version: '22.x'
 
-        - script: |
-            npm config set registry https://registry.npmjs.org/
-            npm config set strict-ssl false
-            npm config set fetch-retry-mintimeout 20000
-            npm config set fetch-retry-maxtimeout 120000
-            npm config set fetch-retries 10
-          displayName: 'Configure npm for Windows agent'
-
         - task: Npm@1 
           inputs:
             command: 'ci'
@@ -76,6 +68,10 @@ extends:
           displayName: 'Copy README.md to packages'
           inputs:
             filePath: './scripts/copy-readme.ps1'
+
+        # Create npm output directory
+        - script: mkdir -p $(Build.ArtifactStagingDirectory)/npm
+          displayName: 'Create npm package directory'
 
         # Pack Typescript sdk packages
         - script: npm pack --pack-destination=$(Build.ArtifactStagingDirectory)/npm --workspaces
