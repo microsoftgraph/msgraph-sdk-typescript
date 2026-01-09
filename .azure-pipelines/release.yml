@@ -58,13 +58,7 @@ extends:
         - script: npm run build
           displayName: 'Build project'
           workingDirectory: '$(Build.SourcesDirectory)'
-
-        # excluding test for now since it requires a tenant and secrets to run
-        # TODO: create secrets to the pipeline similar to https://github.com/microsoftgraph/msgraph-sdk-typescript/settings/secrets/actions and the build.yml file
-        # - script: npm run test
-        #   displayName: 'Run tests'
-        #   workingDirectory: '$(Build.SourcesDirectory)'
-
+          
         - task: PowerShell@2
           displayName: 'Copy README.md to packages'
           inputs:
