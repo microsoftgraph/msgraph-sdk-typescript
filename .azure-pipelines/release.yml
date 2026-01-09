@@ -27,7 +27,7 @@ extends:
   parameters:
     pool:
       name: Azure-Pipelines-1ESPT-ExDShared
-      vmImage: windows-latest
+      vmImage: ubuntu-latest
     stages:
     - stage: build
       jobs:
