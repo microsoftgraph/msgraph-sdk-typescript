@@ -35,7 +35,6 @@ extends:
         pool:
           name: Azure-Pipelines-1ESPT-ExDShared
           vmImage: ubuntu-latest
-          os: linux
         displayName: Build, Test, and Package v1.0 SDK
         templateContext:
           outputs:
