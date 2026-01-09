@@ -48,8 +48,10 @@ extends:
           inputs:
             version: '20.x'
 
-        - script: |
-            npm ci --loglevel=verbose || npm ci --loglevel=verbose || npm install
+        - task: Npm@1 
+          inputs:
+            command: 'ci'
+            verbose: true
           displayName: 'Install npm dependencies with retry'
           workingDirectory: '$(Build.SourcesDirectory)'
 
