@@ -66,7 +66,7 @@ extends:
 
 
         # Pack Typescript sdk packages
-        - script: npm pack --pack-destination=$(Build.ArtifactStagingDirectory) --workspaces
+        - script: npm pack --pack-destination=$(Build.ArtifactStagingDirectory) --workspaces --workspace-exclude=@microsoft/msgraph-sdk-tests
           displayName: 'Generate npm packages of the Typescript msgraph sdk'
           workingDirectory: '$(Build.SourcesDirectory)' 
 
