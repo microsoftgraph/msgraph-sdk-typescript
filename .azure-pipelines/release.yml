@@ -65,8 +65,14 @@ extends:
             filePath: './scripts/copy-readme.ps1'
 
 
-        # Pack Typescript sdk packages
-        - script: npm pack --pack-destination=$(Build.ArtifactStagingDirectory) --workspaces --workspace-exclude=@microsoft/msgraph-sdk-tests
+        # Pack Typescript sdk packages (excludes private packages like tests)
+        - script: |
+            for dir in packages/*/; do
+              pkg_name=$(basename "$dir")
+              if [ "$pkg_name" != "msgraph-sdk-tests" ]; then
+                npm pack --pack-destination=$(Build.ArtifactStagingDirectory) -w "$dir"
+              fi
+            done
           displayName: 'Generate npm packages of the Typescript msgraph sdk'
           workingDirectory: '$(Build.SourcesDirectory)' 
 
