@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-authenticationmethodspolicy",
-  "version": "1.0.0-preview.77",
+  "version": "1.0.0-preview.78",
   "description": "AuthenticationMethodsPolicy fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
