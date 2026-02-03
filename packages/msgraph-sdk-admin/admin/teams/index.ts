@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { createTeamsAdminRootFromDiscriminatorValue, serializeTeamsAdminRoot, type TeamsAdminRoot } from '@microsoft/msgraph-sdk/models/teamsAdministration/index.js';
 // @ts-ignore
+import { PolicyRequestBuilderNavigationMetadata, PolicyRequestBuilderRequestsMetadata, type PolicyRequestBuilder } from './policy/index.js';
+// @ts-ignore
 import { type UserConfigurationsRequestBuilder, UserConfigurationsRequestBuilderNavigationMetadata, UserConfigurationsRequestBuilderRequestsMetadata } from './userConfigurations/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +16,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the teams property of the microsoft.graph.admin entity.
  */
 export interface TeamsRequestBuilder extends BaseRequestBuilder<TeamsRequestBuilder> {
+    /**
+     * Provides operations to manage the policy property of the microsoft.graph.teamsAdministration.teamsAdminRoot entity.
+     */
+    get policy(): PolicyRequestBuilder;
     /**
      * Provides operations to manage the userConfigurations property of the microsoft.graph.teamsAdministration.teamsAdminRoot entity.
      */
@@ -25,7 +31,7 @@ export interface TeamsRequestBuilder extends BaseRequestBuilder<TeamsRequestBuil
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents a collection of user configurations.
+     * A container for Teams administration functionalities, such as user configurations and policy assignments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TeamsAdminRoot>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +52,7 @@ export interface TeamsRequestBuilder extends BaseRequestBuilder<TeamsRequestBuil
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents a collection of user configurations.
+     * A container for Teams administration functionalities, such as user configurations and policy assignments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +66,7 @@ export interface TeamsRequestBuilder extends BaseRequestBuilder<TeamsRequestBuil
      toPatchRequestInformation(body: TeamsAdminRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents a collection of user configurations.
+ * A container for Teams administration functionalities, such as user configurations and policy assignments.
  */
 export interface TeamsRequestBuilderGetQueryParameters {
     /**
@@ -87,6 +93,10 @@ const TeamsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const TeamsRequestBuilderNavigationMetadata: Record<Exclude<keyof TeamsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    policy: {
+        requestsMetadata: PolicyRequestBuilderRequestsMetadata,
+        navigationMetadata: PolicyRequestBuilderNavigationMetadata,
+    },
     userConfigurations: {
         requestsMetadata: UserConfigurationsRequestBuilderRequestsMetadata,
         navigationMetadata: UserConfigurationsRequestBuilderNavigationMetadata,

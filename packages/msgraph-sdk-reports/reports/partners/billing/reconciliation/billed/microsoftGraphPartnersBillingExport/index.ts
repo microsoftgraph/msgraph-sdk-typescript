@@ -4,7 +4,7 @@
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { AttributeSet, AttributeSetObject, createOperationFromDiscriminatorValue, serializeOperation, type Operation } from '@microsoft/msgraph-sdk/models/partners/billing/index.js';
+import { AttributeSetObject, createOperationFromDiscriminatorValue, serializeOperation, type AttributeSet, type Operation } from '@microsoft/msgraph-sdk/models/partners/billing/index.js';
 // @ts-ignore
 import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 

@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { EmailMethodsRequestBuilderNavigationMetadata, EmailMethodsRequestBuilderRequestsMetadata, type EmailMethodsRequestBuilder } from './emailMethods/index.js';
 // @ts-ignore
+import { ExternalAuthenticationMethodsRequestBuilderNavigationMetadata, ExternalAuthenticationMethodsRequestBuilderRequestsMetadata, type ExternalAuthenticationMethodsRequestBuilder } from './externalAuthenticationMethods/index.js';
+// @ts-ignore
 import { Fido2MethodsRequestBuilderNavigationMetadata, Fido2MethodsRequestBuilderRequestsMetadata, type Fido2MethodsRequestBuilder } from './fido2Methods/index.js';
 // @ts-ignore
 import { MethodsRequestBuilderNavigationMetadata, MethodsRequestBuilderRequestsMetadata, type MethodsRequestBuilder } from './methods/index.js';
@@ -38,6 +40,10 @@ export interface AuthenticationRequestBuilder extends BaseRequestBuilder<Authent
      * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
      */
     get emailMethods(): EmailMethodsRequestBuilder;
+    /**
+     * Provides operations to manage the externalAuthenticationMethods property of the microsoft.graph.authentication entity.
+     */
+    get externalAuthenticationMethods(): ExternalAuthenticationMethodsRequestBuilder;
     /**
      * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
      */
@@ -150,6 +156,10 @@ export const AuthenticationRequestBuilderNavigationMetadata: Record<Exclude<keyo
     emailMethods: {
         requestsMetadata: EmailMethodsRequestBuilderRequestsMetadata,
         navigationMetadata: EmailMethodsRequestBuilderNavigationMetadata,
+    },
+    externalAuthenticationMethods: {
+        requestsMetadata: ExternalAuthenticationMethodsRequestBuilderRequestsMetadata,
+        navigationMetadata: ExternalAuthenticationMethodsRequestBuilderNavigationMetadata,
     },
     fido2Methods: {
         requestsMetadata: Fido2MethodsRequestBuilderRequestsMetadata,

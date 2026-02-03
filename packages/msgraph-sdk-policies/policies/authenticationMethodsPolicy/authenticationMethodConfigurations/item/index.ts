@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AuthenticationMethodConfigurationItemRequestBuilder extends BaseRequestBuilder<AuthenticationMethodConfigurationItemRequestBuilder> {
     /**
-     * Delete navigation property authenticationMethodConfigurations for policies
+     * Delete an externalAuthenticationMethodConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalauthenticationmethodconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+     * Read the properties and relationships of an externalAuthenticationMethodConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationMethodConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalauthenticationmethodconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<AuthenticationMethodConfigurationItemRequestBuilderGetQueryParameters> | undefined) : Promise<AuthenticationMethodConfiguration | undefined>;
     /**
-     * Update the navigation property authenticationMethodConfigurations in policies
+     * Update the properties of an externalAuthenticationMethodConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationMethodConfiguration>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/externalauthenticationmethodconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: AuthenticationMethodConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationMethodConfiguration | undefined>;
     /**
-     * Delete navigation property authenticationMethodConfigurations for policies
+     * Delete an externalAuthenticationMethodConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+     * Read the properties and relationships of an externalAuthenticationMethodConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuthenticationMethodConfigurationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property authenticationMethodConfigurations in policies
+     * Update the properties of an externalAuthenticationMethodConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface AuthenticationMethodConfigurationItemRequestBuilder extends Bas
      toPatchRequestInformation(body: AuthenticationMethodConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+ * Read the properties and relationships of an externalAuthenticationMethodConfiguration object.
  */
 export interface AuthenticationMethodConfigurationItemRequestBuilderGetQueryParameters {
     /**

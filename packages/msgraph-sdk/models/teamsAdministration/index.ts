@@ -57,11 +57,47 @@ export function createPolicyAssignmentFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {PolicyIdentifierDetail}
+ */
+// @ts-ignore
+export function createPolicyIdentifierDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoPolicyIdentifierDetail;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TeamsAdminRoot}
  */
 // @ts-ignore
 export function createTeamsAdminRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoTeamsAdminRoot;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TeamsPolicyAssignment}
+ */
+// @ts-ignore
+export function createTeamsPolicyAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTeamsPolicyAssignment;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TeamsPolicyUserAssignmentCollectionResponse}
+ */
+// @ts-ignore
+export function createTeamsPolicyUserAssignmentCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTeamsPolicyUserAssignmentCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TeamsPolicyUserAssignment}
+ */
+// @ts-ignore
+export function createTeamsPolicyUserAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTeamsPolicyUserAssignment;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -127,6 +163,19 @@ export function deserializeIntoPolicyAssignment(policyAssignment: Partial<Policy
 }
 /**
  * The deserialization information for the current model
+ * @param PolicyIdentifierDetail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoPolicyIdentifierDetail(policyIdentifierDetail: Partial<PolicyIdentifierDetail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(policyIdentifierDetail),
+        "name": n => { policyIdentifierDetail.name = n.getStringValue(); },
+        "policyId": n => { policyIdentifierDetail.policyId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param TeamsAdminRoot The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -134,7 +183,46 @@ export function deserializeIntoPolicyAssignment(policyAssignment: Partial<Policy
 export function deserializeIntoTeamsAdminRoot(teamsAdminRoot: Partial<TeamsAdminRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(teamsAdminRoot),
+        "policy": n => { teamsAdminRoot.policy = n.getObjectValue<TeamsPolicyAssignment>(createTeamsPolicyAssignmentFromDiscriminatorValue); },
         "userConfigurations": n => { teamsAdminRoot.userConfigurations = n.getCollectionOfObjectValues<TeamsUserConfiguration>(createTeamsUserConfigurationFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param TeamsPolicyAssignment The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTeamsPolicyAssignment(teamsPolicyAssignment: Partial<TeamsPolicyAssignment> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(teamsPolicyAssignment),
+        "userAssignments": n => { teamsPolicyAssignment.userAssignments = n.getCollectionOfObjectValues<TeamsPolicyUserAssignment>(createTeamsPolicyUserAssignmentFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param TeamsPolicyUserAssignment The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTeamsPolicyUserAssignment(teamsPolicyUserAssignment: Partial<TeamsPolicyUserAssignment> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(teamsPolicyUserAssignment),
+        "policyId": n => { teamsPolicyUserAssignment.policyId = n.getStringValue(); },
+        "policyType": n => { teamsPolicyUserAssignment.policyType = n.getStringValue(); },
+        "userId": n => { teamsPolicyUserAssignment.userId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param TeamsPolicyUserAssignmentCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTeamsPolicyUserAssignmentCollectionResponse(teamsPolicyUserAssignmentCollectionResponse: Partial<TeamsPolicyUserAssignmentCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(teamsPolicyUserAssignmentCollectionResponse),
+        "value": n => { teamsPolicyUserAssignmentCollectionResponse.value = n.getCollectionOfObjectValues<TeamsPolicyUserAssignment>(createTeamsPolicyUserAssignmentFromDiscriminatorValue); },
     }
 }
 /**
@@ -214,6 +302,16 @@ export interface PolicyAssignment extends AdditionalDataHolder, BackedModel, Par
      */
     policyId?: string | null;
 }
+export interface PolicyIdentifierDetail extends Entity, Parsable {
+    /**
+     * The display name of the policy instance.
+     */
+    name?: string | null;
+    /**
+     * The unique ID associated with the policy instance.
+     */
+    policyId?: string | null;
+}
 /**
  * Serializes information the current object
  * @param AssignedTelephoneNumber The instance to serialize from.
@@ -261,6 +359,19 @@ export function serializePolicyAssignment(writer: SerializationWriter, policyAss
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param PolicyIdentifierDetail The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializePolicyIdentifierDetail(writer: SerializationWriter, policyIdentifierDetail: Partial<PolicyIdentifierDetail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!policyIdentifierDetail || isSerializingDerivedType) { return; }
+    serializeEntity(writer, policyIdentifierDetail, isSerializingDerivedType)
+    writer.writeStringValue("name", policyIdentifierDetail.name);
+    writer.writeStringValue("policyId", policyIdentifierDetail.policyId);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param TeamsAdminRoot The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -268,7 +379,46 @@ export function serializePolicyAssignment(writer: SerializationWriter, policyAss
 export function serializeTeamsAdminRoot(writer: SerializationWriter, teamsAdminRoot: Partial<TeamsAdminRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!teamsAdminRoot || isSerializingDerivedType) { return; }
     serializeEntity(writer, teamsAdminRoot, isSerializingDerivedType)
+    writer.writeObjectValue<TeamsPolicyAssignment>("policy", teamsAdminRoot.policy, serializeTeamsPolicyAssignment);
     writer.writeCollectionOfObjectValues<TeamsUserConfiguration>("userConfigurations", teamsAdminRoot.userConfigurations, serializeTeamsUserConfiguration);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TeamsPolicyAssignment The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTeamsPolicyAssignment(writer: SerializationWriter, teamsPolicyAssignment: Partial<TeamsPolicyAssignment> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!teamsPolicyAssignment || isSerializingDerivedType) { return; }
+    serializeEntity(writer, teamsPolicyAssignment, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TeamsPolicyUserAssignment>("userAssignments", teamsPolicyAssignment.userAssignments, serializeTeamsPolicyUserAssignment);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TeamsPolicyUserAssignment The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTeamsPolicyUserAssignment(writer: SerializationWriter, teamsPolicyUserAssignment: Partial<TeamsPolicyUserAssignment> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!teamsPolicyUserAssignment || isSerializingDerivedType) { return; }
+    serializeEntity(writer, teamsPolicyUserAssignment, isSerializingDerivedType)
+    writer.writeStringValue("policyId", teamsPolicyUserAssignment.policyId);
+    writer.writeStringValue("policyType", teamsPolicyUserAssignment.policyType);
+    writer.writeStringValue("userId", teamsPolicyUserAssignment.userId);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TeamsPolicyUserAssignmentCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTeamsPolicyUserAssignmentCollectionResponse(writer: SerializationWriter, teamsPolicyUserAssignmentCollectionResponse: Partial<TeamsPolicyUserAssignmentCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!teamsPolicyUserAssignmentCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, teamsPolicyUserAssignmentCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<TeamsPolicyUserAssignment>("value", teamsPolicyUserAssignmentCollectionResponse.value, serializeTeamsPolicyUserAssignment);
 }
 /**
  * Serializes information the current object
@@ -305,9 +455,39 @@ export function serializeTeamsUserConfigurationCollectionResponse(writer: Serial
 }
 export interface TeamsAdminRoot extends Entity, Parsable {
     /**
-     * Represents the configuration information of users who have accounts hosted on Microsoft Teams.
+     * Represents a navigation property to the Teams policy assignment object.
+     */
+    policy?: TeamsPolicyAssignment | null;
+    /**
+     * Represents the configuration information of users who have accounts hosted on Microsoft Teams
      */
     userConfigurations?: TeamsUserConfiguration[] | null;
+}
+export interface TeamsPolicyAssignment extends Entity, Parsable {
+    /**
+     * The collection of user policy assignments.
+     */
+    userAssignments?: TeamsPolicyUserAssignment[] | null;
+}
+export interface TeamsPolicyUserAssignment extends Entity, Parsable {
+    /**
+     * The unique identifier (GUID) of the policy within the specified policy type.
+     */
+    policyId?: string | null;
+    /**
+     * The type of Teams policy assigned or unassigned, such as teamsMeetingBroadcastPolicy.
+     */
+    policyType?: string | null;
+    /**
+     * The unique identifier (GUID) of the user.
+     */
+    userId?: string | null;
+}
+export interface TeamsPolicyUserAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: TeamsPolicyUserAssignment[] | null;
 }
 export interface TeamsUserConfiguration extends Entity, Parsable {
     /**
