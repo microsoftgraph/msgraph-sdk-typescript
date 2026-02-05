@@ -4170,6 +4170,7 @@ export function deserializeIntoEdiscoveryNoncustodialDataSourceCollectionRespons
 export function deserializeIntoEdiscoveryPurgeDataOperation(ediscoveryPurgeDataOperation: Partial<EdiscoveryPurgeDataOperation> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoCaseOperation(ediscoveryPurgeDataOperation),
+        "reportFileMetadata": n => { ediscoveryPurgeDataOperation.reportFileMetadata = n.getCollectionOfObjectValues<ReportFileMetadata>(createReportFileMetadataFromDiscriminatorValue); },
     }
 }
 /**
@@ -7069,6 +7070,10 @@ export interface EdiscoveryNoncustodialDataSourceCollectionResponse extends Base
     value?: EdiscoveryNoncustodialDataSource[] | null;
 }
 export interface EdiscoveryPurgeDataOperation extends CaseOperation, Parsable {
+    /**
+     * The purge job report file metadata. It contains the properties for report file metadata, including downloadUrl, fileName, and size.
+     */
+    reportFileMetadata?: ReportFileMetadata[] | null;
 }
 export interface EdiscoveryReviewSet extends DataSet, Parsable {
     /**
@@ -8264,7 +8269,7 @@ export interface Incident extends Entity, Parsable {
      */
     lastUpdateDateTime?: Date | null;
     /**
-     * The priorityScore property
+     * A priority score for the incident from 0 to 100, with > 85 being the top priority, 15 - 85 medium priority, and < 15 low priority. This score is generated using machine learning and is based on multiple factors, including severity, disruption impact, threat intelligence, alert types, asset criticality, threat analytics, incident rarity, and additional priority signals. The value can also be null which indicates the feature is not open for the tenant or the value of the score is pending calculation.
      */
     priorityScore?: number | null;
     /**
@@ -10784,6 +10789,7 @@ export function serializeEdiscoveryNoncustodialDataSourceCollectionResponse(writ
 export function serializeEdiscoveryPurgeDataOperation(writer: SerializationWriter, ediscoveryPurgeDataOperation: Partial<EdiscoveryPurgeDataOperation> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!ediscoveryPurgeDataOperation || isSerializingDerivedType) { return; }
     serializeCaseOperation(writer, ediscoveryPurgeDataOperation, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ReportFileMetadata>("reportFileMetadata", ediscoveryPurgeDataOperation.reportFileMetadata, serializeReportFileMetadata);
 }
 /**
  * Serializes information the current object

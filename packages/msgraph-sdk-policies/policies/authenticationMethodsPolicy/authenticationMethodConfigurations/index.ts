@@ -27,7 +27,7 @@ export interface AuthenticationMethodConfigurationsRequestBuilder extends BaseRe
      */
      byAuthenticationMethodConfigurationId(authenticationMethodConfigurationId: string) : AuthenticationMethodConfigurationItemRequestBuilder;
     /**
-     * Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+     * Read the properties and relationships of an externalAuthenticationMethodConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuthenticationMethodConfigurationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface AuthenticationMethodConfigurationsRequestBuilder extends BaseRe
      */
      post(body: AuthenticationMethodConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AuthenticationMethodConfiguration | undefined>;
     /**
-     * Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+     * Read the properties and relationships of an externalAuthenticationMethodConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface AuthenticationMethodConfigurationsRequestBuilder extends BaseRe
      toPostRequestInformation(body: AuthenticationMethodConfiguration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
+ * Read the properties and relationships of an externalAuthenticationMethodConfiguration object.
  */
 export interface AuthenticationMethodConfigurationsRequestBuilderGetQueryParameters {
     /**
