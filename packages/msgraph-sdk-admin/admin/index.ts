@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { EdgeRequestBuilderNavigationMetadata, EdgeRequestBuilderRequestsMetadata, type EdgeRequestBuilder } from './edge/index.js';
 // @ts-ignore
+import { ExchangeRequestBuilderNavigationMetadata, ExchangeRequestBuilderRequestsMetadata, type ExchangeRequestBuilder } from './exchange/index.js';
+// @ts-ignore
 import { Microsoft365AppsRequestBuilderNavigationMetadata, Microsoft365AppsRequestBuilderRequestsMetadata, type Microsoft365AppsRequestBuilder } from './microsoft365Apps/index.js';
 // @ts-ignore
 import { PeopleRequestBuilderNavigationMetadata, PeopleRequestBuilderRequestsMetadata, type PeopleRequestBuilder } from './people/index.js';
@@ -30,6 +32,10 @@ export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuil
      * Provides operations to manage the edge property of the microsoft.graph.admin entity.
      */
     get edge(): EdgeRequestBuilder;
+    /**
+     * Provides operations to manage the exchange property of the microsoft.graph.admin entity.
+     */
+    get exchange(): ExchangeRequestBuilder;
     /**
      * Provides operations to manage the microsoft365Apps property of the microsoft.graph.admin entity.
      */
@@ -114,6 +120,10 @@ export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRe
     edge: {
         requestsMetadata: EdgeRequestBuilderRequestsMetadata,
         navigationMetadata: EdgeRequestBuilderNavigationMetadata,
+    },
+    exchange: {
+        requestsMetadata: ExchangeRequestBuilderRequestsMetadata,
+        navigationMetadata: ExchangeRequestBuilderNavigationMetadata,
     },
     microsoft365Apps: {
         requestsMetadata: Microsoft365AppsRequestBuilderRequestsMetadata,

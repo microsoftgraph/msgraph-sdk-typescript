@@ -6,6 +6,8 @@ import { createWorkflowVersionFromDiscriminatorValue, type WorkflowVersion } fro
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { AdministrationScopeTargetsRequestBuilderNavigationMetadata, AdministrationScopeTargetsRequestBuilderRequestsMetadata, type AdministrationScopeTargetsRequestBuilder } from './administrationScopeTargets/index.js';
+// @ts-ignore
 import { CreatedByRequestBuilderNavigationMetadata, CreatedByRequestBuilderRequestsMetadata, type CreatedByRequestBuilder } from './createdBy/index.js';
 // @ts-ignore
 import { LastModifiedByRequestBuilderNavigationMetadata, LastModifiedByRequestBuilderRequestsMetadata, type LastModifiedByRequestBuilder } from './lastModifiedBy/index.js';
@@ -18,6 +20,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
  */
 export interface WorkflowVersionVersionNumberItemRequestBuilder extends BaseRequestBuilder<WorkflowVersionVersionNumberItemRequestBuilder> {
+    /**
+     * Provides operations to manage the administrationScopeTargets property of the microsoft.graph.identityGovernance.workflowBase entity.
+     */
+    get administrationScopeTargets(): AdministrationScopeTargetsRequestBuilder;
     /**
      * Provides operations to manage the createdBy property of the microsoft.graph.identityGovernance.workflowBase entity.
      */
@@ -73,6 +79,10 @@ const WorkflowVersionVersionNumberItemRequestBuilderGetQueryParametersMapper: Re
  * Metadata for all the navigation properties in the request builder.
  */
 export const WorkflowVersionVersionNumberItemRequestBuilderNavigationMetadata: Record<Exclude<keyof WorkflowVersionVersionNumberItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    administrationScopeTargets: {
+        requestsMetadata: AdministrationScopeTargetsRequestBuilderRequestsMetadata,
+        navigationMetadata: AdministrationScopeTargetsRequestBuilderNavigationMetadata,
+    },
     createdBy: {
         requestsMetadata: CreatedByRequestBuilderRequestsMetadata,
         navigationMetadata: CreatedByRequestBuilderNavigationMetadata,
