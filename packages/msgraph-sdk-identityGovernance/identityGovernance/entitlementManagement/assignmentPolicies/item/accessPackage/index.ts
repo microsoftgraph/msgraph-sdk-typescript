@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AccessPackageRequestBuilder extends BaseRequestBuilder<AccessPackageRequestBuilder> {
     /**
-     * Access package containing this policy. Read-only.  Supports $expand.
+     * Access package containing this policy. Read-only. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessPackage>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AccessPackageRequestBuilderGetQueryParameters> | undefined) : Promise<AccessPackage | undefined>;
     /**
-     * Access package containing this policy. Read-only.  Supports $expand.
+     * Access package containing this policy. Read-only. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AccessPackageRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Access package containing this policy. Read-only.  Supports $expand.
+ * Access package containing this policy. Read-only. Supports $expand.
  */
 export interface AccessPackageRequestBuilderGetQueryParameters {
     /**

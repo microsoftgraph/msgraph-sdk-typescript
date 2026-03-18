@@ -10,6 +10,10 @@ import { ItemInsightsRequestBuilderRequestsMetadata, type ItemInsightsRequestBui
 // @ts-ignore
 import { ProfileCardPropertiesRequestBuilderNavigationMetadata, ProfileCardPropertiesRequestBuilderRequestsMetadata, type ProfileCardPropertiesRequestBuilder } from './profileCardProperties/index.js';
 // @ts-ignore
+import { ProfileSourcesRequestBuilderNavigationMetadata, ProfileSourcesRequestBuilderRequestsMetadata, type ProfileSourcesRequestBuilder } from './profileSources/index.js';
+// @ts-ignore
+import { ProfileSourcesWithSourceIdRequestBuilderRequestsMetadata, type ProfileSourcesWithSourceIdRequestBuilder } from './profileSourcesWithSourceId/index.js';
+// @ts-ignore
 import { PronounsRequestBuilderRequestsMetadata, type PronounsRequestBuilder } from './pronouns/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -27,6 +31,10 @@ export interface PeopleRequestBuilder extends BaseRequestBuilder<PeopleRequestBu
      */
     get profileCardProperties(): ProfileCardPropertiesRequestBuilder;
     /**
+     * Provides operations to manage the profileSources property of the microsoft.graph.peopleAdminSettings entity.
+     */
+    get profileSources(): ProfileSourcesRequestBuilder;
+    /**
      * Provides operations to manage the pronouns property of the microsoft.graph.peopleAdminSettings entity.
      */
     get pronouns(): PronounsRequestBuilder;
@@ -38,6 +46,12 @@ export interface PeopleRequestBuilder extends BaseRequestBuilder<PeopleRequestBu
      * @see {@link https://learn.microsoft.com/graph/api/peopleadminsettings-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PeopleRequestBuilderGetQueryParameters> | undefined) : Promise<PeopleAdminSettings | undefined>;
+    /**
+     * Provides operations to manage the profileSources property of the microsoft.graph.peopleAdminSettings entity.
+     * @param sourceId Alternate key of profileSource
+     * @returns {ProfileSourcesWithSourceIdRequestBuilder}
+     */
+     profileSourcesWithSourceId(sourceId: string | undefined) : ProfileSourcesWithSourceIdRequestBuilder;
     /**
      * Retrieve the properties and relationships of a peopleAdminSettings object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -73,12 +87,20 @@ const PeopleRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const PeopleRequestBuilderNavigationMetadata: Record<Exclude<keyof PeopleRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    profileSourcesWithSourceId: {
+        requestsMetadata: ProfileSourcesWithSourceIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["sourceId"],
+    },
     itemInsights: {
         requestsMetadata: ItemInsightsRequestBuilderRequestsMetadata,
     },
     profileCardProperties: {
         requestsMetadata: ProfileCardPropertiesRequestBuilderRequestsMetadata,
         navigationMetadata: ProfileCardPropertiesRequestBuilderNavigationMetadata,
+    },
+    profileSources: {
+        requestsMetadata: ProfileSourcesRequestBuilderRequestsMetadata,
+        navigationMetadata: ProfileSourcesRequestBuilderNavigationMetadata,
     },
     pronouns: {
         requestsMetadata: PronounsRequestBuilderRequestsMetadata,
