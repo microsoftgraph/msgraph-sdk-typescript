@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface UnsetVerifiedPublisherRequestBuilder extends BaseRequestBuilder<UnsetVerifiedPublisherRequestBuilder> {
     /**
-     * Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
+     * Unset the verifiedPublisher previously set on an agentIdentityBlueprint, removing all verified publisher properties. For more information, see Publisher verification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/agentidentityblueprint-unsetverifiedpublisher?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
+     * Unset the verifiedPublisher previously set on an agentIdentityBlueprint, removing all verified publisher properties. For more information, see Publisher verification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

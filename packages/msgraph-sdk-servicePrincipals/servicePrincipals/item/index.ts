@@ -183,7 +183,7 @@ export interface ServicePrincipalItemRequestBuilder extends BaseRequestBuilder<S
      */
     get transitiveMemberOf(): TransitiveMemberOfRequestBuilder;
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API can also delete an agentIdentityBlueprintPrincipal object by its ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0|Find more info here}
@@ -196,7 +196,7 @@ export interface ServicePrincipalItemRequestBuilder extends BaseRequestBuilder<S
      */
      federatedIdentityCredentialsWithName(name: string | undefined) : FederatedIdentityCredentialsWithNameRequestBuilder;
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API can be used to get agentIdentityBlueprintPrincipal objects as well by their ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServicePrincipal>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -204,7 +204,7 @@ export interface ServicePrincipalItemRequestBuilder extends BaseRequestBuilder<S
      */
      get(requestConfiguration?: RequestConfiguration<ServicePrincipalItemRequestBuilderGetQueryParameters> | undefined) : Promise<ServicePrincipal | undefined>;
     /**
-     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object.
+     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object. This API can also create an agentIdentityBlueprintPrincipal object from an agentIdentityBlueprint if it doesn't exist, or update properties of an existing agentIdentityBlueprintPrincipal, when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprintPrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServicePrincipal>}
@@ -213,19 +213,19 @@ export interface ServicePrincipalItemRequestBuilder extends BaseRequestBuilder<S
      */
      patch(body: ServicePrincipal, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServicePrincipal | undefined>;
     /**
-     * Delete a servicePrincipal object.
+     * Delete a servicePrincipal object. This API can also delete an agentIdentityBlueprintPrincipal object by its ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties and relationships of a servicePrincipal object.
+     * Retrieve the properties and relationships of a servicePrincipal object. This API can be used to get agentIdentityBlueprintPrincipal objects as well by their ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ServicePrincipalItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object.
+     * Create a new servicePrincipal object if it doesn't exist, or update the properties of an existing servicePrincipal object. This API can also create an agentIdentityBlueprintPrincipal object from an agentIdentityBlueprint if it doesn't exist, or update properties of an existing agentIdentityBlueprintPrincipal, when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprintPrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -233,7 +233,7 @@ export interface ServicePrincipalItemRequestBuilder extends BaseRequestBuilder<S
      toPatchRequestInformation(body: ServicePrincipal, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties and relationships of a servicePrincipal object.
+ * Retrieve the properties and relationships of a servicePrincipal object. This API can be used to get agentIdentityBlueprintPrincipal objects as well by their ID.
  */
 export interface ServicePrincipalItemRequestBuilderGetQueryParameters {
     /**

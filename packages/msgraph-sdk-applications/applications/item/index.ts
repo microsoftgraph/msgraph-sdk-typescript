@@ -141,7 +141,7 @@ export interface ApplicationItemRequestBuilder extends BaseRequestBuilder<Applic
      */
     get unsetVerifiedPublisher(): UnsetVerifiedPublisherRequestBuilder;
     /**
-     * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
+     * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API can also delete an agentIdentityBlueprint object by its ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-1.0|Find more info here}
@@ -154,7 +154,7 @@ export interface ApplicationItemRequestBuilder extends BaseRequestBuilder<Applic
      */
      federatedIdentityCredentialsWithName(name: string | undefined) : FederatedIdentityCredentialsWithNameRequestBuilder;
     /**
-     * Get the properties and relationships of an application object.
+     * Get the properties and relationships of an application object. This API can be used to get agentIdentityBlueprint objects as well by their ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Application>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -162,7 +162,7 @@ export interface ApplicationItemRequestBuilder extends BaseRequestBuilder<Applic
      */
      get(requestConfiguration?: RequestConfiguration<ApplicationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Application | undefined>;
     /**
-     * Create a new application object if it doesn't exist, or update the properties of an existing application object.
+     * Create a new application object if it doesn't exist, or update the properties of an existing application object. This API can also create an agentIdentityBlueprint object if it doesn't exist, or update properties of an existing agentIdentityBlueprint, when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprint.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Application>}
@@ -171,19 +171,19 @@ export interface ApplicationItemRequestBuilder extends BaseRequestBuilder<Applic
      */
      patch(body: Application, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Application | undefined>;
     /**
-     * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
+     * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This API can also delete an agentIdentityBlueprint object by its ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get the properties and relationships of an application object.
+     * Get the properties and relationships of an application object. This API can be used to get agentIdentityBlueprint objects as well by their ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApplicationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new application object if it doesn't exist, or update the properties of an existing application object.
+     * Create a new application object if it doesn't exist, or update the properties of an existing application object. This API can also create an agentIdentityBlueprint object if it doesn't exist, or update properties of an existing agentIdentityBlueprint, when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprint.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -191,7 +191,7 @@ export interface ApplicationItemRequestBuilder extends BaseRequestBuilder<Applic
      toPatchRequestInformation(body: Application, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the properties and relationships of an application object.
+ * Get the properties and relationships of an application object. This API can be used to get agentIdentityBlueprint objects as well by their ID.
  */
 export interface ApplicationItemRequestBuilderGetQueryParameters {
     /**

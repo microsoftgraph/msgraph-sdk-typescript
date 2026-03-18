@@ -51,7 +51,7 @@ export interface ServicePrincipalsRequestBuilder extends BaseRequestBuilder<Serv
      */
      byServicePrincipalId(servicePrincipalId: string) : ServicePrincipalItemRequestBuilder;
     /**
-     * Retrieve a list of servicePrincipal objects.
+     * Retrieve a list of servicePrincipal objects. This API also returns agentIdentityBlueprintPrincipal objects, which are identified by the @odata.type property of #microsoft.graph.agentIdentityBlueprintPrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServicePrincipalCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -59,7 +59,7 @@ export interface ServicePrincipalsRequestBuilder extends BaseRequestBuilder<Serv
      */
      get(requestConfiguration?: RequestConfiguration<ServicePrincipalsRequestBuilderGetQueryParameters> | undefined) : Promise<ServicePrincipalCollectionResponse | undefined>;
     /**
-     * Create a new servicePrincipal object.
+     * Create a new servicePrincipal object. This API can also create an agentIdentityBlueprintPrincipal object from an agentIdentityBlueprint when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprintPrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ServicePrincipal>}
@@ -68,13 +68,13 @@ export interface ServicePrincipalsRequestBuilder extends BaseRequestBuilder<Serv
      */
      post(body: ServicePrincipal, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ServicePrincipal | undefined>;
     /**
-     * Retrieve a list of servicePrincipal objects.
+     * Retrieve a list of servicePrincipal objects. This API also returns agentIdentityBlueprintPrincipal objects, which are identified by the @odata.type property of #microsoft.graph.agentIdentityBlueprintPrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ServicePrincipalsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new servicePrincipal object.
+     * Create a new servicePrincipal object. This API can also create an agentIdentityBlueprintPrincipal object from an agentIdentityBlueprint when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprintPrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -82,7 +82,7 @@ export interface ServicePrincipalsRequestBuilder extends BaseRequestBuilder<Serv
      toPostRequestInformation(body: ServicePrincipal, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of servicePrincipal objects.
+ * Retrieve a list of servicePrincipal objects. This API also returns agentIdentityBlueprintPrincipal objects, which are identified by the @odata.type property of #microsoft.graph.agentIdentityBlueprintPrincipal.
  */
 export interface ServicePrincipalsRequestBuilderGetQueryParameters {
     /**

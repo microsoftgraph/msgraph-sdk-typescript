@@ -18,16 +18,19 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
 export interface SharedInsightItemRequestBuilder extends BaseRequestBuilder<SharedInsightItemRequestBuilder> {
     /**
      * Provides operations to manage the lastSharedMethod property of the microsoft.graph.sharedInsight entity.
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
     get lastSharedMethod(): LastSharedMethodRequestBuilder;
     /**
      * Provides operations to manage the resource property of the microsoft.graph.sharedInsight entity.
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
     get resource(): ResourceRequestBuilder;
     /**
      * Delete navigation property shared for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
@@ -35,6 +38,7 @@ export interface SharedInsightItemRequestBuilder extends BaseRequestBuilder<Shar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharedInsight>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      get(requestConfiguration?: RequestConfiguration<SharedInsightItemRequestBuilderGetQueryParameters> | undefined) : Promise<SharedInsight | undefined>;
     /**
@@ -43,18 +47,21 @@ export interface SharedInsightItemRequestBuilder extends BaseRequestBuilder<Shar
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharedInsight>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      patch(body: SharedInsight, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SharedInsight | undefined>;
     /**
      * Delete navigation property shared for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
      * Calculated relationship that identifies documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for work or school and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharedInsightItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
@@ -62,6 +69,7 @@ export interface SharedInsightItemRequestBuilder extends BaseRequestBuilder<Shar
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      toPatchRequestInformation(body: SharedInsight, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
