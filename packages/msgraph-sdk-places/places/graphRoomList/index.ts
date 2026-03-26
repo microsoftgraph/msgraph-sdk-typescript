@@ -19,21 +19,22 @@ export interface GraphRoomListRequestBuilder extends BaseRequestBuilder<GraphRoo
      */
     get count(): CountRequestBuilder;
     /**
-     * Get the items of type microsoft.graph.roomList in the microsoft.graph.place collection
+     * Read the properties of a place object specified by its ID. The place object can be one of the following types: The listed resources are derived from the place object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoomListCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/place-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GraphRoomListRequestBuilderGetQueryParameters> | undefined) : Promise<RoomListCollectionResponse | undefined>;
     /**
-     * Get the items of type microsoft.graph.roomList in the microsoft.graph.place collection
+     * Read the properties of a place object specified by its ID. The place object can be one of the following types: The listed resources are derived from the place object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GraphRoomListRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the items of type microsoft.graph.roomList in the microsoft.graph.place collection
+ * Read the properties of a place object specified by its ID. The place object can be one of the following types: The listed resources are derived from the place object.
  */
 export interface GraphRoomListRequestBuilderGetQueryParameters {
     /**

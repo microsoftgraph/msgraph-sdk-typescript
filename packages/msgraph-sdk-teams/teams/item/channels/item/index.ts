@@ -14,6 +14,8 @@ import { CompleteMigrationRequestBuilderRequestsMetadata, type CompleteMigration
 // @ts-ignore
 import { DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderRequestsMetadata, type DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder } from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/index.js';
 // @ts-ignore
+import { EnabledAppsRequestBuilderNavigationMetadata, EnabledAppsRequestBuilderRequestsMetadata, type EnabledAppsRequestBuilder } from './enabledApps/index.js';
+// @ts-ignore
 import { FilesFolderRequestBuilderNavigationMetadata, FilesFolderRequestBuilderRequestsMetadata, type FilesFolderRequestBuilder } from './filesFolder/index.js';
 // @ts-ignore
 import { MembersRequestBuilderNavigationMetadata, MembersRequestBuilderRequestsMetadata, type MembersRequestBuilder } from './members/index.js';
@@ -52,6 +54,10 @@ export interface ChannelItemRequestBuilder extends BaseRequestBuilder<ChannelIte
      * Provides operations to call the doesUserHaveAccess method.
      */
     get doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName(): DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder;
+    /**
+     * Provides operations to manage the enabledApps property of the microsoft.graph.channel entity.
+     */
+    get enabledApps(): EnabledAppsRequestBuilder;
     /**
      * Provides operations to manage the filesFolder property of the microsoft.graph.channel entity.
      */
@@ -168,6 +174,10 @@ export const ChannelItemRequestBuilderNavigationMetadata: Record<Exclude<keyof C
     },
     doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName: {
         requestsMetadata: DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderRequestsMetadata,
+    },
+    enabledApps: {
+        requestsMetadata: EnabledAppsRequestBuilderRequestsMetadata,
+        navigationMetadata: EnabledAppsRequestBuilderNavigationMetadata,
     },
     filesFolder: {
         requestsMetadata: FilesFolderRequestBuilderRequestsMetadata,
