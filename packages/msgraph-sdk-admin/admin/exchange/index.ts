@@ -6,6 +6,8 @@ import { createExchangeAdminFromDiscriminatorValue, serializeExchangeAdmin, type
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { MailboxesRequestBuilderNavigationMetadata, MailboxesRequestBuilderRequestsMetadata, type MailboxesRequestBuilder } from './mailboxes/index.js';
+// @ts-ignore
 import { TracingRequestBuilderNavigationMetadata, TracingRequestBuilderRequestsMetadata, type TracingRequestBuilder } from './tracing/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +16,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the exchange property of the microsoft.graph.admin entity.
  */
 export interface ExchangeRequestBuilder extends BaseRequestBuilder<ExchangeRequestBuilder> {
+    /**
+     * Provides operations to manage the mailboxes property of the microsoft.graph.exchangeAdmin entity.
+     */
+    get mailboxes(): MailboxesRequestBuilder;
     /**
      * Provides operations to manage the tracing property of the microsoft.graph.exchangeAdmin entity.
      */
@@ -87,6 +93,10 @@ const ExchangeRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const ExchangeRequestBuilderNavigationMetadata: Record<Exclude<keyof ExchangeRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    mailboxes: {
+        requestsMetadata: MailboxesRequestBuilderRequestsMetadata,
+        navigationMetadata: MailboxesRequestBuilderNavigationMetadata,
+    },
     tracing: {
         requestsMetadata: TracingRequestBuilderRequestsMetadata,
         navigationMetadata: TracingRequestBuilderNavigationMetadata,

@@ -8,7 +8,9 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { DirectoryObjectItemRequestBuilderRequestsMetadata, type DirectoryObjectItemRequestBuilder } from './item/index.js';
+import { DirectoryObjectItemRequestBuilderNavigationMetadata, type DirectoryObjectItemRequestBuilder } from './item/index.js';
+// @ts-ignore
+import { RefRequestBuilderRequestsMetadata, type RefRequestBuilder } from './ref/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -21,7 +23,11 @@ export interface SponsorsRequestBuilder extends BaseRequestBuilder<SponsorsReque
      */
     get count(): CountRequestBuilder;
     /**
-     * Provides operations to manage the sponsors property of the microsoft.graph.user entity.
+     * Provides operations to manage the collection of user entities.
+     */
+    get ref(): RefRequestBuilder;
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.sponsors.item collection
      * @param directoryObjectId The unique identifier of directoryObject
      * @returns {DirectoryObjectItemRequestBuilder}
      */
@@ -100,11 +106,14 @@ const SponsorsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const SponsorsRequestBuilderNavigationMetadata: Record<Exclude<keyof SponsorsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byDirectoryObjectId: {
-        requestsMetadata: DirectoryObjectItemRequestBuilderRequestsMetadata,
+        navigationMetadata: DirectoryObjectItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["directoryObject%2Did"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    ref: {
+        requestsMetadata: RefRequestBuilderRequestsMetadata,
     },
 };
 /**

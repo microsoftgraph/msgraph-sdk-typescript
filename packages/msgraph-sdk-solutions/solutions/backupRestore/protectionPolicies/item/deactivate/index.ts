@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeactivateRequestBuilder extends BaseRequestBuilder<DeactivateRequestBuilder> {
     /**
-     * Deactivate a protectionPolicyBase.
+     * Deactivate a protectionPolicyBase. When a protection policy is deactivated, backup activity stops immediately, no new backups are taken, and the protected resources are no longer covered by the policy. Any backups taken before deactivation are retained according to the retention policy, after which they're offboarded. You can restore data using previous restore points even after deactivation. To reactivate a deactivated policy, use the activate API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ProtectionPolicyBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -21,7 +21,7 @@ export interface DeactivateRequestBuilder extends BaseRequestBuilder<DeactivateR
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProtectionPolicyBase | undefined>;
     /**
-     * Deactivate a protectionPolicyBase.
+     * Deactivate a protectionPolicyBase. When a protection policy is deactivated, backup activity stops immediately, no new backups are taken, and the protected resources are no longer covered by the policy. Any backups taken before deactivation are retained according to the retention policy, after which they're offboarded. You can restore data using previous restore points even after deactivation. To reactivate a deactivated policy, use the activate API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
