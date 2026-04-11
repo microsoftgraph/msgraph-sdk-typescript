@@ -51,7 +51,7 @@ export interface ApplicationsRequestBuilder extends BaseRequestBuilder<Applicati
      */
      byApplicationId(applicationId: string) : ApplicationItemRequestBuilder;
     /**
-     * Get the list of applications in this organization.
+     * Get the list of applications in this organization. This API also returns agentIdentityBlueprint objects, which are identified by the @odata.type property of #microsoft.graph.agentIdentityBlueprint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApplicationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -59,7 +59,7 @@ export interface ApplicationsRequestBuilder extends BaseRequestBuilder<Applicati
      */
      get(requestConfiguration?: RequestConfiguration<ApplicationsRequestBuilderGetQueryParameters> | undefined) : Promise<ApplicationCollectionResponse | undefined>;
     /**
-     * Create a new application object.
+     * Create a new application object. This API can also create an agentIdentityBlueprint object when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprint.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Application>}
@@ -68,13 +68,13 @@ export interface ApplicationsRequestBuilder extends BaseRequestBuilder<Applicati
      */
      post(body: Application, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Application | undefined>;
     /**
-     * Get the list of applications in this organization.
+     * Get the list of applications in this organization. This API also returns agentIdentityBlueprint objects, which are identified by the @odata.type property of #microsoft.graph.agentIdentityBlueprint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApplicationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new application object.
+     * Create a new application object. This API can also create an agentIdentityBlueprint object when the @odata.type property is set to #microsoft.graph.agentIdentityBlueprint.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -82,7 +82,7 @@ export interface ApplicationsRequestBuilder extends BaseRequestBuilder<Applicati
      toPostRequestInformation(body: Application, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the list of applications in this organization.
+ * Get the list of applications in this organization. This API also returns agentIdentityBlueprint objects, which are identified by the @odata.type property of #microsoft.graph.agentIdentityBlueprint.
  */
 export interface ApplicationsRequestBuilderGetQueryParameters {
     /**

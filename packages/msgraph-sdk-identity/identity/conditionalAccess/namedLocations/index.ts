@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { NamedLocationItemRequestBuilderRequestsMetadata, type NamedLocationItemRequestBuilder } from './item/index.js';
+import { NamedLocationItemRequestBuilderNavigationMetadata, NamedLocationItemRequestBuilderRequestsMetadata, type NamedLocationItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -117,6 +117,7 @@ const NamedLocationsRequestBuilderGetQueryParametersMapper: Record<string, strin
 export const NamedLocationsRequestBuilderNavigationMetadata: Record<Exclude<keyof NamedLocationsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byNamedLocationId: {
         requestsMetadata: NamedLocationItemRequestBuilderRequestsMetadata,
+        navigationMetadata: NamedLocationItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["namedLocation%2Did"],
     },
     count: {
