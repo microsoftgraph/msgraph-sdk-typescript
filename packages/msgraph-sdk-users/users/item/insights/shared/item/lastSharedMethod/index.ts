@@ -17,12 +17,14 @@ export interface LastSharedMethodRequestBuilder extends BaseRequestBuilder<LastS
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Entity>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      get(requestConfiguration?: RequestConfiguration<LastSharedMethodRequestBuilderGetQueryParameters> | undefined) : Promise<Entity | undefined>;
     /**
      * Get lastSharedMethod from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<LastSharedMethodRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }

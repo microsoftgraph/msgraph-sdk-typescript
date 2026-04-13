@@ -14,6 +14,8 @@ import { CompleteMigrationRequestBuilderRequestsMetadata, type CompleteMigration
 // @ts-ignore
 import { DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderRequestsMetadata, type DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder } from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/index.js';
 // @ts-ignore
+import { EnabledAppsRequestBuilderNavigationMetadata, EnabledAppsRequestBuilderRequestsMetadata, type EnabledAppsRequestBuilder } from './enabledApps/index.js';
+// @ts-ignore
 import { FilesFolderRequestBuilderNavigationMetadata, FilesFolderRequestBuilderRequestsMetadata, type FilesFolderRequestBuilder } from './filesFolder/index.js';
 // @ts-ignore
 import { MembersRequestBuilderNavigationMetadata, MembersRequestBuilderRequestsMetadata, type MembersRequestBuilder } from './members/index.js';
@@ -25,6 +27,8 @@ import { ProvisionEmailRequestBuilderRequestsMetadata, type ProvisionEmailReques
 import { RemoveEmailRequestBuilderRequestsMetadata, type RemoveEmailRequestBuilder } from './removeEmail/index.js';
 // @ts-ignore
 import { SharedWithTeamsRequestBuilderNavigationMetadata, SharedWithTeamsRequestBuilderRequestsMetadata, type SharedWithTeamsRequestBuilder } from './sharedWithTeams/index.js';
+// @ts-ignore
+import { StartMigrationRequestBuilderRequestsMetadata, type StartMigrationRequestBuilder } from './startMigration/index.js';
 // @ts-ignore
 import { TabsRequestBuilderNavigationMetadata, TabsRequestBuilderRequestsMetadata, type TabsRequestBuilder } from './tabs/index.js';
 // @ts-ignore
@@ -53,6 +57,10 @@ export interface ChannelItemRequestBuilder extends BaseRequestBuilder<ChannelIte
      */
     get doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName(): DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder;
     /**
+     * Provides operations to manage the enabledApps property of the microsoft.graph.channel entity.
+     */
+    get enabledApps(): EnabledAppsRequestBuilder;
+    /**
      * Provides operations to manage the filesFolder property of the microsoft.graph.channel entity.
      */
     get filesFolder(): FilesFolderRequestBuilder;
@@ -76,6 +84,10 @@ export interface ChannelItemRequestBuilder extends BaseRequestBuilder<ChannelIte
      * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
      */
     get sharedWithTeams(): SharedWithTeamsRequestBuilder;
+    /**
+     * Provides operations to call the startMigration method.
+     */
+    get startMigration(): StartMigrationRequestBuilder;
     /**
      * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
      */
@@ -169,6 +181,10 @@ export const ChannelItemRequestBuilderNavigationMetadata: Record<Exclude<keyof C
     doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName: {
         requestsMetadata: DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderRequestsMetadata,
     },
+    enabledApps: {
+        requestsMetadata: EnabledAppsRequestBuilderRequestsMetadata,
+        navigationMetadata: EnabledAppsRequestBuilderNavigationMetadata,
+    },
     filesFolder: {
         requestsMetadata: FilesFolderRequestBuilderRequestsMetadata,
         navigationMetadata: FilesFolderRequestBuilderNavigationMetadata,
@@ -190,6 +206,9 @@ export const ChannelItemRequestBuilderNavigationMetadata: Record<Exclude<keyof C
     sharedWithTeams: {
         requestsMetadata: SharedWithTeamsRequestBuilderRequestsMetadata,
         navigationMetadata: SharedWithTeamsRequestBuilderNavigationMetadata,
+    },
+    startMigration: {
+        requestsMetadata: StartMigrationRequestBuilderRequestsMetadata,
     },
     tabs: {
         requestsMetadata: TabsRequestBuilderRequestsMetadata,

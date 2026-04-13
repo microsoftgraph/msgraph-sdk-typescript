@@ -28,11 +28,12 @@ export interface MultiTenantOrganizationMemberItemRequestBuilder extends BaseReq
      */
      get(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationMemberItemRequestBuilderGetQueryParameters> | undefined) : Promise<MultiTenantOrganizationMember | undefined>;
     /**
-     * Update the navigation property tenants in tenantRelationships
+     * Update the properties of a tenant in a multitenant organization. Only owner tenants can call this API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantOrganizationMember>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/multitenantorganizationmember-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: MultiTenantOrganizationMember, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MultiTenantOrganizationMember | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface MultiTenantOrganizationMemberItemRequestBuilder extends BaseReq
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MultiTenantOrganizationMemberItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property tenants in tenantRelationships
+     * Update the properties of a tenant in a multitenant organization. Only owner tenants can call this API.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

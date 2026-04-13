@@ -6,12 +6,18 @@ import { createConditionalAccessPolicyFromDiscriminatorValue, serializeCondition
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { RestoreRequestBuilderRequestsMetadata, type RestoreRequestBuilder } from './restore/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
  */
 export interface ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilder<ConditionalAccessPolicyItemRequestBuilder> {
+    /**
+     * Provides operations to call the restore method.
+     */
+    get restore(): RestoreRequestBuilder;
     /**
      * Delete a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -79,6 +85,14 @@ export const ConditionalAccessPolicyItemRequestBuilderUriTemplate = "{+baseurl}/
 const ConditionalAccessPolicyItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const ConditionalAccessPolicyItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ConditionalAccessPolicyItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    restore: {
+        requestsMetadata: RestoreRequestBuilderRequestsMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

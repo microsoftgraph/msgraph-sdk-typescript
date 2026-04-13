@@ -27,21 +27,21 @@ export interface AdministrationScopeTargetsRequestBuilder extends BaseRequestBui
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Get administrationScopeTargets from identityGovernance
+     * The administrative units in the scope of the workflow. Optional. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AdministrationScopeTargetsRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Get administrationScopeTargets from identityGovernance
+     * The administrative units in the scope of the workflow. Optional. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AdministrationScopeTargetsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get administrationScopeTargets from identityGovernance
+ * The administrative units in the scope of the workflow. Optional. Supports $expand.
  */
 export interface AdministrationScopeTargetsRequestBuilderGetQueryParameters {
     /**
