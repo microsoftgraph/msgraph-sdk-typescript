@@ -8,6 +8,10 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
+import { GetAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTime/index.js';
+// @ts-ignore
+import { GetAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTime/index.js';
+// @ts-ignore
 import { AdhocCallItemRequestBuilderNavigationMetadata, AdhocCallItemRequestBuilderRequestsMetadata, type AdhocCallItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -20,6 +24,14 @@ export interface AdhocCallsRequestBuilder extends BaseRequestBuilder<AdhocCallsR
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Provides operations to call the getAllRecordings method.
+     */
+    get getAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTime(): GetAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
+    /**
+     * Provides operations to call the getAllTranscripts method.
+     */
+    get getAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTime(): GetAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilder;
     /**
      * Provides operations to manage the adhocCalls property of the microsoft.graph.user entity.
      * @param adhocCallId The unique identifier of adhocCall
@@ -120,6 +132,12 @@ export const AdhocCallsRequestBuilderNavigationMetadata: Record<Exclude<keyof Ad
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    getAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTime: {
+        requestsMetadata: GetAllRecordingsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
+    },
+    getAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTime: {
+        requestsMetadata: GetAllTranscriptsuserIdUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata,
     },
 };
 /**

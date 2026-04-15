@@ -86,7 +86,7 @@ export interface DirectoryObjectItemRequestBuilder extends BaseRequestBuilder<Di
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- certificateBasedAuthPki- certificateAuthorityDetail- group- servicePrincipal- user
+     * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- certificateBasedAuthPki- certificateAuthorityDetail- group- servicePrincipal- user
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObject>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -100,14 +100,14 @@ export interface DirectoryObjectItemRequestBuilder extends BaseRequestBuilder<Di
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- certificateBasedAuthPki- certificateAuthorityDetail- group- servicePrincipal- user
+     * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- certificateBasedAuthPki- certificateAuthorityDetail- group- servicePrincipal- user
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DirectoryObjectItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- certificateBasedAuthPki- certificateAuthorityDetail- group- servicePrincipal- user
+ * Retrieve the properties of a recently deleted application, group, servicePrincipal, administrative unit, or user object from deleted items. Retrieve the properties of a recently deleted directory object from deleted items. The following types are supported:- administrativeUnit- application- agentIdentityBlueprint- agentIdentity- agentIdentityBlueprintPrincipal- certificateBasedAuthPki- certificateAuthorityDetail- group- servicePrincipal- user
  */
 export interface DirectoryObjectItemRequestBuilderGetQueryParameters {
     /**

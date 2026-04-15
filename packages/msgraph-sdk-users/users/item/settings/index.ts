@@ -6,6 +6,8 @@ import { createUserSettingsFromDiscriminatorValue, serializeUserSettings, type U
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { ExchangeRequestBuilderRequestsMetadata, type ExchangeRequestBuilder } from './exchange/index.js';
+// @ts-ignore
 import { ItemInsightsRequestBuilderRequestsMetadata, type ItemInsightsRequestBuilder } from './itemInsights/index.js';
 // @ts-ignore
 import { ShiftPreferencesRequestBuilderRequestsMetadata, type ShiftPreferencesRequestBuilder } from './shiftPreferences/index.js';
@@ -22,6 +24,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the settings property of the microsoft.graph.user entity.
  */
 export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsRequestBuilder> {
+    /**
+     * Provides operations to manage the exchange property of the microsoft.graph.userSettings entity.
+     */
+    get exchange(): ExchangeRequestBuilder;
     /**
      * Provides operations to manage the itemInsights property of the microsoft.graph.userSettings entity.
      */
@@ -111,6 +117,9 @@ const SettingsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const SettingsRequestBuilderNavigationMetadata: Record<Exclude<keyof SettingsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    exchange: {
+        requestsMetadata: ExchangeRequestBuilderRequestsMetadata,
+    },
     itemInsights: {
         requestsMetadata: ItemInsightsRequestBuilderRequestsMetadata,
     },

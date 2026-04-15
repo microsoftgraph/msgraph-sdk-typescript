@@ -20,7 +20,7 @@ export interface ExternalAuthenticationMethodItemRequestBuilder extends BaseRequ
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents the external authentication methods registered to a user for authentication using an external identity provider.
+     * Represents the external MFA registered to a user for authentication using an external identity provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExternalAuthenticationMethod>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -41,7 +41,7 @@ export interface ExternalAuthenticationMethodItemRequestBuilder extends BaseRequ
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents the external authentication methods registered to a user for authentication using an external identity provider.
+     * Represents the external MFA registered to a user for authentication using an external identity provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -55,7 +55,7 @@ export interface ExternalAuthenticationMethodItemRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: ExternalAuthenticationMethod, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents the external authentication methods registered to a user for authentication using an external identity provider.
+ * Represents the external MFA registered to a user for authentication using an external identity provider.
  */
 export interface ExternalAuthenticationMethodItemRequestBuilderGetQueryParameters {
     /**

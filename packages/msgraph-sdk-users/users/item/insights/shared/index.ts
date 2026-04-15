@@ -18,12 +18,14 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
 export interface SharedRequestBuilder extends BaseRequestBuilder<SharedRequestBuilder> {
     /**
      * Provides operations to count the resources in the collection.
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
     get count(): CountRequestBuilder;
     /**
      * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
      * @param sharedInsightId The unique identifier of sharedInsight
      * @returns {SharedInsightItemRequestBuilder}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      bySharedInsightId(sharedInsightId: string) : SharedInsightItemRequestBuilder;
     /**
@@ -31,6 +33,7 @@ export interface SharedRequestBuilder extends BaseRequestBuilder<SharedRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharedInsightCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      get(requestConfiguration?: RequestConfiguration<SharedRequestBuilderGetQueryParameters> | undefined) : Promise<SharedInsightCollectionResponse | undefined>;
     /**
@@ -39,12 +42,14 @@ export interface SharedRequestBuilder extends BaseRequestBuilder<SharedRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharedInsight>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      post(body: SharedInsight, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SharedInsight | undefined>;
     /**
      * Calculated relationship that identifies documents shared with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive for work or school and SharePoint files found in Outlook messages and meetings. This also includes URLs and reference attachments to Teams conversations. Ordered by recency of share.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharedRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
@@ -52,6 +57,7 @@ export interface SharedRequestBuilder extends BaseRequestBuilder<SharedRequestBu
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      toPostRequestInformation(body: SharedInsight, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }

@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { RunHealthChecksRequestBuilderRequestsMetadata, type RunHealthChecksRequestBuilder } from './runHealthChecks/index.js';
 // @ts-ignore
+import { type UpdateAdDomainPasswordRequestBuilder, UpdateAdDomainPasswordRequestBuilderRequestsMetadata } from './updateAdDomainPassword/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface CloudPcOnPremisesConnectionItemRequestBuilder extends BaseReque
      * Provides operations to call the runHealthChecks method.
      */
     get runHealthChecks(): RunHealthChecksRequestBuilder;
+    /**
+     * Provides operations to call the updateAdDomainPassword method.
+     */
+    get updateAdDomainPassword(): UpdateAdDomainPasswordRequestBuilder;
     /**
      * Delete a specific cloudPcOnPremisesConnection object. When you delete an Azure network connection, permissions to the service are removed from the specified Azure resources. You cannot delete an Azure network connection when it's in use, as indicated by the inUse property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -92,6 +98,9 @@ const CloudPcOnPremisesConnectionItemRequestBuilderGetQueryParametersMapper: Rec
 export const CloudPcOnPremisesConnectionItemRequestBuilderNavigationMetadata: Record<Exclude<keyof CloudPcOnPremisesConnectionItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     runHealthChecks: {
         requestsMetadata: RunHealthChecksRequestBuilderRequestsMetadata,
+    },
+    updateAdDomainPassword: {
+        requestsMetadata: UpdateAdDomainPasswordRequestBuilderRequestsMetadata,
     },
 };
 /**

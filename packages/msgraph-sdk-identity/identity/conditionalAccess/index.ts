@@ -6,6 +6,8 @@ import { AuthenticationContextClassReferencesRequestBuilderNavigationMetadata, A
 // @ts-ignore
 import { AuthenticationStrengthRequestBuilderNavigationMetadata, AuthenticationStrengthRequestBuilderRequestsMetadata, type AuthenticationStrengthRequestBuilder } from './authenticationStrength/index.js';
 // @ts-ignore
+import { DeletedItemsRequestBuilderNavigationMetadata, DeletedItemsRequestBuilderRequestsMetadata, type DeletedItemsRequestBuilder } from './deletedItems/index.js';
+// @ts-ignore
 import { EvaluateRequestBuilderRequestsMetadata, type EvaluateRequestBuilder } from './evaluate/index.js';
 // @ts-ignore
 import { NamedLocationsRequestBuilderNavigationMetadata, NamedLocationsRequestBuilderRequestsMetadata, type NamedLocationsRequestBuilder } from './namedLocations/index.js';
@@ -28,6 +30,10 @@ export interface ConditionalAccessRequestBuilder extends BaseRequestBuilder<Cond
      * Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity.
      */
     get authenticationStrength(): AuthenticationStrengthRequestBuilder;
+    /**
+     * Provides operations to manage the deletedItems property of the microsoft.graph.conditionalAccessRoot entity.
+     */
+    get deletedItems(): DeletedItemsRequestBuilder;
     /**
      * Provides operations to call the evaluate method.
      */
@@ -60,6 +66,10 @@ export const ConditionalAccessRequestBuilderNavigationMetadata: Record<Exclude<k
     authenticationStrength: {
         requestsMetadata: AuthenticationStrengthRequestBuilderRequestsMetadata,
         navigationMetadata: AuthenticationStrengthRequestBuilderNavigationMetadata,
+    },
+    deletedItems: {
+        requestsMetadata: DeletedItemsRequestBuilderRequestsMetadata,
+        navigationMetadata: DeletedItemsRequestBuilderNavigationMetadata,
     },
     evaluate: {
         requestsMetadata: EvaluateRequestBuilderRequestsMetadata,
