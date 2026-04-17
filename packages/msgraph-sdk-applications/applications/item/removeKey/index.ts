@@ -47,15 +47,15 @@ export interface RemoveKeyPostRequestBody extends AdditionalDataHolder, BackedMo
  */
 export interface RemoveKeyRequestBuilder extends BaseRequestBuilder<RemoveKeyRequestBuilder> {
     /**
-     * Remove a key credential from an application. This method along with addKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.
+     * Remove a key credential from an agentIdentityBlueprint. This method along with addKey can be used to automate rolling its expiring keys.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/application-removekey?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/agentidentityblueprint-removekey?view=graph-rest-1.0|Find more info here}
      */
      post(body: RemoveKeyPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Remove a key credential from an application. This method along with addKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.
+     * Remove a key credential from an agentIdentityBlueprint. This method along with addKey can be used to automate rolling its expiring keys.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

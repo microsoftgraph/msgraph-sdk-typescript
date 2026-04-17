@@ -25,7 +25,7 @@ export interface ProtectionPolicyBaseItemRequestBuilder extends BaseRequestBuild
      */
     get deactivate(): DeactivateRequestBuilder;
     /**
-     * Delete a protection policy. Read the properties and relationships of a protectionPolicyBase object.
+     * Delete a protectionPolicyBase object. A protection policy can be deleted only after it was deactivated. When you delete a policy, all associated protection units are removed, and backup protection stops for the resources previously covered by the policy. Existing backup data is retained according to the retention policy before it's offboarded. You can restore data using previous restore points even after deletion.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/protectionpolicybase-delete?view=graph-rest-1.0|Find more info here}
@@ -47,7 +47,7 @@ export interface ProtectionPolicyBaseItemRequestBuilder extends BaseRequestBuild
      */
      patch(body: ProtectionPolicyBase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProtectionPolicyBase | undefined>;
     /**
-     * Delete a protection policy. Read the properties and relationships of a protectionPolicyBase object.
+     * Delete a protectionPolicyBase object. A protection policy can be deleted only after it was deactivated. When you delete a policy, all associated protection units are removed, and backup protection stops for the resources previously covered by the policy. Existing backup data is retained according to the retention policy before it's offboarded. You can restore data using previous restore points even after deletion.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

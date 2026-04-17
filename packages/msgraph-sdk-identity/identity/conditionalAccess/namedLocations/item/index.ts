@@ -6,12 +6,18 @@ import { createNamedLocationFromDiscriminatorValue, serializeNamedLocation, type
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { RestoreRequestBuilderRequestsMetadata, type RestoreRequestBuilder } from './restore/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
  */
 export interface NamedLocationItemRequestBuilder extends BaseRequestBuilder<NamedLocationItemRequestBuilder> {
+    /**
+     * Provides operations to call the restore method.
+     */
+    get restore(): RestoreRequestBuilder;
     /**
      * Delete a countryNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -79,6 +85,14 @@ export const NamedLocationItemRequestBuilderUriTemplate = "{+baseurl}/identity/c
 const NamedLocationItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const NamedLocationItemRequestBuilderNavigationMetadata: Record<Exclude<keyof NamedLocationItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    restore: {
+        requestsMetadata: RestoreRequestBuilderRequestsMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

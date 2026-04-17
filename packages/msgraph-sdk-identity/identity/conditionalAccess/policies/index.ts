@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { ConditionalAccessPolicyItemRequestBuilderRequestsMetadata, type ConditionalAccessPolicyItemRequestBuilder } from './item/index.js';
+import { ConditionalAccessPolicyItemRequestBuilderNavigationMetadata, ConditionalAccessPolicyItemRequestBuilderRequestsMetadata, type ConditionalAccessPolicyItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -117,6 +117,7 @@ const PoliciesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
 export const PoliciesRequestBuilderNavigationMetadata: Record<Exclude<keyof PoliciesRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byConditionalAccessPolicyId: {
         requestsMetadata: ConditionalAccessPolicyItemRequestBuilderRequestsMetadata,
+        navigationMetadata: ConditionalAccessPolicyItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["conditionalAccessPolicy%2Did"],
     },
     count: {

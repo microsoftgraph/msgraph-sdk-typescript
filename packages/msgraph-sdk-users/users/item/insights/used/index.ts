@@ -18,12 +18,14 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
 export interface UsedRequestBuilder extends BaseRequestBuilder<UsedRequestBuilder> {
     /**
      * Provides operations to count the resources in the collection.
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
     get count(): CountRequestBuilder;
     /**
      * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
      * @param usedInsightId The unique identifier of usedInsight
      * @returns {UsedInsightItemRequestBuilder}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      byUsedInsightId(usedInsightId: string) : UsedInsightItemRequestBuilder;
     /**
@@ -31,6 +33,7 @@ export interface UsedRequestBuilder extends BaseRequestBuilder<UsedRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UsedInsightCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      get(requestConfiguration?: RequestConfiguration<UsedRequestBuilderGetQueryParameters> | undefined) : Promise<UsedInsightCollectionResponse | undefined>;
     /**
@@ -39,12 +42,14 @@ export interface UsedRequestBuilder extends BaseRequestBuilder<UsedRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UsedInsight>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      post(body: UsedInsight, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<UsedInsight | undefined>;
     /**
      * Calculated relationship that identifies the latest documents viewed or modified by a user, including OneDrive for work or school and SharePoint documents, ranked by recency of use.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UsedRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
@@ -52,6 +57,7 @@ export interface UsedRequestBuilder extends BaseRequestBuilder<UsedRequestBuilde
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
      toPostRequestInformation(body: UsedInsight, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
