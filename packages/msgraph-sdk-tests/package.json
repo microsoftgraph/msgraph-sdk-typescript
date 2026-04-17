@@ -23,9 +23,9 @@
     "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
   },
   "dependencies": {
-    "@azure/identity": "^4.0.1",
-    "@microsoft/kiota-bundle": "^1.0.0-preview.92",
+    "@azure/identity": "^4.13.1",
     "@microsoft/kiota-authentication-azure": "^1.0.0-preview.92",
+    "@microsoft/kiota-bundle": "^1.0.0-preview.92",
     "@microsoft/msgraph-sdk": "^1.0.0-preview.49",
     "@microsoft/msgraph-sdk-core": "^1.0.0-preview.17",
     "@microsoft/msgraph-sdk-users": "^1.0.0-preview.49",
