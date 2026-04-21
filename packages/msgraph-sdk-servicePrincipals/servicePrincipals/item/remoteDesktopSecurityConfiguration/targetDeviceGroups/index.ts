@@ -35,7 +35,7 @@ export interface TargetDeviceGroupsRequestBuilder extends BaseRequestBuilder<Tar
      */
      get(requestConfiguration?: RequestConfiguration<TargetDeviceGroupsRequestBuilderGetQueryParameters> | undefined) : Promise<TargetDeviceGroupCollectionResponse | undefined>;
     /**
-     * Create a new targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
+     * Create a new targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TargetDeviceGroup>}
@@ -50,7 +50,7 @@ export interface TargetDeviceGroupsRequestBuilder extends BaseRequestBuilder<Tar
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<TargetDeviceGroupsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguraiton object on the servicePrincipal.
+     * Create a new targetDeviceGroup object for the remoteDesktopSecurityConfiguration object on the servicePrincipal. You can configure a maximum of 10 target device groups for the remoteDesktopSecurityConfiguration object on the servicePrincipal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
