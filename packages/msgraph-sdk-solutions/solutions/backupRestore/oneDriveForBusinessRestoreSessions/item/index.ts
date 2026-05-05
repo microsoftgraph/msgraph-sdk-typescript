@@ -10,6 +10,8 @@ import { DriveRestoreArtifactsRequestBuilderNavigationMetadata, DriveRestoreArti
 // @ts-ignore
 import { DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata, DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata, type DriveRestoreArtifactsBulkAdditionRequestsRequestBuilder } from './driveRestoreArtifactsBulkAdditionRequests/index.js';
 // @ts-ignore
+import { GranularDriveRestoreArtifactsRequestBuilderNavigationMetadata, GranularDriveRestoreArtifactsRequestBuilderRequestsMetadata, type GranularDriveRestoreArtifactsRequestBuilder } from './granularDriveRestoreArtifacts/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +26,10 @@ export interface OneDriveForBusinessRestoreSessionItemRequestBuilder extends Bas
      * Provides operations to manage the driveRestoreArtifactsBulkAdditionRequests property of the microsoft.graph.oneDriveForBusinessRestoreSession entity.
      */
     get driveRestoreArtifactsBulkAdditionRequests(): DriveRestoreArtifactsBulkAdditionRequestsRequestBuilder;
+    /**
+     * Provides operations to manage the granularDriveRestoreArtifacts property of the microsoft.graph.oneDriveForBusinessRestoreSession entity.
+     */
+    get granularDriveRestoreArtifacts(): GranularDriveRestoreArtifactsRequestBuilder;
     /**
      * Delete navigation property oneDriveForBusinessRestoreSessions for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -101,6 +107,10 @@ export const OneDriveForBusinessRestoreSessionItemRequestBuilderNavigationMetada
     driveRestoreArtifactsBulkAdditionRequests: {
         requestsMetadata: DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata,
         navigationMetadata: DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata,
+    },
+    granularDriveRestoreArtifacts: {
+        requestsMetadata: GranularDriveRestoreArtifactsRequestBuilderRequestsMetadata,
+        navigationMetadata: GranularDriveRestoreArtifactsRequestBuilderNavigationMetadata,
     },
 };
 /**

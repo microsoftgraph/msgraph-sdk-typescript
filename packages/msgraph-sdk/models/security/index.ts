@@ -83,6 +83,10 @@ export interface Alert extends Entity, Parsable {
      */
     assignedTo?: string | null;
     /**
+     * The categories property
+     */
+    categories?: string[] | null;
+    /**
      * The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
      */
     category?: string | null;
@@ -3177,7 +3181,7 @@ export interface DataSource extends Entity, Parsable {
      */
     displayName?: string | null;
     /**
-     * The hold status of the dataSource.The possible values are: notApplied, applied, applying, removing, partial
+     * The hold status of the dataSource. The possible values are: notApplied, applied, applying, removing, partial.
      */
     holdStatus?: DataSourceHoldStatus | null;
 }
@@ -3298,6 +3302,7 @@ export function deserializeIntoAlert(alert: Partial<Alert> | undefined = {}) : R
         "alertPolicyId": n => { alert.alertPolicyId = n.getStringValue(); },
         "alertWebUrl": n => { alert.alertWebUrl = n.getStringValue(); },
         "assignedTo": n => { alert.assignedTo = n.getStringValue(); },
+        "categories": n => { alert.categories = n.getCollectionOfPrimitiveValues<string>(); },
         "category": n => { alert.category = n.getStringValue(); },
         "classification": n => { alert.classification = n.getEnumValue<AlertClassification>(AlertClassificationObject); },
         "comments": n => { alert.comments = n.getCollectionOfObjectValues<AlertComment>(createAlertCommentFromDiscriminatorValue); },
@@ -9709,6 +9714,7 @@ export function serializeAlert(writer: SerializationWriter, alert: Partial<Alert
     writer.writeStringValue("alertPolicyId", alert.alertPolicyId);
     writer.writeStringValue("alertWebUrl", alert.alertWebUrl);
     writer.writeStringValue("assignedTo", alert.assignedTo);
+    writer.writeCollectionOfPrimitiveValues<string>("categories", alert.categories);
     writer.writeStringValue("category", alert.category);
     writer.writeEnumValue<AlertClassification>("classification", alert.classification);
     writer.writeCollectionOfObjectValues<AlertComment>("comments", alert.comments, serializeAlertComment);

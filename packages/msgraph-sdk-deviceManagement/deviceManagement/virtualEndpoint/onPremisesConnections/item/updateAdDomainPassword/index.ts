@@ -54,14 +54,15 @@ export interface UpdateAdDomainPasswordPostRequestBody extends AdditionalDataHol
  */
 export interface UpdateAdDomainPasswordRequestBuilder extends BaseRequestBuilder<UpdateAdDomainPasswordRequestBuilder> {
     /**
-     * Invoke action updateAdDomainPassword
+     * Update the Active Directory domain password for a successful cloudPcOnPremisesConnection. This API is supported when the type of the cloudPcOnPremisesConnection object is hybridAzureADJoin.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/cloudpconpremisesconnection-updateaddomainpassword?view=graph-rest-1.0|Find more info here}
      */
      post(body: UpdateAdDomainPasswordPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Invoke action updateAdDomainPassword
+     * Update the Active Directory domain password for a successful cloudPcOnPremisesConnection. This API is supported when the type of the cloudPcOnPremisesConnection object is hybridAzureADJoin.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
