@@ -1014,6 +1014,7 @@ export function deserializeIntoTaskProcessingResult(taskProcessingResult: Partia
         "completedDateTime": n => { taskProcessingResult.completedDateTime = n.getDateValue(); },
         "createdDateTime": n => { taskProcessingResult.createdDateTime = n.getDateValue(); },
         "failureReason": n => { taskProcessingResult.failureReason = n.getStringValue(); },
+        "processingInfo": n => { taskProcessingResult.processingInfo = n.getStringValue(); },
         "processingStatus": n => { taskProcessingResult.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatusObject); },
         "startedDateTime": n => { taskProcessingResult.startedDateTime = n.getDateValue(); },
         "subject": n => { taskProcessingResult.subject = n.getObjectValue<User>(createUserFromDiscriminatorValue); },
@@ -1987,6 +1988,7 @@ export function serializeTaskProcessingResult(writer: SerializationWriter, taskP
     writer.writeDateValue("completedDateTime", taskProcessingResult.completedDateTime);
     writer.writeDateValue("createdDateTime", taskProcessingResult.createdDateTime);
     writer.writeStringValue("failureReason", taskProcessingResult.failureReason);
+    writer.writeStringValue("processingInfo", taskProcessingResult.processingInfo);
     writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", taskProcessingResult.processingStatus);
     writer.writeDateValue("startedDateTime", taskProcessingResult.startedDateTime);
     writer.writeObjectValue<User>("subject", taskProcessingResult.subject, serializeUser);
@@ -2493,6 +2495,10 @@ export interface TaskProcessingResult extends Entity, Parsable {
      * Describes why the taskProcessingResult has failed.
      */
     failureReason?: string | null;
+    /**
+     * The processingInfo property
+     */
+    processingInfo?: string | null;
     /**
      * The processingStatus property
      */

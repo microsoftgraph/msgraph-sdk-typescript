@@ -6,6 +6,8 @@ import { createSharePointRestoreSessionFromDiscriminatorValue, serializeSharePoi
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { GranularSiteRestoreArtifactsRequestBuilderNavigationMetadata, GranularSiteRestoreArtifactsRequestBuilderRequestsMetadata, type GranularSiteRestoreArtifactsRequestBuilder } from './granularSiteRestoreArtifacts/index.js';
+// @ts-ignore
 import { SiteRestoreArtifactsRequestBuilderNavigationMetadata, SiteRestoreArtifactsRequestBuilderRequestsMetadata, type SiteRestoreArtifactsRequestBuilder } from './siteRestoreArtifacts/index.js';
 // @ts-ignore
 import { SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata, SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata, type SiteRestoreArtifactsBulkAdditionRequestsRequestBuilder } from './siteRestoreArtifactsBulkAdditionRequests/index.js';
@@ -16,6 +18,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the sharePointRestoreSessions property of the microsoft.graph.backupRestoreRoot entity.
  */
 export interface SharePointRestoreSessionItemRequestBuilder extends BaseRequestBuilder<SharePointRestoreSessionItemRequestBuilder> {
+    /**
+     * Provides operations to manage the granularSiteRestoreArtifacts property of the microsoft.graph.sharePointRestoreSession entity.
+     */
+    get granularSiteRestoreArtifacts(): GranularSiteRestoreArtifactsRequestBuilder;
     /**
      * Provides operations to manage the siteRestoreArtifacts property of the microsoft.graph.sharePointRestoreSession entity.
      */
@@ -93,6 +99,10 @@ const SharePointRestoreSessionItemRequestBuilderGetQueryParametersMapper: Record
  * Metadata for all the navigation properties in the request builder.
  */
 export const SharePointRestoreSessionItemRequestBuilderNavigationMetadata: Record<Exclude<keyof SharePointRestoreSessionItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    granularSiteRestoreArtifacts: {
+        requestsMetadata: GranularSiteRestoreArtifactsRequestBuilderRequestsMetadata,
+        navigationMetadata: GranularSiteRestoreArtifactsRequestBuilderNavigationMetadata,
+    },
     siteRestoreArtifacts: {
         requestsMetadata: SiteRestoreArtifactsRequestBuilderRequestsMetadata,
         navigationMetadata: SiteRestoreArtifactsRequestBuilderNavigationMetadata,
