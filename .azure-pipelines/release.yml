@@ -53,6 +53,8 @@ extends:
           inputs:
             command: 'ci'
             verbose: true
+            customRegistry: 'useFeed'
+            customFeed: 'Graph Developer Experiences/msgraph-typescript'
           displayName: 'Install npm dependencies with retry'
 
         - script: npm run build
