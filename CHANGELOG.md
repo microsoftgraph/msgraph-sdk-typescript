@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-preview.83](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.82...v1.0.0-preview.83) (2026-05-15)
+
+
+### Bug Fixes
+
+* route npm install through Azure Artifacts feed in release pipeline ([cc92832](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/cc928321c5a3664678c9cac32a67b9031a7a9d16))
+* route npm install through Azure Artifacts feed in release pipeline ([c36c40b](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/c36c40b678256e6886f743b8f311dc142889e14b))
+
 ## [1.0.0-preview.82](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.81...v1.0.0-preview.82) (2026-05-05)
 
 
