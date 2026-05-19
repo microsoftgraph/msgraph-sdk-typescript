@@ -4,10 +4,10 @@
   "compilerOptions": {
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
       "@microsoft/msgraph-sdk": ["../msgraph-sdk"]
-    }
+    },
+    "types": ["chai", "mocha"]
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "**/__tests__/*", "**/__e2e__/*"],
