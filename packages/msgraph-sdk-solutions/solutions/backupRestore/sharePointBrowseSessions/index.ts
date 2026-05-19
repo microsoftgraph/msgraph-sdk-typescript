@@ -27,28 +27,30 @@ export interface SharePointBrowseSessionsRequestBuilder extends BaseRequestBuild
      */
      bySharePointBrowseSessionId(sharePointBrowseSessionId: string) : SharePointBrowseSessionItemRequestBuilder;
     /**
-     * Get sharePointBrowseSessions from solutions
+     * Get a list of the sharePointBrowseSession objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharePointBrowseSessionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/backuprestoreroot-list-sharepointbrowsesessions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SharePointBrowseSessionsRequestBuilderGetQueryParameters> | undefined) : Promise<SharePointBrowseSessionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to sharePointBrowseSessions for solutions
+     * Create a new sharePointBrowseSession object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharePointBrowseSession>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/backuprestoreroot-post-sharepointbrowsesessions?view=graph-rest-1.0|Find more info here}
      */
      post(body: SharePointBrowseSession, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SharePointBrowseSession | undefined>;
     /**
-     * Get sharePointBrowseSessions from solutions
+     * Get a list of the sharePointBrowseSession objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharePointBrowseSessionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to sharePointBrowseSessions for solutions
+     * Create a new sharePointBrowseSession object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface SharePointBrowseSessionsRequestBuilder extends BaseRequestBuild
      toPostRequestInformation(body: SharePointBrowseSession, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get sharePointBrowseSessions from solutions
+ * Get a list of the sharePointBrowseSession objects and their properties.
  */
 export interface SharePointBrowseSessionsRequestBuilderGetQueryParameters {
     /**

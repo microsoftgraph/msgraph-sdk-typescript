@@ -13,21 +13,22 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MailboxItemItemRequestBuilder extends BaseRequestBuilder<MailboxItemItemRequestBuilder> {
     /**
-     * Get items from admin
+     * Read the properties and relationships of a mailboxItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/mailboxitem-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MailboxItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxItem | undefined>;
     /**
-     * Get items from admin
+     * Read the properties and relationships of a mailboxItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MailboxItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get items from admin
+ * Read the properties and relationships of a mailboxItem object.
  */
 export interface MailboxItemItemRequestBuilderGetQueryParameters {
     /**

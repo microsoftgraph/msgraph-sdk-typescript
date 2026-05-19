@@ -19,7 +19,7 @@ export interface GranularDriveRestoreArtifactItemRequestBuilder extends BaseRequ
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get granularDriveRestoreArtifacts from solutions
+     * A collection of browse session ID and item key details that can be used to restore OneDrive for work or school files and folders.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GranularDriveRestoreArtifact>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -40,7 +40,7 @@ export interface GranularDriveRestoreArtifactItemRequestBuilder extends BaseRequ
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get granularDriveRestoreArtifacts from solutions
+     * A collection of browse session ID and item key details that can be used to restore OneDrive for work or school files and folders.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface GranularDriveRestoreArtifactItemRequestBuilder extends BaseRequ
      toPatchRequestInformation(body: GranularDriveRestoreArtifact, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get granularDriveRestoreArtifacts from solutions
+ * A collection of browse session ID and item key details that can be used to restore OneDrive for work or school files and folders.
  */
 export interface GranularDriveRestoreArtifactItemRequestBuilderGetQueryParameters {
     /**

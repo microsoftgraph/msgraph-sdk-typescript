@@ -11,13 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface CompleteMigrationRequestBuilder extends BaseRequestBuilder<CompleteMigrationRequestBuilder> {
     /**
-     * Invoke action completeMigration
+     * Complete the migration of external messages by removing migration mode from a chat. Complete migration operations were initially restricted to newly created standard channels using migration templates specifically designed for the initial migration process. For more information, see Import third-party platform messages to Teams using Microsoft Graph. After a completeMigration request is made for an existing or new chat, you can start a migration session by calling chat: startMigration. This API supportes the following channel types.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/chat-completemigration?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Invoke action completeMigration
+     * Complete the migration of external messages by removing migration mode from a chat. Complete migration operations were initially restricted to newly created standard channels using migration templates specifically designed for the initial migration process. For more information, see Import third-party platform messages to Teams using Microsoft Graph. After a completeMigration request is made for an existing or new chat, you can start a migration session by calling chat: startMigration. This API supportes the following channel types.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

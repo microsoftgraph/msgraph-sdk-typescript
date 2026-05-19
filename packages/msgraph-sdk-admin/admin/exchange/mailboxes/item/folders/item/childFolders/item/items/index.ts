@@ -33,21 +33,21 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      */
      byMailboxItemId(mailboxItemId: string) : MailboxItemItemRequestBuilder;
     /**
-     * Get items from admin
+     * The collection of items in this folder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<ItemsRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxItemCollectionResponse | undefined>;
     /**
-     * Get items from admin
+     * The collection of items in this folder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ItemsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get items from admin
+ * The collection of items in this folder.
  */
 export interface ItemsRequestBuilderGetQueryParameters {
     /**

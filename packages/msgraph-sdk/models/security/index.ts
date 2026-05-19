@@ -83,11 +83,11 @@ export interface Alert extends Entity, Parsable {
      */
     assignedTo?: string | null;
     /**
-     * The categories property
+     * The attack kill-chain categories that the alert belongs to. Aligned with the MITRE ATT&CK framework.
      */
     categories?: string[] | null;
     /**
-     * The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework.
+     * The attack kill-chain category that the alert belongs to. Aligned with the MITRE ATT&CK framework. This property is in the process of being deprecated. Use the categories property instead.
      */
     category?: string | null;
     /**
@@ -6856,19 +6856,19 @@ export interface DispositionReviewStageCollectionResponse extends BaseCollection
 }
 export interface DnsEvidence extends AlertEvidence, Parsable {
     /**
-     * The dnsServerIp property
+     * An IP entity that represents the DNS server that resolves the request.
      */
     dnsServerIp?: IpEvidence | null;
     /**
-     * The domainName property
+     * The name of the DNS record associated with the alert.
      */
     domainName?: string | null;
     /**
-     * The hostIpAddress property
+     * An IP entity that represents the DNS request client.
      */
     hostIpAddress?: IpEvidence | null;
     /**
-     * The ipAddresses property
+     * IP entities that represent the resolved IP addresses.
      */
     ipAddresses?: IpEvidence[] | null;
 }
@@ -7436,7 +7436,7 @@ export interface FileHashEvidence extends AlertEvidence, Parsable {
      */
     algorithm?: FileHashAlgorithm | null;
     /**
-     * The value property
+     * The hash value.
      */
     value?: string | null;
 }
@@ -7592,71 +7592,71 @@ export interface GeoLocation extends AdditionalDataHolder, BackedModel, Parsable
 }
 export interface GitHubOrganizationEvidence extends AlertEvidence, Parsable {
     /**
-     * The company property
+     * The name of the company that owns the organization.
      */
     company?: string | null;
     /**
-     * The displayName property
+     * The display name of the organization.
      */
     displayName?: string | null;
     /**
-     * The email property
+     * The email address of the organization.
      */
     email?: string | null;
     /**
-     * The login property
+     * The login (name) of the organization.
      */
     login?: string | null;
     /**
-     * The orgId property
+     * The unique and immutable ID of the organization.
      */
     orgId?: string | null;
     /**
-     * The webUrl property
+     * The URL of the web page for the organization.
      */
     webUrl?: string | null;
 }
 export interface GitHubRepoEvidence extends AlertEvidence, Parsable {
     /**
-     * The baseUrl property
+     * The base URL of the web page for the repository.
      */
     baseUrl?: string | null;
     /**
-     * The login property
+     * The login (name) of the repository.
      */
     login?: string | null;
     /**
-     * The owner property
+     * The login of the owner of the repository.
      */
     owner?: string | null;
     /**
-     * The ownerType property
+     * The type of owner of the repository, for example, User or Organization.
      */
     ownerType?: string | null;
     /**
-     * The repoId property
+     * The unique and immutable ID of the GitHub repository.
      */
     repoId?: string | null;
 }
 export interface GitHubUserEvidence extends AlertEvidence, Parsable {
     /**
-     * The email property
+     * The email address of the user account.
      */
     email?: string | null;
     /**
-     * The login property
+     * The user's login (GitHub handle).
      */
     login?: string | null;
     /**
-     * The name property
+     * The user's name.
      */
     name?: string | null;
     /**
-     * The userId property
+     * The unique and immutable ID of the user account.
      */
     userId?: string | null;
     /**
-     * The webUrl property
+     * The URL of the user's profile web page. For example, https://github.com/my-login.
      */
     webUrl?: string | null;
 }
@@ -7884,23 +7884,23 @@ export interface HostCookieCollectionResponse extends BaseCollectionPaginationCo
 }
 export interface HostLogonSessionEvidence extends AlertEvidence, Parsable {
     /**
-     * The account property
+     * The account that is associated with the sign-in session ID.
      */
     account?: UserEvidence | null;
     /**
-     * The endUtcDateTime property
+     * The session end time, if known. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024 is 2024-01-01T00:00:00Z.
      */
     endUtcDateTime?: Date | null;
     /**
-     * The host property
+     * The host for the session.
      */
     host?: DeviceEvidence | null;
     /**
-     * The sessionId property
+     * The session ID for the account reported in the alert, for example, 0x3e7.
      */
     sessionId?: string | null;
     /**
-     * The startUtcDateTime property
+     * The session start time, if known. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024 is 2024-01-01T00:00:00Z.
      */
     startUtcDateTime?: Date | null;
 }
@@ -8509,7 +8509,7 @@ export interface IoTDeviceEvidence extends AlertEvidence, Parsable {
      */
     deviceType?: string | null;
     /**
-     * The importance level for the IoT device. Possible values are low, normal, high, and unknownFutureValue.
+     * The importance level for the IoT device. The possible values are: unknown, low, normal, high, unknownFutureValue.
      */
     importance?: IoTDeviceImportanceType | null;
     /**
@@ -8934,19 +8934,19 @@ export interface MailClusterEvidence extends AlertEvidence, Parsable {
 }
 export interface MalwareEvidence extends AlertEvidence, Parsable {
     /**
-     * The category property
+     * The malware category by the vendor, for example, Trojan.
      */
     category?: string | null;
     /**
-     * The files property
+     * A list of the linked file entities on which the malware was found. Can contain the file entities inline or as reference. For more information, see fileEvidence.
      */
     files?: FileEvidence[] | null;
     /**
-     * The name property
+     * The malware name by the vendor, for example, Win32/Toga.
      */
     name?: string | null;
     /**
-     * The processes property
+     * A list of the linked process entities on which the malware was found. Use this property, for example, when the alert was triggered on fileless activity. For more information, see processEvidence.
      */
     processes?: ProcessEvidence[] | null;
 }
@@ -8962,23 +8962,23 @@ export interface NetworkAdapter extends Entity, Parsable {
 }
 export interface NetworkConnectionEvidence extends AlertEvidence, Parsable {
     /**
-     * The destinationAddress property
+     * An entity of type IP that is the destination for this connection.
      */
     destinationAddress?: IpEvidence | null;
     /**
-     * The destinationPort property
+     * The destination port number. For example, 80.
      */
     destinationPort?: number | null;
     /**
-     * The protocol property
+     * The protocol type. Possible values are tcp, udp, unknownFutureValue.
      */
     protocol?: ProtocolType | null;
     /**
-     * The sourceAddress property
+     * An entity of type IP that is the source for this connection.
      */
     sourceAddress?: IpEvidence | null;
     /**
-     * The sourcePort property
+     * The source port number. For example, 80.
      */
     sourcePort?: number | null;
 }
@@ -9430,43 +9430,43 @@ export type RetentionTrigger = (typeof RetentionTriggerObject)[keyof typeof Rete
 export type ReviewSetSettings = (typeof ReviewSetSettingsObject)[keyof typeof ReviewSetSettingsObject];
 export interface SasTokenEvidence extends AlertEvidence, Parsable {
     /**
-     * The allowedIpAddresses property
+     * All IP addresses accessible with this SAS. The default value is Allows all IP addresses.
      */
     allowedIpAddresses?: string | null;
     /**
-     * The allowedResourceTypes property
+     * All resource types accessible with this SAS.
      */
     allowedResourceTypes?: string[] | null;
     /**
-     * The allowedServices property
+     * All services accessible with this SAS.
      */
     allowedServices?: string[] | null;
     /**
-     * The expiryDateTime property
+     * The SAS expiration time. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024 is 2024-01-01T00:00:00Z.
      */
     expiryDateTime?: Date | null;
     /**
-     * The permissions property
+     * All permissions granted to this SAS.
      */
     permissions?: string[] | null;
     /**
-     * The protocol property
+     * The protocol that is allowed with this SAS.
      */
     protocol?: string | null;
     /**
-     * The signatureHash property
+     * The SAS signature hash, which is a unique identifier for each SAS.
      */
     signatureHash?: string | null;
     /**
-     * The signedWith property
+     * The storage key that was used to generate the SAS.
      */
     signedWith?: string | null;
     /**
-     * The startDateTime property
+     * The SAS activation time. This property can be null. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024 is 2024-01-01T00:00:00Z.
      */
     startDateTime?: Date | null;
     /**
-     * The storageResource property
+     * A link to the storage resource for this SAS.
      */
     storageResource?: AzureResourceEvidence | null;
 }
@@ -13470,27 +13470,27 @@ export function serializeWhoisRecordCollectionResponse(writer: SerializationWrit
 }
 export interface ServicePrincipalEvidence extends AlertEvidence, Parsable {
     /**
-     * The appId property
+     * The unique identifier for the associated application, represented by its appId property.
      */
     appId?: string | null;
     /**
-     * The appOwnerTenantId property
+     * The tenant ID where the application is registered.
      */
     appOwnerTenantId?: string | null;
     /**
-     * The servicePrincipalName property
+     * The display name for the service principal.
      */
     servicePrincipalName?: string | null;
     /**
-     * The servicePrincipalObjectId property
+     * The unique identifier for the service principal.
      */
     servicePrincipalObjectId?: string | null;
     /**
-     * The servicePrincipalType property
+     * The service principal type. Possible values are: unknown, application, managedIdentity, legacy, unknownFutureValue.
      */
     servicePrincipalType?: ServicePrincipalType | null;
     /**
-     * The tenantId property
+     * The Microsoft Entra tenant ID of the service principal.
      */
     tenantId?: string | null;
 }
@@ -13669,39 +13669,39 @@ export interface SubdomainCollectionResponse extends BaseCollectionPaginationCou
 }
 export interface SubmissionMailEvidence extends AlertEvidence, Parsable {
     /**
-     * The networkMessageId property
+     * The network message ID of the email to which the submission belongs.
      */
     networkMessageId?: string | null;
     /**
-     * The recipient property
+     * The recipient of the email.
      */
     recipient?: string | null;
     /**
-     * The reportType property
+     * The submission type for the specified instance that maps to Junk, Phish, Malware, or NotJunk.
      */
     reportType?: string | null;
     /**
-     * The sender property
+     * The sender of the email.
      */
     sender?: string | null;
     /**
-     * The senderIp property
+     * The sender's IP.
      */
     senderIp?: string | null;
     /**
-     * The subject property
+     * The subject of the submission mail.
      */
     subject?: string | null;
     /**
-     * The submissionDateTime property
+     * The reported date and time of this submission. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024 is 2024-01-01T00:00:00Z.
      */
     submissionDateTime?: Date | null;
     /**
-     * The submissionId property
+     * The submission ID.
      */
     submissionId?: string | null;
     /**
-     * The submitter property
+     * The submitter's email address.
      */
     submitter?: string | null;
 }

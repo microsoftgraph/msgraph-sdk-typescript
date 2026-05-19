@@ -2492,11 +2492,11 @@ export interface TaskProcessingResult extends Entity, Parsable {
      */
     createdDateTime?: Date | null;
     /**
-     * Describes why the taskProcessingResult has failed.
+     * Describes why the taskProcessingResult failed.
      */
     failureReason?: string | null;
     /**
-     * The processingInfo property
+     * Additional human-readable context about the task processing outcome. This property contains information about edge cases where the task completed successfully but the expected action wasn't performed because the target was already in the desired state, such as when the user was already a member of the specified group. Returns null when no additional context is needed. Nullable.
      */
     processingInfo?: string | null;
     /**
@@ -2504,7 +2504,7 @@ export interface TaskProcessingResult extends Entity, Parsable {
      */
     processingStatus?: LifecycleWorkflowProcessingStatus | null;
     /**
-     * The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
+     * The date time when taskProcessingResult execution started. Value is null if task execution hasn't started yet.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      */
     startedDateTime?: Date | null;
     /**

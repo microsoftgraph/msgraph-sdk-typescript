@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MailboxItemItemRequestBuilder extends BaseRequestBuilder<MailboxItemItemRequestBuilder> {
     /**
-     * Get items from admin
+     * The collection of items in this folder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxItem>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<MailboxItemItemRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxItem | undefined>;
     /**
-     * Get items from admin
+     * The collection of items in this folder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MailboxItemItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get items from admin
+ * The collection of items in this folder.
  */
 export interface MailboxItemItemRequestBuilderGetQueryParameters {
     /**

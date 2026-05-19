@@ -27,7 +27,7 @@ export interface MailboxesRequestBuilder extends BaseRequestBuilder<MailboxesReq
      */
      byMailboxId(mailboxId: string) : MailboxItemRequestBuilder;
     /**
-     * Get mailboxes from admin
+     * Represents a user's mailboxes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface MailboxesRequestBuilder extends BaseRequestBuilder<MailboxesReq
      */
      post(body: Mailbox, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Mailbox | undefined>;
     /**
-     * Get mailboxes from admin
+     * Represents a user's mailboxes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +56,7 @@ export interface MailboxesRequestBuilder extends BaseRequestBuilder<MailboxesReq
      toPostRequestInformation(body: Mailbox, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get mailboxes from admin
+ * Represents a user's mailboxes.
  */
 export interface MailboxesRequestBuilderGetQueryParameters {
     /**

@@ -28,21 +28,22 @@ export interface DeltaGetResponse extends BaseDeltaFunctionResponse, Parsable {
  */
 export interface DeltaRequestBuilder extends BaseRequestBuilder<DeltaRequestBuilder> {
     /**
-     * Invoke function delta
+     * Get a set of mailboxItem objects that were added, deleted, or updated in a specified mailboxFolder. A delta function call for items in a folder is similar to a GET request, except that by appropriately applying state tokens in one or more of these calls, you can query for incremental changes in the items in that folder. This approach allows you to maintain and synchronize a local store of a user's mailbox items without having to fetch the entire set of items from the server every time.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeltaGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/mailboxitem-delta?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : Promise<DeltaGetResponse | undefined>;
     /**
-     * Invoke function delta
+     * Get a set of mailboxItem objects that were added, deleted, or updated in a specified mailboxFolder. A delta function call for items in a folder is similar to a GET request, except that by appropriately applying state tokens in one or more of these calls, you can query for incremental changes in the items in that folder. This approach allows you to maintain and synchronize a local store of a user's mailbox items without having to fetch the entire set of items from the server every time.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeltaRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function delta
+ * Get a set of mailboxItem objects that were added, deleted, or updated in a specified mailboxFolder. A delta function call for items in a folder is similar to a GET request, except that by appropriately applying state tokens in one or more of these calls, you can query for incremental changes in the items in that folder. This approach allows you to maintain and synchronize a local store of a user's mailbox items without having to fetch the entire set of items from the server every time.
  */
 export interface DeltaRequestBuilderGetQueryParameters {
     /**

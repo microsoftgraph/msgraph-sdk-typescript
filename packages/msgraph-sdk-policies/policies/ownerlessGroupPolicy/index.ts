@@ -13,28 +13,30 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface OwnerlessGroupPolicyRequestBuilder extends BaseRequestBuilder<OwnerlessGroupPolicyRequestBuilder> {
     /**
-     * Get ownerlessGroupPolicy from policies
+     * Read the properties of an ownerlessGroupPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OwnerlessGroupPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/ownerlessgrouppolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OwnerlessGroupPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<OwnerlessGroupPolicy | undefined>;
     /**
-     * Update the navigation property ownerlessGroupPolicy in policies
+     * Create or update the ownerlessGroupPolicy for the tenant. If the policy doesn't exist, it creates a new one; if the policy exists, it updates the existing policy. To disable the policy, set isEnabled to false. Setting isEnabled to false clears the values of all other policy parameters.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OwnerlessGroupPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/ownerlessgrouppolicy-upsert?view=graph-rest-1.0|Find more info here}
      */
      patch(body: OwnerlessGroupPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<OwnerlessGroupPolicy | undefined>;
     /**
-     * Get ownerlessGroupPolicy from policies
+     * Read the properties of an ownerlessGroupPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OwnerlessGroupPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property ownerlessGroupPolicy in policies
+     * Create or update the ownerlessGroupPolicy for the tenant. If the policy doesn't exist, it creates a new one; if the policy exists, it updates the existing policy. To disable the policy, set isEnabled to false. Setting isEnabled to false clears the values of all other policy parameters.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -42,7 +44,7 @@ export interface OwnerlessGroupPolicyRequestBuilder extends BaseRequestBuilder<O
      toPatchRequestInformation(body: OwnerlessGroupPolicy, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get ownerlessGroupPolicy from policies
+ * Read the properties of an ownerlessGroupPolicy object.
  */
 export interface OwnerlessGroupPolicyRequestBuilderGetQueryParameters {
     /**

@@ -71,15 +71,16 @@ export interface ExportItemsPostResponse extends BaseCollectionPaginationCountRe
  */
 export interface ExportItemsRequestBuilder extends BaseRequestBuilder<ExportItemsRequestBuilder> {
     /**
-     * Invoke action exportItems
+     * Export Exchange mailboxItem objects in full fidelity. This API exports each item as an opaque stream. The data stream isn't intended for parsing, but can be used to import an item back into an Exchange mailbox. For more information, see Overview of the mailbox import and export APIs in Microsoft Graph. You can export up to 20 items in a single export request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExportItemsPostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/mailbox-exportitems?view=graph-rest-1.0|Find more info here}
      */
      post(body: ExportItemsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ExportItemsPostResponse | undefined>;
     /**
-     * Invoke action exportItems
+     * Export Exchange mailboxItem objects in full fidelity. This API exports each item as an opaque stream. The data stream isn't intended for parsing, but can be used to import an item back into an Exchange mailbox. For more information, see Overview of the mailbox import and export APIs in Microsoft Graph. You can export up to 20 items in a single export request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
