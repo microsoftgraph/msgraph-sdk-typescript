@@ -37,7 +37,7 @@ export interface MailboxItemRequestBuilder extends BaseRequestBuilder<MailboxIte
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get mailboxes from admin
+     * Represents a user's mailboxes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Mailbox>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -58,7 +58,7 @@ export interface MailboxItemRequestBuilder extends BaseRequestBuilder<MailboxIte
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get mailboxes from admin
+     * Represents a user's mailboxes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -72,7 +72,7 @@ export interface MailboxItemRequestBuilder extends BaseRequestBuilder<MailboxIte
      toPatchRequestInformation(body: Mailbox, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get mailboxes from admin
+ * Represents a user's mailboxes.
  */
 export interface MailboxItemRequestBuilderGetQueryParameters {
     /**

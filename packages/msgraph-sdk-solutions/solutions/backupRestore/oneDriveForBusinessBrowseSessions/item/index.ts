@@ -19,10 +19,11 @@ export interface OneDriveForBusinessBrowseSessionItemRequestBuilder extends Base
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get oneDriveForBusinessBrowseSessions from solutions
+     * Read the properties and relationships of oneDriveForBusinessBrowseSession object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OneDriveForBusinessBrowseSession>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/onedriveforbusinessbrowsesession-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<OneDriveForBusinessBrowseSessionItemRequestBuilderGetQueryParameters> | undefined) : Promise<OneDriveForBusinessBrowseSession | undefined>;
     /**
@@ -40,7 +41,7 @@ export interface OneDriveForBusinessBrowseSessionItemRequestBuilder extends Base
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get oneDriveForBusinessBrowseSessions from solutions
+     * Read the properties and relationships of oneDriveForBusinessBrowseSession object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +55,7 @@ export interface OneDriveForBusinessBrowseSessionItemRequestBuilder extends Base
      toPatchRequestInformation(body: OneDriveForBusinessBrowseSession, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get oneDriveForBusinessBrowseSessions from solutions
+ * Read the properties and relationships of oneDriveForBusinessBrowseSession object.
  */
 export interface OneDriveForBusinessBrowseSessionItemRequestBuilderGetQueryParameters {
     /**

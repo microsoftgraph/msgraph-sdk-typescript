@@ -27,10 +27,11 @@ export interface GranularSiteRestoreArtifactsRequestBuilder extends BaseRequestB
      */
      byGranularSiteRestoreArtifactId(granularSiteRestoreArtifactId: string) : GranularSiteRestoreArtifactItemRequestBuilder;
     /**
-     * Get granularSiteRestoreArtifacts from solutions
+     * Get a list of the granularSiteRestoreArtifact objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GranularSiteRestoreArtifactCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/sharepointrestoresession-list-granularsiterestoreartifacts?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GranularSiteRestoreArtifactsRequestBuilderGetQueryParameters> | undefined) : Promise<GranularSiteRestoreArtifactCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface GranularSiteRestoreArtifactsRequestBuilder extends BaseRequestB
      */
      post(body: GranularSiteRestoreArtifact, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GranularSiteRestoreArtifact | undefined>;
     /**
-     * Get granularSiteRestoreArtifacts from solutions
+     * Get a list of the granularSiteRestoreArtifact objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface GranularSiteRestoreArtifactsRequestBuilder extends BaseRequestB
      toPostRequestInformation(body: GranularSiteRestoreArtifact, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get granularSiteRestoreArtifacts from solutions
+ * Get a list of the granularSiteRestoreArtifact objects and their properties.
  */
 export interface GranularSiteRestoreArtifactsRequestBuilderGetQueryParameters {
     /**

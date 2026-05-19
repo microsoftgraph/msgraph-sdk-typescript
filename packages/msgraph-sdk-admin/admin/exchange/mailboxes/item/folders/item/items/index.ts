@@ -33,21 +33,22 @@ export interface ItemsRequestBuilder extends BaseRequestBuilder<ItemsRequestBuil
      */
      byMailboxItemId(mailboxItemId: string) : MailboxItemItemRequestBuilder;
     /**
-     * Get items from admin
+     * Get the mailboxItem collection within a specified mailboxFolder in a mailbox.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/mailboxfolder-list-items?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ItemsRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxItemCollectionResponse | undefined>;
     /**
-     * Get items from admin
+     * Get the mailboxItem collection within a specified mailboxFolder in a mailbox.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ItemsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get items from admin
+ * Get the mailboxItem collection within a specified mailboxFolder in a mailbox.
  */
 export interface ItemsRequestBuilderGetQueryParameters {
     /**

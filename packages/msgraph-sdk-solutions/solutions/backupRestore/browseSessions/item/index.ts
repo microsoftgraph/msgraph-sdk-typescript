@@ -33,7 +33,7 @@ export interface BrowseSessionBaseItemRequestBuilder extends BaseRequestBuilder<
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get browseSessions from solutions
+     * The list of browse sessions in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BrowseSessionBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -54,7 +54,7 @@ export interface BrowseSessionBaseItemRequestBuilder extends BaseRequestBuilder<
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get browseSessions from solutions
+     * The list of browse sessions in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -68,7 +68,7 @@ export interface BrowseSessionBaseItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: BrowseSessionBase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get browseSessions from solutions
+ * The list of browse sessions in the tenant.
  */
 export interface BrowseSessionBaseItemRequestBuilderGetQueryParameters {
     /**

@@ -19,21 +19,21 @@ export interface MailboxFolderItemRequestBuilder extends BaseRequestBuilder<Mail
      */
     get items(): ItemsRequestBuilder;
     /**
-     * Get childFolders from admin
+     * The collection of child folders in this folder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxFolder>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<MailboxFolderItemRequestBuilderGetQueryParameters> | undefined) : Promise<MailboxFolder | undefined>;
     /**
-     * Get childFolders from admin
+     * The collection of child folders in this folder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MailboxFolderItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get childFolders from admin
+ * The collection of child folders in this folder.
  */
 export interface MailboxFolderItemRequestBuilderGetQueryParameters {
     /**

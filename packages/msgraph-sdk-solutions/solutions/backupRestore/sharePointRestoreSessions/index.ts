@@ -34,7 +34,7 @@ export interface SharePointRestoreSessionsRequestBuilder extends BaseRequestBuil
      */
      get(requestConfiguration?: RequestConfiguration<SharePointRestoreSessionsRequestBuilderGetQueryParameters> | undefined) : Promise<SharePointRestoreSessionCollectionResponse | undefined>;
     /**
-     * Create a new sharePointRestoreSession object.
+     * Create a new sharePointRestoreSession object. To create a granular restore session, granular site restore artifacts must be present in the payload. A request can't include both granularSiteRestoreArtifact and siteRestoreArtifact in the same create or update request. If no payload is provided when you create the restore session, the request creates an empty standard restore session by default.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharePointRestoreSession>}
@@ -49,7 +49,7 @@ export interface SharePointRestoreSessionsRequestBuilder extends BaseRequestBuil
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharePointRestoreSessionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new sharePointRestoreSession object.
+     * Create a new sharePointRestoreSession object. To create a granular restore session, granular site restore artifacts must be present in the payload. A request can't include both granularSiteRestoreArtifact and siteRestoreArtifact in the same create or update request. If no payload is provided when you create the restore session, the request creates an empty standard restore session by default.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

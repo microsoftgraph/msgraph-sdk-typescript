@@ -19,7 +19,7 @@ export interface GranularSiteRestoreArtifactItemRequestBuilder extends BaseReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get granularSiteRestoreArtifacts from solutions
+     * A collection of browse session ID and item key details that can be used to restore SharePoint files and folders.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GranularSiteRestoreArtifact>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -40,7 +40,7 @@ export interface GranularSiteRestoreArtifactItemRequestBuilder extends BaseReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get granularSiteRestoreArtifacts from solutions
+     * A collection of browse session ID and item key details that can be used to restore SharePoint files and folders.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -54,7 +54,7 @@ export interface GranularSiteRestoreArtifactItemRequestBuilder extends BaseReque
      toPatchRequestInformation(body: GranularSiteRestoreArtifact, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get granularSiteRestoreArtifacts from solutions
+ * A collection of browse session ID and item key details that can be used to restore SharePoint files and folders.
  */
 export interface GranularSiteRestoreArtifactItemRequestBuilderGetQueryParameters {
     /**
