@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-preview.84](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.83...v1.0.0-preview.84) (2026-05-26)
+
+
+### Bug Fixes
+
+* **deps:** update npm dependencies to fix GHSA-396q-4vc8-28x9 ([#995](https://github.com/microsoftgraph/msgraph-sdk-typescript/issues/995)) ([0f8bf87](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/0f8bf873479bac37f7c9f9cac978043d5d588785))
+
 ## [1.0.0-preview.83](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.82...v1.0.0-preview.83) (2026-05-19)
 
 

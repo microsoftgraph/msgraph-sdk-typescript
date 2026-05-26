@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-identityprotection",
-  "version": "1.0.0-preview.83",
+  "version": "1.0.0-preview.84",
   "description": "IdentityProtection fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
