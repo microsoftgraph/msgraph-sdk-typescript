@@ -75,7 +75,7 @@ export interface SubscriptionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubscriptionItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/subscriptions/{subscription%2Did}{?%24expand,%24select}";
+export const SubscriptionItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/subscriptions/{subscription%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

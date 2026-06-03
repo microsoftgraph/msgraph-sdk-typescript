@@ -75,7 +75,7 @@ export interface MobileAppTroubleshootingEventItemRequestBuilderGetQueryParamete
 /**
  * Uri template for the request builder.
  */
-export const MobileAppTroubleshootingEventItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}{?%24expand,%24select}";
+export const MobileAppTroubleshootingEventItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

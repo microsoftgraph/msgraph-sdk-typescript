@@ -75,7 +75,7 @@ export interface UnbilledRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UnbilledRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/usage/unbilled{?%24expand,%24select}";
+export const UnbilledRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/usage/unbilled";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

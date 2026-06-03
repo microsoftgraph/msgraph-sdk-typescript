@@ -78,7 +78,7 @@ export interface FeatureRolloutPolicyItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FeatureRolloutPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/featureRolloutPolicies/{featureRolloutPolicy%2Did}{?%24expand,%24select}";
+export const FeatureRolloutPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/featureRolloutPolicies/{featureRolloutPolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

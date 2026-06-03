@@ -71,7 +71,7 @@ export interface ReportSettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReportSettingsRequestBuilderUriTemplate = "{+baseurl}/admin/reportSettings{?%24expand,%24select}";
+export const ReportSettingsRequestBuilderUriTemplate = "{+baseurl}/admin/reportSettings";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

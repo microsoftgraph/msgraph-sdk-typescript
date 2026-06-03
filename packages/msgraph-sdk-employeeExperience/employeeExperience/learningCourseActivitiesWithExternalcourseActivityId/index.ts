@@ -70,7 +70,7 @@ export interface LearningCourseActivitiesWithExternalcourseActivityIdRequestBuil
 /**
  * Uri template for the request builder.
  */
-export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}'){?%24expand,%24select}";
+export const LearningCourseActivitiesWithExternalcourseActivityIdRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningCourseActivities(externalcourseActivityId='{externalcourseActivityId}')";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

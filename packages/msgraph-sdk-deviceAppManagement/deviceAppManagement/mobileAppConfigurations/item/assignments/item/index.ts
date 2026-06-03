@@ -69,7 +69,7 @@ export interface ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
 /**
  * Uri template for the request builder.
  */
-export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/assignments/{managedDeviceMobileAppConfigurationAssignment%2Did}{?%24expand,%24select}";
+export const ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/assignments/{managedDeviceMobileAppConfigurationAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

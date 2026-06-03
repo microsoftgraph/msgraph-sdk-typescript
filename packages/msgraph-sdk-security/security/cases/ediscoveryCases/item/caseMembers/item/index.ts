@@ -70,7 +70,7 @@ export interface EdiscoveryCaseMemberItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EdiscoveryCaseMemberItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/caseMembers/{ediscoveryCaseMember%2Did}{?%24expand,%24select}";
+export const EdiscoveryCaseMemberItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/caseMembers/{ediscoveryCaseMember%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -88,7 +88,7 @@ export interface AssignmentSettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AssignmentSettingsRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings{?%24expand,%24select}";
+export const AssignmentSettingsRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

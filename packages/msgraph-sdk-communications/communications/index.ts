@@ -105,7 +105,7 @@ export interface CommunicationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CommunicationsRequestBuilderUriTemplate = "{+baseurl}/communications{?%24expand,%24select}";
+export const CommunicationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

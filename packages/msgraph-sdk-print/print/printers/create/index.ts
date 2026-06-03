@@ -83,7 +83,7 @@ export function deserializeIntoCreatePostRequestBody(createPostRequestBody: Part
         "certificateSigningRequest": n => { createPostRequestBody.certificateSigningRequest = n.getObjectValue<PrintCertificateSigningRequest>(createPrintCertificateSigningRequestFromDiscriminatorValue); },
         "connectorId": n => { createPostRequestBody.connectorId = n.getStringValue(); },
         "displayName": n => { createPostRequestBody.displayName = n.getStringValue(); },
-        "hasPhysicalDevice": n => { createPostRequestBody.hasPhysicalDevice = n.getBooleanValue(); },
+        "hasPhysicalDevice": n => { createPostRequestBody.hasPhysicalDevice = n.getBooleanValue() ?? false; },
         "manufacturer": n => { createPostRequestBody.manufacturer = n.getStringValue(); },
         "model": n => { createPostRequestBody.model = n.getStringValue(); },
         "physicalDeviceId": n => { createPostRequestBody.physicalDeviceId = n.getStringValue(); },
@@ -101,7 +101,7 @@ export function serializeCreatePostRequestBody(writer: SerializationWriter, crea
     writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);
     writer.writeStringValue("connectorId", createPostRequestBody.connectorId);
     writer.writeStringValue("displayName", createPostRequestBody.displayName);
-    writer.writeBooleanValue("hasPhysicalDevice", createPostRequestBody.hasPhysicalDevice);
+    writer.writeBooleanValue("hasPhysicalDevice", createPostRequestBody.hasPhysicalDevice ?? false);
     writer.writeStringValue("manufacturer", createPostRequestBody.manufacturer);
     writer.writeStringValue("model", createPostRequestBody.model);
     writer.writeStringValue("physicalDeviceId", createPostRequestBody.physicalDeviceId);

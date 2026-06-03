@@ -69,7 +69,7 @@ export interface InformationProtectionRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InformationProtectionRequestBuilderUriTemplate = "{+baseurl}/informationProtection{?%24expand,%24select}";
+export const InformationProtectionRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -93,7 +93,7 @@ export interface SetItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SetItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/groups/{group%2Did}/sets/{set%2Did}{?%24expand,%24select}";
+export const SetItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/groups/{group%2Did}/sets/{set%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

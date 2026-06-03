@@ -63,7 +63,7 @@ export interface InferenceClassificationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InferenceClassificationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/inferenceClassification{?%24expand,%24select}";
+export const InferenceClassificationRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

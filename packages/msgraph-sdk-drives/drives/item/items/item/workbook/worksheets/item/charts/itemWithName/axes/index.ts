@@ -69,7 +69,7 @@ export interface AxesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AxesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/axes{?%24expand,%24select}";
+export const AxesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/axes";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryPar
 /**
  * Uri template for the request builder.
  */
-export const TargetedManagedAppPolicyAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/targetedManagedAppConfigurations/{targetedManagedAppConfiguration%2Did}/assignments/{targetedManagedAppPolicyAssignment%2Did}{?%24expand,%24select}";
+export const TargetedManagedAppPolicyAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/targetedManagedAppConfigurations/{targetedManagedAppConfiguration%2Did}/assignments/{targetedManagedAppPolicyAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

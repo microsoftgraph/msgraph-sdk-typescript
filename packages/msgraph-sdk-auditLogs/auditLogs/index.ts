@@ -75,7 +75,7 @@ export interface AuditLogsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuditLogsRequestBuilderUriTemplate = "{+baseurl}/auditLogs{?%24expand,%24select}";
+export const AuditLogsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

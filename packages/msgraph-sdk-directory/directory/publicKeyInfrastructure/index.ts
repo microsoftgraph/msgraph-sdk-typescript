@@ -75,7 +75,7 @@ export interface PublicKeyInfrastructureRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PublicKeyInfrastructureRequestBuilderUriTemplate = "{+baseurl}/directory/publicKeyInfrastructure{?%24expand,%24select}";
+export const PublicKeyInfrastructureRequestBuilderUriTemplate = "{+baseurl}/directory/publicKeyInfrastructure";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

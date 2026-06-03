@@ -105,7 +105,7 @@ export interface LabelsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LabelsRequestBuilderUriTemplate = "{+baseurl}/security/labels{?%24expand,%24select}";
+export const LabelsRequestBuilderUriTemplate = "{+baseurl}/security/labels";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

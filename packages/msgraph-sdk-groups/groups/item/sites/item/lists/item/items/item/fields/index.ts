@@ -69,7 +69,7 @@ export interface FieldsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FieldsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/fields{?%24expand,%24select}";
+export const FieldsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/fields";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

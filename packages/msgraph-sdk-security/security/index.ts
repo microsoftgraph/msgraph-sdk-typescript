@@ -147,7 +147,7 @@ export interface SecurityRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SecurityRequestBuilderUriTemplate = "{+baseurl}/security{?%24expand,%24select}";
+export const SecurityRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

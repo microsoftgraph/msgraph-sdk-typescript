@@ -69,7 +69,7 @@ export interface AnalyticsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AnalyticsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/analytics{?%24expand,%24select}";
+export const AnalyticsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/analytics";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

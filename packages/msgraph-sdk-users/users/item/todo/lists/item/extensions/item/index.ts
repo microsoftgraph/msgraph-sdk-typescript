@@ -69,7 +69,7 @@ export interface ExtensionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExtensionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/extensions/{extension%2Did}{?%24expand,%24select}";
+export const ExtensionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/extensions/{extension%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

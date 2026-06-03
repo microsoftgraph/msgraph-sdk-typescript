@@ -95,7 +95,7 @@ export interface WorkspacesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkspacesRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.roomList/workspaces{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const WorkspacesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

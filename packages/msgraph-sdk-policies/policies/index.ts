@@ -183,7 +183,7 @@ export interface PoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PoliciesRequestBuilderUriTemplate = "{+baseurl}/policies{?%24expand,%24select}";
+export const PoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

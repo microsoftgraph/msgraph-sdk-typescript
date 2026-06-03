@@ -65,7 +65,7 @@ export interface ContentRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContentRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/filesFolder/content{?%24format*}";
+export const ContentRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/filesFolder/content";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

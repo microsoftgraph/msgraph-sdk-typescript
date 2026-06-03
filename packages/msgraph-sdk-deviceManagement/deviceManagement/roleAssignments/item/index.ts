@@ -75,7 +75,7 @@ export interface DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryP
 /**
  * Uri template for the request builder.
  */
-export const DeviceAndAppManagementRoleAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleAssignments/{deviceAndAppManagementRoleAssignment%2Did}{?%24expand,%24select}";
+export const DeviceAndAppManagementRoleAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleAssignments/{deviceAndAppManagementRoleAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

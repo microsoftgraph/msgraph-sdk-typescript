@@ -69,7 +69,7 @@ export interface AuthoredNoteItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuthoredNoteItemRequestBuilderUriTemplate = "{+baseurl}/security/subjectRightsRequests/{subjectRightsRequest%2Did}/notes/{authoredNote%2Did}{?%24expand,%24select}";
+export const AuthoredNoteItemRequestBuilderUriTemplate = "{+baseurl}/security/subjectRightsRequests/{subjectRightsRequest%2Did}/notes/{authoredNote%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

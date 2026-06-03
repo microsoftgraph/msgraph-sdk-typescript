@@ -178,7 +178,7 @@ export interface TeamRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team{?%24expand,%24select}";
+export const TeamRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

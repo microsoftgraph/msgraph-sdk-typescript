@@ -72,7 +72,7 @@ export interface IdentitySynchronizationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentitySynchronizationRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/partners/{crossTenantAccessPolicyConfigurationPartner%2DtenantId}/identitySynchronization{?%24expand,%24select}";
+export const IdentitySynchronizationRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/partners/{crossTenantAccessPolicyConfigurationPartner%2DtenantId}/identitySynchronization";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

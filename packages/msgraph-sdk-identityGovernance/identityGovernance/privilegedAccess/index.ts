@@ -75,7 +75,7 @@ export interface PrivilegedAccessRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrivilegedAccessRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess{?%24expand,%24select}";
+export const PrivilegedAccessRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

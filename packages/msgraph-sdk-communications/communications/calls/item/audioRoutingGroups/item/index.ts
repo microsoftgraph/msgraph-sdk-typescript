@@ -72,7 +72,7 @@ export interface AudioRoutingGroupItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AudioRoutingGroupItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/audioRoutingGroups/{audioRoutingGroup%2Did}{?%24expand,%24select}";
+export const AudioRoutingGroupItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/audioRoutingGroups/{audioRoutingGroup%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -59,7 +59,7 @@ export function deserializeIntoAcceptPostRequestBody(acceptPostRequestBody: Part
     return {
         "backingStoreEnabled": n => { acceptPostRequestBody.backingStoreEnabled = true; },
         "Comment": n => { acceptPostRequestBody.comment = n.getStringValue(); },
-        "SendResponse": n => { acceptPostRequestBody.sendResponse = n.getBooleanValue(); },
+        "SendResponse": n => { acceptPostRequestBody.sendResponse = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -72,7 +72,7 @@ export function deserializeIntoAcceptPostRequestBody(acceptPostRequestBody: Part
 export function serializeAcceptPostRequestBody(writer: SerializationWriter, acceptPostRequestBody: Partial<AcceptPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!acceptPostRequestBody || isSerializingDerivedType) { return; }
     writer.writeStringValue("Comment", acceptPostRequestBody.comment);
-    writer.writeBooleanValue("SendResponse", acceptPostRequestBody.sendResponse);
+    writer.writeBooleanValue("SendResponse", acceptPostRequestBody.sendResponse ?? false);
     writer.writeAdditionalData(acceptPostRequestBody.additionalData);
 }
 /**

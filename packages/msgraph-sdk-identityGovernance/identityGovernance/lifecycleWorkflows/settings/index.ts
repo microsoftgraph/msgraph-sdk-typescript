@@ -59,7 +59,7 @@ export interface SettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SettingsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/settings{?%24expand,%24select}";
+export const SettingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

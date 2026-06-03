@@ -65,7 +65,7 @@ export interface AgreementAcceptanceItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AgreementAcceptanceItemRequestBuilderUriTemplate = "{+baseurl}/agreementAcceptances/{agreementAcceptance%2Did}{?%24select}";
+export const AgreementAcceptanceItemRequestBuilderUriTemplate = "{+baseurl}/agreementAcceptances/{agreementAcceptance%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

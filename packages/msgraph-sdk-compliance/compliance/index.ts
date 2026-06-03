@@ -57,7 +57,7 @@ export interface ComplianceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ComplianceRequestBuilderUriTemplate = "{+baseurl}/compliance{?%24expand,%24select}";
+export const ComplianceRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

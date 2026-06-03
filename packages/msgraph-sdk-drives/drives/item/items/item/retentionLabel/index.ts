@@ -72,7 +72,7 @@ export interface RetentionLabelRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RetentionLabelRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/retentionLabel{?%24expand,%24select}";
+export const RetentionLabelRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/retentionLabel";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

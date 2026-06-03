@@ -69,7 +69,7 @@ export interface CheckInClaimCalendarEventItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CheckInClaimCalendarEventItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.room/checkIns/{checkInClaim%2DcalendarEventId}{?%24expand,%24select}";
+export const CheckInClaimCalendarEventItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.room/checkIns/{checkInClaim%2DcalendarEventId}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

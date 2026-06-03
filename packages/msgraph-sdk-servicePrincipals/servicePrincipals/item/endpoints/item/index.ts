@@ -69,7 +69,7 @@ export interface EndpointItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EndpointItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/endpoints/{endpoint%2Did}{?%24expand,%24select}";
+export const EndpointItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/endpoints/{endpoint%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

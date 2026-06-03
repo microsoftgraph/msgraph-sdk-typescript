@@ -77,7 +77,7 @@ export interface AuthenticationMethodsPolicyRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationMethodsPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationMethodsPolicy{?%24expand,%24select}";
+export const AuthenticationMethodsPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationMethodsPolicy";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

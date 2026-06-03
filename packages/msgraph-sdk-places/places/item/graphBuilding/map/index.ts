@@ -83,7 +83,7 @@ export interface MapRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MapRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map{?%24expand,%24select}";
+export const MapRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

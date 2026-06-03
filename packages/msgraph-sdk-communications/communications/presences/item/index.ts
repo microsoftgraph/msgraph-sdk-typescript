@@ -124,7 +124,7 @@ export interface PresenceItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PresenceItemRequestBuilderUriTemplate = "{+baseurl}/communications/presences/{presence%2Did}{?%24expand,%24select}";
+export const PresenceItemRequestBuilderUriTemplate = "{+baseurl}/communications/presences/{presence%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

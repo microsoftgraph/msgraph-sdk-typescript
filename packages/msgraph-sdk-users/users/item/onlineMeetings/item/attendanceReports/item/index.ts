@@ -75,7 +75,7 @@ export interface MeetingAttendanceReportItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MeetingAttendanceReportItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/attendanceReports/{meetingAttendanceReport%2Did}{?%24expand,%24select}";
+export const MeetingAttendanceReportItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/attendanceReports/{meetingAttendanceReport%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

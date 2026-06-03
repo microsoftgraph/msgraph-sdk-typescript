@@ -75,7 +75,7 @@ export interface MajorGridlinesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MajorGridlinesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/axes/valueAxis/majorGridlines{?%24expand,%24select}";
+export const MajorGridlinesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/axes/valueAxis/majorGridlines";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

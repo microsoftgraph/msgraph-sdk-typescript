@@ -95,7 +95,7 @@ export interface AcceptancesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AcceptancesRequestBuilderUriTemplate = "{+baseurl}/agreements/{agreement%2Did}/acceptances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AcceptancesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

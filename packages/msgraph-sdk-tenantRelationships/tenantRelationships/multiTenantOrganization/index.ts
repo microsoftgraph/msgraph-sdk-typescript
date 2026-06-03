@@ -71,7 +71,7 @@ export interface MultiTenantOrganizationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MultiTenantOrganizationRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/multiTenantOrganization{?%24expand,%24select}";
+export const MultiTenantOrganizationRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

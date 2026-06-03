@@ -69,7 +69,7 @@ export interface AuthenticationConditionApplicationAppItemRequestBuilderGetQuery
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationConditionApplicationAppItemRequestBuilderUriTemplate = "{+baseurl}/identity/authenticationEventsFlows/{authenticationEventsFlow%2Did}/graph.externalUsersSelfServiceSignUpEventsFlow/conditions/applications/includeApplications/{authenticationConditionApplication%2DappId}{?%24expand,%24select}";
+export const AuthenticationConditionApplicationAppItemRequestBuilderUriTemplate = "{+baseurl}/identity/authenticationEventsFlows/{authenticationEventsFlow%2Did}/graph.externalUsersSelfServiceSignUpEventsFlow/conditions/applications/includeApplications/{authenticationConditionApplication%2DappId}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

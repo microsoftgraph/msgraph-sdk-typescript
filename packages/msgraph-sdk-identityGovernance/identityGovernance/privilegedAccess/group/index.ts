@@ -111,7 +111,7 @@ export interface GroupRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const GroupRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group{?%24expand,%24select}";
+export const GroupRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -111,7 +111,7 @@ export interface SensitivityLabelsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SensitivityLabelsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/sensitivityLabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SensitivityLabelsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

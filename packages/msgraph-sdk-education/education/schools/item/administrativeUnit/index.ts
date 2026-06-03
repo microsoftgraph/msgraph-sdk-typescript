@@ -57,7 +57,7 @@ export interface AdministrativeUnitRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24expand,%24select}";
+export const AdministrativeUnitRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

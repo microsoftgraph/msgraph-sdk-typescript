@@ -69,7 +69,7 @@ export interface DeviceConfigurationStateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceConfigurationStateItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceConfigurationStates/{deviceConfigurationState%2Did}{?%24expand,%24select}";
+export const DeviceConfigurationStateItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceConfigurationStates/{deviceConfigurationState%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

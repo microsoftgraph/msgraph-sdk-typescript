@@ -97,7 +97,7 @@ export interface TemporaryAccessPassMethodsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TemporaryAccessPassMethodsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/temporaryAccessPassMethods{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TemporaryAccessPassMethodsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

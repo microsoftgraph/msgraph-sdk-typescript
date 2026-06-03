@@ -71,7 +71,7 @@ export interface AttributeSetItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttributeSetItemRequestBuilderUriTemplate = "{+baseurl}/directory/attributeSets/{attributeSet%2Did}{?%24expand,%24select}";
+export const AttributeSetItemRequestBuilderUriTemplate = "{+baseurl}/directory/attributeSets/{attributeSet%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

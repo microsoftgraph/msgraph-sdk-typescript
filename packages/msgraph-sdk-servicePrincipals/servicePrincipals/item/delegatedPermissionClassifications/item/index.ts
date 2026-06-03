@@ -70,7 +70,7 @@ export interface DelegatedPermissionClassificationItemRequestBuilderGetQueryPara
 /**
  * Uri template for the request builder.
  */
-export const DelegatedPermissionClassificationItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications/{delegatedPermissionClassification%2Did}{?%24expand,%24select}";
+export const DelegatedPermissionClassificationItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/delegatedPermissionClassifications/{delegatedPermissionClassification%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

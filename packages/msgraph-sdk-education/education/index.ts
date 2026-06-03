@@ -87,7 +87,7 @@ export interface EducationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EducationRequestBuilderUriTemplate = "{+baseurl}/education{?%24expand,%24select}";
+export const EducationRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

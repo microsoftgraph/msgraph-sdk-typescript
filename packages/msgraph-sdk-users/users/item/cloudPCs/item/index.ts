@@ -117,7 +117,7 @@ export interface CloudPCItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CloudPCItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}{?%24expand,%24select}";
+export const CloudPCItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

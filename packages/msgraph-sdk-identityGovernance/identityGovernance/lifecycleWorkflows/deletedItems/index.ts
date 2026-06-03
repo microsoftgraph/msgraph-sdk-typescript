@@ -60,7 +60,7 @@ export interface DeletedItemsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeletedItemsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems{?%24expand,%24select}";
+export const DeletedItemsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

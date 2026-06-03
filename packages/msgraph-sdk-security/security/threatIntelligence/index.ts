@@ -171,7 +171,7 @@ export interface ThreatIntelligenceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ThreatIntelligenceRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence{?%24expand,%24select}";
+export const ThreatIntelligenceRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

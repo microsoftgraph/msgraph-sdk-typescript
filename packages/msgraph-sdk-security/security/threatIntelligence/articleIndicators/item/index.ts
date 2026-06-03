@@ -76,7 +76,7 @@ export interface ArticleIndicatorItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ArticleIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/articleIndicators/{articleIndicator%2Did}{?%24expand,%24select}";
+export const ArticleIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/articleIndicators/{articleIndicator%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -87,7 +87,7 @@ export interface WindowsAutopilotDeviceIdentityItemRequestBuilderGetQueryParamet
 /**
  * Uri template for the request builder.
  */
-export const WindowsAutopilotDeviceIdentityItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity%2Did}{?%24expand,%24select}";
+export const WindowsAutopilotDeviceIdentityItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

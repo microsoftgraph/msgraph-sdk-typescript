@@ -124,7 +124,7 @@ export interface SharedDriveItemItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SharedDriveItemItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}{?%24expand,%24select}";
+export const SharedDriveItemItemRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

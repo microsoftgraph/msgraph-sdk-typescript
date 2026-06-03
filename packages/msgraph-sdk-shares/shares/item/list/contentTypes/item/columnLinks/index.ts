@@ -95,7 +95,7 @@ export interface ColumnLinksRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ColumnLinksRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list/contentTypes/{contentType%2Did}/columnLinks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ColumnLinksRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -95,7 +95,7 @@ export interface HistoryItemsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HistoryItemsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}/historyItems{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HistoryItemsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

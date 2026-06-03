@@ -70,7 +70,7 @@ export interface PermissionGrantConditionSetItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const PermissionGrantConditionSetItemRequestBuilderUriTemplate = "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}/excludes/{permissionGrantConditionSet%2Did}{?%24expand,%24select}";
+export const PermissionGrantConditionSetItemRequestBuilderUriTemplate = "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}/excludes/{permissionGrantConditionSet%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -76,7 +76,7 @@ export interface TaskItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TaskItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/versions/{workflowVersion%2DversionNumber}/tasks/{task%2Did}{?%24expand,%24select}";
+export const TaskItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/versions/{workflowVersion%2DversionNumber}/tasks/{task%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

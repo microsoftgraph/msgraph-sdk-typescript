@@ -69,7 +69,7 @@ export interface ConfigurationBaselineItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConfigurationBaselineItemRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement/configurationSnapshots/{configurationBaseline%2Did}{?%24expand,%24select}";
+export const ConfigurationBaselineItemRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement/configurationSnapshots/{configurationBaseline%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

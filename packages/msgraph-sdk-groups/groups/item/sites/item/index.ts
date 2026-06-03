@@ -191,7 +191,7 @@ export interface SiteItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SiteItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}{?%24expand,%24select}";
+export const SiteItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

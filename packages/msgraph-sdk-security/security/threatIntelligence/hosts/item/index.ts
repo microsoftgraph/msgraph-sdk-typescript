@@ -148,7 +148,7 @@ export interface HostItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}{?%24expand,%24select}";
+export const HostItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

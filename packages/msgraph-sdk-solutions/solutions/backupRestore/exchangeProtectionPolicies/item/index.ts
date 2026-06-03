@@ -88,7 +88,7 @@ export interface ExchangeProtectionPolicyItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExchangeProtectionPolicyItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/exchangeProtectionPolicies/{exchangeProtectionPolicy%2Did}{?%24expand,%24select}";
+export const ExchangeProtectionPolicyItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/exchangeProtectionPolicies/{exchangeProtectionPolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

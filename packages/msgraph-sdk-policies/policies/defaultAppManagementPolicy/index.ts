@@ -71,7 +71,7 @@ export interface DefaultAppManagementPolicyRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DefaultAppManagementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/defaultAppManagementPolicy{?%24expand,%24select}";
+export const DefaultAppManagementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/defaultAppManagementPolicy";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

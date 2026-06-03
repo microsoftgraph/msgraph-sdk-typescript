@@ -75,7 +75,7 @@ export interface StorageRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const StorageRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/storage{?%24expand,%24select}";
+export const StorageRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/storage";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -76,7 +76,7 @@ export interface UnifiedGroupSourceItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UnifiedGroupSourceItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/unifiedGroupSources/{unifiedGroupSource%2Did}{?%24expand,%24select}";
+export const UnifiedGroupSourceItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/unifiedGroupSources/{unifiedGroupSource%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

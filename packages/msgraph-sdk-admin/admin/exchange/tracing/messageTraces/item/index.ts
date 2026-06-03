@@ -77,7 +77,7 @@ export interface ExchangeMessageTraceItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExchangeMessageTraceItemRequestBuilderUriTemplate = "{+baseurl}/admin/exchange/tracing/messageTraces/{exchangeMessageTrace%2Did}{?%24expand,%24select}";
+export const ExchangeMessageTraceItemRequestBuilderUriTemplate = "{+baseurl}/admin/exchange/tracing/messageTraces/{exchangeMessageTrace%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

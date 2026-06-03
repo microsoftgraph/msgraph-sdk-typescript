@@ -87,7 +87,7 @@ export interface SortRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SortRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/sort{?%24expand,%24select}";
+export const SortRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/sort";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

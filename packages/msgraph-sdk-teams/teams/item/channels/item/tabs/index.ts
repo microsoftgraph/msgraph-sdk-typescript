@@ -97,7 +97,7 @@ export interface TabsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TabsRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/channels/{channel%2Did}/tabs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TabsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

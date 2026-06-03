@@ -97,7 +97,7 @@ export interface SearchesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SearchesRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SearchesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

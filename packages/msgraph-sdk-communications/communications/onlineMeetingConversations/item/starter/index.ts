@@ -93,7 +93,7 @@ export interface StarterRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const StarterRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetingConversations/{onlineMeetingEngagementConversation%2Did}/starter{?%24expand,%24select}";
+export const StarterRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetingConversations/{onlineMeetingEngagementConversation%2Did}/starter";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface LastMessagePreviewRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LastMessagePreviewRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/lastMessagePreview{?%24expand,%24select}";
+export const LastMessagePreviewRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/lastMessagePreview";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

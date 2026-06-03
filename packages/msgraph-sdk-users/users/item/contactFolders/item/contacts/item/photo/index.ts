@@ -63,7 +63,7 @@ export interface PhotoRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PhotoRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/contacts/{contact%2Did}/photo{?%24expand,%24select}";
+export const PhotoRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

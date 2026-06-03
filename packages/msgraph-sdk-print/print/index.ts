@@ -93,7 +93,7 @@ export interface PrintRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintRequestBuilderUriTemplate = "{+baseurl}/print{?%24expand,%24select}";
+export const PrintRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

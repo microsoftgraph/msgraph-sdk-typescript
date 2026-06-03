@@ -132,7 +132,7 @@ export interface ContentTypeItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContentTypeItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}{?%24expand,%24select}";
+export const ContentTypeItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

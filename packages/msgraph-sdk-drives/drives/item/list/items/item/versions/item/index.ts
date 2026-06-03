@@ -81,7 +81,7 @@ export interface ListItemVersionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ListItemVersionItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/items/{listItem%2Did}/versions/{listItemVersion%2Did}{?%24expand,%24select}";
+export const ListItemVersionItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/items/{listItem%2Did}/versions/{listItemVersion%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

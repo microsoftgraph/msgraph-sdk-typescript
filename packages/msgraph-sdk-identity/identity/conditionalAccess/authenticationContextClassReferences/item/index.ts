@@ -72,7 +72,7 @@ export interface AuthenticationContextClassReferenceItemRequestBuilderGetQueryPa
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationContextClassReferenceItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/authenticationContextClassReferences/{authenticationContextClassReference%2Did}{?%24expand,%24select}";
+export const AuthenticationContextClassReferenceItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/authenticationContextClassReferences/{authenticationContextClassReference%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

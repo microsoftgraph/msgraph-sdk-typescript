@@ -82,7 +82,7 @@ export interface HostSslCertificateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostSslCertificateItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}{?%24expand,%24select}";
+export const HostSslCertificateItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates/{hostSslCertificate%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

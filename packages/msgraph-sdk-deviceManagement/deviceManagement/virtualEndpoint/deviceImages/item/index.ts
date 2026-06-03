@@ -71,7 +71,7 @@ export interface CloudPcDeviceImageItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CloudPcDeviceImageItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/deviceImages/{cloudPcDeviceImage%2Did}{?%24expand,%24select}";
+export const CloudPcDeviceImageItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/deviceImages/{cloudPcDeviceImage%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

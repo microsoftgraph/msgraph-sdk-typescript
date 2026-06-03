@@ -87,7 +87,7 @@ export interface PlannerPlanItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PlannerPlanItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}{?%24expand,%24select}";
+export const PlannerPlanItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

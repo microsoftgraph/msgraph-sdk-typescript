@@ -103,7 +103,7 @@ export interface UserExperienceAnalyticsDevicePerformanceRequestBuilderGetQueryP
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsDevicePerformanceRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDevicePerformance{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UserExperienceAnalyticsDevicePerformanceRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface ThreatAssessmentResultItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ThreatAssessmentResultItemRequestBuilderUriTemplate = "{+baseurl}/informationProtection/threatAssessmentRequests/{threatAssessmentRequest%2Did}/results/{threatAssessmentResult%2Did}{?%24expand,%24select}";
+export const ThreatAssessmentResultItemRequestBuilderUriTemplate = "{+baseurl}/informationProtection/threatAssessmentRequests/{threatAssessmentRequest%2Did}/results/{threatAssessmentResult%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

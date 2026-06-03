@@ -72,7 +72,7 @@ export interface CustomCalloutExtensionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CustomCalloutExtensionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/customWorkflowExtensions/{customCalloutExtension%2Did}{?%24expand,%24select}";
+export const CustomCalloutExtensionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/customWorkflowExtensions/{customCalloutExtension%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

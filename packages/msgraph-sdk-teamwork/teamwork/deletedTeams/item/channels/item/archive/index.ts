@@ -54,7 +54,7 @@ export function createArchivePostRequestBodyFromDiscriminatorValue(parseNode: Pa
 export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { archivePostRequestBody.backingStoreEnabled = true; },
-        "shouldSetSpoSiteReadOnlyForMembers": n => { archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers = n.getBooleanValue(); },
+        "shouldSetSpoSiteReadOnlyForMembers": n => { archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -66,7 +66,7 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Pa
 // @ts-ignore
 export function serializeArchivePostRequestBody(writer: SerializationWriter, archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!archivePostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers);
+    writer.writeBooleanValue("shouldSetSpoSiteReadOnlyForMembers", archivePostRequestBody.shouldSetSpoSiteReadOnlyForMembers ?? false);
     writer.writeAdditionalData(archivePostRequestBody.additionalData);
 }
 /**

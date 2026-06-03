@@ -70,7 +70,7 @@ export interface PrintServiceEndpointItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintServiceEndpointItemRequestBuilderUriTemplate = "{+baseurl}/print/services/{printService%2Did}/endpoints/{printServiceEndpoint%2Did}{?%24expand,%24select}";
+export const PrintServiceEndpointItemRequestBuilderUriTemplate = "{+baseurl}/print/services/{printService%2Did}/endpoints/{printServiceEndpoint%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

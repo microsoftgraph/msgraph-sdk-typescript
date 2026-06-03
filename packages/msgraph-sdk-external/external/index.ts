@@ -63,7 +63,7 @@ export interface ExternalRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExternalRequestBuilderUriTemplate = "{+baseurl}/external{?%24expand,%24select}";
+export const ExternalRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -75,7 +75,7 @@ export interface NamedLocationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const NamedLocationItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/deletedItems/namedLocations/{namedLocation%2Did}{?%24expand,%24select}";
+export const NamedLocationItemRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/deletedItems/namedLocations/{namedLocation%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

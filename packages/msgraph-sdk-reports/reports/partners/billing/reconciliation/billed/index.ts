@@ -75,7 +75,7 @@ export interface BilledRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BilledRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/reconciliation/billed{?%24expand,%24select}";
+export const BilledRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/reconciliation/billed";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface MailboxProtectionRuleItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MailboxProtectionRuleItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/mailboxInclusionRules/{mailboxProtectionRule%2Did}{?%24expand,%24select}";
+export const MailboxProtectionRuleItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/mailboxInclusionRules/{mailboxProtectionRule%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

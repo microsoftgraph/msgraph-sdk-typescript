@@ -71,7 +71,7 @@ export interface LearningContentsWithExternalIdRequestBuilderGetQueryParameters 
 /**
  * Uri template for the request builder.
  */
-export const LearningContentsWithExternalIdRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents(externalId='{externalId}'){?%24expand,%24select}";
+export const LearningContentsWithExternalIdRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents(externalId='{externalId}')";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

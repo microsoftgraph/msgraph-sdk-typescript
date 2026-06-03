@@ -155,7 +155,7 @@ export interface DeviceAppManagementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceAppManagementRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement{?%24expand,%24select}";
+export const DeviceAppManagementRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

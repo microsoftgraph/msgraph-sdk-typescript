@@ -105,7 +105,7 @@ export interface MailFoldersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MailFoldersRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top,includeHiddenFolders*}";
+export const MailFoldersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

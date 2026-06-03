@@ -69,7 +69,7 @@ export interface UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemReq
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthDevicePerformanceDetails/{userExperienceAnalyticsAppHealthDevicePerformanceDetails%2Did}{?%24expand,%24select}";
+export const UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthDevicePerformanceDetails/{userExperienceAnalyticsAppHealthDevicePerformanceDetails%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

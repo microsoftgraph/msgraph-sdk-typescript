@@ -81,7 +81,7 @@ export interface SharedWithChannelTeamInfoItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SharedWithChannelTeamInfoItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/sharedWithTeams/{sharedWithChannelTeamInfo%2Did}{?%24expand,%24select}";
+export const SharedWithChannelTeamInfoItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/sharedWithTeams/{sharedWithChannelTeamInfo%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface WorkbookOperationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkbookOperationItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/operations/{workbookOperation%2Did}{?%24expand,%24select}";
+export const WorkbookOperationItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/operations/{workbookOperation%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -89,7 +89,7 @@ export interface EmployeeExperienceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EmployeeExperienceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience{?%24expand,%24select}";
+export const EmployeeExperienceRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

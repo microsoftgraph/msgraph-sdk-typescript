@@ -81,7 +81,7 @@ export interface TermsOfUseRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TermsOfUseRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse{?%24expand,%24select}";
+export const TermsOfUseRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

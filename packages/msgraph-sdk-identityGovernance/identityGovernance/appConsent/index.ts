@@ -75,7 +75,7 @@ export interface AppConsentRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppConsentRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/appConsent{?%24expand,%24select}";
+export const AppConsentRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/appConsent";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

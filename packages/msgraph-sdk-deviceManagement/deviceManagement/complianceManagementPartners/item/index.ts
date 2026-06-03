@@ -69,7 +69,7 @@ export interface ComplianceManagementPartnerItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const ComplianceManagementPartnerItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/complianceManagementPartners/{complianceManagementPartner%2Did}{?%24expand,%24select}";
+export const ComplianceManagementPartnerItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/complianceManagementPartners/{complianceManagementPartner%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

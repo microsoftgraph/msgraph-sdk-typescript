@@ -69,7 +69,7 @@ export interface UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricR
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric{?%24expand,%24select}";
+export const UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

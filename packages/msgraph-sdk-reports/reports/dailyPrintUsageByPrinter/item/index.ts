@@ -70,7 +70,7 @@ export interface PrintUsageByPrinterItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintUsageByPrinterItemRequestBuilderUriTemplate = "{+baseurl}/reports/dailyPrintUsageByPrinter/{printUsageByPrinter%2Did}{?%24expand,%24select}";
+export const PrintUsageByPrinterItemRequestBuilderUriTemplate = "{+baseurl}/reports/dailyPrintUsageByPrinter/{printUsageByPrinter%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface TeamworkTagMemberItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamworkTagMemberItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/tags/{teamworkTag%2Did}/members/{teamworkTagMember%2Did}{?%24expand,%24select}";
+export const TeamworkTagMemberItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/tags/{teamworkTag%2Did}/members/{teamworkTagMember%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

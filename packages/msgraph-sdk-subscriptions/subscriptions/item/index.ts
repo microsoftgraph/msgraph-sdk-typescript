@@ -74,7 +74,7 @@ export interface SubscriptionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubscriptionItemRequestBuilderUriTemplate = "{+baseurl}/subscriptions/{subscription%2Did}{?%24select}";
+export const SubscriptionItemRequestBuilderUriTemplate = "{+baseurl}/subscriptions/{subscription%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

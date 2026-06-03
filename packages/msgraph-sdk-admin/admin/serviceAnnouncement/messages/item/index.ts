@@ -82,7 +82,7 @@ export interface ServiceUpdateMessageItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ServiceUpdateMessageItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}{?%24expand,%24select}";
+export const ServiceUpdateMessageItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

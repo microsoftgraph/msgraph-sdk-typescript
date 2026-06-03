@@ -69,7 +69,7 @@ export interface ConditionalAccessSettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConditionalAccessSettingsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/conditionalAccessSettings{?%24expand,%24select}";
+export const ConditionalAccessSettingsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/conditionalAccessSettings";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

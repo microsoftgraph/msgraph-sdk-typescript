@@ -97,7 +97,7 @@ export interface AppRoleAssignedToRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppRoleAssignedToRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/appRoleAssignedTo{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AppRoleAssignedToRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

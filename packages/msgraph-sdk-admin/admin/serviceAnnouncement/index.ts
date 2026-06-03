@@ -87,7 +87,7 @@ export interface ServiceAnnouncementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ServiceAnnouncementRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement{?%24expand,%24select}";
+export const ServiceAnnouncementRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

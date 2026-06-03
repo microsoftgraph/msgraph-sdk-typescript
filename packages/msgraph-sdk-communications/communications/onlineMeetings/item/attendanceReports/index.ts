@@ -95,7 +95,7 @@ export interface AttendanceReportsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttendanceReportsRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetings/{onlineMeeting%2Did}/attendanceReports{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AttendanceReportsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

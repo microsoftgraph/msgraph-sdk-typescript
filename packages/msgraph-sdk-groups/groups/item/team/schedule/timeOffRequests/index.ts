@@ -95,7 +95,7 @@ export interface TimeOffRequestsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TimeOffRequestsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/timeOffRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TimeOffRequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

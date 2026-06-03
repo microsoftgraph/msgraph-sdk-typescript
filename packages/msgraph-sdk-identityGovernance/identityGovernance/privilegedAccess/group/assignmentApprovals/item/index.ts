@@ -75,7 +75,7 @@ export interface ApprovalItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ApprovalItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentApprovals/{approval%2Did}{?%24expand,%24select}";
+export const ApprovalItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentApprovals/{approval%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

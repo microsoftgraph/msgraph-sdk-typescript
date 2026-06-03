@@ -75,7 +75,7 @@ export interface ColumnDefinitionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ColumnDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/columns/{columnDefinition%2Did}{?%24expand,%24select}";
+export const ColumnDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/columns/{columnDefinition%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

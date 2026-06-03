@@ -75,7 +75,7 @@ export interface ParentGroupRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ParentGroupRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup{?%24expand,%24select}";
+export const ParentGroupRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

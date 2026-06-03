@@ -69,7 +69,7 @@ export interface DataSourceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DataSourceRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}/dataSource{?%24expand,%24select}";
+export const DataSourceRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}/dataSource";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

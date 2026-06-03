@@ -97,7 +97,7 @@ export interface ReviewSetsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReviewSetsRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ReviewSetsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

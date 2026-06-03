@@ -45,7 +45,7 @@ export function deserializeIntoUnarchivePostRequestBody(unarchivePostRequestBody
 export function deserializeIntoUnarchivePostResponse(unarchivePostResponse: Partial<UnarchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unarchivePostResponse.backingStoreEnabled = true; },
-        "value": n => { unarchivePostResponse.value = n.getBooleanValue(); },
+        "value": n => { unarchivePostResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -69,7 +69,7 @@ export function serializeUnarchivePostRequestBody(writer: SerializationWriter, u
 // @ts-ignore
 export function serializeUnarchivePostResponse(writer: SerializationWriter, unarchivePostResponse: Partial<UnarchivePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!unarchivePostResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", unarchivePostResponse.value);
+    writer.writeBooleanValue("value", unarchivePostResponse.value ?? false);
     writer.writeAdditionalData(unarchivePostResponse.additionalData);
 }
 export interface UnarchivePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

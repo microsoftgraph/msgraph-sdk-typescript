@@ -75,7 +75,7 @@ export interface WindowsProtectionStateRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WindowsProtectionStateRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/windowsProtectionState{?%24expand,%24select}";
+export const WindowsProtectionStateRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/windowsProtectionState";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

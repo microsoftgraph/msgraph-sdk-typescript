@@ -75,7 +75,7 @@ export interface ReportRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReportRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/report{?%24expand,%24select}";
+export const ReportRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/report";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

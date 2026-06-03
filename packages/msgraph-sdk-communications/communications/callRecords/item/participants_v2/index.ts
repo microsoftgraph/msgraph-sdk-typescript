@@ -96,7 +96,7 @@ export interface Participants_v2RequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const Participants_v2RequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/{callRecord%2Did}/participants_v2{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const Participants_v2RequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

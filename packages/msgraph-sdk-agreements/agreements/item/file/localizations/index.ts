@@ -96,7 +96,7 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LocalizationsRequestBuilderUriTemplate = "{+baseurl}/agreements/{agreement%2Did}/file/localizations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const LocalizationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface DispositionReviewStageStageNumberItemRequestBuilderGetQueryPara
 /**
  * Uri template for the request builder.
  */
-export const DispositionReviewStageStageNumberItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2DstageNumber}{?%24expand,%24select}";
+export const DispositionReviewStageStageNumberItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/dispositionReviewStages/{dispositionReviewStage%2DstageNumber}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

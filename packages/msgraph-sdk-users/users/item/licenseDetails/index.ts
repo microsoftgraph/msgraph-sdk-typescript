@@ -101,7 +101,7 @@ export interface LicenseDetailsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LicenseDetailsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/licenseDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const LicenseDetailsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

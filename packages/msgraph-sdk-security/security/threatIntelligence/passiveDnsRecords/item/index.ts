@@ -82,7 +82,7 @@ export interface PassiveDnsRecordItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PassiveDnsRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/passiveDnsRecords/{passiveDnsRecord%2Did}{?%24expand,%24select}";
+export const PassiveDnsRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/passiveDnsRecords/{passiveDnsRecord%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

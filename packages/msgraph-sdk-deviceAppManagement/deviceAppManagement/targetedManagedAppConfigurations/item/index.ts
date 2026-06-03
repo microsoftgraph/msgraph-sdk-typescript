@@ -99,7 +99,7 @@ export interface TargetedManagedAppConfigurationItemRequestBuilderGetQueryParame
 /**
  * Uri template for the request builder.
  */
-export const TargetedManagedAppConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/targetedManagedAppConfigurations/{targetedManagedAppConfiguration%2Did}{?%24expand,%24select}";
+export const TargetedManagedAppConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/targetedManagedAppConfigurations/{targetedManagedAppConfiguration%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

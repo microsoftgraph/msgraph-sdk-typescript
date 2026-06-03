@@ -72,7 +72,7 @@ export interface SchemaExtensionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SchemaExtensionItemRequestBuilderUriTemplate = "{+baseurl}/schemaExtensions/{schemaExtension%2Did}{?%24expand,%24select}";
+export const SchemaExtensionItemRequestBuilderUriTemplate = "{+baseurl}/schemaExtensions/{schemaExtension%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

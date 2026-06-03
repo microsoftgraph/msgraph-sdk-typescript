@@ -99,7 +99,7 @@ export interface ChatMessageItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ChatMessageItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}{?%24expand,%24select}";
+export const ChatMessageItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

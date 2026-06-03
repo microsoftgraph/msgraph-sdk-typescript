@@ -78,7 +78,7 @@ export interface RubricRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RubricRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/rubric{?%24expand,%24select}";
+export const RubricRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/rubric";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

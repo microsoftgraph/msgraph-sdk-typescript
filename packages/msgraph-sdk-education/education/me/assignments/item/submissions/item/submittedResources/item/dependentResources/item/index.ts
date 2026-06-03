@@ -69,7 +69,7 @@ export interface EducationSubmissionResourceItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const EducationSubmissionResourceItemRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/submittedResources/{educationSubmissionResource%2Did}/dependentResources/{educationSubmissionResource%2Did1}{?%24expand,%24select}";
+export const EducationSubmissionResourceItemRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/submittedResources/{educationSubmissionResource%2Did}/dependentResources/{educationSubmissionResource%2Did1}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

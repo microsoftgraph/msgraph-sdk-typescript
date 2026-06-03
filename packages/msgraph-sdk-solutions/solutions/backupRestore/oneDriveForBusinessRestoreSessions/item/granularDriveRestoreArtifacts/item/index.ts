@@ -69,7 +69,7 @@ export interface GranularDriveRestoreArtifactItemRequestBuilderGetQueryParameter
 /**
  * Uri template for the request builder.
  */
-export const GranularDriveRestoreArtifactItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/oneDriveForBusinessRestoreSessions/{oneDriveForBusinessRestoreSession%2Did}/granularDriveRestoreArtifacts/{granularDriveRestoreArtifact%2Did}{?%24expand,%24select}";
+export const GranularDriveRestoreArtifactItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/oneDriveForBusinessRestoreSessions/{oneDriveForBusinessRestoreSession%2Did}/granularDriveRestoreArtifacts/{granularDriveRestoreArtifact%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

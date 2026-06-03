@@ -96,7 +96,7 @@ export interface ExternalAuthenticationMethodsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExternalAuthenticationMethodsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/externalAuthenticationMethods{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ExternalAuthenticationMethodsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -88,7 +88,7 @@ export interface EdiscoveryReviewSetItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EdiscoveryReviewSetItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}{?%24expand,%24select}";
+export const EdiscoveryReviewSetItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

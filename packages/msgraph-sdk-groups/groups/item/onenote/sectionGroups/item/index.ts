@@ -93,7 +93,7 @@ export interface SectionGroupItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SectionGroupItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/onenote/sectionGroups/{sectionGroup%2Did}{?%24expand,%24select}";
+export const SectionGroupItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/onenote/sectionGroups/{sectionGroup%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

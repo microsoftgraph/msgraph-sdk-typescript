@@ -77,7 +77,7 @@ export interface DefaultRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DefaultRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/default{?%24expand,%24select}";
+export const DefaultRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/default";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

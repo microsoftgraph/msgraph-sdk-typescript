@@ -72,7 +72,7 @@ export interface BookingCustomerBaseItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BookingCustomerBaseItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customers/{bookingCustomerBase%2Did}{?%24expand,%24select}";
+export const BookingCustomerBaseItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customers/{bookingCustomerBase%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

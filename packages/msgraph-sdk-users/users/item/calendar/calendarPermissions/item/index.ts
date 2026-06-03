@@ -72,7 +72,7 @@ export interface CalendarPermissionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CalendarPermissionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarPermissions/{calendarPermission%2Did}{?%24expand,%24select}";
+export const CalendarPermissionItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendar/calendarPermissions/{calendarPermission%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

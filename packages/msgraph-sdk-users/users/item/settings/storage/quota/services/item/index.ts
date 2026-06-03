@@ -69,7 +69,7 @@ export interface ServiceStorageQuotaBreakdownItemRequestBuilderGetQueryParameter
 /**
  * Uri template for the request builder.
  */
-export const ServiceStorageQuotaBreakdownItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/storage/quota/services/{serviceStorageQuotaBreakdown%2Did}{?%24expand,%24select}";
+export const ServiceStorageQuotaBreakdownItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/storage/quota/services/{serviceStorageQuotaBreakdown%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

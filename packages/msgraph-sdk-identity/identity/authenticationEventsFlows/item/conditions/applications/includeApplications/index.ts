@@ -97,7 +97,7 @@ export interface IncludeApplicationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IncludeApplicationsRequestBuilderUriTemplate = "{+baseurl}/identity/authenticationEventsFlows/{authenticationEventsFlow%2Did}/conditions/applications/includeApplications{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const IncludeApplicationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

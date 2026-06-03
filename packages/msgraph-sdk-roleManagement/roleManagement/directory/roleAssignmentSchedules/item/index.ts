@@ -100,7 +100,7 @@ export interface UnifiedRoleAssignmentScheduleItemRequestBuilderGetQueryParamete
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleAssignmentScheduleItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentSchedule%2Did}{?%24expand,%24select}";
+export const UnifiedRoleAssignmentScheduleItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentSchedule%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -111,7 +111,7 @@ export interface VirtualEventWebinarItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VirtualEventWebinarItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}{?%24expand,%24select}";
+export const VirtualEventWebinarItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -81,7 +81,7 @@ export interface ExchangeRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExchangeRequestBuilderUriTemplate = "{+baseurl}/admin/exchange{?%24expand,%24select}";
+export const ExchangeRequestBuilderUriTemplate = "{+baseurl}/admin/exchange";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

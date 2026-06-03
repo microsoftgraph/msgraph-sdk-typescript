@@ -75,7 +75,7 @@ export interface MailboxRestoreArtifactItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MailboxRestoreArtifactItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/exchangeRestoreSessions/{exchangeRestoreSession%2Did}/mailboxRestoreArtifacts/{mailboxRestoreArtifact%2Did}{?%24expand,%24select}";
+export const MailboxRestoreArtifactItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/exchangeRestoreSessions/{exchangeRestoreSession%2Did}/mailboxRestoreArtifacts/{mailboxRestoreArtifact%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

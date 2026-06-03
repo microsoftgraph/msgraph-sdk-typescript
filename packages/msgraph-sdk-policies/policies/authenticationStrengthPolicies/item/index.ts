@@ -90,7 +90,7 @@ export interface AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameter
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationStrengthPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}{?%24expand,%24select}";
+export const AuthenticationStrengthPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -141,7 +141,7 @@ export interface AuthenticationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication{?%24expand,%24select}";
+export const AuthenticationRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

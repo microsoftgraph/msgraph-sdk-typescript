@@ -69,7 +69,7 @@ export interface FilterOperatorSchemaItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FilterOperatorSchemaItemRequestBuilderUriTemplate = "{+baseurl}/filterOperators/{filterOperatorSchema%2Did}{?%24expand,%24select}";
+export const FilterOperatorSchemaItemRequestBuilderUriTemplate = "{+baseurl}/filterOperators/{filterOperatorSchema%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

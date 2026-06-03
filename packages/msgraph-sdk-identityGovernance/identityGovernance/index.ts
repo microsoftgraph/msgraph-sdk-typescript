@@ -93,7 +93,7 @@ export interface IdentityGovernanceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityGovernanceRequestBuilderUriTemplate = "{+baseurl}/identityGovernance{?%24expand,%24select}";
+export const IdentityGovernanceRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

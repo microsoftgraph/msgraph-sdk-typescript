@@ -117,7 +117,7 @@ export interface ListRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ListRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list{?%24expand,%24select}";
+export const ListRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/list";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -75,7 +75,7 @@ export interface ProtectionScopesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProtectionScopesRequestBuilderUriTemplate = "{+baseurl}/security/dataSecurityAndGovernance/protectionScopes{?%24expand,%24select}";
+export const ProtectionScopesRequestBuilderUriTemplate = "{+baseurl}/security/dataSecurityAndGovernance/protectionScopes";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

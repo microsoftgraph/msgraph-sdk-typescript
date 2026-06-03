@@ -62,7 +62,7 @@ export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGet
 /**
  * Uri template for the request builder.
  */
-export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod%2Did}{?%24expand,%24select}";
+export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

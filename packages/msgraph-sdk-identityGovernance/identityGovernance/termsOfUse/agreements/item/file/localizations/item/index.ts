@@ -75,7 +75,7 @@ export interface AgreementFileLocalizationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AgreementFileLocalizationItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/file/localizations/{agreementFileLocalization%2Did}{?%24expand,%24select}";
+export const AgreementFileLocalizationItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/file/localizations/{agreementFileLocalization%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

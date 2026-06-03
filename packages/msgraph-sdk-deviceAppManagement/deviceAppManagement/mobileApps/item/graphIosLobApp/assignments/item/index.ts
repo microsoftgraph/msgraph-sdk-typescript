@@ -69,7 +69,7 @@ export interface MobileAppAssignmentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MobileAppAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.iosLobApp/assignments/{mobileAppAssignment%2Did}{?%24expand,%24select}";
+export const MobileAppAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.iosLobApp/assignments/{mobileAppAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

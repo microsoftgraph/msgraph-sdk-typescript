@@ -81,7 +81,7 @@ export interface TermStoreRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TermStoreRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore{?%24expand,%24select}";
+export const TermStoreRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

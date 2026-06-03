@@ -95,7 +95,7 @@ export interface DependentResourcesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DependentResourcesRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}/dependentResources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DependentResourcesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

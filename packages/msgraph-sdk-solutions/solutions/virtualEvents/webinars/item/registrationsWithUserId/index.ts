@@ -76,7 +76,7 @@ export interface RegistrationsWithUserIdRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RegistrationsWithUserIdRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(userId='{userId}'){?%24expand,%24select}";
+export const RegistrationsWithUserIdRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(userId='{userId}')";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface FederatedIdentityCredentialsWithNameRequestBuilderGetQueryParam
 /**
  * Uri template for the request builder.
  */
-export const FederatedIdentityCredentialsWithNameRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials(name='{name}'){?%24expand,%24select}";
+export const FederatedIdentityCredentialsWithNameRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials(name='{name}')";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

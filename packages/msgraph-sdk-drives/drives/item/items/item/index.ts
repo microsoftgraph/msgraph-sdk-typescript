@@ -269,7 +269,7 @@ export interface DriveItemItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DriveItemItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24expand,%24select}";
+export const DriveItemItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

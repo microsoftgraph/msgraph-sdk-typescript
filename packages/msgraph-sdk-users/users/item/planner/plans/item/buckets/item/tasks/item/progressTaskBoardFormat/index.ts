@@ -69,7 +69,7 @@ export interface ProgressTaskBoardFormatRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProgressTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/progressTaskBoardFormat{?%24expand,%24select}";
+export const ProgressTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/progressTaskBoardFormat";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

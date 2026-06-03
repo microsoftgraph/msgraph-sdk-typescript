@@ -75,7 +75,7 @@ export interface ItemActivityStatItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ItemActivityStatItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}{?%24expand,%24select}";
+export const ItemActivityStatItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

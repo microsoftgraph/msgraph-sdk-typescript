@@ -72,7 +72,7 @@ export interface OAuth2PermissionGrantItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OAuth2PermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}{?%24expand,%24select}";
+export const OAuth2PermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/oauth2PermissionGrants/{oAuth2PermissionGrant%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

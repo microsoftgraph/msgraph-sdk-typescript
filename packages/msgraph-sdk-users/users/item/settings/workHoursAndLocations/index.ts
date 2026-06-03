@@ -78,7 +78,7 @@ export interface WorkHoursAndLocationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkHoursAndLocationsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations{?%24expand,%24select}";
+export const WorkHoursAndLocationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

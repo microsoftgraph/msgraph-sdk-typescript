@@ -69,7 +69,7 @@ export interface RoleManagementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RoleManagementRequestBuilderUriTemplate = "{+baseurl}/roleManagement{?%24expand,%24select}";
+export const RoleManagementRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

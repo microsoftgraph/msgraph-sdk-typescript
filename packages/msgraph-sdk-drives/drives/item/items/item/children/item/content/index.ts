@@ -65,7 +65,7 @@ export interface ContentRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContentRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/children/{driveItem%2Did1}/content{?%24format*}";
+export const ContentRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/children/{driveItem%2Did1}/content";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

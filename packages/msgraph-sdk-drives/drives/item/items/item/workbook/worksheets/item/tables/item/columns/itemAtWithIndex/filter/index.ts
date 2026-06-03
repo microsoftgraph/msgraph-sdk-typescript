@@ -69,7 +69,7 @@ export interface FilterRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FilterRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/{workbookTable%2Did}/columns/itemAt(index={index})/filter{?%24expand,%24select}";
+export const FilterRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/{workbookTable%2Did}/columns/itemAt(index={index})/filter";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -81,7 +81,7 @@ export interface IdentityProtectionRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityProtectionRequestBuilderUriTemplate = "{+baseurl}/identityProtection{?%24expand,%24select}";
+export const IdentityProtectionRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

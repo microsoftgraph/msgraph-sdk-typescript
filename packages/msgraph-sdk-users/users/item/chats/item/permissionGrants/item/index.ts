@@ -69,7 +69,7 @@ export interface ResourceSpecificPermissionGrantItemRequestBuilderGetQueryParame
 /**
  * Uri template for the request builder.
  */
-export const ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/permissionGrants/{resourceSpecificPermissionGrant%2Did}{?%24expand,%24select}";
+export const ResourceSpecificPermissionGrantItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/permissionGrants/{resourceSpecificPermissionGrant%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

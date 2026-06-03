@@ -71,7 +71,7 @@ export interface MultiTenantOrganizationIdentitySynchronizationRequestBuilderGet
 /**
  * Uri template for the request builder.
  */
-export const MultiTenantOrganizationIdentitySynchronizationRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationIdentitySynchronization{?%24expand,%24select}";
+export const MultiTenantOrganizationIdentitySynchronizationRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationIdentitySynchronization";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

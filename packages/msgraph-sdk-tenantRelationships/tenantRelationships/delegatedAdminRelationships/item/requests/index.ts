@@ -97,7 +97,7 @@ export interface RequestsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RequestsRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/requests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -63,7 +63,7 @@ export interface AppCatalogsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppCatalogsRequestBuilderUriTemplate = "{+baseurl}/appCatalogs{?%24expand,%24select}";
+export const AppCatalogsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

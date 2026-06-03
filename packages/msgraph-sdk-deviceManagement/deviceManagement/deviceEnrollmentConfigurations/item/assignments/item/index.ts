@@ -69,7 +69,7 @@ export interface EnrollmentConfigurationAssignmentItemRequestBuilderGetQueryPara
 /**
  * Uri template for the request builder.
  */
-export const EnrollmentConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}/assignments/{enrollmentConfigurationAssignment%2Did}{?%24expand,%24select}";
+export const EnrollmentConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}/assignments/{enrollmentConfigurationAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

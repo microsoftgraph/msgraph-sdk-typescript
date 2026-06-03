@@ -97,7 +97,7 @@ export interface AppointmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppointmentsRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AppointmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

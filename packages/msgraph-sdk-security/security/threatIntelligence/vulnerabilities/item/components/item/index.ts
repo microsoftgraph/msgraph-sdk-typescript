@@ -70,7 +70,7 @@ export interface VulnerabilityComponentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VulnerabilityComponentItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}/components/{vulnerabilityComponent%2Did}{?%24expand,%24select}";
+export const VulnerabilityComponentItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}/components/{vulnerabilityComponent%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

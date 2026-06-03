@@ -57,7 +57,7 @@ export interface MailboxSettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MailboxSettingsRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/communities/{community%2Did}/owners/{user%2Did}/mailboxSettings{?%24expand,%24select}";
+export const MailboxSettingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

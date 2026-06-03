@@ -69,7 +69,7 @@ export interface ConversationMemberItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConversationMemberItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/members/{conversationMember%2Did}{?%24expand,%24select}";
+export const ConversationMemberItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/members/{conversationMember%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

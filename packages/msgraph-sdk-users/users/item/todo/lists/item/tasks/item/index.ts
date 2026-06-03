@@ -99,7 +99,7 @@ export interface TodoTaskItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TodoTaskItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}{?%24expand,%24select}";
+export const TodoTaskItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

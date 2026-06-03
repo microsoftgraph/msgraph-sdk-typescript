@@ -75,7 +75,7 @@ export interface AppLogCollectionRequestItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppLogCollectionRequestItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests/{appLogCollectionRequest%2Did}{?%24expand,%24select}";
+export const AppLogCollectionRequestItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests/{appLogCollectionRequest%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface DayNoteItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DayNoteItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/dayNotes/{dayNote%2Did}{?%24expand,%24select}";
+export const DayNoteItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/dayNotes/{dayNote%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

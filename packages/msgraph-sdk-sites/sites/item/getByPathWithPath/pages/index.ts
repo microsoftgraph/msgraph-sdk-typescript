@@ -81,7 +81,7 @@ export interface PagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PagesRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/pages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

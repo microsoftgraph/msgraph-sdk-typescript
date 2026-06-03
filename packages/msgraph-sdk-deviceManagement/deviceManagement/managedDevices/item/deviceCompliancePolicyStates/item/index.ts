@@ -69,7 +69,7 @@ export interface DeviceCompliancePolicyStateItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const DeviceCompliancePolicyStateItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceCompliancePolicyStates/{deviceCompliancePolicyState%2Did}{?%24expand,%24select}";
+export const DeviceCompliancePolicyStateItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceCompliancePolicyStates/{deviceCompliancePolicyState%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

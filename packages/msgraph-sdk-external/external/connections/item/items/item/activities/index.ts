@@ -95,7 +95,7 @@ export interface ActivitiesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ActivitiesRequestBuilderUriTemplate = "{+baseurl}/external/connections/{externalConnection%2Did}/items/{externalItem%2Did}/activities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ActivitiesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface AppScopeRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppScopeRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignments/{unifiedRoleAssignment%2Did}/appScope{?%24expand,%24select}";
+export const AppScopeRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignments/{unifiedRoleAssignment%2Did}/appScope";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

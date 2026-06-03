@@ -75,7 +75,7 @@ export interface PlannerRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PlannerRequestBuilderUriTemplate = "{+baseurl}/planner{?%24expand,%24select}";
+export const PlannerRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

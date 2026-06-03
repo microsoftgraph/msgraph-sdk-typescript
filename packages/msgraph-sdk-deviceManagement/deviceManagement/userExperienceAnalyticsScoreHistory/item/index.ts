@@ -69,7 +69,7 @@ export interface UserExperienceAnalyticsScoreHistoryItemRequestBuilderGetQueryPa
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsScoreHistoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsScoreHistory/{userExperienceAnalyticsScoreHistory%2Did}{?%24expand,%24select}";
+export const UserExperienceAnalyticsScoreHistoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsScoreHistory/{userExperienceAnalyticsScoreHistory%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

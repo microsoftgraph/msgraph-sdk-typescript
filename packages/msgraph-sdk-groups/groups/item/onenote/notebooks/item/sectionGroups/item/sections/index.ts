@@ -95,7 +95,7 @@ export interface SectionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SectionsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SectionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

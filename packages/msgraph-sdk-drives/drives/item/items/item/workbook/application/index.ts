@@ -75,7 +75,7 @@ export interface ApplicationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ApplicationRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/application{?%24expand,%24select}";
+export const ApplicationRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/application";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

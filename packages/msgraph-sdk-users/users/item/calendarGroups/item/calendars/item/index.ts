@@ -107,7 +107,7 @@ export interface CalendarItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CalendarItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}{?%24expand,%24select}";
+export const CalendarItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

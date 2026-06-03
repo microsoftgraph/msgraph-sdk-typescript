@@ -214,7 +214,7 @@ export interface BackupRestoreRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BackupRestoreRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore{?%24expand,%24select}";
+export const BackupRestoreRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

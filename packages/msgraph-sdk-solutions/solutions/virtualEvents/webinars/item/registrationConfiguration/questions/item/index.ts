@@ -70,7 +70,7 @@ export interface VirtualEventRegistrationQuestionBaseItemRequestBuilderGetQueryP
 /**
  * Uri template for the request builder.
  */
-export const VirtualEventRegistrationQuestionBaseItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrationConfiguration/questions/{virtualEventRegistrationQuestionBase%2Did}{?%24expand,%24select}";
+export const VirtualEventRegistrationQuestionBaseItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrationConfiguration/questions/{virtualEventRegistrationQuestionBase%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

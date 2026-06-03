@@ -69,7 +69,7 @@ export interface DetailsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DetailsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/details{?%24expand,%24select}";
+export const DetailsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/details";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

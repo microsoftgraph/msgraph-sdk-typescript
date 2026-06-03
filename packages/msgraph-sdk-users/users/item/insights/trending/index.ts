@@ -95,7 +95,7 @@ export interface TrendingRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TrendingRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/trending{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TrendingRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -55,7 +55,7 @@ export interface Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const Fido2AuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/fido2Methods/{fido2AuthenticationMethod%2Did}{?%24expand,%24select}";
+export const Fido2AuthenticationMethodItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

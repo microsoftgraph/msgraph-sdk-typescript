@@ -91,7 +91,7 @@ export interface TenantRelationshipsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TenantRelationshipsRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships{?%24expand,%24select}";
+export const TenantRelationshipsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

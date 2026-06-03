@@ -81,7 +81,7 @@ export interface ExternalItemItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExternalItemItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}{?%24expand,%24select}";
+export const ExternalItemItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}/items/{externalItem%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

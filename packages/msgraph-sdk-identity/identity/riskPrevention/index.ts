@@ -87,7 +87,7 @@ export interface RiskPreventionRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RiskPreventionRequestBuilderUriTemplate = "{+baseurl}/identity/riskPrevention{?%24expand,%24select}";
+export const RiskPreventionRequestBuilderUriTemplate = "{+baseurl}/identity/riskPrevention";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

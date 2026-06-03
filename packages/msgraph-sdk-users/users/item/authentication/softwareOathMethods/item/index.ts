@@ -55,7 +55,7 @@ export interface SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParam
 /**
  * Uri template for the request builder.
  */
-export const SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/softwareOathMethods/{softwareOathAuthenticationMethod%2Did}{?%24expand,%24select}";
+export const SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

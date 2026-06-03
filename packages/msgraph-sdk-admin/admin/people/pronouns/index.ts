@@ -59,7 +59,7 @@ export interface PronounsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PronounsRequestBuilderUriTemplate = "{+baseurl}/admin/people/pronouns{?%24expand,%24select}";
+export const PronounsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

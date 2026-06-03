@@ -102,7 +102,7 @@ export interface DeletedTeamsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeletedTeamsRequestBuilderUriTemplate = "{+baseurl}/teamwork/deletedTeams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DeletedTeamsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

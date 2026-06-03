@@ -69,7 +69,7 @@ export interface DeploymentSummaryRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeploymentSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/targetedManagedAppConfigurations/{targetedManagedAppConfiguration%2Did}/deploymentSummary{?%24expand,%24select}";
+export const DeploymentSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/targetedManagedAppConfigurations/{targetedManagedAppConfiguration%2Did}/deploymentSummary";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

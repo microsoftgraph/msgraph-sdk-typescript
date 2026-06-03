@@ -69,7 +69,7 @@ export interface LegendRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LegendRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/itemAt(index={index})/legend{?%24expand,%24select}";
+export const LegendRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/itemAt(index={index})/legend";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

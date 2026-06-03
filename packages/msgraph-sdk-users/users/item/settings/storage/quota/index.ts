@@ -75,7 +75,7 @@ export interface QuotaRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const QuotaRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/storage/quota{?%24expand,%24select}";
+export const QuotaRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/storage/quota";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

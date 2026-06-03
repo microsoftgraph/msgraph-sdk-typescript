@@ -102,7 +102,7 @@ export interface AlertsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AlertsRequestBuilderUriTemplate = "{+baseurl}/security/alerts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AlertsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface DataLabelsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DataLabelsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/dataLabels{?%24expand,%24select}";
+export const DataLabelsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/dataLabels";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

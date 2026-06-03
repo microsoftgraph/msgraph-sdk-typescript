@@ -71,7 +71,7 @@ export interface AdminConsentRequestPolicyRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AdminConsentRequestPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/adminConsentRequestPolicy{?%24expand,%24select}";
+export const AdminConsentRequestPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/adminConsentRequestPolicy";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

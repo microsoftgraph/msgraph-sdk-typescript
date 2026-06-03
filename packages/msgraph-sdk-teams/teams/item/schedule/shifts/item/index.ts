@@ -72,7 +72,7 @@ export interface ShiftItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ShiftItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/shifts/{shift%2Did}{?%24expand,%24select}";
+export const ShiftItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/shifts/{shift%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

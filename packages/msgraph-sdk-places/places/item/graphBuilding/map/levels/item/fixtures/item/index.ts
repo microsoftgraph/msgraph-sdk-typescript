@@ -71,7 +71,7 @@ export interface FixtureMapItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FixtureMapItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/fixtures/{fixtureMap%2Did}{?%24expand,%24select}";
+export const FixtureMapItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/fixtures/{fixtureMap%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

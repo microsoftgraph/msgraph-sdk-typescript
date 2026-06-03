@@ -99,7 +99,7 @@ export interface ConfigurationManagementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConfigurationManagementRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement{?%24expand,%24select}";
+export const ConfigurationManagementRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

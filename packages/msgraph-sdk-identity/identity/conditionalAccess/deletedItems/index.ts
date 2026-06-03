@@ -81,7 +81,7 @@ export interface DeletedItemsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeletedItemsRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/deletedItems{?%24expand,%24select}";
+export const DeletedItemsRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/deletedItems";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

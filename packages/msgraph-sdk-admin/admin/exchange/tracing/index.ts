@@ -75,7 +75,7 @@ export interface TracingRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TracingRequestBuilderUriTemplate = "{+baseurl}/admin/exchange/tracing{?%24expand,%24select}";
+export const TracingRequestBuilderUriTemplate = "{+baseurl}/admin/exchange/tracing";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

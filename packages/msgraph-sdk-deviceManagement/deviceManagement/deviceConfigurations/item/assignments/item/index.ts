@@ -69,7 +69,7 @@ export interface DeviceConfigurationAssignmentItemRequestBuilderGetQueryParamete
 /**
  * Uri template for the request builder.
  */
-export const DeviceConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/assignments/{deviceConfigurationAssignment%2Did}{?%24expand,%24select}";
+export const DeviceConfigurationAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/assignments/{deviceConfigurationAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface UserStatusOverviewRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UserStatusOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/userStatusOverview{?%24expand,%24select}";
+export const UserStatusOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/userStatusOverview";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

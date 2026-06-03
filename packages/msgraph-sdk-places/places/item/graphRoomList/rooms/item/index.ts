@@ -75,7 +75,7 @@ export interface RoomItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RoomItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.roomList/rooms/{room%2Did}{?%24expand,%24select}";
+export const RoomItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.roomList/rooms/{room%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

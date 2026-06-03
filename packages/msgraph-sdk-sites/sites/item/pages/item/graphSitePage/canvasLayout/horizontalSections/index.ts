@@ -95,7 +95,7 @@ export interface HorizontalSectionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HorizontalSectionsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/pages/{baseSitePage%2Did}/graph.sitePage/canvasLayout/horizontalSections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HorizontalSectionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

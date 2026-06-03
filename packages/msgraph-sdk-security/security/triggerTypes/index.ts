@@ -75,7 +75,7 @@ export interface TriggerTypesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TriggerTypesRequestBuilderUriTemplate = "{+baseurl}/security/triggerTypes{?%24expand,%24select}";
+export const TriggerTypesRequestBuilderUriTemplate = "{+baseurl}/security/triggerTypes";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

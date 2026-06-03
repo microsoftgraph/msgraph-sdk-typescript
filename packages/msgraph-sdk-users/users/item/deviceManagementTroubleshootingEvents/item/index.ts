@@ -69,7 +69,7 @@ export interface DeviceManagementTroubleshootingEventItemRequestBuilderGetQueryP
 /**
  * Uri template for the request builder.
  */
-export const DeviceManagementTroubleshootingEventItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/deviceManagementTroubleshootingEvents/{deviceManagementTroubleshootingEvent%2Did}{?%24expand,%24select}";
+export const DeviceManagementTroubleshootingEventItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/deviceManagementTroubleshootingEvents/{deviceManagementTroubleshootingEvent%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

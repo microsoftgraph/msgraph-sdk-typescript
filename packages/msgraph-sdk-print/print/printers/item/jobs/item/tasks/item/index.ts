@@ -81,7 +81,7 @@ export interface PrintTaskItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintTaskItemRequestBuilderUriTemplate = "{+baseurl}/print/printers/{printer%2Did}/jobs/{printJob%2Did}/tasks/{printTask%2Did}{?%24expand,%24select}";
+export const PrintTaskItemRequestBuilderUriTemplate = "{+baseurl}/print/printers/{printer%2Did}/jobs/{printJob%2Did}/tasks/{printTask%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

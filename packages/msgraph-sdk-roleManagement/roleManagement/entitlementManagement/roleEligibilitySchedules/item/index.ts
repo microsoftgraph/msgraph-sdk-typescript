@@ -93,7 +93,7 @@ export interface UnifiedRoleEligibilityScheduleItemRequestBuilderGetQueryParamet
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleEligibilityScheduleItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilitySchedules/{unifiedRoleEligibilitySchedule%2Did}{?%24expand,%24select}";
+export const UnifiedRoleEligibilityScheduleItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleEligibilitySchedules/{unifiedRoleEligibilitySchedule%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

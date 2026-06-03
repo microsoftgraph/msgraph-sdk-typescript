@@ -123,7 +123,7 @@ export interface EntitlementManagementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EntitlementManagementRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement{?%24expand,%24select}";
+export const EntitlementManagementRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

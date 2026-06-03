@@ -81,7 +81,7 @@ export interface WorkingTimeScheduleRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkingTimeScheduleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/solutions/workingTimeSchedule{?%24expand,%24select}";
+export const WorkingTimeScheduleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/solutions/workingTimeSchedule";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

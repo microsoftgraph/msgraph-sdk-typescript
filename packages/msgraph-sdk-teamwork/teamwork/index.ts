@@ -88,7 +88,7 @@ export interface TeamworkRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamworkRequestBuilderUriTemplate = "{+baseurl}/teamwork{?%24expand,%24select}";
+export const TeamworkRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

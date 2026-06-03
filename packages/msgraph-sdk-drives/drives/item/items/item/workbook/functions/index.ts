@@ -2265,7 +2265,7 @@ export interface FunctionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FunctionsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions{?%24expand,%24select}";
+export const FunctionsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

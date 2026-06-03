@@ -75,7 +75,7 @@ export interface RoleDefinitionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}{?%24expand,%24select}";
+export const RoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

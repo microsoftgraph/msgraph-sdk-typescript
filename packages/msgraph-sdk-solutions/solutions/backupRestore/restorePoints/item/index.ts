@@ -75,7 +75,7 @@ export interface RestorePointItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RestorePointItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/restorePoints/{restorePoint%2Did}{?%24expand,%24select}";
+export const RestorePointItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/restorePoints/{restorePoint%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

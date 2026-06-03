@@ -71,7 +71,7 @@ export interface ProfileSourcesWithSourceIdRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProfileSourcesWithSourceIdRequestBuilderUriTemplate = "{+baseurl}/admin/people/profileSources(sourceId='{sourceId}'){?%24expand,%24select}";
+export const ProfileSourcesWithSourceIdRequestBuilderUriTemplate = "{+baseurl}/admin/people/profileSources(sourceId='{sourceId}')";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

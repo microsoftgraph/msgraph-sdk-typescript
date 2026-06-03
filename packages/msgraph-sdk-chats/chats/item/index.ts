@@ -34,6 +34,8 @@ import { StartMigrationRequestBuilderRequestsMetadata, type StartMigrationReques
 // @ts-ignore
 import { TabsRequestBuilderNavigationMetadata, TabsRequestBuilderRequestsMetadata, type TabsRequestBuilder } from './tabs/index.js';
 // @ts-ignore
+import { TargetedMessagesRequestBuilderNavigationMetadata, TargetedMessagesRequestBuilderRequestsMetadata, type TargetedMessagesRequestBuilder } from './targetedMessages/index.js';
+// @ts-ignore
 import { type UnhideForUserRequestBuilder, UnhideForUserRequestBuilderRequestsMetadata } from './unhideForUser/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -99,6 +101,10 @@ export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemReque
      */
     get tabs(): TabsRequestBuilder;
     /**
+     * Provides operations to manage the targetedMessages property of the microsoft.graph.chat entity.
+     */
+    get targetedMessages(): TargetedMessagesRequestBuilder;
+    /**
      * Provides operations to call the unhideForUser method.
      */
     get unhideForUser(): UnhideForUserRequestBuilder;
@@ -162,7 +168,7 @@ export interface ChatItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ChatItemRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}{?%24expand,%24select}";
+export const ChatItemRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -221,6 +227,10 @@ export const ChatItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Chat
     tabs: {
         requestsMetadata: TabsRequestBuilderRequestsMetadata,
         navigationMetadata: TabsRequestBuilderNavigationMetadata,
+    },
+    targetedMessages: {
+        requestsMetadata: TargetedMessagesRequestBuilderRequestsMetadata,
+        navigationMetadata: TargetedMessagesRequestBuilderNavigationMetadata,
     },
     unhideForUser: {
         requestsMetadata: UnhideForUserRequestBuilderRequestsMetadata,

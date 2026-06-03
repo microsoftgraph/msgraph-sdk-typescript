@@ -75,7 +75,7 @@ export interface UserExperienceAnalyticsAppHealthOverviewRequestBuilderGetQueryP
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsAppHealthOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthOverview{?%24expand,%24select}";
+export const UserExperienceAnalyticsAppHealthOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthOverview";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

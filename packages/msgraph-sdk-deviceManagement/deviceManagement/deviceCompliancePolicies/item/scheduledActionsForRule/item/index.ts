@@ -75,7 +75,7 @@ export interface DeviceComplianceScheduledActionForRuleItemRequestBuilderGetQuer
 /**
  * Uri template for the request builder.
  */
-export const DeviceComplianceScheduledActionForRuleItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}{?%24expand,%24select}";
+export const DeviceComplianceScheduledActionForRuleItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

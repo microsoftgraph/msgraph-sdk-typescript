@@ -95,7 +95,7 @@ export interface ResourcesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ResourcesRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/resources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ResourcesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

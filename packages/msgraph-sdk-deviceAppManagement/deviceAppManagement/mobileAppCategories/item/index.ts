@@ -69,7 +69,7 @@ export interface MobileAppCategoryItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MobileAppCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppCategories/{mobileAppCategory%2Did}{?%24expand,%24select}";
+export const MobileAppCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppCategories/{mobileAppCategory%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

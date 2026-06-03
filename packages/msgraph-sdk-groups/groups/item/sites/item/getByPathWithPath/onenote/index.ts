@@ -69,7 +69,7 @@ export interface OnenoteRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OnenoteRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/onenote{?%24expand,%24select}";
+export const OnenoteRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/getByPath(path='{path}')/onenote";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

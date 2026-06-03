@@ -82,7 +82,7 @@ export interface UsedInsightItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UsedInsightItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/used/{usedInsight%2Did}{?%24expand,%24select}";
+export const UsedInsightItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/used/{usedInsight%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

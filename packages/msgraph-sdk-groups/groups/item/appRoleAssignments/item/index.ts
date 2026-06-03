@@ -70,7 +70,7 @@ export interface AppRoleAssignmentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppRoleAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/appRoleAssignments/{appRoleAssignment%2Did}{?%24expand,%24select}";
+export const AppRoleAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/appRoleAssignments/{appRoleAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -71,7 +71,7 @@ export interface FilePlanReferenceTemplateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FilePlanReferenceTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/filePlanReferences/{filePlanReferenceTemplate%2Did}{?%24expand,%24select}";
+export const FilePlanReferenceTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/filePlanReferences/{filePlanReferenceTemplate%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

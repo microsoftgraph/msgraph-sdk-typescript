@@ -69,7 +69,7 @@ export interface CertificateBasedAuthConfigurationItemRequestBuilderGetQueryPara
 /**
  * Uri template for the request builder.
  */
-export const CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24expand,%24select}";
+export const CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

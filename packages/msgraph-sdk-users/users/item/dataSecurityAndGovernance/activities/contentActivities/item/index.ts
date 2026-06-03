@@ -69,7 +69,7 @@ export interface ContentActivityItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContentActivityItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/activities/contentActivities/{contentActivity%2Did}{?%24expand,%24select}";
+export const ContentActivityItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/activities/contentActivities/{contentActivity%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

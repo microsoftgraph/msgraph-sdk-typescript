@@ -87,7 +87,7 @@ export interface RelationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RelationItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup/sets/{set%2Did1}/terms/{term%2Did}/children/{term%2Did1}/relations/{relation%2Did}{?%24expand,%24select}";
+export const RelationItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup/sets/{set%2Did1}/terms/{term%2Did}/children/{term%2Did1}/relations/{relation%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

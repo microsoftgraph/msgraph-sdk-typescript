@@ -69,7 +69,7 @@ export interface DeviceInstallStateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceInstallStateItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/userStateSummary/{userInstallStateSummary%2Did}/deviceStates/{deviceInstallState%2Did}{?%24expand,%24select}";
+export const DeviceInstallStateItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/userStateSummary/{userInstallStateSummary%2Did}/deviceStates/{deviceInstallState%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

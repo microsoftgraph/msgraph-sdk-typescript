@@ -108,7 +108,7 @@ export interface NoncustodialDataSourcesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const NoncustodialDataSourcesRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const NoncustodialDataSourcesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

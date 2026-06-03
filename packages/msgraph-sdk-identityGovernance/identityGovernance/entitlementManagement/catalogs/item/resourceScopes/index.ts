@@ -95,7 +95,7 @@ export interface ResourceScopesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ResourceScopesRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/resourceScopes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ResourceScopesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

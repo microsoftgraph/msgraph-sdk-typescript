@@ -71,7 +71,7 @@ export interface IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQuery
 /**
  * Uri template for the request builder.
  */
-export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/identitySecurityDefaultsEnforcementPolicy{?%24expand,%24select}";
+export const IdentitySecurityDefaultsEnforcementPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/identitySecurityDefaultsEnforcementPolicy";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface AccessPackageResourceScopeItemRequestBuilderGetQueryParameters 
 /**
  * Uri template for the request builder.
  */
-export const AccessPackageResourceScopeItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}/scope/resource/roles/{accessPackageResourceRole%2Did}/resource/scopes/{accessPackageResourceScope%2Did}{?%24expand,%24select}";
+export const AccessPackageResourceScopeItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}/scope/resource/roles/{accessPackageResourceRole%2Did}/resource/scopes/{accessPackageResourceScope%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

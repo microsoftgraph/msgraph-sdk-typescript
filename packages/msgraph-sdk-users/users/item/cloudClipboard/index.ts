@@ -75,7 +75,7 @@ export interface CloudClipboardRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CloudClipboardRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/cloudClipboard{?%24expand,%24select}";
+export const CloudClipboardRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/cloudClipboard";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

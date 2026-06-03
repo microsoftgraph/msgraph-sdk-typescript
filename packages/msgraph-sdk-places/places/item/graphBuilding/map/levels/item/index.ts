@@ -87,7 +87,7 @@ export interface LevelMapItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LevelMapItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}{?%24expand,%24select}";
+export const LevelMapItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -90,7 +90,7 @@ export interface DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters 
 /**
  * Uri template for the request builder.
  */
-export const DelegatedAdminRelationshipItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}{?%24expand,%24select}";
+export const DelegatedAdminRelationshipItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

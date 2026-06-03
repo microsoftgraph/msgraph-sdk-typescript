@@ -69,7 +69,7 @@ export interface SensorCandidateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SensorCandidateItemRequestBuilderUriTemplate = "{+baseurl}/security/identities/sensorCandidates/{sensorCandidate%2Did}{?%24expand,%24select}";
+export const SensorCandidateItemRequestBuilderUriTemplate = "{+baseurl}/security/identities/sensorCandidates/{sensorCandidate%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -89,7 +89,7 @@ export interface CrossTenantAccessPolicyRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CrossTenantAccessPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy{?%24expand,%24select}";
+export const CrossTenantAccessPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

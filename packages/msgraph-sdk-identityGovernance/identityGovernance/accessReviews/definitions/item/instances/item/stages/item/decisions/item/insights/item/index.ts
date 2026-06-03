@@ -69,7 +69,7 @@ export interface GovernanceInsightItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const GovernanceInsightItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages/{accessReviewStage%2Did}/decisions/{accessReviewInstanceDecisionItem%2Did}/insights/{governanceInsight%2Did}{?%24expand,%24select}";
+export const GovernanceInsightItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages/{accessReviewStage%2Did}/decisions/{accessReviewInstanceDecisionItem%2Did}/insights/{governanceInsight%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

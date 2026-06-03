@@ -93,7 +93,7 @@ export interface ValueAxisRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ValueAxisRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/axes/valueAxis{?%24expand,%24select}";
+export const ValueAxisRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/axes/valueAxis";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

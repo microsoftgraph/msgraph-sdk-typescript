@@ -101,7 +101,7 @@ export interface B2xIdentityUserFlowItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const B2xIdentityUserFlowItemRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}{?%24expand,%24select}";
+export const B2xIdentityUserFlowItemRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

@@ -69,7 +69,7 @@ export interface ColumnLinkItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ColumnLinkItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columnLinks/{columnLink%2Did}{?%24expand,%24select}";
+export const ColumnLinkItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columnLinks/{columnLink%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

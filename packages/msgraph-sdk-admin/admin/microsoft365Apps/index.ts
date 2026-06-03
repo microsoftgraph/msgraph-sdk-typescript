@@ -75,7 +75,7 @@ export interface Microsoft365AppsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const Microsoft365AppsRequestBuilderUriTemplate = "{+baseurl}/admin/microsoft365Apps{?%24expand,%24select}";
+export const Microsoft365AppsRequestBuilderUriTemplate = "{+baseurl}/admin/microsoft365Apps";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

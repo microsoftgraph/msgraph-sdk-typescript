@@ -71,7 +71,7 @@ export interface TeamsAppSettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsAppSettingsRequestBuilderUriTemplate = "{+baseurl}/teamwork/teamsAppSettings{?%24expand,%24select}";
+export const TeamsAppSettingsRequestBuilderUriTemplate = "{+baseurl}/teamwork/teamsAppSettings";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */

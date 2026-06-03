@@ -63,7 +63,7 @@ export interface PhotoRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PhotoRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/photo{?%24expand,%24select}";
+export const PhotoRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
