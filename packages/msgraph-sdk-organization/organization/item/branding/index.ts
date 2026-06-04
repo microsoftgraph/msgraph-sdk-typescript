@@ -120,7 +120,7 @@ export interface BrandingRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BrandingRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}/branding{?%24expand,%24select}";
+export const BrandingRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}/branding";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -171,7 +171,7 @@ export const BrandingRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: BrandingRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/organization/{organization%2Did}/branding{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

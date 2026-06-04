@@ -97,7 +97,7 @@ export interface OneDriveForBusinessBrowseSessionsRequestBuilderGetQueryParamete
 /**
  * Uri template for the request builder.
  */
-export const OneDriveForBusinessBrowseSessionsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/oneDriveForBusinessBrowseSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OneDriveForBusinessBrowseSessionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const OneDriveForBusinessBrowseSessionsRequestBuilderNavigationMetadata: 
  */
 export const OneDriveForBusinessBrowseSessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OneDriveForBusinessBrowseSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/oneDriveForBusinessBrowseSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const OneDriveForBusinessBrowseSessionsRequestBuilderRequestsMetadata: Re
         queryParametersMapper: OneDriveForBusinessBrowseSessionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OneDriveForBusinessBrowseSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/oneDriveForBusinessBrowseSessions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

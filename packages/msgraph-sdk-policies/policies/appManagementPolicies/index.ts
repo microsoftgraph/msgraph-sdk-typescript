@@ -97,7 +97,7 @@ export interface AppManagementPoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppManagementPoliciesRequestBuilderUriTemplate = "{+baseurl}/policies/appManagementPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AppManagementPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const AppManagementPoliciesRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const AppManagementPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AppManagementPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/appManagementPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const AppManagementPoliciesRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: AppManagementPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AppManagementPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/appManagementPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

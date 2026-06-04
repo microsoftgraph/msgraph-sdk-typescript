@@ -95,7 +95,7 @@ export interface IosUpdateStatusesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IosUpdateStatusesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/iosUpdateStatuses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const IosUpdateStatusesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const IosUpdateStatusesRequestBuilderNavigationMetadata: Record<Exclude<k
  */
 export const IosUpdateStatusesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: IosUpdateStatusesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/iosUpdateStatuses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const IosUpdateStatusesRequestBuilderRequestsMetadata: RequestsMetadata =
         queryParametersMapper: IosUpdateStatusesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: IosUpdateStatusesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/iosUpdateStatuses",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

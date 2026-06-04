@@ -97,7 +97,7 @@ export interface ThreatAssessmentRequestsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ThreatAssessmentRequestsRequestBuilderUriTemplate = "{+baseurl}/informationProtection/threatAssessmentRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ThreatAssessmentRequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ThreatAssessmentRequestsRequestBuilderNavigationMetadata: Record<Ex
  */
 export const ThreatAssessmentRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ThreatAssessmentRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/informationProtection/threatAssessmentRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ThreatAssessmentRequestsRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: ThreatAssessmentRequestsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ThreatAssessmentRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/informationProtection/threatAssessmentRequests",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

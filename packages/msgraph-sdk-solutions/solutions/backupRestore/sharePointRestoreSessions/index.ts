@@ -96,7 +96,7 @@ export interface SharePointRestoreSessionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SharePointRestoreSessionsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/sharePointRestoreSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SharePointRestoreSessionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const SharePointRestoreSessionsRequestBuilderNavigationMetadata: Record<E
  */
 export const SharePointRestoreSessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SharePointRestoreSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/sharePointRestoreSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const SharePointRestoreSessionsRequestBuilderRequestsMetadata: RequestsMe
         queryParametersMapper: SharePointRestoreSessionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SharePointRestoreSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/sharePointRestoreSessions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

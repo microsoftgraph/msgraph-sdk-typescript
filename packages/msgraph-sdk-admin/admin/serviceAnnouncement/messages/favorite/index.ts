@@ -45,7 +45,7 @@ export function deserializeIntoFavoritePostRequestBody(favoritePostRequestBody: 
 export function deserializeIntoFavoritePostResponse(favoritePostResponse: Partial<FavoritePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { favoritePostResponse.backingStoreEnabled = true; },
-        "value": n => { favoritePostResponse.value = n.getBooleanValue(); },
+        "value": n => { favoritePostResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 export interface FavoritePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -110,7 +110,7 @@ export function serializeFavoritePostRequestBody(writer: SerializationWriter, fa
 // @ts-ignore
 export function serializeFavoritePostResponse(writer: SerializationWriter, favoritePostResponse: Partial<FavoritePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!favoritePostResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", favoritePostResponse.value);
+    writer.writeBooleanValue("value", favoritePostResponse.value ?? false);
     writer.writeAdditionalData(favoritePostResponse.additionalData);
 }
 /**

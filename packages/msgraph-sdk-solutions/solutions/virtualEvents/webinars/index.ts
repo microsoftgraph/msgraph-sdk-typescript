@@ -114,7 +114,7 @@ export interface WebinarsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WebinarsRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const WebinarsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -154,7 +154,7 @@ export const WebinarsRequestBuilderNavigationMetadata: Record<Exclude<keyof Webi
  */
 export const WebinarsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: WebinarsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents/webinars{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -164,7 +164,7 @@ export const WebinarsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: WebinarsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: WebinarsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents/webinars",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

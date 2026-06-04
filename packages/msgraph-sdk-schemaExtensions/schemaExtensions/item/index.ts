@@ -72,7 +72,7 @@ export interface SchemaExtensionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SchemaExtensionItemRequestBuilderUriTemplate = "{+baseurl}/schemaExtensions/{schemaExtension%2Did}{?%24expand,%24select}";
+export const SchemaExtensionItemRequestBuilderUriTemplate = "{+baseurl}/schemaExtensions/{schemaExtension%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const SchemaExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SchemaExtensionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/schemaExtensions/{schemaExtension%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -94,7 +94,7 @@ export interface TimeCardItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TimeCardItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/timeCards/{timeCard%2Did}{?%24expand,%24select}";
+export const TimeCardItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/timeCards/{timeCard%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -132,7 +132,7 @@ export const TimeCardItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TimeCardItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teams/{team%2Did}/schedule/timeCards/{timeCard%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

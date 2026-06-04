@@ -95,7 +95,7 @@ export interface QuestionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const QuestionsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/questions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const QuestionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const QuestionsRequestBuilderNavigationMetadata: Record<Exclude<keyof Que
  */
 export const QuestionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: QuestionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/questions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const QuestionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: QuestionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: QuestionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/questions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -97,7 +97,7 @@ export interface AgreementsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AgreementsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AgreementsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const AgreementsRequestBuilderNavigationMetadata: Record<Exclude<keyof Ag
  */
 export const AgreementsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AgreementsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/termsOfUse/agreements{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const AgreementsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AgreementsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AgreementsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/termsOfUse/agreements",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

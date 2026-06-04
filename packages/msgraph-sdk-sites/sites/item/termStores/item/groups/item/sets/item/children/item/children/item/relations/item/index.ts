@@ -87,7 +87,7 @@ export interface RelationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RelationItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/groups/{group%2Did}/sets/{set%2Did}/children/{term%2Did}/children/{term%2Did1}/relations/{relation%2Did}{?%24expand,%24select}";
+export const RelationItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/groups/{group%2Did}/sets/{set%2Did}/children/{term%2Did}/children/{term%2Did1}/relations/{relation%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -122,7 +122,7 @@ export const RelationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: RelationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/groups/{group%2Did}/sets/{set%2Did}/children/{term%2Did}/children/{term%2Did1}/relations/{relation%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

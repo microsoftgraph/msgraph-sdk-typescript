@@ -75,7 +75,7 @@ export interface InternetExplorerModeRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InternetExplorerModeRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode{?%24expand,%24select}";
+export const InternetExplorerModeRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const InternetExplorerModeRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: InternetExplorerModeRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/edge/internetExplorerMode{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

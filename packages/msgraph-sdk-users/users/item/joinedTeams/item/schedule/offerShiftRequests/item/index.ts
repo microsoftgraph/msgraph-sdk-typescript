@@ -69,7 +69,7 @@ export interface OfferShiftRequestItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OfferShiftRequestItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/offerShiftRequests/{offerShiftRequest%2Did}{?%24expand,%24select}";
+export const OfferShiftRequestItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/offerShiftRequests/{offerShiftRequest%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const OfferShiftRequestItemRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: OfferShiftRequestItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/offerShiftRequests/{offerShiftRequest%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

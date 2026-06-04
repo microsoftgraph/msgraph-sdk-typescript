@@ -101,7 +101,7 @@ export interface OccurrencesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OccurrencesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations/occurrences{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OccurrencesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -135,7 +135,7 @@ export const OccurrencesRequestBuilderNavigationMetadata: Record<Exclude<keyof O
  */
 export const OccurrencesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OccurrencesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations/occurrences{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -145,7 +145,7 @@ export const OccurrencesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: OccurrencesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OccurrencesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations/occurrences",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

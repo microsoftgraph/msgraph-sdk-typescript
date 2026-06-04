@@ -89,7 +89,7 @@ export interface ParticipantItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ParticipantItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}{?%24expand,%24select}";
+export const ParticipantItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -124,7 +124,7 @@ export const ParticipantItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ParticipantItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

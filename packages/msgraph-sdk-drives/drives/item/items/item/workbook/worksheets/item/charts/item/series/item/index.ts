@@ -81,7 +81,7 @@ export interface WorkbookChartSeriesItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkbookChartSeriesItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/{workbookChartSeries%2Did}{?%24expand,%24select}";
+export const WorkbookChartSeriesItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/{workbookChartSeries%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const WorkbookChartSeriesItemRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WorkbookChartSeriesItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/{workbookChartSeries%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

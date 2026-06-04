@@ -81,7 +81,7 @@ export interface MobileAppContentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MobileAppContentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.managedMobileLobApp/contentVersions/{mobileAppContent%2Did}{?%24expand,%24select}";
+export const MobileAppContentItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.managedMobileLobApp/contentVersions/{mobileAppContent%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const MobileAppContentItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MobileAppContentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/graph.managedMobileLobApp/contentVersions/{mobileAppContent%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

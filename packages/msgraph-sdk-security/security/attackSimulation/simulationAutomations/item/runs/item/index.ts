@@ -69,7 +69,7 @@ export interface SimulationAutomationRunItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SimulationAutomationRunItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulationAutomations/{simulationAutomation%2Did}/runs/{simulationAutomationRun%2Did}{?%24expand,%24select}";
+export const SimulationAutomationRunItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulationAutomations/{simulationAutomation%2Did}/runs/{simulationAutomationRun%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const SimulationAutomationRunItemRequestBuilderRequestsMetadata: Requests
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SimulationAutomationRunItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/simulationAutomations/{simulationAutomation%2Did}/runs/{simulationAutomationRun%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

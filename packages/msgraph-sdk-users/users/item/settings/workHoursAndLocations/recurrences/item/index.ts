@@ -69,7 +69,7 @@ export interface WorkPlanRecurrenceItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkPlanRecurrenceItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations/recurrences/{workPlanRecurrence%2Did}{?%24expand,%24select}";
+export const WorkPlanRecurrenceItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations/recurrences/{workPlanRecurrence%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const WorkPlanRecurrenceItemRequestBuilderRequestsMetadata: RequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WorkPlanRecurrenceItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations/recurrences/{workPlanRecurrence%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

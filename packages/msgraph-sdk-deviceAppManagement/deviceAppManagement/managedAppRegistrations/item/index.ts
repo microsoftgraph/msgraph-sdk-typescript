@@ -87,7 +87,7 @@ export interface ManagedAppRegistrationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ManagedAppRegistrationItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}{?%24expand,%24select}";
+export const ManagedAppRegistrationItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -125,7 +125,7 @@ export const ManagedAppRegistrationItemRequestBuilderRequestsMetadata: RequestsM
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ManagedAppRegistrationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

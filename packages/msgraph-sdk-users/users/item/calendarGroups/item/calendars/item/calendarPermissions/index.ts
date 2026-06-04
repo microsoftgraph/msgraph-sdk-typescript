@@ -95,7 +95,7 @@ export interface CalendarPermissionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CalendarPermissionsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarPermissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CalendarPermissionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const CalendarPermissionsRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const CalendarPermissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CalendarPermissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarPermissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const CalendarPermissionsRequestBuilderRequestsMetadata: RequestsMetadata
         queryParametersMapper: CalendarPermissionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CalendarPermissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarPermissions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -97,7 +97,7 @@ export interface ServiceAppsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ServiceAppsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/serviceApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ServiceAppsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ServiceAppsRequestBuilderNavigationMetadata: Record<Exclude<keyof S
  */
 export const ServiceAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ServiceAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/serviceApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ServiceAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ServiceAppsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ServiceAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/serviceApps",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

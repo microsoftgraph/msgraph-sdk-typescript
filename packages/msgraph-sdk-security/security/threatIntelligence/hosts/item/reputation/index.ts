@@ -70,7 +70,7 @@ export interface ReputationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReputationRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/reputation{?%24expand,%24select}";
+export const ReputationRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/reputation";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const ReputationRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ReputationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hosts/{host%2Did}/reputation{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

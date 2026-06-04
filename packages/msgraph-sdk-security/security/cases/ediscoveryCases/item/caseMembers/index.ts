@@ -97,7 +97,7 @@ export interface CaseMembersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CaseMembersRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/caseMembers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CaseMembersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const CaseMembersRequestBuilderNavigationMetadata: Record<Exclude<keyof C
  */
 export const CaseMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CaseMembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/caseMembers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const CaseMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: CaseMembersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CaseMembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/caseMembers",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

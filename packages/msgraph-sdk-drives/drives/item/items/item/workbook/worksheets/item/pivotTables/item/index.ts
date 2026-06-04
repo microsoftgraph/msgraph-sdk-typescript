@@ -81,7 +81,7 @@ export interface WorkbookPivotTableItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkbookPivotTableItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/pivotTables/{workbookPivotTable%2Did}{?%24expand,%24select}";
+export const WorkbookPivotTableItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/pivotTables/{workbookPivotTable%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -113,7 +113,7 @@ export const WorkbookPivotTableItemRequestBuilderRequestsMetadata: RequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WorkbookPivotTableItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/pivotTables/{workbookPivotTable%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

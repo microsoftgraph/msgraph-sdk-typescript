@@ -105,7 +105,7 @@ export interface MeRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MeRequestBuilderUriTemplate = "{+baseurl}/education/me{?%24expand,%24select}";
+export const MeRequestBuilderUriTemplate = "{+baseurl}/education/me";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -155,7 +155,7 @@ export const MeRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MeRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/me{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -72,7 +72,7 @@ export interface BookmarkItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BookmarkItemRequestBuilderUriTemplate = "{+baseurl}/search/bookmarks/{bookmark%2Did}{?%24expand,%24select}";
+export const BookmarkItemRequestBuilderUriTemplate = "{+baseurl}/search/bookmarks/{bookmark%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const BookmarkItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: BookmarkItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/search/bookmarks/{bookmark%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface LastMessagePreviewRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LastMessagePreviewRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/lastMessagePreview{?%24expand,%24select}";
+export const LastMessagePreviewRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/lastMessagePreview";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const LastMessagePreviewRequestBuilderRequestsMetadata: RequestsMetadata 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: LastMessagePreviewRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/lastMessagePreview{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

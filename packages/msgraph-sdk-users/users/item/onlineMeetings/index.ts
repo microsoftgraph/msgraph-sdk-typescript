@@ -113,7 +113,7 @@ export interface OnlineMeetingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OnlineMeetingsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/onlineMeetings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OnlineMeetingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -154,7 +154,7 @@ export const OnlineMeetingsRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const OnlineMeetingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OnlineMeetingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/onlineMeetings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -164,7 +164,7 @@ export const OnlineMeetingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: OnlineMeetingsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OnlineMeetingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/onlineMeetings",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

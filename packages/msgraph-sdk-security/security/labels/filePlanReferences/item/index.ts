@@ -71,7 +71,7 @@ export interface FilePlanReferenceTemplateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FilePlanReferenceTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/filePlanReferences/{filePlanReferenceTemplate%2Did}{?%24expand,%24select}";
+export const FilePlanReferenceTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/filePlanReferences/{filePlanReferenceTemplate%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const FilePlanReferenceTemplateItemRequestBuilderRequestsMetadata: Reques
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: FilePlanReferenceTemplateItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/filePlanReferences/{filePlanReferenceTemplate%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

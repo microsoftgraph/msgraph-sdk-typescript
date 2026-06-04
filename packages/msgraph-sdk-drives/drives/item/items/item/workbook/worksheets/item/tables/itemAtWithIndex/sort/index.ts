@@ -69,7 +69,7 @@ export interface SortRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SortRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/itemAt(index={index})/sort{?%24expand,%24select}";
+export const SortRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/itemAt(index={index})/sort";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const SortRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SortRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/itemAt(index={index})/sort{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

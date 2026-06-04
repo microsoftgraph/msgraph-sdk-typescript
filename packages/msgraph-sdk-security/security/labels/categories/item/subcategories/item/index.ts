@@ -70,7 +70,7 @@ export interface SubcategoryTemplateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubcategoryTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/categories/{categoryTemplate%2Did}/subcategories/{subcategoryTemplate%2Did}{?%24expand,%24select}";
+export const SubcategoryTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/categories/{categoryTemplate%2Did}/subcategories/{subcategoryTemplate%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const SubcategoryTemplateItemRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SubcategoryTemplateItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/categories/{categoryTemplate%2Did}/subcategories/{subcategoryTemplate%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

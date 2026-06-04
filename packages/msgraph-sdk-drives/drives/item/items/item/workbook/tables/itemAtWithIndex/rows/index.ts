@@ -81,7 +81,7 @@ export interface RowsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RowsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/itemAt(index={index})/rows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RowsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -100,7 +100,7 @@ const RowsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const RowsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RowsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/itemAt(index={index})/rows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -110,7 +110,7 @@ export const RowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RowsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RowsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/itemAt(index={index})/rows",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

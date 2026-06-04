@@ -69,7 +69,7 @@ export interface DeploymentSummaryRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeploymentSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/deploymentSummary{?%24expand,%24select}";
+export const DeploymentSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/deploymentSummary";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const DeploymentSummaryRequestBuilderRequestsMetadata: RequestsMetadata =
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DeploymentSummaryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/deploymentSummary{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

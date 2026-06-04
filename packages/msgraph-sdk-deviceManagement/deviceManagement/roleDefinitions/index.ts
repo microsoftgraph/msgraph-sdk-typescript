@@ -95,7 +95,7 @@ export interface RoleDefinitionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RoleDefinitionsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/roleDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RoleDefinitionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const RoleDefinitionsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const RoleDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RoleDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/roleDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const RoleDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RoleDefinitionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RoleDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/roleDefinitions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

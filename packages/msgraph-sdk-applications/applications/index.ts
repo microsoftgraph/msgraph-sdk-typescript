@@ -121,7 +121,7 @@ export interface ApplicationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ApplicationsRequestBuilderUriTemplate = "{+baseurl}/applications{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ApplicationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -165,7 +165,7 @@ export const ApplicationsRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const ApplicationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ApplicationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/applications{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -175,7 +175,7 @@ export const ApplicationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ApplicationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ApplicationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/applications",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

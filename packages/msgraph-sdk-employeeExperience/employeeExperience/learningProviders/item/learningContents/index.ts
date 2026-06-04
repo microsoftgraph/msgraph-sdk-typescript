@@ -96,7 +96,7 @@ export interface LearningContentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LearningContentsRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const LearningContentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const LearningContentsRequestBuilderNavigationMetadata: Record<Exclude<ke
  */
 export const LearningContentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: LearningContentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const LearningContentsRequestBuilderRequestsMetadata: RequestsMetadata = 
         queryParametersMapper: LearningContentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: LearningContentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

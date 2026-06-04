@@ -108,7 +108,7 @@ export interface RiskyServicePrincipalsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RiskyServicePrincipalsRequestBuilderUriTemplate = "{+baseurl}/identityProtection/riskyServicePrincipals{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RiskyServicePrincipalsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -146,7 +146,7 @@ export const RiskyServicePrincipalsRequestBuilderNavigationMetadata: Record<Excl
  */
 export const RiskyServicePrincipalsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RiskyServicePrincipalsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProtection/riskyServicePrincipals{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -156,7 +156,7 @@ export const RiskyServicePrincipalsRequestBuilderRequestsMetadata: RequestsMetad
         queryParametersMapper: RiskyServicePrincipalsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RiskyServicePrincipalsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProtection/riskyServicePrincipals",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

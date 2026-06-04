@@ -95,7 +95,7 @@ export interface MailboxInclusionRulesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MailboxInclusionRulesRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/mailboxInclusionRules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MailboxInclusionRulesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const MailboxInclusionRulesRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const MailboxInclusionRulesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MailboxInclusionRulesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/mailboxInclusionRules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const MailboxInclusionRulesRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: MailboxInclusionRulesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MailboxInclusionRulesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/mailboxInclusionRules",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

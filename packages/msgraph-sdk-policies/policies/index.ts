@@ -183,7 +183,7 @@ export interface PoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PoliciesRequestBuilderUriTemplate = "{+baseurl}/policies{?%24expand,%24select}";
+export const PoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -278,7 +278,7 @@ export const PoliciesRequestBuilderNavigationMetadata: Record<Exclude<keyof Poli
  */
 export const PoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -288,7 +288,7 @@ export const PoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PoliciesRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: PoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

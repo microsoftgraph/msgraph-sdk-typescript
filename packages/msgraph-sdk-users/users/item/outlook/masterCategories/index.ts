@@ -95,7 +95,7 @@ export interface MasterCategoriesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MasterCategoriesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/masterCategories{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MasterCategoriesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const MasterCategoriesRequestBuilderNavigationMetadata: Record<Exclude<ke
  */
 export const MasterCategoriesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MasterCategoriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/outlook/masterCategories{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const MasterCategoriesRequestBuilderRequestsMetadata: RequestsMetadata = 
         queryParametersMapper: MasterCategoriesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MasterCategoriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/outlook/masterCategories",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

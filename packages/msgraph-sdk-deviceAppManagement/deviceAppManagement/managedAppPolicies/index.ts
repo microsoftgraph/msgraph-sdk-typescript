@@ -95,7 +95,7 @@ export interface ManagedAppPoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ManagedAppPoliciesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ManagedAppPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ManagedAppPoliciesRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const ManagedAppPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ManagedAppPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ManagedAppPoliciesRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: ManagedAppPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ManagedAppPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

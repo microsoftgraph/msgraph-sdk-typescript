@@ -71,7 +71,7 @@ export interface ScopedRoleMembershipItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ScopedRoleMembershipItemRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers/{scopedRoleMembership%2Did}{?%24expand,%24select}";
+export const ScopedRoleMembershipItemRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers/{scopedRoleMembership%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const ScopedRoleMembershipItemRequestBuilderRequestsMetadata: RequestsMet
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ScopedRoleMembershipItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers/{scopedRoleMembership%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface UserExperienceAnalyticsOverviewRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsOverview{?%24expand,%24select}";
+export const UserExperienceAnalyticsOverviewRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsOverview";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const UserExperienceAnalyticsOverviewRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UserExperienceAnalyticsOverviewRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsOverview{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

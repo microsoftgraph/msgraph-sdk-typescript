@@ -56,7 +56,7 @@ export interface TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQue
 /**
  * Uri template for the request builder.
  */
-export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/temporaryAccessPassMethods/{temporaryAccessPassAuthenticationMethod%2Did}{?%24expand,%24select}";
+export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -69,7 +69,7 @@ const TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetQueryParameter
  */
 export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: TemporaryAccessPassAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/temporaryAccessPassMethods/{temporaryAccessPassAuthenticationMethod%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -77,7 +77,7 @@ export const TemporaryAccessPassAuthenticationMethodItemRequestBuilderRequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TemporaryAccessPassAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/temporaryAccessPassMethods/{temporaryAccessPassAuthenticationMethod%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -75,7 +75,7 @@ export interface AccessPackageResourceEnvironmentItemRequestBuilderGetQueryParam
 /**
  * Uri template for the request builder.
  */
-export const AccessPackageResourceEnvironmentItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments/{accessPackageResourceEnvironment%2Did}{?%24expand,%24select}";
+export const AccessPackageResourceEnvironmentItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments/{accessPackageResourceEnvironment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const AccessPackageResourceEnvironmentItemRequestBuilderRequestsMetadata:
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AccessPackageResourceEnvironmentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments/{accessPackageResourceEnvironment%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

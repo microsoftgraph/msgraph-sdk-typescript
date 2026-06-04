@@ -84,7 +84,7 @@ export interface RemoteAssistancePartnerItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RemoteAssistancePartnerItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/remoteAssistancePartners/{remoteAssistancePartner%2Did}{?%24expand,%24select}";
+export const RemoteAssistancePartnerItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/remoteAssistancePartners/{remoteAssistancePartner%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -116,7 +116,7 @@ export const RemoteAssistancePartnerItemRequestBuilderRequestsMetadata: Requests
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: RemoteAssistancePartnerItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/remoteAssistancePartners/{remoteAssistancePartner%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

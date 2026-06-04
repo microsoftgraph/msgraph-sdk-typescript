@@ -69,7 +69,7 @@ export interface ColumnLinkItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ColumnLinkItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columnLinks/{columnLink%2Did}{?%24expand,%24select}";
+export const ColumnLinkItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columnLinks/{columnLink%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const ColumnLinkItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ColumnLinkItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columnLinks/{columnLink%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

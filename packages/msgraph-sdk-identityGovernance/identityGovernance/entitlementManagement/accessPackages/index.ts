@@ -105,7 +105,7 @@ export interface AccessPackagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AccessPackagesRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AccessPackagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -141,7 +141,7 @@ export const AccessPackagesRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const AccessPackagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AccessPackagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/accessPackages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -151,7 +151,7 @@ export const AccessPackagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AccessPackagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AccessPackagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/accessPackages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

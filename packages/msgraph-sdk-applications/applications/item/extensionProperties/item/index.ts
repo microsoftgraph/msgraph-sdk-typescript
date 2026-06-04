@@ -71,7 +71,7 @@ export interface ExtensionPropertyItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExtensionPropertyItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/extensionProperties/{extensionProperty%2Did}{?%24expand,%24select}";
+export const ExtensionPropertyItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/extensionProperties/{extensionProperty%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const ExtensionPropertyItemRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ExtensionPropertyItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/applications/{application%2Did}/extensionProperties/{extensionProperty%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

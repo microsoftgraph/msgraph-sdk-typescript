@@ -155,7 +155,7 @@ export interface DeviceAppManagementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceAppManagementRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement{?%24expand,%24select}";
+export const DeviceAppManagementRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -236,7 +236,7 @@ export const DeviceAppManagementRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const DeviceAppManagementRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DeviceAppManagementRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -246,7 +246,7 @@ export const DeviceAppManagementRequestBuilderRequestsMetadata: RequestsMetadata
         queryParametersMapper: DeviceAppManagementRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: DeviceAppManagementRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

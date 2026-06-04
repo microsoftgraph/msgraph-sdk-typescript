@@ -97,7 +97,7 @@ export interface OnPremisesConnectionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OnPremisesConnectionsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/onPremisesConnections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OnPremisesConnectionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const OnPremisesConnectionsRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const OnPremisesConnectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OnPremisesConnectionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint/onPremisesConnections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const OnPremisesConnectionsRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: OnPremisesConnectionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OnPremisesConnectionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint/onPremisesConnections",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

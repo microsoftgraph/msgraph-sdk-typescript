@@ -97,7 +97,7 @@ export interface SiteSourcesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SiteSourcesRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/siteSources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SiteSourcesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const SiteSourcesRequestBuilderNavigationMetadata: Record<Exclude<keyof S
  */
 export const SiteSourcesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SiteSourcesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/siteSources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const SiteSourcesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SiteSourcesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SiteSourcesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/siteSources",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

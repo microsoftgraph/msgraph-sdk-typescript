@@ -97,7 +97,7 @@ export interface OpenShiftsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OpenShiftsRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/schedule/openShifts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OpenShiftsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const OpenShiftsRequestBuilderNavigationMetadata: Record<Exclude<keyof Op
  */
 export const OpenShiftsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OpenShiftsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teams/{team%2Did}/schedule/openShifts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const OpenShiftsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: OpenShiftsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OpenShiftsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teams/{team%2Did}/schedule/openShifts",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

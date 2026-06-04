@@ -126,7 +126,7 @@ export interface EdiscoverySearchItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EdiscoverySearchItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}{?%24expand,%24select}";
+export const EdiscoverySearchItemRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -182,7 +182,7 @@ export const EdiscoverySearchItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: EdiscoverySearchItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface EducationSubmissionResourceItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const EducationSubmissionResourceItemRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/resources/{educationSubmissionResource%2Did}/dependentResources/{educationSubmissionResource%2Did1}{?%24expand,%24select}";
+export const EducationSubmissionResourceItemRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/resources/{educationSubmissionResource%2Did}/dependentResources/{educationSubmissionResource%2Did1}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const EducationSubmissionResourceItemRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: EducationSubmissionResourceItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/resources/{educationSubmissionResource%2Did}/dependentResources/{educationSubmissionResource%2Did1}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

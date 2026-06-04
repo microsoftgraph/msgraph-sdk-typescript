@@ -69,7 +69,7 @@ export interface RoleManagementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RoleManagementRequestBuilderUriTemplate = "{+baseurl}/roleManagement{?%24expand,%24select}";
+export const RoleManagementRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -95,7 +95,7 @@ export const RoleManagementRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const RoleManagementRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RoleManagementRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -105,7 +105,7 @@ export const RoleManagementRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RoleManagementRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: RoleManagementRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

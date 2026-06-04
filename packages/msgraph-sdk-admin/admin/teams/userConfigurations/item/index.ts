@@ -76,7 +76,7 @@ export interface TeamsUserConfigurationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsUserConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/admin/teams/userConfigurations/{teamsUserConfiguration%2Did}{?%24expand,%24select}";
+export const TeamsUserConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/admin/teams/userConfigurations/{teamsUserConfiguration%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -106,7 +106,7 @@ export const TeamsUserConfigurationItemRequestBuilderRequestsMetadata: RequestsM
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TeamsUserConfigurationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams/userConfigurations/{teamsUserConfiguration%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

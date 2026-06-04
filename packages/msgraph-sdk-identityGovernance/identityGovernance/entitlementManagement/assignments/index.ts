@@ -119,7 +119,7 @@ export interface AssignmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AssignmentsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AssignmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -162,7 +162,7 @@ export const AssignmentsRequestBuilderNavigationMetadata: Record<Exclude<keyof A
  */
 export const AssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/assignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -172,7 +172,7 @@ export const AssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AssignmentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/assignments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

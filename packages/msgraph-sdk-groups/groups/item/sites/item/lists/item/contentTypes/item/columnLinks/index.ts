@@ -95,7 +95,7 @@ export interface ColumnLinksRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ColumnLinksRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columnLinks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ColumnLinksRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ColumnLinksRequestBuilderNavigationMetadata: Record<Exclude<keyof C
  */
 export const ColumnLinksRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ColumnLinksRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columnLinks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ColumnLinksRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ColumnLinksRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ColumnLinksRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}/columnLinks",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

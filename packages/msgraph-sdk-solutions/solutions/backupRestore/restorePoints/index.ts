@@ -102,7 +102,7 @@ export interface RestorePointsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RestorePointsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/restorePoints{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RestorePointsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +137,7 @@ export const RestorePointsRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const RestorePointsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RestorePointsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/restorePoints{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -147,7 +147,7 @@ export const RestorePointsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RestorePointsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RestorePointsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/restorePoints",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

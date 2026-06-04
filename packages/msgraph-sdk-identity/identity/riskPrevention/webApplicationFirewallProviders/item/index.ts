@@ -78,7 +78,7 @@ export interface WebApplicationFirewallProviderItemRequestBuilderGetQueryParamet
 /**
  * Uri template for the request builder.
  */
-export const WebApplicationFirewallProviderItemRequestBuilderUriTemplate = "{+baseurl}/identity/riskPrevention/webApplicationFirewallProviders/{webApplicationFirewallProvider%2Did}{?%24expand,%24select}";
+export const WebApplicationFirewallProviderItemRequestBuilderUriTemplate = "{+baseurl}/identity/riskPrevention/webApplicationFirewallProviders/{webApplicationFirewallProvider%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -107,7 +107,7 @@ export const WebApplicationFirewallProviderItemRequestBuilderRequestsMetadata: R
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WebApplicationFirewallProviderItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/riskPrevention/webApplicationFirewallProviders/{webApplicationFirewallProvider%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

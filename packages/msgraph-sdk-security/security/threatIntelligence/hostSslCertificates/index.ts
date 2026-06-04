@@ -95,7 +95,7 @@ export interface HostSslCertificatesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostSslCertificatesRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostSslCertificates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HostSslCertificatesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const HostSslCertificatesRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const HostSslCertificatesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HostSslCertificatesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostSslCertificates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const HostSslCertificatesRequestBuilderRequestsMetadata: RequestsMetadata
         queryParametersMapper: HostSslCertificatesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HostSslCertificatesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostSslCertificates",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

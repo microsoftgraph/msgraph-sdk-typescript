@@ -88,7 +88,7 @@ export interface TeamworkRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamworkRequestBuilderUriTemplate = "{+baseurl}/teamwork{?%24expand,%24select}";
+export const TeamworkRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -124,7 +124,7 @@ export const TeamworkRequestBuilderNavigationMetadata: Record<Exclude<keyof Team
  */
 export const TeamworkRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TeamworkRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teamwork{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -134,7 +134,7 @@ export const TeamworkRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TeamworkRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: TeamworkRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teamwork",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

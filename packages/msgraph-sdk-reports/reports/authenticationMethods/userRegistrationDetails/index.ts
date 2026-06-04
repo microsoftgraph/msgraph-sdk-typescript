@@ -96,7 +96,7 @@ export interface UserRegistrationDetailsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UserRegistrationDetailsRequestBuilderUriTemplate = "{+baseurl}/reports/authenticationMethods/userRegistrationDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UserRegistrationDetailsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const UserRegistrationDetailsRequestBuilderNavigationMetadata: Record<Exc
  */
 export const UserRegistrationDetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: UserRegistrationDetailsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/authenticationMethods/userRegistrationDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const UserRegistrationDetailsRequestBuilderRequestsMetadata: RequestsMeta
         queryParametersMapper: UserRegistrationDetailsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: UserRegistrationDetailsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/authenticationMethods/userRegistrationDetails",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

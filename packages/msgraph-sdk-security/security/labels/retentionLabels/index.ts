@@ -97,7 +97,7 @@ export interface RetentionLabelsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RetentionLabelsRequestBuilderUriTemplate = "{+baseurl}/security/labels/retentionLabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RetentionLabelsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const RetentionLabelsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const RetentionLabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RetentionLabelsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/retentionLabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const RetentionLabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RetentionLabelsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RetentionLabelsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/retentionLabels",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

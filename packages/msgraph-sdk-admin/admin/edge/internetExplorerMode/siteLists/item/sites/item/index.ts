@@ -72,7 +72,7 @@ export interface BrowserSiteItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BrowserSiteItemRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites/{browserSite%2Did}{?%24expand,%24select}";
+export const BrowserSiteItemRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites/{browserSite%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const BrowserSiteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: BrowserSiteItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites/{browserSite%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

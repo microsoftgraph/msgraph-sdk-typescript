@@ -96,7 +96,7 @@ export interface AssignedRolesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AssignedRolesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/employeeExperience/assignedRoles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AssignedRolesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const AssignedRolesRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const AssignedRolesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AssignedRolesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/employeeExperience/assignedRoles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const AssignedRolesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AssignedRolesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AssignedRolesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/employeeExperience/assignedRoles",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

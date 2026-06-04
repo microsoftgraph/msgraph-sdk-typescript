@@ -95,7 +95,7 @@ export interface HostComponentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostComponentsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostComponents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HostComponentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const HostComponentsRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const HostComponentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HostComponentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostComponents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const HostComponentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: HostComponentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HostComponentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostComponents",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

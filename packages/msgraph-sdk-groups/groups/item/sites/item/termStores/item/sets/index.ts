@@ -95,7 +95,7 @@ export interface SetsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SetsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStores/{store%2Did}/sets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SetsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SetsRequestBuilderNavigationMetadata: Record<Exclude<keyof SetsRequ
  */
 export const SetsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SetsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStores/{store%2Did}/sets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SetsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SetsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SetsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStores/{store%2Did}/sets",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

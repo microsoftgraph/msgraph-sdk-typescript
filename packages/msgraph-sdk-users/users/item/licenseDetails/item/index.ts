@@ -69,7 +69,7 @@ export interface LicenseDetailsItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LicenseDetailsItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/licenseDetails/{licenseDetails%2Did}{?%24expand,%24select}";
+export const LicenseDetailsItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/licenseDetails/{licenseDetails%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const LicenseDetailsItemRequestBuilderRequestsMetadata: RequestsMetadata 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: LicenseDetailsItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/licenseDetails/{licenseDetails%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

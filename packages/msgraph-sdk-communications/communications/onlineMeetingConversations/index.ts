@@ -95,7 +95,7 @@ export interface OnlineMeetingConversationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OnlineMeetingConversationsRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetingConversations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OnlineMeetingConversationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const OnlineMeetingConversationsRequestBuilderNavigationMetadata: Record<
  */
 export const OnlineMeetingConversationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OnlineMeetingConversationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/onlineMeetingConversations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const OnlineMeetingConversationsRequestBuilderRequestsMetadata: RequestsM
         queryParametersMapper: OnlineMeetingConversationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OnlineMeetingConversationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/onlineMeetingConversations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

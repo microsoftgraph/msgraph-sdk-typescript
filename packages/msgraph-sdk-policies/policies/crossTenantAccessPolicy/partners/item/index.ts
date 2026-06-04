@@ -78,7 +78,7 @@ export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBui
 /**
  * Uri template for the request builder.
  */
-export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/partners/{crossTenantAccessPolicyConfigurationPartner%2DtenantId}{?%24expand,%24select}";
+export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/partners/{crossTenantAccessPolicyConfigurationPartner%2DtenantId}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -107,7 +107,7 @@ export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/crossTenantAccessPolicy/partners/{crossTenantAccessPolicyConfigurationPartner%2DtenantId}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

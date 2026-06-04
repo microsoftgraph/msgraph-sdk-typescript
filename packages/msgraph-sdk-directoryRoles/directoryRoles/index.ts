@@ -121,7 +121,7 @@ export interface DirectoryRolesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryRolesRequestBuilderUriTemplate = "{+baseurl}/directoryRoles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DirectoryRolesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -165,7 +165,7 @@ export const DirectoryRolesRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const DirectoryRolesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DirectoryRolesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directoryRoles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -175,7 +175,7 @@ export const DirectoryRolesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DirectoryRolesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DirectoryRolesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directoryRoles",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

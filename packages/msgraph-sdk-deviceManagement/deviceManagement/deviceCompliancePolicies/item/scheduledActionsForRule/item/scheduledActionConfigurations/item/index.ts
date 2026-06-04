@@ -69,7 +69,7 @@ export interface DeviceComplianceActionItemItemRequestBuilderGetQueryParameters 
 /**
  * Uri template for the request builder.
  */
-export const DeviceComplianceActionItemItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}/scheduledActionConfigurations/{deviceComplianceActionItem%2Did}{?%24expand,%24select}";
+export const DeviceComplianceActionItemItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}/scheduledActionConfigurations/{deviceComplianceActionItem%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const DeviceComplianceActionItemItemRequestBuilderRequestsMetadata: Reque
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DeviceComplianceActionItemItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}/scheduledActionConfigurations/{deviceComplianceActionItem%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

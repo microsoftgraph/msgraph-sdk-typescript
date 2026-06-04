@@ -59,7 +59,7 @@ export interface PronounsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PronounsRequestBuilderUriTemplate = "{+baseurl}/admin/people/pronouns{?%24expand,%24select}";
+export const PronounsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -72,7 +72,7 @@ const PronounsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const PronounsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PronounsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/people/pronouns{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -82,7 +82,7 @@ export const PronounsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PronounsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: PronounsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/people/pronouns",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

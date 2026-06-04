@@ -75,7 +75,7 @@ export interface CustomExtensionStageSettingItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const CustomExtensionStageSettingItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionStageSettings/{customExtensionStageSetting%2Did}{?%24expand,%24select}";
+export const CustomExtensionStageSettingItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionStageSettings/{customExtensionStageSetting%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const CustomExtensionStageSettingItemRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CustomExtensionStageSettingItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionStageSettings/{customExtensionStageSetting%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

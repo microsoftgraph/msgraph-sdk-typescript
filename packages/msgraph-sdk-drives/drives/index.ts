@@ -85,7 +85,7 @@ export interface DrivesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DrivesRequestBuilderUriTemplate = "{+baseurl}/drives{?%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DrivesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -113,7 +113,7 @@ export const DrivesRequestBuilderNavigationMetadata: Record<Exclude<keyof Drives
  */
 export const DrivesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DrivesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives{?%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -123,7 +123,7 @@ export const DrivesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DrivesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DrivesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

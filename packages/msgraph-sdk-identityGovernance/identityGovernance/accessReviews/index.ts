@@ -81,7 +81,7 @@ export interface AccessReviewsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AccessReviewsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews{?%24expand,%24select}";
+export const AccessReviewsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const AccessReviewsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AccessReviewsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

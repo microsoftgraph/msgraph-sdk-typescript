@@ -75,7 +75,7 @@ export interface WindowsSettingItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WindowsSettingItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/windows/{windowsSetting%2Did}{?%24expand,%24select}";
+export const WindowsSettingItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/windows/{windowsSetting%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const WindowsSettingItemRequestBuilderRequestsMetadata: RequestsMetadata 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WindowsSettingItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/windows/{windowsSetting%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

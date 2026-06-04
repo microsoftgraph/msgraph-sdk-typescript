@@ -81,7 +81,7 @@ export interface AuthenticationStrengthRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationStrengthRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/authenticationStrength{?%24expand,%24select}";
+export const AuthenticationStrengthRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/authenticationStrength";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const AuthenticationStrengthRequestBuilderRequestsMetadata: RequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AuthenticationStrengthRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/conditionalAccess/authenticationStrength{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

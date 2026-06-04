@@ -96,7 +96,7 @@ export interface LanguagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LanguagesRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const LanguagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const LanguagesRequestBuilderNavigationMetadata: Record<Exclude<keyof Lan
  */
 export const LanguagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: LanguagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const LanguagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: LanguagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: LanguagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

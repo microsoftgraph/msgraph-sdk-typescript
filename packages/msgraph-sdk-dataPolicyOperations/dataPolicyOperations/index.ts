@@ -95,7 +95,7 @@ export interface DataPolicyOperationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DataPolicyOperationsRequestBuilderUriTemplate = "{+baseurl}/dataPolicyOperations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DataPolicyOperationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const DataPolicyOperationsRequestBuilderNavigationMetadata: Record<Exclud
  */
 export const DataPolicyOperationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DataPolicyOperationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/dataPolicyOperations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const DataPolicyOperationsRequestBuilderRequestsMetadata: RequestsMetadat
         queryParametersMapper: DataPolicyOperationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DataPolicyOperationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/dataPolicyOperations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

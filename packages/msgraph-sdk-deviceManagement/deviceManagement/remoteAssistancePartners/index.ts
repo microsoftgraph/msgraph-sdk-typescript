@@ -97,7 +97,7 @@ export interface RemoteAssistancePartnersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RemoteAssistancePartnersRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/remoteAssistancePartners{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RemoteAssistancePartnersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const RemoteAssistancePartnersRequestBuilderNavigationMetadata: Record<Ex
  */
 export const RemoteAssistancePartnersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RemoteAssistancePartnersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/remoteAssistancePartners{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const RemoteAssistancePartnersRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: RemoteAssistancePartnersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RemoteAssistancePartnersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/remoteAssistancePartners",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

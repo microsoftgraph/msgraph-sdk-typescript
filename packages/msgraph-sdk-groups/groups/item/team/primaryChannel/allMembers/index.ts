@@ -107,7 +107,7 @@ export interface AllMembersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AllMembersRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/allMembers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AllMembersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -144,7 +144,7 @@ export const AllMembersRequestBuilderNavigationMetadata: Record<Exclude<keyof Al
  */
 export const AllMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AllMembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/primaryChannel/allMembers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -154,7 +154,7 @@ export const AllMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AllMembersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AllMembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/primaryChannel/allMembers",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

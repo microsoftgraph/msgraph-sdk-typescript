@@ -82,7 +82,7 @@ export interface HostPairItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostPairItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPairs/{hostPair%2Did}{?%24expand,%24select}";
+export const HostPairItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPairs/{hostPair%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -114,7 +114,7 @@ export const HostPairItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: HostPairItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostPairs/{hostPair%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

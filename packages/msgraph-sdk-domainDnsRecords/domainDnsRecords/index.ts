@@ -95,7 +95,7 @@ export interface DomainDnsRecordsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DomainDnsRecordsRequestBuilderUriTemplate = "{+baseurl}/domainDnsRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DomainDnsRecordsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const DomainDnsRecordsRequestBuilderNavigationMetadata: Record<Exclude<ke
  */
 export const DomainDnsRecordsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DomainDnsRecordsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/domainDnsRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const DomainDnsRecordsRequestBuilderRequestsMetadata: RequestsMetadata = 
         queryParametersMapper: DomainDnsRecordsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DomainDnsRecordsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/domainDnsRecords",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

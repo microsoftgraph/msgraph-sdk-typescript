@@ -71,7 +71,7 @@ export interface ConfigurationSnapshotJobItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConfigurationSnapshotJobItemRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement/configurationSnapshotJobs/{configurationSnapshotJob%2Did}{?%24expand,%24select}";
+export const ConfigurationSnapshotJobItemRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement/configurationSnapshotJobs/{configurationSnapshotJob%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const ConfigurationSnapshotJobItemRequestBuilderRequestsMetadata: Request
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ConfigurationSnapshotJobItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/configurationManagement/configurationSnapshotJobs/{configurationSnapshotJob%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

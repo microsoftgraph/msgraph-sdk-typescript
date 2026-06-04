@@ -76,7 +76,7 @@ export interface EngagementRoleMemberItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EngagementRoleMemberItemRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/roles/{engagementRole%2Did}/members/{engagementRoleMember%2Did}{?%24expand,%24select}";
+export const EngagementRoleMemberItemRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/roles/{engagementRole%2Did}/members/{engagementRoleMember%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -106,7 +106,7 @@ export const EngagementRoleMemberItemRequestBuilderRequestsMetadata: RequestsMet
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: EngagementRoleMemberItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience/roles/{engagementRole%2Did}/members/{engagementRoleMember%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

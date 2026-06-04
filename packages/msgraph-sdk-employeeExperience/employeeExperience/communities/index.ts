@@ -97,7 +97,7 @@ export interface CommunitiesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CommunitiesRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/communities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CommunitiesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const CommunitiesRequestBuilderNavigationMetadata: Record<Exclude<keyof C
  */
 export const CommunitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CommunitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience/communities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const CommunitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: CommunitiesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CommunitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience/communities",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

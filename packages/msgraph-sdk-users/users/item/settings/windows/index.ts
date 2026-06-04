@@ -95,7 +95,7 @@ export interface WindowsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WindowsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/windows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const WindowsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const WindowsRequestBuilderNavigationMetadata: Record<Exclude<keyof Windo
  */
 export const WindowsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: WindowsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/windows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const WindowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: WindowsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: WindowsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/windows",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

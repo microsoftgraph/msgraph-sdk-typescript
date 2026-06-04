@@ -69,7 +69,7 @@ export interface PrintUsageByUserItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintUsageByUserItemRequestBuilderUriTemplate = "{+baseurl}/reports/monthlyPrintUsageByUser/{printUsageByUser%2Did}{?%24expand,%24select}";
+export const PrintUsageByUserItemRequestBuilderUriTemplate = "{+baseurl}/reports/monthlyPrintUsageByUser/{printUsageByUser%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const PrintUsageByUserItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PrintUsageByUserItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/monthlyPrintUsageByUser/{printUsageByUser%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

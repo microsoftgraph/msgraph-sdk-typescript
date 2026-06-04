@@ -95,7 +95,7 @@ export interface ManifestsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ManifestsRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/manifests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ManifestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ManifestsRequestBuilderNavigationMetadata: Record<Exclude<keyof Man
  */
 export const ManifestsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ManifestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/partners/billing/manifests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ManifestsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ManifestsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ManifestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/partners/billing/manifests",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

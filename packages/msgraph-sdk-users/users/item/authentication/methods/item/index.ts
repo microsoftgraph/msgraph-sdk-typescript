@@ -63,7 +63,7 @@ export interface AuthenticationMethodItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/methods/{authenticationMethod%2Did}{?%24expand,%24select}";
+export const AuthenticationMethodItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -84,7 +84,7 @@ export const AuthenticationMethodItemRequestBuilderNavigationMetadata: Record<Ex
  */
 export const AuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/methods/{authenticationMethod%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -94,7 +94,7 @@ export const AuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: AuthenticationMethodItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: AuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/methods/{authenticationMethod%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

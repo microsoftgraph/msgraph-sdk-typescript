@@ -97,7 +97,7 @@ export interface ThreadsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ThreadsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ThreadsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ThreadsRequestBuilderNavigationMetadata: Record<Exclude<keyof Threa
  */
 export const ThreadsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ThreadsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/threads{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ThreadsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ThreadsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ThreadsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/threads",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

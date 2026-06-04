@@ -122,7 +122,7 @@ export interface DirectoryObjectItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryObjectItemRequestBuilderUriTemplate = "{+baseurl}/directory/deletedItems/{directoryObject%2Did}{?%24expand,%24select}";
+export const DirectoryObjectItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -173,7 +173,7 @@ export const DirectoryObjectItemRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const DirectoryObjectItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: DirectoryObjectItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/deletedItems/{directoryObject%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -181,7 +181,7 @@ export const DirectoryObjectItemRequestBuilderRequestsMetadata: RequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DirectoryObjectItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/deletedItems/{directoryObject%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

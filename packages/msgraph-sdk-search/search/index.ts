@@ -81,7 +81,7 @@ export interface SearchRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SearchRequestBuilderUriTemplate = "{+baseurl}/search{?%24expand,%24select}";
+export const SearchRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -114,7 +114,7 @@ export const SearchRequestBuilderNavigationMetadata: Record<Exclude<keyof Search
  */
 export const SearchRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SearchRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/search{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -124,7 +124,7 @@ export const SearchRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SearchRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: SearchRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/search",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

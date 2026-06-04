@@ -93,7 +93,7 @@ export interface AccessPackageAssignmentPolicyItemRequestBuilderGetQueryParamete
 /**
  * Uri template for the request builder.
  */
-export const AccessPackageAssignmentPolicyItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}{?%24expand,%24select}";
+export const AccessPackageAssignmentPolicyItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -133,7 +133,7 @@ export const AccessPackageAssignmentPolicyItemRequestBuilderRequestsMetadata: Re
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AccessPackageAssignmentPolicyItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

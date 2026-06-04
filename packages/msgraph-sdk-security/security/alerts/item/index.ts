@@ -63,7 +63,7 @@ export interface AlertItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AlertItemRequestBuilderUriTemplate = "{+baseurl}/security/alerts/{alert%2Did}{?%24expand,%24select}";
+export const AlertItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -76,7 +76,7 @@ const AlertItemRequestBuilderGetQueryParametersMapper: Record<string, string> = 
  */
 export const AlertItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AlertItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/alerts/{alert%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -86,7 +86,7 @@ export const AlertItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AlertItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: AlertItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/alerts/{alert%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

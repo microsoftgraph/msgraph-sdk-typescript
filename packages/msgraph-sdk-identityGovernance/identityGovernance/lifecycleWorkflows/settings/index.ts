@@ -59,7 +59,7 @@ export interface SettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SettingsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/settings{?%24expand,%24select}";
+export const SettingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -72,7 +72,7 @@ const SettingsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/settings{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -82,7 +82,7 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SettingsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: SettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/settings",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

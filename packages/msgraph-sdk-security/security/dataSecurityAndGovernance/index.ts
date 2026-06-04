@@ -87,7 +87,7 @@ export interface DataSecurityAndGovernanceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DataSecurityAndGovernanceRequestBuilderUriTemplate = "{+baseurl}/security/dataSecurityAndGovernance{?%24expand,%24select}";
+export const DataSecurityAndGovernanceRequestBuilderUriTemplate = "{+baseurl}/security/dataSecurityAndGovernance";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -124,7 +124,7 @@ export const DataSecurityAndGovernanceRequestBuilderRequestsMetadata: RequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DataSecurityAndGovernanceRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/dataSecurityAndGovernance{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

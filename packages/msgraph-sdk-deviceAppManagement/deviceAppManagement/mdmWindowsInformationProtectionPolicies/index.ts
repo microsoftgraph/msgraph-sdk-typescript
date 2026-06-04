@@ -95,7 +95,7 @@ export interface MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryPa
 /**
  * Uri template for the request builder.
  */
-export const MdmWindowsInformationProtectionPoliciesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MdmWindowsInformationProtectionPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const MdmWindowsInformationProtectionPoliciesRequestBuilderNavigationMeta
  */
 export const MdmWindowsInformationProtectionPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MdmWindowsInformationProtectionPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const MdmWindowsInformationProtectionPoliciesRequestBuilderRequestsMetada
         queryParametersMapper: MdmWindowsInformationProtectionPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MdmWindowsInformationProtectionPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

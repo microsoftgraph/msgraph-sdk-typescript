@@ -83,7 +83,7 @@ export interface AccessReviewStageItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AccessReviewStageItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages/{accessReviewStage%2Did}{?%24expand,%24select}";
+export const AccessReviewStageItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages/{accessReviewStage%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -116,7 +116,7 @@ export const AccessReviewStageItemRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AccessReviewStageItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages/{accessReviewStage%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

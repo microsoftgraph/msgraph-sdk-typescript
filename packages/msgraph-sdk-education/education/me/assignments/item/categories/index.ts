@@ -107,7 +107,7 @@ export interface CategoriesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CategoriesRequestBuilderUriTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/categories{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CategoriesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -144,7 +144,7 @@ export const CategoriesRequestBuilderNavigationMetadata: Record<Exclude<keyof Ca
  */
 export const CategoriesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CategoriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/categories{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -154,7 +154,7 @@ export const CategoriesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: CategoriesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CategoriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/categories",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

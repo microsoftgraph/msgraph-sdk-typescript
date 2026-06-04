@@ -96,7 +96,7 @@ export interface IdentityAccountsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityAccountsRequestBuilderUriTemplate = "{+baseurl}/security/identities/identityAccounts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const IdentityAccountsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const IdentityAccountsRequestBuilderNavigationMetadata: Record<Exclude<ke
  */
 export const IdentityAccountsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: IdentityAccountsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/identities/identityAccounts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const IdentityAccountsRequestBuilderRequestsMetadata: RequestsMetadata = 
         queryParametersMapper: IdentityAccountsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: IdentityAccountsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/identities/identityAccounts",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

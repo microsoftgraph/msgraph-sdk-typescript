@@ -107,7 +107,7 @@ export interface AdhocCallsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AdhocCallsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/adhocCalls{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AdhocCallsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -145,7 +145,7 @@ export const AdhocCallsRequestBuilderNavigationMetadata: Record<Exclude<keyof Ad
  */
 export const AdhocCallsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AdhocCallsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/adhocCalls{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -155,7 +155,7 @@ export const AdhocCallsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AdhocCallsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AdhocCallsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/adhocCalls",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

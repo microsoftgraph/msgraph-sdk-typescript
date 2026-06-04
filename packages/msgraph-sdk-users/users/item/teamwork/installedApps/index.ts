@@ -97,7 +97,7 @@ export interface InstalledAppsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InstalledAppsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/teamwork/installedApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const InstalledAppsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const InstalledAppsRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const InstalledAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: InstalledAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/teamwork/installedApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const InstalledAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: InstalledAppsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: InstalledAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/teamwork/installedApps",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -97,7 +97,7 @@ export interface RetentionEventTypesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RetentionEventTypesRequestBuilderUriTemplate = "{+baseurl}/security/triggerTypes/retentionEventTypes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RetentionEventTypesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const RetentionEventTypesRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const RetentionEventTypesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RetentionEventTypesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/triggerTypes/retentionEventTypes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const RetentionEventTypesRequestBuilderRequestsMetadata: RequestsMetadata
         queryParametersMapper: RetentionEventTypesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RetentionEventTypesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/triggerTypes/retentionEventTypes",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

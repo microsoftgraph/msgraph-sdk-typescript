@@ -109,7 +109,7 @@ export interface UserAttributeAssignmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UserAttributeAssignmentsRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UserAttributeAssignmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -147,7 +147,7 @@ export const UserAttributeAssignmentsRequestBuilderNavigationMetadata: Record<Ex
  */
 export const UserAttributeAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: UserAttributeAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -157,7 +157,7 @@ export const UserAttributeAssignmentsRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: UserAttributeAssignmentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: UserAttributeAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

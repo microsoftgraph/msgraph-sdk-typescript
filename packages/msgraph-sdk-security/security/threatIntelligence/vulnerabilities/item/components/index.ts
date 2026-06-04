@@ -96,7 +96,7 @@ export interface ComponentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ComponentsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}/components{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ComponentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ComponentsRequestBuilderNavigationMetadata: Record<Exclude<keyof Co
  */
 export const ComponentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ComponentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}/components{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ComponentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ComponentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ComponentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}/components",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

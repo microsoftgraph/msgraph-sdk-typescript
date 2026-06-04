@@ -95,7 +95,7 @@ export interface ListsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ListsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ListsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ListsRequestBuilderNavigationMetadata: Record<Exclude<keyof ListsRe
  */
 export const ListsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ListsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ListsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ListsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ListsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

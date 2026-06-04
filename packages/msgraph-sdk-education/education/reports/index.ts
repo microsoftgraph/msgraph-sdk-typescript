@@ -93,7 +93,7 @@ export interface ReportsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReportsRequestBuilderUriTemplate = "{+baseurl}/education/reports{?%24expand,%24select}";
+export const ReportsRequestBuilderUriTemplate = "{+baseurl}/education/reports";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -135,7 +135,7 @@ export const ReportsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ReportsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

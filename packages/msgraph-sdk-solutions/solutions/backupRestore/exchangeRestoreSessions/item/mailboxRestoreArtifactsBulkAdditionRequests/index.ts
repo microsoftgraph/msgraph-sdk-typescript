@@ -97,7 +97,7 @@ export interface MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQue
 /**
  * Uri template for the request builder.
  */
-export const MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/exchangeRestoreSessions/{exchangeRestoreSession%2Did}/mailboxRestoreArtifactsBulkAdditionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigation
  */
 export const MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/exchangeRestoreSessions/{exchangeRestoreSession%2Did}/mailboxRestoreArtifactsBulkAdditionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMe
         queryParametersMapper: MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MailboxRestoreArtifactsBulkAdditionRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/exchangeRestoreSessions/{exchangeRestoreSession%2Did}/mailboxRestoreArtifactsBulkAdditionRequests",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

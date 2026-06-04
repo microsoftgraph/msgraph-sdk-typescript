@@ -95,7 +95,7 @@ export interface UserExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParam
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsMetricHistoryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsMetricHistory{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UserExperienceAnalyticsMetricHistoryRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const UserExperienceAnalyticsMetricHistoryRequestBuilderNavigationMetadat
  */
 export const UserExperienceAnalyticsMetricHistoryRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: UserExperienceAnalyticsMetricHistoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsMetricHistory{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const UserExperienceAnalyticsMetricHistoryRequestBuilderRequestsMetadata:
         queryParametersMapper: UserExperienceAnalyticsMetricHistoryRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: UserExperienceAnalyticsMetricHistoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsMetricHistory",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

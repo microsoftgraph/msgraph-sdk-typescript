@@ -71,7 +71,7 @@ export interface UnitMapItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UnitMapItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/units/{unitMap%2Did}{?%24expand,%24select}";
+export const UnitMapItemRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/units/{unitMap%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const UnitMapItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UnitMapItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/units/{unitMap%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

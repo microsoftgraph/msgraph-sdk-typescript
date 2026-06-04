@@ -101,7 +101,7 @@ export interface RecordingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RecordingsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/adhocCalls/{adhocCall%2Did}/recordings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RecordingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -136,7 +136,7 @@ export const RecordingsRequestBuilderNavigationMetadata: Record<Exclude<keyof Re
  */
 export const RecordingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RecordingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/adhocCalls/{adhocCall%2Did}/recordings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -146,7 +146,7 @@ export const RecordingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RecordingsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RecordingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/adhocCalls/{adhocCall%2Did}/recordings",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

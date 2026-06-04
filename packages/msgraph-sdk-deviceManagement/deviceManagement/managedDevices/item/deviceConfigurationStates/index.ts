@@ -95,7 +95,7 @@ export interface DeviceConfigurationStatesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceConfigurationStatesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceConfigurationStates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DeviceConfigurationStatesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const DeviceConfigurationStatesRequestBuilderNavigationMetadata: Record<E
  */
 export const DeviceConfigurationStatesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DeviceConfigurationStatesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceConfigurationStates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const DeviceConfigurationStatesRequestBuilderRequestsMetadata: RequestsMe
         queryParametersMapper: DeviceConfigurationStatesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DeviceConfigurationStatesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceConfigurationStates",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

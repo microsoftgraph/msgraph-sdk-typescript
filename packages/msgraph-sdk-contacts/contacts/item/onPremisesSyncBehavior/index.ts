@@ -69,7 +69,7 @@ export interface OnPremisesSyncBehaviorRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OnPremisesSyncBehaviorRequestBuilderUriTemplate = "{+baseurl}/contacts/{orgContact%2Did}/onPremisesSyncBehavior{?%24expand,%24select}";
+export const OnPremisesSyncBehaviorRequestBuilderUriTemplate = "{+baseurl}/contacts/{orgContact%2Did}/onPremisesSyncBehavior";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const OnPremisesSyncBehaviorRequestBuilderRequestsMetadata: RequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: OnPremisesSyncBehaviorRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/contacts/{orgContact%2Did}/onPremisesSyncBehavior{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

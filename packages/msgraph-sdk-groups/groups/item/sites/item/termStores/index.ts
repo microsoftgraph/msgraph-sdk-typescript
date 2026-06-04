@@ -95,7 +95,7 @@ export interface TermStoresRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TermStoresRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStores{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TermStoresRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const TermStoresRequestBuilderNavigationMetadata: Record<Exclude<keyof Te
  */
 export const TermStoresRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TermStoresRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStores{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const TermStoresRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TermStoresRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TermStoresRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStores",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

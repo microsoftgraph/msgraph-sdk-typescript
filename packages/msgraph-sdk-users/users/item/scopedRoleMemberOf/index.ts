@@ -95,7 +95,7 @@ export interface ScopedRoleMemberOfRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ScopedRoleMemberOfRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/scopedRoleMemberOf{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ScopedRoleMemberOfRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ScopedRoleMemberOfRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const ScopedRoleMemberOfRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ScopedRoleMemberOfRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/scopedRoleMemberOf{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ScopedRoleMemberOfRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: ScopedRoleMemberOfRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ScopedRoleMemberOfRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/scopedRoleMemberOf",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

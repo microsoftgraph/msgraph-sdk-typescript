@@ -76,7 +76,7 @@ export interface ServiceAnnouncementAttachmentItemRequestBuilderGetQueryParamete
 /**
  * Uri template for the request builder.
  */
-export const ServiceAnnouncementAttachmentItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}/attachments/{serviceAnnouncementAttachment%2Did}{?%24expand,%24select}";
+export const ServiceAnnouncementAttachmentItemRequestBuilderUriTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}/attachments/{serviceAnnouncementAttachment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const ServiceAnnouncementAttachmentItemRequestBuilderRequestsMetadata: Re
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ServiceAnnouncementAttachmentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}/attachments/{serviceAnnouncementAttachment%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface DeviceComplianceUserStatusItemRequestBuilderGetQueryParameters 
 /**
  * Uri template for the request builder.
  */
-export const DeviceComplianceUserStatusItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/userStatuses/{deviceComplianceUserStatus%2Did}{?%24expand,%24select}";
+export const DeviceComplianceUserStatusItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/userStatuses/{deviceComplianceUserStatus%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const DeviceComplianceUserStatusItemRequestBuilderRequestsMetadata: Reque
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DeviceComplianceUserStatusItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/userStatuses/{deviceComplianceUserStatus%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

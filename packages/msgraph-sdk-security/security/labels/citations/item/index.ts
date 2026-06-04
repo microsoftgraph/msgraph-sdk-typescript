@@ -71,7 +71,7 @@ export interface CitationTemplateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CitationTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/citations/{citationTemplate%2Did}{?%24expand,%24select}";
+export const CitationTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/citations/{citationTemplate%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const CitationTemplateItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CitationTemplateItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/citations/{citationTemplate%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

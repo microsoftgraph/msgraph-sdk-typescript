@@ -119,7 +119,7 @@ export interface DirectoryRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryRequestBuilderUriTemplate = "{+baseurl}/directory{?%24expand,%24select}";
+export const DirectoryRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -177,7 +177,7 @@ export const DirectoryRequestBuilderNavigationMetadata: Record<Exclude<keyof Dir
  */
 export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DirectoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -187,7 +187,7 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DirectoryRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: DirectoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

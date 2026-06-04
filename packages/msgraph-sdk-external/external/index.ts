@@ -63,7 +63,7 @@ export interface ExternalRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExternalRequestBuilderUriTemplate = "{+baseurl}/external{?%24expand,%24select}";
+export const ExternalRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -85,7 +85,7 @@ export const ExternalRequestBuilderNavigationMetadata: Record<Exclude<keyof Exte
  */
 export const ExternalRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ExternalRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/external{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -95,7 +95,7 @@ export const ExternalRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ExternalRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: ExternalRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/external",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

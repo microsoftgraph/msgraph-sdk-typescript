@@ -96,7 +96,7 @@ export interface RestoreSessionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RestoreSessionsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/restoreSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RestoreSessionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const RestoreSessionsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const RestoreSessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RestoreSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/restoreSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const RestoreSessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RestoreSessionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RestoreSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/restoreSessions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface MobileThreatDefenseConnectorItemRequestBuilderGetQueryParameter
 /**
  * Uri template for the request builder.
  */
-export const MobileThreatDefenseConnectorItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileThreatDefenseConnectors/{mobileThreatDefenseConnector%2Did}{?%24expand,%24select}";
+export const MobileThreatDefenseConnectorItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileThreatDefenseConnectors/{mobileThreatDefenseConnector%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const MobileThreatDefenseConnectorItemRequestBuilderRequestsMetadata: Req
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MobileThreatDefenseConnectorItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/mobileThreatDefenseConnectors/{mobileThreatDefenseConnector%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -75,7 +75,7 @@ export interface DeviceLogCollectionResponseItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const DeviceLogCollectionResponseItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}{?%24expand,%24select}";
+export const DeviceLogCollectionResponseItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const DeviceLogCollectionResponseItemRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DeviceLogCollectionResponseItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests/{deviceLogCollectionResponse%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

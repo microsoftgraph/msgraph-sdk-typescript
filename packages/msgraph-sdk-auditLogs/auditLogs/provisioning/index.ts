@@ -96,7 +96,7 @@ export interface ProvisioningRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProvisioningRequestBuilderUriTemplate = "{+baseurl}/auditLogs/provisioning{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ProvisioningRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ProvisioningRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const ProvisioningRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ProvisioningRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/auditLogs/provisioning{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ProvisioningRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ProvisioningRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ProvisioningRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/auditLogs/provisioning",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

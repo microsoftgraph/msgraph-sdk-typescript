@@ -96,7 +96,7 @@ export interface ServiceManagementDetailsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ServiceManagementDetailsRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ServiceManagementDetailsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ServiceManagementDetailsRequestBuilderNavigationMetadata: Record<Ex
  */
 export const ServiceManagementDetailsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ServiceManagementDetailsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ServiceManagementDetailsRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: ServiceManagementDetailsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ServiceManagementDetailsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

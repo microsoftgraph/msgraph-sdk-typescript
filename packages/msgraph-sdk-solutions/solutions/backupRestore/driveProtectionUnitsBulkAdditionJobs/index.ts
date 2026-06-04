@@ -95,7 +95,7 @@ export interface DriveProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParam
 /**
  * Uri template for the request builder.
  */
-export const DriveProtectionUnitsBulkAdditionJobsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/driveProtectionUnitsBulkAdditionJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DriveProtectionUnitsBulkAdditionJobsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const DriveProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetadat
  */
 export const DriveProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DriveProtectionUnitsBulkAdditionJobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/driveProtectionUnitsBulkAdditionJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const DriveProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata:
         queryParametersMapper: DriveProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DriveProtectionUnitsBulkAdditionJobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/driveProtectionUnitsBulkAdditionJobs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

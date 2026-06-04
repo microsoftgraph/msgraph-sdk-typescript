@@ -69,7 +69,7 @@ export interface OnenoteRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OnenoteRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/onenote{?%24expand,%24select}";
+export const OnenoteRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/onenote";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const OnenoteRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: OnenoteRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')/onenote{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

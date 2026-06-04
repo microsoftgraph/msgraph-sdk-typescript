@@ -100,7 +100,7 @@ export interface DirectoryRoleTemplateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryRoleTemplateItemRequestBuilderUriTemplate = "{+baseurl}/directoryRoleTemplates/{directoryRoleTemplate%2Did}{?%24expand,%24select}";
+export const DirectoryRoleTemplateItemRequestBuilderUriTemplate = "{+baseurl}/directoryRoleTemplates/{directoryRoleTemplate%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -141,7 +141,7 @@ export const DirectoryRoleTemplateItemRequestBuilderRequestsMetadata: RequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DirectoryRoleTemplateItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directoryRoleTemplates/{directoryRoleTemplate%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

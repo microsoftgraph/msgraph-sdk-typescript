@@ -96,7 +96,7 @@ export interface SessionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SessionsRequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SessionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const SessionsRequestBuilderNavigationMetadata: Record<Exclude<keyof Sess
  */
 export const SessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const SessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SessionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

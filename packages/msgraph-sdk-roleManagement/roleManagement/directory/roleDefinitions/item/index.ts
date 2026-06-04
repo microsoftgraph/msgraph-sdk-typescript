@@ -78,7 +78,7 @@ export interface UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleDefinitions/{unifiedRoleDefinition%2Did}{?%24expand,%24select}";
+export const UnifiedRoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleDefinitions/{unifiedRoleDefinition%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -108,7 +108,7 @@ export const UnifiedRoleDefinitionItemRequestBuilderRequestsMetadata: RequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UnifiedRoleDefinitionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/directory/roleDefinitions/{unifiedRoleDefinition%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

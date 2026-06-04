@@ -75,7 +75,7 @@ export interface BulkUploadRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BulkUploadRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/bulkUpload{?%24expand,%24select}";
+export const BulkUploadRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/bulkUpload";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const BulkUploadRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: BulkUploadRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/bulkUpload{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

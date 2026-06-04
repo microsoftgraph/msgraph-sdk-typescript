@@ -76,7 +76,7 @@ export interface IntelligenceProfileIndicatorItemRequestBuilderGetQueryParameter
 /**
  * Uri template for the request builder.
  */
-export const IntelligenceProfileIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/intelligenceProfileIndicators/{intelligenceProfileIndicator%2Did}{?%24expand,%24select}";
+export const IntelligenceProfileIndicatorItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/intelligenceProfileIndicators/{intelligenceProfileIndicator%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const IntelligenceProfileIndicatorItemRequestBuilderRequestsMetadata: Req
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: IntelligenceProfileIndicatorItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/intelligenceProfileIndicators/{intelligenceProfileIndicator%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

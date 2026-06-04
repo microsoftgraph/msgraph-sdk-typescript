@@ -69,7 +69,7 @@ export interface RiskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParam
 /**
  * Uri template for the request builder.
  */
-export const RiskyServicePrincipalHistoryItemItemRequestBuilderUriTemplate = "{+baseurl}/identityProtection/riskyServicePrincipals/{riskyServicePrincipal%2Did}/history/{riskyServicePrincipalHistoryItem%2Did}{?%24expand,%24select}";
+export const RiskyServicePrincipalHistoryItemItemRequestBuilderUriTemplate = "{+baseurl}/identityProtection/riskyServicePrincipals/{riskyServicePrincipal%2Did}/history/{riskyServicePrincipalHistoryItem%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const RiskyServicePrincipalHistoryItemItemRequestBuilderRequestsMetadata:
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: RiskyServicePrincipalHistoryItemItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProtection/riskyServicePrincipals/{riskyServicePrincipal%2Did}/history/{riskyServicePrincipalHistoryItem%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

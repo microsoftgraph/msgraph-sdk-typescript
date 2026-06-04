@@ -95,7 +95,7 @@ export interface LearningCourseActivitiesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LearningCourseActivitiesRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/learningCourseActivities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const LearningCourseActivitiesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const LearningCourseActivitiesRequestBuilderNavigationMetadata: Record<Ex
  */
 export const LearningCourseActivitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: LearningCourseActivitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience/learningCourseActivities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const LearningCourseActivitiesRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: LearningCourseActivitiesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: LearningCourseActivitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience/learningCourseActivities",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

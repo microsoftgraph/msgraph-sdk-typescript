@@ -96,7 +96,7 @@ export interface BrowseSessionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BrowseSessionsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/browseSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const BrowseSessionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const BrowseSessionsRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const BrowseSessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: BrowseSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/browseSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const BrowseSessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: BrowseSessionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: BrowseSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/browseSessions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

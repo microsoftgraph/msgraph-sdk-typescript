@@ -69,7 +69,7 @@ export interface FederatedIdentityCredentialItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const FederatedIdentityCredentialItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24expand,%24select}";
+export const FederatedIdentityCredentialItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const FederatedIdentityCredentialItemRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: FederatedIdentityCredentialItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials/{federatedIdentityCredential%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

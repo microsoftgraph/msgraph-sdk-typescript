@@ -97,7 +97,7 @@ export interface SchemaExtensionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SchemaExtensionsRequestBuilderUriTemplate = "{+baseurl}/schemaExtensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SchemaExtensionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const SchemaExtensionsRequestBuilderNavigationMetadata: Record<Exclude<ke
  */
 export const SchemaExtensionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SchemaExtensionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/schemaExtensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const SchemaExtensionsRequestBuilderRequestsMetadata: RequestsMetadata = 
         queryParametersMapper: SchemaExtensionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SchemaExtensionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/schemaExtensions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

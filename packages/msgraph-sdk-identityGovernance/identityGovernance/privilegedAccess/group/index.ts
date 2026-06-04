@@ -111,7 +111,7 @@ export interface GroupRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const GroupRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group{?%24expand,%24select}";
+export const GroupRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -165,7 +165,7 @@ export const GroupRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: GroupRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/privilegedAccess/group{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

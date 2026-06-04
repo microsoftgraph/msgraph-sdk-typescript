@@ -95,7 +95,7 @@ export interface AppliedPoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppliedPoliciesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/appliedPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AppliedPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const AppliedPoliciesRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const AppliedPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AppliedPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/appliedPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const AppliedPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AppliedPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AppliedPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/appliedPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

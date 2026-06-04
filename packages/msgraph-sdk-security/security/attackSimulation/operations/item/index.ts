@@ -70,7 +70,7 @@ export interface AttackSimulationOperationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttackSimulationOperationItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/operations/{attackSimulationOperation%2Did}{?%24expand,%24select}";
+export const AttackSimulationOperationItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/operations/{attackSimulationOperation%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const AttackSimulationOperationItemRequestBuilderRequestsMetadata: Reques
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AttackSimulationOperationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/operations/{attackSimulationOperation%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -95,7 +95,7 @@ export interface DeviceConfigurationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceConfigurationsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DeviceConfigurationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const DeviceConfigurationsRequestBuilderNavigationMetadata: Record<Exclud
  */
 export const DeviceConfigurationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DeviceConfigurationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const DeviceConfigurationsRequestBuilderRequestsMetadata: RequestsMetadat
         queryParametersMapper: DeviceConfigurationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DeviceConfigurationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceConfigurations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

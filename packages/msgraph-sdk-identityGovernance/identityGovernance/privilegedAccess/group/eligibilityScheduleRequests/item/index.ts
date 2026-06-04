@@ -94,7 +94,7 @@ export interface PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuild
 /**
  * Uri template for the request builder.
  */
-export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}{?%24expand,%24select}";
+export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -133,7 +133,7 @@ export const PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderRe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PrivilegedAccessGroupEligibilityScheduleRequestItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilityScheduleRequests/{privilegedAccessGroupEligibilityScheduleRequest%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

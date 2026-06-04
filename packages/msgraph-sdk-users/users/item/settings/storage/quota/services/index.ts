@@ -95,7 +95,7 @@ export interface ServicesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ServicesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/storage/quota/services{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ServicesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ServicesRequestBuilderNavigationMetadata: Record<Exclude<keyof Serv
  */
 export const ServicesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ServicesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/storage/quota/services{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ServicesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ServicesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ServicesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/storage/quota/services",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

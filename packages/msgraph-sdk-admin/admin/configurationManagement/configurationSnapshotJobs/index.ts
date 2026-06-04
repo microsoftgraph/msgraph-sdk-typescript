@@ -96,7 +96,7 @@ export interface ConfigurationSnapshotJobsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConfigurationSnapshotJobsRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement/configurationSnapshotJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ConfigurationSnapshotJobsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ConfigurationSnapshotJobsRequestBuilderNavigationMetadata: Record<E
  */
 export const ConfigurationSnapshotJobsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ConfigurationSnapshotJobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/configurationManagement/configurationSnapshotJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ConfigurationSnapshotJobsRequestBuilderRequestsMetadata: RequestsMe
         queryParametersMapper: ConfigurationSnapshotJobsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ConfigurationSnapshotJobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/configurationManagement/configurationSnapshotJobs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

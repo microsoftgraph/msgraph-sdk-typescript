@@ -95,7 +95,7 @@ export interface TroubleshootingEventsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TroubleshootingEventsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/troubleshootingEvents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TroubleshootingEventsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const TroubleshootingEventsRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const TroubleshootingEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TroubleshootingEventsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/troubleshootingEvents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const TroubleshootingEventsRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: TroubleshootingEventsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TroubleshootingEventsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/troubleshootingEvents",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

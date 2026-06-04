@@ -95,7 +95,7 @@ export interface CalendarsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CalendarsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/calendars{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CalendarsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const CalendarsRequestBuilderNavigationMetadata: Record<Exclude<keyof Cal
  */
 export const CalendarsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CalendarsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/calendars{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const CalendarsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: CalendarsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CalendarsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/calendars",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

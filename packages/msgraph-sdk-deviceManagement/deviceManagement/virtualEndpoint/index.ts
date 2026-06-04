@@ -117,7 +117,7 @@ export interface VirtualEndpointRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VirtualEndpointRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint{?%24expand,%24select}";
+export const VirtualEndpointRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -175,7 +175,7 @@ export const VirtualEndpointRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: VirtualEndpointRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

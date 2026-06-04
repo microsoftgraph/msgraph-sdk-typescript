@@ -91,7 +91,7 @@ export interface EmployeeExperienceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EmployeeExperienceRequestBuilderUriTemplate = "{+baseurl}/employeeExperience{?%24select}";
+export const EmployeeExperienceRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -132,7 +132,7 @@ export const EmployeeExperienceRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const EmployeeExperienceRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: EmployeeExperienceRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience{?%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -142,7 +142,7 @@ export const EmployeeExperienceRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: EmployeeExperienceRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: EmployeeExperienceRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

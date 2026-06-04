@@ -96,7 +96,7 @@ export interface DelegatedAdminCustomersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DelegatedAdminCustomersRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminCustomers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DelegatedAdminCustomersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const DelegatedAdminCustomersRequestBuilderNavigationMetadata: Record<Exc
  */
 export const DelegatedAdminCustomersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DelegatedAdminCustomersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/delegatedAdminCustomers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const DelegatedAdminCustomersRequestBuilderRequestsMetadata: RequestsMeta
         queryParametersMapper: DelegatedAdminCustomersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DelegatedAdminCustomersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/delegatedAdminCustomers",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

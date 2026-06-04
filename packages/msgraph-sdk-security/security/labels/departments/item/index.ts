@@ -71,7 +71,7 @@ export interface DepartmentTemplateItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DepartmentTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/departments/{departmentTemplate%2Did}{?%24expand,%24select}";
+export const DepartmentTemplateItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/departments/{departmentTemplate%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const DepartmentTemplateItemRequestBuilderRequestsMetadata: RequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DepartmentTemplateItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/departments/{departmentTemplate%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

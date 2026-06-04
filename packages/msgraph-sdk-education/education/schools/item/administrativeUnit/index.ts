@@ -57,7 +57,7 @@ export interface AdministrativeUnitRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AdministrativeUnitRequestBuilderUriTemplate = "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24expand,%24select}";
+export const AdministrativeUnitRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -70,7 +70,7 @@ const AdministrativeUnitRequestBuilderGetQueryParametersMapper: Record<string, s
  */
 export const AdministrativeUnitRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AdministrativeUnitRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -80,7 +80,7 @@ export const AdministrativeUnitRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: AdministrativeUnitRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: AdministrativeUnitRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

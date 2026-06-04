@@ -77,7 +77,7 @@ export interface PrintTaskTriggerItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintTaskTriggerItemRequestBuilderUriTemplate = "{+baseurl}/print/printers/{printer%2Did}/taskTriggers/{printTaskTrigger%2Did}{?%24expand,%24select}";
+export const PrintTaskTriggerItemRequestBuilderUriTemplate = "{+baseurl}/print/printers/{printer%2Did}/taskTriggers/{printTaskTrigger%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -106,7 +106,7 @@ export const PrintTaskTriggerItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PrintTaskTriggerItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print/printers/{printer%2Did}/taskTriggers/{printTaskTrigger%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

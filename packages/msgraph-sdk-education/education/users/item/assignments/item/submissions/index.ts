@@ -95,7 +95,7 @@ export interface SubmissionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubmissionsRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SubmissionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SubmissionsRequestBuilderNavigationMetadata: Record<Exclude<keyof S
  */
 export const SubmissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SubmissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SubmissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SubmissionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SubmissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

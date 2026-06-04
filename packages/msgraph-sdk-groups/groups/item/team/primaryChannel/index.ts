@@ -153,7 +153,7 @@ export interface PrimaryChannelRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrimaryChannelRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel{?%24expand,%24select}";
+export const PrimaryChannelRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -228,7 +228,7 @@ export const PrimaryChannelRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PrimaryChannelRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/primaryChannel{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

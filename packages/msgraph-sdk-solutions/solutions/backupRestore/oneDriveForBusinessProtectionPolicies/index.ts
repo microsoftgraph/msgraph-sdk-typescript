@@ -96,7 +96,7 @@ export interface OneDriveForBusinessProtectionPoliciesRequestBuilderGetQueryPara
 /**
  * Uri template for the request builder.
  */
-export const OneDriveForBusinessProtectionPoliciesRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/oneDriveForBusinessProtectionPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OneDriveForBusinessProtectionPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const OneDriveForBusinessProtectionPoliciesRequestBuilderNavigationMetada
  */
 export const OneDriveForBusinessProtectionPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OneDriveForBusinessProtectionPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/oneDriveForBusinessProtectionPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const OneDriveForBusinessProtectionPoliciesRequestBuilderRequestsMetadata
         queryParametersMapper: OneDriveForBusinessProtectionPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OneDriveForBusinessProtectionPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/oneDriveForBusinessProtectionPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

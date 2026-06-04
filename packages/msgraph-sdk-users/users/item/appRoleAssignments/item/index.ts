@@ -70,7 +70,7 @@ export interface AppRoleAssignmentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppRoleAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/appRoleAssignments/{appRoleAssignment%2Did}{?%24expand,%24select}";
+export const AppRoleAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/appRoleAssignments/{appRoleAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const AppRoleAssignmentItemRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AppRoleAssignmentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/appRoleAssignments/{appRoleAssignment%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

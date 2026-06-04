@@ -96,7 +96,7 @@ export interface DirectoryAuditsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryAuditsRequestBuilderUriTemplate = "{+baseurl}/auditLogs/directoryAudits{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DirectoryAuditsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const DirectoryAuditsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const DirectoryAuditsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DirectoryAuditsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/auditLogs/directoryAudits{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const DirectoryAuditsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DirectoryAuditsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DirectoryAuditsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/auditLogs/directoryAudits",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

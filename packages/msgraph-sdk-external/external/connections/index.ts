@@ -97,7 +97,7 @@ export interface ConnectionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConnectionsRequestBuilderUriTemplate = "{+baseurl}/external/connections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ConnectionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ConnectionsRequestBuilderNavigationMetadata: Record<Exclude<keyof C
  */
 export const ConnectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ConnectionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/external/connections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ConnectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ConnectionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ConnectionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/external/connections",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

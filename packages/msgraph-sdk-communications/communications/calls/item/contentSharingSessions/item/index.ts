@@ -70,7 +70,7 @@ export interface ContentSharingSessionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContentSharingSessionItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/contentSharingSessions/{contentSharingSession%2Did}{?%24expand,%24select}";
+export const ContentSharingSessionItemRequestBuilderUriTemplate = "{+baseurl}/communications/calls/{call%2Did}/contentSharingSessions/{contentSharingSession%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const ContentSharingSessionItemRequestBuilderRequestsMetadata: RequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ContentSharingSessionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/calls/{call%2Did}/contentSharingSessions/{contentSharingSession%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

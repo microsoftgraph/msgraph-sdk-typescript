@@ -95,7 +95,7 @@ export interface EndpointsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EndpointsRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/endpoints{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const EndpointsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const EndpointsRequestBuilderNavigationMetadata: Record<Exclude<keyof End
  */
 export const EndpointsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: EndpointsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/endpoints{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const EndpointsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: EndpointsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: EndpointsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/endpoints",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

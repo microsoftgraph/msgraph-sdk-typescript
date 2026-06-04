@@ -96,7 +96,7 @@ export interface GalleryImagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const GalleryImagesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/galleryImages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const GalleryImagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const GalleryImagesRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const GalleryImagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: GalleryImagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint/galleryImages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const GalleryImagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: GalleryImagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: GalleryImagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint/galleryImages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

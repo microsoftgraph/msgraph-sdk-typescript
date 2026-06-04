@@ -97,7 +97,7 @@ export interface FeatureRolloutPoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FeatureRolloutPoliciesRequestBuilderUriTemplate = "{+baseurl}/policies/featureRolloutPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const FeatureRolloutPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const FeatureRolloutPoliciesRequestBuilderNavigationMetadata: Record<Excl
  */
 export const FeatureRolloutPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: FeatureRolloutPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/featureRolloutPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const FeatureRolloutPoliciesRequestBuilderRequestsMetadata: RequestsMetad
         queryParametersMapper: FeatureRolloutPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: FeatureRolloutPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/featureRolloutPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

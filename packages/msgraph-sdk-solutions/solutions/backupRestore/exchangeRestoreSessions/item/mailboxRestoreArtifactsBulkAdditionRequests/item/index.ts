@@ -71,7 +71,7 @@ export interface MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderGet
 /**
  * Uri template for the request builder.
  */
-export const MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/exchangeRestoreSessions/{exchangeRestoreSession%2Did}/mailboxRestoreArtifactsBulkAdditionRequests/{mailboxRestoreArtifactsBulkAdditionRequest%2Did}{?%24expand,%24select}";
+export const MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/exchangeRestoreSessions/{exchangeRestoreSession%2Did}/mailboxRestoreArtifactsBulkAdditionRequests/{mailboxRestoreArtifactsBulkAdditionRequest%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderRequest
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MailboxRestoreArtifactsBulkAdditionRequestItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/exchangeRestoreSessions/{exchangeRestoreSession%2Did}/mailboxRestoreArtifactsBulkAdditionRequests/{mailboxRestoreArtifactsBulkAdditionRequest%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

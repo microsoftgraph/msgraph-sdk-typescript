@@ -97,7 +97,7 @@ export interface TeamsAppsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsAppsRequestBuilderUriTemplate = "{+baseurl}/appCatalogs/teamsApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TeamsAppsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const TeamsAppsRequestBuilderNavigationMetadata: Record<Exclude<keyof Tea
  */
 export const TeamsAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TeamsAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/appCatalogs/teamsApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const TeamsAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TeamsAppsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TeamsAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/appCatalogs/teamsApps",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

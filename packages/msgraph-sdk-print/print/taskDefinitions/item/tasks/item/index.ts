@@ -83,7 +83,7 @@ export interface PrintTaskItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintTaskItemRequestBuilderUriTemplate = "{+baseurl}/print/taskDefinitions/{printTaskDefinition%2Did}/tasks/{printTask%2Did}{?%24expand,%24select}";
+export const PrintTaskItemRequestBuilderUriTemplate = "{+baseurl}/print/taskDefinitions/{printTaskDefinition%2Did}/tasks/{printTask%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const PrintTaskItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PrintTaskItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print/taskDefinitions/{printTaskDefinition%2Did}/tasks/{printTask%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

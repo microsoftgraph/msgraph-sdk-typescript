@@ -95,7 +95,7 @@ export interface DeviceCompliancePolicyStatesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceCompliancePolicyStatesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceCompliancePolicyStates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DeviceCompliancePolicyStatesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const DeviceCompliancePolicyStatesRequestBuilderNavigationMetadata: Recor
  */
 export const DeviceCompliancePolicyStatesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DeviceCompliancePolicyStatesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceCompliancePolicyStates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const DeviceCompliancePolicyStatesRequestBuilderRequestsMetadata: Request
         queryParametersMapper: DeviceCompliancePolicyStatesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DeviceCompliancePolicyStatesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/deviceCompliancePolicyStates",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

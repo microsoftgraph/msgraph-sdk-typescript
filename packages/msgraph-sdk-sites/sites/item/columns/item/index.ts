@@ -75,7 +75,7 @@ export interface ColumnDefinitionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ColumnDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/columns/{columnDefinition%2Did}{?%24expand,%24select}";
+export const ColumnDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/columns/{columnDefinition%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const ColumnDefinitionItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ColumnDefinitionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/columns/{columnDefinition%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

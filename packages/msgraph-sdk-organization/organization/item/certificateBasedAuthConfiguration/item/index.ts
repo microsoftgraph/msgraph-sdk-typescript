@@ -56,7 +56,7 @@ export interface CertificateBasedAuthConfigurationItemRequestBuilderGetQueryPara
 /**
  * Uri template for the request builder.
  */
-export const CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24expand,%24select}";
+export const CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -69,7 +69,7 @@ const CertificateBasedAuthConfigurationItemRequestBuilderGetQueryParametersMappe
  */
 export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/organization/{organization%2Did}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -77,7 +77,7 @@ export const CertificateBasedAuthConfigurationItemRequestBuilderRequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CertificateBasedAuthConfigurationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/organization/{organization%2Did}/certificateBasedAuthConfiguration/{certificateBasedAuthConfiguration%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -95,7 +95,7 @@ export interface TasksRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TasksRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}/tasks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TasksRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const TasksRequestBuilderNavigationMetadata: Record<Exclude<keyof TasksRe
  */
 export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TasksRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}/tasks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TasksRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TasksRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}/tasks",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

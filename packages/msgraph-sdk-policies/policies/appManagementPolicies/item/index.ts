@@ -78,7 +78,7 @@ export interface AppManagementPolicyItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppManagementPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/appManagementPolicies/{appManagementPolicy%2Did}{?%24expand,%24select}";
+export const AppManagementPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/appManagementPolicies/{appManagementPolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -108,7 +108,7 @@ export const AppManagementPolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AppManagementPolicyItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/appManagementPolicies/{appManagementPolicy%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

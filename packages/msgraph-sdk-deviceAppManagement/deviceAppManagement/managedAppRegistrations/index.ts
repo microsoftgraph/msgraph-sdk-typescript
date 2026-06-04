@@ -101,7 +101,7 @@ export interface ManagedAppRegistrationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ManagedAppRegistrationsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ManagedAppRegistrationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -136,7 +136,7 @@ export const ManagedAppRegistrationsRequestBuilderNavigationMetadata: Record<Exc
  */
 export const ManagedAppRegistrationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ManagedAppRegistrationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -146,7 +146,7 @@ export const ManagedAppRegistrationsRequestBuilderRequestsMetadata: RequestsMeta
         queryParametersMapper: ManagedAppRegistrationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ManagedAppRegistrationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppRegistrations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

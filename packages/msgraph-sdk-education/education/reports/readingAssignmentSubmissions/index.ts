@@ -96,7 +96,7 @@ export interface ReadingAssignmentSubmissionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReadingAssignmentSubmissionsRequestBuilderUriTemplate = "{+baseurl}/education/reports/readingAssignmentSubmissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ReadingAssignmentSubmissionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ReadingAssignmentSubmissionsRequestBuilderNavigationMetadata: Recor
  */
 export const ReadingAssignmentSubmissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ReadingAssignmentSubmissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports/readingAssignmentSubmissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ReadingAssignmentSubmissionsRequestBuilderRequestsMetadata: Request
         queryParametersMapper: ReadingAssignmentSubmissionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ReadingAssignmentSubmissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports/readingAssignmentSubmissions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

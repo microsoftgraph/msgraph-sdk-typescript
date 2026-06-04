@@ -96,7 +96,7 @@ export interface Participants_v2RequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const Participants_v2RequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/{callRecord%2Did}/participants_v2{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const Participants_v2RequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const Participants_v2RequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const Participants_v2RequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: Participants_v2RequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/callRecords/{callRecord%2Did}/participants_v2{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const Participants_v2RequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: Participants_v2RequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: Participants_v2RequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/callRecords/{callRecord%2Did}/participants_v2",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

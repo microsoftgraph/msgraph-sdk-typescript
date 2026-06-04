@@ -96,7 +96,7 @@ export interface AttendanceRecordsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttendanceRecordsRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions/{virtualEventSession%2Did}/attendanceReports/{meetingAttendanceReport%2Did}/attendanceRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AttendanceRecordsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const AttendanceRecordsRequestBuilderNavigationMetadata: Record<Exclude<k
  */
 export const AttendanceRecordsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AttendanceRecordsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions/{virtualEventSession%2Did}/attendanceReports/{meetingAttendanceReport%2Did}/attendanceRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const AttendanceRecordsRequestBuilderRequestsMetadata: RequestsMetadata =
         queryParametersMapper: AttendanceRecordsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AttendanceRecordsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/sessions/{virtualEventSession%2Did}/attendanceReports/{meetingAttendanceReport%2Did}/attendanceRecords",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

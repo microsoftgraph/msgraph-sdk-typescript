@@ -70,7 +70,7 @@ export interface SecureScoreItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SecureScoreItemRequestBuilderUriTemplate = "{+baseurl}/security/secureScores/{secureScore%2Did}{?%24expand,%24select}";
+export const SecureScoreItemRequestBuilderUriTemplate = "{+baseurl}/security/secureScores/{secureScore%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const SecureScoreItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SecureScoreItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/secureScores/{secureScore%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

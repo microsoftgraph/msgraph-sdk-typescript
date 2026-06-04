@@ -71,7 +71,7 @@ export interface BucketTaskBoardFormatRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BucketTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/tasks/{plannerTask%2Did}/bucketTaskBoardFormat{?%24expand,%24select}";
+export const BucketTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/tasks/{plannerTask%2Did}/bucketTaskBoardFormat";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const BucketTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: BucketTaskBoardFormatRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/planner/tasks/{plannerTask%2Did}/bucketTaskBoardFormat{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

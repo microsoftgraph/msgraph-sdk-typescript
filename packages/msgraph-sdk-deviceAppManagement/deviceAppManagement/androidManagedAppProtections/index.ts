@@ -95,7 +95,7 @@ export interface AndroidManagedAppProtectionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AndroidManagedAppProtectionsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/androidManagedAppProtections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AndroidManagedAppProtectionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const AndroidManagedAppProtectionsRequestBuilderNavigationMetadata: Recor
  */
 export const AndroidManagedAppProtectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AndroidManagedAppProtectionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/androidManagedAppProtections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const AndroidManagedAppProtectionsRequestBuilderRequestsMetadata: Request
         queryParametersMapper: AndroidManagedAppProtectionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AndroidManagedAppProtectionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/androidManagedAppProtections",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

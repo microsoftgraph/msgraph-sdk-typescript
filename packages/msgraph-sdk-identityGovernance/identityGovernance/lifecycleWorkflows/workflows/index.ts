@@ -97,7 +97,7 @@ export interface WorkflowsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkflowsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const WorkflowsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const WorkflowsRequestBuilderNavigationMetadata: Record<Exclude<keyof Wor
  */
 export const WorkflowsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: WorkflowsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const WorkflowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: WorkflowsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: WorkflowsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

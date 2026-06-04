@@ -97,7 +97,7 @@ export interface FilePlanReferencesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FilePlanReferencesRequestBuilderUriTemplate = "{+baseurl}/security/labels/filePlanReferences{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const FilePlanReferencesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const FilePlanReferencesRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const FilePlanReferencesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: FilePlanReferencesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/filePlanReferences{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const FilePlanReferencesRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: FilePlanReferencesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: FilePlanReferencesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/filePlanReferences",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

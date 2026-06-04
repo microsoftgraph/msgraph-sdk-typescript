@@ -96,7 +96,7 @@ export interface SpeakerAssignmentSubmissionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SpeakerAssignmentSubmissionsRequestBuilderUriTemplate = "{+baseurl}/education/reports/speakerAssignmentSubmissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SpeakerAssignmentSubmissionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SpeakerAssignmentSubmissionsRequestBuilderNavigationMetadata: Recor
  */
 export const SpeakerAssignmentSubmissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SpeakerAssignmentSubmissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports/speakerAssignmentSubmissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SpeakerAssignmentSubmissionsRequestBuilderRequestsMetadata: Request
         queryParametersMapper: SpeakerAssignmentSubmissionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SpeakerAssignmentSubmissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports/speakerAssignmentSubmissions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

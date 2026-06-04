@@ -77,7 +77,7 @@ export interface IncidentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IncidentItemRequestBuilderUriTemplate = "{+baseurl}/security/incidents/{incident%2Did}{?%24expand,%24select}";
+export const IncidentItemRequestBuilderUriTemplate = "{+baseurl}/security/incidents/{incident%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -107,7 +107,7 @@ export const IncidentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: IncidentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/incidents/{incident%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

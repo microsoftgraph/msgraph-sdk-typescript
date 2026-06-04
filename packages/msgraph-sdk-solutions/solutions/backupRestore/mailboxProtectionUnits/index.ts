@@ -95,7 +95,7 @@ export interface MailboxProtectionUnitsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MailboxProtectionUnitsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/mailboxProtectionUnits{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MailboxProtectionUnitsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const MailboxProtectionUnitsRequestBuilderNavigationMetadata: Record<Excl
  */
 export const MailboxProtectionUnitsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MailboxProtectionUnitsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/mailboxProtectionUnits{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const MailboxProtectionUnitsRequestBuilderRequestsMetadata: RequestsMetad
         queryParametersMapper: MailboxProtectionUnitsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MailboxProtectionUnitsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/mailboxProtectionUnits",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

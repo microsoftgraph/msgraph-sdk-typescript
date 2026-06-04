@@ -95,7 +95,7 @@ export interface DetectedAppsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DetectedAppsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/detectedApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DetectedAppsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const DetectedAppsRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const DetectedAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DetectedAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/detectedApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const DetectedAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DetectedAppsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DetectedAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/detectedApps",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

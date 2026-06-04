@@ -93,7 +93,7 @@ export interface PrintRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintRequestBuilderUriTemplate = "{+baseurl}/print{?%24expand,%24select}";
+export const PrintRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -135,7 +135,7 @@ export const PrintRequestBuilderNavigationMetadata: Record<Exclude<keyof PrintRe
  */
 export const PrintRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PrintRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -145,7 +145,7 @@ export const PrintRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PrintRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: PrintRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

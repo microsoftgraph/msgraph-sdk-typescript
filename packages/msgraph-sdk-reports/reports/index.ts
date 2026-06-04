@@ -910,7 +910,7 @@ export interface ReportsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReportsRequestBuilderUriTemplate = "{+baseurl}/reports{?%24expand,%24select}";
+export const ReportsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -1357,7 +1357,7 @@ export const ReportsRequestBuilderNavigationMetadata: Record<Exclude<keyof Repor
  */
 export const ReportsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ReportsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -1367,7 +1367,7 @@ export const ReportsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ReportsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: ReportsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

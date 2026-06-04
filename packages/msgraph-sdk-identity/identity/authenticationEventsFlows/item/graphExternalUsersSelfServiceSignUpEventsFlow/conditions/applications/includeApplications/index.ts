@@ -95,7 +95,7 @@ export interface IncludeApplicationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IncludeApplicationsRequestBuilderUriTemplate = "{+baseurl}/identity/authenticationEventsFlows/{authenticationEventsFlow%2Did}/graph.externalUsersSelfServiceSignUpEventsFlow/conditions/applications/includeApplications{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const IncludeApplicationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const IncludeApplicationsRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const IncludeApplicationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: IncludeApplicationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/authenticationEventsFlows/{authenticationEventsFlow%2Did}/graph.externalUsersSelfServiceSignUpEventsFlow/conditions/applications/includeApplications{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const IncludeApplicationsRequestBuilderRequestsMetadata: RequestsMetadata
         queryParametersMapper: IncludeApplicationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: IncludeApplicationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/authenticationEventsFlows/{authenticationEventsFlow%2Did}/graph.externalUsersSelfServiceSignUpEventsFlow/conditions/applications/includeApplications",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

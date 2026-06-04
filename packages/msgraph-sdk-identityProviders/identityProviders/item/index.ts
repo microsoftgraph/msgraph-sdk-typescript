@@ -78,7 +78,7 @@ export interface IdentityProviderItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityProviderItemRequestBuilderUriTemplate = "{+baseurl}/identityProviders/{identityProvider%2Did}{?%24expand,%24select}";
+export const IdentityProviderItemRequestBuilderUriTemplate = "{+baseurl}/identityProviders/{identityProvider%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -99,7 +99,7 @@ export const IdentityProviderItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: IdentityProviderItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProviders/{identityProvider%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -81,7 +81,7 @@ export interface PostAttributeCollectionRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PostAttributeCollectionRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/apiConnectorConfiguration/postAttributeCollection{?%24expand,%24select}";
+export const PostAttributeCollectionRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/apiConnectorConfiguration/postAttributeCollection";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -113,7 +113,7 @@ export const PostAttributeCollectionRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PostAttributeCollectionRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/apiConnectorConfiguration/postAttributeCollection{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface OutlookCategoryItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OutlookCategoryItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/masterCategories/{outlookCategory%2Did}{?%24expand,%24select}";
+export const OutlookCategoryItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/outlook/masterCategories/{outlookCategory%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const OutlookCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: OutlookCategoryItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/outlook/masterCategories/{outlookCategory%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

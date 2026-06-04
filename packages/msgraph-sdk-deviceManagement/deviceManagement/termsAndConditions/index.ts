@@ -95,7 +95,7 @@ export interface TermsAndConditionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TermsAndConditionsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/termsAndConditions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TermsAndConditionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const TermsAndConditionsRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const TermsAndConditionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TermsAndConditionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/termsAndConditions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const TermsAndConditionsRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: TermsAndConditionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TermsAndConditionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/termsAndConditions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

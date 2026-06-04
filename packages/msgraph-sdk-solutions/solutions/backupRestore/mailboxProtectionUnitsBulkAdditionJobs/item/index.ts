@@ -69,7 +69,7 @@ export interface MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderGetQuery
 /**
  * Uri template for the request builder.
  */
-export const MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/mailboxProtectionUnitsBulkAdditionJobs/{mailboxProtectionUnitsBulkAdditionJob%2Did}{?%24expand,%24select}";
+export const MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/mailboxProtectionUnitsBulkAdditionJobs/{mailboxProtectionUnitsBulkAdditionJob%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderRequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MailboxProtectionUnitsBulkAdditionJobItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/mailboxProtectionUnitsBulkAdditionJobs/{mailboxProtectionUnitsBulkAdditionJob%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

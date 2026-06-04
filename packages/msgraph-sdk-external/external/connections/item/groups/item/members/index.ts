@@ -96,7 +96,7 @@ export interface MembersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MembersRequestBuilderUriTemplate = "{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}/members{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MembersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const MembersRequestBuilderNavigationMetadata: Record<Exclude<keyof Membe
  */
 export const MembersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}/members{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const MembersRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: MembersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}/members",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

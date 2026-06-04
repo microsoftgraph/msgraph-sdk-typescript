@@ -95,7 +95,7 @@ export interface SectionGroupsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SectionGroupsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SectionGroupsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SectionGroupsRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const SectionGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SectionGroupsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SectionGroupsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SectionGroupsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SectionGroupsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

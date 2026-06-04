@@ -76,7 +76,7 @@ export interface RegistrationsWithEmailRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RegistrationsWithEmailRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(email='{email}'){?%24expand,%24select}";
+export const RegistrationsWithEmailRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(email='{email}')";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const RegistrationsWithEmailRequestBuilderRequestsMetadata: RequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: RegistrationsWithEmailRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations(email='{email}'){?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

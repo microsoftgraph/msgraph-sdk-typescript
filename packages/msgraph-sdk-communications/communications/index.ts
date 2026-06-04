@@ -105,7 +105,7 @@ export interface CommunicationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CommunicationsRequestBuilderUriTemplate = "{+baseurl}/communications{?%24expand,%24select}";
+export const CommunicationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -153,7 +153,7 @@ export const CommunicationsRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const CommunicationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CommunicationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -163,7 +163,7 @@ export const CommunicationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: CommunicationsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: CommunicationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -96,7 +96,7 @@ export interface DefaultPagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DefaultPagesRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages/{userFlowLanguageConfiguration%2Did}/defaultPages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DefaultPagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const DefaultPagesRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const DefaultPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DefaultPagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages/{userFlowLanguageConfiguration%2Did}/defaultPages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const DefaultPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DefaultPagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DefaultPagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages/{userFlowLanguageConfiguration%2Did}/defaultPages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

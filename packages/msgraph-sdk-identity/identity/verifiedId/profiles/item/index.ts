@@ -72,7 +72,7 @@ export interface VerifiedIdProfileItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VerifiedIdProfileItemRequestBuilderUriTemplate = "{+baseurl}/identity/verifiedId/profiles/{verifiedIdProfile%2Did}{?%24expand,%24select}";
+export const VerifiedIdProfileItemRequestBuilderUriTemplate = "{+baseurl}/identity/verifiedId/profiles/{verifiedIdProfile%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const VerifiedIdProfileItemRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: VerifiedIdProfileItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/verifiedId/profiles/{verifiedIdProfile%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

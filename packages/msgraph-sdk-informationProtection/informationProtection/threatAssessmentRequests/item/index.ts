@@ -76,7 +76,7 @@ export interface ThreatAssessmentRequestItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ThreatAssessmentRequestItemRequestBuilderUriTemplate = "{+baseurl}/informationProtection/threatAssessmentRequests/{threatAssessmentRequest%2Did}{?%24expand,%24select}";
+export const ThreatAssessmentRequestItemRequestBuilderUriTemplate = "{+baseurl}/informationProtection/threatAssessmentRequests/{threatAssessmentRequest%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -106,7 +106,7 @@ export const ThreatAssessmentRequestItemRequestBuilderRequestsMetadata: Requests
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ThreatAssessmentRequestItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/informationProtection/threatAssessmentRequests/{threatAssessmentRequest%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

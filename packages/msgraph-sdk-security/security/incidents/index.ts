@@ -10,6 +10,8 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 // @ts-ignore
 import { IncidentItemRequestBuilderNavigationMetadata, IncidentItemRequestBuilderRequestsMetadata, type IncidentItemRequestBuilder } from './item/index.js';
 // @ts-ignore
+import { MicrosoftGraphSecurityMergeIncidentsRequestBuilderRequestsMetadata, type MicrosoftGraphSecurityMergeIncidentsRequestBuilder } from './microsoftGraphSecurityMergeIncidents/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -20,6 +22,10 @@ export interface IncidentsRequestBuilder extends BaseRequestBuilder<IncidentsReq
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Provides operations to call the mergeIncidents method.
+     */
+    get microsoftGraphSecurityMergeIncidents(): MicrosoftGraphSecurityMergeIncidentsRequestBuilder;
     /**
      * Provides operations to manage the incidents property of the microsoft.graph.security entity.
      * @param incidentId The unique identifier of incident
@@ -96,7 +102,7 @@ export interface IncidentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IncidentsRequestBuilderUriTemplate = "{+baseurl}/security/incidents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const IncidentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -122,13 +128,16 @@ export const IncidentsRequestBuilderNavigationMetadata: Record<Exclude<keyof Inc
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
     },
+    microsoftGraphSecurityMergeIncidents: {
+        requestsMetadata: MicrosoftGraphSecurityMergeIncidentsRequestBuilderRequestsMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.
  */
 export const IncidentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: IncidentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/incidents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +147,7 @@ export const IncidentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: IncidentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: IncidentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/incidents",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -96,7 +96,7 @@ export interface DeviceLocalCredentialsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceLocalCredentialsRequestBuilderUriTemplate = "{+baseurl}/directory/deviceLocalCredentials{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DeviceLocalCredentialsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const DeviceLocalCredentialsRequestBuilderNavigationMetadata: Record<Excl
  */
 export const DeviceLocalCredentialsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DeviceLocalCredentialsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/deviceLocalCredentials{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const DeviceLocalCredentialsRequestBuilderRequestsMetadata: RequestsMetad
         queryParametersMapper: DeviceLocalCredentialsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DeviceLocalCredentialsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/deviceLocalCredentials",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

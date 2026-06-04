@@ -93,7 +93,7 @@ export interface EngagementConversationMessageItemRequestBuilderGetQueryParamete
 /**
  * Uri template for the request builder.
  */
-export const EngagementConversationMessageItemRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetingConversations/{onlineMeetingEngagementConversation%2Did}/messages/{engagementConversationMessage%2Did}{?%24expand,%24select}";
+export const EngagementConversationMessageItemRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetingConversations/{onlineMeetingEngagementConversation%2Did}/messages/{engagementConversationMessage%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -133,7 +133,7 @@ export const EngagementConversationMessageItemRequestBuilderRequestsMetadata: Re
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: EngagementConversationMessageItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/onlineMeetingConversations/{onlineMeetingEngagementConversation%2Did}/messages/{engagementConversationMessage%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

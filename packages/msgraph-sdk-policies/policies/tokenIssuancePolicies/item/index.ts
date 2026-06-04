@@ -77,7 +77,7 @@ export interface TokenIssuancePolicyItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TokenIssuancePolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}{?%24expand,%24select}";
+export const TokenIssuancePolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -107,7 +107,7 @@ export const TokenIssuancePolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TokenIssuancePolicyItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/tokenIssuancePolicies/{tokenIssuancePolicy%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

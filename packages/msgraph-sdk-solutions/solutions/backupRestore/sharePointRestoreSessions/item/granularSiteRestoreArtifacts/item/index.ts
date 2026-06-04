@@ -69,7 +69,7 @@ export interface GranularSiteRestoreArtifactItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const GranularSiteRestoreArtifactItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/sharePointRestoreSessions/{sharePointRestoreSession%2Did}/granularSiteRestoreArtifacts/{granularSiteRestoreArtifact%2Did}{?%24expand,%24select}";
+export const GranularSiteRestoreArtifactItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/sharePointRestoreSessions/{sharePointRestoreSession%2Did}/granularSiteRestoreArtifacts/{granularSiteRestoreArtifact%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const GranularSiteRestoreArtifactItemRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: GranularSiteRestoreArtifactItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/sharePointRestoreSessions/{sharePointRestoreSession%2Did}/granularSiteRestoreArtifacts/{granularSiteRestoreArtifact%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

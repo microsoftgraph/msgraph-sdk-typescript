@@ -75,7 +75,7 @@ export interface PlannerRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PlannerRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/planner{?%24expand,%24select}";
+export const PlannerRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/planner";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const PlannerRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PlannerRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/planner{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

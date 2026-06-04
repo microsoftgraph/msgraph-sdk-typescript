@@ -97,7 +97,7 @@ export interface ConfigurationMonitorsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConfigurationMonitorsRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement/configurationMonitors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ConfigurationMonitorsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ConfigurationMonitorsRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const ConfigurationMonitorsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ConfigurationMonitorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/configurationManagement/configurationMonitors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ConfigurationMonitorsRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: ConfigurationMonitorsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ConfigurationMonitorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/configurationManagement/configurationMonitors",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

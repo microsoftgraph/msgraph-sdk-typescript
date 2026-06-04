@@ -63,7 +63,7 @@ export interface AppCatalogsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppCatalogsRequestBuilderUriTemplate = "{+baseurl}/appCatalogs{?%24expand,%24select}";
+export const AppCatalogsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -85,7 +85,7 @@ export const AppCatalogsRequestBuilderNavigationMetadata: Record<Exclude<keyof A
  */
 export const AppCatalogsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AppCatalogsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/appCatalogs{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -95,7 +95,7 @@ export const AppCatalogsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AppCatalogsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: AppCatalogsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/appCatalogs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

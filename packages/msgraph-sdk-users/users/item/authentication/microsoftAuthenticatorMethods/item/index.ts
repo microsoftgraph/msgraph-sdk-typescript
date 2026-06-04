@@ -62,7 +62,7 @@ export interface MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGet
 /**
  * Uri template for the request builder.
  */
-export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod%2Did}{?%24expand,%24select}";
+export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -83,7 +83,7 @@ export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderNavigat
  */
 export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -91,7 +91,7 @@ export const MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderRequest
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

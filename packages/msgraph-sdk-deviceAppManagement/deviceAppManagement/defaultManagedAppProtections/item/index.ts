@@ -81,7 +81,7 @@ export interface DefaultManagedAppProtectionItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const DefaultManagedAppProtectionItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/defaultManagedAppProtections/{defaultManagedAppProtection%2Did}{?%24expand,%24select}";
+export const DefaultManagedAppProtectionItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/defaultManagedAppProtections/{defaultManagedAppProtection%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -114,7 +114,7 @@ export const DefaultManagedAppProtectionItemRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DefaultManagedAppProtectionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/defaultManagedAppProtections/{defaultManagedAppProtection%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

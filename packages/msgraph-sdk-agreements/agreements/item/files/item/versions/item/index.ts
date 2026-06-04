@@ -69,7 +69,7 @@ export interface AgreementFileVersionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AgreementFileVersionItemRequestBuilderUriTemplate = "{+baseurl}/agreements/{agreement%2Did}/files/{agreementFileLocalization%2Did}/versions/{agreementFileVersion%2Did}{?%24expand,%24select}";
+export const AgreementFileVersionItemRequestBuilderUriTemplate = "{+baseurl}/agreements/{agreement%2Did}/files/{agreementFileLocalization%2Did}/versions/{agreementFileVersion%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const AgreementFileVersionItemRequestBuilderRequestsMetadata: RequestsMet
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AgreementFileVersionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/agreements/{agreement%2Did}/files/{agreementFileLocalization%2Did}/versions/{agreementFileVersion%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

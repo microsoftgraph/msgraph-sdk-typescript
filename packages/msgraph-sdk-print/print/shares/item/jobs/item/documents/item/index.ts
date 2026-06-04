@@ -81,7 +81,7 @@ export interface PrintDocumentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintDocumentItemRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/jobs/{printJob%2Did}/documents/{printDocument%2Did}{?%24expand,%24select}";
+export const PrintDocumentItemRequestBuilderUriTemplate = "{+baseurl}/print/shares/{printerShare%2Did}/jobs/{printJob%2Did}/documents/{printDocument%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -113,7 +113,7 @@ export const PrintDocumentItemRequestBuilderRequestsMetadata: RequestsMetadata =
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PrintDocumentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print/shares/{printerShare%2Did}/jobs/{printJob%2Did}/documents/{printDocument%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -95,7 +95,7 @@ export interface BundlesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BundlesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/bundles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const BundlesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const BundlesRequestBuilderNavigationMetadata: Record<Exclude<keyof Bundl
  */
 export const BundlesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: BundlesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/bundles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const BundlesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: BundlesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: BundlesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/bundles",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

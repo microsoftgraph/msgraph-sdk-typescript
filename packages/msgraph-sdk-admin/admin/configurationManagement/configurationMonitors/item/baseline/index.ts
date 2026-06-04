@@ -70,7 +70,7 @@ export interface BaselineRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BaselineRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement/configurationMonitors/{configurationMonitor%2Did}/baseline{?%24expand,%24select}";
+export const BaselineRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement/configurationMonitors/{configurationMonitor%2Did}/baseline";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const BaselineRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: BaselineRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/configurationManagement/configurationMonitors/{configurationMonitor%2Did}/baseline{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

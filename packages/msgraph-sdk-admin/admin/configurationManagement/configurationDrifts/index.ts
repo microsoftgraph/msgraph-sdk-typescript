@@ -96,7 +96,7 @@ export interface ConfigurationDriftsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConfigurationDriftsRequestBuilderUriTemplate = "{+baseurl}/admin/configurationManagement/configurationDrifts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ConfigurationDriftsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ConfigurationDriftsRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const ConfigurationDriftsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ConfigurationDriftsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/configurationManagement/configurationDrifts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ConfigurationDriftsRequestBuilderRequestsMetadata: RequestsMetadata
         queryParametersMapper: ConfigurationDriftsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ConfigurationDriftsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/configurationManagement/configurationDrifts",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

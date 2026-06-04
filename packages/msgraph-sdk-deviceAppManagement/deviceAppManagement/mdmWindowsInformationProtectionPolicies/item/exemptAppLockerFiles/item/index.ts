@@ -69,7 +69,7 @@ export interface WindowsInformationProtectionAppLockerFileItemRequestBuilderGetQ
 /**
  * Uri template for the request builder.
  */
-export const WindowsInformationProtectionAppLockerFileItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}/exemptAppLockerFiles/{windowsInformationProtectionAppLockerFile%2Did}{?%24expand,%24select}";
+export const WindowsInformationProtectionAppLockerFileItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}/exemptAppLockerFiles/{windowsInformationProtectionAppLockerFile%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const WindowsInformationProtectionAppLockerFileItemRequestBuilderRequests
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WindowsInformationProtectionAppLockerFileItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}/exemptAppLockerFiles/{windowsInformationProtectionAppLockerFile%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -99,7 +99,7 @@ export interface DescriptorsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DescriptorsRequestBuilderUriTemplate = "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/descriptors{?%24expand,%24select}";
+export const DescriptorsRequestBuilderUriTemplate = "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/descriptors";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -140,7 +140,7 @@ export const DescriptorsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DescriptorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}/descriptors{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

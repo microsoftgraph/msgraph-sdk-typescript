@@ -69,7 +69,7 @@ export interface TermsAndConditionsAssignmentItemRequestBuilderGetQueryParameter
 /**
  * Uri template for the request builder.
  */
-export const TermsAndConditionsAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/assignments/{termsAndConditionsAssignment%2Did}{?%24expand,%24select}";
+export const TermsAndConditionsAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/assignments/{termsAndConditionsAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const TermsAndConditionsAssignmentItemRequestBuilderRequestsMetadata: Req
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TermsAndConditionsAssignmentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/assignments/{termsAndConditionsAssignment%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

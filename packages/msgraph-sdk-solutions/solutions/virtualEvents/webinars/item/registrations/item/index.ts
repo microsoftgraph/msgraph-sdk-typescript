@@ -82,7 +82,7 @@ export interface VirtualEventRegistrationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VirtualEventRegistrationItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations/{virtualEventRegistration%2Did}{?%24expand,%24select}";
+export const VirtualEventRegistrationItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations/{virtualEventRegistration%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const VirtualEventRegistrationItemRequestBuilderRequestsMetadata: Request
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: VirtualEventRegistrationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations/{virtualEventRegistration%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

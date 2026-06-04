@@ -96,7 +96,7 @@ export interface HistoryRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HistoryRequestBuilderUriTemplate = "{+baseurl}/identityProtection/riskyUsers/{riskyUser%2Did}/history{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HistoryRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const HistoryRequestBuilderNavigationMetadata: Record<Exclude<keyof Histo
  */
 export const HistoryRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HistoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProtection/riskyUsers/{riskyUser%2Did}/history{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const HistoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: HistoryRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HistoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProtection/riskyUsers/{riskyUser%2Did}/history",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

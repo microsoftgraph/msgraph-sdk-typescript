@@ -95,7 +95,7 @@ export interface ScheduledActionConfigurationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ScheduledActionConfigurationsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}/scheduledActionConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ScheduledActionConfigurationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ScheduledActionConfigurationsRequestBuilderNavigationMetadata: Reco
  */
 export const ScheduledActionConfigurationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ScheduledActionConfigurationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}/scheduledActionConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ScheduledActionConfigurationsRequestBuilderRequestsMetadata: Reques
         queryParametersMapper: ScheduledActionConfigurationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ScheduledActionConfigurationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}/scheduledActionConfigurations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

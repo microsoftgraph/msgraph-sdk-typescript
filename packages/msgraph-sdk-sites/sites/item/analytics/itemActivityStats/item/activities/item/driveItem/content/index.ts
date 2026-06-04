@@ -53,7 +53,7 @@ export interface ContentRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContentRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}/activities/{itemActivity%2Did}/driveItem/content{?%24format*}";
+export const ContentRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -65,7 +65,7 @@ const ContentRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ContentRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}/activities/{itemActivity%2Did}/driveItem/content{?%24format*}",
         responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -75,7 +75,7 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ContentRequestBuilderGetQueryParametersMapper,
     },
     put: {
-        uriTemplate: ContentRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}/activities/{itemActivity%2Did}/driveItem/content",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

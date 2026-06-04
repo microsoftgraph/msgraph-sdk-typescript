@@ -70,7 +70,7 @@ export interface SubscriptionsWithCommerceSubscriptionIdRequestBuilderGetQueryPa
 /**
  * Uri template for the request builder.
  */
-export const SubscriptionsWithCommerceSubscriptionIdRequestBuilderUriTemplate = "{+baseurl}/directory/subscriptions(commerceSubscriptionId='{commerceSubscriptionId}'){?%24expand,%24select}";
+export const SubscriptionsWithCommerceSubscriptionIdRequestBuilderUriTemplate = "{+baseurl}/directory/subscriptions(commerceSubscriptionId='{commerceSubscriptionId}')";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const SubscriptionsWithCommerceSubscriptionIdRequestBuilderRequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SubscriptionsWithCommerceSubscriptionIdRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/subscriptions(commerceSubscriptionId='{commerceSubscriptionId}'){?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

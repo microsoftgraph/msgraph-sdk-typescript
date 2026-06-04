@@ -117,7 +117,7 @@ export interface IdentityRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityRequestBuilderUriTemplate = "{+baseurl}/identity{?%24expand,%24select}";
+export const IdentityRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -174,7 +174,7 @@ export const IdentityRequestBuilderNavigationMetadata: Record<Exclude<keyof Iden
  */
 export const IdentityRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: IdentityRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -184,7 +184,7 @@ export const IdentityRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: IdentityRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: IdentityRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

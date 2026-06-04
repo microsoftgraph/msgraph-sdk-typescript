@@ -87,7 +87,7 @@ export interface VirtualEventsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VirtualEventsRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents{?%24expand,%24select}";
+export const VirtualEventsRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -125,7 +125,7 @@ export const VirtualEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: VirtualEventsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

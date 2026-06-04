@@ -63,7 +63,7 @@ export interface PrivacyRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrivacyRequestBuilderUriTemplate = "{+baseurl}/privacy{?%24expand,%24select}";
+export const PrivacyRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -85,7 +85,7 @@ export const PrivacyRequestBuilderNavigationMetadata: Record<Exclude<keyof Priva
  */
 export const PrivacyRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PrivacyRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/privacy{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -95,7 +95,7 @@ export const PrivacyRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PrivacyRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: PrivacyRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/privacy",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

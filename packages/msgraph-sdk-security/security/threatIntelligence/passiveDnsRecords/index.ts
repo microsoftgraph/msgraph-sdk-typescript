@@ -95,7 +95,7 @@ export interface PassiveDnsRecordsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PassiveDnsRecordsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/passiveDnsRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PassiveDnsRecordsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const PassiveDnsRecordsRequestBuilderNavigationMetadata: Record<Exclude<k
  */
 export const PassiveDnsRecordsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PassiveDnsRecordsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/passiveDnsRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const PassiveDnsRecordsRequestBuilderRequestsMetadata: RequestsMetadata =
         queryParametersMapper: PassiveDnsRecordsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PassiveDnsRecordsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/passiveDnsRecords",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -105,7 +105,7 @@ export interface DefinitionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DefinitionsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DefinitionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -141,7 +141,7 @@ export const DefinitionsRequestBuilderNavigationMetadata: Record<Exclude<keyof D
  */
 export const DefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/definitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -151,7 +151,7 @@ export const DefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DefinitionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/definitions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

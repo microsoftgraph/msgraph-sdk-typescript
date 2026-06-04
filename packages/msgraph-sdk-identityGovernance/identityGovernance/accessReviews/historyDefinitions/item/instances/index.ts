@@ -96,7 +96,7 @@ export interface InstancesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InstancesRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}/instances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const InstancesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const InstancesRequestBuilderNavigationMetadata: Record<Exclude<keyof Ins
  */
 export const InstancesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: InstancesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}/instances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const InstancesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: InstancesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: InstancesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}/instances",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

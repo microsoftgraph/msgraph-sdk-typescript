@@ -76,7 +76,7 @@ export interface AccessReviewHistoryDefinitionItemRequestBuilderGetQueryParamete
 /**
  * Uri template for the request builder.
  */
-export const AccessReviewHistoryDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}{?%24expand,%24select}";
+export const AccessReviewHistoryDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -106,7 +106,7 @@ export const AccessReviewHistoryDefinitionItemRequestBuilderRequestsMetadata: Re
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AccessReviewHistoryDefinitionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

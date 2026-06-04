@@ -71,7 +71,7 @@ export interface ExtensionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExtensionItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/extensions/{extension%2Did}{?%24expand,%24select}";
+export const ExtensionItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/extensions/{extension%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const ExtensionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ExtensionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/extensions/{extension%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

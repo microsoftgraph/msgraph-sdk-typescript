@@ -103,7 +103,7 @@ export interface AdministrativeUnitsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AdministrativeUnitsRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AdministrativeUnitsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -138,7 +138,7 @@ export const AdministrativeUnitsRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const AdministrativeUnitsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AdministrativeUnitsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/administrativeUnits{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -148,7 +148,7 @@ export const AdministrativeUnitsRequestBuilderRequestsMetadata: RequestsMetadata
         queryParametersMapper: AdministrativeUnitsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AdministrativeUnitsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/administrativeUnits",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface InformationProtectionRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InformationProtectionRequestBuilderUriTemplate = "{+baseurl}/informationProtection{?%24expand,%24select}";
+export const InformationProtectionRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -95,7 +95,7 @@ export const InformationProtectionRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const InformationProtectionRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: InformationProtectionRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/informationProtection{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -105,7 +105,7 @@ export const InformationProtectionRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: InformationProtectionRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: InformationProtectionRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/informationProtection",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

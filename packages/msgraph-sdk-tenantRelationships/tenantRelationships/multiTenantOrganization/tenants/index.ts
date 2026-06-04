@@ -97,7 +97,7 @@ export interface TenantsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TenantsRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/multiTenantOrganization/tenants{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TenantsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const TenantsRequestBuilderNavigationMetadata: Record<Exclude<keyof Tenan
  */
 export const TenantsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TenantsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/multiTenantOrganization/tenants{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const TenantsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TenantsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TenantsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/multiTenantOrganization/tenants",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

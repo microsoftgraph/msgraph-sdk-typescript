@@ -69,7 +69,7 @@ export interface LandingPageDetailItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LandingPageDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/landingPages/{landingPage%2Did}/details/{landingPageDetail%2Did}{?%24expand,%24select}";
+export const LandingPageDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/landingPages/{landingPage%2Did}/details/{landingPageDetail%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const LandingPageDetailItemRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: LandingPageDetailItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/landingPages/{landingPage%2Did}/details/{landingPageDetail%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

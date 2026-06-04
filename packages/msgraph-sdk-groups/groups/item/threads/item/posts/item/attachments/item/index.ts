@@ -54,7 +54,7 @@ export interface AttachmentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttachmentItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/attachments/{attachment%2Did}{?%24expand,%24select}";
+export const AttachmentItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -67,7 +67,7 @@ const AttachmentItemRequestBuilderGetQueryParametersMapper: Record<string, strin
  */
 export const AttachmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: AttachmentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/attachments/{attachment%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -75,7 +75,7 @@ export const AttachmentItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AttachmentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/attachments/{attachment%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

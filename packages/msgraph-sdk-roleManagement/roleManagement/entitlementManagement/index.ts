@@ -123,7 +123,7 @@ export interface EntitlementManagementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EntitlementManagementRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement{?%24expand,%24select}";
+export const EntitlementManagementRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -185,7 +185,7 @@ export const EntitlementManagementRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: EntitlementManagementRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/entitlementManagement{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

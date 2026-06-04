@@ -95,7 +95,7 @@ export interface HostPortsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostPortsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPorts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HostPortsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const HostPortsRequestBuilderNavigationMetadata: Record<Exclude<keyof Hos
  */
 export const HostPortsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HostPortsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostPorts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const HostPortsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: HostPortsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HostPortsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostPorts",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

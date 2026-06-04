@@ -103,7 +103,7 @@ export interface AssignmentApprovalsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AssignmentApprovalsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentApprovals{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AssignmentApprovalsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -139,7 +139,7 @@ export const AssignmentApprovalsRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const AssignmentApprovalsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AssignmentApprovalsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentApprovals{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -149,7 +149,7 @@ export const AssignmentApprovalsRequestBuilderRequestsMetadata: RequestsMetadata
         queryParametersMapper: AssignmentApprovalsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AssignmentApprovalsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentApprovals",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

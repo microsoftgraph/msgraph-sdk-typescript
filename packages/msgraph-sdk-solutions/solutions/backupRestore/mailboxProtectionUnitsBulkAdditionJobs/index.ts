@@ -95,7 +95,7 @@ export interface MailboxProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryPar
 /**
  * Uri template for the request builder.
  */
-export const MailboxProtectionUnitsBulkAdditionJobsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/mailboxProtectionUnitsBulkAdditionJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MailboxProtectionUnitsBulkAdditionJobsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const MailboxProtectionUnitsBulkAdditionJobsRequestBuilderNavigationMetad
  */
 export const MailboxProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MailboxProtectionUnitsBulkAdditionJobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/mailboxProtectionUnitsBulkAdditionJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const MailboxProtectionUnitsBulkAdditionJobsRequestBuilderRequestsMetadat
         queryParametersMapper: MailboxProtectionUnitsBulkAdditionJobsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MailboxProtectionUnitsBulkAdditionJobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/mailboxProtectionUnitsBulkAdditionJobs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

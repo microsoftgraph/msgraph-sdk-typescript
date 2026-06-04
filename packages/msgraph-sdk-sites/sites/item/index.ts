@@ -192,7 +192,7 @@ export interface SiteItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SiteItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}{?%24expand,%24select}";
+export const SiteItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -293,7 +293,7 @@ export const SiteItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Site
  */
 export const SiteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SiteItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -303,7 +303,7 @@ export const SiteItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SiteItemRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: SiteItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

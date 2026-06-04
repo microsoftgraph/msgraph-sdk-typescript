@@ -78,7 +78,7 @@ export interface WorkHoursAndLocationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkHoursAndLocationsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations{?%24expand,%24select}";
+export const WorkHoursAndLocationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -108,7 +108,7 @@ export const WorkHoursAndLocationsRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const WorkHoursAndLocationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: WorkHoursAndLocationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -118,7 +118,7 @@ export const WorkHoursAndLocationsRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: WorkHoursAndLocationsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: WorkHoursAndLocationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

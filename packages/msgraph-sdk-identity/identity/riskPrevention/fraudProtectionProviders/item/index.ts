@@ -72,7 +72,7 @@ export interface FraudProtectionProviderItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FraudProtectionProviderItemRequestBuilderUriTemplate = "{+baseurl}/identity/riskPrevention/fraudProtectionProviders/{fraudProtectionProvider%2Did}{?%24expand,%24select}";
+export const FraudProtectionProviderItemRequestBuilderUriTemplate = "{+baseurl}/identity/riskPrevention/fraudProtectionProviders/{fraudProtectionProvider%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const FraudProtectionProviderItemRequestBuilderRequestsMetadata: Requests
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: FraudProtectionProviderItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/riskPrevention/fraudProtectionProviders/{fraudProtectionProvider%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -72,7 +72,7 @@ export interface AuthenticationEventListenerItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationEventListenerItemRequestBuilderUriTemplate = "{+baseurl}/identity/authenticationEventListeners/{authenticationEventListener%2Did}{?%24expand,%24select}";
+export const AuthenticationEventListenerItemRequestBuilderUriTemplate = "{+baseurl}/identity/authenticationEventListeners/{authenticationEventListener%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const AuthenticationEventListenerItemRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AuthenticationEventListenerItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/authenticationEventListeners/{authenticationEventListener%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

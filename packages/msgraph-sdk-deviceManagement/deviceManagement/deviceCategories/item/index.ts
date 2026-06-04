@@ -69,7 +69,7 @@ export interface DeviceCategoryItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCategories/{deviceCategory%2Did}{?%24expand,%24select}";
+export const DeviceCategoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCategories/{deviceCategory%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const DeviceCategoryItemRequestBuilderRequestsMetadata: RequestsMetadata 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DeviceCategoryItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceCategories/{deviceCategory%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

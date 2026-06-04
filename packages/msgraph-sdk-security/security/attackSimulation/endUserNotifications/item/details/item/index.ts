@@ -69,7 +69,7 @@ export interface EndUserNotificationDetailItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EndUserNotificationDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/endUserNotifications/{endUserNotification%2Did}/details/{endUserNotificationDetail%2Did}{?%24expand,%24select}";
+export const EndUserNotificationDetailItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/endUserNotifications/{endUserNotification%2Did}/details/{endUserNotificationDetail%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const EndUserNotificationDetailItemRequestBuilderRequestsMetadata: Reques
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: EndUserNotificationDetailItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/endUserNotifications/{endUserNotification%2Did}/details/{endUserNotificationDetail%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

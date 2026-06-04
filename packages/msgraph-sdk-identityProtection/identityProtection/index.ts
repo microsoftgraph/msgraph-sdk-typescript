@@ -81,7 +81,7 @@ export interface IdentityProtectionRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityProtectionRequestBuilderUriTemplate = "{+baseurl}/identityProtection{?%24expand,%24select}";
+export const IdentityProtectionRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const IdentityProtectionRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const IdentityProtectionRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: IdentityProtectionRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProtection{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -125,7 +125,7 @@ export const IdentityProtectionRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: IdentityProtectionRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: IdentityProtectionRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProtection",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

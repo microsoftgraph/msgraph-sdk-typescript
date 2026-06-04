@@ -105,7 +105,7 @@ export interface AuthenticationMethodsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationMethodsRequestBuilderUriTemplate = "{+baseurl}/reports/authenticationMethods{?%24expand,%24select}";
+export const AuthenticationMethodsRequestBuilderUriTemplate = "{+baseurl}/reports/authenticationMethods";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -149,7 +149,7 @@ export const AuthenticationMethodsRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AuthenticationMethodsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/authenticationMethods{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

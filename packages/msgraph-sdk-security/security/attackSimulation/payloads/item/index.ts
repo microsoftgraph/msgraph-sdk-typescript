@@ -70,7 +70,7 @@ export interface PayloadItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PayloadItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/payloads/{payload%2Did}{?%24expand,%24select}";
+export const PayloadItemRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/payloads/{payload%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const PayloadItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PayloadItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/payloads/{payload%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

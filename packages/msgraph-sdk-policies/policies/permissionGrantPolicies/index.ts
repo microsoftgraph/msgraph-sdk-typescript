@@ -97,7 +97,7 @@ export interface PermissionGrantPoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PermissionGrantPoliciesRequestBuilderUriTemplate = "{+baseurl}/policies/permissionGrantPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PermissionGrantPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const PermissionGrantPoliciesRequestBuilderNavigationMetadata: Record<Exc
  */
 export const PermissionGrantPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PermissionGrantPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/permissionGrantPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const PermissionGrantPoliciesRequestBuilderRequestsMetadata: RequestsMeta
         queryParametersMapper: PermissionGrantPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PermissionGrantPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/permissionGrantPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -111,7 +111,7 @@ export interface SublabelsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SublabelsRequestBuilderUriTemplate = "{+baseurl}/security/dataSecurityAndGovernance/sensitivityLabels/{sensitivityLabel%2Did}/sublabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SublabelsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -150,7 +150,7 @@ export const SublabelsRequestBuilderNavigationMetadata: Record<Exclude<keyof Sub
  */
 export const SublabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SublabelsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/dataSecurityAndGovernance/sensitivityLabels/{sensitivityLabel%2Did}/sublabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -160,7 +160,7 @@ export const SublabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SublabelsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SublabelsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/dataSecurityAndGovernance/sensitivityLabels/{sensitivityLabel%2Did}/sublabels",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

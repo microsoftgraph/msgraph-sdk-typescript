@@ -95,7 +95,7 @@ export interface PermissionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PermissionsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/permissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PermissionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const PermissionsRequestBuilderNavigationMetadata: Record<Exclude<keyof P
  */
 export const PermissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PermissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/permissions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const PermissionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PermissionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PermissionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/permissions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

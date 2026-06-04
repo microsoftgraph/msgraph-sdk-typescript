@@ -97,7 +97,7 @@ export interface ProvisioningPoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProvisioningPoliciesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/provisioningPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ProvisioningPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ProvisioningPoliciesRequestBuilderNavigationMetadata: Record<Exclud
  */
 export const ProvisioningPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ProvisioningPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint/provisioningPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ProvisioningPoliciesRequestBuilderRequestsMetadata: RequestsMetadat
         queryParametersMapper: ProvisioningPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ProvisioningPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint/provisioningPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

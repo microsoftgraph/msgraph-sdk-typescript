@@ -69,7 +69,7 @@ export interface ApprovalStageItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ApprovalStageItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentApprovals/{approval%2Did}/stages/{approvalStage%2Did}{?%24expand,%24select}";
+export const ApprovalStageItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentApprovals/{approval%2Did}/stages/{approvalStage%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const ApprovalStageItemRequestBuilderRequestsMetadata: RequestsMetadata =
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ApprovalStageItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/privilegedAccess/group/assignmentApprovals/{approval%2Did}/stages/{approvalStage%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

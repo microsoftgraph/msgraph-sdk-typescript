@@ -69,7 +69,7 @@ export interface ManagedMobileAppItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ManagedMobileAppItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/apps/{managedMobileApp%2Did}{?%24expand,%24select}";
+export const ManagedMobileAppItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/apps/{managedMobileApp%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const ManagedMobileAppItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ManagedMobileAppItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/apps/{managedMobileApp%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

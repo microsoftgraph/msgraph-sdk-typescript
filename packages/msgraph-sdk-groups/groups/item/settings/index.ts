@@ -97,7 +97,7 @@ export interface SettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SettingsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/settings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SettingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const SettingsRequestBuilderNavigationMetadata: Record<Exclude<keyof Sett
  */
 export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/settings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SettingsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/settings",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -93,7 +93,7 @@ export interface SetItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SetItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets/{set%2Did}{?%24expand,%24select}";
+export const SetItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets/{set%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -134,7 +134,7 @@ export const SetItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SetItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets/{set%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

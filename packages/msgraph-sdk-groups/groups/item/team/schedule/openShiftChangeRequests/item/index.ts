@@ -69,7 +69,7 @@ export interface OpenShiftChangeRequestItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OpenShiftChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24expand,%24select}";
+export const OpenShiftChangeRequestItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const OpenShiftChangeRequestItemRequestBuilderRequestsMetadata: RequestsM
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: OpenShiftChangeRequestItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests/{openShiftChangeRequest%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

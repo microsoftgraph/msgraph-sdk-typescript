@@ -66,7 +66,7 @@ export interface SubscribedSkuItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubscribedSkuItemRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus/{subscribedSku%2Did}{?%24select}";
+export const SubscribedSkuItemRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus/{subscribedSku%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -86,7 +86,7 @@ export const SubscribedSkuItemRequestBuilderRequestsMetadata: RequestsMetadata =
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SubscribedSkuItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/subscribedSkus/{subscribedSku%2Did}{?%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -101,7 +101,7 @@ export interface SharedRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SharedRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/shared{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SharedRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -133,7 +133,7 @@ export const SharedRequestBuilderNavigationMetadata: Record<Exclude<keyof Shared
  */
 export const SharedRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SharedRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/insights/shared{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -143,7 +143,7 @@ export const SharedRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SharedRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SharedRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/insights/shared",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

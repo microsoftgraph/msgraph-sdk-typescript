@@ -95,7 +95,7 @@ export interface SubscriptionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubscriptionsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/subscriptions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SubscriptionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SubscriptionsRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const SubscriptionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SubscriptionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/subscriptions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SubscriptionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SubscriptionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SubscriptionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/subscriptions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

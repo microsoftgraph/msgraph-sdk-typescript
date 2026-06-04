@@ -95,7 +95,7 @@ export interface HostPairsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostPairsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPairs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HostPairsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const HostPairsRequestBuilderNavigationMetadata: Record<Exclude<keyof Hos
  */
 export const HostPairsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HostPairsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostPairs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const HostPairsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: HostPairsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HostPairsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostPairs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

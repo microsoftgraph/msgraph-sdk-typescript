@@ -97,7 +97,7 @@ export interface ProfileSourcesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProfileSourcesRequestBuilderUriTemplate = "{+baseurl}/admin/people/profileSources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ProfileSourcesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const ProfileSourcesRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const ProfileSourcesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ProfileSourcesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/people/profileSources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const ProfileSourcesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ProfileSourcesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ProfileSourcesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/people/profileSources",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -97,7 +97,7 @@ export interface SitesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SitesRequestBuilderUriTemplate = "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SitesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const SitesRequestBuilderNavigationMetadata: Record<Exclude<keyof SitesRe
  */
 export const SitesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SitesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const SitesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SitesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SitesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

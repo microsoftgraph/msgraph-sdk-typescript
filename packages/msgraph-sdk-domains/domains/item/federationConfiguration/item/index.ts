@@ -72,7 +72,7 @@ export interface InternalDomainFederationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InternalDomainFederationItemRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/federationConfiguration/{internalDomainFederation%2Did}{?%24expand,%24select}";
+export const InternalDomainFederationItemRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/federationConfiguration/{internalDomainFederation%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const InternalDomainFederationItemRequestBuilderRequestsMetadata: Request
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: InternalDomainFederationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/domains/{domain%2Did}/federationConfiguration/{internalDomainFederation%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

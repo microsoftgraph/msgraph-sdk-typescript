@@ -96,7 +96,7 @@ export interface AppDefinitionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppDefinitionsRequestBuilderUriTemplate = "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AppDefinitionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const AppDefinitionsRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const AppDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AppDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const AppDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AppDefinitionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AppDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

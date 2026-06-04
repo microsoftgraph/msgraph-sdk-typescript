@@ -69,7 +69,7 @@ export interface UserExperienceAnalyticsAppHealthApplicationPerformanceItemReque
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthApplicationPerformance/{userExperienceAnalyticsAppHealthApplicationPerformance%2Did}{?%24expand,%24select}";
+export const UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthApplicationPerformance/{userExperienceAnalyticsAppHealthApplicationPerformance%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBu
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthApplicationPerformance/{userExperienceAnalyticsAppHealthApplicationPerformance%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

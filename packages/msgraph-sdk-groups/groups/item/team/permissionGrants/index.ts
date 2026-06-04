@@ -95,7 +95,7 @@ export interface PermissionGrantsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PermissionGrantsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/permissionGrants{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PermissionGrantsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const PermissionGrantsRequestBuilderNavigationMetadata: Record<Exclude<ke
  */
 export const PermissionGrantsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PermissionGrantsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/permissionGrants{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const PermissionGrantsRequestBuilderRequestsMetadata: RequestsMetadata = 
         queryParametersMapper: PermissionGrantsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PermissionGrantsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/permissionGrants",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

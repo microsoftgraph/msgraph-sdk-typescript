@@ -141,7 +141,7 @@ export interface ScheduleRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ScheduleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule{?%24expand,%24select}";
+export const ScheduleRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -214,7 +214,7 @@ export const ScheduleRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ScheduleRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

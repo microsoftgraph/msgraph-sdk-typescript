@@ -95,7 +95,7 @@ export interface NamedLocationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const NamedLocationsRequestBuilderUriTemplate = "{+baseurl}/identity/conditionalAccess/deletedItems/namedLocations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const NamedLocationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const NamedLocationsRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const NamedLocationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: NamedLocationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/conditionalAccess/deletedItems/namedLocations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const NamedLocationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: NamedLocationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: NamedLocationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/conditionalAccess/deletedItems/namedLocations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

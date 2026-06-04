@@ -96,7 +96,7 @@ export interface WhoisRecordsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WhoisRecordsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const WhoisRecordsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const WhoisRecordsRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const WhoisRecordsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: WhoisRecordsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/whoisRecords{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const WhoisRecordsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: WhoisRecordsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: WhoisRecordsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/whoisRecords",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

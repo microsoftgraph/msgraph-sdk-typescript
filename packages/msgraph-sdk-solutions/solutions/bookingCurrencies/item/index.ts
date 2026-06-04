@@ -70,7 +70,7 @@ export interface BookingCurrencyItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BookingCurrencyItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingCurrencies/{bookingCurrency%2Did}{?%24expand,%24select}";
+export const BookingCurrencyItemRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingCurrencies/{bookingCurrency%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const BookingCurrencyItemRequestBuilderRequestsMetadata: RequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: BookingCurrencyItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/bookingCurrencies/{bookingCurrency%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

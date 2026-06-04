@@ -75,7 +75,7 @@ export interface CasesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CasesRequestBuilderUriTemplate = "{+baseurl}/security/cases{?%24expand,%24select}";
+export const CasesRequestBuilderUriTemplate = "{+baseurl}/security/cases";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const CasesRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CasesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -78,7 +78,7 @@ export interface TeamsTabItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsTabItemRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/tabs/{teamsTab%2Did}{?%24expand,%24select}";
+export const TeamsTabItemRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/tabs/{teamsTab%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -107,7 +107,7 @@ export const TeamsTabItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TeamsTabItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/chats/{chat%2Did}/tabs/{teamsTab%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

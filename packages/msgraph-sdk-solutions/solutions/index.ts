@@ -81,7 +81,7 @@ export interface SolutionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SolutionsRequestBuilderUriTemplate = "{+baseurl}/solutions{?%24expand,%24select}";
+export const SolutionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const SolutionsRequestBuilderNavigationMetadata: Record<Exclude<keyof Sol
  */
 export const SolutionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SolutionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -125,7 +125,7 @@ export const SolutionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SolutionsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: SolutionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

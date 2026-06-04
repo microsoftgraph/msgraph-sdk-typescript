@@ -97,7 +97,7 @@ export interface TabsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TabsRequestBuilderUriTemplate = "{+baseurl}/chats/{chat%2Did}/tabs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TabsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const TabsRequestBuilderNavigationMetadata: Record<Exclude<keyof TabsRequ
  */
 export const TabsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TabsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/chats/{chat%2Did}/tabs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const TabsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TabsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TabsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/chats/{chat%2Did}/tabs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

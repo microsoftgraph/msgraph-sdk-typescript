@@ -76,7 +76,7 @@ export interface DeletedChatItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeletedChatItemRequestBuilderUriTemplate = "{+baseurl}/teamwork/deletedChats/{deletedChat%2Did}{?%24expand,%24select}";
+export const DeletedChatItemRequestBuilderUriTemplate = "{+baseurl}/teamwork/deletedChats/{deletedChat%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const DeletedChatItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DeletedChatItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teamwork/deletedChats/{deletedChat%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

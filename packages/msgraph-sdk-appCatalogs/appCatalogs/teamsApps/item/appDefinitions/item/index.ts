@@ -76,7 +76,7 @@ export interface TeamsAppDefinitionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsAppDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}{?%24expand,%24select}";
+export const TeamsAppDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const TeamsAppDefinitionItemRequestBuilderRequestsMetadata: RequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TeamsAppDefinitionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

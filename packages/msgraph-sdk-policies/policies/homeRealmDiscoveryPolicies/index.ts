@@ -97,7 +97,7 @@ export interface HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HomeRealmDiscoveryPoliciesRequestBuilderUriTemplate = "{+baseurl}/policies/homeRealmDiscoveryPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HomeRealmDiscoveryPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const HomeRealmDiscoveryPoliciesRequestBuilderNavigationMetadata: Record<
  */
 export const HomeRealmDiscoveryPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HomeRealmDiscoveryPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/homeRealmDiscoveryPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const HomeRealmDiscoveryPoliciesRequestBuilderRequestsMetadata: RequestsM
         queryParametersMapper: HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HomeRealmDiscoveryPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/homeRealmDiscoveryPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

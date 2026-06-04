@@ -111,7 +111,7 @@ export interface UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryP
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequest%2Did}{?%24expand,%24select}";
+export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequest%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -158,7 +158,7 @@ export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderRequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequest%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

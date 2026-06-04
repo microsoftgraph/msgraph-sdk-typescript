@@ -95,7 +95,7 @@ export interface ReactionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReactionsRequestBuilderUriTemplate = "{+baseurl}/communications/onlineMeetingConversations/{onlineMeetingEngagementConversation%2Did}/starter/reactions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ReactionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ReactionsRequestBuilderNavigationMetadata: Record<Exclude<keyof Rea
  */
 export const ReactionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ReactionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/onlineMeetingConversations/{onlineMeetingEngagementConversation%2Did}/starter/reactions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ReactionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ReactionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ReactionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/onlineMeetingConversations/{onlineMeetingEngagementConversation%2Did}/starter/reactions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -81,7 +81,7 @@ export interface GroupLifecyclePolicyItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const GroupLifecyclePolicyItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/groupLifecyclePolicies/{groupLifecyclePolicy%2Did}{?%24expand,%24select}";
+export const GroupLifecyclePolicyItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/groupLifecyclePolicies/{groupLifecyclePolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -113,7 +113,7 @@ export const GroupLifecyclePolicyItemRequestBuilderRequestsMetadata: RequestsMet
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: GroupLifecyclePolicyItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/groupLifecyclePolicies/{groupLifecyclePolicy%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

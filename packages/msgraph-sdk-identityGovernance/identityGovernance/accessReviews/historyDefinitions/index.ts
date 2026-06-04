@@ -97,7 +97,7 @@ export interface HistoryDefinitionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HistoryDefinitionsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/historyDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HistoryDefinitionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const HistoryDefinitionsRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const HistoryDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HistoryDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/historyDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const HistoryDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: HistoryDefinitionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HistoryDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/historyDefinitions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

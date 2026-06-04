@@ -87,7 +87,7 @@ export interface ContactFolderItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContactFolderItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}{?%24expand,%24select}";
+export const ContactFolderItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -124,7 +124,7 @@ export const ContactFolderItemRequestBuilderRequestsMetadata: RequestsMetadata =
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ContactFolderItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

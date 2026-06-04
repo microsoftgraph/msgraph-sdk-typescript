@@ -97,7 +97,7 @@ export interface BucketsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BucketsRequestBuilderUriTemplate = "{+baseurl}/planner/buckets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const BucketsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const BucketsRequestBuilderNavigationMetadata: Record<Exclude<keyof Bucke
  */
 export const BucketsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: BucketsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/planner/buckets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const BucketsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: BucketsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: BucketsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/planner/buckets",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

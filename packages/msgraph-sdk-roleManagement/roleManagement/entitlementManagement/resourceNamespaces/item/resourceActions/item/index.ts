@@ -69,7 +69,7 @@ export interface UnifiedRbacResourceActionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRbacResourceActionItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions/{unifiedRbacResourceAction%2Did}{?%24expand,%24select}";
+export const UnifiedRbacResourceActionItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/entitlementManagement/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions/{unifiedRbacResourceAction%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const UnifiedRbacResourceActionItemRequestBuilderRequestsMetadata: Reques
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UnifiedRbacResourceActionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/entitlementManagement/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions/{unifiedRbacResourceAction%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

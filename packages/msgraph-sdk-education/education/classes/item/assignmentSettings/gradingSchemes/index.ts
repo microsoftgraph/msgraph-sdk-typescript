@@ -96,7 +96,7 @@ export interface GradingSchemesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const GradingSchemesRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingSchemes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const GradingSchemesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const GradingSchemesRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const GradingSchemesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: GradingSchemesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingSchemes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const GradingSchemesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: GradingSchemesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: GradingSchemesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/classes/{educationClass%2Did}/assignmentSettings/gradingSchemes",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

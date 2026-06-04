@@ -87,7 +87,7 @@ export interface ResourceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ResourceRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}/role/resource/scopes/{accessPackageResourceScope%2Did}/resource{?%24expand,%24select}";
+export const ResourceRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}/role/resource/scopes/{accessPackageResourceScope%2Did}/resource";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -123,7 +123,7 @@ export const ResourceRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ResourceRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}/role/resource/scopes/{accessPackageResourceScope%2Did}/resource{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

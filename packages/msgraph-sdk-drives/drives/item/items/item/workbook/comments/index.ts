@@ -95,7 +95,7 @@ export interface CommentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CommentsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/comments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CommentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const CommentsRequestBuilderNavigationMetadata: Record<Exclude<keyof Comm
  */
 export const CommentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CommentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/comments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const CommentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: CommentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CommentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/comments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

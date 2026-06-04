@@ -95,7 +95,7 @@ export interface WebPartsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WebPartsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/pages/{baseSitePage%2Did}/graph.sitePage/webParts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const WebPartsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const WebPartsRequestBuilderNavigationMetadata: Record<Exclude<keyof WebP
  */
 export const WebPartsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: WebPartsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/pages/{baseSitePage%2Did}/graph.sitePage/webParts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const WebPartsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: WebPartsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: WebPartsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/pages/{baseSitePage%2Did}/graph.sitePage/webParts",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -95,7 +95,7 @@ export interface EngagementAsyncOperationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EngagementAsyncOperationsRequestBuilderUriTemplate = "{+baseurl}/employeeExperience/engagementAsyncOperations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const EngagementAsyncOperationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const EngagementAsyncOperationsRequestBuilderNavigationMetadata: Record<E
  */
 export const EngagementAsyncOperationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: EngagementAsyncOperationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience/engagementAsyncOperations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const EngagementAsyncOperationsRequestBuilderRequestsMetadata: RequestsMe
         queryParametersMapper: EngagementAsyncOperationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: EngagementAsyncOperationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/employeeExperience/engagementAsyncOperations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

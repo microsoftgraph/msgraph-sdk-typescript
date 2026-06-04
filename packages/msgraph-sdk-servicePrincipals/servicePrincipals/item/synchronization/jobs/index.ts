@@ -103,7 +103,7 @@ export interface JobsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const JobsRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const JobsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -138,7 +138,7 @@ export const JobsRequestBuilderNavigationMetadata: Record<Exclude<keyof JobsRequ
  */
 export const JobsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: JobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -148,7 +148,7 @@ export const JobsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: JobsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: JobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

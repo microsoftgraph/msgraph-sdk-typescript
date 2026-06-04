@@ -96,7 +96,7 @@ export interface ExchangeProtectionPoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExchangeProtectionPoliciesRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/exchangeProtectionPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ExchangeProtectionPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const ExchangeProtectionPoliciesRequestBuilderNavigationMetadata: Record<
  */
 export const ExchangeProtectionPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ExchangeProtectionPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/exchangeProtectionPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const ExchangeProtectionPoliciesRequestBuilderRequestsMetadata: RequestsM
         queryParametersMapper: ExchangeProtectionPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ExchangeProtectionPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/exchangeProtectionPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

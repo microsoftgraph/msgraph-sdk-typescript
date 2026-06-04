@@ -133,7 +133,7 @@ export interface ListItemItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ListItemItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/items/{listItem%2Did}{?%24expand,%24select}";
+export const ListItemItemRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/items/{listItem%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -195,7 +195,7 @@ export const ListItemItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ListItemItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/list/items/{listItem%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

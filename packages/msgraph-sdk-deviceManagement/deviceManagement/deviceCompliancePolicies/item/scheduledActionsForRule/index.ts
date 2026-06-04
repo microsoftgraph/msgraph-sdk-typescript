@@ -95,7 +95,7 @@ export interface ScheduledActionsForRuleRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ScheduledActionsForRuleRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ScheduledActionsForRuleRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ScheduledActionsForRuleRequestBuilderNavigationMetadata: Record<Exc
  */
 export const ScheduledActionsForRuleRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ScheduledActionsForRuleRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ScheduledActionsForRuleRequestBuilderRequestsMetadata: RequestsMeta
         queryParametersMapper: ScheduledActionsForRuleRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ScheduledActionsForRuleRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

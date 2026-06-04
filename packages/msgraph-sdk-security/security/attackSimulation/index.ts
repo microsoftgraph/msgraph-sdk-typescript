@@ -117,7 +117,7 @@ export interface AttackSimulationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttackSimulationRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation{?%24expand,%24select}";
+export const AttackSimulationRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -175,7 +175,7 @@ export const AttackSimulationRequestBuilderRequestsMetadata: RequestsMetadata = 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AttackSimulationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

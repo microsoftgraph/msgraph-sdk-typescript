@@ -96,7 +96,7 @@ export interface SectionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SectionsRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/sections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SectionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SectionsRequestBuilderNavigationMetadata: Record<Exclude<keyof Sect
  */
 export const SectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SectionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/sections{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SectionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SectionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SectionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/sections",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

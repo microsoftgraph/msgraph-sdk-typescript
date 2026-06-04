@@ -83,7 +83,7 @@ export interface VirtualEventTownhallItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VirtualEventTownhallItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}{?%24expand,%24select}";
+export const VirtualEventTownhallItemRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -117,7 +117,7 @@ export const VirtualEventTownhallItemRequestBuilderRequestsMetadata: RequestsMet
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: VirtualEventTownhallItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

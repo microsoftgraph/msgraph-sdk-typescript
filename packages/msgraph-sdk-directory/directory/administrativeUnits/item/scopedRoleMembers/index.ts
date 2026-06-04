@@ -97,7 +97,7 @@ export interface ScopedRoleMembersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ScopedRoleMembersRequestBuilderUriTemplate = "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ScopedRoleMembersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const ScopedRoleMembersRequestBuilderNavigationMetadata: Record<Exclude<k
  */
 export const ScopedRoleMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ScopedRoleMembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const ScopedRoleMembersRequestBuilderRequestsMetadata: RequestsMetadata =
         queryParametersMapper: ScopedRoleMembersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ScopedRoleMembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}/scopedRoleMembers",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

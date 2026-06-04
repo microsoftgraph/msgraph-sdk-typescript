@@ -111,7 +111,7 @@ export interface SynchronizationJobItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SynchronizationJobItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/synchronization/jobs/{synchronizationJob%2Did}{?%24expand,%24select}";
+export const SynchronizationJobItemRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/synchronization/jobs/{synchronizationJob%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -160,7 +160,7 @@ export const SynchronizationJobItemRequestBuilderRequestsMetadata: RequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SynchronizationJobItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/applications/{application%2Did}/synchronization/jobs/{synchronizationJob%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

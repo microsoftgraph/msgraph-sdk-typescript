@@ -125,7 +125,7 @@ export interface OrganizationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OrganizationItemRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}{?%24expand,%24select}";
+export const OrganizationItemRequestBuilderUriTemplate = "{+baseurl}/organization/{organization%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -181,7 +181,7 @@ export const OrganizationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: OrganizationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/organization/{organization%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface DeviceStatusSummaryRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeviceStatusSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/deviceStatusSummary{?%24expand,%24select}";
+export const DeviceStatusSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/deviceStatusSummary";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const DeviceStatusSummaryRequestBuilderRequestsMetadata: RequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DeviceStatusSummaryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/deviceStatusSummary{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

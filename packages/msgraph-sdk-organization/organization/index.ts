@@ -120,7 +120,7 @@ export interface OrganizationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OrganizationRequestBuilderUriTemplate = "{+baseurl}/organization{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OrganizationRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -164,7 +164,7 @@ export const OrganizationRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const OrganizationRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OrganizationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/organization{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -174,7 +174,7 @@ export const OrganizationRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: OrganizationRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OrganizationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/organization",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -97,7 +97,7 @@ export interface ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ActivityBasedTimeoutPoliciesRequestBuilderUriTemplate = "{+baseurl}/policies/activityBasedTimeoutPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ActivityBasedTimeoutPoliciesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ActivityBasedTimeoutPoliciesRequestBuilderNavigationMetadata: Recor
  */
 export const ActivityBasedTimeoutPoliciesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ActivityBasedTimeoutPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/activityBasedTimeoutPolicies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ActivityBasedTimeoutPoliciesRequestBuilderRequestsMetadata: Request
         queryParametersMapper: ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ActivityBasedTimeoutPoliciesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/activityBasedTimeoutPolicies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

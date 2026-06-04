@@ -101,7 +101,7 @@ export interface AttachmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttachmentsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/calendar/events/{event%2Did}/attachments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AttachmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -135,7 +135,7 @@ export const AttachmentsRequestBuilderNavigationMetadata: Record<Exclude<keyof A
  */
 export const AttachmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AttachmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/calendar/events/{event%2Did}/attachments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -145,7 +145,7 @@ export const AttachmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AttachmentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AttachmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/calendar/events/{event%2Did}/attachments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -57,7 +57,7 @@ export interface ComplianceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ComplianceRequestBuilderUriTemplate = "{+baseurl}/compliance{?%24expand,%24select}";
+export const ComplianceRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -70,7 +70,7 @@ const ComplianceRequestBuilderGetQueryParametersMapper: Record<string, string> =
  */
 export const ComplianceRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ComplianceRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/compliance{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -80,7 +80,7 @@ export const ComplianceRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ComplianceRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: ComplianceRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/compliance",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -106,7 +106,7 @@ export interface UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetQuery
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleEligibilityScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequest%2Did}{?%24expand,%24select}";
+export const UnifiedRoleEligibilityScheduleRequestItemRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequest%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -150,7 +150,7 @@ export const UnifiedRoleEligibilityScheduleRequestItemRequestBuilderRequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequest%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

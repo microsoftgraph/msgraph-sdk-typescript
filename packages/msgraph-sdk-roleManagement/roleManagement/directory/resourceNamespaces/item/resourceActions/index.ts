@@ -95,7 +95,7 @@ export interface ResourceActionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ResourceActionsRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ResourceActionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ResourceActionsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const ResourceActionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ResourceActionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/directory/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ResourceActionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ResourceActionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ResourceActionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/directory/resourceNamespaces/{unifiedRbacResourceNamespace%2Did}/resourceActions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

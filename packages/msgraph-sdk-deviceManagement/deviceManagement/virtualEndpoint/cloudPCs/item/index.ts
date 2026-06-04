@@ -118,7 +118,7 @@ export interface CloudPCItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CloudPCItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/cloudPCs/{cloudPC%2Did}{?%24expand,%24select}";
+export const CloudPCItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/cloudPCs/{cloudPC%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -168,7 +168,7 @@ export const CloudPCItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CloudPCItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint/cloudPCs/{cloudPC%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

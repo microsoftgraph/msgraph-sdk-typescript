@@ -114,7 +114,7 @@ export interface NumberAssignmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const NumberAssignmentsRequestBuilderUriTemplate = "{+baseurl}/admin/teams/telephoneNumberManagement/numberAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const NumberAssignmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -154,7 +154,7 @@ export const NumberAssignmentsRequestBuilderNavigationMetadata: Record<Exclude<k
  */
 export const NumberAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: NumberAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams/telephoneNumberManagement/numberAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -164,7 +164,7 @@ export const NumberAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata =
         queryParametersMapper: NumberAssignmentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: NumberAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams/telephoneNumberManagement/numberAssignments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

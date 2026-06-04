@@ -69,7 +69,7 @@ export interface ConnectionOperationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConnectionOperationItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}/operations/{connectionOperation%2Did}{?%24expand,%24select}";
+export const ConnectionOperationItemRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}/operations/{connectionOperation%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const ConnectionOperationItemRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ConnectionOperationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/connections/{externalConnection%2Did}/operations/{connectionOperation%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

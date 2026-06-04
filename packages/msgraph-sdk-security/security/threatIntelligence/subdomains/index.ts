@@ -95,7 +95,7 @@ export interface SubdomainsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubdomainsRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/subdomains{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SubdomainsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SubdomainsRequestBuilderNavigationMetadata: Record<Exclude<keyof Su
  */
 export const SubdomainsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SubdomainsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/subdomains{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SubdomainsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SubdomainsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SubdomainsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/subdomains",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

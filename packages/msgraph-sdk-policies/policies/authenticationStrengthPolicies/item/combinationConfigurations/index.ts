@@ -95,7 +95,7 @@ export interface CombinationConfigurationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CombinationConfigurationsRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}/combinationConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CombinationConfigurationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const CombinationConfigurationsRequestBuilderNavigationMetadata: Record<E
  */
 export const CombinationConfigurationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CombinationConfigurationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}/combinationConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const CombinationConfigurationsRequestBuilderRequestsMetadata: RequestsMe
         queryParametersMapper: CombinationConfigurationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CombinationConfigurationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/authenticationStrengthPolicies/{authenticationStrengthPolicy%2Did}/combinationConfigurations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

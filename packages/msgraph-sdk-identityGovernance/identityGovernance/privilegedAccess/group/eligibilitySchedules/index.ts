@@ -104,7 +104,7 @@ export interface EligibilitySchedulesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EligibilitySchedulesRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilitySchedules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const EligibilitySchedulesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -140,7 +140,7 @@ export const EligibilitySchedulesRequestBuilderNavigationMetadata: Record<Exclud
  */
 export const EligibilitySchedulesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: EligibilitySchedulesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilitySchedules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -150,7 +150,7 @@ export const EligibilitySchedulesRequestBuilderRequestsMetadata: RequestsMetadat
         queryParametersMapper: EligibilitySchedulesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: EligibilitySchedulesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/privilegedAccess/group/eligibilitySchedules",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

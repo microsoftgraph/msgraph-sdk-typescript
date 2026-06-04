@@ -69,7 +69,7 @@ export interface DelegatedAdminServiceManagementDetailItemRequestBuilderGetQuery
 /**
  * Uri template for the request builder.
  */
-export const DelegatedAdminServiceManagementDetailItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails/{delegatedAdminServiceManagementDetail%2Did}{?%24expand,%24select}";
+export const DelegatedAdminServiceManagementDetailItemRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails/{delegatedAdminServiceManagementDetail%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const DelegatedAdminServiceManagementDetailItemRequestBuilderRequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DelegatedAdminServiceManagementDetailItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/delegatedAdminCustomers/{delegatedAdminCustomer%2Did}/serviceManagementDetails/{delegatedAdminServiceManagementDetail%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

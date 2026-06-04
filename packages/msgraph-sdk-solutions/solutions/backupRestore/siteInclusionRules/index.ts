@@ -95,7 +95,7 @@ export interface SiteInclusionRulesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SiteInclusionRulesRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/siteInclusionRules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SiteInclusionRulesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const SiteInclusionRulesRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const SiteInclusionRulesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SiteInclusionRulesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/siteInclusionRules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const SiteInclusionRulesRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: SiteInclusionRulesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SiteInclusionRulesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/siteInclusionRules",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

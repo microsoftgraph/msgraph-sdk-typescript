@@ -95,7 +95,7 @@ export interface TermsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TermsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/sets/{set%2Did}/terms{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TermsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const TermsRequestBuilderNavigationMetadata: Record<Exclude<keyof TermsRe
  */
 export const TermsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TermsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/sets/{set%2Did}/terms{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const TermsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TermsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TermsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/sets/{set%2Did}/terms",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

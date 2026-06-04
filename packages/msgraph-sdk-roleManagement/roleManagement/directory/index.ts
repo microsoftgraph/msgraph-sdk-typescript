@@ -123,7 +123,7 @@ export interface DirectoryRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory{?%24expand,%24select}";
+export const DirectoryRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -185,7 +185,7 @@ export const DirectoryRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DirectoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/directory{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

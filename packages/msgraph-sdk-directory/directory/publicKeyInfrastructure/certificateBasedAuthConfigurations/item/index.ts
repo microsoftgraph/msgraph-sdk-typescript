@@ -84,7 +84,7 @@ export interface CertificateBasedAuthPkiItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CertificateBasedAuthPkiItemRequestBuilderUriTemplate = "{+baseurl}/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{certificateBasedAuthPki%2Did}{?%24expand,%24select}";
+export const CertificateBasedAuthPkiItemRequestBuilderUriTemplate = "{+baseurl}/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{certificateBasedAuthPki%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -117,7 +117,7 @@ export const CertificateBasedAuthPkiItemRequestBuilderRequestsMetadata: Requests
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CertificateBasedAuthPkiItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{certificateBasedAuthPki%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

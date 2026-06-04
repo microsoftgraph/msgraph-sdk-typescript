@@ -97,7 +97,7 @@ export interface AttributeSetsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttributeSetsRequestBuilderUriTemplate = "{+baseurl}/directory/attributeSets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AttributeSetsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const AttributeSetsRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const AttributeSetsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AttributeSetsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/attributeSets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const AttributeSetsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AttributeSetsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AttributeSetsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/attributeSets",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

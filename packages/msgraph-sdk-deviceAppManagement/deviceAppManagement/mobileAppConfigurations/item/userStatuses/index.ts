@@ -95,7 +95,7 @@ export interface UserStatusesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UserStatusesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/userStatuses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UserStatusesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const UserStatusesRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const UserStatusesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: UserStatusesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/userStatuses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const UserStatusesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: UserStatusesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: UserStatusesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}/userStatuses",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

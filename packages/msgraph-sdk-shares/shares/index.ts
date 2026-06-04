@@ -95,7 +95,7 @@ export interface SharesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SharesRequestBuilderUriTemplate = "{+baseurl}/shares{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SharesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SharesRequestBuilderNavigationMetadata: Record<Exclude<keyof Shares
  */
 export const SharesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SharesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/shares{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SharesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SharesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SharesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/shares",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

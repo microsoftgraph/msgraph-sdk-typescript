@@ -96,7 +96,7 @@ export interface RelationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RelationsRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/relations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RelationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const RelationsRequestBuilderNavigationMetadata: Record<Exclude<keyof Rel
  */
 export const RelationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RelationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/relations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const RelationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RelationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RelationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/relations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

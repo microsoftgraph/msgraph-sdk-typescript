@@ -71,7 +71,7 @@ export interface CertificateAuthorityDetailItemRequestBuilderGetQueryParameters 
 /**
  * Uri template for the request builder.
  */
-export const CertificateAuthorityDetailItemRequestBuilderUriTemplate = "{+baseurl}/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{certificateBasedAuthPki%2Did}/certificateAuthorities/{certificateAuthorityDetail%2Did}{?%24expand,%24select}";
+export const CertificateAuthorityDetailItemRequestBuilderUriTemplate = "{+baseurl}/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{certificateBasedAuthPki%2Did}/certificateAuthorities/{certificateAuthorityDetail%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const CertificateAuthorityDetailItemRequestBuilderRequestsMetadata: Reque
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CertificateAuthorityDetailItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{certificateBasedAuthPki%2Did}/certificateAuthorities/{certificateAuthorityDetail%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

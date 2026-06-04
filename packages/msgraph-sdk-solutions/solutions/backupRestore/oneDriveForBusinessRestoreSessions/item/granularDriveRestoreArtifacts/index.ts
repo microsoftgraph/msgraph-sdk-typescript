@@ -96,7 +96,7 @@ export interface GranularDriveRestoreArtifactsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const GranularDriveRestoreArtifactsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/oneDriveForBusinessRestoreSessions/{oneDriveForBusinessRestoreSession%2Did}/granularDriveRestoreArtifacts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const GranularDriveRestoreArtifactsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const GranularDriveRestoreArtifactsRequestBuilderNavigationMetadata: Reco
  */
 export const GranularDriveRestoreArtifactsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: GranularDriveRestoreArtifactsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/oneDriveForBusinessRestoreSessions/{oneDriveForBusinessRestoreSession%2Did}/granularDriveRestoreArtifacts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const GranularDriveRestoreArtifactsRequestBuilderRequestsMetadata: Reques
         queryParametersMapper: GranularDriveRestoreArtifactsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: GranularDriveRestoreArtifactsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/oneDriveForBusinessRestoreSessions/{oneDriveForBusinessRestoreSession%2Did}/granularDriveRestoreArtifacts",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

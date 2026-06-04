@@ -101,7 +101,7 @@ export interface JoinedTeamsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const JoinedTeamsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const JoinedTeamsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -136,7 +136,7 @@ export const JoinedTeamsRequestBuilderNavigationMetadata: Record<Exclude<keyof J
  */
 export const JoinedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: JoinedTeamsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/joinedTeams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -146,7 +146,7 @@ export const JoinedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: JoinedTeamsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: JoinedTeamsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/joinedTeams",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

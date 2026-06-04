@@ -78,7 +78,7 @@ export interface ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters 
 /**
  * Uri template for the request builder.
  */
-export const ActivityBasedTimeoutPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/activityBasedTimeoutPolicies/{activityBasedTimeoutPolicy%2Did}{?%24expand,%24select}";
+export const ActivityBasedTimeoutPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/activityBasedTimeoutPolicies/{activityBasedTimeoutPolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -108,7 +108,7 @@ export const ActivityBasedTimeoutPolicyItemRequestBuilderRequestsMetadata: Reque
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ActivityBasedTimeoutPolicyItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/activityBasedTimeoutPolicies/{activityBasedTimeoutPolicy%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

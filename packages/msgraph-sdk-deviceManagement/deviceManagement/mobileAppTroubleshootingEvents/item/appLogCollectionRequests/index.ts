@@ -95,7 +95,7 @@ export interface AppLogCollectionRequestsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AppLogCollectionRequestsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AppLogCollectionRequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const AppLogCollectionRequestsRequestBuilderNavigationMetadata: Record<Ex
  */
 export const AppLogCollectionRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AppLogCollectionRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const AppLogCollectionRequestsRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: AppLogCollectionRequestsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AppLogCollectionRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface UserExperienceAnalyticsDeviceScoresItemRequestBuilderGetQueryPa
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsDeviceScoresItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScores/{userExperienceAnalyticsDeviceScores%2Did}{?%24expand,%24select}";
+export const UserExperienceAnalyticsDeviceScoresItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScores/{userExperienceAnalyticsDeviceScores%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const UserExperienceAnalyticsDeviceScoresItemRequestBuilderRequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UserExperienceAnalyticsDeviceScoresItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceScores/{userExperienceAnalyticsDeviceScores%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

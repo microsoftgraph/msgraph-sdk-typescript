@@ -95,7 +95,7 @@ export interface UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersi
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRe
  */
 export const UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRe
         queryParametersMapper: UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -120,7 +120,7 @@ export interface GroupSettingTemplatesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const GroupSettingTemplatesRequestBuilderUriTemplate = "{+baseurl}/groupSettingTemplates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const GroupSettingTemplatesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -164,7 +164,7 @@ export const GroupSettingTemplatesRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const GroupSettingTemplatesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: GroupSettingTemplatesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groupSettingTemplates{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -174,7 +174,7 @@ export const GroupSettingTemplatesRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: GroupSettingTemplatesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: GroupSettingTemplatesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groupSettingTemplates",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

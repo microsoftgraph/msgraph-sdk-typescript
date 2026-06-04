@@ -95,7 +95,7 @@ export interface ActivitiesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ActivitiesRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}/activities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ActivitiesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ActivitiesRequestBuilderNavigationMetadata: Record<Exclude<keyof Ac
  */
 export const ActivitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ActivitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}/activities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ActivitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ActivitiesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ActivitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}/activities",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

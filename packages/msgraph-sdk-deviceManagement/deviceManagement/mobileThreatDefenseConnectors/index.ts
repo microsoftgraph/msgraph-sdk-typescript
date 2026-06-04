@@ -95,7 +95,7 @@ export interface MobileThreatDefenseConnectorsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MobileThreatDefenseConnectorsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/mobileThreatDefenseConnectors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MobileThreatDefenseConnectorsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const MobileThreatDefenseConnectorsRequestBuilderNavigationMetadata: Reco
  */
 export const MobileThreatDefenseConnectorsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MobileThreatDefenseConnectorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/mobileThreatDefenseConnectors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const MobileThreatDefenseConnectorsRequestBuilderRequestsMetadata: Reques
         queryParametersMapper: MobileThreatDefenseConnectorsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MobileThreatDefenseConnectorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/mobileThreatDefenseConnectors",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

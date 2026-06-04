@@ -95,7 +95,7 @@ export interface CustomExtensionStageSettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CustomExtensionStageSettingsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionStageSettings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CustomExtensionStageSettingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const CustomExtensionStageSettingsRequestBuilderNavigationMetadata: Recor
  */
 export const CustomExtensionStageSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CustomExtensionStageSettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionStageSettings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const CustomExtensionStageSettingsRequestBuilderRequestsMetadata: Request
         queryParametersMapper: CustomExtensionStageSettingsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CustomExtensionStageSettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionStageSettings",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

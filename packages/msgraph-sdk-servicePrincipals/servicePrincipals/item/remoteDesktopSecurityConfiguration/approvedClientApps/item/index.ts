@@ -72,7 +72,7 @@ export interface ApprovedClientAppItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ApprovedClientAppItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration/approvedClientApps/{approvedClientApp%2Did}{?%24expand,%24select}";
+export const ApprovedClientAppItemRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration/approvedClientApps/{approvedClientApp%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const ApprovedClientAppItemRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ApprovedClientAppItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/remoteDesktopSecurityConfiguration/approvedClientApps/{approvedClientApp%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

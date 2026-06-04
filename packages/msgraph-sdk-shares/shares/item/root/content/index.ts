@@ -65,7 +65,7 @@ export interface ContentRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContentRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/root/content{?%24format*}";
+export const ContentRequestBuilderUriTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/root/content";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -85,7 +85,7 @@ export const ContentRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ContentRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/shares/{sharedDriveItem%2Did}/root/content{?%24format*}",
         responseBodyContentType: "application/octet-stream, application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

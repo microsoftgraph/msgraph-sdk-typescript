@@ -97,7 +97,7 @@ export interface BookmarksRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BookmarksRequestBuilderUriTemplate = "{+baseurl}/search/bookmarks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const BookmarksRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const BookmarksRequestBuilderNavigationMetadata: Record<Exclude<keyof Boo
  */
 export const BookmarksRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: BookmarksRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/search/bookmarks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const BookmarksRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: BookmarksRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: BookmarksRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/search/bookmarks",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

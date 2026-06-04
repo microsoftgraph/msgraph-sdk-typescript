@@ -76,7 +76,7 @@ export interface FileRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FileRequestBuilderUriTemplate = "{+baseurl}/agreements/{agreement%2Did}/file{?%24expand,%24select}";
+export const FileRequestBuilderUriTemplate = "{+baseurl}/agreements/{agreement%2Did}/file";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -106,7 +106,7 @@ export const FileRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: FileRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/agreements/{agreement%2Did}/file{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

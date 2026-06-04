@@ -70,7 +70,7 @@ export interface CloudPcGalleryImageItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CloudPcGalleryImageItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/galleryImages/{cloudPcGalleryImage%2Did}{?%24expand,%24select}";
+export const CloudPcGalleryImageItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/galleryImages/{cloudPcGalleryImage%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const CloudPcGalleryImageItemRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CloudPcGalleryImageItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint/galleryImages/{cloudPcGalleryImage%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

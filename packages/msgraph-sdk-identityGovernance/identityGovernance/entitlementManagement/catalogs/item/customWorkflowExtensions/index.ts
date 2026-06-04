@@ -97,7 +97,7 @@ export interface CustomWorkflowExtensionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CustomWorkflowExtensionsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/customWorkflowExtensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CustomWorkflowExtensionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const CustomWorkflowExtensionsRequestBuilderNavigationMetadata: Record<Ex
  */
 export const CustomWorkflowExtensionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CustomWorkflowExtensionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/customWorkflowExtensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const CustomWorkflowExtensionsRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: CustomWorkflowExtensionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CustomWorkflowExtensionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/customWorkflowExtensions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

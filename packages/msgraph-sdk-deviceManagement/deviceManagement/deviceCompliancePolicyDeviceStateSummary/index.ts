@@ -69,7 +69,7 @@ export interface DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetQueryP
 /**
  * Uri template for the request builder.
  */
-export const DeviceCompliancePolicyDeviceStateSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicyDeviceStateSummary{?%24expand,%24select}";
+export const DeviceCompliancePolicyDeviceStateSummaryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicyDeviceStateSummary";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const DeviceCompliancePolicyDeviceStateSummaryRequestBuilderRequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/deviceCompliancePolicyDeviceStateSummary{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

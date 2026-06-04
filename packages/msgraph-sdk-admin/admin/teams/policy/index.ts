@@ -84,7 +84,7 @@ export interface PolicyRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PolicyRequestBuilderUriTemplate = "{+baseurl}/admin/teams/policy{?%24expand,%24select}";
+export const PolicyRequestBuilderUriTemplate = "{+baseurl}/admin/teams/policy";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -118,7 +118,7 @@ export const PolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PolicyRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams/policy{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

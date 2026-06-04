@@ -62,7 +62,7 @@ export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGe
 /**
  * Uri template for the request builder.
  */
-export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod%2Did}{?%24expand,%24select}";
+export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -83,7 +83,7 @@ export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderNaviga
  */
 export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -91,7 +91,7 @@ export const WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderReques
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

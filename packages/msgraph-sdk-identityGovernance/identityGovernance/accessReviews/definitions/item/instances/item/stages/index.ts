@@ -104,7 +104,7 @@ export interface StagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const StagesRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const StagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -140,7 +140,7 @@ export const StagesRequestBuilderNavigationMetadata: Record<Exclude<keyof Stages
  */
 export const StagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: StagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -150,7 +150,7 @@ export const StagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: StagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: StagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

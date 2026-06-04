@@ -82,7 +82,7 @@ export interface WhoisRecordItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WhoisRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisRecords/{whoisRecord%2Did}{?%24expand,%24select}";
+export const WhoisRecordItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/whoisRecords/{whoisRecord%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const WhoisRecordItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WhoisRecordItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/whoisRecords/{whoisRecord%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

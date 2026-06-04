@@ -108,7 +108,7 @@ export interface EducationUserItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EducationUserItemRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}{?%24expand,%24select}";
+export const EducationUserItemRequestBuilderUriTemplate = "{+baseurl}/education/users/{educationUser%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -158,7 +158,7 @@ export const EducationUserItemRequestBuilderRequestsMetadata: RequestsMetadata =
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: EducationUserItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/users/{educationUser%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -121,7 +121,7 @@ export interface DevicesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DevicesRequestBuilderUriTemplate = "{+baseurl}/devices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DevicesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -165,7 +165,7 @@ export const DevicesRequestBuilderNavigationMetadata: Record<Exclude<keyof Devic
  */
 export const DevicesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DevicesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/devices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -175,7 +175,7 @@ export const DevicesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DevicesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DevicesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/devices",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

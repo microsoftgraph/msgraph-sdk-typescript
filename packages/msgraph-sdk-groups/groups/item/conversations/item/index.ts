@@ -62,7 +62,7 @@ export interface ConversationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConversationItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}{?%24expand,%24select}";
+export const ConversationItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -84,7 +84,7 @@ export const ConversationItemRequestBuilderNavigationMetadata: Record<Exclude<ke
  */
 export const ConversationItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: ConversationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -92,7 +92,7 @@ export const ConversationItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ConversationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

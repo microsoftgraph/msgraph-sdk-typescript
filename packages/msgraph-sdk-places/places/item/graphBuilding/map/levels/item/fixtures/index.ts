@@ -96,7 +96,7 @@ export interface FixturesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FixturesRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/fixtures{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const FixturesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const FixturesRequestBuilderNavigationMetadata: Record<Exclude<keyof Fixt
  */
 export const FixturesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: FixturesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/fixtures{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const FixturesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: FixturesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: FixturesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/places/{place%2Did}/graph.building/map/levels/{levelMap%2Did}/fixtures",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

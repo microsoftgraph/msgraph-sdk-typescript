@@ -95,7 +95,7 @@ export interface ExportJobsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExportJobsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/reports/exportJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ExportJobsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ExportJobsRequestBuilderNavigationMetadata: Record<Exclude<keyof Ex
  */
 export const ExportJobsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ExportJobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/reports/exportJobs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ExportJobsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ExportJobsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ExportJobsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/reports/exportJobs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

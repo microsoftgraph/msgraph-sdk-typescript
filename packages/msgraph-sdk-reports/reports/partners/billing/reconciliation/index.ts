@@ -81,7 +81,7 @@ export interface ReconciliationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReconciliationRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/reconciliation{?%24expand,%24select}";
+export const ReconciliationRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/reconciliation";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const ReconciliationRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ReconciliationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/partners/billing/reconciliation{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

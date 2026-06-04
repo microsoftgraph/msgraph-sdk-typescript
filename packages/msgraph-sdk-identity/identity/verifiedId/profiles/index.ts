@@ -97,7 +97,7 @@ export interface ProfilesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProfilesRequestBuilderUriTemplate = "{+baseurl}/identity/verifiedId/profiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ProfilesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const ProfilesRequestBuilderNavigationMetadata: Record<Exclude<keyof Prof
  */
 export const ProfilesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ProfilesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/verifiedId/profiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const ProfilesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ProfilesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ProfilesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/verifiedId/profiles",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

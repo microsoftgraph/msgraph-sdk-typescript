@@ -89,7 +89,7 @@ export interface RetentionLabelItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RetentionLabelItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}{?%24expand,%24select}";
+export const RetentionLabelItemRequestBuilderUriTemplate = "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const RetentionLabelItemRequestBuilderRequestsMetadata: RequestsMetadata 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: RetentionLabelItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/retentionLabels/{retentionLabel%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

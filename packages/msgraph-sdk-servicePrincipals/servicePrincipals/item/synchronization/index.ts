@@ -93,7 +93,7 @@ export interface SynchronizationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SynchronizationRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization{?%24expand,%24select}";
+export const SynchronizationRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -134,7 +134,7 @@ export const SynchronizationRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SynchronizationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

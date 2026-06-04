@@ -71,7 +71,7 @@ export interface InstallationOptionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InstallationOptionsRequestBuilderUriTemplate = "{+baseurl}/admin/microsoft365Apps/installationOptions{?%24expand,%24select}";
+export const InstallationOptionsRequestBuilderUriTemplate = "{+baseurl}/admin/microsoft365Apps/installationOptions";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const InstallationOptionsRequestBuilderRequestsMetadata: RequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: InstallationOptionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/microsoft365Apps/installationOptions{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

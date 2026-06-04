@@ -96,7 +96,7 @@ export interface ReadingCoachPassagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReadingCoachPassagesRequestBuilderUriTemplate = "{+baseurl}/education/reports/readingCoachPassages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ReadingCoachPassagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ReadingCoachPassagesRequestBuilderNavigationMetadata: Record<Exclud
  */
 export const ReadingCoachPassagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ReadingCoachPassagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports/readingCoachPassages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ReadingCoachPassagesRequestBuilderRequestsMetadata: RequestsMetadat
         queryParametersMapper: ReadingCoachPassagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ReadingCoachPassagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports/readingCoachPassages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

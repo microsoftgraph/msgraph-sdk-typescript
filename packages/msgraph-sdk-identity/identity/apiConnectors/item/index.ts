@@ -78,7 +78,7 @@ export interface IdentityApiConnectorItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityApiConnectorItemRequestBuilderUriTemplate = "{+baseurl}/identity/apiConnectors/{identityApiConnector%2Did}{?%24expand,%24select}";
+export const IdentityApiConnectorItemRequestBuilderUriTemplate = "{+baseurl}/identity/apiConnectors/{identityApiConnector%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -107,7 +107,7 @@ export const IdentityApiConnectorItemRequestBuilderRequestsMetadata: RequestsMet
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: IdentityApiConnectorItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/apiConnectors/{identityApiConnector%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

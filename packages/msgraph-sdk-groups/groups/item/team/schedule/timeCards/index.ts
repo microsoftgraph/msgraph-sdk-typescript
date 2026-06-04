@@ -101,7 +101,7 @@ export interface TimeCardsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TimeCardsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/timeCards{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TimeCardsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -136,7 +136,7 @@ export const TimeCardsRequestBuilderNavigationMetadata: Record<Exclude<keyof Tim
  */
 export const TimeCardsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TimeCardsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/schedule/timeCards{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -146,7 +146,7 @@ export const TimeCardsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TimeCardsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TimeCardsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/schedule/timeCards",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

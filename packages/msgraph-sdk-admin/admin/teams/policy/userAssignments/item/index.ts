@@ -69,7 +69,7 @@ export interface TeamsPolicyUserAssignmentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsPolicyUserAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/admin/teams/policy/userAssignments/{teamsPolicyUserAssignment%2Did}{?%24expand,%24select}";
+export const TeamsPolicyUserAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/admin/teams/policy/userAssignments/{teamsPolicyUserAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const TeamsPolicyUserAssignmentItemRequestBuilderRequestsMetadata: Reques
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TeamsPolicyUserAssignmentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams/policy/userAssignments/{teamsPolicyUserAssignment%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

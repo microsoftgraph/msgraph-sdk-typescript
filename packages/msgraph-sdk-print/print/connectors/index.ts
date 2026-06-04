@@ -96,7 +96,7 @@ export interface ConnectorsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConnectorsRequestBuilderUriTemplate = "{+baseurl}/print/connectors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ConnectorsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ConnectorsRequestBuilderNavigationMetadata: Record<Exclude<keyof Co
  */
 export const ConnectorsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ConnectorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print/connectors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ConnectorsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ConnectorsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ConnectorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print/connectors",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

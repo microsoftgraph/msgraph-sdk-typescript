@@ -69,7 +69,7 @@ export interface UnifiedRoleManagementPolicyRuleItemRequestBuilderGetQueryParame
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleManagementPolicyRuleItemRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicies/{unifiedRoleManagementPolicy%2Did}/effectiveRules/{unifiedRoleManagementPolicyRule%2Did}{?%24expand,%24select}";
+export const UnifiedRoleManagementPolicyRuleItemRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicies/{unifiedRoleManagementPolicy%2Did}/effectiveRules/{unifiedRoleManagementPolicyRule%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const UnifiedRoleManagementPolicyRuleItemRequestBuilderRequestsMetadata: 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UnifiedRoleManagementPolicyRuleItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/roleManagementPolicies/{unifiedRoleManagementPolicy%2Did}/effectiveRules/{unifiedRoleManagementPolicyRule%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -95,7 +95,7 @@ export interface LogCollectionRequestsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LogCollectionRequestsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const LogCollectionRequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const LogCollectionRequestsRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const LogCollectionRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: LogCollectionRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const LogCollectionRequestsRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: LogCollectionRequestsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: LogCollectionRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/logCollectionRequests",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

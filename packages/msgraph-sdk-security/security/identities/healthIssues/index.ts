@@ -96,7 +96,7 @@ export interface HealthIssuesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HealthIssuesRequestBuilderUriTemplate = "{+baseurl}/security/identities/healthIssues{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HealthIssuesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const HealthIssuesRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const HealthIssuesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HealthIssuesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/identities/healthIssues{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const HealthIssuesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: HealthIssuesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HealthIssuesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/identities/healthIssues",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

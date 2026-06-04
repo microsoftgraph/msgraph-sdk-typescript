@@ -69,7 +69,7 @@ export interface CustomCalloutExtensionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CustomCalloutExtensionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRequests/{accessPackageResourceRequest%2Did}/catalog/customWorkflowExtensions/{customCalloutExtension%2Did}{?%24expand,%24select}";
+export const CustomCalloutExtensionItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceRequests/{accessPackageResourceRequest%2Did}/catalog/customWorkflowExtensions/{customCalloutExtension%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const CustomCalloutExtensionItemRequestBuilderRequestsMetadata: RequestsM
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CustomCalloutExtensionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/resourceRequests/{accessPackageResourceRequest%2Did}/catalog/customWorkflowExtensions/{customCalloutExtension%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

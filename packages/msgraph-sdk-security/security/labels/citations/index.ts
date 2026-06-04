@@ -97,7 +97,7 @@ export interface CitationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CitationsRequestBuilderUriTemplate = "{+baseurl}/security/labels/citations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CitationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const CitationsRequestBuilderNavigationMetadata: Record<Exclude<keyof Cit
  */
 export const CitationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CitationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/citations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const CitationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: CitationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CitationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/labels/citations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -97,7 +97,7 @@ export interface SharePointBrowseSessionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SharePointBrowseSessionsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/sharePointBrowseSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SharePointBrowseSessionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const SharePointBrowseSessionsRequestBuilderNavigationMetadata: Record<Ex
  */
 export const SharePointBrowseSessionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SharePointBrowseSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/sharePointBrowseSessions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const SharePointBrowseSessionsRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: SharePointBrowseSessionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SharePointBrowseSessionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/sharePointBrowseSessions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -103,7 +103,7 @@ export interface Oauth2PermissionGrantsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const Oauth2PermissionGrantsRequestBuilderUriTemplate = "{+baseurl}/oauth2PermissionGrants{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const Oauth2PermissionGrantsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +137,7 @@ export const Oauth2PermissionGrantsRequestBuilderNavigationMetadata: Record<Excl
  */
 export const Oauth2PermissionGrantsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: Oauth2PermissionGrantsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/oauth2PermissionGrants{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -147,7 +147,7 @@ export const Oauth2PermissionGrantsRequestBuilderRequestsMetadata: RequestsMetad
         queryParametersMapper: Oauth2PermissionGrantsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: Oauth2PermissionGrantsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/oauth2PermissionGrants",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

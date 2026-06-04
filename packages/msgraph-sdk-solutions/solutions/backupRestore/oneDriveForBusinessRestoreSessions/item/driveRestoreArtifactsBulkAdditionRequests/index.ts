@@ -97,7 +97,7 @@ export interface DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQuery
 /**
  * Uri template for the request builder.
  */
-export const DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/oneDriveForBusinessRestoreSessions/{oneDriveForBusinessRestoreSession%2Did}/driveRestoreArtifactsBulkAdditionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMe
  */
 export const DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/oneDriveForBusinessRestoreSessions/{oneDriveForBusinessRestoreSession%2Did}/driveRestoreArtifactsBulkAdditionRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMeta
         queryParametersMapper: DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DriveRestoreArtifactsBulkAdditionRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/oneDriveForBusinessRestoreSessions/{oneDriveForBusinessRestoreSession%2Did}/driveRestoreArtifactsBulkAdditionRequests",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

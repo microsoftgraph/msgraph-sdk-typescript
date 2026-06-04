@@ -101,7 +101,7 @@ export interface DirectoryObjectItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DirectoryObjectItemRequestBuilderUriTemplate = "{+baseurl}/directoryObjects/{directoryObject%2Did}{?%24expand,%24select}";
+export const DirectoryObjectItemRequestBuilderUriTemplate = "{+baseurl}/directoryObjects/{directoryObject%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -142,7 +142,7 @@ export const DirectoryObjectItemRequestBuilderRequestsMetadata: RequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DirectoryObjectItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directoryObjects/{directoryObject%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

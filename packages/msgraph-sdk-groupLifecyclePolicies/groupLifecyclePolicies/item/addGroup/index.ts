@@ -86,7 +86,7 @@ export function deserializeIntoAddGroupPostRequestBody(addGroupPostRequestBody: 
 export function deserializeIntoAddGroupPostResponse(addGroupPostResponse: Partial<AddGroupPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { addGroupPostResponse.backingStoreEnabled = true; },
-        "value": n => { addGroupPostResponse.value = n.getBooleanValue(); },
+        "value": n => { addGroupPostResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -110,7 +110,7 @@ export function serializeAddGroupPostRequestBody(writer: SerializationWriter, ad
 // @ts-ignore
 export function serializeAddGroupPostResponse(writer: SerializationWriter, addGroupPostResponse: Partial<AddGroupPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!addGroupPostResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", addGroupPostResponse.value);
+    writer.writeBooleanValue("value", addGroupPostResponse.value ?? false);
     writer.writeAdditionalData(addGroupPostResponse.additionalData);
 }
 /**

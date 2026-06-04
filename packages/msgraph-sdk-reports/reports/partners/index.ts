@@ -75,7 +75,7 @@ export interface PartnersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PartnersRequestBuilderUriTemplate = "{+baseurl}/reports/partners{?%24expand,%24select}";
+export const PartnersRequestBuilderUriTemplate = "{+baseurl}/reports/partners";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const PartnersRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PartnersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/partners{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -96,7 +96,7 @@ export interface ResourceEnvironmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ResourceEnvironmentsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ResourceEnvironmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const ResourceEnvironmentsRequestBuilderNavigationMetadata: Record<Exclud
  */
 export const ResourceEnvironmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ResourceEnvironmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const ResourceEnvironmentsRequestBuilderRequestsMetadata: RequestsMetadat
         queryParametersMapper: ResourceEnvironmentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ResourceEnvironmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

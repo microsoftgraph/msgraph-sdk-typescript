@@ -95,7 +95,7 @@ export interface LocalizationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LocalizationsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/file/localizations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const LocalizationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const LocalizationsRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const LocalizationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: LocalizationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/file/localizations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const LocalizationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: LocalizationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: LocalizationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/termsOfUse/agreements/{agreement%2Did}/file/localizations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

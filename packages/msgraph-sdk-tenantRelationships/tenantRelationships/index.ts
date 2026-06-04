@@ -91,7 +91,7 @@ export interface TenantRelationshipsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TenantRelationshipsRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships{?%24expand,%24select}";
+export const TenantRelationshipsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const TenantRelationshipsRequestBuilderNavigationMetadata: Record<Exclude
  */
 export const TenantRelationshipsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TenantRelationshipsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const TenantRelationshipsRequestBuilderRequestsMetadata: RequestsMetadata
         queryParametersMapper: TenantRelationshipsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: TenantRelationshipsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

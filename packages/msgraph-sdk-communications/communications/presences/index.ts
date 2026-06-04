@@ -95,7 +95,7 @@ export interface PresencesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PresencesRequestBuilderUriTemplate = "{+baseurl}/communications/presences{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PresencesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const PresencesRequestBuilderNavigationMetadata: Record<Exclude<keyof Pre
  */
 export const PresencesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PresencesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/presences{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const PresencesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PresencesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PresencesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/presences",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

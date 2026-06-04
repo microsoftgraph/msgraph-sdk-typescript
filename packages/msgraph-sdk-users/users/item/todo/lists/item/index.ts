@@ -81,7 +81,7 @@ export interface TodoTaskListItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TodoTaskListItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}{?%24expand,%24select}";
+export const TodoTaskListItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const TodoTaskListItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TodoTaskListItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

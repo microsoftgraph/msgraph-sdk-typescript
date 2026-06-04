@@ -145,7 +145,7 @@ export interface WorkbookRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkbookRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook{?%24expand,%24select}";
+export const WorkbookRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -216,7 +216,7 @@ export const WorkbookRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WorkbookRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

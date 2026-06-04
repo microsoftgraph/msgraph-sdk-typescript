@@ -134,7 +134,7 @@ export interface WorkflowItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const WorkflowItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}{?%24expand,%24select}";
+export const WorkflowItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -200,7 +200,7 @@ export const WorkflowItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const WorkflowItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: WorkflowItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -208,7 +208,7 @@ export const WorkflowItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WorkflowItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

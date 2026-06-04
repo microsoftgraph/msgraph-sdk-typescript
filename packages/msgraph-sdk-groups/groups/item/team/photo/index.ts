@@ -63,7 +63,7 @@ export interface PhotoRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PhotoRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/photo{?%24expand,%24select}";
+export const PhotoRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -84,7 +84,7 @@ export const PhotoRequestBuilderNavigationMetadata: Record<Exclude<keyof PhotoRe
  */
 export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PhotoRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/photo{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -94,7 +94,7 @@ export const PhotoRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PhotoRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: PhotoRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/photo",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

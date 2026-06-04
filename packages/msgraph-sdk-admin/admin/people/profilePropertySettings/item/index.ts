@@ -72,7 +72,7 @@ export interface ProfilePropertySettingItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProfilePropertySettingItemRequestBuilderUriTemplate = "{+baseurl}/admin/people/profilePropertySettings/{profilePropertySetting%2Did}{?%24expand,%24select}";
+export const ProfilePropertySettingItemRequestBuilderUriTemplate = "{+baseurl}/admin/people/profilePropertySettings/{profilePropertySetting%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const ProfilePropertySettingItemRequestBuilderRequestsMetadata: RequestsM
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ProfilePropertySettingItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/people/profilePropertySettings/{profilePropertySetting%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

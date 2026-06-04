@@ -75,7 +75,7 @@ export interface VerifiedIdRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VerifiedIdRequestBuilderUriTemplate = "{+baseurl}/identity/verifiedId{?%24expand,%24select}";
+export const VerifiedIdRequestBuilderUriTemplate = "{+baseurl}/identity/verifiedId";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const VerifiedIdRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: VerifiedIdRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/verifiedId{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

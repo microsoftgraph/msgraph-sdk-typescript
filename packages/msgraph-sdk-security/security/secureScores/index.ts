@@ -96,7 +96,7 @@ export interface SecureScoresRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SecureScoresRequestBuilderUriTemplate = "{+baseurl}/security/secureScores{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SecureScoresRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SecureScoresRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const SecureScoresRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SecureScoresRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/secureScores{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SecureScoresRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SecureScoresRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SecureScoresRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/secureScores",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface MobileAppRelationshipItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MobileAppRelationshipItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppRelationships/{mobileAppRelationship%2Did}{?%24expand,%24select}";
+export const MobileAppRelationshipItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileAppRelationships/{mobileAppRelationship%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const MobileAppRelationshipItemRequestBuilderRequestsMetadata: RequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MobileAppRelationshipItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mobileAppRelationships/{mobileAppRelationship%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

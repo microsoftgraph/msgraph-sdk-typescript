@@ -75,7 +75,7 @@ export interface PlannerRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PlannerRequestBuilderUriTemplate = "{+baseurl}/planner{?%24expand,%24select}";
+export const PlannerRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const PlannerRequestBuilderNavigationMetadata: Record<Exclude<keyof Plann
  */
 export const PlannerRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PlannerRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/planner{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -115,7 +115,7 @@ export const PlannerRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PlannerRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: PlannerRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/planner",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

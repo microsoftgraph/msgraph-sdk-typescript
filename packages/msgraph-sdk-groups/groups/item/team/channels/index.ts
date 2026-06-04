@@ -107,7 +107,7 @@ export interface ChannelsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ChannelsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/channels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ChannelsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -145,7 +145,7 @@ export const ChannelsRequestBuilderNavigationMetadata: Record<Exclude<keyof Chan
  */
 export const ChannelsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ChannelsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/channels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -155,7 +155,7 @@ export const ChannelsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ChannelsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ChannelsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/channels",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

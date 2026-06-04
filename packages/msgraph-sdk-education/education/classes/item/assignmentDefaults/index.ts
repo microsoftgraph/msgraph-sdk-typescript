@@ -71,7 +71,7 @@ export interface AssignmentDefaultsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AssignmentDefaultsRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentDefaults{?%24expand,%24select}";
+export const AssignmentDefaultsRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignmentDefaults";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const AssignmentDefaultsRequestBuilderRequestsMetadata: RequestsMetadata 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AssignmentDefaultsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/classes/{educationClass%2Did}/assignmentDefaults{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

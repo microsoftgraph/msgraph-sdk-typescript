@@ -69,7 +69,7 @@ export interface AttributeMappingFunctionSchemaItemRequestBuilderGetQueryParamet
 /**
  * Uri template for the request builder.
  */
-export const AttributeMappingFunctionSchemaItemRequestBuilderUriTemplate = "{+baseurl}/functions/{attributeMappingFunctionSchema%2Did}{?%24expand,%24select}";
+export const AttributeMappingFunctionSchemaItemRequestBuilderUriTemplate = "{+baseurl}/functions/{attributeMappingFunctionSchema%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const AttributeMappingFunctionSchemaItemRequestBuilderRequestsMetadata: R
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AttributeMappingFunctionSchemaItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/functions/{attributeMappingFunctionSchema%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

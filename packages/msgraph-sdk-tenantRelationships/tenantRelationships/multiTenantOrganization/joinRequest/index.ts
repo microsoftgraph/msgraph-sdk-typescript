@@ -59,7 +59,7 @@ export interface JoinRequestRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const JoinRequestRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/multiTenantOrganization/joinRequest{?%24expand,%24select}";
+export const JoinRequestRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -72,7 +72,7 @@ const JoinRequestRequestBuilderGetQueryParametersMapper: Record<string, string> 
  */
 export const JoinRequestRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: JoinRequestRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/multiTenantOrganization/joinRequest{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -82,7 +82,7 @@ export const JoinRequestRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: JoinRequestRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: JoinRequestRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/multiTenantOrganization/joinRequest",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

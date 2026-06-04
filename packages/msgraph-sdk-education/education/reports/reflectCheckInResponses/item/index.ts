@@ -69,7 +69,7 @@ export interface ReflectCheckInResponseItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReflectCheckInResponseItemRequestBuilderUriTemplate = "{+baseurl}/education/reports/reflectCheckInResponses/{reflectCheckInResponse%2Did}{?%24expand,%24select}";
+export const ReflectCheckInResponseItemRequestBuilderUriTemplate = "{+baseurl}/education/reports/reflectCheckInResponses/{reflectCheckInResponse%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const ReflectCheckInResponseItemRequestBuilderRequestsMetadata: RequestsM
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ReflectCheckInResponseItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports/reflectCheckInResponses/{reflectCheckInResponse%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

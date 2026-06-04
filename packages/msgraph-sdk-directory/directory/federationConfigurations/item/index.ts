@@ -70,7 +70,7 @@ export interface IdentityProviderBaseItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityProviderBaseItemRequestBuilderUriTemplate = "{+baseurl}/directory/federationConfigurations/{identityProviderBase%2Did}{?%24expand,%24select}";
+export const IdentityProviderBaseItemRequestBuilderUriTemplate = "{+baseurl}/directory/federationConfigurations/{identityProviderBase%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const IdentityProviderBaseItemRequestBuilderRequestsMetadata: RequestsMet
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: IdentityProviderBaseItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/federationConfigurations/{identityProviderBase%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

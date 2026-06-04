@@ -101,7 +101,7 @@ export interface UsedRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UsedRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights/used{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UsedRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -133,7 +133,7 @@ export const UsedRequestBuilderNavigationMetadata: Record<Exclude<keyof UsedRequ
  */
 export const UsedRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: UsedRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/insights/used{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -143,7 +143,7 @@ export const UsedRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: UsedRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: UsedRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/insights/used",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

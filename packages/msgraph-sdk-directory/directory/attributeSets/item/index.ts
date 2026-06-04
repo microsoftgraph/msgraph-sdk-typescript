@@ -71,7 +71,7 @@ export interface AttributeSetItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttributeSetItemRequestBuilderUriTemplate = "{+baseurl}/directory/attributeSets/{attributeSet%2Did}{?%24expand,%24select}";
+export const AttributeSetItemRequestBuilderUriTemplate = "{+baseurl}/directory/attributeSets/{attributeSet%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const AttributeSetItemRequestBuilderRequestsMetadata: RequestsMetadata = 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AttributeSetItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/attributeSets/{attributeSet%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

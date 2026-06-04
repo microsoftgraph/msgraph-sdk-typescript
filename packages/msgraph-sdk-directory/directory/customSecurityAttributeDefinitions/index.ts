@@ -97,7 +97,7 @@ export interface CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParamet
 /**
  * Uri template for the request builder.
  */
-export const CustomSecurityAttributeDefinitionsRequestBuilderUriTemplate = "{+baseurl}/directory/customSecurityAttributeDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CustomSecurityAttributeDefinitionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const CustomSecurityAttributeDefinitionsRequestBuilderNavigationMetadata:
  */
 export const CustomSecurityAttributeDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CustomSecurityAttributeDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/customSecurityAttributeDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const CustomSecurityAttributeDefinitionsRequestBuilderRequestsMetadata: R
         queryParametersMapper: CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CustomSecurityAttributeDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/customSecurityAttributeDefinitions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -75,7 +75,7 @@ export interface CallRecordingItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CallRecordingItemRequestBuilderUriTemplate = "{+baseurl}/communications/adhocCalls/{adhocCall%2Did}/recordings/{callRecording%2Did}{?%24expand,%24select}";
+export const CallRecordingItemRequestBuilderUriTemplate = "{+baseurl}/communications/adhocCalls/{adhocCall%2Did}/recordings/{callRecording%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const CallRecordingItemRequestBuilderRequestsMetadata: RequestsMetadata =
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CallRecordingItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/adhocCalls/{adhocCall%2Did}/recordings/{callRecording%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

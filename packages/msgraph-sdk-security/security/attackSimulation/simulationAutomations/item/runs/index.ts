@@ -96,7 +96,7 @@ export interface RunsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RunsRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/simulationAutomations/{simulationAutomation%2Did}/runs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RunsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const RunsRequestBuilderNavigationMetadata: Record<Exclude<keyof RunsRequ
  */
 export const RunsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RunsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/simulationAutomations/{simulationAutomation%2Did}/runs{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const RunsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RunsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RunsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/simulationAutomations/{simulationAutomation%2Did}/runs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

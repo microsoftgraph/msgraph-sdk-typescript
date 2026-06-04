@@ -82,7 +82,7 @@ export interface HostPortItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostPortItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPorts/{hostPort%2Did}{?%24expand,%24select}";
+export const HostPortItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostPorts/{hostPort%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -114,7 +114,7 @@ export const HostPortItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: HostPortItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostPorts/{hostPort%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

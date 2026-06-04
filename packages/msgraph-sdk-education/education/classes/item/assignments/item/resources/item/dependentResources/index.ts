@@ -96,7 +96,7 @@ export interface DependentResourcesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DependentResourcesRequestBuilderUriTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}/dependentResources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DependentResourcesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const DependentResourcesRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const DependentResourcesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DependentResourcesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}/dependentResources{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const DependentResourcesRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: DependentResourcesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DependentResourcesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}/dependentResources",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

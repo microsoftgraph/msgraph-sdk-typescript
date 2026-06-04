@@ -102,7 +102,7 @@ export interface DeletedTeamsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeletedTeamsRequestBuilderUriTemplate = "{+baseurl}/teamwork/deletedTeams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DeletedTeamsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +137,7 @@ export const DeletedTeamsRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const DeletedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DeletedTeamsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teamwork/deletedTeams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -147,7 +147,7 @@ export const DeletedTeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DeletedTeamsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DeletedTeamsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teamwork/deletedTeams",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

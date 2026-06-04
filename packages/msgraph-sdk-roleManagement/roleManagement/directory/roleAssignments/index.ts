@@ -97,7 +97,7 @@ export interface RoleAssignmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RoleAssignmentsRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RoleAssignmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const RoleAssignmentsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const RoleAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RoleAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/directory/roleAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const RoleAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RoleAssignmentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RoleAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/directory/roleAssignments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

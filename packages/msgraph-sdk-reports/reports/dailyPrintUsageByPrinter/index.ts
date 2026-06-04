@@ -96,7 +96,7 @@ export interface DailyPrintUsageByPrinterRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DailyPrintUsageByPrinterRequestBuilderUriTemplate = "{+baseurl}/reports/dailyPrintUsageByPrinter{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DailyPrintUsageByPrinterRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const DailyPrintUsageByPrinterRequestBuilderNavigationMetadata: Record<Ex
  */
 export const DailyPrintUsageByPrinterRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DailyPrintUsageByPrinterRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/dailyPrintUsageByPrinter{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const DailyPrintUsageByPrinterRequestBuilderRequestsMetadata: RequestsMet
         queryParametersMapper: DailyPrintUsageByPrinterRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DailyPrintUsageByPrinterRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/dailyPrintUsageByPrinter",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -96,7 +96,7 @@ export interface TrainingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TrainingsRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/trainings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TrainingsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const TrainingsRequestBuilderNavigationMetadata: Record<Exclude<keyof Tra
  */
 export const TrainingsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TrainingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/trainings{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const TrainingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TrainingsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TrainingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/trainings",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -70,7 +70,7 @@ export interface SensorCandidateActivationConfigurationRequestBuilderGetQueryPar
 /**
  * Uri template for the request builder.
  */
-export const SensorCandidateActivationConfigurationRequestBuilderUriTemplate = "{+baseurl}/security/identities/sensorCandidateActivationConfiguration{?%24expand,%24select}";
+export const SensorCandidateActivationConfigurationRequestBuilderUriTemplate = "{+baseurl}/security/identities/sensorCandidateActivationConfiguration";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const SensorCandidateActivationConfigurationRequestBuilderRequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SensorCandidateActivationConfigurationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/identities/sensorCandidateActivationConfiguration{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

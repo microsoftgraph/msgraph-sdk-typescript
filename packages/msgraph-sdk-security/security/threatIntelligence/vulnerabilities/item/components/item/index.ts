@@ -70,7 +70,7 @@ export interface VulnerabilityComponentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VulnerabilityComponentItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}/components/{vulnerabilityComponent%2Did}{?%24expand,%24select}";
+export const VulnerabilityComponentItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}/components/{vulnerabilityComponent%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const VulnerabilityComponentItemRequestBuilderRequestsMetadata: RequestsM
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: VulnerabilityComponentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/vulnerabilities/{vulnerability%2Did}/components/{vulnerabilityComponent%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -81,7 +81,7 @@ export interface TelephoneNumberManagementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TelephoneNumberManagementRequestBuilderUriTemplate = "{+baseurl}/admin/teams/telephoneNumberManagement{?%24expand,%24select}";
+export const TelephoneNumberManagementRequestBuilderUriTemplate = "{+baseurl}/admin/teams/telephoneNumberManagement";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const TelephoneNumberManagementRequestBuilderRequestsMetadata: RequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TelephoneNumberManagementRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams/telephoneNumberManagement{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

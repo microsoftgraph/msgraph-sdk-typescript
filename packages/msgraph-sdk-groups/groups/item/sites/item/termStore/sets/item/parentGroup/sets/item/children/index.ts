@@ -95,7 +95,7 @@ export interface ChildrenRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ChildrenRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup/sets/{set%2Did1}/children{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ChildrenRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ChildrenRequestBuilderNavigationMetadata: Record<Exclude<keyof Chil
  */
 export const ChildrenRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ChildrenRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup/sets/{set%2Did1}/children{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ChildrenRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ChildrenRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ChildrenRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup/sets/{set%2Did1}/children",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

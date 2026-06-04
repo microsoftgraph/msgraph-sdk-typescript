@@ -70,7 +70,7 @@ export interface CompanySubscriptionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CompanySubscriptionItemRequestBuilderUriTemplate = "{+baseurl}/directory/subscriptions/{companySubscription%2Did}{?%24expand,%24select}";
+export const CompanySubscriptionItemRequestBuilderUriTemplate = "{+baseurl}/directory/subscriptions/{companySubscription%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const CompanySubscriptionItemRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CompanySubscriptionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/directory/subscriptions/{companySubscription%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -97,7 +97,7 @@ export interface TaskDefinitionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TaskDefinitionsRequestBuilderUriTemplate = "{+baseurl}/print/taskDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TaskDefinitionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const TaskDefinitionsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const TaskDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TaskDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print/taskDefinitions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const TaskDefinitionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TaskDefinitionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TaskDefinitionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print/taskDefinitions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

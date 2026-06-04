@@ -96,7 +96,7 @@ export interface SecureScoreControlProfilesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SecureScoreControlProfilesRequestBuilderUriTemplate = "{+baseurl}/security/secureScoreControlProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SecureScoreControlProfilesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SecureScoreControlProfilesRequestBuilderNavigationMetadata: Record<
  */
 export const SecureScoreControlProfilesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SecureScoreControlProfilesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/secureScoreControlProfiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SecureScoreControlProfilesRequestBuilderRequestsMetadata: RequestsM
         queryParametersMapper: SecureScoreControlProfilesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SecureScoreControlProfilesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/secureScoreControlProfiles",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

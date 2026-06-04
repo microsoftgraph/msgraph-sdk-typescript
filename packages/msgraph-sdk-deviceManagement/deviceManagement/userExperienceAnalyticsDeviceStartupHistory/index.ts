@@ -95,7 +95,7 @@ export interface UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQue
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupHistory{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderNavigation
  */
 export const UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupHistory{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderRequestsMe
         queryParametersMapper: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupHistory",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

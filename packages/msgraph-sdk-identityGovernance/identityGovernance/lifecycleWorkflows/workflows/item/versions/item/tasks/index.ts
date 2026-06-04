@@ -96,7 +96,7 @@ export interface TasksRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TasksRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/versions/{workflowVersion%2DversionNumber}/tasks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TasksRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const TasksRequestBuilderNavigationMetadata: Record<Exclude<keyof TasksRe
  */
 export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TasksRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/versions/{workflowVersion%2DversionNumber}/tasks{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const TasksRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TasksRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TasksRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/workflows/{workflow%2Did}/versions/{workflowVersion%2DversionNumber}/tasks",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface WindowsInformationProtectionNetworkLearningSummaryItemRequestBu
 /**
  * Uri template for the request builder.
  */
-export const WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/windowsInformationProtectionNetworkLearningSummaries/{windowsInformationProtectionNetworkLearningSummary%2Did}{?%24expand,%24select}";
+export const WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/windowsInformationProtectionNetworkLearningSummaries/{windowsInformationProtectionNetworkLearningSummary%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/windowsInformationProtectionNetworkLearningSummaries/{windowsInformationProtectionNetworkLearningSummary%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

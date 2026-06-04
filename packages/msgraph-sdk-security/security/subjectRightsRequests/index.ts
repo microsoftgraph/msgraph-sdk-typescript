@@ -95,7 +95,7 @@ export interface SubjectRightsRequestsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubjectRightsRequestsRequestBuilderUriTemplate = "{+baseurl}/security/subjectRightsRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SubjectRightsRequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const SubjectRightsRequestsRequestBuilderNavigationMetadata: Record<Exclu
  */
 export const SubjectRightsRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SubjectRightsRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/subjectRightsRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const SubjectRightsRequestsRequestBuilderRequestsMetadata: RequestsMetada
         queryParametersMapper: SubjectRightsRequestsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SubjectRightsRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/subjectRightsRequests",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -95,7 +95,7 @@ export interface ExemptAppLockerFilesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExemptAppLockerFilesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}/exemptAppLockerFiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ExemptAppLockerFilesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ExemptAppLockerFilesRequestBuilderNavigationMetadata: Record<Exclud
  */
 export const ExemptAppLockerFilesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ExemptAppLockerFilesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}/exemptAppLockerFiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ExemptAppLockerFilesRequestBuilderRequestsMetadata: RequestsMetadat
         queryParametersMapper: ExemptAppLockerFilesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ExemptAppLockerFilesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies/{mdmWindowsInformationProtectionPolicy%2Did}/exemptAppLockerFiles",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

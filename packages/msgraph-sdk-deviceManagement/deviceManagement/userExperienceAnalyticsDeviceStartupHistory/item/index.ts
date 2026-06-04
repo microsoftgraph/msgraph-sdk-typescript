@@ -69,7 +69,7 @@ export interface UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderGe
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupHistory/{userExperienceAnalyticsDeviceStartupHistory%2Did}{?%24expand,%24select}";
+export const UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupHistory/{userExperienceAnalyticsDeviceStartupHistory%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderReques
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsDeviceStartupHistory/{userExperienceAnalyticsDeviceStartupHistory%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

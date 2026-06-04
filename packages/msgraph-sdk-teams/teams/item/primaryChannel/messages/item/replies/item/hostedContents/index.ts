@@ -95,7 +95,7 @@ export interface HostedContentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostedContentsRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HostedContentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const HostedContentsRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const HostedContentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HostedContentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const HostedContentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: HostedContentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HostedContentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

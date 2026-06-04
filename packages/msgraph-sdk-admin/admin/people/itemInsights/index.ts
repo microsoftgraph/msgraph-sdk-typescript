@@ -71,7 +71,7 @@ export interface ItemInsightsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ItemInsightsRequestBuilderUriTemplate = "{+baseurl}/admin/people/itemInsights{?%24expand,%24select}";
+export const ItemInsightsRequestBuilderUriTemplate = "{+baseurl}/admin/people/itemInsights";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const ItemInsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ItemInsightsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/people/itemInsights{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -101,7 +101,7 @@ export interface ChildFoldersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ChildFoldersRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/childFolders{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ChildFoldersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -136,7 +136,7 @@ export const ChildFoldersRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const ChildFoldersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ChildFoldersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/childFolders{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -146,7 +146,7 @@ export const ChildFoldersRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ChildFoldersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ChildFoldersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}/childFolders",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

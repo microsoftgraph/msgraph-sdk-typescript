@@ -96,7 +96,7 @@ export interface FootprintsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FootprintsRequestBuilderUriTemplate = "{+baseurl}/places/{place%2Did}/graph.building/map/footprints{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const FootprintsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const FootprintsRequestBuilderNavigationMetadata: Record<Exclude<keyof Fo
  */
 export const FootprintsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: FootprintsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/places/{place%2Did}/graph.building/map/footprints{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const FootprintsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: FootprintsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: FootprintsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/places/{place%2Did}/graph.building/map/footprints",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

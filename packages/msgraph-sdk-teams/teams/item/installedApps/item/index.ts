@@ -89,7 +89,7 @@ export interface TeamsAppInstallationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsAppInstallationItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24expand,%24select}";
+export const TeamsAppInstallationItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -124,7 +124,7 @@ export const TeamsAppInstallationItemRequestBuilderRequestsMetadata: RequestsMet
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TeamsAppInstallationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teams/{team%2Did}/installedApps/{teamsAppInstallation%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

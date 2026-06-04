@@ -75,7 +75,7 @@ export interface EdgeRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EdgeRequestBuilderUriTemplate = "{+baseurl}/admin/edge{?%24expand,%24select}";
+export const EdgeRequestBuilderUriTemplate = "{+baseurl}/admin/edge";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const EdgeRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: EdgeRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/edge{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

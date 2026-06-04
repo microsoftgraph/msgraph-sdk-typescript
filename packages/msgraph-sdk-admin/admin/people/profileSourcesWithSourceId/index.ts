@@ -71,7 +71,7 @@ export interface ProfileSourcesWithSourceIdRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProfileSourcesWithSourceIdRequestBuilderUriTemplate = "{+baseurl}/admin/people/profileSources(sourceId='{sourceId}'){?%24expand,%24select}";
+export const ProfileSourcesWithSourceIdRequestBuilderUriTemplate = "{+baseurl}/admin/people/profileSources(sourceId='{sourceId}')";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const ProfileSourcesWithSourceIdRequestBuilderRequestsMetadata: RequestsM
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ProfileSourcesWithSourceIdRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/people/profileSources(sourceId='{sourceId}'){?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

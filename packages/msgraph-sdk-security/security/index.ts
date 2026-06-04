@@ -147,7 +147,7 @@ export interface SecurityRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SecurityRequestBuilderUriTemplate = "{+baseurl}/security{?%24expand,%24select}";
+export const SecurityRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -224,7 +224,7 @@ export const SecurityRequestBuilderNavigationMetadata: Record<Exclude<keyof Secu
  */
 export const SecurityRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SecurityRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -234,7 +234,7 @@ export const SecurityRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SecurityRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: SecurityRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -95,7 +95,7 @@ export interface MetricDevicesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MetricDevicesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereMetrics/{userExperienceAnalyticsWorkFromAnywhereMetric%2Did}/metricDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MetricDevicesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const MetricDevicesRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const MetricDevicesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MetricDevicesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereMetrics/{userExperienceAnalyticsWorkFromAnywhereMetric%2Did}/metricDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const MetricDevicesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: MetricDevicesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MetricDevicesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsWorkFromAnywhereMetrics/{userExperienceAnalyticsWorkFromAnywhereMetric%2Did}/metricDevices",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

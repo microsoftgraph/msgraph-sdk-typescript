@@ -75,7 +75,7 @@ export interface ReportRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReportRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/report{?%24expand,%24select}";
+export const ReportRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/virtualEndpoint/report";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const ReportRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ReportRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/virtualEndpoint/report{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

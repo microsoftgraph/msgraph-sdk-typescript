@@ -177,7 +177,7 @@ export interface TeamItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}{?%24expand,%24select}";
+export const TeamItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -269,7 +269,7 @@ export const TeamItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TeamItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

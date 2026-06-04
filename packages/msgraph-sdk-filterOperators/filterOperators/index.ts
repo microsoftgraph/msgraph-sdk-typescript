@@ -95,7 +95,7 @@ export interface FilterOperatorsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FilterOperatorsRequestBuilderUriTemplate = "{+baseurl}/filterOperators{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const FilterOperatorsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const FilterOperatorsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const FilterOperatorsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: FilterOperatorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/filterOperators{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const FilterOperatorsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: FilterOperatorsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: FilterOperatorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/filterOperators",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

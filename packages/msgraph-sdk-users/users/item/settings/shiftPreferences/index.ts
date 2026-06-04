@@ -71,7 +71,7 @@ export interface ShiftPreferencesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ShiftPreferencesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/shiftPreferences{?%24expand,%24select}";
+export const ShiftPreferencesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/shiftPreferences";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const ShiftPreferencesRequestBuilderRequestsMetadata: RequestsMetadata = 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ShiftPreferencesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/shiftPreferences{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -71,7 +71,7 @@ export interface AssignedToTaskBoardFormatRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AssignedToTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/tasks/{plannerTask%2Did}/assignedToTaskBoardFormat{?%24expand,%24select}";
+export const AssignedToTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/tasks/{plannerTask%2Did}/assignedToTaskBoardFormat";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const AssignedToTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AssignedToTaskBoardFormatRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/planner/tasks/{plannerTask%2Did}/assignedToTaskBoardFormat{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

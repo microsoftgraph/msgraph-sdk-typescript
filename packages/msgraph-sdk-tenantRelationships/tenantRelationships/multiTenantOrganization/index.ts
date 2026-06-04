@@ -71,7 +71,7 @@ export interface MultiTenantOrganizationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MultiTenantOrganizationRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/multiTenantOrganization{?%24expand,%24select}";
+export const MultiTenantOrganizationRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -96,7 +96,7 @@ export const MultiTenantOrganizationRequestBuilderNavigationMetadata: Record<Exc
  */
 export const MultiTenantOrganizationRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MultiTenantOrganizationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/multiTenantOrganization{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -106,7 +106,7 @@ export const MultiTenantOrganizationRequestBuilderRequestsMetadata: RequestsMeta
         queryParametersMapper: MultiTenantOrganizationRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: MultiTenantOrganizationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/multiTenantOrganization",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

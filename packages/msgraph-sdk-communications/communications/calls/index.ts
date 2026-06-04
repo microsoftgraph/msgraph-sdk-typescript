@@ -102,7 +102,7 @@ export interface CallsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CallsRequestBuilderUriTemplate = "{+baseurl}/communications/calls{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CallsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +137,7 @@ export const CallsRequestBuilderNavigationMetadata: Record<Exclude<keyof CallsRe
  */
 export const CallsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CallsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/calls{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -147,7 +147,7 @@ export const CallsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: CallsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CallsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/calls",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

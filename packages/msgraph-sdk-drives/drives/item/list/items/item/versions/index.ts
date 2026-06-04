@@ -95,7 +95,7 @@ export interface VersionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VersionsRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/list/items/{listItem%2Did}/versions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const VersionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const VersionsRequestBuilderNavigationMetadata: Record<Exclude<keyof Vers
  */
 export const VersionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: VersionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/list/items/{listItem%2Did}/versions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const VersionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: VersionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: VersionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/list/items/{listItem%2Did}/versions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

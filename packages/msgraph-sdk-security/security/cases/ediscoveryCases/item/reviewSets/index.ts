@@ -97,7 +97,7 @@ export interface ReviewSetsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReviewSetsRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ReviewSetsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ReviewSetsRequestBuilderNavigationMetadata: Record<Exclude<keyof Re
  */
 export const ReviewSetsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ReviewSetsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ReviewSetsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ReviewSetsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ReviewSetsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

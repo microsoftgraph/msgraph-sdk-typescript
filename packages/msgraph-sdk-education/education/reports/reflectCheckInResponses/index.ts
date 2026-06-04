@@ -96,7 +96,7 @@ export interface ReflectCheckInResponsesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReflectCheckInResponsesRequestBuilderUriTemplate = "{+baseurl}/education/reports/reflectCheckInResponses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ReflectCheckInResponsesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ReflectCheckInResponsesRequestBuilderNavigationMetadata: Record<Exc
  */
 export const ReflectCheckInResponsesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ReflectCheckInResponsesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports/reflectCheckInResponses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ReflectCheckInResponsesRequestBuilderRequestsMetadata: RequestsMeta
         queryParametersMapper: ReflectCheckInResponsesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ReflectCheckInResponsesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/reports/reflectCheckInResponses",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

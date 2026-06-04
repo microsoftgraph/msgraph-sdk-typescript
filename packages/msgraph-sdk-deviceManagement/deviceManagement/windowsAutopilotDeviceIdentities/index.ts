@@ -95,7 +95,7 @@ export interface WindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParameter
 /**
  * Uri template for the request builder.
  */
-export const WindowsAutopilotDeviceIdentitiesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const WindowsAutopilotDeviceIdentitiesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const WindowsAutopilotDeviceIdentitiesRequestBuilderNavigationMetadata: R
  */
 export const WindowsAutopilotDeviceIdentitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: WindowsAutopilotDeviceIdentitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const WindowsAutopilotDeviceIdentitiesRequestBuilderRequestsMetadata: Req
         queryParametersMapper: WindowsAutopilotDeviceIdentitiesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: WindowsAutopilotDeviceIdentitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

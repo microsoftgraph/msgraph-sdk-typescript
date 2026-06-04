@@ -97,7 +97,7 @@ export interface ConversationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ConversationsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/conversations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ConversationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ConversationsRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const ConversationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ConversationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/conversations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ConversationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ConversationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ConversationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/conversations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

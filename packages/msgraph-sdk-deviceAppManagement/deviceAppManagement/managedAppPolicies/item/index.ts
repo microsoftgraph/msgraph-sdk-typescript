@@ -75,7 +75,7 @@ export interface ManagedAppPolicyItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ManagedAppPolicyItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppPolicies/{managedAppPolicy%2Did}{?%24expand,%24select}";
+export const ManagedAppPolicyItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppPolicies/{managedAppPolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const ManagedAppPolicyItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ManagedAppPolicyItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppPolicies/{managedAppPolicy%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

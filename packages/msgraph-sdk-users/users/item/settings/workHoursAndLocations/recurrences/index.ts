@@ -95,7 +95,7 @@ export interface RecurrencesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RecurrencesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations/recurrences{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RecurrencesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const RecurrencesRequestBuilderNavigationMetadata: Record<Exclude<keyof R
  */
 export const RecurrencesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RecurrencesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations/recurrences{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const RecurrencesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RecurrencesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RecurrencesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/settings/workHoursAndLocations/recurrences",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -102,7 +102,7 @@ export interface PrintersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PrintersRequestBuilderUriTemplate = "{+baseurl}/print/printers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PrintersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -137,7 +137,7 @@ export const PrintersRequestBuilderNavigationMetadata: Record<Exclude<keyof Prin
  */
 export const PrintersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PrintersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print/printers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -147,7 +147,7 @@ export const PrintersRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PrintersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PrintersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/print/printers",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -57,7 +57,7 @@ export interface CreateSessionRequestBuilder extends BaseRequestBuilder<CreateSe
 export function deserializeIntoCreateSessionPostRequestBody(createSessionPostRequestBody: Partial<CreateSessionPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { createSessionPostRequestBody.backingStoreEnabled = true; },
-        "persistChanges": n => { createSessionPostRequestBody.persistChanges = n.getBooleanValue(); },
+        "persistChanges": n => { createSessionPostRequestBody.persistChanges = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -69,7 +69,7 @@ export function deserializeIntoCreateSessionPostRequestBody(createSessionPostReq
 // @ts-ignore
 export function serializeCreateSessionPostRequestBody(writer: SerializationWriter, createSessionPostRequestBody: Partial<CreateSessionPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!createSessionPostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("persistChanges", createSessionPostRequestBody.persistChanges);
+    writer.writeBooleanValue("persistChanges", createSessionPostRequestBody.persistChanges ?? false);
     writer.writeAdditionalData(createSessionPostRequestBody.additionalData);
 }
 /**

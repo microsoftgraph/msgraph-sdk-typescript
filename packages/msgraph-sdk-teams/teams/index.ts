@@ -103,7 +103,7 @@ export interface TeamsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsRequestBuilderUriTemplate = "{+baseurl}/teams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TeamsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -138,7 +138,7 @@ export const TeamsRequestBuilderNavigationMetadata: Record<Exclude<keyof TeamsRe
  */
 export const TeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TeamsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -148,7 +148,7 @@ export const TeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TeamsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TeamsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teams",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -97,7 +97,7 @@ export interface B2xUserFlowsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const B2xUserFlowsRequestBuilderUriTemplate = "{+baseurl}/identity/b2xUserFlows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const B2xUserFlowsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const B2xUserFlowsRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const B2xUserFlowsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: B2xUserFlowsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/b2xUserFlows{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const B2xUserFlowsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: B2xUserFlowsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: B2xUserFlowsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/b2xUserFlows",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

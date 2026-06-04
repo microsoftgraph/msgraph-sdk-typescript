@@ -87,7 +87,7 @@ export interface AndroidManagedAppProtectionItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const AndroidManagedAppProtectionItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/androidManagedAppProtections/{androidManagedAppProtection%2Did}{?%24expand,%24select}";
+export const AndroidManagedAppProtectionItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/androidManagedAppProtections/{androidManagedAppProtection%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -124,7 +124,7 @@ export const AndroidManagedAppProtectionItemRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AndroidManagedAppProtectionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/androidManagedAppProtections/{androidManagedAppProtection%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

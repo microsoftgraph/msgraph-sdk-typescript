@@ -97,7 +97,7 @@ export interface FederationConfigurationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FederationConfigurationRequestBuilderUriTemplate = "{+baseurl}/domains/{domain%2Did}/federationConfiguration{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const FederationConfigurationRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const FederationConfigurationRequestBuilderNavigationMetadata: Record<Exc
  */
 export const FederationConfigurationRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: FederationConfigurationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/domains/{domain%2Did}/federationConfiguration{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const FederationConfigurationRequestBuilderRequestsMetadata: RequestsMeta
         queryParametersMapper: FederationConfigurationRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: FederationConfigurationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/domains/{domain%2Did}/federationConfiguration",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

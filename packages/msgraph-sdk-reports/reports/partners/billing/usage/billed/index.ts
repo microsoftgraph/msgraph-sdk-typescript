@@ -75,7 +75,7 @@ export interface BilledRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const BilledRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/usage/billed{?%24expand,%24select}";
+export const BilledRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/usage/billed";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const BilledRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: BilledRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/partners/billing/usage/billed{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

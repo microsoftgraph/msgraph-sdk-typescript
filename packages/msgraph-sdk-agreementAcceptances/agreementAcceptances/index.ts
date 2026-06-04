@@ -89,7 +89,7 @@ export interface AgreementAcceptancesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AgreementAcceptancesRequestBuilderUriTemplate = "{+baseurl}/agreementAcceptances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AgreementAcceptancesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -117,7 +117,7 @@ export const AgreementAcceptancesRequestBuilderNavigationMetadata: Record<Exclud
  */
 export const AgreementAcceptancesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AgreementAcceptancesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/agreementAcceptances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -127,7 +127,7 @@ export const AgreementAcceptancesRequestBuilderRequestsMetadata: RequestsMetadat
         queryParametersMapper: AgreementAcceptancesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AgreementAcceptancesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/agreementAcceptances",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -55,7 +55,7 @@ export interface SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParam
 /**
  * Uri template for the request builder.
  */
-export const SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/softwareOathMethods/{softwareOathAuthenticationMethod%2Did}{?%24expand,%24select}";
+export const SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -68,7 +68,7 @@ const SoftwareOathAuthenticationMethodItemRequestBuilderGetQueryParametersMapper
  */
 export const SoftwareOathAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/softwareOathMethods/{softwareOathAuthenticationMethod%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -76,7 +76,7 @@ export const SoftwareOathAuthenticationMethodItemRequestBuilderRequestsMetadata:
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SoftwareOathAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/softwareOathMethods/{softwareOathAuthenticationMethod%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

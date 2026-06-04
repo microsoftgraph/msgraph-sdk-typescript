@@ -90,7 +90,7 @@ export interface SubscribedSkusRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SubscribedSkusRequestBuilderUriTemplate = "{+baseurl}/subscribedSkus{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SubscribedSkusRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -118,7 +118,7 @@ export const SubscribedSkusRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const SubscribedSkusRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SubscribedSkusRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/subscribedSkus{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -128,7 +128,7 @@ export const SubscribedSkusRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SubscribedSkusRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SubscribedSkusRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/subscribedSkus",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -71,7 +71,7 @@ export interface ReportSettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ReportSettingsRequestBuilderUriTemplate = "{+baseurl}/admin/reportSettings{?%24expand,%24select}";
+export const ReportSettingsRequestBuilderUriTemplate = "{+baseurl}/admin/reportSettings";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const ReportSettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ReportSettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/reportSettings{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

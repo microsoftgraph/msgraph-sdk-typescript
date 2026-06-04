@@ -111,7 +111,7 @@ export interface AdminRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AdminRequestBuilderUriTemplate = "{+baseurl}/admin{?%24expand,%24select}";
+export const AdminRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -164,7 +164,7 @@ export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRe
  */
 export const AdminRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AdminRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -174,7 +174,7 @@ export const AdminRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AdminRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: AdminRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

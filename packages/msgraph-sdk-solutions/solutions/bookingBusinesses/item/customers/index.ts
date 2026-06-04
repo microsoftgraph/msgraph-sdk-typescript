@@ -97,7 +97,7 @@ export interface CustomersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CustomersRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CustomersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const CustomersRequestBuilderNavigationMetadata: Record<Exclude<keyof Cus
  */
 export const CustomersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CustomersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const CustomersRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: CustomersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: CustomersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customers",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

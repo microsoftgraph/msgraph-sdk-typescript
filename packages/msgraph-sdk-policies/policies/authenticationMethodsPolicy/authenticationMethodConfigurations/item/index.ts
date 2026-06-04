@@ -72,7 +72,7 @@ export interface AuthenticationMethodConfigurationItemRequestBuilderGetQueryPara
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationMethodConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{authenticationMethodConfiguration%2Did}{?%24expand,%24select}";
+export const AuthenticationMethodConfigurationItemRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{authenticationMethodConfiguration%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -93,7 +93,7 @@ export const AuthenticationMethodConfigurationItemRequestBuilderRequestsMetadata
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AuthenticationMethodConfigurationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{authenticationMethodConfiguration%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

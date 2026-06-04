@@ -104,7 +104,7 @@ export interface RoleAssignmentScheduleInstancesRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const RoleAssignmentScheduleInstancesRequestBuilderUriTemplate = "{+baseurl}/roleManagement/directory/roleAssignmentScheduleInstances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RoleAssignmentScheduleInstancesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -140,7 +140,7 @@ export const RoleAssignmentScheduleInstancesRequestBuilderNavigationMetadata: Re
  */
 export const RoleAssignmentScheduleInstancesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RoleAssignmentScheduleInstancesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/directory/roleAssignmentScheduleInstances{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -150,7 +150,7 @@ export const RoleAssignmentScheduleInstancesRequestBuilderRequestsMetadata: Requ
         queryParametersMapper: RoleAssignmentScheduleInstancesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RoleAssignmentScheduleInstancesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/roleManagement/directory/roleAssignmentScheduleInstances",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

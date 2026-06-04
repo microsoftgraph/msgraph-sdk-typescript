@@ -111,7 +111,7 @@ export interface LifecycleWorkflowsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LifecycleWorkflowsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows{?%24expand,%24select}";
+export const LifecycleWorkflowsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -164,7 +164,7 @@ export const LifecycleWorkflowsRequestBuilderRequestsMetadata: RequestsMetadata 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: LifecycleWorkflowsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

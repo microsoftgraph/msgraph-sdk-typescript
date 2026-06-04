@@ -75,7 +75,7 @@ export interface VppTokenItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VppTokenItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/vppTokens/{vppToken%2Did}{?%24expand,%24select}";
+export const VppTokenItemRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/vppTokens/{vppToken%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const VppTokenItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: VppTokenItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/vppTokens/{vppToken%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

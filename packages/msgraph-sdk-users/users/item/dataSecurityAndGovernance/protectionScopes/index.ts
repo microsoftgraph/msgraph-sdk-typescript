@@ -75,7 +75,7 @@ export interface ProtectionScopesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProtectionScopesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/protectionScopes{?%24expand,%24select}";
+export const ProtectionScopesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/protectionScopes";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const ProtectionScopesRequestBuilderRequestsMetadata: RequestsMetadata = 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ProtectionScopesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/protectionScopes{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

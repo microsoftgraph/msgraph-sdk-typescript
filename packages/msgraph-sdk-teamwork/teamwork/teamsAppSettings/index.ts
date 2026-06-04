@@ -71,7 +71,7 @@ export interface TeamsAppSettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsAppSettingsRequestBuilderUriTemplate = "{+baseurl}/teamwork/teamsAppSettings{?%24expand,%24select}";
+export const TeamsAppSettingsRequestBuilderUriTemplate = "{+baseurl}/teamwork/teamsAppSettings";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const TeamsAppSettingsRequestBuilderRequestsMetadata: RequestsMetadata = 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TeamsAppSettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teamwork/teamsAppSettings{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

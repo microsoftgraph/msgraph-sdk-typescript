@@ -70,7 +70,7 @@ export interface PermissionGrantConditionSetItemRequestBuilderGetQueryParameters
 /**
  * Uri template for the request builder.
  */
-export const PermissionGrantConditionSetItemRequestBuilderUriTemplate = "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}/includes/{permissionGrantConditionSet%2Did}{?%24expand,%24select}";
+export const PermissionGrantConditionSetItemRequestBuilderUriTemplate = "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}/includes/{permissionGrantConditionSet%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -91,7 +91,7 @@ export const PermissionGrantConditionSetItemRequestBuilderRequestsMetadata: Requ
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PermissionGrantConditionSetItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}/includes/{permissionGrantConditionSet%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

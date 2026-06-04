@@ -213,7 +213,7 @@ export interface ManagedDeviceItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ManagedDeviceItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}{?%24expand,%24select}";
+export const ManagedDeviceItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -316,7 +316,7 @@ export const ManagedDeviceItemRequestBuilderRequestsMetadata: RequestsMetadata =
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ManagedDeviceItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

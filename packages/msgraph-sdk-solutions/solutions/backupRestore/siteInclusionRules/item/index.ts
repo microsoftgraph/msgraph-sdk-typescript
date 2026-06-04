@@ -69,7 +69,7 @@ export interface SiteProtectionRuleItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SiteProtectionRuleItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/siteInclusionRules/{siteProtectionRule%2Did}{?%24expand,%24select}";
+export const SiteProtectionRuleItemRequestBuilderUriTemplate = "{+baseurl}/solutions/backupRestore/siteInclusionRules/{siteProtectionRule%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const SiteProtectionRuleItemRequestBuilderRequestsMetadata: RequestsMetad
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SiteProtectionRuleItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/backupRestore/siteInclusionRules/{siteProtectionRule%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

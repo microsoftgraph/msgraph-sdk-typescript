@@ -71,7 +71,7 @@ export interface SecureScoreControlProfileItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SecureScoreControlProfileItemRequestBuilderUriTemplate = "{+baseurl}/security/secureScoreControlProfiles/{secureScoreControlProfile%2Did}{?%24expand,%24select}";
+export const SecureScoreControlProfileItemRequestBuilderUriTemplate = "{+baseurl}/security/secureScoreControlProfiles/{secureScoreControlProfile%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const SecureScoreControlProfileItemRequestBuilderRequestsMetadata: Reques
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SecureScoreControlProfileItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/secureScoreControlProfiles/{secureScoreControlProfile%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -95,7 +95,7 @@ export interface AuthenticationMethodConfigurationsRequestBuilderGetQueryParamet
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationMethodConfigurationsRequestBuilderUriTemplate = "{+baseurl}/policies/authenticationMethodsPolicy/authenticationMethodConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AuthenticationMethodConfigurationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const AuthenticationMethodConfigurationsRequestBuilderNavigationMetadata:
  */
 export const AuthenticationMethodConfigurationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AuthenticationMethodConfigurationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/authenticationMethodsPolicy/authenticationMethodConfigurations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const AuthenticationMethodConfigurationsRequestBuilderRequestsMetadata: R
         queryParametersMapper: AuthenticationMethodConfigurationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AuthenticationMethodConfigurationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/authenticationMethodsPolicy/authenticationMethodConfigurations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

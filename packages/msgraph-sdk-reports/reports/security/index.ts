@@ -87,7 +87,7 @@ export interface SecurityRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SecurityRequestBuilderUriTemplate = "{+baseurl}/reports/security{?%24expand,%24select}";
+export const SecurityRequestBuilderUriTemplate = "{+baseurl}/reports/security";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -122,7 +122,7 @@ export const SecurityRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SecurityRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/security{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

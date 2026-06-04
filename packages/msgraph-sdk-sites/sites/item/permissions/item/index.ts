@@ -78,7 +78,7 @@ export interface PermissionItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PermissionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}{?%24expand,%24select}";
+export const PermissionItemRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -107,7 +107,7 @@ export const PermissionItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PermissionItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/permissions/{permission%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

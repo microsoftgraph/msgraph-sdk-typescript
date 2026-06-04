@@ -97,7 +97,7 @@ export interface ApiConnectorsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ApiConnectorsRequestBuilderUriTemplate = "{+baseurl}/identity/apiConnectors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ApiConnectorsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const ApiConnectorsRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const ApiConnectorsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ApiConnectorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/apiConnectors{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const ApiConnectorsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ApiConnectorsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ApiConnectorsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identity/apiConnectors",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

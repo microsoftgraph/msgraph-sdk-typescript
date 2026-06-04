@@ -81,7 +81,7 @@ export interface SeriesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SeriesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/series{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SeriesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -100,7 +100,7 @@ const SeriesRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const SeriesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SeriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/series{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -110,7 +110,7 @@ export const SeriesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SeriesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SeriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/item(name='{name}')/series",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

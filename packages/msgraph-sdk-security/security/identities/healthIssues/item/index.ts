@@ -71,7 +71,7 @@ export interface HealthIssueItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HealthIssueItemRequestBuilderUriTemplate = "{+baseurl}/security/identities/healthIssues/{healthIssue%2Did}{?%24expand,%24select}";
+export const HealthIssueItemRequestBuilderUriTemplate = "{+baseurl}/security/identities/healthIssues/{healthIssue%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const HealthIssueItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: HealthIssueItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/identities/healthIssues/{healthIssue%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

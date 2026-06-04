@@ -87,7 +87,7 @@ export interface MailboxItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MailboxItemRequestBuilderUriTemplate = "{+baseurl}/admin/exchange/mailboxes/{mailbox%2Did}{?%24expand,%24select}";
+export const MailboxItemRequestBuilderUriTemplate = "{+baseurl}/admin/exchange/mailboxes/{mailbox%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -123,7 +123,7 @@ export const MailboxItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MailboxItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/exchange/mailboxes/{mailbox%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

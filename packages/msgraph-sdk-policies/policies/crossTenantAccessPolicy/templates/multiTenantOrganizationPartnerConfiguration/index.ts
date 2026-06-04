@@ -71,7 +71,7 @@ export interface MultiTenantOrganizationPartnerConfigurationRequestBuilderGetQue
 /**
  * Uri template for the request builder.
  */
-export const MultiTenantOrganizationPartnerConfigurationRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationPartnerConfiguration{?%24expand,%24select}";
+export const MultiTenantOrganizationPartnerConfigurationRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationPartnerConfiguration";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const MultiTenantOrganizationPartnerConfigurationRequestBuilderRequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MultiTenantOrganizationPartnerConfigurationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationPartnerConfiguration{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

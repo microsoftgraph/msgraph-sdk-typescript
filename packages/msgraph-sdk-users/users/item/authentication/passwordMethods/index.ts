@@ -95,7 +95,7 @@ export interface PasswordMethodsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PasswordMethodsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/passwordMethods{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PasswordMethodsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const PasswordMethodsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const PasswordMethodsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PasswordMethodsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/passwordMethods{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const PasswordMethodsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PasswordMethodsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PasswordMethodsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/passwordMethods",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

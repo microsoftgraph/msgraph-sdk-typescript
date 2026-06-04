@@ -60,7 +60,7 @@ export interface DeletedItemsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DeletedItemsRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems{?%24expand,%24select}";
+export const DeletedItemsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -82,7 +82,7 @@ export const DeletedItemsRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const DeletedItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: DeletedItemsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -90,7 +90,7 @@ export const DeletedItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: DeletedItemsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

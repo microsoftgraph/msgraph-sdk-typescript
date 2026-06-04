@@ -103,7 +103,7 @@ export interface ClassesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ClassesRequestBuilderUriTemplate = "{+baseurl}/education/classes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ClassesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -138,7 +138,7 @@ export const ClassesRequestBuilderNavigationMetadata: Record<Exclude<keyof Class
  */
 export const ClassesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ClassesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/classes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -148,7 +148,7 @@ export const ClassesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ClassesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ClassesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/classes",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

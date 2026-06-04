@@ -83,7 +83,7 @@ export interface TermStoreRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TermStoreRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore{?%24expand,%24select}";
+export const TermStoreRequestBuilderUriTemplate = "{+baseurl}/sites/{site%2Did}/termStore";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -117,7 +117,7 @@ export const TermStoreRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TermStoreRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/sites/{site%2Did}/termStore{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

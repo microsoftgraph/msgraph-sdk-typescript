@@ -87,7 +87,7 @@ export interface TeamsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsRequestBuilderUriTemplate = "{+baseurl}/admin/teams{?%24expand,%24select}";
+export const TeamsRequestBuilderUriTemplate = "{+baseurl}/admin/teams";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -125,7 +125,7 @@ export const TeamsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TeamsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

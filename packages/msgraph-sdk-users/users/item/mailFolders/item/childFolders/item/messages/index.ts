@@ -101,7 +101,7 @@ export interface MessagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MessagesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MessagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -136,7 +136,7 @@ export const MessagesRequestBuilderNavigationMetadata: Record<Exclude<keyof Mess
  */
 export const MessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MessagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -146,7 +146,7 @@ export const MessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: MessagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MessagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

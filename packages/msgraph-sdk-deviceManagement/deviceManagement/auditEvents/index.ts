@@ -109,7 +109,7 @@ export interface AuditEventsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuditEventsRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/auditEvents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AuditEventsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -147,7 +147,7 @@ export const AuditEventsRequestBuilderNavigationMetadata: Record<Exclude<keyof A
  */
 export const AuditEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AuditEventsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/auditEvents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -157,7 +157,7 @@ export const AuditEventsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AuditEventsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AuditEventsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/auditEvents",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

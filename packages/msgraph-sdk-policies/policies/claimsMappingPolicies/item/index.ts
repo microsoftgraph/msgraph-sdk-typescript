@@ -78,7 +78,7 @@ export interface ClaimsMappingPolicyItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ClaimsMappingPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/claimsMappingPolicies/{claimsMappingPolicy%2Did}{?%24expand,%24select}";
+export const ClaimsMappingPolicyItemRequestBuilderUriTemplate = "{+baseurl}/policies/claimsMappingPolicies/{claimsMappingPolicy%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -108,7 +108,7 @@ export const ClaimsMappingPolicyItemRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ClaimsMappingPolicyItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/claimsMappingPolicies/{claimsMappingPolicy%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

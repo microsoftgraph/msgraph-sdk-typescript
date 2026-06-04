@@ -96,7 +96,7 @@ export interface RulesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RulesRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicies/{unifiedRoleManagementPolicy%2Did}/rules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RulesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const RulesRequestBuilderNavigationMetadata: Record<Exclude<keyof RulesRe
  */
 export const RulesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RulesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/roleManagementPolicies/{unifiedRoleManagementPolicy%2Did}/rules{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const RulesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RulesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RulesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/roleManagementPolicies/{unifiedRoleManagementPolicy%2Did}/rules",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

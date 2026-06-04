@@ -75,7 +75,7 @@ export interface CloudClipboardRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CloudClipboardRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/cloudClipboard{?%24expand,%24select}";
+export const CloudClipboardRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/cloudClipboard";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const CloudClipboardRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: CloudClipboardRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/cloudClipboard{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

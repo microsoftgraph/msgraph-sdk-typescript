@@ -93,7 +93,7 @@ export interface SchemaRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SchemaRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}/schema{?%24expand,%24select}";
+export const SchemaRequestBuilderUriTemplate = "{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}/schema";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -132,7 +132,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SchemaRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/applications/{application%2Did}/synchronization/templates/{synchronizationTemplate%2Did}/schema{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

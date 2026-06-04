@@ -75,7 +75,7 @@ export interface ChatMessageHostedContentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ChatMessageHostedContentItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}{?%24expand,%24select}";
+export const ChatMessageHostedContentItemRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/primaryChannel/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const ChatMessageHostedContentItemRequestBuilderRequestsMetadata: Request
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ChatMessageHostedContentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/primaryChannel/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/hostedContents/{chatMessageHostedContent%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

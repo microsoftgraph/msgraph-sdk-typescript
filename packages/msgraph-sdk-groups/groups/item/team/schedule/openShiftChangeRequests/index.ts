@@ -95,7 +95,7 @@ export interface OpenShiftChangeRequestsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OpenShiftChangeRequestsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OpenShiftChangeRequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const OpenShiftChangeRequestsRequestBuilderNavigationMetadata: Record<Exc
  */
 export const OpenShiftChangeRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OpenShiftChangeRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const OpenShiftChangeRequestsRequestBuilderRequestsMetadata: RequestsMeta
         queryParametersMapper: OpenShiftChangeRequestsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OpenShiftChangeRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

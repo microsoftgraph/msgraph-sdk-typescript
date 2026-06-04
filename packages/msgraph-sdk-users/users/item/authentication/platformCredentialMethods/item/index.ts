@@ -61,7 +61,7 @@ export interface PlatformCredentialAuthenticationMethodItemRequestBuilderGetQuer
 /**
  * Uri template for the request builder.
  */
-export const PlatformCredentialAuthenticationMethodItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/authentication/platformCredentialMethods/{platformCredentialAuthenticationMethod%2Did}{?%24expand,%24select}";
+export const PlatformCredentialAuthenticationMethodItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -82,7 +82,7 @@ export const PlatformCredentialAuthenticationMethodItemRequestBuilderNavigationM
  */
 export const PlatformCredentialAuthenticationMethodItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: PlatformCredentialAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/platformCredentialMethods/{platformCredentialAuthenticationMethod%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -90,7 +90,7 @@ export const PlatformCredentialAuthenticationMethodItemRequestBuilderRequestsMet
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: PlatformCredentialAuthenticationMethodItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/authentication/platformCredentialMethods/{platformCredentialAuthenticationMethod%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

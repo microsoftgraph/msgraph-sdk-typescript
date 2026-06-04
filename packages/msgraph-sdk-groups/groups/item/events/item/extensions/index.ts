@@ -96,7 +96,7 @@ export interface ExtensionsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExtensionsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/events/{event%2Did}/extensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ExtensionsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const ExtensionsRequestBuilderNavigationMetadata: Record<Exclude<keyof Ex
  */
 export const ExtensionsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ExtensionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/events/{event%2Did}/extensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const ExtensionsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ExtensionsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ExtensionsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/events/{event%2Did}/extensions",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

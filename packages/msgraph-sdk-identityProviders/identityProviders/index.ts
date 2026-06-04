@@ -110,7 +110,7 @@ export interface IdentityProvidersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityProvidersRequestBuilderUriTemplate = "{+baseurl}/identityProviders{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const IdentityProvidersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -144,7 +144,7 @@ export const IdentityProvidersRequestBuilderNavigationMetadata: Record<Exclude<k
  */
 export const IdentityProvidersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: IdentityProvidersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProviders{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -154,7 +154,7 @@ export const IdentityProvidersRequestBuilderRequestsMetadata: RequestsMetadata =
         queryParametersMapper: IdentityProvidersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: IdentityProvidersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityProviders",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

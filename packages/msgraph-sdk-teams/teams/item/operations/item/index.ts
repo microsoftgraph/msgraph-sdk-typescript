@@ -69,7 +69,7 @@ export interface TeamsAsyncOperationItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TeamsAsyncOperationItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/operations/{teamsAsyncOperation%2Did}{?%24expand,%24select}";
+export const TeamsAsyncOperationItemRequestBuilderUriTemplate = "{+baseurl}/teams/{team%2Did}/operations/{teamsAsyncOperation%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const TeamsAsyncOperationItemRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TeamsAsyncOperationItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/teams/{team%2Did}/operations/{teamsAsyncOperation%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

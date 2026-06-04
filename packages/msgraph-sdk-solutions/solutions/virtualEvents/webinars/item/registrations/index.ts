@@ -97,7 +97,7 @@ export interface RegistrationsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RegistrationsRequestBuilderUriTemplate = "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const RegistrationsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const RegistrationsRequestBuilderNavigationMetadata: Record<Exclude<keyof
  */
 export const RegistrationsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: RegistrationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const RegistrationsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: RegistrationsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: RegistrationsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/virtualEvents/webinars/{virtualEventWebinar%2Did}/registrations",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -63,7 +63,7 @@ export interface AuthenticationMethodsPolicyRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuthenticationMethodsPolicyRequestBuilderUriTemplate = "{+baseurl}/authenticationMethodsPolicy{?%24expand,%24select}";
+export const AuthenticationMethodsPolicyRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -85,7 +85,7 @@ export const AuthenticationMethodsPolicyRequestBuilderNavigationMetadata: Record
  */
 export const AuthenticationMethodsPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AuthenticationMethodsPolicyRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/authenticationMethodsPolicy{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -95,7 +95,7 @@ export const AuthenticationMethodsPolicyRequestBuilderRequestsMetadata: Requests
         queryParametersMapper: AuthenticationMethodsPolicyRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: AuthenticationMethodsPolicyRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/authenticationMethodsPolicy",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

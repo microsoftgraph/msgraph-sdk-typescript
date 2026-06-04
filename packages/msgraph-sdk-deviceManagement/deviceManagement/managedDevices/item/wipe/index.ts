@@ -24,10 +24,10 @@ export function createWipePostRequestBodyFromDiscriminatorValue(parseNode: Parse
 export function deserializeIntoWipePostRequestBody(wipePostRequestBody: Partial<WipePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { wipePostRequestBody.backingStoreEnabled = true; },
-        "keepEnrollmentData": n => { wipePostRequestBody.keepEnrollmentData = n.getBooleanValue(); },
-        "keepUserData": n => { wipePostRequestBody.keepUserData = n.getBooleanValue(); },
+        "keepEnrollmentData": n => { wipePostRequestBody.keepEnrollmentData = n.getBooleanValue() ?? false; },
+        "keepUserData": n => { wipePostRequestBody.keepUserData = n.getBooleanValue() ?? false; },
         "macOsUnlockCode": n => { wipePostRequestBody.macOsUnlockCode = n.getStringValue(); },
-        "persistEsimDataPlan": n => { wipePostRequestBody.persistEsimDataPlan = n.getBooleanValue(); },
+        "persistEsimDataPlan": n => { wipePostRequestBody.persistEsimDataPlan = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -39,10 +39,10 @@ export function deserializeIntoWipePostRequestBody(wipePostRequestBody: Partial<
 // @ts-ignore
 export function serializeWipePostRequestBody(writer: SerializationWriter, wipePostRequestBody: Partial<WipePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!wipePostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("keepEnrollmentData", wipePostRequestBody.keepEnrollmentData);
-    writer.writeBooleanValue("keepUserData", wipePostRequestBody.keepUserData);
+    writer.writeBooleanValue("keepEnrollmentData", wipePostRequestBody.keepEnrollmentData ?? false);
+    writer.writeBooleanValue("keepUserData", wipePostRequestBody.keepUserData ?? false);
     writer.writeStringValue("macOsUnlockCode", wipePostRequestBody.macOsUnlockCode);
-    writer.writeBooleanValue("persistEsimDataPlan", wipePostRequestBody.persistEsimDataPlan);
+    writer.writeBooleanValue("persistEsimDataPlan", wipePostRequestBody.persistEsimDataPlan ?? false);
     writer.writeAdditionalData(wipePostRequestBody.additionalData);
 }
 export interface WipePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

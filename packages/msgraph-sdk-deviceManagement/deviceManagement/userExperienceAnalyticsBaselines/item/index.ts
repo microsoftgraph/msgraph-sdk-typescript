@@ -111,7 +111,7 @@ export interface UserExperienceAnalyticsBaselineItemRequestBuilderGetQueryParame
 /**
  * Uri template for the request builder.
  */
-export const UserExperienceAnalyticsBaselineItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}{?%24expand,%24select}";
+export const UserExperienceAnalyticsBaselineItemRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -158,7 +158,7 @@ export const UserExperienceAnalyticsBaselineItemRequestBuilderRequestsMetadata: 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UserExperienceAnalyticsBaselineItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/userExperienceAnalyticsBaselines/{userExperienceAnalyticsBaseline%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

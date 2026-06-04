@@ -109,7 +109,7 @@ export interface TablesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TablesRequestBuilderUriTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TablesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -149,7 +149,7 @@ export const TablesRequestBuilderNavigationMetadata: Record<Exclude<keyof Tables
  */
 export const TablesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TablesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -159,7 +159,7 @@ export const TablesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TablesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TablesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

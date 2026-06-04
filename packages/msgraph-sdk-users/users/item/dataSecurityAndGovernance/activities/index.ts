@@ -75,7 +75,7 @@ export interface ActivitiesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ActivitiesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/activities{?%24expand,%24select}";
+export const ActivitiesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/activities";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const ActivitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ActivitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/activities{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

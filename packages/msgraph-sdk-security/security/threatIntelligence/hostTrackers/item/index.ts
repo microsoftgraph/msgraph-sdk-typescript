@@ -76,7 +76,7 @@ export interface HostTrackerItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostTrackerItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostTrackers/{hostTracker%2Did}{?%24expand,%24select}";
+export const HostTrackerItemRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostTrackers/{hostTracker%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const HostTrackerItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: HostTrackerItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostTrackers/{hostTracker%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

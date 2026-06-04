@@ -95,7 +95,7 @@ export interface VppTokensRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const VppTokensRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/vppTokens{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const VppTokensRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const VppTokensRequestBuilderNavigationMetadata: Record<Exclude<keyof Vpp
  */
 export const VppTokensRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: VppTokensRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/vppTokens{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const VppTokensRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: VppTokensRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: VppTokensRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/vppTokens",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

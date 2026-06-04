@@ -95,7 +95,7 @@ export interface ManagedAppStatusesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ManagedAppStatusesRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/managedAppStatuses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ManagedAppStatusesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ManagedAppStatusesRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const ManagedAppStatusesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ManagedAppStatusesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppStatuses{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ManagedAppStatusesRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: ManagedAppStatusesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ManagedAppStatusesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/managedAppStatuses",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

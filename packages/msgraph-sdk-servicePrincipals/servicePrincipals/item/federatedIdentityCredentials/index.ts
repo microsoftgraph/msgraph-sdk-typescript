@@ -95,7 +95,7 @@ export interface FederatedIdentityCredentialsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const FederatedIdentityCredentialsRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const FederatedIdentityCredentialsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const FederatedIdentityCredentialsRequestBuilderNavigationMetadata: Recor
  */
 export const FederatedIdentityCredentialsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: FederatedIdentityCredentialsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const FederatedIdentityCredentialsRequestBuilderRequestsMetadata: Request
         queryParametersMapper: FederatedIdentityCredentialsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: FederatedIdentityCredentialsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/federatedIdentityCredentials",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

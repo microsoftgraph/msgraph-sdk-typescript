@@ -87,7 +87,7 @@ export interface InsightsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const InsightsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights{?%24expand,%24select}";
+export const InsightsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/insights";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -125,7 +125,7 @@ export const InsightsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: InsightsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/insights{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

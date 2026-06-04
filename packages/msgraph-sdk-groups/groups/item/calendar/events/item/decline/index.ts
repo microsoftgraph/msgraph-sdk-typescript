@@ -66,7 +66,7 @@ export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: Pa
         "backingStoreEnabled": n => { declinePostRequestBody.backingStoreEnabled = true; },
         "Comment": n => { declinePostRequestBody.comment = n.getStringValue(); },
         "ProposedNewTime": n => { declinePostRequestBody.proposedNewTime = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
-        "SendResponse": n => { declinePostRequestBody.sendResponse = n.getBooleanValue(); },
+        "SendResponse": n => { declinePostRequestBody.sendResponse = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -80,7 +80,7 @@ export function serializeDeclinePostRequestBody(writer: SerializationWriter, dec
     if (!declinePostRequestBody || isSerializingDerivedType) { return; }
     writer.writeStringValue("Comment", declinePostRequestBody.comment);
     writer.writeObjectValue<TimeSlot>("ProposedNewTime", declinePostRequestBody.proposedNewTime, serializeTimeSlot);
-    writer.writeBooleanValue("SendResponse", declinePostRequestBody.sendResponse);
+    writer.writeBooleanValue("SendResponse", declinePostRequestBody.sendResponse ?? false);
     writer.writeAdditionalData(declinePostRequestBody.additionalData);
 }
 /**

@@ -97,7 +97,7 @@ export interface AccessAssignmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AccessAssignmentsRequestBuilderUriTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/accessAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const AccessAssignmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const AccessAssignmentsRequestBuilderNavigationMetadata: Record<Exclude<k
  */
 export const AccessAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AccessAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/accessAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const AccessAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata =
         queryParametersMapper: AccessAssignmentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: AccessAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/accessAssignments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

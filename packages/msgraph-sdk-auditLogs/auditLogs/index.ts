@@ -75,7 +75,7 @@ export interface AuditLogsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AuditLogsRequestBuilderUriTemplate = "{+baseurl}/auditLogs{?%24expand,%24select}";
+export const AuditLogsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const AuditLogsRequestBuilderNavigationMetadata: Record<Exclude<keyof Aud
  */
 export const AuditLogsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: AuditLogsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/auditLogs{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -115,7 +115,7 @@ export const AuditLogsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: AuditLogsRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: AuditLogsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/auditLogs",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

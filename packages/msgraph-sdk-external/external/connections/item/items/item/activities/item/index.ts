@@ -75,7 +75,7 @@ export interface ExternalActivityItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExternalActivityItemRequestBuilderUriTemplate = "{+baseurl}/external/connections/{externalConnection%2Did}/items/{externalItem%2Did}/activities/{externalActivity%2Did}{?%24expand,%24select}";
+export const ExternalActivityItemRequestBuilderUriTemplate = "{+baseurl}/external/connections/{externalConnection%2Did}/items/{externalItem%2Did}/activities/{externalActivity%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const ExternalActivityItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ExternalActivityItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/external/connections/{externalConnection%2Did}/items/{externalItem%2Did}/activities/{externalActivity%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

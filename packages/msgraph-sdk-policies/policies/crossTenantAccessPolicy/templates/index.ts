@@ -81,7 +81,7 @@ export interface TemplatesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TemplatesRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/templates{?%24expand,%24select}";
+export const TemplatesRequestBuilderUriTemplate = "{+baseurl}/policies/crossTenantAccessPolicy/templates";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -113,7 +113,7 @@ export const TemplatesRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: TemplatesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/crossTenantAccessPolicy/templates{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

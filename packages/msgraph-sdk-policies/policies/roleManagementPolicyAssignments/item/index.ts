@@ -76,7 +76,7 @@ export interface UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetQuery
 /**
  * Uri template for the request builder.
  */
-export const UnifiedRoleManagementPolicyAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicyAssignments/{unifiedRoleManagementPolicyAssignment%2Did}{?%24expand,%24select}";
+export const UnifiedRoleManagementPolicyAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/policies/roleManagementPolicyAssignments/{unifiedRoleManagementPolicyAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -105,7 +105,7 @@ export const UnifiedRoleManagementPolicyAssignmentItemRequestBuilderRequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UnifiedRoleManagementPolicyAssignmentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/roleManagementPolicyAssignments/{unifiedRoleManagementPolicyAssignment%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

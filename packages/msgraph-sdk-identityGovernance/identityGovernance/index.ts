@@ -93,7 +93,7 @@ export interface IdentityGovernanceRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const IdentityGovernanceRequestBuilderUriTemplate = "{+baseurl}/identityGovernance{?%24expand,%24select}";
+export const IdentityGovernanceRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -135,7 +135,7 @@ export const IdentityGovernanceRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const IdentityGovernanceRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: IdentityGovernanceRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -145,7 +145,7 @@ export const IdentityGovernanceRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: IdentityGovernanceRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: IdentityGovernanceRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

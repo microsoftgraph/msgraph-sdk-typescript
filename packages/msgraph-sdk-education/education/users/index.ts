@@ -103,7 +103,7 @@ export interface UsersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UsersRequestBuilderUriTemplate = "{+baseurl}/education/users{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UsersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -138,7 +138,7 @@ export const UsersRequestBuilderNavigationMetadata: Record<Exclude<keyof UsersRe
  */
 export const UsersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: UsersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/users{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -148,7 +148,7 @@ export const UsersRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: UsersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: UsersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/education/users",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

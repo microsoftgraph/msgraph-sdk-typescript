@@ -114,7 +114,7 @@ export interface SignInsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SignInsRequestBuilderUriTemplate = "{+baseurl}/auditLogs/signIns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SignInsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -154,7 +154,7 @@ export const SignInsRequestBuilderNavigationMetadata: Record<Exclude<keyof SignI
  */
 export const SignInsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SignInsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/auditLogs/signIns{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -164,7 +164,7 @@ export const SignInsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SignInsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SignInsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/auditLogs/signIns",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

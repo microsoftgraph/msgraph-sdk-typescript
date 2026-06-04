@@ -96,7 +96,7 @@ export interface LoginPagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LoginPagesRequestBuilderUriTemplate = "{+baseurl}/security/attackSimulation/loginPages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const LoginPagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const LoginPagesRequestBuilderNavigationMetadata: Record<Exclude<keyof Lo
  */
 export const LoginPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: LoginPagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/loginPages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const LoginPagesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: LoginPagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: LoginPagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/attackSimulation/loginPages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

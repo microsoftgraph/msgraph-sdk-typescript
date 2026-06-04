@@ -735,6 +735,7 @@ export interface ContainerRegistryEvidence extends AlertEvidence, Parsable {
     registry?: string | null;
 }
 export type ContentFormat = (typeof ContentFormatObject)[keyof typeof ContentFormatObject];
+export type CorrelationReason = (typeof CorrelationReasonObject)[keyof typeof CorrelationReasonObject];
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
@@ -2410,6 +2411,15 @@ export function createMailClusterEvidenceFromDiscriminatorValue(parseNode: Parse
 // @ts-ignore
 export function createMalwareEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMalwareEvidence;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MergeResponse}
+ */
+// @ts-ignore
+export function createMergeResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMergeResponse;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -5589,6 +5599,19 @@ export function deserializeIntoMalwareEvidence(malwareEvidence: Partial<MalwareE
 }
 /**
  * The deserialization information for the current model
+ * @param MergeResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMergeResponse(mergeResponse: Partial<MergeResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { mergeResponse.backingStoreEnabled = true; },
+        "@odata.type": n => { mergeResponse.odataType = n.getStringValue(); },
+        "targetIncidentId": n => { mergeResponse.targetIncidentId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param NetworkAdapter The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -6498,6 +6521,7 @@ export function deserializeIntoUserAccount(userAccount: Partial<UserAccount> | u
         "domainName": n => { userAccount.domainName = n.getStringValue(); },
         "@odata.type": n => { userAccount.odataType = n.getStringValue(); },
         "resourceAccessEvents": n => { userAccount.resourceAccessEvents = n.getCollectionOfObjectValues<ResourceAccessEvent>(createResourceAccessEventFromDiscriminatorValue); },
+        "tenantId": n => { userAccount.tenantId = n.getStringValue(); },
         "userPrincipalName": n => { userAccount.userPrincipalName = n.getStringValue(); },
         "userSid": n => { userAccount.userSid = n.getStringValue(); },
     }
@@ -8949,6 +8973,20 @@ export interface MalwareEvidence extends AlertEvidence, Parsable {
      * A list of the linked process entities on which the malware was found. Use this property, for example, when the alert was triggered on fileless activity. For more information, see processEvidence.
      */
     processes?: ProcessEvidence[] | null;
+}
+export interface MergeResponse extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The targetIncidentId property
+     */
+    targetIncidentId?: string | null;
 }
 export interface NetworkAdapter extends Entity, Parsable {
     /**
@@ -12299,6 +12337,19 @@ export function serializeMalwareEvidence(writer: SerializationWriter, malwareEvi
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MergeResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMergeResponse(writer: SerializationWriter, mergeResponse: Partial<MergeResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!mergeResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", mergeResponse.odataType);
+    writer.writeStringValue("targetIncidentId", mergeResponse.targetIncidentId);
+    writer.writeAdditionalData(mergeResponse.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param NetworkAdapter The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -13228,6 +13279,7 @@ export function serializeUserAccount(writer: SerializationWriter, userAccount: P
     writer.writeStringValue("domainName", userAccount.domainName);
     writer.writeStringValue("@odata.type", userAccount.odataType);
     writer.writeCollectionOfObjectValues<ResourceAccessEvent>("resourceAccessEvents", userAccount.resourceAccessEvents, serializeResourceAccessEvent);
+    writer.writeStringValue("tenantId", userAccount.tenantId);
     writer.writeStringValue("userPrincipalName", userAccount.userPrincipalName);
     writer.writeStringValue("userSid", userAccount.userSid);
     writer.writeAdditionalData(userAccount.additionalData);
@@ -14007,6 +14059,10 @@ export interface UserAccount extends AdditionalDataHolder, BackedModel, Parsable
      */
     resourceAccessEvents?: ResourceAccessEvent[] | null;
     /**
+     * The tenantId property
+     */
+    tenantId?: string | null;
+    /**
      * The user principal name of the account in Microsoft Entra ID.
      */
     userPrincipalName?: string | null;
@@ -14475,6 +14531,26 @@ export const ContentFormatObject = {
     Text: "text",
     Html: "html",
     Markdown: "markdown",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const CorrelationReasonObject = {
+    RepeatedAlertOccurrence: "repeatedAlertOccurrence",
+    SameGeography: "sameGeography",
+    SimilarArtifacts: "similarArtifacts",
+    SameTargetedAsset: "sameTargetedAsset",
+    SameNetworkSegment: "sameNetworkSegment",
+    EventSequence: "eventSequence",
+    TimeFrame: "timeFrame",
+    SameThreatSource: "sameThreatSource",
+    SimilarTTPsOrBehavior: "similarTTPsOrBehavior",
+    SameActor: "sameActor",
+    SameCampaign: "sameCampaign",
+    SharedIndicators: "sharedIndicators",
+    SameAsset: "sameAsset",
+    NetworkProximity: "networkProximity",
+    EventCasualSequence: "eventCasualSequence",
+    TemporalProximity: "temporalProximity",
+    LateralMovementPath: "lateralMovementPath",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const DataSourceContainerStatusObject = {

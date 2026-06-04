@@ -81,7 +81,7 @@ export interface UsageRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UsageRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/usage{?%24expand,%24select}";
+export const UsageRequestBuilderUriTemplate = "{+baseurl}/reports/partners/billing/usage";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -115,7 +115,7 @@ export const UsageRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: UsageRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/reports/partners/billing/usage{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

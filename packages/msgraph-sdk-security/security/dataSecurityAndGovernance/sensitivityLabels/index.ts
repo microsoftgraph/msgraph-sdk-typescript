@@ -112,7 +112,7 @@ export interface SensitivityLabelsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SensitivityLabelsRequestBuilderUriTemplate = "{+baseurl}/security/dataSecurityAndGovernance/sensitivityLabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SensitivityLabelsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -151,7 +151,7 @@ export const SensitivityLabelsRequestBuilderNavigationMetadata: Record<Exclude<k
  */
 export const SensitivityLabelsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SensitivityLabelsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/dataSecurityAndGovernance/sensitivityLabels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -161,7 +161,7 @@ export const SensitivityLabelsRequestBuilderRequestsMetadata: RequestsMetadata =
         queryParametersMapper: SensitivityLabelsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SensitivityLabelsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/dataSecurityAndGovernance/sensitivityLabels",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

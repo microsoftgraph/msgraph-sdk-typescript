@@ -95,7 +95,7 @@ export interface LocalizedNotificationMessagesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const LocalizedNotificationMessagesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const LocalizedNotificationMessagesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const LocalizedNotificationMessagesRequestBuilderNavigationMetadata: Reco
  */
 export const LocalizedNotificationMessagesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: LocalizedNotificationMessagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const LocalizedNotificationMessagesRequestBuilderRequestsMetadata: Reques
         queryParametersMapper: LocalizedNotificationMessagesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: LocalizedNotificationMessagesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

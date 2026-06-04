@@ -78,7 +78,7 @@ export interface ExternalGroupItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ExternalGroupItemRequestBuilderUriTemplate = "{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}{?%24expand,%24select}";
+export const ExternalGroupItemRequestBuilderUriTemplate = "{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -108,7 +108,7 @@ export const ExternalGroupItemRequestBuilderRequestsMetadata: RequestsMetadata =
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ExternalGroupItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/external/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -69,7 +69,7 @@ export interface ProgressTaskBoardFormatRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ProgressTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/progressTaskBoardFormat{?%24expand,%24select}";
+export const ProgressTaskBoardFormatRequestBuilderUriTemplate = "{+baseurl}/planner/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/progressTaskBoardFormat";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const ProgressTaskBoardFormatRequestBuilderRequestsMetadata: RequestsMeta
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: ProgressTaskBoardFormatRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/planner/buckets/{plannerBucket%2Did}/tasks/{plannerTask%2Did}/progressTaskBoardFormat{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

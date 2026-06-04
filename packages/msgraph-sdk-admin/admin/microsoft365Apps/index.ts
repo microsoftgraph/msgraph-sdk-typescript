@@ -75,7 +75,7 @@ export interface Microsoft365AppsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const Microsoft365AppsRequestBuilderUriTemplate = "{+baseurl}/admin/microsoft365Apps{?%24expand,%24select}";
+export const Microsoft365AppsRequestBuilderUriTemplate = "{+baseurl}/admin/microsoft365Apps";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -104,7 +104,7 @@ export const Microsoft365AppsRequestBuilderRequestsMetadata: RequestsMetadata = 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: Microsoft365AppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/microsoft365Apps{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

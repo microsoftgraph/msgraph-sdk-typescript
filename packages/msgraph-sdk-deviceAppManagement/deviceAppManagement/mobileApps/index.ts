@@ -191,7 +191,7 @@ export interface MobileAppsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MobileAppsRequestBuilderUriTemplate = "{+baseurl}/deviceAppManagement/mobileApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const MobileAppsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -287,7 +287,7 @@ export const MobileAppsRequestBuilderNavigationMetadata: Record<Exclude<keyof Mo
  */
 export const MobileAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: MobileAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mobileApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -297,7 +297,7 @@ export const MobileAppsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: MobileAppsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: MobileAppsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceAppManagement/mobileApps",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

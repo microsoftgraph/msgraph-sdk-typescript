@@ -96,7 +96,7 @@ export interface ResourceRoleScopesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ResourceRoleScopesRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/resourceRoleScopes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ResourceRoleScopesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const ResourceRoleScopesRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const ResourceRoleScopesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ResourceRoleScopesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/resourceRoleScopes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const ResourceRoleScopesRequestBuilderRequestsMetadata: RequestsMetadata 
         queryParametersMapper: ResourceRoleScopesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ResourceRoleScopesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/resourceRoleScopes",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

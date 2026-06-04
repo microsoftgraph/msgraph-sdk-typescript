@@ -57,7 +57,7 @@ export interface SchemaRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SchemaRequestBuilderUriTemplate = "{+baseurl}/connections/{externalConnection%2Did}/schema{?%24expand,%24select}";
+export const SchemaRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -70,7 +70,7 @@ const SchemaRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SchemaRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/connections/{externalConnection%2Did}/schema{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -80,7 +80,7 @@ export const SchemaRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SchemaRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: SchemaRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/connections/{externalConnection%2Did}/schema",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

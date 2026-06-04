@@ -69,7 +69,7 @@ export interface NumberAssignmentItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const NumberAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/admin/teams/telephoneNumberManagement/numberAssignments/{numberAssignment%2Did}{?%24expand,%24select}";
+export const NumberAssignmentItemRequestBuilderUriTemplate = "{+baseurl}/admin/teams/telephoneNumberManagement/numberAssignments/{numberAssignment%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -90,7 +90,7 @@ export const NumberAssignmentItemRequestBuilderRequestsMetadata: RequestsMetadat
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: NumberAssignmentItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams/telephoneNumberManagement/numberAssignments/{numberAssignment%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -107,7 +107,7 @@ export interface AccessPackageAssignmentRequestItemRequestBuilderGetQueryParamet
 /**
  * Uri template for the request builder.
  */
-export const AccessPackageAssignmentRequestItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentRequests/{accessPackageAssignmentRequest%2Did}{?%24expand,%24select}";
+export const AccessPackageAssignmentRequestItemRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentRequests/{accessPackageAssignmentRequest%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -151,7 +151,7 @@ export const AccessPackageAssignmentRequestItemRequestBuilderRequestsMetadata: R
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AccessPackageAssignmentRequestItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement/assignmentRequests/{accessPackageAssignmentRequest%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

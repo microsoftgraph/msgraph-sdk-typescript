@@ -95,7 +95,7 @@ export interface SegmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SegmentsRequestBuilderUriTemplate = "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions/{session%2Did}/segments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const SegmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const SegmentsRequestBuilderNavigationMetadata: Record<Exclude<keyof Segm
  */
 export const SegmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: SegmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions/{session%2Did}/segments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const SegmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: SegmentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: SegmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions/{session%2Did}/segments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

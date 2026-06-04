@@ -71,7 +71,7 @@ export interface SettingsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const SettingsRequestBuilderUriTemplate = "{+baseurl}/admin/sharepoint/settings{?%24expand,%24select}";
+export const SettingsRequestBuilderUriTemplate = "{+baseurl}/admin/sharepoint/settings";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const SettingsRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: SettingsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/sharepoint/settings{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

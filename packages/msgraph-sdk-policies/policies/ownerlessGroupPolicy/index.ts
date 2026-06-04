@@ -59,7 +59,7 @@ export interface OwnerlessGroupPolicyRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OwnerlessGroupPolicyRequestBuilderUriTemplate = "{+baseurl}/policies/ownerlessGroupPolicy{?%24expand,%24select}";
+export const OwnerlessGroupPolicyRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -72,7 +72,7 @@ const OwnerlessGroupPolicyRequestBuilderGetQueryParametersMapper: Record<string,
  */
 export const OwnerlessGroupPolicyRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OwnerlessGroupPolicyRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/ownerlessGroupPolicy{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -82,7 +82,7 @@ export const OwnerlessGroupPolicyRequestBuilderRequestsMetadata: RequestsMetadat
         queryParametersMapper: OwnerlessGroupPolicyRequestBuilderGetQueryParametersMapper,
     },
     patch: {
-        uriTemplate: OwnerlessGroupPolicyRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/policies/ownerlessGroupPolicy",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

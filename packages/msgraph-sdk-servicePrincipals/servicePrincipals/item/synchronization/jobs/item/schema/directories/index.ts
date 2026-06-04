@@ -95,7 +95,7 @@ export interface DirectoriesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const DirectoriesRequestBuilderUriTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema/directories{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const DirectoriesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const DirectoriesRequestBuilderNavigationMetadata: Record<Exclude<keyof D
  */
 export const DirectoriesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: DirectoriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema/directories{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const DirectoriesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: DirectoriesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: DirectoriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/jobs/{synchronizationJob%2Did}/schema/directories",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -60,7 +60,7 @@ export interface AttachmentBaseItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AttachmentBaseItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}{?%24expand,%24select}";
+export const AttachmentBaseItemRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -81,7 +81,7 @@ export const AttachmentBaseItemRequestBuilderNavigationMetadata: Record<Exclude<
  */
 export const AttachmentBaseItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: AttachmentBaseItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -89,7 +89,7 @@ export const AttachmentBaseItemRequestBuilderRequestsMetadata: RequestsMetadata 
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AttachmentBaseItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

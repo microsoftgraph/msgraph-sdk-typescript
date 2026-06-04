@@ -95,7 +95,7 @@ export interface OverridesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const OverridesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/inferenceClassification/overrides{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const OverridesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const OverridesRequestBuilderNavigationMetadata: Record<Exclude<keyof Ove
  */
 export const OverridesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: OverridesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/inferenceClassification/overrides{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const OverridesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: OverridesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: OverridesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/inferenceClassification/overrides",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

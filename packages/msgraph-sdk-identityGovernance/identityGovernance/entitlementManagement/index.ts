@@ -30,6 +30,10 @@ import { ResourcesRequestBuilderNavigationMetadata, ResourcesRequestBuilderReque
 // @ts-ignore
 import { SettingsRequestBuilderRequestsMetadata, type SettingsRequestBuilder } from './settings/index.js';
 // @ts-ignore
+import { SubjectsRequestBuilderNavigationMetadata, SubjectsRequestBuilderRequestsMetadata, type SubjectsRequestBuilder } from './subjects/index.js';
+// @ts-ignore
+import { SubjectsWithObjectIdRequestBuilderRequestsMetadata, type SubjectsWithObjectIdRequestBuilder } from './subjectsWithObjectId/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -85,6 +89,10 @@ export interface EntitlementManagementRequestBuilder extends BaseRequestBuilder<
      */
     get settings(): SettingsRequestBuilder;
     /**
+     * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
+     */
+    get subjects(): SubjectsRequestBuilder;
+    /**
      * Delete navigation property entitlementManagement for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -105,6 +113,12 @@ export interface EntitlementManagementRequestBuilder extends BaseRequestBuilder<
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: EntitlementManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EntitlementManagement | undefined>;
+    /**
+     * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
+     * @param objectId Alternate key of accessPackageSubject
+     * @returns {SubjectsWithObjectIdRequestBuilder}
+     */
+     subjectsWithObjectId(objectId: string | undefined) : SubjectsWithObjectIdRequestBuilder;
     /**
      * Delete navigation property entitlementManagement for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -141,7 +155,7 @@ export interface EntitlementManagementRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const EntitlementManagementRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement{?%24expand,%24select}";
+export const EntitlementManagementRequestBuilderUriTemplate = "{+baseurl}/identityGovernance/entitlementManagement";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -153,6 +167,10 @@ const EntitlementManagementRequestBuilderGetQueryParametersMapper: Record<string
  * Metadata for all the navigation properties in the request builder.
  */
 export const EntitlementManagementRequestBuilderNavigationMetadata: Record<Exclude<keyof EntitlementManagementRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    subjectsWithObjectId: {
+        requestsMetadata: SubjectsWithObjectIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["objectId"],
+    },
     accessPackageAssignmentApprovals: {
         requestsMetadata: AccessPackageAssignmentApprovalsRequestBuilderRequestsMetadata,
         navigationMetadata: AccessPackageAssignmentApprovalsRequestBuilderNavigationMetadata,
@@ -200,6 +218,10 @@ export const EntitlementManagementRequestBuilderNavigationMetadata: Record<Exclu
     settings: {
         requestsMetadata: SettingsRequestBuilderRequestsMetadata,
     },
+    subjects: {
+        requestsMetadata: SubjectsRequestBuilderRequestsMetadata,
+        navigationMetadata: SubjectsRequestBuilderNavigationMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.
@@ -214,7 +236,7 @@ export const EntitlementManagementRequestBuilderRequestsMetadata: RequestsMetada
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: EntitlementManagementRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/identityGovernance/entitlementManagement{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

@@ -107,7 +107,7 @@ export interface UserAssignmentsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const UserAssignmentsRequestBuilderUriTemplate = "{+baseurl}/admin/teams/policy/userAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const UserAssignmentsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -144,7 +144,7 @@ export const UserAssignmentsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const UserAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: UserAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams/policy/userAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -154,7 +154,7 @@ export const UserAssignmentsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: UserAssignmentsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: UserAssignmentsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/admin/teams/policy/userAssignments",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

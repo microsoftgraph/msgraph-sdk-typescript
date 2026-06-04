@@ -71,7 +71,7 @@ export interface AutoAuditingConfigurationRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const AutoAuditingConfigurationRequestBuilderUriTemplate = "{+baseurl}/security/identities/settings/autoAuditingConfiguration{?%24expand,%24select}";
+export const AutoAuditingConfigurationRequestBuilderUriTemplate = "{+baseurl}/security/identities/settings/autoAuditingConfiguration";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -92,7 +92,7 @@ export const AutoAuditingConfigurationRequestBuilderRequestsMetadata: RequestsMe
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: AutoAuditingConfigurationRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/identities/settings/autoAuditingConfiguration{?%24expand,%24select}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

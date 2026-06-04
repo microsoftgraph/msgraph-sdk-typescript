@@ -96,7 +96,7 @@ export interface PlansRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const PlansRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/planner/plans{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const PlansRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const PlansRequestBuilderNavigationMetadata: Record<Exclude<keyof PlansRe
  */
 export const PlansRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PlansRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/planner/plans{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const PlansRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: PlansRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: PlansRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/planner/plans",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

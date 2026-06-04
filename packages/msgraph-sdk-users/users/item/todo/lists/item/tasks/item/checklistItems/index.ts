@@ -95,7 +95,7 @@ export interface ChecklistItemsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ChecklistItemsRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/checklistItems{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ChecklistItemsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ChecklistItemsRequestBuilderNavigationMetadata: Record<Exclude<keyo
  */
 export const ChecklistItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ChecklistItemsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/checklistItems{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ChecklistItemsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: ChecklistItemsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ChecklistItemsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/checklistItems",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

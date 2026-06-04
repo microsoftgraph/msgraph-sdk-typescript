@@ -95,7 +95,7 @@ export interface HostCookiesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const HostCookiesRequestBuilderUriTemplate = "{+baseurl}/security/threatIntelligence/hostCookies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const HostCookiesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -127,7 +127,7 @@ export const HostCookiesRequestBuilderNavigationMetadata: Record<Exclude<keyof H
  */
 export const HostCookiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: HostCookiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostCookies{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -137,7 +137,7 @@ export const HostCookiesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: HostCookiesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: HostCookiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/threatIntelligence/hostCookies",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

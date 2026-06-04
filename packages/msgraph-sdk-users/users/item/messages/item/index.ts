@@ -151,7 +151,7 @@ export interface MessageItemRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const MessageItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?%24expand,%24select,includeHiddenMessages*}";
+export const MessageItemRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/messages/{message%2Did}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -218,7 +218,7 @@ export const MessageItemRequestBuilderRequestsMetadata: RequestsMetadata = {
         adapterMethodName: "sendNoResponseContent",
     },
     get: {
-        uriTemplate: MessageItemRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?%24expand,%24select,includeHiddenMessages*}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

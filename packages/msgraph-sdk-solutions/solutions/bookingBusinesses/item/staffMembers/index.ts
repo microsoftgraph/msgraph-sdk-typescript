@@ -97,7 +97,7 @@ export interface StaffMembersRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const StaffMembersRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/staffMembers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const StaffMembersRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -128,7 +128,7 @@ export const StaffMembersRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const StaffMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: StaffMembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/staffMembers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -138,7 +138,7 @@ export const StaffMembersRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: StaffMembersRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: StaffMembersRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/staffMembers",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

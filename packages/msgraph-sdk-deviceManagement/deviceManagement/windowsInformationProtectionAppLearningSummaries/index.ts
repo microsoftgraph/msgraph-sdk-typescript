@@ -95,7 +95,7 @@ export interface WindowsInformationProtectionAppLearningSummariesRequestBuilderG
 /**
  * Uri template for the request builder.
  */
-export const WindowsInformationProtectionAppLearningSummariesRequestBuilderUriTemplate = "{+baseurl}/deviceManagement/windowsInformationProtectionAppLearningSummaries{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const WindowsInformationProtectionAppLearningSummariesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const WindowsInformationProtectionAppLearningSummariesRequestBuilderNavig
  */
 export const WindowsInformationProtectionAppLearningSummariesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: WindowsInformationProtectionAppLearningSummariesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/windowsInformationProtectionAppLearningSummaries{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const WindowsInformationProtectionAppLearningSummariesRequestBuilderReque
         queryParametersMapper: WindowsInformationProtectionAppLearningSummariesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: WindowsInformationProtectionAppLearningSummariesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/deviceManagement/windowsInformationProtectionAppLearningSummaries",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

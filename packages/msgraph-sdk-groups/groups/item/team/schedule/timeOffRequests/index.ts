@@ -95,7 +95,7 @@ export interface TimeOffRequestsRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const TimeOffRequestsRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/team/schedule/timeOffRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const TimeOffRequestsRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const TimeOffRequestsRequestBuilderNavigationMetadata: Record<Exclude<key
  */
 export const TimeOffRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: TimeOffRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/schedule/timeOffRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const TimeOffRequestsRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: TimeOffRequestsRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: TimeOffRequestsRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/team/schedule/timeOffRequests",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

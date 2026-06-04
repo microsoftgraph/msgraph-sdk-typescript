@@ -95,7 +95,7 @@ export interface ContentActivitiesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const ContentActivitiesRequestBuilderUriTemplate = "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/activities/contentActivities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const ContentActivitiesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -126,7 +126,7 @@ export const ContentActivitiesRequestBuilderNavigationMetadata: Record<Exclude<k
  */
 export const ContentActivitiesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: ContentActivitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/activities/contentActivities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -136,7 +136,7 @@ export const ContentActivitiesRequestBuilderRequestsMetadata: RequestsMetadata =
         queryParametersMapper: ContentActivitiesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: ContentActivitiesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/users/{user%2Did}/dataSecurityAndGovernance/activities/contentActivities",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

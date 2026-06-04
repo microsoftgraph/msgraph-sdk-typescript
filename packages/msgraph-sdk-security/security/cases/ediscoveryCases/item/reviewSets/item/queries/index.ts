@@ -97,7 +97,7 @@ export interface QueriesRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const QueriesRequestBuilderUriTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const QueriesRequestBuilderUriTemplate = "";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -129,7 +129,7 @@ export const QueriesRequestBuilderNavigationMetadata: Record<Exclude<keyof Queri
  */
 export const QueriesRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: QueriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
@@ -139,7 +139,7 @@ export const QueriesRequestBuilderRequestsMetadata: RequestsMetadata = {
         queryParametersMapper: QueriesRequestBuilderGetQueryParametersMapper,
     },
     post: {
-        uriTemplate: QueriesRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,
