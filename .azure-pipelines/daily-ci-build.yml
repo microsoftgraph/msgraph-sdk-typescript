@@ -48,20 +48,14 @@ extends:
                 inputs:
                   versionSpec: '20.x'
 
-              - script: |
-                  echo "registry=$(NPM_REGISTRY_URL)" > .npmrc
-                  echo "always-auth=true" >> .npmrc
-                displayName: Create .npmrc for Azure Artifacts feed
-                workingDirectory: $(Build.SourcesDirectory)
-
-              - task: npmAuthenticate@0
-                displayName: Authenticate npm
-                inputs:
-                  workingFile: $(Build.SourcesDirectory)/.npmrc
-
-              - script: npm ci
+              - task: npm@1
                 displayName: Install dependencies
-                workingDirectory: $(Build.SourcesDirectory)
+                inputs:
+                  command: 'ci'
+                  verbose: true
+                  customRegistry: 'useFeed'
+                  customFeed: 'Graph Developer Experiences/msgraph-typescript'
+                  workingDir: '$(Build.SourcesDirectory)'
 
               - script: npm run build --workspaces
                 displayName: Build SDK
