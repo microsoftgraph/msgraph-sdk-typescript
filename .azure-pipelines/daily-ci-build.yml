@@ -49,8 +49,10 @@ extends:
                   versionSpec: '20.x'
 
               - script: |
-                  echo "registry=https://microsoftgraph.pkgs.visualstudio.com/0985d294-5762-4bc2-a565-161ef349ca3e/_packaging/GraphDeveloperExperiences_Public/npm/registry/" > .npmrc
+                  echo "registry=$(NPM_REGISTRY_URL)" > .npmrc
                   echo "always-auth=true" >> .npmrc
+                env:
+                  NPM_REGISTRY_URL: $(npmRegistryUrl)
                 displayName: Create .npmrc for Azure Artifacts feed
                 workingDirectory: $(Build.SourcesDirectory)
 
