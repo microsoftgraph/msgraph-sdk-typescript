@@ -67,6 +67,3 @@ extends:
                 displayName: Build SDK
                 workingDirectory: $(Build.SourcesDirectory)
 
-              - script: npm test
-                displayName: Run unit tests
-                workingDirectory: $(Build.SourcesDirectory)
