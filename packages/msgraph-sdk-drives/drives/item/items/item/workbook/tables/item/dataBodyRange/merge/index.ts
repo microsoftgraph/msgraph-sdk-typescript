@@ -23,7 +23,7 @@ export function createMergePostRequestBodyFromDiscriminatorValue(parseNode: Pars
 // @ts-ignore
 export function deserializeIntoMergePostRequestBody(mergePostRequestBody: Partial<MergePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "across": n => { mergePostRequestBody.across = n.getBooleanValue(); },
+        "across": n => { mergePostRequestBody.across = n.getBooleanValue() ?? false; },
         "backingStoreEnabled": n => { mergePostRequestBody.backingStoreEnabled = true; },
     }
 }
@@ -65,7 +65,7 @@ export interface MergeRequestBuilder extends BaseRequestBuilder<MergeRequestBuil
 // @ts-ignore
 export function serializeMergePostRequestBody(writer: SerializationWriter, mergePostRequestBody: Partial<MergePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!mergePostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("across", mergePostRequestBody.across);
+    writer.writeBooleanValue("across", mergePostRequestBody.across ?? false);
     writer.writeAdditionalData(mergePostRequestBody.additionalData);
 }
 /**

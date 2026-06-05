@@ -24,7 +24,7 @@ export function createForceDeletePostRequestBodyFromDiscriminatorValue(parseNode
 export function deserializeIntoForceDeletePostRequestBody(forceDeletePostRequestBody: Partial<ForceDeletePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { forceDeletePostRequestBody.backingStoreEnabled = true; },
-        "disableUserAccounts": n => { forceDeletePostRequestBody.disableUserAccounts = n.getBooleanValue(); },
+        "disableUserAccounts": n => { forceDeletePostRequestBody.disableUserAccounts = n.getBooleanValue() ?? false; },
     }
 }
 export interface ForceDeletePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -66,7 +66,7 @@ export interface ForceDeleteRequestBuilder extends BaseRequestBuilder<ForceDelet
 // @ts-ignore
 export function serializeForceDeletePostRequestBody(writer: SerializationWriter, forceDeletePostRequestBody: Partial<ForceDeletePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!forceDeletePostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("disableUserAccounts", forceDeletePostRequestBody.disableUserAccounts);
+    writer.writeBooleanValue("disableUserAccounts", forceDeletePostRequestBody.disableUserAccounts ?? false);
     writer.writeAdditionalData(forceDeletePostRequestBody.additionalData);
 }
 /**

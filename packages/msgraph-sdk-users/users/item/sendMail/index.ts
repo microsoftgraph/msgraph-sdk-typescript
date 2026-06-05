@@ -27,7 +27,7 @@ export function deserializeIntoSendMailPostRequestBody(sendMailPostRequestBody: 
     return {
         "backingStoreEnabled": n => { sendMailPostRequestBody.backingStoreEnabled = true; },
         "Message": n => { sendMailPostRequestBody.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
-        "SaveToSentItems": n => { sendMailPostRequestBody.saveToSentItems = n.getBooleanValue(); },
+        "SaveToSentItems": n => { sendMailPostRequestBody.saveToSentItems = n.getBooleanValue() ?? false; },
     }
 }
 export interface SendMailPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -74,7 +74,7 @@ export interface SendMailRequestBuilder extends BaseRequestBuilder<SendMailReque
 export function serializeSendMailPostRequestBody(writer: SerializationWriter, sendMailPostRequestBody: Partial<SendMailPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!sendMailPostRequestBody || isSerializingDerivedType) { return; }
     writer.writeObjectValue<Message>("Message", sendMailPostRequestBody.message, serializeMessage);
-    writer.writeBooleanValue("SaveToSentItems", sendMailPostRequestBody.saveToSentItems);
+    writer.writeBooleanValue("SaveToSentItems", sendMailPostRequestBody.saveToSentItems ?? false);
     writer.writeAdditionalData(sendMailPostRequestBody.additionalData);
 }
 /**

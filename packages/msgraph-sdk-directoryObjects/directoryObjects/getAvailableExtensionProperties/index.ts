@@ -35,7 +35,7 @@ export function createGetAvailableExtensionPropertiesPostResponseFromDiscriminat
 export function deserializeIntoGetAvailableExtensionPropertiesPostRequestBody(getAvailableExtensionPropertiesPostRequestBody: Partial<GetAvailableExtensionPropertiesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getAvailableExtensionPropertiesPostRequestBody.backingStoreEnabled = true; },
-        "isSyncedFromOnPremises": n => { getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises = n.getBooleanValue(); },
+        "isSyncedFromOnPremises": n => { getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -96,7 +96,7 @@ export interface GetAvailableExtensionPropertiesRequestBuilder extends BaseReque
 // @ts-ignore
 export function serializeGetAvailableExtensionPropertiesPostRequestBody(writer: SerializationWriter, getAvailableExtensionPropertiesPostRequestBody: Partial<GetAvailableExtensionPropertiesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!getAvailableExtensionPropertiesPostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("isSyncedFromOnPremises", getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises);
+    writer.writeBooleanValue("isSyncedFromOnPremises", getAvailableExtensionPropertiesPostRequestBody.isSyncedFromOnPremises ?? false);
     writer.writeAdditionalData(getAvailableExtensionPropertiesPostRequestBody.additionalData);
 }
 /**

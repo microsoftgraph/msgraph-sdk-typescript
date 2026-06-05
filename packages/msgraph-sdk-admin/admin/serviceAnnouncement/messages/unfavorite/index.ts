@@ -45,7 +45,7 @@ export function deserializeIntoUnfavoritePostRequestBody(unfavoritePostRequestBo
 export function deserializeIntoUnfavoritePostResponse(unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { unfavoritePostResponse.backingStoreEnabled = true; },
-        "value": n => { unfavoritePostResponse.value = n.getBooleanValue(); },
+        "value": n => { unfavoritePostResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -69,7 +69,7 @@ export function serializeUnfavoritePostRequestBody(writer: SerializationWriter, 
 // @ts-ignore
 export function serializeUnfavoritePostResponse(writer: SerializationWriter, unfavoritePostResponse: Partial<UnfavoritePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!unfavoritePostResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", unfavoritePostResponse.value);
+    writer.writeBooleanValue("value", unfavoritePostResponse.value ?? false);
     writer.writeAdditionalData(unfavoritePostResponse.additionalData);
 }
 export interface UnfavoritePostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

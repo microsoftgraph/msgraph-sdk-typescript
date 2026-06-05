@@ -62,7 +62,7 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<Ad
     return {
         "address": n => { addPostRequestBody.address = n.getStringValue(); },
         "backingStoreEnabled": n => { addPostRequestBody.backingStoreEnabled = true; },
-        "hasHeaders": n => { addPostRequestBody.hasHeaders = n.getBooleanValue(); },
+        "hasHeaders": n => { addPostRequestBody.hasHeaders = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -75,7 +75,7 @@ export function deserializeIntoAddPostRequestBody(addPostRequestBody: Partial<Ad
 export function serializeAddPostRequestBody(writer: SerializationWriter, addPostRequestBody: Partial<AddPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!addPostRequestBody || isSerializingDerivedType) { return; }
     writer.writeStringValue("address", addPostRequestBody.address);
-    writer.writeBooleanValue("hasHeaders", addPostRequestBody.hasHeaders);
+    writer.writeBooleanValue("hasHeaders", addPostRequestBody.hasHeaders ?? false);
     writer.writeAdditionalData(addPostRequestBody.additionalData);
 }
 /**

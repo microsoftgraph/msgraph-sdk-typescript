@@ -35,7 +35,7 @@ export function createGetMemberObjectsPostResponseFromDiscriminatorValue(parseNo
 export function deserializeIntoGetMemberObjectsPostRequestBody(getMemberObjectsPostRequestBody: Partial<GetMemberObjectsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getMemberObjectsPostRequestBody.backingStoreEnabled = true; },
-        "securityEnabledOnly": n => { getMemberObjectsPostRequestBody.securityEnabledOnly = n.getBooleanValue(); },
+        "securityEnabledOnly": n => { getMemberObjectsPostRequestBody.securityEnabledOnly = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -96,7 +96,7 @@ export interface GetMemberObjectsRequestBuilder extends BaseRequestBuilder<GetMe
 // @ts-ignore
 export function serializeGetMemberObjectsPostRequestBody(writer: SerializationWriter, getMemberObjectsPostRequestBody: Partial<GetMemberObjectsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!getMemberObjectsPostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("securityEnabledOnly", getMemberObjectsPostRequestBody.securityEnabledOnly);
+    writer.writeBooleanValue("securityEnabledOnly", getMemberObjectsPostRequestBody.securityEnabledOnly ?? false);
     writer.writeAdditionalData(getMemberObjectsPostRequestBody.additionalData);
 }
 /**
