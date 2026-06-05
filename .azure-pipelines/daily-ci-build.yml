@@ -51,8 +51,6 @@ extends:
               - script: |
                   echo "registry=$(NPM_REGISTRY_URL)" > .npmrc
                   echo "always-auth=true" >> .npmrc
-                env:
-                  NPM_REGISTRY_URL: $(npmRegistryUrl)
                 displayName: Create .npmrc for Azure Artifacts feed
                 workingDirectory: $(Build.SourcesDirectory)
 
