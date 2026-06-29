@@ -21,6 +21,7 @@ extends:
   parameters:
     pool:
       name: Azure-Pipelines-1ESPT-ExDShared
+      image: ubuntu-latest
       os: linux
     sdl:
       sourceAnalysisPool:
@@ -47,14 +48,16 @@ extends:
                 inputs:
                   versionSpec: '20.x'
 
-              - script: npm ci
+              - task: npm@1
                 displayName: Install dependencies
-                workingDirectory: $(Build.SourcesDirectory)
+                inputs:
+                  command: 'ci'
+                  verbose: true
+                  customRegistry: 'useFeed'
+                  customFeed: 'Graph Developer Experiences/msgraph-typescript'
+                  workingDir: '$(Build.SourcesDirectory)'
 
               - script: npm run build --workspaces
                 displayName: Build SDK
                 workingDirectory: $(Build.SourcesDirectory)
 
-              - script: npm test
-                displayName: Run unit tests
-                workingDirectory: $(Build.SourcesDirectory)
