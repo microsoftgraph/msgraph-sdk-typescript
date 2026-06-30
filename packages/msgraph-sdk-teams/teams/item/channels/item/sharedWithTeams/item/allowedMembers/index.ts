@@ -27,7 +27,7 @@ export interface AllowedMembersRequestBuilder extends BaseRequestBuilder<Allowed
      */
      byConversationMemberId(conversationMemberId: string) : ConversationMemberItemRequestBuilder;
     /**
-     * Get the list of conversationMembers who can access a shared channel. This method does not return the following conversationMembers from the team:- Users with Guest role- Users who are externally authenticated in the tenant
+     * Get the list of conversationMembers who can access a shared channel. This method doesn't return the following conversationMembers from the team:- Users with Guest role- Users who are externally authenticated in the tenant
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ConversationMemberCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,14 +35,14 @@ export interface AllowedMembersRequestBuilder extends BaseRequestBuilder<Allowed
      */
      get(requestConfiguration?: RequestConfiguration<AllowedMembersRequestBuilderGetQueryParameters> | undefined) : Promise<ConversationMemberCollectionResponse | undefined>;
     /**
-     * Get the list of conversationMembers who can access a shared channel. This method does not return the following conversationMembers from the team:- Users with Guest role- Users who are externally authenticated in the tenant
+     * Get the list of conversationMembers who can access a shared channel. This method doesn't return the following conversationMembers from the team:- Users with Guest role- Users who are externally authenticated in the tenant
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AllowedMembersRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the list of conversationMembers who can access a shared channel. This method does not return the following conversationMembers from the team:- Users with Guest role- Users who are externally authenticated in the tenant
+ * Get the list of conversationMembers who can access a shared channel. This method doesn't return the following conversationMembers from the team:- Users with Guest role- Users who are externally authenticated in the tenant
  */
 export interface AllowedMembersRequestBuilderGetQueryParameters {
     /**

@@ -36,7 +36,7 @@ export function deserializeIntoGetStaffAvailabilityPostRequestBody(getStaffAvail
     return {
         "backingStoreEnabled": n => { getStaffAvailabilityPostRequestBody.backingStoreEnabled = true; },
         "endDateTime": n => { getStaffAvailabilityPostRequestBody.endDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
-        "staffIds": n => { getStaffAvailabilityPostRequestBody.staffIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "staffIds": n => { getStaffAvailabilityPostRequestBody.staffIds = n.getCollectionOfPrimitiveValues<string>("string"); },
         "startDateTime": n => { getStaffAvailabilityPostRequestBody.startDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
     }
 }

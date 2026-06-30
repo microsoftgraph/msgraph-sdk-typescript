@@ -264,7 +264,7 @@ export function deserializeIntoStore(store: Partial<Store> | undefined = {}) : R
         ...deserializeIntoEntity(store),
         "defaultLanguageTag": n => { store.defaultLanguageTag = n.getStringValue(); },
         "groups": n => { store.groups = n.getCollectionOfObjectValues<Group>(createGroupFromDiscriminatorValue); },
-        "languageTags": n => { store.languageTags = n.getCollectionOfPrimitiveValues<string>(); },
+        "languageTags": n => { store.languageTags = n.getCollectionOfPrimitiveValues<string>("string"); },
         "sets": n => { store.sets = n.getCollectionOfObjectValues<Set>(createSetFromDiscriminatorValue); },
     }
 }

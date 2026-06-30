@@ -10,15 +10,21 @@ import { AccessPackageAssignmentApprovalsRequestBuilderNavigationMetadata, Acces
 // @ts-ignore
 import { AccessPackagesRequestBuilderNavigationMetadata, AccessPackagesRequestBuilderRequestsMetadata, type AccessPackagesRequestBuilder } from './accessPackages/index.js';
 // @ts-ignore
+import { AccessPackageSuggestionsRequestBuilderNavigationMetadata, AccessPackageSuggestionsRequestBuilderRequestsMetadata, type AccessPackageSuggestionsRequestBuilder } from './accessPackageSuggestions/index.js';
+// @ts-ignore
 import { AssignmentPoliciesRequestBuilderNavigationMetadata, AssignmentPoliciesRequestBuilderRequestsMetadata, type AssignmentPoliciesRequestBuilder } from './assignmentPolicies/index.js';
 // @ts-ignore
 import { AssignmentRequestsRequestBuilderNavigationMetadata, AssignmentRequestsRequestBuilderRequestsMetadata, type AssignmentRequestsRequestBuilder } from './assignmentRequests/index.js';
 // @ts-ignore
 import { AssignmentsRequestBuilderNavigationMetadata, AssignmentsRequestBuilderRequestsMetadata, type AssignmentsRequestBuilder } from './assignments/index.js';
 // @ts-ignore
+import { AvailableAccessPackagesRequestBuilderNavigationMetadata, AvailableAccessPackagesRequestBuilderRequestsMetadata, type AvailableAccessPackagesRequestBuilder } from './availableAccessPackages/index.js';
+// @ts-ignore
 import { CatalogsRequestBuilderNavigationMetadata, CatalogsRequestBuilderRequestsMetadata, type CatalogsRequestBuilder } from './catalogs/index.js';
 // @ts-ignore
 import { ConnectedOrganizationsRequestBuilderNavigationMetadata, ConnectedOrganizationsRequestBuilderRequestsMetadata, type ConnectedOrganizationsRequestBuilder } from './connectedOrganizations/index.js';
+// @ts-ignore
+import { ControlConfigurationsRequestBuilderNavigationMetadata, ControlConfigurationsRequestBuilderRequestsMetadata, type ControlConfigurationsRequestBuilder } from './controlConfigurations/index.js';
 // @ts-ignore
 import { ResourceEnvironmentsRequestBuilderNavigationMetadata, ResourceEnvironmentsRequestBuilderRequestsMetadata, type ResourceEnvironmentsRequestBuilder } from './resourceEnvironments/index.js';
 // @ts-ignore
@@ -29,6 +35,10 @@ import { ResourceRoleScopesRequestBuilderNavigationMetadata, ResourceRoleScopesR
 import { ResourcesRequestBuilderNavigationMetadata, ResourcesRequestBuilderRequestsMetadata, type ResourcesRequestBuilder } from './resources/index.js';
 // @ts-ignore
 import { SettingsRequestBuilderRequestsMetadata, type SettingsRequestBuilder } from './settings/index.js';
+// @ts-ignore
+import { SubjectsRequestBuilderNavigationMetadata, SubjectsRequestBuilderRequestsMetadata, type SubjectsRequestBuilder } from './subjects/index.js';
+// @ts-ignore
+import { SubjectsWithObjectIdRequestBuilderRequestsMetadata, type SubjectsWithObjectIdRequestBuilder } from './subjectsWithObjectId/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -45,6 +55,10 @@ export interface EntitlementManagementRequestBuilder extends BaseRequestBuilder<
      */
     get accessPackages(): AccessPackagesRequestBuilder;
     /**
+     * Provides operations to manage the accessPackageSuggestions property of the microsoft.graph.entitlementManagement entity.
+     */
+    get accessPackageSuggestions(): AccessPackageSuggestionsRequestBuilder;
+    /**
      * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
      */
     get assignmentPolicies(): AssignmentPoliciesRequestBuilder;
@@ -57,6 +71,10 @@ export interface EntitlementManagementRequestBuilder extends BaseRequestBuilder<
      */
     get assignments(): AssignmentsRequestBuilder;
     /**
+     * Provides operations to manage the availableAccessPackages property of the microsoft.graph.entitlementManagement entity.
+     */
+    get availableAccessPackages(): AvailableAccessPackagesRequestBuilder;
+    /**
      * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
      */
     get catalogs(): CatalogsRequestBuilder;
@@ -64,6 +82,10 @@ export interface EntitlementManagementRequestBuilder extends BaseRequestBuilder<
      * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
      */
     get connectedOrganizations(): ConnectedOrganizationsRequestBuilder;
+    /**
+     * Provides operations to manage the controlConfigurations property of the microsoft.graph.entitlementManagement entity.
+     */
+    get controlConfigurations(): ControlConfigurationsRequestBuilder;
     /**
      * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
      */
@@ -85,6 +107,10 @@ export interface EntitlementManagementRequestBuilder extends BaseRequestBuilder<
      */
     get settings(): SettingsRequestBuilder;
     /**
+     * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
+     */
+    get subjects(): SubjectsRequestBuilder;
+    /**
      * Delete navigation property entitlementManagement for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -105,6 +131,12 @@ export interface EntitlementManagementRequestBuilder extends BaseRequestBuilder<
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      patch(body: EntitlementManagement, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<EntitlementManagement | undefined>;
+    /**
+     * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
+     * @param objectId Alternate key of accessPackageSubject
+     * @returns {SubjectsWithObjectIdRequestBuilder}
+     */
+     subjectsWithObjectId(objectId: string | undefined) : SubjectsWithObjectIdRequestBuilder;
     /**
      * Delete navigation property entitlementManagement for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -153,6 +185,10 @@ const EntitlementManagementRequestBuilderGetQueryParametersMapper: Record<string
  * Metadata for all the navigation properties in the request builder.
  */
 export const EntitlementManagementRequestBuilderNavigationMetadata: Record<Exclude<keyof EntitlementManagementRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    subjectsWithObjectId: {
+        requestsMetadata: SubjectsWithObjectIdRequestBuilderRequestsMetadata,
+        pathParametersMappings: ["objectId"],
+    },
     accessPackageAssignmentApprovals: {
         requestsMetadata: AccessPackageAssignmentApprovalsRequestBuilderRequestsMetadata,
         navigationMetadata: AccessPackageAssignmentApprovalsRequestBuilderNavigationMetadata,
@@ -160,6 +196,10 @@ export const EntitlementManagementRequestBuilderNavigationMetadata: Record<Exclu
     accessPackages: {
         requestsMetadata: AccessPackagesRequestBuilderRequestsMetadata,
         navigationMetadata: AccessPackagesRequestBuilderNavigationMetadata,
+    },
+    accessPackageSuggestions: {
+        requestsMetadata: AccessPackageSuggestionsRequestBuilderRequestsMetadata,
+        navigationMetadata: AccessPackageSuggestionsRequestBuilderNavigationMetadata,
     },
     assignmentPolicies: {
         requestsMetadata: AssignmentPoliciesRequestBuilderRequestsMetadata,
@@ -173,6 +213,10 @@ export const EntitlementManagementRequestBuilderNavigationMetadata: Record<Exclu
         requestsMetadata: AssignmentsRequestBuilderRequestsMetadata,
         navigationMetadata: AssignmentsRequestBuilderNavigationMetadata,
     },
+    availableAccessPackages: {
+        requestsMetadata: AvailableAccessPackagesRequestBuilderRequestsMetadata,
+        navigationMetadata: AvailableAccessPackagesRequestBuilderNavigationMetadata,
+    },
     catalogs: {
         requestsMetadata: CatalogsRequestBuilderRequestsMetadata,
         navigationMetadata: CatalogsRequestBuilderNavigationMetadata,
@@ -180,6 +224,10 @@ export const EntitlementManagementRequestBuilderNavigationMetadata: Record<Exclu
     connectedOrganizations: {
         requestsMetadata: ConnectedOrganizationsRequestBuilderRequestsMetadata,
         navigationMetadata: ConnectedOrganizationsRequestBuilderNavigationMetadata,
+    },
+    controlConfigurations: {
+        requestsMetadata: ControlConfigurationsRequestBuilderRequestsMetadata,
+        navigationMetadata: ControlConfigurationsRequestBuilderNavigationMetadata,
     },
     resourceEnvironments: {
         requestsMetadata: ResourceEnvironmentsRequestBuilderRequestsMetadata,
@@ -199,6 +247,10 @@ export const EntitlementManagementRequestBuilderNavigationMetadata: Record<Exclu
     },
     settings: {
         requestsMetadata: SettingsRequestBuilderRequestsMetadata,
+    },
+    subjects: {
+        requestsMetadata: SubjectsRequestBuilderRequestsMetadata,
+        navigationMetadata: SubjectsRequestBuilderNavigationMetadata,
     },
 };
 /**

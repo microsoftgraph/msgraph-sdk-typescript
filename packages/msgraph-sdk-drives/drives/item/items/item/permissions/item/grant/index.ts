@@ -36,7 +36,7 @@ export function deserializeIntoGrantPostRequestBody(grantPostRequestBody: Partia
     return {
         "backingStoreEnabled": n => { grantPostRequestBody.backingStoreEnabled = true; },
         "recipients": n => { grantPostRequestBody.recipients = n.getCollectionOfObjectValues<DriveRecipient>(createDriveRecipientFromDiscriminatorValue); },
-        "roles": n => { grantPostRequestBody.roles = n.getCollectionOfPrimitiveValues<string>(); },
+        "roles": n => { grantPostRequestBody.roles = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**
