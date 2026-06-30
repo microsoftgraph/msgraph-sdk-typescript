@@ -34,6 +34,8 @@ import { StartMigrationRequestBuilderRequestsMetadata, type StartMigrationReques
 // @ts-ignore
 import { TabsRequestBuilderNavigationMetadata, TabsRequestBuilderRequestsMetadata, type TabsRequestBuilder } from './tabs/index.js';
 // @ts-ignore
+import { TargetedMessagesRequestBuilderNavigationMetadata, TargetedMessagesRequestBuilderRequestsMetadata, type TargetedMessagesRequestBuilder } from './targetedMessages/index.js';
+// @ts-ignore
 import { type UnhideForUserRequestBuilder, UnhideForUserRequestBuilderRequestsMetadata } from './unhideForUser/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -98,6 +100,10 @@ export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemReque
      * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
      */
     get tabs(): TabsRequestBuilder;
+    /**
+     * Provides operations to manage the targetedMessages property of the microsoft.graph.chat entity.
+     */
+    get targetedMessages(): TargetedMessagesRequestBuilder;
     /**
      * Provides operations to call the unhideForUser method.
      */
@@ -221,6 +227,10 @@ export const ChatItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Chat
     tabs: {
         requestsMetadata: TabsRequestBuilderRequestsMetadata,
         navigationMetadata: TabsRequestBuilderNavigationMetadata,
+    },
+    targetedMessages: {
+        requestsMetadata: TargetedMessagesRequestBuilderRequestsMetadata,
+        navigationMetadata: TargetedMessagesRequestBuilderNavigationMetadata,
     },
     unhideForUser: {
         requestsMetadata: UnhideForUserRequestBuilderRequestsMetadata,

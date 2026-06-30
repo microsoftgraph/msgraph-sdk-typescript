@@ -71,7 +71,7 @@ export function createCheckMemberObjectsPostResponseFromDiscriminatorValue(parse
 export function deserializeIntoCheckMemberObjectsPostRequestBody(checkMemberObjectsPostRequestBody: Partial<CheckMemberObjectsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { checkMemberObjectsPostRequestBody.backingStoreEnabled = true; },
-        "ids": n => { checkMemberObjectsPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>(); },
+        "ids": n => { checkMemberObjectsPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**
@@ -83,7 +83,7 @@ export function deserializeIntoCheckMemberObjectsPostRequestBody(checkMemberObje
 export function deserializeIntoCheckMemberObjectsPostResponse(checkMemberObjectsPostResponse: Partial<CheckMemberObjectsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(checkMemberObjectsPostResponse),
-        "value": n => { checkMemberObjectsPostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        "value": n => { checkMemberObjectsPostResponse.value = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

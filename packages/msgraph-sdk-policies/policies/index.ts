@@ -32,6 +32,8 @@ import { DeviceRegistrationPolicyRequestBuilderRequestsMetadata, type DeviceRegi
 // @ts-ignore
 import { FeatureRolloutPoliciesRequestBuilderNavigationMetadata, FeatureRolloutPoliciesRequestBuilderRequestsMetadata, type FeatureRolloutPoliciesRequestBuilder } from './featureRolloutPolicies/index.js';
 // @ts-ignore
+import { FederatedTokenValidationPolicyRequestBuilderRequestsMetadata, type FederatedTokenValidationPolicyRequestBuilder } from './federatedTokenValidationPolicy/index.js';
+// @ts-ignore
 import { HomeRealmDiscoveryPoliciesRequestBuilderNavigationMetadata, HomeRealmDiscoveryPoliciesRequestBuilderRequestsMetadata, type HomeRealmDiscoveryPoliciesRequestBuilder } from './homeRealmDiscoveryPolicies/index.js';
 // @ts-ignore
 import { IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMetadata, type IdentitySecurityDefaultsEnforcementPolicyRequestBuilder } from './identitySecurityDefaultsEnforcementPolicy/index.js';
@@ -106,6 +108,10 @@ export interface PoliciesRequestBuilder extends BaseRequestBuilder<PoliciesReque
      * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
      */
     get featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder;
+    /**
+     * Provides operations to manage the federatedTokenValidationPolicy property of the microsoft.graph.policyRoot entity.
+     */
+    get federatedTokenValidationPolicy(): FederatedTokenValidationPolicyRequestBuilder;
     /**
      * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
      */
@@ -241,6 +247,9 @@ export const PoliciesRequestBuilderNavigationMetadata: Record<Exclude<keyof Poli
     featureRolloutPolicies: {
         requestsMetadata: FeatureRolloutPoliciesRequestBuilderRequestsMetadata,
         navigationMetadata: FeatureRolloutPoliciesRequestBuilderNavigationMetadata,
+    },
+    federatedTokenValidationPolicy: {
+        requestsMetadata: FederatedTokenValidationPolicyRequestBuilderRequestsMetadata,
     },
     homeRealmDiscoveryPolicies: {
         requestsMetadata: HomeRealmDiscoveryPoliciesRequestBuilderRequestsMetadata,

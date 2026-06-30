@@ -24,11 +24,11 @@ export function createGetCachedReportPostRequestBodyFromDiscriminatorValue(parse
 export function deserializeIntoGetCachedReportPostRequestBody(getCachedReportPostRequestBody: Partial<GetCachedReportPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getCachedReportPostRequestBody.backingStoreEnabled = true; },
-        "groupBy": n => { getCachedReportPostRequestBody.groupBy = n.getCollectionOfPrimitiveValues<string>(); },
+        "groupBy": n => { getCachedReportPostRequestBody.groupBy = n.getCollectionOfPrimitiveValues<string>("string"); },
         "id": n => { getCachedReportPostRequestBody.id = n.getStringValue(); },
-        "orderBy": n => { getCachedReportPostRequestBody.orderBy = n.getCollectionOfPrimitiveValues<string>(); },
+        "orderBy": n => { getCachedReportPostRequestBody.orderBy = n.getCollectionOfPrimitiveValues<string>("string"); },
         "search": n => { getCachedReportPostRequestBody.search = n.getStringValue(); },
-        "select": n => { getCachedReportPostRequestBody.select = n.getCollectionOfPrimitiveValues<string>(); },
+        "select": n => { getCachedReportPostRequestBody.select = n.getCollectionOfPrimitiveValues<string>("string"); },
         "skip": n => { getCachedReportPostRequestBody.skip = n.getNumberValue(); },
         "top": n => { getCachedReportPostRequestBody.top = n.getNumberValue(); },
     }

@@ -25,7 +25,7 @@ export function deserializeIntoSharePostRequestBody(sharePostRequestBody: Partia
     return {
         "backingStoreEnabled": n => { sharePostRequestBody.backingStoreEnabled = true; },
         "endDateTime": n => { sharePostRequestBody.endDateTime = n.getDateValue(); },
-        "notifyTeam": n => { sharePostRequestBody.notifyTeam = n.getBooleanValue(); },
+        "notifyTeam": n => { sharePostRequestBody.notifyTeam = n.getBooleanValue() ?? false; },
         "startDateTime": n => { sharePostRequestBody.startDateTime = n.getDateValue(); },
     }
 }
@@ -39,7 +39,7 @@ export function deserializeIntoSharePostRequestBody(sharePostRequestBody: Partia
 export function serializeSharePostRequestBody(writer: SerializationWriter, sharePostRequestBody: Partial<SharePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!sharePostRequestBody || isSerializingDerivedType) { return; }
     writer.writeDateValue("endDateTime", sharePostRequestBody.endDateTime);
-    writer.writeBooleanValue("notifyTeam", sharePostRequestBody.notifyTeam);
+    writer.writeBooleanValue("notifyTeam", sharePostRequestBody.notifyTeam ?? false);
     writer.writeDateValue("startDateTime", sharePostRequestBody.startDateTime);
     writer.writeAdditionalData(sharePostRequestBody.additionalData);
 }

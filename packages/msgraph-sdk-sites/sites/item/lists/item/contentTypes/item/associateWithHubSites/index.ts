@@ -58,8 +58,8 @@ export function createAssociateWithHubSitesPostRequestBodyFromDiscriminatorValue
 export function deserializeIntoAssociateWithHubSitesPostRequestBody(associateWithHubSitesPostRequestBody: Partial<AssociateWithHubSitesPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { associateWithHubSitesPostRequestBody.backingStoreEnabled = true; },
-        "hubSiteUrls": n => { associateWithHubSitesPostRequestBody.hubSiteUrls = n.getCollectionOfPrimitiveValues<string>(); },
-        "propagateToExistingLists": n => { associateWithHubSitesPostRequestBody.propagateToExistingLists = n.getBooleanValue(); },
+        "hubSiteUrls": n => { associateWithHubSitesPostRequestBody.hubSiteUrls = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "propagateToExistingLists": n => { associateWithHubSitesPostRequestBody.propagateToExistingLists = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -72,7 +72,7 @@ export function deserializeIntoAssociateWithHubSitesPostRequestBody(associateWit
 export function serializeAssociateWithHubSitesPostRequestBody(writer: SerializationWriter, associateWithHubSitesPostRequestBody: Partial<AssociateWithHubSitesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!associateWithHubSitesPostRequestBody || isSerializingDerivedType) { return; }
     writer.writeCollectionOfPrimitiveValues<string>("hubSiteUrls", associateWithHubSitesPostRequestBody.hubSiteUrls);
-    writer.writeBooleanValue("propagateToExistingLists", associateWithHubSitesPostRequestBody.propagateToExistingLists);
+    writer.writeBooleanValue("propagateToExistingLists", associateWithHubSitesPostRequestBody.propagateToExistingLists ?? false);
     writer.writeAdditionalData(associateWithHubSitesPostRequestBody.additionalData);
 }
 /**

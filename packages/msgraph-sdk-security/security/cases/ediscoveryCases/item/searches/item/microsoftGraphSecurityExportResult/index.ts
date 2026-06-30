@@ -34,7 +34,7 @@ export function deserializeIntoExportResultPostRequestBody(exportResultPostReque
         "exportCriteria": n => { exportResultPostRequestBody.exportCriteria = n.getCollectionOfEnumValues<ExportCriteria>(ExportCriteriaObject); },
         "exportFormat": n => { exportResultPostRequestBody.exportFormat = n.getEnumValue<ExportFormat>(ExportFormatObject); },
         "exportLocation": n => { exportResultPostRequestBody.exportLocation = n.getCollectionOfEnumValues<ExportLocation>(ExportLocationObject); },
-        "exportSingleItems": n => { exportResultPostRequestBody.exportSingleItems = n.getBooleanValue(); },
+        "exportSingleItems": n => { exportResultPostRequestBody.exportSingleItems = n.getBooleanValue() ?? false; },
     }
 }
 export interface ExportResultPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -116,7 +116,7 @@ export function serializeExportResultPostRequestBody(writer: SerializationWriter
     writer.writeEnumValue<ExportCriteria[]>("exportCriteria", exportResultPostRequestBody.exportCriteria);
     writer.writeEnumValue<ExportFormat>("exportFormat", exportResultPostRequestBody.exportFormat);
     writer.writeEnumValue<ExportLocation[]>("exportLocation", exportResultPostRequestBody.exportLocation);
-    writer.writeBooleanValue("exportSingleItems", exportResultPostRequestBody.exportSingleItems);
+    writer.writeBooleanValue("exportSingleItems", exportResultPostRequestBody.exportSingleItems ?? false);
     writer.writeAdditionalData(exportResultPostRequestBody.additionalData);
 }
 /**
