@@ -8,6 +8,12 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { AssociatedTeamsRequestBuilderNavigationMetadata, AssociatedTeamsRequestBuilderRequestsMetadata, type AssociatedTeamsRequestBuilder } from './associatedTeams/index.js';
 // @ts-ignore
+import { DeleteTargetedMessageRequestBuilderRequestsMetadata, type DeleteTargetedMessageRequestBuilder } from './deleteTargetedMessage/index.js';
+// @ts-ignore
+import { GetAllRetainedTargetedMessagesRequestBuilderRequestsMetadata, type GetAllRetainedTargetedMessagesRequestBuilder } from './getAllRetainedTargetedMessages/index.js';
+// @ts-ignore
+import { GetAllTargetedMessagesRequestBuilderRequestsMetadata, type GetAllTargetedMessagesRequestBuilder } from './getAllTargetedMessages/index.js';
+// @ts-ignore
 import { InstalledAppsRequestBuilderNavigationMetadata, InstalledAppsRequestBuilderRequestsMetadata, type InstalledAppsRequestBuilder } from './installedApps/index.js';
 // @ts-ignore
 import { SendActivityNotificationRequestBuilderRequestsMetadata, type SendActivityNotificationRequestBuilder } from './sendActivityNotification/index.js';
@@ -22,6 +28,18 @@ export interface TeamworkRequestBuilder extends BaseRequestBuilder<TeamworkReque
      * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
      */
     get associatedTeams(): AssociatedTeamsRequestBuilder;
+    /**
+     * Provides operations to call the deleteTargetedMessage method.
+     */
+    get deleteTargetedMessage(): DeleteTargetedMessageRequestBuilder;
+    /**
+     * Provides operations to call the getAllRetainedTargetedMessages method.
+     */
+    get getAllRetainedTargetedMessages(): GetAllRetainedTargetedMessagesRequestBuilder;
+    /**
+     * Provides operations to call the getAllTargetedMessages method.
+     */
+    get getAllTargetedMessages(): GetAllTargetedMessagesRequestBuilder;
     /**
      * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
      */
@@ -103,6 +121,15 @@ export const TeamworkRequestBuilderNavigationMetadata: Record<Exclude<keyof Team
     associatedTeams: {
         requestsMetadata: AssociatedTeamsRequestBuilderRequestsMetadata,
         navigationMetadata: AssociatedTeamsRequestBuilderNavigationMetadata,
+    },
+    deleteTargetedMessage: {
+        requestsMetadata: DeleteTargetedMessageRequestBuilderRequestsMetadata,
+    },
+    getAllRetainedTargetedMessages: {
+        requestsMetadata: GetAllRetainedTargetedMessagesRequestBuilderRequestsMetadata,
+    },
+    getAllTargetedMessages: {
+        requestsMetadata: GetAllTargetedMessagesRequestBuilderRequestsMetadata,
     },
     installedApps: {
         requestsMetadata: InstalledAppsRequestBuilderRequestsMetadata,

@@ -65,7 +65,7 @@ export function deserializeIntoApplyPostRequestBody(applyPostRequestBody: Partia
     return {
         "backingStoreEnabled": n => { applyPostRequestBody.backingStoreEnabled = true; },
         "fields": n => { applyPostRequestBody.fields = n.getCollectionOfObjectValues<WorkbookSortField>(createWorkbookSortFieldFromDiscriminatorValue); },
-        "matchCase": n => { applyPostRequestBody.matchCase = n.getBooleanValue(); },
+        "matchCase": n => { applyPostRequestBody.matchCase = n.getBooleanValue() ?? false; },
         "method": n => { applyPostRequestBody.method = n.getStringValue(); },
     }
 }
@@ -79,7 +79,7 @@ export function deserializeIntoApplyPostRequestBody(applyPostRequestBody: Partia
 export function serializeApplyPostRequestBody(writer: SerializationWriter, applyPostRequestBody: Partial<ApplyPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!applyPostRequestBody || isSerializingDerivedType) { return; }
     writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", applyPostRequestBody.fields, serializeWorkbookSortField);
-    writer.writeBooleanValue("matchCase", applyPostRequestBody.matchCase);
+    writer.writeBooleanValue("matchCase", applyPostRequestBody.matchCase ?? false);
     writer.writeStringValue("method", applyPostRequestBody.method);
     writer.writeAdditionalData(applyPostRequestBody.additionalData);
 }

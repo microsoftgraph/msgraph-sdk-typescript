@@ -28,7 +28,7 @@ export function deserializeIntoTentativelyAcceptPostRequestBody(tentativelyAccep
         "backingStoreEnabled": n => { tentativelyAcceptPostRequestBody.backingStoreEnabled = true; },
         "Comment": n => { tentativelyAcceptPostRequestBody.comment = n.getStringValue(); },
         "ProposedNewTime": n => { tentativelyAcceptPostRequestBody.proposedNewTime = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
-        "SendResponse": n => { tentativelyAcceptPostRequestBody.sendResponse = n.getBooleanValue(); },
+        "SendResponse": n => { tentativelyAcceptPostRequestBody.sendResponse = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -42,7 +42,7 @@ export function serializeTentativelyAcceptPostRequestBody(writer: SerializationW
     if (!tentativelyAcceptPostRequestBody || isSerializingDerivedType) { return; }
     writer.writeStringValue("Comment", tentativelyAcceptPostRequestBody.comment);
     writer.writeObjectValue<TimeSlot>("ProposedNewTime", tentativelyAcceptPostRequestBody.proposedNewTime, serializeTimeSlot);
-    writer.writeBooleanValue("SendResponse", tentativelyAcceptPostRequestBody.sendResponse);
+    writer.writeBooleanValue("SendResponse", tentativelyAcceptPostRequestBody.sendResponse ?? false);
     writer.writeAdditionalData(tentativelyAcceptPostRequestBody.additionalData);
 }
 export interface TentativelyAcceptPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
