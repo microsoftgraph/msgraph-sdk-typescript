@@ -34,7 +34,7 @@ export function createEvaluatePostResponseFromDiscriminatorValue(parseNode: Pars
 // @ts-ignore
 export function deserializeIntoEvaluatePostRequestBody(evaluatePostRequestBody: Partial<EvaluatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "appliedPoliciesOnly": n => { evaluatePostRequestBody.appliedPoliciesOnly = n.getBooleanValue(); },
+        "appliedPoliciesOnly": n => { evaluatePostRequestBody.appliedPoliciesOnly = n.getBooleanValue() ?? false; },
         "backingStoreEnabled": n => { evaluatePostRequestBody.backingStoreEnabled = true; },
         "signInConditions": n => { evaluatePostRequestBody.signInConditions = n.getObjectValue<SignInConditions>(createSignInConditionsFromDiscriminatorValue); },
         "signInContext": n => { evaluatePostRequestBody.signInContext = n.getObjectValue<SignInContext>(createSignInContextFromDiscriminatorValue); },
@@ -111,7 +111,7 @@ export interface EvaluateRequestBuilder extends BaseRequestBuilder<EvaluateReque
 // @ts-ignore
 export function serializeEvaluatePostRequestBody(writer: SerializationWriter, evaluatePostRequestBody: Partial<EvaluatePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!evaluatePostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("appliedPoliciesOnly", evaluatePostRequestBody.appliedPoliciesOnly);
+    writer.writeBooleanValue("appliedPoliciesOnly", evaluatePostRequestBody.appliedPoliciesOnly ?? false);
     writer.writeObjectValue<SignInConditions>("signInConditions", evaluatePostRequestBody.signInConditions, serializeSignInConditions);
     writer.writeObjectValue<SignInContext>("signInContext", evaluatePostRequestBody.signInContext, serializeSignInContext);
     writer.writeObjectValue<SignInIdentity>("signInIdentity", evaluatePostRequestBody.signInIdentity, serializeSignInIdentity);

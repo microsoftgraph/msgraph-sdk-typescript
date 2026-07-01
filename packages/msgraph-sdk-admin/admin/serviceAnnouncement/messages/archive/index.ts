@@ -74,7 +74,7 @@ export function createArchivePostResponseFromDiscriminatorValue(parseNode: Parse
 export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Partial<ArchivePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { archivePostRequestBody.backingStoreEnabled = true; },
-        "messageIds": n => { archivePostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "messageIds": n => { archivePostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**
@@ -86,7 +86,7 @@ export function deserializeIntoArchivePostRequestBody(archivePostRequestBody: Pa
 export function deserializeIntoArchivePostResponse(archivePostResponse: Partial<ArchivePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { archivePostResponse.backingStoreEnabled = true; },
-        "value": n => { archivePostResponse.value = n.getBooleanValue(); },
+        "value": n => { archivePostResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -110,7 +110,7 @@ export function serializeArchivePostRequestBody(writer: SerializationWriter, arc
 // @ts-ignore
 export function serializeArchivePostResponse(writer: SerializationWriter, archivePostResponse: Partial<ArchivePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!archivePostResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", archivePostResponse.value);
+    writer.writeBooleanValue("value", archivePostResponse.value ?? false);
     writer.writeAdditionalData(archivePostResponse.additionalData);
 }
 /**

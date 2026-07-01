@@ -45,7 +45,7 @@ export function deserializeIntoRemoveGroupPostRequestBody(removeGroupPostRequest
 export function deserializeIntoRemoveGroupPostResponse(removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removeGroupPostResponse.backingStoreEnabled = true; },
-        "value": n => { removeGroupPostResponse.value = n.getBooleanValue(); },
+        "value": n => { removeGroupPostResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 export interface RemoveGroupPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -110,7 +110,7 @@ export function serializeRemoveGroupPostRequestBody(writer: SerializationWriter,
 // @ts-ignore
 export function serializeRemoveGroupPostResponse(writer: SerializationWriter, removeGroupPostResponse: Partial<RemoveGroupPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!removeGroupPostResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", removeGroupPostResponse.value);
+    writer.writeBooleanValue("value", removeGroupPostResponse.value ?? false);
     writer.writeAdditionalData(removeGroupPostResponse.additionalData);
 }
 /**

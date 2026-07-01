@@ -335,7 +335,7 @@ export function deserializeIntoTeamsUserConfiguration(teamsUserConfiguration: Pa
         "accountType": n => { teamsUserConfiguration.accountType = n.getEnumValue<AccountType>(AccountTypeObject); },
         "createdDateTime": n => { teamsUserConfiguration.createdDateTime = n.getDateValue(); },
         "effectivePolicyAssignments": n => { teamsUserConfiguration.effectivePolicyAssignments = n.getCollectionOfObjectValues<EffectivePolicyAssignment>(createEffectivePolicyAssignmentFromDiscriminatorValue); },
-        "featureTypes": n => { teamsUserConfiguration.featureTypes = n.getCollectionOfPrimitiveValues<string>(); },
+        "featureTypes": n => { teamsUserConfiguration.featureTypes = n.getCollectionOfPrimitiveValues<string>("string"); },
         "isEnterpriseVoiceEnabled": n => { teamsUserConfiguration.isEnterpriseVoiceEnabled = n.getBooleanValue(); },
         "modifiedDateTime": n => { teamsUserConfiguration.modifiedDateTime = n.getDateValue(); },
         "telephoneNumbers": n => { teamsUserConfiguration.telephoneNumbers = n.getCollectionOfObjectValues<AssignedTelephoneNumber>(createAssignedTelephoneNumberFromDiscriminatorValue); },

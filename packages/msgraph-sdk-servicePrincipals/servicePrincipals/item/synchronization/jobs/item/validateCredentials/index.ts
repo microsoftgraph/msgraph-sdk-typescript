@@ -29,7 +29,7 @@ export function deserializeIntoValidateCredentialsPostRequestBody(validateCreden
         "backingStoreEnabled": n => { validateCredentialsPostRequestBody.backingStoreEnabled = true; },
         "credentials": n => { validateCredentialsPostRequestBody.credentials = n.getCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>(createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue); },
         "templateId": n => { validateCredentialsPostRequestBody.templateId = n.getStringValue(); },
-        "useSavedCredentials": n => { validateCredentialsPostRequestBody.useSavedCredentials = n.getBooleanValue(); },
+        "useSavedCredentials": n => { validateCredentialsPostRequestBody.useSavedCredentials = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -44,7 +44,7 @@ export function serializeValidateCredentialsPostRequestBody(writer: Serializatio
     writer.writeStringValue("applicationIdentifier", validateCredentialsPostRequestBody.applicationIdentifier);
     writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", validateCredentialsPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
     writer.writeStringValue("templateId", validateCredentialsPostRequestBody.templateId);
-    writer.writeBooleanValue("useSavedCredentials", validateCredentialsPostRequestBody.useSavedCredentials);
+    writer.writeBooleanValue("useSavedCredentials", validateCredentialsPostRequestBody.useSavedCredentials ?? false);
     writer.writeAdditionalData(validateCredentialsPostRequestBody.additionalData);
 }
 export interface ValidateCredentialsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

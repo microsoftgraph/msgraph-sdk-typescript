@@ -78,7 +78,7 @@ export function createAvailableProviderTypesGetResponseFromDiscriminatorValue(pa
 export function deserializeIntoAvailableProviderTypesGetResponse(availableProviderTypesGetResponse: Partial<AvailableProviderTypesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(availableProviderTypesGetResponse),
-        "value": n => { availableProviderTypesGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        "value": n => { availableProviderTypesGetResponse.value = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

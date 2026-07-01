@@ -37,7 +37,7 @@ export function deserializeIntoGetSchedulePostRequestBody(getSchedulePostRequest
         "AvailabilityViewInterval": n => { getSchedulePostRequestBody.availabilityViewInterval = n.getNumberValue(); },
         "backingStoreEnabled": n => { getSchedulePostRequestBody.backingStoreEnabled = true; },
         "EndTime": n => { getSchedulePostRequestBody.endTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
-        "Schedules": n => { getSchedulePostRequestBody.schedules = n.getCollectionOfPrimitiveValues<string>(); },
+        "Schedules": n => { getSchedulePostRequestBody.schedules = n.getCollectionOfPrimitiveValues<string>("string"); },
         "StartTime": n => { getSchedulePostRequestBody.startTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
     }
 }

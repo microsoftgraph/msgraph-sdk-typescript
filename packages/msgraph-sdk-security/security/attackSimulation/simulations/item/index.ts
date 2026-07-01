@@ -46,7 +46,7 @@ export interface SimulationItemRequestBuilder extends BaseRequestBuilder<Simulat
      */
      get(requestConfiguration?: RequestConfiguration<SimulationItemRequestBuilderGetQueryParameters> | undefined) : Promise<Simulation | undefined>;
     /**
-     * Update an attack simulation campaign for a tenant.
+     * Update an attack simulation campaign for a tenant. You can only update simulations that are in draft status.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Simulation>}
@@ -67,7 +67,7 @@ export interface SimulationItemRequestBuilder extends BaseRequestBuilder<Simulat
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SimulationItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update an attack simulation campaign for a tenant.
+     * Update an attack simulation campaign for a tenant. You can only update simulations that are in draft status.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

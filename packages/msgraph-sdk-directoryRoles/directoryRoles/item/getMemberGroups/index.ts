@@ -35,7 +35,7 @@ export function createGetMemberGroupsPostResponseFromDiscriminatorValue(parseNod
 export function deserializeIntoGetMemberGroupsPostRequestBody(getMemberGroupsPostRequestBody: Partial<GetMemberGroupsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getMemberGroupsPostRequestBody.backingStoreEnabled = true; },
-        "securityEnabledOnly": n => { getMemberGroupsPostRequestBody.securityEnabledOnly = n.getBooleanValue(); },
+        "securityEnabledOnly": n => { getMemberGroupsPostRequestBody.securityEnabledOnly = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -47,7 +47,7 @@ export function deserializeIntoGetMemberGroupsPostRequestBody(getMemberGroupsPos
 export function deserializeIntoGetMemberGroupsPostResponse(getMemberGroupsPostResponse: Partial<GetMemberGroupsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getMemberGroupsPostResponse),
-        "value": n => { getMemberGroupsPostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        "value": n => { getMemberGroupsPostResponse.value = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 export interface GetMemberGroupsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -96,7 +96,7 @@ export interface GetMemberGroupsRequestBuilder extends BaseRequestBuilder<GetMem
 // @ts-ignore
 export function serializeGetMemberGroupsPostRequestBody(writer: SerializationWriter, getMemberGroupsPostRequestBody: Partial<GetMemberGroupsPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!getMemberGroupsPostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("securityEnabledOnly", getMemberGroupsPostRequestBody.securityEnabledOnly);
+    writer.writeBooleanValue("securityEnabledOnly", getMemberGroupsPostRequestBody.securityEnabledOnly ?? false);
     writer.writeAdditionalData(getMemberGroupsPostRequestBody.additionalData);
 }
 /**

@@ -89,9 +89,9 @@ export function deserializeIntoCreateLinkPostRequestBody(createLinkPostRequestBo
         "message": n => { createLinkPostRequestBody.message = n.getStringValue(); },
         "password": n => { createLinkPostRequestBody.password = n.getStringValue(); },
         "recipients": n => { createLinkPostRequestBody.recipients = n.getCollectionOfObjectValues<DriveRecipient>(createDriveRecipientFromDiscriminatorValue); },
-        "retainInheritedPermissions": n => { createLinkPostRequestBody.retainInheritedPermissions = n.getBooleanValue(); },
+        "retainInheritedPermissions": n => { createLinkPostRequestBody.retainInheritedPermissions = n.getBooleanValue() ?? false; },
         "scope": n => { createLinkPostRequestBody.scope = n.getStringValue(); },
-        "sendNotification": n => { createLinkPostRequestBody.sendNotification = n.getBooleanValue(); },
+        "sendNotification": n => { createLinkPostRequestBody.sendNotification = n.getBooleanValue() ?? false; },
         "type": n => { createLinkPostRequestBody.type = n.getStringValue(); },
     }
 }
@@ -108,9 +108,9 @@ export function serializeCreateLinkPostRequestBody(writer: SerializationWriter, 
     writer.writeStringValue("message", createLinkPostRequestBody.message);
     writer.writeStringValue("password", createLinkPostRequestBody.password);
     writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", createLinkPostRequestBody.recipients, serializeDriveRecipient);
-    writer.writeBooleanValue("retainInheritedPermissions", createLinkPostRequestBody.retainInheritedPermissions);
+    writer.writeBooleanValue("retainInheritedPermissions", createLinkPostRequestBody.retainInheritedPermissions ?? false);
     writer.writeStringValue("scope", createLinkPostRequestBody.scope);
-    writer.writeBooleanValue("sendNotification", createLinkPostRequestBody.sendNotification);
+    writer.writeBooleanValue("sendNotification", createLinkPostRequestBody.sendNotification ?? false);
     writer.writeStringValue("type", createLinkPostRequestBody.type);
     writer.writeAdditionalData(createLinkPostRequestBody.additionalData);
 }
