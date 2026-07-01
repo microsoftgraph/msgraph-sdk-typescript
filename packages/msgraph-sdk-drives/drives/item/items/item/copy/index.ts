@@ -68,8 +68,8 @@ export function createCopyPostRequestBodyFromDiscriminatorValue(parseNode: Parse
 export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: Partial<CopyPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { copyPostRequestBody.backingStoreEnabled = true; },
-        "childrenOnly": n => { copyPostRequestBody.childrenOnly = n.getBooleanValue(); },
-        "includeAllVersionHistory": n => { copyPostRequestBody.includeAllVersionHistory = n.getBooleanValue(); },
+        "childrenOnly": n => { copyPostRequestBody.childrenOnly = n.getBooleanValue() ?? false; },
+        "includeAllVersionHistory": n => { copyPostRequestBody.includeAllVersionHistory = n.getBooleanValue() ?? false; },
         "name": n => { copyPostRequestBody.name = n.getStringValue(); },
         "parentReference": n => { copyPostRequestBody.parentReference = n.getObjectValue<ItemReference>(createItemReferenceFromDiscriminatorValue); },
     }
@@ -83,8 +83,8 @@ export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: Partial<
 // @ts-ignore
 export function serializeCopyPostRequestBody(writer: SerializationWriter, copyPostRequestBody: Partial<CopyPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!copyPostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("childrenOnly", copyPostRequestBody.childrenOnly);
-    writer.writeBooleanValue("includeAllVersionHistory", copyPostRequestBody.includeAllVersionHistory);
+    writer.writeBooleanValue("childrenOnly", copyPostRequestBody.childrenOnly ?? false);
+    writer.writeBooleanValue("includeAllVersionHistory", copyPostRequestBody.includeAllVersionHistory ?? false);
     writer.writeStringValue("name", copyPostRequestBody.name);
     writer.writeObjectValue<ItemReference>("parentReference", copyPostRequestBody.parentReference, serializeItemReference);
     writer.writeAdditionalData(copyPostRequestBody.additionalData);

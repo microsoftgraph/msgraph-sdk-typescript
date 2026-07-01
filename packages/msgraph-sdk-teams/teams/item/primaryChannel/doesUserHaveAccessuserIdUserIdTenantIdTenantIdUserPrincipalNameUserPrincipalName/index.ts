@@ -24,7 +24,7 @@ export function createDoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipa
 export function deserializeIntoDoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse(doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse: Partial<DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.backingStoreEnabled = true; },
-        "value": n => { doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.value = n.getBooleanValue(); },
+        "value": n => { doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 export interface DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
@@ -82,7 +82,7 @@ export interface DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalName
 // @ts-ignore
 export function serializeDoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse(writer: SerializationWriter, doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse: Partial<DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.value);
+    writer.writeBooleanValue("value", doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.value ?? false);
     writer.writeAdditionalData(doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameGetResponse.additionalData);
 }
 /**

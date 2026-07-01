@@ -378,7 +378,7 @@ export function deserializeIntoActivitySettings(activitySettings: Partial<Activi
 // @ts-ignore
 export function deserializeIntoConfiguration(configuration: Partial<Configuration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "authorizedAppIds": n => { configuration.authorizedAppIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "authorizedAppIds": n => { configuration.authorizedAppIds = n.getCollectionOfPrimitiveValues<string>("string"); },
         "backingStoreEnabled": n => { configuration.backingStoreEnabled = true; },
         "@odata.type": n => { configuration.odataType = n.getStringValue(); },
     }
@@ -634,7 +634,7 @@ export function deserializeIntoProperties(properties: Partial<Properties> | unde
 // @ts-ignore
 export function deserializeIntoProperty(property: Partial<Property> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "aliases": n => { property.aliases = n.getCollectionOfPrimitiveValues<string>(); },
+        "aliases": n => { property.aliases = n.getCollectionOfPrimitiveValues<string>("string"); },
         "backingStoreEnabled": n => { property.backingStoreEnabled = true; },
         "description": n => { property.description = n.getStringValue(); },
         "isQueryable": n => { property.isQueryable = n.getBooleanValue(); },
@@ -659,7 +659,7 @@ export function deserializeIntoPropertyRule(propertyRule: Partial<PropertyRule> 
         "@odata.type": n => { propertyRule.odataType = n.getStringValue(); },
         "operation": n => { propertyRule.operation = n.getEnumValue<RuleOperation>(RuleOperationObject); },
         "property": n => { propertyRule.property = n.getStringValue(); },
-        "values": n => { propertyRule.values = n.getCollectionOfPrimitiveValues<string>(); },
+        "values": n => { propertyRule.values = n.getCollectionOfPrimitiveValues<string>("string"); },
         "valuesJoinedBy": n => { propertyRule.valuesJoinedBy = n.getEnumValue<BinaryOperator>(BinaryOperatorObject); },
     }
 }
@@ -698,7 +698,7 @@ export function deserializeIntoSearchSettings(searchSettings: Partial<SearchSett
 export function deserializeIntoUrlMatchInfo(urlMatchInfo: Partial<UrlMatchInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { urlMatchInfo.backingStoreEnabled = true; },
-        "baseUrls": n => { urlMatchInfo.baseUrls = n.getCollectionOfPrimitiveValues<string>(); },
+        "baseUrls": n => { urlMatchInfo.baseUrls = n.getCollectionOfPrimitiveValues<string>("string"); },
         "@odata.type": n => { urlMatchInfo.odataType = n.getStringValue(); },
         "urlPattern": n => { urlMatchInfo.urlPattern = n.getStringValue(); },
     }
@@ -1567,6 +1567,7 @@ export const LabelObject = {
     PersonLanguages: "personLanguages",
     PersonPublications: "personPublications",
     PersonPatents: "personPatents",
+    PersonWorkPositions: "personWorkPositions",
 } as const;
 export const PropertyTypeObject = {
     String: "string",

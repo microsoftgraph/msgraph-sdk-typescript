@@ -72,7 +72,7 @@ export function createCheckMemberGroupsPostResponseFromDiscriminatorValue(parseN
 export function deserializeIntoCheckMemberGroupsPostRequestBody(checkMemberGroupsPostRequestBody: Partial<CheckMemberGroupsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { checkMemberGroupsPostRequestBody.backingStoreEnabled = true; },
-        "groupIds": n => { checkMemberGroupsPostRequestBody.groupIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "groupIds": n => { checkMemberGroupsPostRequestBody.groupIds = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**
@@ -84,7 +84,7 @@ export function deserializeIntoCheckMemberGroupsPostRequestBody(checkMemberGroup
 export function deserializeIntoCheckMemberGroupsPostResponse(checkMemberGroupsPostResponse: Partial<CheckMemberGroupsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(checkMemberGroupsPostResponse),
-        "value": n => { checkMemberGroupsPostResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        "value": n => { checkMemberGroupsPostResponse.value = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

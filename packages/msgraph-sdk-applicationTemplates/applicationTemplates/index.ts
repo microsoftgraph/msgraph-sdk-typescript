@@ -27,7 +27,7 @@ export interface ApplicationTemplatesRequestBuilder extends BaseRequestBuilder<A
      */
      byApplicationTemplateId(applicationTemplateId: string) : ApplicationTemplateItemRequestBuilder;
     /**
-     * Retrieve a list of applicationTemplate objects from the Microsoft Entra application gallery.
+     * Retrieve a list of applicationTemplate objects from the Microsoft Entra application gallery. Details about optional risk properties such as riskScore and riskFactors are available with either the Microsoft Entra Suite or Microsoft Entra Internet Access license. If a risk property is included in the request without appropriate license, a @microsoft.graph.licenseRequired OData annotation is returned in the response.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApplicationTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,14 +35,14 @@ export interface ApplicationTemplatesRequestBuilder extends BaseRequestBuilder<A
      */
      get(requestConfiguration?: RequestConfiguration<ApplicationTemplatesRequestBuilderGetQueryParameters> | undefined) : Promise<ApplicationTemplateCollectionResponse | undefined>;
     /**
-     * Retrieve a list of applicationTemplate objects from the Microsoft Entra application gallery.
+     * Retrieve a list of applicationTemplate objects from the Microsoft Entra application gallery. Details about optional risk properties such as riskScore and riskFactors are available with either the Microsoft Entra Suite or Microsoft Entra Internet Access license. If a risk property is included in the request without appropriate license, a @microsoft.graph.licenseRequired OData annotation is returned in the response.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApplicationTemplatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve a list of applicationTemplate objects from the Microsoft Entra application gallery.
+ * Retrieve a list of applicationTemplate objects from the Microsoft Entra application gallery. Details about optional risk properties such as riskScore and riskFactors are available with either the Microsoft Entra Suite or Microsoft Entra Internet Access license. If a risk property is included in the request without appropriate license, a @microsoft.graph.licenseRequired OData annotation is returned in the response.
  */
 export interface ApplicationTemplatesRequestBuilderGetQueryParameters {
     /**

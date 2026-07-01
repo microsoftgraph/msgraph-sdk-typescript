@@ -33,7 +33,7 @@ export function createMarkReadPostResponseFromDiscriminatorValue(parseNode: Pars
 export function deserializeIntoMarkReadPostRequestBody(markReadPostRequestBody: Partial<MarkReadPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markReadPostRequestBody.backingStoreEnabled = true; },
-        "messageIds": n => { markReadPostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "messageIds": n => { markReadPostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**
@@ -45,7 +45,7 @@ export function deserializeIntoMarkReadPostRequestBody(markReadPostRequestBody: 
 export function deserializeIntoMarkReadPostResponse(markReadPostResponse: Partial<MarkReadPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { markReadPostResponse.backingStoreEnabled = true; },
-        "value": n => { markReadPostResponse.value = n.getBooleanValue(); },
+        "value": n => { markReadPostResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 export interface MarkReadPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -110,7 +110,7 @@ export function serializeMarkReadPostRequestBody(writer: SerializationWriter, ma
 // @ts-ignore
 export function serializeMarkReadPostResponse(writer: SerializationWriter, markReadPostResponse: Partial<MarkReadPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!markReadPostResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", markReadPostResponse.value);
+    writer.writeBooleanValue("value", markReadPostResponse.value ?? false);
     writer.writeAdditionalData(markReadPostResponse.additionalData);
 }
 /**

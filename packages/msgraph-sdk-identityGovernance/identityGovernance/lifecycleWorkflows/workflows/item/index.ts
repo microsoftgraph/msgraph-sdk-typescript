@@ -18,9 +18,17 @@ import { MicrosoftGraphIdentityGovernanceActivateRequestBuilderRequestsMetadata,
 // @ts-ignore
 import { MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder } from './microsoftGraphIdentityGovernanceActivateWithScope/index.js';
 // @ts-ignore
+import { MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilder } from './microsoftGraphIdentityGovernanceClearQuarantine/index.js';
+// @ts-ignore
 import { MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder } from './microsoftGraphIdentityGovernanceCreateNewVersion/index.js';
 // @ts-ignore
+import { MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder } from './microsoftGraphIdentityGovernancePreviewTaskFailures/index.js';
+// @ts-ignore
+import { MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder } from './microsoftGraphIdentityGovernancePreviewWorkflow/index.js';
+// @ts-ignore
 import { MicrosoftGraphIdentityGovernanceRestoreRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceRestoreRequestBuilder } from './microsoftGraphIdentityGovernanceRestore/index.js';
+// @ts-ignore
+import { PreviewScopeRequestBuilderNavigationMetadata, PreviewScopeRequestBuilderRequestsMetadata, type PreviewScopeRequestBuilder } from './previewScope/index.js';
 // @ts-ignore
 import { RunsRequestBuilderNavigationMetadata, RunsRequestBuilderRequestsMetadata, type RunsRequestBuilder } from './runs/index.js';
 // @ts-ignore
@@ -63,13 +71,29 @@ export interface WorkflowItemRequestBuilder extends BaseRequestBuilder<WorkflowI
      */
     get microsoftGraphIdentityGovernanceActivateWithScope(): MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder;
     /**
+     * Provides operations to call the clearQuarantine method.
+     */
+    get microsoftGraphIdentityGovernanceClearQuarantine(): MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilder;
+    /**
      * Provides operations to call the createNewVersion method.
      */
     get microsoftGraphIdentityGovernanceCreateNewVersion(): MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder;
     /**
+     * Provides operations to call the previewTaskFailures method.
+     */
+    get microsoftGraphIdentityGovernancePreviewTaskFailures(): MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilder;
+    /**
+     * Provides operations to call the previewWorkflow method.
+     */
+    get microsoftGraphIdentityGovernancePreviewWorkflow(): MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilder;
+    /**
      * Provides operations to call the restore method.
      */
     get microsoftGraphIdentityGovernanceRestore(): MicrosoftGraphIdentityGovernanceRestoreRequestBuilder;
+    /**
+     * Provides operations to manage the previewScope property of the microsoft.graph.identityGovernance.workflow entity.
+     */
+    get previewScope(): PreviewScopeRequestBuilder;
     /**
      * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
      */
@@ -184,11 +208,24 @@ export const WorkflowItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
     microsoftGraphIdentityGovernanceActivateWithScope: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata,
     },
+    microsoftGraphIdentityGovernanceClearQuarantine: {
+        requestsMetadata: MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilderRequestsMetadata,
+    },
     microsoftGraphIdentityGovernanceCreateNewVersion: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderRequestsMetadata,
     },
+    microsoftGraphIdentityGovernancePreviewTaskFailures: {
+        requestsMetadata: MicrosoftGraphIdentityGovernancePreviewTaskFailuresRequestBuilderRequestsMetadata,
+    },
+    microsoftGraphIdentityGovernancePreviewWorkflow: {
+        requestsMetadata: MicrosoftGraphIdentityGovernancePreviewWorkflowRequestBuilderRequestsMetadata,
+    },
     microsoftGraphIdentityGovernanceRestore: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceRestoreRequestBuilderRequestsMetadata,
+    },
+    previewScope: {
+        requestsMetadata: PreviewScopeRequestBuilderRequestsMetadata,
+        navigationMetadata: PreviewScopeRequestBuilderNavigationMetadata,
     },
     runs: {
         requestsMetadata: RunsRequestBuilderRequestsMetadata,
