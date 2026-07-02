@@ -35,7 +35,7 @@ export function createGetPresencesByUserIdPostResponseFromDiscriminatorValue(par
 export function deserializeIntoGetPresencesByUserIdPostRequestBody(getPresencesByUserIdPostRequestBody: Partial<GetPresencesByUserIdPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getPresencesByUserIdPostRequestBody.backingStoreEnabled = true; },
-        "ids": n => { getPresencesByUserIdPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>(); },
+        "ids": n => { getPresencesByUserIdPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

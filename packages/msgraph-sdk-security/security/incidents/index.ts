@@ -10,6 +10,8 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 // @ts-ignore
 import { IncidentItemRequestBuilderNavigationMetadata, IncidentItemRequestBuilderRequestsMetadata, type IncidentItemRequestBuilder } from './item/index.js';
 // @ts-ignore
+import { MicrosoftGraphSecurityMergeIncidentsRequestBuilderRequestsMetadata, type MicrosoftGraphSecurityMergeIncidentsRequestBuilder } from './microsoftGraphSecurityMergeIncidents/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -20,6 +22,10 @@ export interface IncidentsRequestBuilder extends BaseRequestBuilder<IncidentsReq
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Provides operations to call the mergeIncidents method.
+     */
+    get microsoftGraphSecurityMergeIncidents(): MicrosoftGraphSecurityMergeIncidentsRequestBuilder;
     /**
      * Provides operations to manage the incidents property of the microsoft.graph.security entity.
      * @param incidentId The unique identifier of incident
@@ -121,6 +127,9 @@ export const IncidentsRequestBuilderNavigationMetadata: Record<Exclude<keyof Inc
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    microsoftGraphSecurityMergeIncidents: {
+        requestsMetadata: MicrosoftGraphSecurityMergeIncidentsRequestBuilderRequestsMetadata,
     },
 };
 /**

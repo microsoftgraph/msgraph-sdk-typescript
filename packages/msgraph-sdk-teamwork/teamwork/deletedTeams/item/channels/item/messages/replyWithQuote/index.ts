@@ -26,7 +26,7 @@ export function createReplyWithQuotePostRequestBodyFromDiscriminatorValue(parseN
 export function deserializeIntoReplyWithQuotePostRequestBody(replyWithQuotePostRequestBody: Partial<ReplyWithQuotePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { replyWithQuotePostRequestBody.backingStoreEnabled = true; },
-        "messageIds": n => { replyWithQuotePostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "messageIds": n => { replyWithQuotePostRequestBody.messageIds = n.getCollectionOfPrimitiveValues<string>("string"); },
         "replyMessage": n => { replyWithQuotePostRequestBody.replyMessage = n.getObjectValue<ChatMessage>(createChatMessageFromDiscriminatorValue); },
     }
 }

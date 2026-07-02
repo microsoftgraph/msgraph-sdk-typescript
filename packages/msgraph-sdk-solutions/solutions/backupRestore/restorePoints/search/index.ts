@@ -28,7 +28,7 @@ export function deserializeIntoSearchPostRequestBody(searchPostRequestBody: Part
         "artifactQuery": n => { searchPostRequestBody.artifactQuery = n.getObjectValue<ArtifactQuery>(createArtifactQueryFromDiscriminatorValue); },
         "backingStoreEnabled": n => { searchPostRequestBody.backingStoreEnabled = true; },
         "protectionTimePeriod": n => { searchPostRequestBody.protectionTimePeriod = n.getObjectValue<TimePeriod>(createTimePeriodFromDiscriminatorValue); },
-        "protectionUnitIds": n => { searchPostRequestBody.protectionUnitIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "protectionUnitIds": n => { searchPostRequestBody.protectionUnitIds = n.getCollectionOfPrimitiveValues<string>("string"); },
         "restorePointPreference": n => { searchPostRequestBody.restorePointPreference = n.getEnumValue<RestorePointPreference>(RestorePointPreferenceObject); },
         "tags": n => { searchPostRequestBody.tags = n.getCollectionOfEnumValues<RestorePointTags>(RestorePointTagsObject); },
     }

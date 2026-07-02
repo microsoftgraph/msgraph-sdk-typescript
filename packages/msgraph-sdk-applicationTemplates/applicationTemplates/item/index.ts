@@ -19,7 +19,7 @@ export interface ApplicationTemplateItemRequestBuilder extends BaseRequestBuilde
      */
     get instantiate(): InstantiateRequestBuilder;
     /**
-     * Retrieve the properties of an applicationTemplate object.
+     * Retrieve the properties of an applicationTemplate object. Details about optional risk properties such as riskScore and riskFactors are available with either the Microsoft Entra Suite or Microsoft Entra Internet Access license.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ApplicationTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -27,14 +27,14 @@ export interface ApplicationTemplateItemRequestBuilder extends BaseRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<ApplicationTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<ApplicationTemplate | undefined>;
     /**
-     * Retrieve the properties of an applicationTemplate object.
+     * Retrieve the properties of an applicationTemplate object. Details about optional risk properties such as riskScore and riskFactors are available with either the Microsoft Entra Suite or Microsoft Entra Internet Access license.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ApplicationTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the properties of an applicationTemplate object.
+ * Retrieve the properties of an applicationTemplate object. Details about optional risk properties such as riskScore and riskFactors are available with either the Microsoft Entra Suite or Microsoft Entra Internet Access license.
  */
 export interface ApplicationTemplateItemRequestBuilderGetQueryParameters {
     /**

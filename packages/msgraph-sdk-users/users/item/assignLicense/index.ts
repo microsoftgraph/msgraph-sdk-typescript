@@ -62,7 +62,7 @@ export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostReq
     return {
         "addLicenses": n => { assignLicensePostRequestBody.addLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
         "backingStoreEnabled": n => { assignLicensePostRequestBody.backingStoreEnabled = true; },
-        "removeLicenses": n => { assignLicensePostRequestBody.removeLicenses = n.getCollectionOfPrimitiveValues<Guid>(); },
+        "removeLicenses": n => { assignLicensePostRequestBody.removeLicenses = n.getCollectionOfPrimitiveValues<Guid>("string"); },
     }
 }
 /**

@@ -23,7 +23,7 @@ export interface AcquireAccessTokenPostRequestBody extends AdditionalDataHolder,
  */
 export interface AcquireAccessTokenRequestBuilder extends BaseRequestBuilder<AcquireAccessTokenRequestBuilder> {
     /**
-     * Acquire an OAuth access token to authorize the Microsoft Entra provisioning service to provision users into an application.
+     * Acquire an OAuth access token from the synchronization resource to authorize the Microsoft Entra provisioning service to provision users into an application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -31,7 +31,7 @@ export interface AcquireAccessTokenRequestBuilder extends BaseRequestBuilder<Acq
      */
      post(body: AcquireAccessTokenPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Acquire an OAuth access token to authorize the Microsoft Entra provisioning service to provision users into an application.
+     * Acquire an OAuth access token from the synchronization resource to authorize the Microsoft Entra provisioning service to provision users into an application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

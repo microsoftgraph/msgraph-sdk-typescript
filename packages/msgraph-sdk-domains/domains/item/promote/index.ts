@@ -24,7 +24,7 @@ export function createPromotePostResponseFromDiscriminatorValue(parseNode: Parse
 export function deserializeIntoPromotePostResponse(promotePostResponse: Partial<PromotePostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { promotePostResponse.backingStoreEnabled = true; },
-        "value": n => { promotePostResponse.value = n.getBooleanValue(); },
+        "value": n => { promotePostResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 export interface PromotePostResponse extends AdditionalDataHolder, BackedModel, Parsable {
@@ -65,7 +65,7 @@ export interface PromoteRequestBuilder extends BaseRequestBuilder<PromoteRequest
 // @ts-ignore
 export function serializePromotePostResponse(writer: SerializationWriter, promotePostResponse: Partial<PromotePostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!promotePostResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", promotePostResponse.value);
+    writer.writeBooleanValue("value", promotePostResponse.value ?? false);
     writer.writeAdditionalData(promotePostResponse.additionalData);
 }
 /**

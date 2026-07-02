@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DiscoverRequestBuilder extends BaseRequestBuilder<DiscoverRequestBuilder> {
     /**
-     * Discover the latest schema definition for provisioning to an application. 
+     * Discover the latest schema definition for provisioning to an application for the directoryDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryDefinition>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -21,7 +21,7 @@ export interface DiscoverRequestBuilder extends BaseRequestBuilder<DiscoverReque
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<DirectoryDefinition | undefined>;
     /**
-     * Discover the latest schema definition for provisioning to an application. 
+     * Discover the latest schema definition for provisioning to an application for the directoryDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

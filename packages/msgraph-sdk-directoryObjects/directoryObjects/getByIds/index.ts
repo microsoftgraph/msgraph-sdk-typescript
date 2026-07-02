@@ -35,8 +35,8 @@ export function createGetByIdsPostResponseFromDiscriminatorValue(parseNode: Pars
 export function deserializeIntoGetByIdsPostRequestBody(getByIdsPostRequestBody: Partial<GetByIdsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { getByIdsPostRequestBody.backingStoreEnabled = true; },
-        "ids": n => { getByIdsPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>(); },
-        "types": n => { getByIdsPostRequestBody.types = n.getCollectionOfPrimitiveValues<string>(); },
+        "ids": n => { getByIdsPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "types": n => { getByIdsPostRequestBody.types = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

@@ -26,7 +26,7 @@ export function createGetAuditCategoriesGetResponseFromDiscriminatorValue(parseN
 export function deserializeIntoGetAuditCategoriesGetResponse(getAuditCategoriesGetResponse: Partial<GetAuditCategoriesGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getAuditCategoriesGetResponse),
-        "value": n => { getAuditCategoriesGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        "value": n => { getAuditCategoriesGetResponse.value = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 export interface GetAuditCategoriesGetResponse extends BaseCollectionPaginationCountResponse, Parsable {

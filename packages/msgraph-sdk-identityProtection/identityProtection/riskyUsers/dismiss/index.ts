@@ -24,7 +24,7 @@ export function createDismissPostRequestBodyFromDiscriminatorValue(parseNode: Pa
 export function deserializeIntoDismissPostRequestBody(dismissPostRequestBody: Partial<DismissPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { dismissPostRequestBody.backingStoreEnabled = true; },
-        "userIds": n => { dismissPostRequestBody.userIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "userIds": n => { dismissPostRequestBody.userIds = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 export interface DismissPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

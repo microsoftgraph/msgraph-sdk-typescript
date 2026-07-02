@@ -29,7 +29,7 @@ export function deserializeIntoValidateCredentialsPostRequestBody(validateCreden
         "backingStoreEnabled": n => { validateCredentialsPostRequestBody.backingStoreEnabled = true; },
         "credentials": n => { validateCredentialsPostRequestBody.credentials = n.getCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>(createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue); },
         "templateId": n => { validateCredentialsPostRequestBody.templateId = n.getStringValue(); },
-        "useSavedCredentials": n => { validateCredentialsPostRequestBody.useSavedCredentials = n.getBooleanValue(); },
+        "useSavedCredentials": n => { validateCredentialsPostRequestBody.useSavedCredentials = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -44,7 +44,7 @@ export function serializeValidateCredentialsPostRequestBody(writer: Serializatio
     writer.writeStringValue("applicationIdentifier", validateCredentialsPostRequestBody.applicationIdentifier);
     writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", validateCredentialsPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
     writer.writeStringValue("templateId", validateCredentialsPostRequestBody.templateId);
-    writer.writeBooleanValue("useSavedCredentials", validateCredentialsPostRequestBody.useSavedCredentials);
+    writer.writeBooleanValue("useSavedCredentials", validateCredentialsPostRequestBody.useSavedCredentials ?? false);
     writer.writeAdditionalData(validateCredentialsPostRequestBody.additionalData);
 }
 export interface ValidateCredentialsPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {
@@ -74,7 +74,7 @@ export interface ValidateCredentialsPostRequestBody extends AdditionalDataHolder
  */
 export interface ValidateCredentialsRequestBuilder extends BaseRequestBuilder<ValidateCredentialsRequestBuilder> {
     /**
-     * Validate that the credentials are valid in the tenant.
+     * Validate that the credentials are valid in the tenant for a synchronizationJob.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -82,7 +82,7 @@ export interface ValidateCredentialsRequestBuilder extends BaseRequestBuilder<Va
      */
      post(body: ValidateCredentialsPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Validate that the credentials are valid in the tenant.
+     * Validate that the credentials are valid in the tenant for a synchronizationJob.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

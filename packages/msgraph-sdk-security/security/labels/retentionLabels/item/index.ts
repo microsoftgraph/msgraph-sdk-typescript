@@ -38,10 +38,11 @@ export interface RetentionLabelItemRequestBuilder extends BaseRequestBuilder<Ret
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Represents how customers can manage their data, whether and for how long to retain or delete it.
+     * Read the properties and relationships of a retentionLabel object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RetentionLabel>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentionlabel-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RetentionLabelItemRequestBuilderGetQueryParameters> | undefined) : Promise<RetentionLabel | undefined>;
     /**
@@ -60,7 +61,7 @@ export interface RetentionLabelItemRequestBuilder extends BaseRequestBuilder<Ret
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Represents how customers can manage their data, whether and for how long to retain or delete it.
+     * Read the properties and relationships of a retentionLabel object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -74,7 +75,7 @@ export interface RetentionLabelItemRequestBuilder extends BaseRequestBuilder<Ret
      toPatchRequestInformation(body: RetentionLabel, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Represents how customers can manage their data, whether and for how long to retain or delete it.
+ * Read the properties and relationships of a retentionLabel object.
  */
 export interface RetentionLabelItemRequestBuilderGetQueryParameters {
     /**
