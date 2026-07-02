@@ -26,7 +26,7 @@ export function createGetUserIdsWithFlaggedAppRegistrationGetResponseFromDiscrim
 export function deserializeIntoGetUserIdsWithFlaggedAppRegistrationGetResponse(getUserIdsWithFlaggedAppRegistrationGetResponse: Partial<GetUserIdsWithFlaggedAppRegistrationGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getUserIdsWithFlaggedAppRegistrationGetResponse),
-        "value": n => { getUserIdsWithFlaggedAppRegistrationGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        "value": n => { getUserIdsWithFlaggedAppRegistrationGetResponse.value = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 export interface GetUserIdsWithFlaggedAppRegistrationGetResponse extends BaseCollectionPaginationCountResponse, Parsable {

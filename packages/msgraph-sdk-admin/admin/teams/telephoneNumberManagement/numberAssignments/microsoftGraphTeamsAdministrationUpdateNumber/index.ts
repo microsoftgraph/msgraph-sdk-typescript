@@ -26,7 +26,7 @@ export function deserializeIntoUpdateNumberPostRequestBody(updateNumberPostReque
         "backingStoreEnabled": n => { updateNumberPostRequestBody.backingStoreEnabled = true; },
         "locationId": n => { updateNumberPostRequestBody.locationId = n.getStringValue(); },
         "networkSiteId": n => { updateNumberPostRequestBody.networkSiteId = n.getStringValue(); },
-        "reverseNumberLookupOptions": n => { updateNumberPostRequestBody.reverseNumberLookupOptions = n.getCollectionOfPrimitiveValues<string>(); },
+        "reverseNumberLookupOptions": n => { updateNumberPostRequestBody.reverseNumberLookupOptions = n.getCollectionOfPrimitiveValues<string>("string"); },
         "telephoneNumber": n => { updateNumberPostRequestBody.telephoneNumber = n.getStringValue(); },
     }
 }

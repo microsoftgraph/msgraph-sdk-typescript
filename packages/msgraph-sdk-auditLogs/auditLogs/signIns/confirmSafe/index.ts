@@ -54,7 +54,7 @@ export function createConfirmSafePostRequestBodyFromDiscriminatorValue(parseNode
 export function deserializeIntoConfirmSafePostRequestBody(confirmSafePostRequestBody: Partial<ConfirmSafePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { confirmSafePostRequestBody.backingStoreEnabled = true; },
-        "requestIds": n => { confirmSafePostRequestBody.requestIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "requestIds": n => { confirmSafePostRequestBody.requestIds = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

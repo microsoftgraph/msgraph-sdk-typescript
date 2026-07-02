@@ -54,7 +54,7 @@ export function createConfirmCompromisedPostRequestBodyFromDiscriminatorValue(pa
 export function deserializeIntoConfirmCompromisedPostRequestBody(confirmCompromisedPostRequestBody: Partial<ConfirmCompromisedPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { confirmCompromisedPostRequestBody.backingStoreEnabled = true; },
-        "servicePrincipalIds": n => { confirmCompromisedPostRequestBody.servicePrincipalIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "servicePrincipalIds": n => { confirmCompromisedPostRequestBody.servicePrincipalIds = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

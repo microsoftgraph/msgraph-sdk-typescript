@@ -55,14 +55,14 @@ export interface SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
      */
     get validateCredentials(): ValidateCredentialsRequestBuilder;
     /**
-     * Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
+     * Stop the synchronizationJob, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the existing synchronization job and its properties.
+     * Retrieve an existing synchronizationJob and its properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -78,13 +78,13 @@ export interface SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
      */
      patch(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SynchronizationJob | undefined>;
     /**
-     * Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
+     * Stop the synchronizationJob, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the existing synchronization job and its properties.
+     * Retrieve an existing synchronizationJob and its properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -98,7 +98,7 @@ export interface SynchronizationJobItemRequestBuilder extends BaseRequestBuilder
      toPatchRequestInformation(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the existing synchronization job and its properties.
+ * Retrieve an existing synchronizationJob and its properties.
  */
 export interface SynchronizationJobItemRequestBuilderGetQueryParameters {
     /**

@@ -72,7 +72,7 @@ export function deserializeIntoComputeRightsAndInheritancePostRequestBody(comput
         "delegatedUserEmail": n => { computeRightsAndInheritancePostRequestBody.delegatedUserEmail = n.getStringValue(); },
         "locale": n => { computeRightsAndInheritancePostRequestBody.locale = n.getStringValue(); },
         "protectedContents": n => { computeRightsAndInheritancePostRequestBody.protectedContents = n.getCollectionOfObjectValues<ProtectedContent>(createProtectedContentFromDiscriminatorValue); },
-        "supportedContentFormats": n => { computeRightsAndInheritancePostRequestBody.supportedContentFormats = n.getCollectionOfPrimitiveValues<string>(); },
+        "supportedContentFormats": n => { computeRightsAndInheritancePostRequestBody.supportedContentFormats = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

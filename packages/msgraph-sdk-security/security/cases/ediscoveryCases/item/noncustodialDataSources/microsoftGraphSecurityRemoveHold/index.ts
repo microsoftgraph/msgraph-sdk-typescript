@@ -24,7 +24,7 @@ export function createRemoveHoldPostRequestBodyFromDiscriminatorValue(parseNode:
 export function deserializeIntoRemoveHoldPostRequestBody(removeHoldPostRequestBody: Partial<RemoveHoldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { removeHoldPostRequestBody.backingStoreEnabled = true; },
-        "ids": n => { removeHoldPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>(); },
+        "ids": n => { removeHoldPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

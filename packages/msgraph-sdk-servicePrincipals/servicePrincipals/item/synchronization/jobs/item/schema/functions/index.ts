@@ -40,7 +40,7 @@ export interface FunctionsGetResponse extends BaseCollectionPaginationCountRespo
  */
 export interface FunctionsRequestBuilder extends BaseRequestBuilder<FunctionsRequestBuilder> {
     /**
-     * List all the functions currently supported in the attributeMappingSource.
+     * List all the functions currently supported in the attributeMappingSource for a synchronizationSchema.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FunctionsGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -48,14 +48,14 @@ export interface FunctionsRequestBuilder extends BaseRequestBuilder<FunctionsReq
      */
      get(requestConfiguration?: RequestConfiguration<FunctionsRequestBuilderGetQueryParameters> | undefined) : Promise<FunctionsGetResponse | undefined>;
     /**
-     * List all the functions currently supported in the attributeMappingSource.
+     * List all the functions currently supported in the attributeMappingSource for a synchronizationSchema.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FunctionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * List all the functions currently supported in the attributeMappingSource.
+ * List all the functions currently supported in the attributeMappingSource for a synchronizationSchema.
  */
 export interface FunctionsRequestBuilderGetQueryParameters {
     /**

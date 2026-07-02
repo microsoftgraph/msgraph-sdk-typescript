@@ -26,7 +26,7 @@ export function createGetManagedDevicesWithAppFailuresGetResponseFromDiscriminat
 export function deserializeIntoGetManagedDevicesWithAppFailuresGetResponse(getManagedDevicesWithAppFailuresGetResponse: Partial<GetManagedDevicesWithAppFailuresGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(getManagedDevicesWithAppFailuresGetResponse),
-        "value": n => { getManagedDevicesWithAppFailuresGetResponse.value = n.getCollectionOfPrimitiveValues<string>(); },
+        "value": n => { getManagedDevicesWithAppFailuresGetResponse.value = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 export interface GetManagedDevicesWithAppFailuresGetResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -26,7 +26,7 @@ export function createStartBreakPostRequestBodyFromDiscriminatorValue(parseNode:
 export function deserializeIntoStartBreakPostRequestBody(startBreakPostRequestBody: Partial<StartBreakPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { startBreakPostRequestBody.backingStoreEnabled = true; },
-        "isAtApprovedLocation": n => { startBreakPostRequestBody.isAtApprovedLocation = n.getBooleanValue(); },
+        "isAtApprovedLocation": n => { startBreakPostRequestBody.isAtApprovedLocation = n.getBooleanValue() ?? false; },
         "notes": n => { startBreakPostRequestBody.notes = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
     }
 }
@@ -39,7 +39,7 @@ export function deserializeIntoStartBreakPostRequestBody(startBreakPostRequestBo
 // @ts-ignore
 export function serializeStartBreakPostRequestBody(writer: SerializationWriter, startBreakPostRequestBody: Partial<StartBreakPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!startBreakPostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("isAtApprovedLocation", startBreakPostRequestBody.isAtApprovedLocation);
+    writer.writeBooleanValue("isAtApprovedLocation", startBreakPostRequestBody.isAtApprovedLocation ?? false);
     writer.writeObjectValue<ItemBody>("notes", startBreakPostRequestBody.notes, serializeItemBody);
     writer.writeAdditionalData(startBreakPostRequestBody.additionalData);
 }

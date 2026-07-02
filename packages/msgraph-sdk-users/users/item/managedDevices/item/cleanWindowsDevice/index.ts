@@ -53,7 +53,7 @@ export function createCleanWindowsDevicePostRequestBodyFromDiscriminatorValue(pa
 export function deserializeIntoCleanWindowsDevicePostRequestBody(cleanWindowsDevicePostRequestBody: Partial<CleanWindowsDevicePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { cleanWindowsDevicePostRequestBody.backingStoreEnabled = true; },
-        "keepUserData": n => { cleanWindowsDevicePostRequestBody.keepUserData = n.getBooleanValue(); },
+        "keepUserData": n => { cleanWindowsDevicePostRequestBody.keepUserData = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -65,7 +65,7 @@ export function deserializeIntoCleanWindowsDevicePostRequestBody(cleanWindowsDev
 // @ts-ignore
 export function serializeCleanWindowsDevicePostRequestBody(writer: SerializationWriter, cleanWindowsDevicePostRequestBody: Partial<CleanWindowsDevicePostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!cleanWindowsDevicePostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("keepUserData", cleanWindowsDevicePostRequestBody.keepUserData);
+    writer.writeBooleanValue("keepUserData", cleanWindowsDevicePostRequestBody.keepUserData ?? false);
     writer.writeAdditionalData(cleanWindowsDevicePostRequestBody.additionalData);
 }
 /**
