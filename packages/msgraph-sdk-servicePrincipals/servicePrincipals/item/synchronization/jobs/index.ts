@@ -33,7 +33,7 @@ export interface JobsRequestBuilder extends BaseRequestBuilder<JobsRequestBuilde
      */
      bySynchronizationJobId(synchronizationJobId: string) : SynchronizationJobItemRequestBuilder;
     /**
-     * List existing jobs for a given application instance (service principal).
+     * List existing synchronizationJob objects for a given application instance (service principal).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationJobCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -41,7 +41,7 @@ export interface JobsRequestBuilder extends BaseRequestBuilder<JobsRequestBuilde
      */
      get(requestConfiguration?: RequestConfiguration<JobsRequestBuilderGetQueryParameters> | undefined) : Promise<SynchronizationJobCollectionResponse | undefined>;
     /**
-     * Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
+     * Create a new synchronizationJob with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationJob>}
@@ -50,13 +50,13 @@ export interface JobsRequestBuilder extends BaseRequestBuilder<JobsRequestBuilde
      */
      post(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SynchronizationJob | undefined>;
     /**
-     * List existing jobs for a given application instance (service principal).
+     * List existing synchronizationJob objects for a given application instance (service principal).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<JobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new synchronization job with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
+     * Create a new synchronizationJob with a default synchronization schema. The job is created in a disabled state. Call Start job to start synchronization.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -64,7 +64,7 @@ export interface JobsRequestBuilder extends BaseRequestBuilder<JobsRequestBuilde
      toPostRequestInformation(body: SynchronizationJob, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List existing jobs for a given application instance (service principal).
+ * List existing synchronizationJob objects for a given application instance (service principal).
  */
 export interface JobsRequestBuilderGetQueryParameters {
     /**

@@ -25,11 +25,11 @@ export function deserializeIntoGetHistoricalReportPostRequestBody(getHistoricalR
     return {
         "backingStoreEnabled": n => { getHistoricalReportPostRequestBody.backingStoreEnabled = true; },
         "filter": n => { getHistoricalReportPostRequestBody.filter = n.getStringValue(); },
-        "groupBy": n => { getHistoricalReportPostRequestBody.groupBy = n.getCollectionOfPrimitiveValues<string>(); },
+        "groupBy": n => { getHistoricalReportPostRequestBody.groupBy = n.getCollectionOfPrimitiveValues<string>("string"); },
         "name": n => { getHistoricalReportPostRequestBody.name = n.getStringValue(); },
-        "orderBy": n => { getHistoricalReportPostRequestBody.orderBy = n.getCollectionOfPrimitiveValues<string>(); },
+        "orderBy": n => { getHistoricalReportPostRequestBody.orderBy = n.getCollectionOfPrimitiveValues<string>("string"); },
         "search": n => { getHistoricalReportPostRequestBody.search = n.getStringValue(); },
-        "select": n => { getHistoricalReportPostRequestBody.select = n.getCollectionOfPrimitiveValues<string>(); },
+        "select": n => { getHistoricalReportPostRequestBody.select = n.getCollectionOfPrimitiveValues<string>("string"); },
         "skip": n => { getHistoricalReportPostRequestBody.skip = n.getNumberValue(); },
         "top": n => { getHistoricalReportPostRequestBody.top = n.getNumberValue(); },
     }

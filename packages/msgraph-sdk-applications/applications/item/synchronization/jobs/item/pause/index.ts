@@ -11,14 +11,14 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface PauseRequestBuilder extends BaseRequestBuilder<PauseRequestBuilder> {
     /**
-     * Temporarily stop a running synchronization job. All the progress, including job state, is persisted, and the job will continue from where it left off when a start call is made.
+     * Temporarily stop a running synchronizationJob. All the progress, including job state, is persisted, and the job will continue from where it left off when a start call is made.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-pause?view=graph-rest-1.0|Find more info here}
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Temporarily stop a running synchronization job. All the progress, including job state, is persisted, and the job will continue from where it left off when a start call is made.
+     * Temporarily stop a running synchronizationJob. All the progress, including job state, is persisted, and the job will continue from where it left off when a start call is made.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

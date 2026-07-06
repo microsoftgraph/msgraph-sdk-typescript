@@ -54,7 +54,7 @@ export interface ParseExpressionPostRequestBody extends AdditionalDataHolder, Ba
  */
 export interface ParseExpressionRequestBuilder extends BaseRequestBuilder<ParseExpressionRequestBuilder> {
     /**
-     * Parse a given string expression into an attributeMappingSource object. For more information about expressions, see Writing Expressions for Attribute Mappings in Microsoft Entra ID.
+     * Parse a given string expression into an attributeMappingSource object for a synchronizationSchema. For more information about expressions, see Writing Expressions for Attribute Mappings in Microsoft Entra ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ParseExpressionResponse>}
@@ -63,7 +63,7 @@ export interface ParseExpressionRequestBuilder extends BaseRequestBuilder<ParseE
      */
      post(body: ParseExpressionPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ParseExpressionResponse | undefined>;
     /**
-     * Parse a given string expression into an attributeMappingSource object. For more information about expressions, see Writing Expressions for Attribute Mappings in Microsoft Entra ID.
+     * Parse a given string expression into an attributeMappingSource object for a synchronizationSchema. For more information about expressions, see Writing Expressions for Attribute Mappings in Microsoft Entra ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

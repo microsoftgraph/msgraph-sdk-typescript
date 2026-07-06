@@ -32,7 +32,7 @@ export interface SynchronizationTemplateItemRequestBuilder extends BaseRequestBu
      */
      get(requestConfiguration?: RequestConfiguration<SynchronizationTemplateItemRequestBuilderGetQueryParameters> | undefined) : Promise<SynchronizationTemplate | undefined>;
     /**
-     * Update (override) the synchronization template associated with a given application.
+     * Update (override) the synchronizationTemplate associated with a given application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationTemplate>}
@@ -53,7 +53,7 @@ export interface SynchronizationTemplateItemRequestBuilder extends BaseRequestBu
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SynchronizationTemplateItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update (override) the synchronization template associated with a given application.
+     * Update (override) the synchronizationTemplate associated with a given application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

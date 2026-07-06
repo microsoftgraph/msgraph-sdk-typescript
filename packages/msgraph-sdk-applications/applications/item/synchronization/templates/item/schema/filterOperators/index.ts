@@ -40,7 +40,7 @@ export interface FilterOperatorsGetResponse extends BaseCollectionPaginationCoun
  */
 export interface FilterOperatorsRequestBuilder extends BaseRequestBuilder<FilterOperatorsRequestBuilder> {
     /**
-     * List all operators supported in the scoping filters.
+     * List all operators supported in the scoping filters for a synchronizationSchema.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FilterOperatorsGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -48,14 +48,14 @@ export interface FilterOperatorsRequestBuilder extends BaseRequestBuilder<Filter
      */
      get(requestConfiguration?: RequestConfiguration<FilterOperatorsRequestBuilderGetQueryParameters> | undefined) : Promise<FilterOperatorsGetResponse | undefined>;
     /**
-     * List all operators supported in the scoping filters.
+     * List all operators supported in the scoping filters for a synchronizationSchema.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilterOperatorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * List all operators supported in the scoping filters.
+ * List all operators supported in the scoping filters for a synchronizationSchema.
  */
 export interface FilterOperatorsRequestBuilderGetQueryParameters {
     /**

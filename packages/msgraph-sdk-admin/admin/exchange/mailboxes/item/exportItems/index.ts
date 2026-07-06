@@ -35,7 +35,7 @@ export function createExportItemsPostResponseFromDiscriminatorValue(parseNode: P
 export function deserializeIntoExportItemsPostRequestBody(exportItemsPostRequestBody: Partial<ExportItemsPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { exportItemsPostRequestBody.backingStoreEnabled = true; },
-        "ItemIds": n => { exportItemsPostRequestBody.itemIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "ItemIds": n => { exportItemsPostRequestBody.itemIds = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

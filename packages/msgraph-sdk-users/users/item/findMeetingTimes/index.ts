@@ -27,12 +27,12 @@ export function deserializeIntoFindMeetingTimesPostRequestBody(findMeetingTimesP
     return {
         "attendees": n => { findMeetingTimesPostRequestBody.attendees = n.getCollectionOfObjectValues<AttendeeBase>(createAttendeeBaseFromDiscriminatorValue); },
         "backingStoreEnabled": n => { findMeetingTimesPostRequestBody.backingStoreEnabled = true; },
-        "isOrganizerOptional": n => { findMeetingTimesPostRequestBody.isOrganizerOptional = n.getBooleanValue(); },
+        "isOrganizerOptional": n => { findMeetingTimesPostRequestBody.isOrganizerOptional = n.getBooleanValue() ?? false; },
         "locationConstraint": n => { findMeetingTimesPostRequestBody.locationConstraint = n.getObjectValue<LocationConstraint>(createLocationConstraintFromDiscriminatorValue); },
         "maxCandidates": n => { findMeetingTimesPostRequestBody.maxCandidates = n.getNumberValue(); },
         "meetingDuration": n => { findMeetingTimesPostRequestBody.meetingDuration = n.getDurationValue(); },
         "minimumAttendeePercentage": n => { findMeetingTimesPostRequestBody.minimumAttendeePercentage = n.getNumberValue(); },
-        "returnSuggestionReasons": n => { findMeetingTimesPostRequestBody.returnSuggestionReasons = n.getBooleanValue(); },
+        "returnSuggestionReasons": n => { findMeetingTimesPostRequestBody.returnSuggestionReasons = n.getBooleanValue() ?? false; },
         "timeConstraint": n => { findMeetingTimesPostRequestBody.timeConstraint = n.getObjectValue<TimeConstraint>(createTimeConstraintFromDiscriminatorValue); },
     }
 }
@@ -105,12 +105,12 @@ export interface FindMeetingTimesRequestBuilder extends BaseRequestBuilder<FindM
 export function serializeFindMeetingTimesPostRequestBody(writer: SerializationWriter, findMeetingTimesPostRequestBody: Partial<FindMeetingTimesPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!findMeetingTimesPostRequestBody || isSerializingDerivedType) { return; }
     writer.writeCollectionOfObjectValues<AttendeeBase>("attendees", findMeetingTimesPostRequestBody.attendees, serializeAttendeeBase);
-    writer.writeBooleanValue("isOrganizerOptional", findMeetingTimesPostRequestBody.isOrganizerOptional);
+    writer.writeBooleanValue("isOrganizerOptional", findMeetingTimesPostRequestBody.isOrganizerOptional ?? false);
     writer.writeObjectValue<LocationConstraint>("locationConstraint", findMeetingTimesPostRequestBody.locationConstraint, serializeLocationConstraint);
     writer.writeNumberValue("maxCandidates", findMeetingTimesPostRequestBody.maxCandidates);
     writer.writeDurationValue("meetingDuration", findMeetingTimesPostRequestBody.meetingDuration);
     writer.writeNumberValue("minimumAttendeePercentage", findMeetingTimesPostRequestBody.minimumAttendeePercentage);
-    writer.writeBooleanValue("returnSuggestionReasons", findMeetingTimesPostRequestBody.returnSuggestionReasons);
+    writer.writeBooleanValue("returnSuggestionReasons", findMeetingTimesPostRequestBody.returnSuggestionReasons ?? false);
     writer.writeObjectValue<TimeConstraint>("timeConstraint", findMeetingTimesPostRequestBody.timeConstraint, serializeTimeConstraint);
     writer.writeAdditionalData(findMeetingTimesPostRequestBody.additionalData);
 }

@@ -14,6 +14,8 @@ import { AttackSimulationRequestBuilderNavigationMetadata, AttackSimulationReque
 // @ts-ignore
 import { CasesRequestBuilderNavigationMetadata, CasesRequestBuilderRequestsMetadata, type CasesRequestBuilder } from './cases/index.js';
 // @ts-ignore
+import { CollaborationRequestBuilderNavigationMetadata, CollaborationRequestBuilderRequestsMetadata, type CollaborationRequestBuilder } from './collaboration/index.js';
+// @ts-ignore
 import { DataSecurityAndGovernanceRequestBuilderNavigationMetadata, DataSecurityAndGovernanceRequestBuilderRequestsMetadata, type DataSecurityAndGovernanceRequestBuilder } from './dataSecurityAndGovernance/index.js';
 // @ts-ignore
 import { IdentitiesRequestBuilderNavigationMetadata, IdentitiesRequestBuilderRequestsMetadata, type IdentitiesRequestBuilder } from './identities/index.js';
@@ -58,6 +60,10 @@ export interface SecurityRequestBuilder extends BaseRequestBuilder<SecurityReque
      * Provides operations to manage the cases property of the microsoft.graph.security entity.
      */
     get cases(): CasesRequestBuilder;
+    /**
+     * Provides operations to manage the collaboration property of the microsoft.graph.security entity.
+     */
+    get collaboration(): CollaborationRequestBuilder;
     /**
      * Provides operations to manage the dataSecurityAndGovernance property of the microsoft.graph.security entity.
      */
@@ -174,6 +180,10 @@ export const SecurityRequestBuilderNavigationMetadata: Record<Exclude<keyof Secu
     cases: {
         requestsMetadata: CasesRequestBuilderRequestsMetadata,
         navigationMetadata: CasesRequestBuilderNavigationMetadata,
+    },
+    collaboration: {
+        requestsMetadata: CollaborationRequestBuilderRequestsMetadata,
+        navigationMetadata: CollaborationRequestBuilderNavigationMetadata,
     },
     dataSecurityAndGovernance: {
         requestsMetadata: DataSecurityAndGovernanceRequestBuilderRequestsMetadata,
