@@ -24,7 +24,7 @@ export function createWindowsDefenderScanPostRequestBodyFromDiscriminatorValue(p
 export function deserializeIntoWindowsDefenderScanPostRequestBody(windowsDefenderScanPostRequestBody: Partial<WindowsDefenderScanPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { windowsDefenderScanPostRequestBody.backingStoreEnabled = true; },
-        "quickScan": n => { windowsDefenderScanPostRequestBody.quickScan = n.getBooleanValue(); },
+        "quickScan": n => { windowsDefenderScanPostRequestBody.quickScan = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -36,7 +36,7 @@ export function deserializeIntoWindowsDefenderScanPostRequestBody(windowsDefende
 // @ts-ignore
 export function serializeWindowsDefenderScanPostRequestBody(writer: SerializationWriter, windowsDefenderScanPostRequestBody: Partial<WindowsDefenderScanPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!windowsDefenderScanPostRequestBody || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("quickScan", windowsDefenderScanPostRequestBody.quickScan);
+    writer.writeBooleanValue("quickScan", windowsDefenderScanPostRequestBody.quickScan ?? false);
     writer.writeAdditionalData(windowsDefenderScanPostRequestBody.additionalData);
 }
 export interface WindowsDefenderScanPostRequestBody extends AdditionalDataHolder, BackedModel, Parsable {

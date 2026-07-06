@@ -27,7 +27,7 @@ export interface TemplatesRequestBuilder extends BaseRequestBuilder<TemplatesReq
      */
      bySynchronizationTemplateId(synchronizationTemplateId: string) : SynchronizationTemplateItemRequestBuilder;
     /**
-     * List the synchronization templates associated with a given application or service principal.
+     * List synchronizationTemplate objects associated with a given application or service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -43,7 +43,7 @@ export interface TemplatesRequestBuilder extends BaseRequestBuilder<TemplatesReq
      */
      post(body: SynchronizationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SynchronizationTemplate | undefined>;
     /**
-     * List the synchronization templates associated with a given application or service principal.
+     * List synchronizationTemplate objects associated with a given application or service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +57,7 @@ export interface TemplatesRequestBuilder extends BaseRequestBuilder<TemplatesReq
      toPostRequestInformation(body: SynchronizationTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * List the synchronization templates associated with a given application or service principal.
+ * List synchronizationTemplate objects associated with a given application or service principal.
  */
 export interface TemplatesRequestBuilderGetQueryParameters {
     /**

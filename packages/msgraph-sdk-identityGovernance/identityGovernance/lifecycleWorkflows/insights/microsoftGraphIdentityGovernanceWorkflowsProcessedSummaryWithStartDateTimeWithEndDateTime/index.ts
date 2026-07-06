@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MicrosoftGraphIdentityGovernanceWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilder extends BaseRequestBuilder<MicrosoftGraphIdentityGovernanceWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeRequestBuilder> {
     /**
-     * Provide a summary of all workflows processed within a tenant for a specified period. Because the amount of results for listed workflows as returned by the List workflows does not tell you which workflows were processed from the list of created workflows, this summary gives you a quick overview of processed status based on counts.
+     * Provide a summary of all workflows processed within a tenant for a specified period. Because the amount of results for listed workflows as returned by the List workflows doesn't tell you which workflows were processed from the list of created workflows, this summary gives you a quick overview of processed status based on counts.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkflowsInsightsSummary>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -21,7 +21,7 @@ export interface MicrosoftGraphIdentityGovernanceWorkflowsProcessedSummaryWithSt
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<WorkflowsInsightsSummary | undefined>;
     /**
-     * Provide a summary of all workflows processed within a tenant for a specified period. Because the amount of results for listed workflows as returned by the List workflows does not tell you which workflows were processed from the list of created workflows, this summary gives you a quick overview of processed status based on counts.
+     * Provide a summary of all workflows processed within a tenant for a specified period. Because the amount of results for listed workflows as returned by the List workflows doesn't tell you which workflows were processed from the list of created workflows, this summary gives you a quick overview of processed status based on counts.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

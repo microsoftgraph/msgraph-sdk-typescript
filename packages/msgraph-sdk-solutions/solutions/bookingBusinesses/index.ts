@@ -27,7 +27,7 @@ export interface BookingBusinessesRequestBuilder extends BaseRequestBuilder<Book
      */
      byBookingBusinessId(bookingBusinessId: string) : BookingBusinessItemRequestBuilder;
     /**
-     * Get a collection of bookingBusiness objects that has been created for the tenant. This operation returns only the id and displayName of each Microsoft Bookings business in the collection. For performance considerations, it does not return other properties. You can get the other properties of a Bookings business by specifying its id in a GET operation.
+     * Get a collection of bookingBusiness objects that has been created for the tenant. This operation returns only the id and displayName of each Microsoft Bookings business in the collection. For performance considerations, it doesn't return other properties. You can get the other properties of a Bookings business by specifying its id in a GET operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BookingBusinessCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -44,7 +44,7 @@ export interface BookingBusinessesRequestBuilder extends BaseRequestBuilder<Book
      */
      post(body: BookingBusiness, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<BookingBusiness | undefined>;
     /**
-     * Get a collection of bookingBusiness objects that has been created for the tenant. This operation returns only the id and displayName of each Microsoft Bookings business in the collection. For performance considerations, it does not return other properties. You can get the other properties of a Bookings business by specifying its id in a GET operation.
+     * Get a collection of bookingBusiness objects that has been created for the tenant. This operation returns only the id and displayName of each Microsoft Bookings business in the collection. For performance considerations, it doesn't return other properties. You can get the other properties of a Bookings business by specifying its id in a GET operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -58,7 +58,7 @@ export interface BookingBusinessesRequestBuilder extends BaseRequestBuilder<Book
      toPostRequestInformation(body: BookingBusiness, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a collection of bookingBusiness objects that has been created for the tenant. This operation returns only the id and displayName of each Microsoft Bookings business in the collection. For performance considerations, it does not return other properties. You can get the other properties of a Bookings business by specifying its id in a GET operation.
+ * Get a collection of bookingBusiness objects that has been created for the tenant. This operation returns only the id and displayName of each Microsoft Bookings business in the collection. For performance considerations, it doesn't return other properties. You can get the other properties of a Bookings business by specifying its id in a GET operation.
  */
 export interface BookingBusinessesRequestBuilderGetQueryParameters {
     /**

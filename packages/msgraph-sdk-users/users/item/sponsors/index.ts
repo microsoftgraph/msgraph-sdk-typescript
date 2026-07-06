@@ -8,7 +8,9 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { DirectoryObjectItemRequestBuilderRequestsMetadata, type DirectoryObjectItemRequestBuilder } from './item/index.js';
+import { DirectoryObjectItemRequestBuilderNavigationMetadata, type DirectoryObjectItemRequestBuilder } from './item/index.js';
+// @ts-ignore
+import { RefRequestBuilderRequestsMetadata, type RefRequestBuilder } from './ref/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -21,28 +23,32 @@ export interface SponsorsRequestBuilder extends BaseRequestBuilder<SponsorsReque
      */
     get count(): CountRequestBuilder;
     /**
-     * Provides operations to manage the sponsors property of the microsoft.graph.user entity.
+     * Provides operations to manage the collection of user entities.
+     */
+    get ref(): RefRequestBuilder;
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.sponsors.item collection
      * @param directoryObjectId The unique identifier of directoryObject
      * @returns {DirectoryObjectItemRequestBuilder}
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Get a user's sponsors. Sponsors are users and groups that are responsible for this guest's privileges in the tenant and for keeping the guest's information and access up to date.
+     * Get an agentUser's sponsors. Sponsors are users and groups that are responsible for this agent user's privileges in the tenant and for keeping the agent user's information and access up to date.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-sponsors?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/agentuser-list-sponsors?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SponsorsRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Get a user's sponsors. Sponsors are users and groups that are responsible for this guest's privileges in the tenant and for keeping the guest's information and access up to date.
+     * Get an agentUser's sponsors. Sponsors are users and groups that are responsible for this agent user's privileges in the tenant and for keeping the agent user's information and access up to date.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SponsorsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a user's sponsors. Sponsors are users and groups that are responsible for this guest's privileges in the tenant and for keeping the guest's information and access up to date.
+ * Get an agentUser's sponsors. Sponsors are users and groups that are responsible for this agent user's privileges in the tenant and for keeping the agent user's information and access up to date.
  */
 export interface SponsorsRequestBuilderGetQueryParameters {
     /**
@@ -100,11 +106,14 @@ const SponsorsRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const SponsorsRequestBuilderNavigationMetadata: Record<Exclude<keyof SponsorsRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byDirectoryObjectId: {
-        requestsMetadata: DirectoryObjectItemRequestBuilderRequestsMetadata,
+        navigationMetadata: DirectoryObjectItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["directoryObject%2Did"],
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    ref: {
+        requestsMetadata: RefRequestBuilderRequestsMetadata,
     },
 };
 /**

@@ -24,6 +24,8 @@ import { RiskPreventionRequestBuilderNavigationMetadata, RiskPreventionRequestBu
 // @ts-ignore
 import { type UserFlowAttributesRequestBuilder, UserFlowAttributesRequestBuilderNavigationMetadata, UserFlowAttributesRequestBuilderRequestsMetadata } from './userFlowAttributes/index.js';
 // @ts-ignore
+import { type VerifiedIdRequestBuilder, VerifiedIdRequestBuilderNavigationMetadata, VerifiedIdRequestBuilderRequestsMetadata } from './verifiedId/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -66,6 +68,10 @@ export interface IdentityRequestBuilder extends BaseRequestBuilder<IdentityReque
      * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
      */
     get userFlowAttributes(): UserFlowAttributesRequestBuilder;
+    /**
+     * Provides operations to manage the verifiedId property of the microsoft.graph.identityContainer entity.
+     */
+    get verifiedId(): VerifiedIdRequestBuilder;
     /**
      * Get identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -157,6 +163,10 @@ export const IdentityRequestBuilderNavigationMetadata: Record<Exclude<keyof Iden
     userFlowAttributes: {
         requestsMetadata: UserFlowAttributesRequestBuilderRequestsMetadata,
         navigationMetadata: UserFlowAttributesRequestBuilderNavigationMetadata,
+    },
+    verifiedId: {
+        requestsMetadata: VerifiedIdRequestBuilderRequestsMetadata,
+        navigationMetadata: VerifiedIdRequestBuilderNavigationMetadata,
     },
 };
 /**

@@ -39,10 +39,10 @@ export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: Part
         "message": n => { invitePostRequestBody.message = n.getStringValue(); },
         "password": n => { invitePostRequestBody.password = n.getStringValue(); },
         "recipients": n => { invitePostRequestBody.recipients = n.getCollectionOfObjectValues<DriveRecipient>(createDriveRecipientFromDiscriminatorValue); },
-        "requireSignIn": n => { invitePostRequestBody.requireSignIn = n.getBooleanValue(); },
-        "retainInheritedPermissions": n => { invitePostRequestBody.retainInheritedPermissions = n.getBooleanValue(); },
-        "roles": n => { invitePostRequestBody.roles = n.getCollectionOfPrimitiveValues<string>(); },
-        "sendInvitation": n => { invitePostRequestBody.sendInvitation = n.getBooleanValue(); },
+        "requireSignIn": n => { invitePostRequestBody.requireSignIn = n.getBooleanValue() ?? false; },
+        "retainInheritedPermissions": n => { invitePostRequestBody.retainInheritedPermissions = n.getBooleanValue() ?? false; },
+        "roles": n => { invitePostRequestBody.roles = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "sendInvitation": n => { invitePostRequestBody.sendInvitation = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -135,10 +135,10 @@ export function serializeInvitePostRequestBody(writer: SerializationWriter, invi
     writer.writeStringValue("message", invitePostRequestBody.message);
     writer.writeStringValue("password", invitePostRequestBody.password);
     writer.writeCollectionOfObjectValues<DriveRecipient>("recipients", invitePostRequestBody.recipients, serializeDriveRecipient);
-    writer.writeBooleanValue("requireSignIn", invitePostRequestBody.requireSignIn);
-    writer.writeBooleanValue("retainInheritedPermissions", invitePostRequestBody.retainInheritedPermissions);
+    writer.writeBooleanValue("requireSignIn", invitePostRequestBody.requireSignIn ?? false);
+    writer.writeBooleanValue("retainInheritedPermissions", invitePostRequestBody.retainInheritedPermissions ?? false);
     writer.writeCollectionOfPrimitiveValues<string>("roles", invitePostRequestBody.roles);
-    writer.writeBooleanValue("sendInvitation", invitePostRequestBody.sendInvitation);
+    writer.writeBooleanValue("sendInvitation", invitePostRequestBody.sendInvitation ?? false);
     writer.writeAdditionalData(invitePostRequestBody.additionalData);
 }
 /**

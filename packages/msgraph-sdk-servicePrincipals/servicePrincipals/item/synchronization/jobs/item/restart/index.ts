@@ -44,7 +44,7 @@ export interface RestartPostRequestBody extends AdditionalDataHolder, BackedMode
  */
 export interface RestartRequestBuilder extends BaseRequestBuilder<RestartRequestBuilder> {
     /**
-     * Restart a stopped synchronization job, forcing it to reprocess all the objects in the directory. Optionally clears existing the synchronization state and previous errors.
+     * Restart a stopped synchronizationJob, forcing it to reprocess all the objects in the directory. Optionally clears existing the synchronization state and previous errors.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface RestartRequestBuilder extends BaseRequestBuilder<RestartRequest
      */
      post(body: RestartPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Restart a stopped synchronization job, forcing it to reprocess all the objects in the directory. Optionally clears existing the synchronization state and previous errors.
+     * Restart a stopped synchronizationJob, forcing it to reprocess all the objects in the directory. Optionally clears existing the synchronization state and previous errors.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

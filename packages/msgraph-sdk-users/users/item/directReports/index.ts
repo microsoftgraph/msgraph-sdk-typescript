@@ -39,21 +39,22 @@ export interface DirectReportsRequestBuilder extends BaseRequestBuilder<DirectRe
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand.
+     * Get an agentUser's direct reports. Returns the users and contacts for whom this agent user is assigned as manager.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/agentuser-list-directreports?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DirectReportsRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand.
+     * Get an agentUser's direct reports. Returns the users and contacts for whom this agent user is assigned as manager.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DirectReportsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Read-only. Nullable. Supports $expand.
+ * Get an agentUser's direct reports. Returns the users and contacts for whom this agent user is assigned as manager.
  */
 export interface DirectReportsRequestBuilderGetQueryParameters {
     /**

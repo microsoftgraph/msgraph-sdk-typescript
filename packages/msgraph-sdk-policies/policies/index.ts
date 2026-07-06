@@ -32,9 +32,13 @@ import { DeviceRegistrationPolicyRequestBuilderRequestsMetadata, type DeviceRegi
 // @ts-ignore
 import { FeatureRolloutPoliciesRequestBuilderNavigationMetadata, FeatureRolloutPoliciesRequestBuilderRequestsMetadata, type FeatureRolloutPoliciesRequestBuilder } from './featureRolloutPolicies/index.js';
 // @ts-ignore
+import { FederatedTokenValidationPolicyRequestBuilderRequestsMetadata, type FederatedTokenValidationPolicyRequestBuilder } from './federatedTokenValidationPolicy/index.js';
+// @ts-ignore
 import { HomeRealmDiscoveryPoliciesRequestBuilderNavigationMetadata, HomeRealmDiscoveryPoliciesRequestBuilderRequestsMetadata, type HomeRealmDiscoveryPoliciesRequestBuilder } from './homeRealmDiscoveryPolicies/index.js';
 // @ts-ignore
 import { IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMetadata, type IdentitySecurityDefaultsEnforcementPolicyRequestBuilder } from './identitySecurityDefaultsEnforcementPolicy/index.js';
+// @ts-ignore
+import { OwnerlessGroupPolicyRequestBuilderRequestsMetadata, type OwnerlessGroupPolicyRequestBuilder } from './ownerlessGroupPolicy/index.js';
 // @ts-ignore
 import { PermissionGrantPoliciesRequestBuilderNavigationMetadata, PermissionGrantPoliciesRequestBuilderRequestsMetadata, type PermissionGrantPoliciesRequestBuilder } from './permissionGrantPolicies/index.js';
 // @ts-ignore
@@ -105,6 +109,10 @@ export interface PoliciesRequestBuilder extends BaseRequestBuilder<PoliciesReque
      */
     get featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder;
     /**
+     * Provides operations to manage the federatedTokenValidationPolicy property of the microsoft.graph.policyRoot entity.
+     */
+    get federatedTokenValidationPolicy(): FederatedTokenValidationPolicyRequestBuilder;
+    /**
      * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
      */
     get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder;
@@ -112,6 +120,10 @@ export interface PoliciesRequestBuilder extends BaseRequestBuilder<PoliciesReque
      * Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity.
      */
     get identitySecurityDefaultsEnforcementPolicy(): IdentitySecurityDefaultsEnforcementPolicyRequestBuilder;
+    /**
+     * Provides operations to manage the ownerlessGroupPolicy property of the microsoft.graph.policyRoot entity.
+     */
+    get ownerlessGroupPolicy(): OwnerlessGroupPolicyRequestBuilder;
     /**
      * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
      */
@@ -236,12 +248,18 @@ export const PoliciesRequestBuilderNavigationMetadata: Record<Exclude<keyof Poli
         requestsMetadata: FeatureRolloutPoliciesRequestBuilderRequestsMetadata,
         navigationMetadata: FeatureRolloutPoliciesRequestBuilderNavigationMetadata,
     },
+    federatedTokenValidationPolicy: {
+        requestsMetadata: FederatedTokenValidationPolicyRequestBuilderRequestsMetadata,
+    },
     homeRealmDiscoveryPolicies: {
         requestsMetadata: HomeRealmDiscoveryPoliciesRequestBuilderRequestsMetadata,
         navigationMetadata: HomeRealmDiscoveryPoliciesRequestBuilderNavigationMetadata,
     },
     identitySecurityDefaultsEnforcementPolicy: {
         requestsMetadata: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderRequestsMetadata,
+    },
+    ownerlessGroupPolicy: {
+        requestsMetadata: OwnerlessGroupPolicyRequestBuilderRequestsMetadata,
     },
     permissionGrantPolicies: {
         requestsMetadata: PermissionGrantPoliciesRequestBuilderRequestsMetadata,

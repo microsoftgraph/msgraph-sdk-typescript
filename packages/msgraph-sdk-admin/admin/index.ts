@@ -6,7 +6,11 @@ import { createAdminFromDiscriminatorValue, serializeAdmin, type Admin } from '@
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { ConfigurationManagementRequestBuilderNavigationMetadata, ConfigurationManagementRequestBuilderRequestsMetadata, type ConfigurationManagementRequestBuilder } from './configurationManagement/index.js';
+// @ts-ignore
 import { EdgeRequestBuilderNavigationMetadata, EdgeRequestBuilderRequestsMetadata, type EdgeRequestBuilder } from './edge/index.js';
+// @ts-ignore
+import { ExchangeRequestBuilderNavigationMetadata, ExchangeRequestBuilderRequestsMetadata, type ExchangeRequestBuilder } from './exchange/index.js';
 // @ts-ignore
 import { Microsoft365AppsRequestBuilderNavigationMetadata, Microsoft365AppsRequestBuilderRequestsMetadata, type Microsoft365AppsRequestBuilder } from './microsoft365Apps/index.js';
 // @ts-ignore
@@ -27,9 +31,17 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  */
 export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuilder> {
     /**
+     * Provides operations to manage the configurationManagement property of the microsoft.graph.admin entity.
+     */
+    get configurationManagement(): ConfigurationManagementRequestBuilder;
+    /**
      * Provides operations to manage the edge property of the microsoft.graph.admin entity.
      */
     get edge(): EdgeRequestBuilder;
+    /**
+     * Provides operations to manage the exchange property of the microsoft.graph.admin entity.
+     */
+    get exchange(): ExchangeRequestBuilder;
     /**
      * Provides operations to manage the microsoft365Apps property of the microsoft.graph.admin entity.
      */
@@ -111,9 +123,17 @@ const AdminRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    configurationManagement: {
+        requestsMetadata: ConfigurationManagementRequestBuilderRequestsMetadata,
+        navigationMetadata: ConfigurationManagementRequestBuilderNavigationMetadata,
+    },
     edge: {
         requestsMetadata: EdgeRequestBuilderRequestsMetadata,
         navigationMetadata: EdgeRequestBuilderNavigationMetadata,
+    },
+    exchange: {
+        requestsMetadata: ExchangeRequestBuilderRequestsMetadata,
+        navigationMetadata: ExchangeRequestBuilderNavigationMetadata,
     },
     microsoft365Apps: {
         requestsMetadata: Microsoft365AppsRequestBuilderRequestsMetadata,

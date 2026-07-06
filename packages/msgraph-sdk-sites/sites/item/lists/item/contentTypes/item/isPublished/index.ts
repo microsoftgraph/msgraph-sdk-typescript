@@ -24,7 +24,7 @@ export function createIsPublishedGetResponseFromDiscriminatorValue(parseNode: Pa
 export function deserializeIntoIsPublishedGetResponse(isPublishedGetResponse: Partial<IsPublishedGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { isPublishedGetResponse.backingStoreEnabled = true; },
-        "value": n => { isPublishedGetResponse.value = n.getBooleanValue(); },
+        "value": n => { isPublishedGetResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 export interface IsPublishedGetResponse extends AdditionalDataHolder, BackedModel, Parsable {
@@ -65,7 +65,7 @@ export interface IsPublishedRequestBuilder extends BaseRequestBuilder<IsPublishe
 // @ts-ignore
 export function serializeIsPublishedGetResponse(writer: SerializationWriter, isPublishedGetResponse: Partial<IsPublishedGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!isPublishedGetResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", isPublishedGetResponse.value);
+    writer.writeBooleanValue("value", isPublishedGetResponse.value ?? false);
     writer.writeAdditionalData(isPublishedGetResponse.additionalData);
 }
 /**

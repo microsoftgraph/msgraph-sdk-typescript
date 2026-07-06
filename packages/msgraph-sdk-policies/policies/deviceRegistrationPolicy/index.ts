@@ -13,21 +13,22 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface DeviceRegistrationPolicyRequestBuilder extends BaseRequestBuilder<DeviceRegistrationPolicyRequestBuilder> {
     /**
-     * Get deviceRegistrationPolicy from policies
+     * Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeviceRegistrationPolicy>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/deviceregistrationpolicy-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<DeviceRegistrationPolicyRequestBuilderGetQueryParameters> | undefined) : Promise<DeviceRegistrationPolicy | undefined>;
     /**
-     * Get deviceRegistrationPolicy from policies
+     * Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeviceRegistrationPolicyRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get deviceRegistrationPolicy from policies
+ * Read the properties and relationships of a deviceRegistrationPolicy object. Represents deviceRegistrationPolicy quota restrictions, additional authentication, and authorization policies to register device identities to your organization.
  */
 export interface DeviceRegistrationPolicyRequestBuilderGetQueryParameters {
     /**

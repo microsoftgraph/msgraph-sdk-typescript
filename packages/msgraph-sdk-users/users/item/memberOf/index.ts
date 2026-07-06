@@ -45,22 +45,22 @@ export interface MemberOfRequestBuilder extends BaseRequestBuilder<MemberOfReque
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Get groups, directory roles, and administrative units that the user is a direct member of. This operation isn't transitive. To retrieve groups, directory roles, and administrative units that the user is a member through transitive membership, use the List user transitive memberOf API.
+     * Get groups, directory roles, and administrative units that the agentUser is a direct member of. This operation isn't transitive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-memberof?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/agentuser-list-memberof?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<MemberOfRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Get groups, directory roles, and administrative units that the user is a direct member of. This operation isn't transitive. To retrieve groups, directory roles, and administrative units that the user is a member through transitive membership, use the List user transitive memberOf API.
+     * Get groups, directory roles, and administrative units that the agentUser is a direct member of. This operation isn't transitive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MemberOfRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get groups, directory roles, and administrative units that the user is a direct member of. This operation isn't transitive. To retrieve groups, directory roles, and administrative units that the user is a member through transitive membership, use the List user transitive memberOf API.
+ * Get groups, directory roles, and administrative units that the agentUser is a direct member of. This operation isn't transitive.
  */
 export interface MemberOfRequestBuilderGetQueryParameters {
     /**

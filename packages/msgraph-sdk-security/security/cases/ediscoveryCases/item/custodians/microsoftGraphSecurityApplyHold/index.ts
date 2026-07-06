@@ -34,7 +34,7 @@ export function createApplyHoldPostRequestBodyFromDiscriminatorValue(parseNode: 
 export function deserializeIntoApplyHoldPostRequestBody(applyHoldPostRequestBody: Partial<ApplyHoldPostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { applyHoldPostRequestBody.backingStoreEnabled = true; },
-        "ids": n => { applyHoldPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>(); },
+        "ids": n => { applyHoldPostRequestBody.ids = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

@@ -81,7 +81,7 @@ export interface SecretsRequestBuilder extends BaseRequestBuilder<SecretsRequest
      */
     get count(): CountRequestBuilder;
     /**
-     * Provide credentials for establishing connectivity with the target system.
+     * Provide credentials for establishing connectivity with the target system and store them in the synchronization resource.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SecretsPutResponse>}
@@ -90,7 +90,7 @@ export interface SecretsRequestBuilder extends BaseRequestBuilder<SecretsRequest
      */
      put(body: SecretsPutRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SecretsPutResponse | undefined>;
     /**
-     * Provide credentials for establishing connectivity with the target system.
+     * Provide credentials for establishing connectivity with the target system and store them in the synchronization resource.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

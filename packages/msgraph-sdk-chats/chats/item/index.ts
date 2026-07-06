@@ -6,6 +6,8 @@ import { createChatFromDiscriminatorValue, serializeChat, type Chat } from '@mic
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { CompleteMigrationRequestBuilderRequestsMetadata, type CompleteMigrationRequestBuilder } from './completeMigration/index.js';
+// @ts-ignore
 import { HideForUserRequestBuilderRequestsMetadata, type HideForUserRequestBuilder } from './hideForUser/index.js';
 // @ts-ignore
 import { InstalledAppsRequestBuilderNavigationMetadata, InstalledAppsRequestBuilderRequestsMetadata, type InstalledAppsRequestBuilder } from './installedApps/index.js';
@@ -28,7 +30,11 @@ import { RemoveAllAccessForUserRequestBuilderRequestsMetadata, type RemoveAllAcc
 // @ts-ignore
 import { SendActivityNotificationRequestBuilderRequestsMetadata, type SendActivityNotificationRequestBuilder } from './sendActivityNotification/index.js';
 // @ts-ignore
+import { StartMigrationRequestBuilderRequestsMetadata, type StartMigrationRequestBuilder } from './startMigration/index.js';
+// @ts-ignore
 import { TabsRequestBuilderNavigationMetadata, TabsRequestBuilderRequestsMetadata, type TabsRequestBuilder } from './tabs/index.js';
+// @ts-ignore
+import { TargetedMessagesRequestBuilderNavigationMetadata, TargetedMessagesRequestBuilderRequestsMetadata, type TargetedMessagesRequestBuilder } from './targetedMessages/index.js';
 // @ts-ignore
 import { type UnhideForUserRequestBuilder, UnhideForUserRequestBuilderRequestsMetadata } from './unhideForUser/index.js';
 // @ts-ignore
@@ -38,6 +44,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the collection of chat entities.
  */
 export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemRequestBuilder> {
+    /**
+     * Provides operations to call the completeMigration method.
+     */
+    get completeMigration(): CompleteMigrationRequestBuilder;
     /**
      * Provides operations to call the hideForUser method.
      */
@@ -83,9 +93,17 @@ export interface ChatItemRequestBuilder extends BaseRequestBuilder<ChatItemReque
      */
     get sendActivityNotification(): SendActivityNotificationRequestBuilder;
     /**
+     * Provides operations to call the startMigration method.
+     */
+    get startMigration(): StartMigrationRequestBuilder;
+    /**
      * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
      */
     get tabs(): TabsRequestBuilder;
+    /**
+     * Provides operations to manage the targetedMessages property of the microsoft.graph.chat entity.
+     */
+    get targetedMessages(): TargetedMessagesRequestBuilder;
     /**
      * Provides operations to call the unhideForUser method.
      */
@@ -162,6 +180,9 @@ const ChatItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const ChatItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ChatItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    completeMigration: {
+        requestsMetadata: CompleteMigrationRequestBuilderRequestsMetadata,
+    },
     hideForUser: {
         requestsMetadata: HideForUserRequestBuilderRequestsMetadata,
     },
@@ -200,9 +221,16 @@ export const ChatItemRequestBuilderNavigationMetadata: Record<Exclude<keyof Chat
     sendActivityNotification: {
         requestsMetadata: SendActivityNotificationRequestBuilderRequestsMetadata,
     },
+    startMigration: {
+        requestsMetadata: StartMigrationRequestBuilderRequestsMetadata,
+    },
     tabs: {
         requestsMetadata: TabsRequestBuilderRequestsMetadata,
         navigationMetadata: TabsRequestBuilderNavigationMetadata,
+    },
+    targetedMessages: {
+        requestsMetadata: TargetedMessagesRequestBuilderRequestsMetadata,
+        navigationMetadata: TargetedMessagesRequestBuilderNavigationMetadata,
     },
     unhideForUser: {
         requestsMetadata: UnhideForUserRequestBuilderRequestsMetadata,

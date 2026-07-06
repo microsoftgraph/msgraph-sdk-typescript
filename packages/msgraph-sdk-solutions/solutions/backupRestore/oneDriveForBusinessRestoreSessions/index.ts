@@ -34,7 +34,7 @@ export interface OneDriveForBusinessRestoreSessionsRequestBuilder extends BaseRe
      */
      get(requestConfiguration?: RequestConfiguration<OneDriveForBusinessRestoreSessionsRequestBuilderGetQueryParameters> | undefined) : Promise<OneDriveForBusinessRestoreSessionCollectionResponse | undefined>;
     /**
-     * Create a new oneDriveForBusinessRestoreSession object.
+     * Create a new oneDriveForBusinessRestoreSession object. To create a granular restore session, granular drive restore artifacts must be present in the payload. A request can't include both granularDriveRestoreArtifact and driveRestoreArtifact in the same create or update request. If no payload is provided when you create the restore session, the request creates an empty standard restore session by default.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OneDriveForBusinessRestoreSession>}
@@ -49,7 +49,7 @@ export interface OneDriveForBusinessRestoreSessionsRequestBuilder extends BaseRe
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OneDriveForBusinessRestoreSessionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a new oneDriveForBusinessRestoreSession object.
+     * Create a new oneDriveForBusinessRestoreSession object. To create a granular restore session, granular drive restore artifacts must be present in the payload. A request can't include both granularDriveRestoreArtifact and driveRestoreArtifact in the same create or update request. If no payload is provided when you create the restore session, the request creates an empty standard restore session by default.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

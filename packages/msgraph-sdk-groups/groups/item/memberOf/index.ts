@@ -39,7 +39,7 @@ export interface MemberOfRequestBuilder extends BaseRequestBuilder<MemberOfReque
      */
      byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder;
     /**
-     * Get groups that the group is a direct member of. This operation is not transitive. Unlike getting a user's Microsoft 365 groups, this returns all types of groups, not just Microsoft 365 groups.
+     * Get security groups, administrative units, and admin roles that the security group is a direct member of, or administrative units and admin roles that the Microsoft 365 group is a direct member of. This operation is not transitive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DirectoryObjectCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -47,14 +47,14 @@ export interface MemberOfRequestBuilder extends BaseRequestBuilder<MemberOfReque
      */
      get(requestConfiguration?: RequestConfiguration<MemberOfRequestBuilderGetQueryParameters> | undefined) : Promise<DirectoryObjectCollectionResponse | undefined>;
     /**
-     * Get groups that the group is a direct member of. This operation is not transitive. Unlike getting a user's Microsoft 365 groups, this returns all types of groups, not just Microsoft 365 groups.
+     * Get security groups, administrative units, and admin roles that the security group is a direct member of, or administrative units and admin roles that the Microsoft 365 group is a direct member of. This operation is not transitive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MemberOfRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get groups that the group is a direct member of. This operation is not transitive. Unlike getting a user's Microsoft 365 groups, this returns all types of groups, not just Microsoft 365 groups.
+ * Get security groups, administrative units, and admin roles that the security group is a direct member of, or administrative units and admin roles that the Microsoft 365 group is a direct member of. This operation is not transitive.
  */
 export interface MemberOfRequestBuilderGetQueryParameters {
     /**

@@ -1,0 +1,63 @@
+trigger: none
+pr: none
+
+schedules:
+  - cron: '0 0 * * *'
+    displayName: Daily builds
+    branches:
+      include:
+        - main
+    always: true
+
+resources:
+  repositories:
+    - repository: 1ESPipelineTemplates
+      type: git
+      name: 1ESPipelineTemplates/1ESPipelineTemplates
+      ref: refs/tags/release
+
+extends:
+  template: v1/1ES.Unofficial.PipelineTemplate.yml@1ESPipelineTemplates
+  parameters:
+    pool:
+      name: Azure-Pipelines-1ESPT-ExDShared
+      image: ubuntu-latest
+      os: linux
+    sdl:
+      sourceAnalysisPool:
+        name: Azure-Pipelines-1ESPT-ExDShared
+        image: windows-2022
+        os: windows
+      credscan:
+        enabled: true
+      policheck:
+        enabled: true
+      binskim:
+        enabled: true
+    stages:
+      - stage: Build
+        jobs:
+          - job: Build
+            displayName: Build TypeScript SDK
+            steps:
+              - checkout: self
+                submodules: recursive
+
+              - task: NodeTool@0
+                displayName: Set up Node.js
+                inputs:
+                  versionSpec: '20.x'
+
+              - task: npm@1
+                displayName: Install dependencies
+                inputs:
+                  command: 'ci'
+                  verbose: true
+                  customRegistry: 'useFeed'
+                  customFeed: 'Graph Developer Experiences/msgraph-typescript'
+                  workingDir: '$(Build.SourcesDirectory)'
+
+              - script: npm run build --workspaces
+                displayName: Build SDK
+                workingDirectory: $(Build.SourcesDirectory)
+

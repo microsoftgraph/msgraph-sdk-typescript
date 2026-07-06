@@ -104,7 +104,7 @@ export interface CalendarViewRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const CalendarViewRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/calendarView?end={end}&start={start}{&%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
+export const CalendarViewRequestBuilderUriTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/calendarView{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -136,7 +136,7 @@ export const CalendarViewRequestBuilderNavigationMetadata: Record<Exclude<keyof 
  */
 export const CalendarViewRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: CalendarViewRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/calendarView?end={end}&start={start}{&%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

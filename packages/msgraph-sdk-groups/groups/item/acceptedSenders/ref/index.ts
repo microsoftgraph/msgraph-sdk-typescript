@@ -20,7 +20,7 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      */
      delete(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : Promise<void>;
     /**
-     * Users in the accepted senders list can post to conversations of the group (identified in the GET request URL).Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
+     * Users in the accepted senders list can post to conversations of the group (identified in the GET request URL).Make sure you don't specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<StringCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -42,7 +42,7 @@ export interface RefRequestBuilder extends BaseRequestBuilder<RefRequestBuilder>
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<RefRequestBuilderDeleteQueryParameters> | undefined) : RequestInformation;
     /**
-     * Users in the accepted senders list can post to conversations of the group (identified in the GET request URL).Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
+     * Users in the accepted senders list can post to conversations of the group (identified in the GET request URL).Make sure you don't specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +65,7 @@ export interface RefRequestBuilderDeleteQueryParameters {
     id?: string;
 }
 /**
- * Users in the accepted senders list can post to conversations of the group (identified in the GET request URL).Make sure you do not specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
+ * Users in the accepted senders list can post to conversations of the group (identified in the GET request URL).Make sure you don't specify the same user or group in the accepted senders and rejected senders lists, otherwise you will get an error.
  */
 export interface RefRequestBuilderGetQueryParameters {
     /**
@@ -96,7 +96,7 @@ export interface RefRequestBuilderGetQueryParameters {
 /**
  * Uri template for the request builder.
  */
-export const RefRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/acceptedSenders/$ref?@id={%40id}{&%24count,%24filter,%24orderby,%24search,%24skip,%24top}";
+export const RefRequestBuilderUriTemplate = "{+baseurl}/groups/{group%2Did}/acceptedSenders/$ref{?%24count,%24filter,%24orderby,%24search,%24skip,%24top}";
 /**
  * Mapper for query parameters from symbol name to serialization name represented as a constant.
  */
@@ -119,7 +119,7 @@ const RefRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const RefRequestBuilderRequestsMetadata: RequestsMetadata = {
     delete: {
-        uriTemplate: RefRequestBuilderUriTemplate,
+        uriTemplate: "{+baseurl}/groups/{group%2Did}/acceptedSenders/$ref?@id={%40id}",
         responseBodyContentType: "application/json",
         errorMappings: {
             XXX: createODataErrorFromDiscriminatorValue as ParsableFactory<Parsable>,

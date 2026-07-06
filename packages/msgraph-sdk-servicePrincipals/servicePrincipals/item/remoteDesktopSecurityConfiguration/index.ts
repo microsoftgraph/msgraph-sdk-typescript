@@ -6,6 +6,8 @@ import { createRemoteDesktopSecurityConfigurationFromDiscriminatorValue, seriali
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { ApprovedClientAppsRequestBuilderNavigationMetadata, ApprovedClientAppsRequestBuilderRequestsMetadata, type ApprovedClientAppsRequestBuilder } from './approvedClientApps/index.js';
+// @ts-ignore
 import { TargetDeviceGroupsRequestBuilderNavigationMetadata, TargetDeviceGroupsRequestBuilderRequestsMetadata, type TargetDeviceGroupsRequestBuilder } from './targetDeviceGroups/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +16,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the remoteDesktopSecurityConfiguration property of the microsoft.graph.servicePrincipal entity.
  */
 export interface RemoteDesktopSecurityConfigurationRequestBuilder extends BaseRequestBuilder<RemoteDesktopSecurityConfigurationRequestBuilder> {
+    /**
+     * Provides operations to manage the approvedClientApps property of the microsoft.graph.remoteDesktopSecurityConfiguration entity.
+     */
+    get approvedClientApps(): ApprovedClientAppsRequestBuilder;
     /**
      * Provides operations to manage the targetDeviceGroups property of the microsoft.graph.remoteDesktopSecurityConfiguration entity.
      */
@@ -90,6 +96,10 @@ const RemoteDesktopSecurityConfigurationRequestBuilderGetQueryParametersMapper: 
  * Metadata for all the navigation properties in the request builder.
  */
 export const RemoteDesktopSecurityConfigurationRequestBuilderNavigationMetadata: Record<Exclude<keyof RemoteDesktopSecurityConfigurationRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    approvedClientApps: {
+        requestsMetadata: ApprovedClientAppsRequestBuilderRequestsMetadata,
+        navigationMetadata: ApprovedClientAppsRequestBuilderNavigationMetadata,
+    },
     targetDeviceGroups: {
         requestsMetadata: TargetDeviceGroupsRequestBuilderRequestsMetadata,
         navigationMetadata: TargetDeviceGroupsRequestBuilderNavigationMetadata,

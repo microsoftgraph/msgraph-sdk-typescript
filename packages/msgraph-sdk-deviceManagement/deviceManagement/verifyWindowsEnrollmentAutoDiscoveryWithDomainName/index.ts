@@ -24,7 +24,7 @@ export function createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetRespo
 export function deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse: Partial<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.backingStoreEnabled = true; },
-        "value": n => { verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.value = n.getBooleanValue(); },
+        "value": n => { verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 /**
@@ -36,7 +36,7 @@ export function deserializeIntoVerifyWindowsEnrollmentAutoDiscoveryWithDomainNam
 // @ts-ignore
 export function serializeVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse(writer: SerializationWriter, verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse: Partial<VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.value);
+    writer.writeBooleanValue("value", verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.value ?? false);
     writer.writeAdditionalData(verifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse.additionalData);
 }
 export interface VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameGetResponse extends AdditionalDataHolder, BackedModel, Parsable {

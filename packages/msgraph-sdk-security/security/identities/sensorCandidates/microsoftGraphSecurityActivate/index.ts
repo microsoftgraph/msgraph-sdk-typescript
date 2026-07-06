@@ -34,7 +34,7 @@ export function createActivatePostRequestBodyFromDiscriminatorValue(parseNode: P
 export function deserializeIntoActivatePostRequestBody(activatePostRequestBody: Partial<ActivatePostRequestBody> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { activatePostRequestBody.backingStoreEnabled = true; },
-        "serverIds": n => { activatePostRequestBody.serverIds = n.getCollectionOfPrimitiveValues<string>(); },
+        "serverIds": n => { activatePostRequestBody.serverIds = n.getCollectionOfPrimitiveValues<string>("string"); },
     }
 }
 /**

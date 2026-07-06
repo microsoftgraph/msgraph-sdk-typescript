@@ -6,6 +6,8 @@ import { createSharePointRestoreSessionFromDiscriminatorValue, serializeSharePoi
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { GranularSiteRestoreArtifactsRequestBuilderNavigationMetadata, GranularSiteRestoreArtifactsRequestBuilderRequestsMetadata, type GranularSiteRestoreArtifactsRequestBuilder } from './granularSiteRestoreArtifacts/index.js';
+// @ts-ignore
 import { SiteRestoreArtifactsRequestBuilderNavigationMetadata, SiteRestoreArtifactsRequestBuilderRequestsMetadata, type SiteRestoreArtifactsRequestBuilder } from './siteRestoreArtifacts/index.js';
 // @ts-ignore
 import { SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderNavigationMetadata, SiteRestoreArtifactsBulkAdditionRequestsRequestBuilderRequestsMetadata, type SiteRestoreArtifactsBulkAdditionRequestsRequestBuilder } from './siteRestoreArtifactsBulkAdditionRequests/index.js';
@@ -16,6 +18,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the sharePointRestoreSessions property of the microsoft.graph.backupRestoreRoot entity.
  */
 export interface SharePointRestoreSessionItemRequestBuilder extends BaseRequestBuilder<SharePointRestoreSessionItemRequestBuilder> {
+    /**
+     * Provides operations to manage the granularSiteRestoreArtifacts property of the microsoft.graph.sharePointRestoreSession entity.
+     */
+    get granularSiteRestoreArtifacts(): GranularSiteRestoreArtifactsRequestBuilder;
     /**
      * Provides operations to manage the siteRestoreArtifacts property of the microsoft.graph.sharePointRestoreSession entity.
      */
@@ -38,11 +44,12 @@ export interface SharePointRestoreSessionItemRequestBuilder extends BaseRequestB
      */
      get(requestConfiguration?: RequestConfiguration<SharePointRestoreSessionItemRequestBuilderGetQueryParameters> | undefined) : Promise<SharePointRestoreSession | undefined>;
     /**
-     * Update the navigation property sharePointRestoreSessions in solutions
+     * Update the properties of a sharePointRestoreSession object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharePointRestoreSession>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/sharepointrestoresession-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: SharePointRestoreSession, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<SharePointRestoreSession | undefined>;
     /**
@@ -58,7 +65,7 @@ export interface SharePointRestoreSessionItemRequestBuilder extends BaseRequestB
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharePointRestoreSessionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property sharePointRestoreSessions in solutions
+     * Update the properties of a sharePointRestoreSession object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -93,6 +100,10 @@ const SharePointRestoreSessionItemRequestBuilderGetQueryParametersMapper: Record
  * Metadata for all the navigation properties in the request builder.
  */
 export const SharePointRestoreSessionItemRequestBuilderNavigationMetadata: Record<Exclude<keyof SharePointRestoreSessionItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    granularSiteRestoreArtifacts: {
+        requestsMetadata: GranularSiteRestoreArtifactsRequestBuilderRequestsMetadata,
+        navigationMetadata: GranularSiteRestoreArtifactsRequestBuilderNavigationMetadata,
+    },
     siteRestoreArtifacts: {
         requestsMetadata: SiteRestoreArtifactsRequestBuilderRequestsMetadata,
         navigationMetadata: SiteRestoreArtifactsRequestBuilderNavigationMetadata,

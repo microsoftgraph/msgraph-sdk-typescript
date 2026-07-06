@@ -43,7 +43,7 @@ export interface SchemaRequestBuilder extends BaseRequestBuilder<SchemaRequestBu
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Retrieve the schema for a given synchronization job or template.
+     * Retrieve the synchronizationSchema for a given synchronization job or template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationSchema>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -51,7 +51,7 @@ export interface SchemaRequestBuilder extends BaseRequestBuilder<SchemaRequestBu
      */
      get(requestConfiguration?: RequestConfiguration<SchemaRequestBuilderGetQueryParameters> | undefined) : Promise<SynchronizationSchema | undefined>;
     /**
-     * Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
+     * Update the synchronizationSchema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SynchronizationSchema>}
@@ -66,13 +66,13 @@ export interface SchemaRequestBuilder extends BaseRequestBuilder<SchemaRequestBu
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Retrieve the schema for a given synchronization job or template.
+     * Retrieve the synchronizationSchema for a given synchronization job or template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SchemaRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
+     * Update the synchronizationSchema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -80,7 +80,7 @@ export interface SchemaRequestBuilder extends BaseRequestBuilder<SchemaRequestBu
      toPatchRequestInformation(body: SynchronizationSchema, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the schema for a given synchronization job or template.
+ * Retrieve the synchronizationSchema for a given synchronization job or template.
  */
 export interface SchemaRequestBuilderGetQueryParameters {
     /**

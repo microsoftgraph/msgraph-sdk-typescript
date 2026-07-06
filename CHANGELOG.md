@@ -5,6 +5,63 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-preview.84](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.83...v1.0.0-preview.84) (2026-05-26)
+
+
+### Bug Fixes
+
+* **deps:** update npm dependencies to fix GHSA-396q-4vc8-28x9 ([#995](https://github.com/microsoftgraph/msgraph-sdk-typescript/issues/995)) ([0f8bf87](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/0f8bf873479bac37f7c9f9cac978043d5d588785))
+
+## [1.0.0-preview.83](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.82...v1.0.0-preview.83) (2026-05-19)
+
+
+### Features
+
+* **generation:** update request builders and models ([#991](https://github.com/microsoftgraph/msgraph-sdk-typescript/issues/991)) ([9b59e04](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/9b59e04c865fe1c45465d946b4cc406d554a61d1))
+* upgrade typescript from 5.9.3 to 6.0.3 ([#979](https://github.com/microsoftgraph/msgraph-sdk-typescript/issues/979)) ([7adc230](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/7adc23090854450ce2b38600999770a8f5c4dd74))
+
+
+### Bug Fixes
+
+* route npm install through Azure Artifacts feed in release pipeline ([cc92832](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/cc928321c5a3664678c9cac32a67b9031a7a9d16))
+* route npm install through Azure Artifacts feed in release pipeline ([c36c40b](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/c36c40b678256e6886f743b8f311dc142889e14b))
+
+## [1.0.0-preview.82](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.81...v1.0.0-preview.82) (2026-05-05)
+
+
+### Features
+
+* **generation:** update request builders and models ([85f293e](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/85f293ef4da5268b765a660b0f2768884eaca64a))
+* **generation:** update request builders and models ([34bd7b0](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/34bd7b02827a3b82db9c26ed2cea4ba854b7f7fa))
+
+## [1.0.0-preview.81](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.80...v1.0.0-preview.81) (2026-04-17)
+
+
+### Features
+
+* **generation:** update request builders and models ([c3fb5c0](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/c3fb5c02a91459456c400763e4121db6bf4aa932))
+
+## [1.0.0-preview.80](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.79...v1.0.0-preview.80) (2026-02-20)
+
+
+### Features
+
+* **generation:** update request builders and models ([8b306ea](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/8b306eab9490a706badae8faa9f158c41c3450f2))
+
+## [1.0.0-preview.79](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.78...v1.0.0-preview.79) (2026-02-05)
+
+
+### Features
+
+* **generation:** update request builders and models ([8ea1ddf](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/8ea1ddf9ad4d3a3d414810fdc55e24aaaa994dc7))
+
+## [1.0.0-preview.78](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.77...v1.0.0-preview.78) (2026-01-22)
+
+
+### Features
+
+* **generation:** update request builders and models ([#949](https://github.com/microsoftgraph/msgraph-sdk-typescript/issues/949)) ([fc4ac10](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/fc4ac10168d2a7e54b8e0f07015cb8734438ede7))
+
 ## [1.0.0-preview.77](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.76...v1.0.0-preview.77) (2026-01-07)
 
 

@@ -24,7 +24,7 @@ export function createRevokeSignInSessionsPostResponseFromDiscriminatorValue(par
 export function deserializeIntoRevokeSignInSessionsPostResponse(revokeSignInSessionsPostResponse: Partial<RevokeSignInSessionsPostResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { revokeSignInSessionsPostResponse.backingStoreEnabled = true; },
-        "value": n => { revokeSignInSessionsPostResponse.value = n.getBooleanValue(); },
+        "value": n => { revokeSignInSessionsPostResponse.value = n.getBooleanValue() ?? false; },
     }
 }
 export interface RevokeSignInSessionsPostResponse extends AdditionalDataHolder, BackedModel, Parsable {
@@ -65,7 +65,7 @@ export interface RevokeSignInSessionsRequestBuilder extends BaseRequestBuilder<R
 // @ts-ignore
 export function serializeRevokeSignInSessionsPostResponse(writer: SerializationWriter, revokeSignInSessionsPostResponse: Partial<RevokeSignInSessionsPostResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!revokeSignInSessionsPostResponse || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("value", revokeSignInSessionsPostResponse.value);
+    writer.writeBooleanValue("value", revokeSignInSessionsPostResponse.value ?? false);
     writer.writeAdditionalData(revokeSignInSessionsPostResponse.additionalData);
 }
 /**
