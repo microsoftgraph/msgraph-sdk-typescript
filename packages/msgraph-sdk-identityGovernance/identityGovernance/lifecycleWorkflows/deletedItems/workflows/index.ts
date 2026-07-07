@@ -27,7 +27,7 @@ export interface WorkflowsRequestBuilder extends BaseRequestBuilder<WorkflowsReq
      */
      byWorkflowId(workflowId: string) : WorkflowItemRequestBuilder;
     /**
-     * Get a list of the deleted workflow objects and their properties.
+     * Get a list of deleted workflow objects and their properties from the deletedItemContainer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<WorkflowCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,14 +35,14 @@ export interface WorkflowsRequestBuilder extends BaseRequestBuilder<WorkflowsReq
      */
      get(requestConfiguration?: RequestConfiguration<WorkflowsRequestBuilderGetQueryParameters> | undefined) : Promise<WorkflowCollectionResponse | undefined>;
     /**
-     * Get a list of the deleted workflow objects and their properties.
+     * Get a list of deleted workflow objects and their properties from the deletedItemContainer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<WorkflowsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get a list of the deleted workflow objects and their properties.
+ * Get a list of deleted workflow objects and their properties from the deletedItemContainer.
  */
 export interface WorkflowsRequestBuilderGetQueryParameters {
     /**

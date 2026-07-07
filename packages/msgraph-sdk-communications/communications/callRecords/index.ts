@@ -10,9 +10,9 @@ import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from '.
 // @ts-ignore
 import { CallRecordItemRequestBuilderNavigationMetadata, CallRecordItemRequestBuilderRequestsMetadata, type CallRecordItemRequestBuilder } from './item/index.js';
 // @ts-ignore
-import { MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderRequestsMetadata, type MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder } from './microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/index.js';
+import { MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderRequestsMetadata, type MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder } from './microsoftGraphCallRecordsGetDirectRoutingCallsWithFromD_0d33e661/index.js';
 // @ts-ignore
-import { MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderRequestsMetadata, type MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder } from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime/index.js';
+import { MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderRequestsMetadata, type MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder } from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWi_03098e60/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 

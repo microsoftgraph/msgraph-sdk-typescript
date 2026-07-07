@@ -34,7 +34,7 @@ import { GetEmailAppUsageUserDetailWithPeriodRequestBuilderRequestsMetadata, typ
 // @ts-ignore
 import { GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilderRequestsMetadata, type GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder } from './getEmailAppUsageVersionsUserCountsWithPeriod/index.js';
 // @ts-ignore
-import { GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime/index.js';
+import { GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWi_e2eac30b/index.js';
 // @ts-ignore
 import { GetM365AppPlatformUserCountsWithPeriodRequestBuilderRequestsMetadata, type GetM365AppPlatformUserCountsWithPeriodRequestBuilder } from './getM365AppPlatformUserCountsWithPeriod/index.js';
 // @ts-ignore
@@ -96,7 +96,7 @@ import { GetOneDriveUsageFileCountsWithPeriodRequestBuilderRequestsMetadata, typ
 // @ts-ignore
 import { GetOneDriveUsageStorageWithPeriodRequestBuilderRequestsMetadata, type GetOneDriveUsageStorageWithPeriodRequestBuilder } from './getOneDriveUsageStorageWithPeriod/index.js';
 // @ts-ignore
-import { GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime/index.js';
+import { GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTi_41d6f486/index.js';
 // @ts-ignore
 import { GetRelyingPartyDetailedSummaryWithPeriodRequestBuilderRequestsMetadata, type GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder } from './getRelyingPartyDetailedSummaryWithPeriod/index.js';
 // @ts-ignore
@@ -182,7 +182,7 @@ import { GetTeamsUserActivityUserDetailWithDateRequestBuilderRequestsMetadata, t
 // @ts-ignore
 import { GetTeamsUserActivityUserDetailWithPeriodRequestBuilderRequestsMetadata, type GetTeamsUserActivityUserDetailWithPeriodRequestBuilder } from './getTeamsUserActivityUserDetailWithPeriod/index.js';
 // @ts-ignore
-import { GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime/index.js';
+import { GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderRequestsMetadata, type GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder } from './getUserArchivedPrintJobsWithUserIdWithStartDateTimeWith_2be0aad7/index.js';
 // @ts-ignore
 import { GetYammerActivityCountsWithPeriodRequestBuilderRequestsMetadata, type GetYammerActivityCountsWithPeriodRequestBuilder } from './getYammerActivityCountsWithPeriod/index.js';
 // @ts-ignore
@@ -210,7 +210,7 @@ import { GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilderRequestsMetad
 // @ts-ignore
 import { ManagedDeviceEnrollmentFailureDetailsRequestBuilderRequestsMetadata, type ManagedDeviceEnrollmentFailureDetailsRequestBuilder } from './managedDeviceEnrollmentFailureDetails/index.js';
 // @ts-ignore
-import { ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilderRequestsMetadata, type ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder } from './managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken/index.js';
+import { ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilderRequestsMetadata, type ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder } from './managedDeviceEnrollmentFailureDetailsWithSkipWithTopWit_5d97720e/index.js';
 // @ts-ignore
 import { ManagedDeviceEnrollmentTopFailuresRequestBuilderRequestsMetadata, type ManagedDeviceEnrollmentTopFailuresRequestBuilder } from './managedDeviceEnrollmentTopFailures/index.js';
 // @ts-ignore

@@ -10,11 +10,11 @@ import { type UserRegistrationDetailsRequestBuilder, UserRegistrationDetailsRequ
 // @ts-ignore
 import { type UsersRegisteredByFeatureRequestBuilder, UsersRegisteredByFeatureRequestBuilderRequestsMetadata } from './usersRegisteredByFeature/index.js';
 // @ts-ignore
-import { type UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder, UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilderRequestsMetadata } from './usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles/index.js';
+import { type UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder, UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilderRequestsMetadata } from './usersRegisteredByFeatureWithIncludedUserTypesWithInclud_40624112/index.js';
 // @ts-ignore
 import { type UsersRegisteredByMethodRequestBuilder, UsersRegisteredByMethodRequestBuilderRequestsMetadata } from './usersRegisteredByMethod/index.js';
 // @ts-ignore
-import { type UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder, UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilderRequestsMetadata } from './usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles/index.js';
+import { type UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder, UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilderRequestsMetadata } from './usersRegisteredByMethodWithIncludedUserTypesWithInclude_cee28f2b/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 

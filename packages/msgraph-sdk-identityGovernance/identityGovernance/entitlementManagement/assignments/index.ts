@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { AdditionalAccessRequestBuilderRequestsMetadata, type AdditionalAccessRequestBuilder } from './additionalAccess/index.js';
 // @ts-ignore
-import { AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderRequestsMetadata, type AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder } from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId/index.js';
+import { AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilderRequestsMetadata, type AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder } from './additionalAccessWithAccessPackageIdWithIncompatibleAcce_de2a04b0/index.js';
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore

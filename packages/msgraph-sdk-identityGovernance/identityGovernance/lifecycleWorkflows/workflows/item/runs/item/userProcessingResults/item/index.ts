@@ -31,7 +31,7 @@ export interface UserProcessingResultItemRequestBuilder extends BaseRequestBuild
      */
     get taskProcessingResults(): TaskProcessingResultsRequestBuilder;
     /**
-     * Get the user processing result of a user processing result of a run.
+     * Get a userProcessingResult for a run.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<UserProcessingResult>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -39,14 +39,14 @@ export interface UserProcessingResultItemRequestBuilder extends BaseRequestBuild
      */
      get(requestConfiguration?: RequestConfiguration<UserProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : Promise<UserProcessingResult | undefined>;
     /**
-     * Get the user processing result of a user processing result of a run.
+     * Get a userProcessingResult for a run.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<UserProcessingResultItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get the user processing result of a user processing result of a run.
+ * Get a userProcessingResult for a run.
  */
 export interface UserProcessingResultItemRequestBuilderGetQueryParameters {
     /**

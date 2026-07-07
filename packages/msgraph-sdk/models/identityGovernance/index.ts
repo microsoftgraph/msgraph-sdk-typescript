@@ -60,6 +60,22 @@ export interface AttributeChangeTrigger extends Parsable, WorkflowExecutionTrigg
      */
     triggerAttributes?: TriggerAttribute[] | null;
 }
+export interface CancelRunsScope extends CancelScope, Parsable {
+    /**
+     * The runs property
+     */
+    runs?: Run[] | null;
+}
+export interface CancelScope extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface CountBasedQuarantineCondition extends Parsable, QuarantineCondition {
     /**
      * The maximum number of users a workflow run can process before the workflow is quarantined.
@@ -136,6 +152,35 @@ export function createActivationScopeFromDiscriminatorValue(parseNode: ParseNode
 // @ts-ignore
 export function createAttributeChangeTriggerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAttributeChangeTrigger;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CancelRunsScope}
+ */
+// @ts-ignore
+export function createCancelRunsScopeFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCancelRunsScope;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CancelScope}
+ */
+// @ts-ignore
+export function createCancelScopeFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.identityGovernance.cancelRunsScope":
+                    return deserializeIntoCancelRunsScope;
+            }
+        }
+    }
+    return deserializeIntoCancelScope;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -793,6 +838,30 @@ export function deserializeIntoAttributeChangeTrigger(attributeChangeTrigger: Pa
     return {
         ...deserializeIntoWorkflowExecutionTrigger(attributeChangeTrigger),
         "triggerAttributes": n => { attributeChangeTrigger.triggerAttributes = n.getCollectionOfObjectValues<TriggerAttribute>(createTriggerAttributeFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CancelRunsScope The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCancelRunsScope(cancelRunsScope: Partial<CancelRunsScope> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoCancelScope(cancelRunsScope),
+        "runs": n => { cancelRunsScope.runs = n.getCollectionOfObjectValues<Run>(createRunFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CancelScope The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCancelScope(cancelScope: Partial<CancelScope> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { cancelScope.backingStoreEnabled = true; },
+        "@odata.type": n => { cancelScope.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -1954,6 +2023,35 @@ export function serializeAttributeChangeTrigger(writer: SerializationWriter, att
     if (!attributeChangeTrigger || isSerializingDerivedType) { return; }
     serializeWorkflowExecutionTrigger(writer, attributeChangeTrigger, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<TriggerAttribute>("triggerAttributes", attributeChangeTrigger.triggerAttributes, serializeTriggerAttribute);
+}
+/**
+ * Serializes information the current object
+ * @param CancelRunsScope The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCancelRunsScope(writer: SerializationWriter, cancelRunsScope: Partial<CancelRunsScope> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!cancelRunsScope || isSerializingDerivedType) { return; }
+    serializeCancelScope(writer, cancelRunsScope, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<Run>("runs", cancelRunsScope.runs, serializeRun);
+}
+/**
+ * Serializes information the current object
+ * @param CancelScope The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCancelScope(writer: SerializationWriter, cancelScope: Partial<CancelScope> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!cancelScope || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", cancelScope.odataType);
+    writer.writeAdditionalData(cancelScope.additionalData);
+    switch (cancelScope.odataType) {
+        case "#microsoft.graph.identityGovernance.cancelRunsScope":
+            serializeCancelRunsScope(writer, cancelScope, true);
+        break;
+    }
 }
 /**
  * Serializes information the current object
@@ -3520,6 +3618,7 @@ export const LifecycleWorkflowProcessingStatusObject = {
     Canceled: "canceled",
     Failed: "failed",
     UnknownFutureValue: "unknownFutureValue",
+    Canceling: "canceling",
     Quarantined: "quarantined",
 } as const;
 export const MatchModeObject = {

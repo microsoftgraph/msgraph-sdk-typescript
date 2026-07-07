@@ -38,7 +38,7 @@ import { FollowRequestBuilderRequestsMetadata, type FollowRequestBuilder } from 
 // @ts-ignore
 import { GetActivitiesByIntervalRequestBuilderRequestsMetadata, type GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/index.js';
 // @ts-ignore
-import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata, type GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/index.js';
+import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata, type GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTime_58a4aa2a/index.js';
 // @ts-ignore
 import { InviteRequestBuilderRequestsMetadata, type InviteRequestBuilder } from './invite/index.js';
 // @ts-ignore

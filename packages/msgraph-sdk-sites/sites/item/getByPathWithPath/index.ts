@@ -22,7 +22,7 @@ import { ExternalColumnsRequestBuilderRequestsMetadata, type ExternalColumnsRequ
 // @ts-ignore
 import { GetActivitiesByIntervalRequestBuilderRequestsMetadata, type GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/index.js';
 // @ts-ignore
-import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata, type GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/index.js';
+import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata, type GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTime_58a4aa2a/index.js';
 // @ts-ignore
 import { GetApplicableContentTypesForListWithListIdRequestBuilderRequestsMetadata, type GetApplicableContentTypesForListWithListIdRequestBuilder } from './getApplicableContentTypesForListWithListId/index.js';
 // @ts-ignore

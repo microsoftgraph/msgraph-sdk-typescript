@@ -20,7 +20,7 @@ import { FieldsRequestBuilderRequestsMetadata, type FieldsRequestBuilder } from 
 // @ts-ignore
 import { GetActivitiesByIntervalRequestBuilderRequestsMetadata, type GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/index.js';
 // @ts-ignore
-import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata, type GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/index.js';
+import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderRequestsMetadata, type GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTime_58a4aa2a/index.js';
 // @ts-ignore
 import { LastModifiedByUserRequestBuilderNavigationMetadata, LastModifiedByUserRequestBuilderRequestsMetadata, type LastModifiedByUserRequestBuilder } from './lastModifiedByUser/index.js';
 // @ts-ignore

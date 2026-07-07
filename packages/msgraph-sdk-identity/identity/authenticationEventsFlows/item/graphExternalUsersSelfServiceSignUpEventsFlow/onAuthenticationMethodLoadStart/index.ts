@@ -6,7 +6,7 @@ import { createOnAuthenticationMethodLoadStartHandlerFromDiscriminatorValue, typ
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestBuilderNavigationMetadata, GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestBuilderRequestsMetadata, type GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestBuilder } from './graphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/index.js';
+import { GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestBuilderNavigationMetadata, GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestBuilderRequestsMetadata, type GraphOnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUpRequestBuilder } from './graphOnAuthenticationMethodLoadStartExternalUsersSelfSe_495b9e69/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 

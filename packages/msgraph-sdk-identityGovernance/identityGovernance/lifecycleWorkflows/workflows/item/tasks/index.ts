@@ -27,7 +27,7 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      */
      byTaskId(taskId: string) : TaskItemRequestBuilder;
     /**
-     * Retrieve the details of the built-in tasks in Lifecycle Workflows.
+     * Retrieve the details of the built-in task objects in a workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TaskCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -43,7 +43,7 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      */
      post(body: Task, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Task | undefined>;
     /**
-     * Retrieve the details of the built-in tasks in Lifecycle Workflows.
+     * Retrieve the details of the built-in task objects in a workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +57,7 @@ export interface TasksRequestBuilder extends BaseRequestBuilder<TasksRequestBuil
      toPostRequestInformation(body: Task, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the details of the built-in tasks in Lifecycle Workflows.
+ * Retrieve the details of the built-in task objects in a workflow.
  */
 export interface TasksRequestBuilderGetQueryParameters {
     /**

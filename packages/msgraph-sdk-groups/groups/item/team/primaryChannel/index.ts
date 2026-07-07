@@ -12,7 +12,7 @@ import { ArchiveRequestBuilderRequestsMetadata, type ArchiveRequestBuilder } fro
 // @ts-ignore
 import { CompleteMigrationRequestBuilderRequestsMetadata, type CompleteMigrationRequestBuilder } from './completeMigration/index.js';
 // @ts-ignore
-import { DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderRequestsMetadata, type DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder } from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/index.js';
+import { DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderRequestsMetadata, type DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder } from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrinc_09968052/index.js';
 // @ts-ignore
 import { EnabledAppsRequestBuilderNavigationMetadata, EnabledAppsRequestBuilderRequestsMetadata, type EnabledAppsRequestBuilder } from './enabledApps/index.js';
 // @ts-ignore
