@@ -12,6 +12,8 @@ import { AlertsRequestBuilderNavigationMetadata, AlertsRequestBuilderRequestsMet
 // @ts-ignore
 import { AttackSimulationRequestBuilderNavigationMetadata, AttackSimulationRequestBuilderRequestsMetadata, type AttackSimulationRequestBuilder } from './attackSimulation/index.js';
 // @ts-ignore
+import { AuditLogRequestBuilderNavigationMetadata, AuditLogRequestBuilderRequestsMetadata, type AuditLogRequestBuilder } from './auditLog/index.js';
+// @ts-ignore
 import { CasesRequestBuilderNavigationMetadata, CasesRequestBuilderRequestsMetadata, type CasesRequestBuilder } from './cases/index.js';
 // @ts-ignore
 import { CollaborationRequestBuilderNavigationMetadata, CollaborationRequestBuilderRequestsMetadata, type CollaborationRequestBuilder } from './collaboration/index.js';
@@ -56,6 +58,10 @@ export interface SecurityRequestBuilder extends BaseRequestBuilder<SecurityReque
      * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
      */
     get attackSimulation(): AttackSimulationRequestBuilder;
+    /**
+     * Provides operations to manage the auditLog property of the microsoft.graph.security entity.
+     */
+    get auditLog(): AuditLogRequestBuilder;
     /**
      * Provides operations to manage the cases property of the microsoft.graph.security entity.
      */
@@ -176,6 +182,10 @@ export const SecurityRequestBuilderNavigationMetadata: Record<Exclude<keyof Secu
     attackSimulation: {
         requestsMetadata: AttackSimulationRequestBuilderRequestsMetadata,
         navigationMetadata: AttackSimulationRequestBuilderNavigationMetadata,
+    },
+    auditLog: {
+        requestsMetadata: AuditLogRequestBuilderRequestsMetadata,
+        navigationMetadata: AuditLogRequestBuilderNavigationMetadata,
     },
     cases: {
         requestsMetadata: CasesRequestBuilderRequestsMetadata,

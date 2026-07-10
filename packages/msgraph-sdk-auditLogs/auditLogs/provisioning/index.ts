@@ -27,7 +27,7 @@ export interface ProvisioningRequestBuilder extends BaseRequestBuilder<Provision
      */
      byProvisioningObjectSummaryId(provisioningObjectSummaryId: string) : ProvisioningObjectSummaryItemRequestBuilder;
     /**
-     * Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
+     * Get all provisioningObjectSummary events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ProvisioningObjectSummaryCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -43,7 +43,7 @@ export interface ProvisioningRequestBuilder extends BaseRequestBuilder<Provision
      */
      post(body: ProvisioningObjectSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<ProvisioningObjectSummary | undefined>;
     /**
-     * Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
+     * Get all provisioningObjectSummary events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -57,7 +57,7 @@ export interface ProvisioningRequestBuilder extends BaseRequestBuilder<Provision
      toPostRequestInformation(body: ProvisioningObjectSummary, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
+ * Get all provisioningObjectSummary events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
  */
 export interface ProvisioningRequestBuilderGetQueryParameters {
     /**

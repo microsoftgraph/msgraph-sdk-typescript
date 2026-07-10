@@ -40,7 +40,7 @@ export interface GetApplicablePolicyRequirementsPostResponse extends BaseCollect
  */
 export interface GetApplicablePolicyRequirementsRequestBuilder extends BaseRequestBuilder<GetApplicablePolicyRequirementsRequestBuilder> {
     /**
-     * In Microsoft Entra entitlement management, this action retrieves a list of accessPackageAssignmentRequestRequirements objects that the currently signed-in user can use to create an accessPackageAssignmentRequest.  Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for.
+     * In Microsoft Entra entitlement management, this action retrieves accessPackageAssignmentRequestRequirements objects for an accessPackage that the currently signed-in user can use to create an accessPackageAssignmentRequest. Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetApplicablePolicyRequirementsPostResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -48,7 +48,7 @@ export interface GetApplicablePolicyRequirementsRequestBuilder extends BaseReque
      */
      post(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GetApplicablePolicyRequirementsPostResponse | undefined>;
     /**
-     * In Microsoft Entra entitlement management, this action retrieves a list of accessPackageAssignmentRequestRequirements objects that the currently signed-in user can use to create an accessPackageAssignmentRequest.  Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for.
+     * In Microsoft Entra entitlement management, this action retrieves accessPackageAssignmentRequestRequirements objects for an accessPackage that the currently signed-in user can use to create an accessPackageAssignmentRequest. Each requirement object corresponds to an access package assignment policy that the currently signed-in user is allowed to request an assignment for.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

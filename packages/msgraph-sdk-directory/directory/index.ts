@@ -22,6 +22,8 @@ import { OnPremisesSynchronizationRequestBuilderNavigationMetadata, OnPremisesSy
 // @ts-ignore
 import { PublicKeyInfrastructureRequestBuilderNavigationMetadata, PublicKeyInfrastructureRequestBuilderRequestsMetadata, type PublicKeyInfrastructureRequestBuilder } from './publicKeyInfrastructure/index.js';
 // @ts-ignore
+import { RecoveryRequestBuilderNavigationMetadata, RecoveryRequestBuilderRequestsMetadata, type RecoveryRequestBuilder } from './recovery/index.js';
+// @ts-ignore
 import { SubscriptionsRequestBuilderNavigationMetadata, SubscriptionsRequestBuilderRequestsMetadata, type SubscriptionsRequestBuilder } from './subscriptions/index.js';
 // @ts-ignore
 import { SubscriptionsWithCommerceSubscriptionIdRequestBuilderRequestsMetadata, type SubscriptionsWithCommerceSubscriptionIdRequestBuilder } from './subscriptionsWithCommerceSubscriptionId/index.js';
@@ -64,6 +66,10 @@ export interface DirectoryRequestBuilder extends BaseRequestBuilder<DirectoryReq
      * Provides operations to manage the publicKeyInfrastructure property of the microsoft.graph.directory entity.
      */
     get publicKeyInfrastructure(): PublicKeyInfrastructureRequestBuilder;
+    /**
+     * Provides operations to manage the recovery property of the microsoft.graph.directory entity.
+     */
+    get recovery(): RecoveryRequestBuilder;
     /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.directory entity.
      */
@@ -166,6 +172,10 @@ export const DirectoryRequestBuilderNavigationMetadata: Record<Exclude<keyof Dir
     publicKeyInfrastructure: {
         requestsMetadata: PublicKeyInfrastructureRequestBuilderRequestsMetadata,
         navigationMetadata: PublicKeyInfrastructureRequestBuilderNavigationMetadata,
+    },
+    recovery: {
+        requestsMetadata: RecoveryRequestBuilderRequestsMetadata,
+        navigationMetadata: RecoveryRequestBuilderNavigationMetadata,
     },
     subscriptions: {
         requestsMetadata: SubscriptionsRequestBuilderRequestsMetadata,

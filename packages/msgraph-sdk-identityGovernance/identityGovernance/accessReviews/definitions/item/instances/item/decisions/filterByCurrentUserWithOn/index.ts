@@ -40,7 +40,7 @@ export interface FilterByCurrentUserWithOnGetResponse extends BaseCollectionPagi
  */
 export interface FilterByCurrentUserWithOnRequestBuilder extends BaseRequestBuilder<FilterByCurrentUserWithOnRequestBuilder> {
     /**
-     * Retrieve all decision items for an instance of an access review or a stage of an instance of a multi-stage access review, for which the calling user is the reviewer. The decision items are represented by accessReviewInstanceDecisionItem objects on a given accessReviewInstance or accessReviewStage for which the calling user is the reviewer.
+     * Retrieve all decision items for an instance of an access review or a stage of an instance of a multi-stage access review for which the calling user is the reviewer. The decision items are presented as accessReviewInstanceDecisionItem objects on a given accessReviewInstance or accessReviewStage for which the calling user is the reviewer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<FilterByCurrentUserWithOnGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -48,14 +48,14 @@ export interface FilterByCurrentUserWithOnRequestBuilder extends BaseRequestBuil
      */
      get(requestConfiguration?: RequestConfiguration<FilterByCurrentUserWithOnRequestBuilderGetQueryParameters> | undefined) : Promise<FilterByCurrentUserWithOnGetResponse | undefined>;
     /**
-     * Retrieve all decision items for an instance of an access review or a stage of an instance of a multi-stage access review, for which the calling user is the reviewer. The decision items are represented by accessReviewInstanceDecisionItem objects on a given accessReviewInstance or accessReviewStage for which the calling user is the reviewer.
+     * Retrieve all decision items for an instance of an access review or a stage of an instance of a multi-stage access review for which the calling user is the reviewer. The decision items are presented as accessReviewInstanceDecisionItem objects on a given accessReviewInstance or accessReviewStage for which the calling user is the reviewer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<FilterByCurrentUserWithOnRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Retrieve all decision items for an instance of an access review or a stage of an instance of a multi-stage access review, for which the calling user is the reviewer. The decision items are represented by accessReviewInstanceDecisionItem objects on a given accessReviewInstance or accessReviewStage for which the calling user is the reviewer.
+ * Retrieve all decision items for an instance of an access review or a stage of an instance of a multi-stage access review for which the calling user is the reviewer. The decision items are presented as accessReviewInstanceDecisionItem objects on a given accessReviewInstance or accessReviewStage for which the calling user is the reviewer.
  */
 export interface FilterByCurrentUserWithOnRequestBuilderGetQueryParameters {
     /**
