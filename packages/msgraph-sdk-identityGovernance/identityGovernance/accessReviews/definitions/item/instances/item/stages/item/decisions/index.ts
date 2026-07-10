@@ -35,7 +35,7 @@ export interface DecisionsRequestBuilder extends BaseRequestBuilder<DecisionsReq
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+     * Get the accessReviewInstanceDecisionItem objects from an accessReviewStage in a multi-stage access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewInstanceDecisionItemCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -51,7 +51,7 @@ export interface DecisionsRequestBuilder extends BaseRequestBuilder<DecisionsReq
      */
      post(body: AccessReviewInstanceDecisionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined>;
     /**
-     * Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+     * Get the accessReviewInstanceDecisionItem objects from an accessReviewStage in a multi-stage access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +65,7 @@ export interface DecisionsRequestBuilder extends BaseRequestBuilder<DecisionsReq
      toPostRequestInformation(body: AccessReviewInstanceDecisionItem, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+ * Get the accessReviewInstanceDecisionItem objects from an accessReviewStage in a multi-stage access review.
  */
 export interface DecisionsRequestBuilderGetQueryParameters {
     /**

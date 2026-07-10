@@ -36,7 +36,7 @@ export function deserializeIntoResumePostRequestBody(resumePostRequestBody: Part
  */
 export interface MicrosoftGraphIdentityGovernanceResumeRequestBuilder extends BaseRequestBuilder<MicrosoftGraphIdentityGovernanceResumeRequestBuilder> {
     /**
-     * Resume a task processing result that's inProgress. In the default case an Azure Logic Apps system-assigned managed identity calls this API. For more information, see: Lifecycle Workflows extensibility approach.
+     * Resume a taskProcessingResult that's inProgress. In the default case, an Azure Logic Apps system-assigned managed identity calls this API. For more information, see Lifecycle Workflows extensibility approach.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -44,7 +44,7 @@ export interface MicrosoftGraphIdentityGovernanceResumeRequestBuilder extends Ba
      */
      post(body: ResumePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Resume a task processing result that's inProgress. In the default case an Azure Logic Apps system-assigned managed identity calls this API. For more information, see: Lifecycle Workflows extensibility approach.
+     * Resume a taskProcessingResult that's inProgress. In the default case, an Azure Logic Apps system-assigned managed identity calls this API. For more information, see Lifecycle Workflows extensibility approach.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

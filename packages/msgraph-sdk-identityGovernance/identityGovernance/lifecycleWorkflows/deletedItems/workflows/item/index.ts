@@ -18,6 +18,8 @@ import { MicrosoftGraphIdentityGovernanceActivateRequestBuilderRequestsMetadata,
 // @ts-ignore
 import { MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder } from './microsoftGraphIdentityGovernanceActivateWithScope/index.js';
 // @ts-ignore
+import { MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder } from './microsoftGraphIdentityGovernanceCancelProcessing/index.js';
+// @ts-ignore
 import { MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilder } from './microsoftGraphIdentityGovernanceClearQuarantine/index.js';
 // @ts-ignore
 import { MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder } from './microsoftGraphIdentityGovernanceCreateNewVersion/index.js';
@@ -70,6 +72,10 @@ export interface WorkflowItemRequestBuilder extends BaseRequestBuilder<WorkflowI
      * Provides operations to call the activateWithScope method.
      */
     get microsoftGraphIdentityGovernanceActivateWithScope(): MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder;
+    /**
+     * Provides operations to call the cancelProcessing method.
+     */
+    get microsoftGraphIdentityGovernanceCancelProcessing(): MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder;
     /**
      * Provides operations to call the clearQuarantine method.
      */
@@ -191,6 +197,9 @@ export const WorkflowItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
     },
     microsoftGraphIdentityGovernanceActivateWithScope: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata,
+    },
+    microsoftGraphIdentityGovernanceCancelProcessing: {
+        requestsMetadata: MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilderRequestsMetadata,
     },
     microsoftGraphIdentityGovernanceClearQuarantine: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilderRequestsMetadata,

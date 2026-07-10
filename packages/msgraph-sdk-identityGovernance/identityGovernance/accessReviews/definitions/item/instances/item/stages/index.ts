@@ -35,7 +35,7 @@ export interface StagesRequestBuilder extends BaseRequestBuilder<StagesRequestBu
      */
      filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder;
     /**
-     * Retrieve the stages in a multi-stage access review instance.
+     * Retrieve the accessReviewStage objects for a specific accessReviewInstance in a multi-stage access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AccessReviewStageCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -51,7 +51,7 @@ export interface StagesRequestBuilder extends BaseRequestBuilder<StagesRequestBu
      */
      post(body: AccessReviewStage, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<AccessReviewStage | undefined>;
     /**
-     * Retrieve the stages in a multi-stage access review instance.
+     * Retrieve the accessReviewStage objects for a specific accessReviewInstance in a multi-stage access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -65,7 +65,7 @@ export interface StagesRequestBuilder extends BaseRequestBuilder<StagesRequestBu
      toPostRequestInformation(body: AccessReviewStage, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Retrieve the stages in a multi-stage access review instance.
+ * Retrieve the accessReviewStage objects for a specific accessReviewInstance in a multi-stage access review.
  */
 export interface StagesRequestBuilderGetQueryParameters {
     /**

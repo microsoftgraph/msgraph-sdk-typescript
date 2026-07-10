@@ -18,6 +18,8 @@ import { MicrosoftGraphIdentityGovernanceActivateRequestBuilderRequestsMetadata,
 // @ts-ignore
 import { MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder } from './microsoftGraphIdentityGovernanceActivateWithScope/index.js';
 // @ts-ignore
+import { MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder } from './microsoftGraphIdentityGovernanceCancelProcessing/index.js';
+// @ts-ignore
 import { MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilder } from './microsoftGraphIdentityGovernanceClearQuarantine/index.js';
 // @ts-ignore
 import { MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder } from './microsoftGraphIdentityGovernanceCreateNewVersion/index.js';
@@ -71,6 +73,10 @@ export interface WorkflowItemRequestBuilder extends BaseRequestBuilder<WorkflowI
      */
     get microsoftGraphIdentityGovernanceActivateWithScope(): MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder;
     /**
+     * Provides operations to call the cancelProcessing method.
+     */
+    get microsoftGraphIdentityGovernanceCancelProcessing(): MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder;
+    /**
      * Provides operations to call the clearQuarantine method.
      */
     get microsoftGraphIdentityGovernanceClearQuarantine(): MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilder;
@@ -115,7 +121,7 @@ export interface WorkflowItemRequestBuilder extends BaseRequestBuilder<WorkflowI
      */
     get versions(): VersionsRequestBuilder;
     /**
-     * Delete a workflow object and its associated tasks, taskProcessingResults and versions. You can restore a deleted workflow and its associated objects within 30 days of deletion.
+     * Delete a workflow object and its associated tasks, taskProcessingResults and versions. The deleted workflow is sent to the deleted workflows container. You can restore a deleted workflow and its associated objects within 30 days of deletion.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-delete?view=graph-rest-1.0|Find more info here}
@@ -139,7 +145,7 @@ export interface WorkflowItemRequestBuilder extends BaseRequestBuilder<WorkflowI
      */
      patch(body: Workflow, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Workflow | undefined>;
     /**
-     * Delete a workflow object and its associated tasks, taskProcessingResults and versions. You can restore a deleted workflow and its associated objects within 30 days of deletion.
+     * Delete a workflow object and its associated tasks, taskProcessingResults and versions. The deleted workflow is sent to the deleted workflows container. You can restore a deleted workflow and its associated objects within 30 days of deletion.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -207,6 +213,9 @@ export const WorkflowItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
     },
     microsoftGraphIdentityGovernanceActivateWithScope: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata,
+    },
+    microsoftGraphIdentityGovernanceCancelProcessing: {
+        requestsMetadata: MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilderRequestsMetadata,
     },
     microsoftGraphIdentityGovernanceClearQuarantine: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceClearQuarantineRequestBuilderRequestsMetadata,
