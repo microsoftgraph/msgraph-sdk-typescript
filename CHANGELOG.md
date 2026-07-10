@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-preview.85](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.84...v1.0.0-preview.85) (2026-07-10)
+
+
+### Features
+
+* **generation:** update request builders and models ([8791788](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/87917880e2d74efe381636e9a8d811063e6cbbb6))
+* **generation:** update request builders and models ([3594b83](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/3594b834fa27f22e0d2280d2bbe84558c6620975))
+
+
+### Bug Fixes
+
+* generate .npmrc at build time instead of committing it ([33fc961](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/33fc961b0820e0cc4a9b0bd4e28fb82b8e41457f))
+* remove test step from daily CI build pipeline ([532140f](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/532140febe2bfd32af2ec88cf7b609b5dc9eb99b))
+* resolve daily CI build failures (1ES pool image + npm auth) ([d14cd0b](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/d14cd0b2806e2ca1f1fd7b42428983cfb1470a08))
+* resolve daily CI build failures (1ES pool image + npm auth) ([f3597d8](https://github.com/microsoftgraph/msgraph-sdk-typescript/commit/f3597d8ccfd27272a23e8a4e394d183e04690cb8))
+
 ## [1.0.0-preview.84](https://github.com/microsoftgraph/msgraph-sdk-typescript/compare/v1.0.0-preview.83...v1.0.0-preview.84) (2026-05-26)
 
 
