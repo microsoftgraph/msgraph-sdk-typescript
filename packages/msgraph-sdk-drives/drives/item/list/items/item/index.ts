@@ -24,6 +24,8 @@ import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequ
 // @ts-ignore
 import { LastModifiedByUserRequestBuilderNavigationMetadata, LastModifiedByUserRequestBuilderRequestsMetadata, type LastModifiedByUserRequestBuilder } from './lastModifiedByUser/index.js';
 // @ts-ignore
+import { PermissionsRequestBuilderNavigationMetadata, PermissionsRequestBuilderRequestsMetadata, type PermissionsRequestBuilder } from './permissions/index.js';
+// @ts-ignore
 import { type VersionsRequestBuilder, VersionsRequestBuilderNavigationMetadata, VersionsRequestBuilderRequestsMetadata } from './versions/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -64,6 +66,10 @@ export interface ListItemItemRequestBuilder extends BaseRequestBuilder<ListItemI
      * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
      */
     get lastModifiedByUser(): LastModifiedByUserRequestBuilder;
+    /**
+     * Provides operations to manage the permissions property of the microsoft.graph.listItem entity.
+     */
+    get permissions(): PermissionsRequestBuilder;
     /**
      * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
      */
@@ -176,6 +182,10 @@ export const ListItemItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
     lastModifiedByUser: {
         requestsMetadata: LastModifiedByUserRequestBuilderRequestsMetadata,
         navigationMetadata: LastModifiedByUserRequestBuilderNavigationMetadata,
+    },
+    permissions: {
+        requestsMetadata: PermissionsRequestBuilderRequestsMetadata,
+        navigationMetadata: PermissionsRequestBuilderNavigationMetadata,
     },
     versions: {
         requestsMetadata: VersionsRequestBuilderRequestsMetadata,
