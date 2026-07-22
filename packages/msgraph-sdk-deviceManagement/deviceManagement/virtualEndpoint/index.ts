@@ -20,6 +20,8 @@ import { ProvisioningPoliciesRequestBuilderNavigationMetadata, ProvisioningPolic
 // @ts-ignore
 import { ReportRequestBuilderNavigationMetadata, ReportRequestBuilderRequestsMetadata, type ReportRequestBuilder } from './report/index.js';
 // @ts-ignore
+import { ServicePlansRequestBuilderNavigationMetadata, ServicePlansRequestBuilderRequestsMetadata, type ServicePlansRequestBuilder } from './servicePlans/index.js';
+// @ts-ignore
 import { type UserSettingsRequestBuilder, UserSettingsRequestBuilderNavigationMetadata, UserSettingsRequestBuilderRequestsMetadata } from './userSettings/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -56,6 +58,10 @@ export interface VirtualEndpointRequestBuilder extends BaseRequestBuilder<Virtua
      * Provides operations to manage the report property of the microsoft.graph.virtualEndpoint entity.
      */
     get report(): ReportRequestBuilder;
+    /**
+     * Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.
+     */
+    get servicePlans(): ServicePlansRequestBuilder;
     /**
      * Provides operations to manage the userSettings property of the microsoft.graph.virtualEndpoint entity.
      */
@@ -156,6 +162,10 @@ export const VirtualEndpointRequestBuilderNavigationMetadata: Record<Exclude<key
     report: {
         requestsMetadata: ReportRequestBuilderRequestsMetadata,
         navigationMetadata: ReportRequestBuilderNavigationMetadata,
+    },
+    servicePlans: {
+        requestsMetadata: ServicePlansRequestBuilderRequestsMetadata,
+        navigationMetadata: ServicePlansRequestBuilderNavigationMetadata,
     },
     userSettings: {
         requestsMetadata: UserSettingsRequestBuilderRequestsMetadata,
