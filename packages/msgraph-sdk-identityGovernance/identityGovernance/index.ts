@@ -10,6 +10,8 @@ import { AccessReviewsRequestBuilderNavigationMetadata, AccessReviewsRequestBuil
 // @ts-ignore
 import { AppConsentRequestBuilderNavigationMetadata, AppConsentRequestBuilderRequestsMetadata, type AppConsentRequestBuilder } from './appConsent/index.js';
 // @ts-ignore
+import { CatalogsRequestBuilderNavigationMetadata, CatalogsRequestBuilderRequestsMetadata, type CatalogsRequestBuilder } from './catalogs/index.js';
+// @ts-ignore
 import { EntitlementManagementRequestBuilderNavigationMetadata, EntitlementManagementRequestBuilderRequestsMetadata, type EntitlementManagementRequestBuilder } from './entitlementManagement/index.js';
 // @ts-ignore
 import { LifecycleWorkflowsRequestBuilderNavigationMetadata, LifecycleWorkflowsRequestBuilderRequestsMetadata, type LifecycleWorkflowsRequestBuilder } from './lifecycleWorkflows/index.js';
@@ -32,6 +34,10 @@ export interface IdentityGovernanceRequestBuilder extends BaseRequestBuilder<Ide
      * Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity.
      */
     get appConsent(): AppConsentRequestBuilder;
+    /**
+     * Provides operations to manage the catalogs property of the microsoft.graph.identityGovernance entity.
+     */
+    get catalogs(): CatalogsRequestBuilder;
     /**
      * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
      */
@@ -112,6 +118,10 @@ export const IdentityGovernanceRequestBuilderNavigationMetadata: Record<Exclude<
     appConsent: {
         requestsMetadata: AppConsentRequestBuilderRequestsMetadata,
         navigationMetadata: AppConsentRequestBuilderNavigationMetadata,
+    },
+    catalogs: {
+        requestsMetadata: CatalogsRequestBuilderRequestsMetadata,
+        navigationMetadata: CatalogsRequestBuilderNavigationMetadata,
     },
     entitlementManagement: {
         requestsMetadata: EntitlementManagementRequestBuilderRequestsMetadata,

@@ -27,28 +27,30 @@ export interface PermissionsRequestBuilder extends BaseRequestBuilder<Permission
      */
      byPermissionId(permissionId: string) : PermissionItemRequestBuilder;
     /**
-     * Get permissions from sites
+     * Get a list of the permission objects associated with a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PermissionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/list-list-permissions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<PermissionsRequestBuilderGetQueryParameters> | undefined) : Promise<PermissionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to permissions for sites
+     * Create a new permission object on a list.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Permission>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/list-post-permissions?view=graph-rest-1.0|Find more info here}
      */
      post(body: Permission, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Permission | undefined>;
     /**
-     * Get permissions from sites
+     * Get a list of the permission objects associated with a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<PermissionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to permissions for sites
+     * Create a new permission object on a list.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface PermissionsRequestBuilder extends BaseRequestBuilder<Permission
      toPostRequestInformation(body: Permission, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get permissions from sites
+ * Get a list of the permission objects associated with a list.
  */
 export interface PermissionsRequestBuilderGetQueryParameters {
     /**

@@ -244,6 +244,15 @@ export function createExternalItemFromDiscriminatorValue(parseNode: ParseNode | 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ExternalItemInformationProtectionLabel}
+ */
+// @ts-ignore
+export function createExternalItemInformationProtectionLabelFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoExternalItemInformationProtectionLabel;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IdentityCollectionResponse}
  */
 // @ts-ignore
@@ -548,6 +557,7 @@ export function deserializeIntoExternalItem(externalItem: Partial<ExternalItem> 
         "acl": n => { externalItem.acl = n.getCollectionOfObjectValues<Acl>(createAclFromDiscriminatorValue); },
         "activities": n => { externalItem.activities = n.getCollectionOfObjectValues<ExternalActivity>(createExternalActivityFromDiscriminatorValue); },
         "content": n => { externalItem.content = n.getObjectValue<ExternalItemContent>(createExternalItemContentFromDiscriminatorValue); },
+        "informationProtectionLabel": n => { externalItem.informationProtectionLabel = n.getObjectValue<ExternalItemInformationProtectionLabel>(createExternalItemInformationProtectionLabelFromDiscriminatorValue); },
         "properties": n => { externalItem.properties = n.getObjectValue<Properties>(createPropertiesFromDiscriminatorValue); },
     }
 }
@@ -575,6 +585,19 @@ export function deserializeIntoExternalItemContent(externalItemContent: Partial<
         "@odata.type": n => { externalItemContent.odataType = n.getStringValue(); },
         "type": n => { externalItemContent.type = n.getEnumValue<ExternalItemContentType>(ExternalItemContentTypeObject); },
         "value": n => { externalItemContent.value = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ExternalItemInformationProtectionLabel The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoExternalItemInformationProtectionLabel(externalItemInformationProtectionLabel: Partial<ExternalItemInformationProtectionLabel> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { externalItemInformationProtectionLabel.backingStoreEnabled = true; },
+        "@odata.type": n => { externalItemInformationProtectionLabel.odataType = n.getStringValue(); },
+        "sensitivityLabelId": n => { externalItemInformationProtectionLabel.sensitivityLabelId = n.getStringValue(); },
     }
 }
 /**
@@ -873,6 +896,10 @@ export interface ExternalItem extends Entity, Parsable {
      */
     content?: ExternalItemContent | null;
     /**
+     * The informationProtectionLabel property
+     */
+    informationProtectionLabel?: ExternalItemInformationProtectionLabel | null;
+    /**
      * A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.
      */
     properties?: Properties | null;
@@ -902,6 +929,20 @@ export interface ExternalItemContent extends AdditionalDataHolder, BackedModel, 
     value?: string | null;
 }
 export type ExternalItemContentType = (typeof ExternalItemContentTypeObject)[keyof typeof ExternalItemContentTypeObject];
+export interface ExternalItemInformationProtectionLabel extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The sensitivityLabelId property
+     */
+    sensitivityLabelId?: string | null;
+}
 export interface Identity extends Entity, Parsable {
     /**
      * The type of identity. The possible values are: user or group for Microsoft Entra identities and externalgroup for groups in an external system.
@@ -1245,6 +1286,7 @@ export function serializeExternalItem(writer: SerializationWriter, externalItem:
     writer.writeCollectionOfObjectValues<Acl>("acl", externalItem.acl, serializeAcl);
     writer.writeCollectionOfObjectValues<ExternalActivity>("activities", externalItem.activities, serializeExternalActivity);
     writer.writeObjectValue<ExternalItemContent>("content", externalItem.content, serializeExternalItemContent);
+    writer.writeObjectValue<ExternalItemInformationProtectionLabel>("informationProtectionLabel", externalItem.informationProtectionLabel, serializeExternalItemInformationProtectionLabel);
     writer.writeObjectValue<Properties>("properties", externalItem.properties, serializeProperties);
 }
 /**
@@ -1272,6 +1314,19 @@ export function serializeExternalItemContent(writer: SerializationWriter, extern
     writer.writeEnumValue<ExternalItemContentType>("type", externalItemContent.type);
     writer.writeStringValue("value", externalItemContent.value);
     writer.writeAdditionalData(externalItemContent.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param ExternalItemInformationProtectionLabel The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeExternalItemInformationProtectionLabel(writer: SerializationWriter, externalItemInformationProtectionLabel: Partial<ExternalItemInformationProtectionLabel> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!externalItemInformationProtectionLabel || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", externalItemInformationProtectionLabel.odataType);
+    writer.writeStringValue("sensitivityLabelId", externalItemInformationProtectionLabel.sensitivityLabelId);
+    writer.writeAdditionalData(externalItemInformationProtectionLabel.additionalData);
 }
 /**
  * Serializes information the current object

@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { IdentitySynchronizationRequestBuilderRequestsMetadata, type IdentitySynchronizationRequestBuilder } from './identitySynchronization/index.js';
 // @ts-ignore
+import { ServiceProviderConstraintsRequestBuilderRequestsMetadata, type ServiceProviderConstraintsRequestBuilder } from './serviceProviderConstraints/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBui
      * Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
      */
     get identitySynchronization(): IdentitySynchronizationRequestBuilder;
+    /**
+     * Provides operations to manage the serviceProviderConstraints property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
+     */
+    get serviceProviderConstraints(): ServiceProviderConstraintsRequestBuilder;
     /**
      * Delete a partner-specific configuration in a cross-tenant access policy. If a configuration includes a user synchronization policy, you must first delete the user synchronization policy before you can delete the partner-specific configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -92,6 +98,9 @@ const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetQuer
 export const CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderNavigationMetadata: Record<Exclude<keyof CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     identitySynchronization: {
         requestsMetadata: IdentitySynchronizationRequestBuilderRequestsMetadata,
+    },
+    serviceProviderConstraints: {
+        requestsMetadata: ServiceProviderConstraintsRequestBuilderRequestsMetadata,
     },
 };
 /**

@@ -4,6 +4,8 @@
 // @ts-ignore
 import { createCallRecordFromDiscriminatorValue, deserializeIntoCallRecord, deserializeIntoCallRecordCollectionResponse, deserializeIntoOrganizer, deserializeIntoParticipantBase, deserializeIntoSegment, deserializeIntoSegmentCollectionResponse, deserializeIntoSession, deserializeIntoSessionCollectionResponse, serializeCallRecord, serializeCallRecordCollectionResponse, serializeOrganizer, serializeParticipantBase, serializeSegment, serializeSegmentCollectionResponse, serializeSession, serializeSessionCollectionResponse, type CallRecord, type Organizer, type ParticipantBase, type Segment, type Session } from './callRecords/index.js';
 // @ts-ignore
+import { createDataFromDiscriminatorValue, serializeData, type Data } from './customDataProvidedResourcePayloads/index.js';
+// @ts-ignore
 import { createRecoveryFromDiscriminatorValue, deserializeIntoRecovery, deserializeIntoRecoveryChangeObjectBase, deserializeIntoRecoveryJob, deserializeIntoRecoveryJobBase, deserializeIntoRecoveryJobBaseCollectionResponse, deserializeIntoRecoveryJobCollectionResponse, deserializeIntoRecoveryPreviewJob, deserializeIntoRecoveryPreviewJobCollectionResponse, deserializeIntoSnapshot, deserializeIntoSnapshotCollectionResponse, serializeRecovery, serializeRecoveryChangeObjectBase, serializeRecoveryJob, serializeRecoveryJobBase, serializeRecoveryJobBaseCollectionResponse, serializeRecoveryJobCollectionResponse, serializeRecoveryPreviewJob, serializeRecoveryPreviewJobCollectionResponse, serializeSnapshot, serializeSnapshotCollectionResponse, type Recovery, type RecoveryChangeObjectBase, type RecoveryJob, type RecoveryJobBase, type RecoveryPreviewJob, type Snapshot } from './entraRecoveryServices/index.js';
 // @ts-ignore
 import { deserializeIntoConnectionOperation, deserializeIntoConnectionOperationCollectionResponse, deserializeIntoExternalActivity, deserializeIntoExternalActivityCollectionResponse, deserializeIntoExternalActivityResult, deserializeIntoExternalConnection, deserializeIntoExternalConnectionCollectionResponse, deserializeIntoExternalGroup, deserializeIntoExternalGroupCollectionResponse, deserializeIntoExternalItem, deserializeIntoExternalItemCollectionResponse, deserializeIntoIdentity as I137354aa1f844bbb5aa5ffd805e739993f9683605f407d143ca49924697fa7af, deserializeIntoIdentityCollectionResponse, deserializeIntoSchema, serializeConnectionOperation, serializeConnectionOperationCollectionResponse, serializeExternalActivity, serializeExternalActivityCollectionResponse, serializeExternalActivityResult, serializeExternalConnection, serializeExternalConnectionCollectionResponse, serializeExternalGroup, serializeExternalGroupCollectionResponse, serializeExternalItem, serializeExternalItemCollectionResponse, serializeIdentity as I178254c80164e8fb331c0f13cad495cf2b0e29315eef8e9581b000c7356716dd, serializeIdentityCollectionResponse, serializeSchema, type ConnectionOperation, type ExternalActivity, type ExternalActivityResult, type ExternalConnection, type ExternalGroup, type ExternalItem, type Identity as Ifb2761dda3c239db3019af8eaafe2cf1b9ad52c637ab4e40cb4ccf5f1a0b74e3, type Schema } from './externalConnectors/index.js';
@@ -793,6 +795,10 @@ export interface AccessPackageResource extends Entity, Parsable {
      * Read-only. Nullable. Supports $expand.
      */
     scopes?: AccessPackageResourceScope[] | null;
+    /**
+     * The upload sessions for uploading external access data to this resource through the Bring Your Own Data (BYOD) flow.
+     */
+    uploadSessions?: CustomDataProvidedResourceUploadSession[] | null;
 }
 export interface AccessPackageResourceAttribute extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -6218,6 +6224,32 @@ export interface Authentication extends Entity, Parsable {
      */
     windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | null;
 }
+export interface AuthenticationAppDeviceDetails extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * The appVersion property
+     */
+    appVersion?: string | null;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The clientApp property
+     */
+    clientApp?: string | null;
+    /**
+     * The deviceId property
+     */
+    deviceId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The operatingSystem property
+     */
+    operatingSystem?: string | null;
+}
 export interface AuthenticationAttributeCollectionInputConfiguration extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * The built-in or custom attribute for which a value is being collected.
@@ -11444,6 +11476,28 @@ export interface CloudPcWindowsSetting extends AdditionalDataHolder, BackedModel
      */
     odataType?: string | null;
 }
+export interface CloudVideoInteropInfo extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * Provides other video teleconferencing (VTC) dial-in options. Read-only.
+     */
+    moreInfoWebUrl?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The tenant key that is used to dial into the interactive voice response (IVR) of the partner CVI service.
+     */
+    tenantKey?: string | null;
+    /**
+     * The video teleconferencing ID. Read-only.
+     */
+    videoTeleconferenceId?: string | null;
+}
 export interface CoachmarkLocation extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -13034,6 +13088,7 @@ export interface ContentBase extends AdditionalDataHolder, BackedModel, Parsable
      */
     odataType?: string | null;
 }
+export type ContentCategory = (typeof ContentCategoryObject)[keyof typeof ContentCategoryObject];
 export interface ContentCustomization extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Represents the content options of External Identities to be customized throughout the authentication flow for a tenant.
@@ -14062,6 +14117,17 @@ export function createAccessPackageResourceEnvironmentFromDiscriminatorValue(par
  */
 // @ts-ignore
 export function createAccessPackageResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.customDataProvidedResource":
+                    return deserializeIntoCustomDataProvidedResource;
+            }
+        }
+    }
     return deserializeIntoAccessPackageResource;
 }
 /**
@@ -16484,6 +16550,15 @@ export function createAuditResourceFromDiscriminatorValue(parseNode: ParseNode |
 // @ts-ignore
 export function createAuthContextFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAuthContext;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AuthenticationAppDeviceDetails}
+ */
+// @ts-ignore
+export function createAuthenticationAppDeviceDetailsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAuthenticationAppDeviceDetails;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -19172,6 +19247,15 @@ export function createCloudPcWindowsSettingFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CloudVideoInteropInfo}
+ */
+// @ts-ignore
+export function createCloudVideoInteropInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCloudVideoInteropInfo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CoachmarkLocation}
  */
 // @ts-ignore
@@ -20492,6 +20576,80 @@ export function createCustomCalloutExtensionFromDiscriminatorValue(parseNode: Pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CustomDataProvidedResourceAccessReviewUploadSession}
+ */
+// @ts-ignore
+export function createCustomDataProvidedResourceAccessReviewUploadSessionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCustomDataProvidedResourceAccessReviewUploadSession;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CustomDataProvidedResourceFileCollectionResponse}
+ */
+// @ts-ignore
+export function createCustomDataProvidedResourceFileCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCustomDataProvidedResourceFileCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CustomDataProvidedResourceFile}
+ */
+// @ts-ignore
+export function createCustomDataProvidedResourceFileFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCustomDataProvidedResourceFile;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CustomDataProvidedResource}
+ */
+// @ts-ignore
+export function createCustomDataProvidedResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCustomDataProvidedResource;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CustomDataProvidedResourceUploadSessionCollectionResponse}
+ */
+// @ts-ignore
+export function createCustomDataProvidedResourceUploadSessionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCustomDataProvidedResourceUploadSessionCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CustomDataProvidedResourceUploadSession}
+ */
+// @ts-ignore
+export function createCustomDataProvidedResourceUploadSessionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.customDataProvidedResourceAccessReviewUploadSession":
+                    return deserializeIntoCustomDataProvidedResourceAccessReviewUploadSession;
+            }
+        }
+    }
+    return deserializeIntoCustomDataProvidedResourceUploadSession;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CustomDataProvidedResourceUploadStats}
+ */
+// @ts-ignore
+export function createCustomDataProvidedResourceUploadStatsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCustomDataProvidedResourceUploadStats;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CustomExtensionAuthenticationConfiguration}
  */
 // @ts-ignore
@@ -21022,6 +21180,15 @@ export function createDelegatedAdminServiceManagementDetailCollectionResponseFro
 // @ts-ignore
 export function createDelegatedAdminServiceManagementDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDelegatedAdminServiceManagementDetail;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DelegatedAdminServiceProviderConstraints}
+ */
+// @ts-ignore
+export function createDelegatedAdminServiceProviderConstraintsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDelegatedAdminServiceProviderConstraints;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -22240,6 +22407,8 @@ export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode
                     return deserializeIntoPermissionGrantPolicy;
                 case "#microsoft.graph.policyBase":
                     return deserializeIntoPolicyBase;
+                case "#microsoft.graph.remoteTenantGroup":
+                    return deserializeIntoRemoteTenantGroup;
                 case "#microsoft.graph.resourceSpecificPermissionGrant":
                     return deserializeIntoResourceSpecificPermissionGrant;
                 case "#microsoft.graph.servicePrincipal":
@@ -24430,6 +24599,14 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCustomAuthenticationExtension;
                 case "#microsoft.graph.customCalloutExtension":
                     return deserializeIntoCustomCalloutExtension;
+                case "#microsoft.graph.customDataProvidedResource":
+                    return deserializeIntoCustomDataProvidedResource;
+                case "#microsoft.graph.customDataProvidedResourceAccessReviewUploadSession":
+                    return deserializeIntoCustomDataProvidedResourceAccessReviewUploadSession;
+                case "#microsoft.graph.customDataProvidedResourceFile":
+                    return deserializeIntoCustomDataProvidedResourceFile;
+                case "#microsoft.graph.customDataProvidedResourceUploadSession":
+                    return deserializeIntoCustomDataProvidedResourceUploadSession;
                 case "#microsoft.graph.customExtensionStageSetting":
                     return deserializeIntoCustomExtensionStageSetting;
                 case "#microsoft.graph.customSecurityAttributeDefinition":
@@ -24454,6 +24631,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoDelegatedAdminRelationshipRequest;
                 case "#microsoft.graph.delegatedAdminServiceManagementDetail":
                     return deserializeIntoDelegatedAdminServiceManagementDetail;
+                case "#microsoft.graph.delegatedAdminServiceProviderConstraints":
+                    return deserializeIntoDelegatedAdminServiceProviderConstraints;
                 case "#microsoft.graph.delegatedPermissionClassification":
                     return deserializeIntoDelegatedPermissionClassification;
                 case "#microsoft.graph.deletedChat":
@@ -25410,6 +25589,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoRemoteAssistancePartner;
                 case "#microsoft.graph.remoteDesktopSecurityConfiguration":
                     return deserializeIntoRemoteDesktopSecurityConfiguration;
+                case "#microsoft.graph.remoteTenantGroup":
+                    return deserializeIntoRemoteTenantGroup;
                 case "#microsoft.graph.reportsRoot":
                     return deserializeIntoReportsRoot;
                 case "#microsoft.graph.request":
@@ -25680,6 +25861,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoServicePrincipal;
                 case "#microsoft.graph.servicePrincipalRiskDetection":
                     return deserializeIntoServicePrincipalRiskDetection;
+                case "#microsoft.graph.serviceProviderConstraints":
+                    return deserializeIntoServiceProviderConstraints;
                 case "#microsoft.graph.serviceStorageQuotaBreakdown":
                     return deserializeIntoServiceStorageQuotaBreakdown;
                 case "#microsoft.graph.serviceUpdateMessage":
@@ -26084,6 +26267,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoVirtualEventsRoot;
                 case "#microsoft.graph.virtualEventTownhall":
                     return deserializeIntoVirtualEventTownhall;
+                case "#microsoft.graph.virtualEventTownhallRegistrationConfiguration":
+                    return deserializeIntoVirtualEventTownhallRegistrationConfiguration;
                 case "#microsoft.graph.virtualEventWebinar":
                     return deserializeIntoVirtualEventWebinar;
                 case "#microsoft.graph.virtualEventWebinarRegistrationConfiguration":
@@ -35579,6 +35764,24 @@ export function createRemoteLockActionResultFromDiscriminatorValue(parseNode: Pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RemoteTenantGroupCollectionResponse}
+ */
+// @ts-ignore
+export function createRemoteTenantGroupCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRemoteTenantGroupCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RemoteTenantGroup}
+ */
+// @ts-ignore
+export function createRemoteTenantGroupFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRemoteTenantGroup;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RemoveAccessApplyAction}
  */
 // @ts-ignore
@@ -37089,6 +37292,26 @@ export function createServicePrincipalRiskDetectionFromDiscriminatorValue(parseN
 // @ts-ignore
 export function createServicePrincipalSignInFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoServicePrincipalSignIn;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ServiceProviderConstraints}
+ */
+// @ts-ignore
+export function createServiceProviderConstraintsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.delegatedAdminServiceProviderConstraints":
+                    return deserializeIntoDelegatedAdminServiceProviderConstraints;
+            }
+        }
+    }
+    return deserializeIntoServiceProviderConstraints;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -41907,6 +42130,8 @@ export function createVirtualEventRegistrationConfigurationFromDiscriminatorValu
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
+                case "#microsoft.graph.virtualEventTownhallRegistrationConfiguration":
+                    return deserializeIntoVirtualEventTownhallRegistrationConfiguration;
                 case "#microsoft.graph.virtualEventWebinarRegistrationConfiguration":
                     return deserializeIntoVirtualEventWebinarRegistrationConfiguration;
             }
@@ -42034,6 +42259,15 @@ export function createVirtualEventTownhallCollectionResponseFromDiscriminatorVal
 // @ts-ignore
 export function createVirtualEventTownhallFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoVirtualEventTownhall;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {VirtualEventTownhallRegistrationConfiguration}
+ */
+// @ts-ignore
+export function createVirtualEventTownhallRegistrationConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoVirtualEventTownhallRegistrationConfiguration;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -44187,6 +44421,10 @@ export interface CrossTenantAccessPolicyConfigurationPartner extends AdditionalD
      */
     odataType?: string | null;
     /**
+     * The serviceProviderConstraints property
+     */
+    serviceProviderConstraints?: ServiceProviderConstraints | null;
+    /**
      * The tenant identifier for the partner Microsoft Entra organization. Read-only. Key.
      */
     tenantId?: string | null;
@@ -44406,6 +44644,89 @@ export interface CustomCalloutExtensionCollectionResponse extends BaseCollection
      */
     value?: CustomCalloutExtension[] | null;
 }
+export interface CustomDataProvidedResource extends AccessPackageResource, Parsable {
+    /**
+     * The endpoint configuration of the logic app that is triggered when the access review for this resource goes into an initializing state.
+     */
+    notificationEndpointConfiguration?: CustomExtensionEndpointConfiguration | null;
+}
+export interface CustomDataProvidedResourceAccessReviewUploadSession extends CustomDataProvidedResourceUploadSession, Parsable {
+}
+export interface CustomDataProvidedResourceFile extends Entity, Parsable {
+    /**
+     * Name of the uploaded file, including the file extension. Required.  Supports $filter (eq, ne)  and $orderby.
+     */
+    name?: string | null;
+    /**
+     * Size of the file in bytes. Read-only.  Supports $filter (eq, ne, gt, ge, lt, le) and $orderby.
+     */
+    size?: number | null;
+    /**
+     * Timestamp when the file was uploaded. Read-only.  Supports $filter (eq, ne, gt, ge, lt, le) and $orderby.
+     */
+    uploadedDateTime?: Date | null;
+}
+export interface CustomDataProvidedResourceFileCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CustomDataProvidedResourceFile[] | null;
+}
+export interface CustomDataProvidedResourceUploadSession extends Entity, Parsable {
+    /**
+     * DateTime when the upload session was created. Read-only. Supports $orderby.
+     */
+    createdDateTime?: Date | null;
+    /**
+     * An object containing the context for which this data is being uploaded.
+     */
+    data?: Data | null;
+    /**
+     * The files uploaded during this upload session. Supports $expand and $expand with nested $filter and $orderby.
+     */
+    files?: CustomDataProvidedResourceFile[] | null;
+    /**
+     * Indicates if all the necessary files have been uploaded to this session.
+     */
+    isUploadDone?: boolean | null;
+    /**
+     * The ID of the context for which data is being uploaded, for example, the Access Review instance ID. Supports $filter (eq).
+     */
+    referenceId?: string | null;
+    /**
+     * The stats property
+     */
+    stats?: CustomDataProvidedResourceUploadStats | null;
+    /**
+     * The status property
+     */
+    status?: CustomDataProvidedResourceUploadStatus | null;
+}
+export interface CustomDataProvidedResourceUploadSessionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CustomDataProvidedResourceUploadSession[] | null;
+}
+export interface CustomDataProvidedResourceUploadStats extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * Number of files uploaded in this session.
+     */
+    filesUploaded?: number | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Total bytes uploaded in this session.
+     */
+    totalBytesUploaded?: number | null;
+}
+export type CustomDataProvidedResourceUploadStatus = (typeof CustomDataProvidedResourceUploadStatusObject)[keyof typeof CustomDataProvidedResourceUploadStatusObject];
 export interface CustomExtensionAuthenticationConfiguration extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -45158,6 +45479,20 @@ export interface DelegatedAdminServiceManagementDetailCollectionResponse extends
      */
     value?: DelegatedAdminServiceManagementDetail[] | null;
 }
+export interface DelegatedAdminServiceProviderConstraints extends Parsable, ServiceProviderConstraints {
+    /**
+     * The allowedRoleTemplateIds property
+     */
+    allowedRoleTemplateIds?: string[] | null;
+    /**
+     * The createdDateTime property
+     */
+    createdDateTime?: Date | null;
+    /**
+     * The lastModifiedDateTime property
+     */
+    lastModifiedDateTime?: Date | null;
+}
 export interface DelegatedPermissionClassification extends Entity, Parsable {
     /**
      * The classification value. Possible values: low, medium (preview), high (preview). Doesn't support $filter.
@@ -45773,6 +46108,7 @@ export function deserializeIntoAccessPackageResource(accessPackageResource: Part
         "originSystem": n => { accessPackageResource.originSystem = n.getStringValue(); },
         "roles": n => { accessPackageResource.roles = n.getCollectionOfObjectValues<AccessPackageResourceRole>(createAccessPackageResourceRoleFromDiscriminatorValue); },
         "scopes": n => { accessPackageResource.scopes = n.getCollectionOfObjectValues<AccessPackageResourceScope>(createAccessPackageResourceScopeFromDiscriminatorValue); },
+        "uploadSessions": n => { accessPackageResource.uploadSessions = n.getCollectionOfObjectValues<CustomDataProvidedResourceUploadSession>(createCustomDataProvidedResourceUploadSessionFromDiscriminatorValue); },
     }
 }
 /**
@@ -49648,6 +49984,22 @@ export function deserializeIntoAuthentication(authentication: Partial<Authentica
 }
 /**
  * The deserialization information for the current model
+ * @param AuthenticationAppDeviceDetails The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAuthenticationAppDeviceDetails(authenticationAppDeviceDetails: Partial<AuthenticationAppDeviceDetails> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "appVersion": n => { authenticationAppDeviceDetails.appVersion = n.getStringValue(); },
+        "backingStoreEnabled": n => { authenticationAppDeviceDetails.backingStoreEnabled = true; },
+        "clientApp": n => { authenticationAppDeviceDetails.clientApp = n.getStringValue(); },
+        "deviceId": n => { authenticationAppDeviceDetails.deviceId = n.getStringValue(); },
+        "@odata.type": n => { authenticationAppDeviceDetails.odataType = n.getStringValue(); },
+        "operatingSystem": n => { authenticationAppDeviceDetails.operatingSystem = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param AuthenticationAttributeCollectionInputConfiguration The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -53495,6 +53847,21 @@ export function deserializeIntoCloudPcWindowsSetting(cloudPcWindowsSetting: Part
 }
 /**
  * The deserialization information for the current model
+ * @param CloudVideoInteropInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCloudVideoInteropInfo(cloudVideoInteropInfo: Partial<CloudVideoInteropInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { cloudVideoInteropInfo.backingStoreEnabled = true; },
+        "moreInfoWebUrl": n => { cloudVideoInteropInfo.moreInfoWebUrl = n.getStringValue(); },
+        "@odata.type": n => { cloudVideoInteropInfo.odataType = n.getStringValue(); },
+        "tenantKey": n => { cloudVideoInteropInfo.tenantKey = n.getStringValue(); },
+        "videoTeleconferenceId": n => { cloudVideoInteropInfo.videoTeleconferenceId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CoachmarkLocation The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -55179,6 +55546,7 @@ export function deserializeIntoCrossTenantAccessPolicyConfigurationPartner(cross
         "m365CollaborationInbound": n => { crossTenantAccessPolicyConfigurationPartner.m365CollaborationInbound = n.getObjectValue<CrossTenantAccessPolicyM365CollaborationInboundSetting>(createCrossTenantAccessPolicyM365CollaborationInboundSettingFromDiscriminatorValue); },
         "m365CollaborationOutbound": n => { crossTenantAccessPolicyConfigurationPartner.m365CollaborationOutbound = n.getObjectValue<CrossTenantAccessPolicyM365CollaborationOutboundSetting>(createCrossTenantAccessPolicyM365CollaborationOutboundSettingFromDiscriminatorValue); },
         "@odata.type": n => { crossTenantAccessPolicyConfigurationPartner.odataType = n.getStringValue(); },
+        "serviceProviderConstraints": n => { crossTenantAccessPolicyConfigurationPartner.serviceProviderConstraints = n.getObjectValue<ServiceProviderConstraints>(createServiceProviderConstraintsFromDiscriminatorValue); },
         "tenantId": n => { crossTenantAccessPolicyConfigurationPartner.tenantId = n.getStringValue(); },
         "tenantRestrictions": n => { crossTenantAccessPolicyConfigurationPartner.tenantRestrictions = n.getObjectValue<CrossTenantAccessPolicyTenantRestrictions>(createCrossTenantAccessPolicyTenantRestrictionsFromDiscriminatorValue); },
     }
@@ -55392,6 +55760,99 @@ export function deserializeIntoCustomCalloutExtensionCollectionResponse(customCa
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(customCalloutExtensionCollectionResponse),
         "value": n => { customCalloutExtensionCollectionResponse.value = n.getCollectionOfObjectValues<CustomCalloutExtension>(createCustomCalloutExtensionFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CustomDataProvidedResource The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCustomDataProvidedResource(customDataProvidedResource: Partial<CustomDataProvidedResource> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAccessPackageResource(customDataProvidedResource),
+        "notificationEndpointConfiguration": n => { customDataProvidedResource.notificationEndpointConfiguration = n.getObjectValue<CustomExtensionEndpointConfiguration>(createCustomExtensionEndpointConfigurationFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CustomDataProvidedResourceAccessReviewUploadSession The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCustomDataProvidedResourceAccessReviewUploadSession(customDataProvidedResourceAccessReviewUploadSession: Partial<CustomDataProvidedResourceAccessReviewUploadSession> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoCustomDataProvidedResourceUploadSession(customDataProvidedResourceAccessReviewUploadSession),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CustomDataProvidedResourceFile The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCustomDataProvidedResourceFile(customDataProvidedResourceFile: Partial<CustomDataProvidedResourceFile> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(customDataProvidedResourceFile),
+        "name": n => { customDataProvidedResourceFile.name = n.getStringValue(); },
+        "size": n => { customDataProvidedResourceFile.size = n.getNumberValue(); },
+        "uploadedDateTime": n => { customDataProvidedResourceFile.uploadedDateTime = n.getDateValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CustomDataProvidedResourceFileCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCustomDataProvidedResourceFileCollectionResponse(customDataProvidedResourceFileCollectionResponse: Partial<CustomDataProvidedResourceFileCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(customDataProvidedResourceFileCollectionResponse),
+        "value": n => { customDataProvidedResourceFileCollectionResponse.value = n.getCollectionOfObjectValues<CustomDataProvidedResourceFile>(createCustomDataProvidedResourceFileFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CustomDataProvidedResourceUploadSession The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCustomDataProvidedResourceUploadSession(customDataProvidedResourceUploadSession: Partial<CustomDataProvidedResourceUploadSession> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(customDataProvidedResourceUploadSession),
+        "createdDateTime": n => { customDataProvidedResourceUploadSession.createdDateTime = n.getDateValue(); },
+        "data": n => { customDataProvidedResourceUploadSession.data = n.getObjectValue<Data>(createDataFromDiscriminatorValue); },
+        "files": n => { customDataProvidedResourceUploadSession.files = n.getCollectionOfObjectValues<CustomDataProvidedResourceFile>(createCustomDataProvidedResourceFileFromDiscriminatorValue); },
+        "isUploadDone": n => { customDataProvidedResourceUploadSession.isUploadDone = n.getBooleanValue(); },
+        "referenceId": n => { customDataProvidedResourceUploadSession.referenceId = n.getStringValue(); },
+        "stats": n => { customDataProvidedResourceUploadSession.stats = n.getObjectValue<CustomDataProvidedResourceUploadStats>(createCustomDataProvidedResourceUploadStatsFromDiscriminatorValue); },
+        "status": n => { customDataProvidedResourceUploadSession.status = n.getEnumValue<CustomDataProvidedResourceUploadStatus>(CustomDataProvidedResourceUploadStatusObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CustomDataProvidedResourceUploadSessionCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCustomDataProvidedResourceUploadSessionCollectionResponse(customDataProvidedResourceUploadSessionCollectionResponse: Partial<CustomDataProvidedResourceUploadSessionCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(customDataProvidedResourceUploadSessionCollectionResponse),
+        "value": n => { customDataProvidedResourceUploadSessionCollectionResponse.value = n.getCollectionOfObjectValues<CustomDataProvidedResourceUploadSession>(createCustomDataProvidedResourceUploadSessionFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CustomDataProvidedResourceUploadStats The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCustomDataProvidedResourceUploadStats(customDataProvidedResourceUploadStats: Partial<CustomDataProvidedResourceUploadStats> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { customDataProvidedResourceUploadStats.backingStoreEnabled = true; },
+        "filesUploaded": n => { customDataProvidedResourceUploadStats.filesUploaded = n.getNumberValue(); },
+        "@odata.type": n => { customDataProvidedResourceUploadStats.odataType = n.getStringValue(); },
+        "totalBytesUploaded": n => { customDataProvidedResourceUploadStats.totalBytesUploaded = n.getNumberValue(); },
     }
 }
 /**
@@ -56060,6 +56521,20 @@ export function deserializeIntoDelegatedAdminServiceManagementDetailCollectionRe
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(delegatedAdminServiceManagementDetailCollectionResponse),
         "value": n => { delegatedAdminServiceManagementDetailCollectionResponse.value = n.getCollectionOfObjectValues<DelegatedAdminServiceManagementDetail>(createDelegatedAdminServiceManagementDetailFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param DelegatedAdminServiceProviderConstraints The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDelegatedAdminServiceProviderConstraints(delegatedAdminServiceProviderConstraints: Partial<DelegatedAdminServiceProviderConstraints> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoServiceProviderConstraints(delegatedAdminServiceProviderConstraints),
+        "allowedRoleTemplateIds": n => { delegatedAdminServiceProviderConstraints.allowedRoleTemplateIds = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "createdDateTime": n => { delegatedAdminServiceProviderConstraints.createdDateTime = n.getDateValue(); },
+        "lastModifiedDateTime": n => { delegatedAdminServiceProviderConstraints.lastModifiedDateTime = n.getDateValue(); },
     }
 }
 /**
@@ -57739,6 +58214,7 @@ export function deserializeIntoDirectory(directory: Partial<Directory> | undefin
         "onPremisesSynchronization": n => { directory.onPremisesSynchronization = n.getCollectionOfObjectValues<OnPremisesDirectorySynchronization>(createOnPremisesDirectorySynchronizationFromDiscriminatorValue); },
         "publicKeyInfrastructure": n => { directory.publicKeyInfrastructure = n.getObjectValue<PublicKeyInfrastructureRoot>(createPublicKeyInfrastructureRootFromDiscriminatorValue); },
         "recovery": n => { directory.recovery = n.getObjectValue<Recovery>(createRecoveryFromDiscriminatorValue); },
+        "remoteTenantGroups": n => { directory.remoteTenantGroups = n.getCollectionOfObjectValues<RemoteTenantGroup>(createRemoteTenantGroupFromDiscriminatorValue); },
         "subscriptions": n => { directory.subscriptions = n.getCollectionOfObjectValues<CompanySubscription>(createCompanySubscriptionFromDiscriminatorValue); },
     }
 }
@@ -61930,6 +62406,7 @@ export function deserializeIntoGroup(group: Partial<Group> | undefined = {}) : R
         "onPremisesSecurityIdentifier": n => { group.onPremisesSecurityIdentifier = n.getStringValue(); },
         "onPremisesSyncBehavior": n => { group.onPremisesSyncBehavior = n.getObjectValue<OnPremisesSyncBehavior>(createOnPremisesSyncBehaviorFromDiscriminatorValue); },
         "onPremisesSyncEnabled": n => { group.onPremisesSyncEnabled = n.getBooleanValue(); },
+        "organizationId": n => { group.organizationId = n.getStringValue(); },
         "owners": n => { group.owners = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
         "permissionGrants": n => { group.permissionGrants = n.getCollectionOfObjectValues<ResourceSpecificPermissionGrant>(createResourceSpecificPermissionGrantFromDiscriminatorValue); },
         "photo": n => { group.photo = n.getObjectValue<ProfilePhoto>(createProfilePhotoFromDiscriminatorValue); },
@@ -62385,6 +62862,7 @@ export function deserializeIntoIdentityGovernance(identityGovernance: Partial<Id
         "accessReviews": n => { identityGovernance.accessReviews = n.getObjectValue<AccessReviewSet>(createAccessReviewSetFromDiscriminatorValue); },
         "appConsent": n => { identityGovernance.appConsent = n.getObjectValue<AppConsentApprovalRoute>(createAppConsentApprovalRouteFromDiscriminatorValue); },
         "backingStoreEnabled": n => { identityGovernance.backingStoreEnabled = true; },
+        "catalogs": n => { identityGovernance.catalogs = n.getCollectionOfObjectValues<AccessPackageCatalog>(createAccessPackageCatalogFromDiscriminatorValue); },
         "entitlementManagement": n => { identityGovernance.entitlementManagement = n.getObjectValue<EntitlementManagement>(createEntitlementManagementFromDiscriminatorValue); },
         "lifecycleWorkflows": n => { identityGovernance.lifecycleWorkflows = n.getObjectValue<LifecycleWorkflowsContainer>(createLifecycleWorkflowsContainerFromDiscriminatorValue); },
         "@odata.type": n => { identityGovernance.odataType = n.getStringValue(); },
@@ -68720,6 +69198,7 @@ export function deserializeIntoOnlineMeetingBase(onlineMeetingBase: Partial<Onli
         "audioConferencing": n => { onlineMeetingBase.audioConferencing = n.getObjectValue<AudioConferencing>(createAudioConferencingFromDiscriminatorValue); },
         "chatInfo": n => { onlineMeetingBase.chatInfo = n.getObjectValue<ChatInfo>(createChatInfoFromDiscriminatorValue); },
         "chatRestrictions": n => { onlineMeetingBase.chatRestrictions = n.getObjectValue<ChatRestrictions>(createChatRestrictionsFromDiscriminatorValue); },
+        "cloudVideoInteropInfo": n => { onlineMeetingBase.cloudVideoInteropInfo = n.getObjectValue<CloudVideoInteropInfo>(createCloudVideoInteropInfoFromDiscriminatorValue); },
         "expiryDateTime": n => { onlineMeetingBase.expiryDateTime = n.getDateValue(); },
         "isEndToEndEncryptionEnabled": n => { onlineMeetingBase.isEndToEndEncryptionEnabled = n.getBooleanValue(); },
         "isEntryExitAnnounced": n => { onlineMeetingBase.isEntryExitAnnounced = n.getBooleanValue(); },
@@ -68729,6 +69208,7 @@ export function deserializeIntoOnlineMeetingBase(onlineMeetingBase: Partial<Onli
         "lobbyBypassSettings": n => { onlineMeetingBase.lobbyBypassSettings = n.getObjectValue<LobbyBypassSettings>(createLobbyBypassSettingsFromDiscriminatorValue); },
         "meetingOptionsWebUrl": n => { onlineMeetingBase.meetingOptionsWebUrl = n.getStringValue(); },
         "meetingSpokenLanguageTag": n => { onlineMeetingBase.meetingSpokenLanguageTag = n.getStringValue(); },
+        "meetingType": n => { onlineMeetingBase.meetingType = n.getEnumValue<OnlineMeetingType>(OnlineMeetingTypeObject); },
         "recordAutomatically": n => { onlineMeetingBase.recordAutomatically = n.getBooleanValue(); },
         "sensitivityLabelAssignment": n => { onlineMeetingBase.sensitivityLabelAssignment = n.getObjectValue<OnlineMeetingSensitivityLabelAssignment>(createOnlineMeetingSensitivityLabelAssignmentFromDiscriminatorValue); },
         "shareMeetingChatHistoryDefault": n => { onlineMeetingBase.shareMeetingChatHistoryDefault = n.getEnumValue<MeetingChatHistoryDefaultMode>(MeetingChatHistoryDefaultModeObject); },
@@ -72237,6 +72717,7 @@ export function deserializeIntoProcessContentMetadataBase(processContentMetadata
     return {
         "backingStoreEnabled": n => { processContentMetadataBase.backingStoreEnabled = true; },
         "content": n => { processContentMetadataBase.content = n.getObjectValue<ContentBase>(createContentBaseFromDiscriminatorValue); },
+        "contentCategory": n => { processContentMetadataBase.contentCategory = n.getEnumValue<ContentCategory>(ContentCategoryObject); },
         "correlationId": n => { processContentMetadataBase.correlationId = n.getStringValue(); },
         "createdDateTime": n => { processContentMetadataBase.createdDateTime = n.getDateValue(); },
         "identifier": n => { processContentMetadataBase.identifier = n.getStringValue(); },
@@ -73539,6 +74020,34 @@ export function deserializeIntoRemoteLockActionResult(remoteLockActionResult: Pa
     return {
         ...deserializeIntoDeviceActionResult(remoteLockActionResult),
         "unlockPin": n => { remoteLockActionResult.unlockPin = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RemoteTenantGroup The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRemoteTenantGroup(remoteTenantGroup: Partial<RemoteTenantGroup> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoDirectoryObject(remoteTenantGroup),
+        "remoteGroupDisplayName": n => { remoteTenantGroup.remoteGroupDisplayName = n.getStringValue(); },
+        "remoteGroupId": n => { remoteTenantGroup.remoteGroupId = n.getGuidValue(); },
+        "remoteTenantDisplayName": n => { remoteTenantGroup.remoteTenantDisplayName = n.getStringValue(); },
+        "remoteTenantId": n => { remoteTenantGroup.remoteTenantId = n.getGuidValue(); },
+        "remoteTenantPrimaryDomain": n => { remoteTenantGroup.remoteTenantPrimaryDomain = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RemoteTenantGroupCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRemoteTenantGroupCollectionResponse(remoteTenantGroupCollectionResponse: Partial<RemoteTenantGroupCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(remoteTenantGroupCollectionResponse),
+        "value": n => { remoteTenantGroupCollectionResponse.value = n.getCollectionOfObjectValues<RemoteTenantGroup>(createRemoteTenantGroupFromDiscriminatorValue); },
     }
 }
 /**
@@ -75783,6 +76292,17 @@ export function deserializeIntoServicePrincipalSignIn(servicePrincipalSignIn: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param ServiceProviderConstraints The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoServiceProviderConstraints(serviceProviderConstraints: Partial<ServiceProviderConstraints> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(serviceProviderConstraints),
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param ServiceProvisioningError The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -76715,23 +77235,29 @@ export function deserializeIntoSignIn(signIn: Partial<SignIn> | undefined = {}) 
         "appDisplayName": n => { signIn.appDisplayName = n.getStringValue(); },
         "appId": n => { signIn.appId = n.getStringValue(); },
         "appliedConditionalAccessPolicies": n => { signIn.appliedConditionalAccessPolicies = n.getCollectionOfObjectValues<AppliedConditionalAccessPolicy>(createAppliedConditionalAccessPolicyFromDiscriminatorValue); },
+        "authenticationAppDeviceDetails": n => { signIn.authenticationAppDeviceDetails = n.getObjectValue<AuthenticationAppDeviceDetails>(createAuthenticationAppDeviceDetailsFromDiscriminatorValue); },
         "clientAppUsed": n => { signIn.clientAppUsed = n.getStringValue(); },
         "conditionalAccessStatus": n => { signIn.conditionalAccessStatus = n.getEnumValue<ConditionalAccessStatus>(ConditionalAccessStatusObject); },
         "correlationId": n => { signIn.correlationId = n.getStringValue(); },
         "createdDateTime": n => { signIn.createdDateTime = n.getDateValue(); },
         "deviceDetail": n => { signIn.deviceDetail = n.getObjectValue<DeviceDetail>(createDeviceDetailFromDiscriminatorValue); },
+        "homeTenantId": n => { signIn.homeTenantId = n.getStringValue(); },
         "ipAddress": n => { signIn.ipAddress = n.getStringValue(); },
         "isInteractive": n => { signIn.isInteractive = n.getBooleanValue(); },
         "location": n => { signIn.location = n.getObjectValue<SignInLocation>(createSignInLocationFromDiscriminatorValue); },
         "resourceDisplayName": n => { signIn.resourceDisplayName = n.getStringValue(); },
         "resourceId": n => { signIn.resourceId = n.getStringValue(); },
+        "resourceTenantId": n => { signIn.resourceTenantId = n.getStringValue(); },
         "riskDetail": n => { signIn.riskDetail = n.getEnumValue<RiskDetail>(RiskDetailObject); },
         "riskEventTypes": n => { signIn.riskEventTypes = n.getCollectionOfEnumValues<RiskEventType>(RiskEventTypeObject); },
         "riskEventTypes_v2": n => { signIn.riskEventTypesV2 = n.getCollectionOfPrimitiveValues<string>("string"); },
         "riskLevelAggregated": n => { signIn.riskLevelAggregated = n.getEnumValue<RiskLevel>(RiskLevelObject); },
         "riskLevelDuringSignIn": n => { signIn.riskLevelDuringSignIn = n.getEnumValue<RiskLevel>(RiskLevelObject); },
         "riskState": n => { signIn.riskState = n.getEnumValue<RiskState>(RiskStateObject); },
+        "servicePrincipalId": n => { signIn.servicePrincipalId = n.getStringValue(); },
+        "servicePrincipalName": n => { signIn.servicePrincipalName = n.getStringValue(); },
         "status": n => { signIn.status = n.getObjectValue<SignInStatus>(createSignInStatusFromDiscriminatorValue); },
+        "userAgent": n => { signIn.userAgent = n.getStringValue(); },
         "userDisplayName": n => { signIn.userDisplayName = n.getStringValue(); },
         "userId": n => { signIn.userId = n.getStringValue(); },
         "userPrincipalName": n => { signIn.userPrincipalName = n.getStringValue(); },
@@ -80554,6 +81080,7 @@ export function deserializeIntoUnifiedRoleAssignment(unifiedRoleAssignment: Part
         "directoryScopeId": n => { unifiedRoleAssignment.directoryScopeId = n.getStringValue(); },
         "principal": n => { unifiedRoleAssignment.principal = n.getObjectValue<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
         "principalId": n => { unifiedRoleAssignment.principalId = n.getStringValue(); },
+        "principalOrganizationId": n => { unifiedRoleAssignment.principalOrganizationId = n.getStringValue(); },
         "roleDefinition": n => { unifiedRoleAssignment.roleDefinition = n.getObjectValue<UnifiedRoleDefinition>(createUnifiedRoleDefinitionFromDiscriminatorValue); },
         "roleDefinitionId": n => { unifiedRoleAssignment.roleDefinitionId = n.getStringValue(); },
     }
@@ -81344,6 +81871,7 @@ export function deserializeIntoUser(user: Partial<User> | undefined = {}) : Reco
         "signInSessionsValidFromDateTime": n => { user.signInSessionsValidFromDateTime = n.getDateValue(); },
         "skills": n => { user.skills = n.getCollectionOfPrimitiveValues<string>("string"); },
         "solutions": n => { user.solutions = n.getObjectValue<UserSolutionRoot>(createUserSolutionRootFromDiscriminatorValue); },
+        "sponsorOf": n => { user.sponsorOf = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
         "sponsors": n => { user.sponsors = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
         "state": n => { user.state = n.getStringValue(); },
         "streetAddress": n => { user.streetAddress = n.getStringValue(); },
@@ -83025,6 +83553,7 @@ export function deserializeIntoVirtualEvent(virtualEvent: Partial<VirtualEvent> 
         "displayName": n => { virtualEvent.displayName = n.getStringValue(); },
         "endDateTime": n => { virtualEvent.endDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         "externalEventInformation": n => { virtualEvent.externalEventInformation = n.getCollectionOfObjectValues<VirtualEventExternalInformation>(createVirtualEventExternalInformationFromDiscriminatorValue); },
+        "isRegistrationRequired": n => { virtualEvent.isRegistrationRequired = n.getBooleanValue(); },
         "presenters": n => { virtualEvent.presenters = n.getCollectionOfObjectValues<VirtualEventPresenter>(createVirtualEventPresenterFromDiscriminatorValue); },
         "sessions": n => { virtualEvent.sessions = n.getCollectionOfObjectValues<VirtualEventSession>(createVirtualEventSessionFromDiscriminatorValue); },
         "settings": n => { virtualEvent.settings = n.getObjectValue<VirtualEventSettings>(createVirtualEventSettingsFromDiscriminatorValue); },
@@ -83174,6 +83703,8 @@ export function deserializeIntoVirtualEventRegistrationConfiguration(virtualEven
     return {
         ...deserializeIntoEntity(virtualEventRegistrationConfiguration),
         "capacity": n => { virtualEventRegistrationConfiguration.capacity = n.getNumberValue(); },
+        "isManualApprovalEnabled": n => { virtualEventRegistrationConfiguration.isManualApprovalEnabled = n.getBooleanValue(); },
+        "isWaitlistEnabled": n => { virtualEventRegistrationConfiguration.isWaitlistEnabled = n.getBooleanValue(); },
         "questions": n => { virtualEventRegistrationConfiguration.questions = n.getCollectionOfObjectValues<VirtualEventRegistrationQuestionBase>(createVirtualEventRegistrationQuestionBaseFromDiscriminatorValue); },
         "registrationWebUrl": n => { virtualEventRegistrationConfiguration.registrationWebUrl = n.getStringValue(); },
     }
@@ -83254,6 +83785,7 @@ export function deserializeIntoVirtualEventRegistrationQuestionBaseCollectionRes
 export function deserializeIntoVirtualEventSession(virtualEventSession: Partial<VirtualEventSession> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoOnlineMeetingBase(virtualEventSession),
+        "capacity": n => { virtualEventSession.capacity = n.getNumberValue(); },
         "endDateTime": n => { virtualEventSession.endDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         "startDateTime": n => { virtualEventSession.startDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         "videoOnDemandWebUrl": n => { virtualEventSession.videoOnDemandWebUrl = n.getStringValue(); },
@@ -83308,9 +83840,12 @@ export function deserializeIntoVirtualEventTownhall(virtualEventTownhall: Partia
     return {
         ...deserializeIntoVirtualEvent(virtualEventTownhall),
         "audience": n => { virtualEventTownhall.audience = n.getEnumValue<MeetingAudience>(MeetingAudienceObject); },
+        "capacity": n => { virtualEventTownhall.capacity = n.getNumberValue(); },
         "coOrganizers": n => { virtualEventTownhall.coOrganizers = n.getCollectionOfObjectValues<CommunicationsUserIdentity>(createCommunicationsUserIdentityFromDiscriminatorValue); },
         "invitedAttendees": n => { virtualEventTownhall.invitedAttendees = n.getCollectionOfObjectValues<Identity>(createIdentityFromDiscriminatorValue); },
         "isInviteOnly": n => { virtualEventTownhall.isInviteOnly = n.getBooleanValue(); },
+        "registrationConfiguration": n => { virtualEventTownhall.registrationConfiguration = n.getObjectValue<VirtualEventTownhallRegistrationConfiguration>(createVirtualEventTownhallRegistrationConfigurationFromDiscriminatorValue); },
+        "registrations": n => { virtualEventTownhall.registrations = n.getCollectionOfObjectValues<VirtualEventRegistration>(createVirtualEventRegistrationFromDiscriminatorValue); },
     }
 }
 /**
@@ -83323,6 +83858,17 @@ export function deserializeIntoVirtualEventTownhallCollectionResponse(virtualEve
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(virtualEventTownhallCollectionResponse),
         "value": n => { virtualEventTownhallCollectionResponse.value = n.getCollectionOfObjectValues<VirtualEventTownhall>(createVirtualEventTownhallFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param VirtualEventTownhallRegistrationConfiguration The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoVirtualEventTownhallRegistrationConfiguration(virtualEventTownhallRegistrationConfiguration: Partial<VirtualEventTownhallRegistrationConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoVirtualEventRegistrationConfiguration(virtualEventTownhallRegistrationConfiguration),
     }
 }
 /**
@@ -83361,8 +83907,6 @@ export function deserializeIntoVirtualEventWebinarCollectionResponse(virtualEven
 export function deserializeIntoVirtualEventWebinarRegistrationConfiguration(virtualEventWebinarRegistrationConfiguration: Partial<VirtualEventWebinarRegistrationConfiguration> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoVirtualEventRegistrationConfiguration(virtualEventWebinarRegistrationConfiguration),
-        "isManualApprovalEnabled": n => { virtualEventWebinarRegistrationConfiguration.isManualApprovalEnabled = n.getBooleanValue(); },
-        "isWaitlistEnabled": n => { virtualEventWebinarRegistrationConfiguration.isWaitlistEnabled = n.getBooleanValue(); },
     }
 }
 /**
@@ -89404,6 +89948,10 @@ export interface Directory extends Entity, Parsable {
      */
     recovery?: Recovery | null;
     /**
+     * Collection of groups in remote Microsoft Entra tenants that are available in the directory.
+     */
+    remoteTenantGroups?: RemoteTenantGroup[] | null;
+    /**
      * List of commercial subscriptions that an organization acquired.
      */
     subscriptions?: CompanySubscription[] | null;
@@ -94620,6 +95168,10 @@ export interface Group extends DirectoryObject, Parsable {
      */
     onPremisesSyncEnabled?: boolean | null;
     /**
+     * The organizationId property
+     */
+    organizationId?: string | null;
+    /**
      * The owners of the group who can be users or service principals. Limited to 100 owners. Nullable. If this property isn't specified when creating a Microsoft 365 group the calling user (admin or non-admin) is automatically assigned as the group owner. A non-admin user can't explicitly add themselves to this collection when they're creating the group. For more information, see the related known issue. For security groups, the admin user isn't automatically added to this collection. For more information, see the related known issue. Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1); Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
      */
     owners?: DirectoryObject[] | null;
@@ -95134,6 +95686,10 @@ export interface IdentityGovernance extends AdditionalDataHolder, BackedModel, P
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
+    /**
+     * The catalogs property
+     */
+    catalogs?: AccessPackageCatalog[] | null;
     /**
      * The entitlementManagement property
      */
@@ -98158,7 +98714,7 @@ export interface List extends BaseItem, Parsable {
      */
     operations?: RichLongRunningOperation[] | null;
     /**
-     * The permissions property
+     * The set of permissions for the item. Read-only. Nullable.
      */
     permissions?: Permission[] | null;
     /**
@@ -98228,7 +98784,7 @@ export interface ListItem extends BaseItem, Parsable {
      */
     fields?: FieldValueSet | null;
     /**
-     * The permissions property
+     * The set of permissions for the item. Read-only. Nullable.
      */
     permissions?: Permission[] | null;
     /**
@@ -103656,6 +104212,10 @@ export interface OnlineMeetingBase extends Entity, Parsable {
      */
     chatRestrictions?: ChatRestrictions | null;
     /**
+     * Conferencing device integration settings for Cloud Video Interop (CVI). Read-only.
+     */
+    cloudVideoInteropInfo?: CloudVideoInteropInfo | null;
+    /**
      * Indicates the date and time when the meeting resource expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     expiryDateTime?: Date | null;
@@ -103691,6 +104251,10 @@ export interface OnlineMeetingBase extends Entity, Parsable {
      * Specifies the spoken language used during the meeting for recording and transcription purposes.
      */
     meetingSpokenLanguageTag?: string | null;
+    /**
+     * The type of the online meeting. The possible values are: adhoc, scheduled, recurring, broadcast, meetnow, unknownFutureValue. Read-only.
+     */
+    meetingType?: OnlineMeetingType | null;
     /**
      * Indicates whether to record the meeting automatically.
      */
@@ -103823,6 +104387,7 @@ export interface OnlineMeetingSensitivityLabelAssignment extends AdditionalDataH
      */
     sensitivityLabelId?: string | null;
 }
+export type OnlineMeetingType = (typeof OnlineMeetingTypeObject)[keyof typeof OnlineMeetingTypeObject];
 export type OnlineMeetingVideoDisabledReason = (typeof OnlineMeetingVideoDisabledReasonObject)[keyof typeof OnlineMeetingVideoDisabledReasonObject];
 export interface OnOtpSendCustomExtension extends CustomAuthenticationExtension, Parsable {
 }
@@ -108382,6 +108947,10 @@ export interface ProcessContentMetadataBase extends AdditionalDataHolder, Backed
      */
     content?: ContentBase | null;
     /**
+     * The contentCategory property
+     */
+    contentCategory?: ContentCategory | null;
+    /**
      * An identifier used to group multiple related content entries (for example, different parts of the same file upload, messages in a conversation).
      */
     correlationId?: string | null;
@@ -110227,6 +110796,34 @@ export interface RemoteLockActionResult extends DeviceActionResult, Parsable {
      * Pin to unlock the client
      */
     unlockPin?: string | null;
+}
+export interface RemoteTenantGroup extends DirectoryObject, Parsable {
+    /**
+     * Display name of the group in the remote tenant.
+     */
+    remoteGroupDisplayName?: string | null;
+    /**
+     * Unique identifier of the group in the remote tenant.
+     */
+    remoteGroupId?: Guid | null;
+    /**
+     * Display name of the remote tenant.
+     */
+    remoteTenantDisplayName?: string | null;
+    /**
+     * Unique identifier of the remote tenant.
+     */
+    remoteTenantId?: Guid | null;
+    /**
+     * Primary domain name of the remote tenant.
+     */
+    remoteTenantPrimaryDomain?: string | null;
+}
+export interface RemoteTenantGroupCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: RemoteTenantGroup[] | null;
 }
 export interface RemoveAccessApplyAction extends AccessReviewApplyAction, Parsable {
 }
@@ -113379,6 +113976,12 @@ export function serializeAccessPackageResource(writer: SerializationWriter, acce
     writer.writeStringValue("originSystem", accessPackageResource.originSystem);
     writer.writeCollectionOfObjectValues<AccessPackageResourceRole>("roles", accessPackageResource.roles, serializeAccessPackageResourceRole);
     writer.writeCollectionOfObjectValues<AccessPackageResourceScope>("scopes", accessPackageResource.scopes, serializeAccessPackageResourceScope);
+    writer.writeCollectionOfObjectValues<CustomDataProvidedResourceUploadSession>("uploadSessions", accessPackageResource.uploadSessions, serializeCustomDataProvidedResourceUploadSession);
+    switch (accessPackageResource.odataType) {
+        case "#microsoft.graph.customDataProvidedResource":
+            serializeCustomDataProvidedResource(writer, accessPackageResource, true);
+        break;
+    }
 }
 /**
  * Serializes information the current object
@@ -117403,6 +118006,22 @@ export function serializeAuthentication(writer: SerializationWriter, authenticat
     writer.writeCollectionOfObjectValues<SoftwareOathAuthenticationMethod>("softwareOathMethods", authentication.softwareOathMethods, serializeSoftwareOathAuthenticationMethod);
     writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>("temporaryAccessPassMethods", authentication.temporaryAccessPassMethods, serializeTemporaryAccessPassAuthenticationMethod);
     writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("windowsHelloForBusinessMethods", authentication.windowsHelloForBusinessMethods, serializeWindowsHelloForBusinessAuthenticationMethod);
+}
+/**
+ * Serializes information the current object
+ * @param AuthenticationAppDeviceDetails The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAuthenticationAppDeviceDetails(writer: SerializationWriter, authenticationAppDeviceDetails: Partial<AuthenticationAppDeviceDetails> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!authenticationAppDeviceDetails || isSerializingDerivedType) { return; }
+    writer.writeStringValue("appVersion", authenticationAppDeviceDetails.appVersion);
+    writer.writeStringValue("clientApp", authenticationAppDeviceDetails.clientApp);
+    writer.writeStringValue("deviceId", authenticationAppDeviceDetails.deviceId);
+    writer.writeStringValue("@odata.type", authenticationAppDeviceDetails.odataType);
+    writer.writeStringValue("operatingSystem", authenticationAppDeviceDetails.operatingSystem);
+    writer.writeAdditionalData(authenticationAppDeviceDetails.additionalData);
 }
 /**
  * Serializes information the current object
@@ -121568,6 +122187,21 @@ export function serializeCloudPcWindowsSetting(writer: SerializationWriter, clou
 }
 /**
  * Serializes information the current object
+ * @param CloudVideoInteropInfo The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCloudVideoInteropInfo(writer: SerializationWriter, cloudVideoInteropInfo: Partial<CloudVideoInteropInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!cloudVideoInteropInfo || isSerializingDerivedType) { return; }
+    writer.writeStringValue("moreInfoWebUrl", cloudVideoInteropInfo.moreInfoWebUrl);
+    writer.writeStringValue("@odata.type", cloudVideoInteropInfo.odataType);
+    writer.writeStringValue("tenantKey", cloudVideoInteropInfo.tenantKey);
+    writer.writeStringValue("videoTeleconferenceId", cloudVideoInteropInfo.videoTeleconferenceId);
+    writer.writeAdditionalData(cloudVideoInteropInfo.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param CoachmarkLocation The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -123351,6 +123985,7 @@ export function serializeCrossTenantAccessPolicyConfigurationPartner(writer: Ser
     writer.writeObjectValue<CrossTenantAccessPolicyM365CollaborationInboundSetting>("m365CollaborationInbound", crossTenantAccessPolicyConfigurationPartner.m365CollaborationInbound, serializeCrossTenantAccessPolicyM365CollaborationInboundSetting);
     writer.writeObjectValue<CrossTenantAccessPolicyM365CollaborationOutboundSetting>("m365CollaborationOutbound", crossTenantAccessPolicyConfigurationPartner.m365CollaborationOutbound, serializeCrossTenantAccessPolicyM365CollaborationOutboundSetting);
     writer.writeStringValue("@odata.type", crossTenantAccessPolicyConfigurationPartner.odataType);
+    writer.writeObjectValue<ServiceProviderConstraints>("serviceProviderConstraints", crossTenantAccessPolicyConfigurationPartner.serviceProviderConstraints, serializeServiceProviderConstraints);
     writer.writeStringValue("tenantId", crossTenantAccessPolicyConfigurationPartner.tenantId);
     writer.writeObjectValue<CrossTenantAccessPolicyTenantRestrictions>("tenantRestrictions", crossTenantAccessPolicyConfigurationPartner.tenantRestrictions, serializeCrossTenantAccessPolicyTenantRestrictions);
     writer.writeAdditionalData(crossTenantAccessPolicyConfigurationPartner.additionalData);
@@ -123617,6 +124252,104 @@ export function serializeCustomCalloutExtensionCollectionResponse(writer: Serial
     if (!customCalloutExtensionCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, customCalloutExtensionCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<CustomCalloutExtension>("value", customCalloutExtensionCollectionResponse.value, serializeCustomCalloutExtension);
+}
+/**
+ * Serializes information the current object
+ * @param CustomDataProvidedResource The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomDataProvidedResource(writer: SerializationWriter, customDataProvidedResource: Partial<CustomDataProvidedResource> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customDataProvidedResource || isSerializingDerivedType) { return; }
+    serializeAccessPackageResource(writer, customDataProvidedResource, isSerializingDerivedType)
+    writer.writeObjectValue<CustomExtensionEndpointConfiguration>("notificationEndpointConfiguration", customDataProvidedResource.notificationEndpointConfiguration, serializeCustomExtensionEndpointConfiguration);
+}
+/**
+ * Serializes information the current object
+ * @param CustomDataProvidedResourceAccessReviewUploadSession The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomDataProvidedResourceAccessReviewUploadSession(writer: SerializationWriter, customDataProvidedResourceAccessReviewUploadSession: Partial<CustomDataProvidedResourceAccessReviewUploadSession> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customDataProvidedResourceAccessReviewUploadSession || isSerializingDerivedType) { return; }
+    serializeCustomDataProvidedResourceUploadSession(writer, customDataProvidedResourceAccessReviewUploadSession, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param CustomDataProvidedResourceFile The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomDataProvidedResourceFile(writer: SerializationWriter, customDataProvidedResourceFile: Partial<CustomDataProvidedResourceFile> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customDataProvidedResourceFile || isSerializingDerivedType) { return; }
+    serializeEntity(writer, customDataProvidedResourceFile, isSerializingDerivedType)
+    writer.writeStringValue("name", customDataProvidedResourceFile.name);
+    writer.writeNumberValue("size", customDataProvidedResourceFile.size);
+    writer.writeDateValue("uploadedDateTime", customDataProvidedResourceFile.uploadedDateTime);
+}
+/**
+ * Serializes information the current object
+ * @param CustomDataProvidedResourceFileCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomDataProvidedResourceFileCollectionResponse(writer: SerializationWriter, customDataProvidedResourceFileCollectionResponse: Partial<CustomDataProvidedResourceFileCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customDataProvidedResourceFileCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, customDataProvidedResourceFileCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CustomDataProvidedResourceFile>("value", customDataProvidedResourceFileCollectionResponse.value, serializeCustomDataProvidedResourceFile);
+}
+/**
+ * Serializes information the current object
+ * @param CustomDataProvidedResourceUploadSession The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomDataProvidedResourceUploadSession(writer: SerializationWriter, customDataProvidedResourceUploadSession: Partial<CustomDataProvidedResourceUploadSession> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customDataProvidedResourceUploadSession || isSerializingDerivedType) { return; }
+    serializeEntity(writer, customDataProvidedResourceUploadSession, isSerializingDerivedType)
+    writer.writeDateValue("createdDateTime", customDataProvidedResourceUploadSession.createdDateTime);
+    writer.writeObjectValue<Data>("data", customDataProvidedResourceUploadSession.data, serializeData);
+    writer.writeCollectionOfObjectValues<CustomDataProvidedResourceFile>("files", customDataProvidedResourceUploadSession.files, serializeCustomDataProvidedResourceFile);
+    writer.writeBooleanValue("isUploadDone", customDataProvidedResourceUploadSession.isUploadDone);
+    writer.writeStringValue("referenceId", customDataProvidedResourceUploadSession.referenceId);
+    writer.writeObjectValue<CustomDataProvidedResourceUploadStats>("stats", customDataProvidedResourceUploadSession.stats, serializeCustomDataProvidedResourceUploadStats);
+    writer.writeEnumValue<CustomDataProvidedResourceUploadStatus>("status", customDataProvidedResourceUploadSession.status);
+    switch (customDataProvidedResourceUploadSession.odataType) {
+        case "#microsoft.graph.customDataProvidedResourceAccessReviewUploadSession":
+            serializeCustomDataProvidedResourceAccessReviewUploadSession(writer, customDataProvidedResourceUploadSession, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
+ * @param CustomDataProvidedResourceUploadSessionCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomDataProvidedResourceUploadSessionCollectionResponse(writer: SerializationWriter, customDataProvidedResourceUploadSessionCollectionResponse: Partial<CustomDataProvidedResourceUploadSessionCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customDataProvidedResourceUploadSessionCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, customDataProvidedResourceUploadSessionCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CustomDataProvidedResourceUploadSession>("value", customDataProvidedResourceUploadSessionCollectionResponse.value, serializeCustomDataProvidedResourceUploadSession);
+}
+/**
+ * Serializes information the current object
+ * @param CustomDataProvidedResourceUploadStats The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomDataProvidedResourceUploadStats(writer: SerializationWriter, customDataProvidedResourceUploadStats: Partial<CustomDataProvidedResourceUploadStats> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customDataProvidedResourceUploadStats || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("filesUploaded", customDataProvidedResourceUploadStats.filesUploaded);
+    writer.writeStringValue("@odata.type", customDataProvidedResourceUploadStats.odataType);
+    writer.writeNumberValue("totalBytesUploaded", customDataProvidedResourceUploadStats.totalBytesUploaded);
+    writer.writeAdditionalData(customDataProvidedResourceUploadStats.additionalData);
 }
 /**
  * Serializes information the current object
@@ -124347,6 +125080,20 @@ export function serializeDelegatedAdminServiceManagementDetailCollectionResponse
     if (!delegatedAdminServiceManagementDetailCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminServiceManagementDetailCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<DelegatedAdminServiceManagementDetail>("value", delegatedAdminServiceManagementDetailCollectionResponse.value, serializeDelegatedAdminServiceManagementDetail);
+}
+/**
+ * Serializes information the current object
+ * @param DelegatedAdminServiceProviderConstraints The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDelegatedAdminServiceProviderConstraints(writer: SerializationWriter, delegatedAdminServiceProviderConstraints: Partial<DelegatedAdminServiceProviderConstraints> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!delegatedAdminServiceProviderConstraints || isSerializingDerivedType) { return; }
+    serializeServiceProviderConstraints(writer, delegatedAdminServiceProviderConstraints, isSerializingDerivedType)
+    writer.writeCollectionOfPrimitiveValues<string>("allowedRoleTemplateIds", delegatedAdminServiceProviderConstraints.allowedRoleTemplateIds);
+    writer.writeDateValue("createdDateTime", delegatedAdminServiceProviderConstraints.createdDateTime);
+    writer.writeDateValue("lastModifiedDateTime", delegatedAdminServiceProviderConstraints.lastModifiedDateTime);
 }
 /**
  * Serializes information the current object
@@ -126213,6 +126960,7 @@ export function serializeDirectory(writer: SerializationWriter, directory: Parti
     writer.writeCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", directory.onPremisesSynchronization, serializeOnPremisesDirectorySynchronization);
     writer.writeObjectValue<PublicKeyInfrastructureRoot>("publicKeyInfrastructure", directory.publicKeyInfrastructure, serializePublicKeyInfrastructureRoot);
     writer.writeObjectValue<Recovery>("recovery", directory.recovery, serializeRecovery);
+    writer.writeCollectionOfObjectValues<RemoteTenantGroup>("remoteTenantGroups", directory.remoteTenantGroups, serializeRemoteTenantGroup);
     writer.writeCollectionOfObjectValues<CompanySubscription>("subscriptions", directory.subscriptions, serializeCompanySubscription);
 }
 /**
@@ -126385,6 +127133,9 @@ export function serializeDirectoryObject(writer: SerializationWriter, directoryO
         break;
         case "#microsoft.graph.policyBase":
             serializePolicyBase(writer, directoryObject, true);
+        break;
+        case "#microsoft.graph.remoteTenantGroup":
+            serializeRemoteTenantGroup(writer, directoryObject, true);
         break;
         case "#microsoft.graph.resourceSpecificPermissionGrant":
             serializeResourceSpecificPermissionGrant(writer, directoryObject, true);
@@ -129673,6 +130424,18 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.customCalloutExtension":
             serializeCustomCalloutExtension(writer, entity, true);
         break;
+        case "#microsoft.graph.customDataProvidedResource":
+            serializeCustomDataProvidedResource(writer, entity, true);
+        break;
+        case "#microsoft.graph.customDataProvidedResourceAccessReviewUploadSession":
+            serializeCustomDataProvidedResourceAccessReviewUploadSession(writer, entity, true);
+        break;
+        case "#microsoft.graph.customDataProvidedResourceFile":
+            serializeCustomDataProvidedResourceFile(writer, entity, true);
+        break;
+        case "#microsoft.graph.customDataProvidedResourceUploadSession":
+            serializeCustomDataProvidedResourceUploadSession(writer, entity, true);
+        break;
         case "#microsoft.graph.customExtensionStageSetting":
             serializeCustomExtensionStageSetting(writer, entity, true);
         break;
@@ -129708,6 +130471,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.delegatedAdminServiceManagementDetail":
             serializeDelegatedAdminServiceManagementDetail(writer, entity, true);
+        break;
+        case "#microsoft.graph.delegatedAdminServiceProviderConstraints":
+            serializeDelegatedAdminServiceProviderConstraints(writer, entity, true);
         break;
         case "#microsoft.graph.delegatedPermissionClassification":
             serializeDelegatedPermissionClassification(writer, entity, true);
@@ -131143,6 +131909,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.remoteDesktopSecurityConfiguration":
             serializeRemoteDesktopSecurityConfiguration(writer, entity, true);
         break;
+        case "#microsoft.graph.remoteTenantGroup":
+            serializeRemoteTenantGroup(writer, entity, true);
+        break;
         case "#microsoft.graph.reportsRoot":
             serializeReportsRoot(writer, entity, true);
         break;
@@ -131547,6 +132316,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.servicePrincipalRiskDetection":
             serializeServicePrincipalRiskDetection(writer, entity, true);
+        break;
+        case "#microsoft.graph.serviceProviderConstraints":
+            serializeServiceProviderConstraints(writer, entity, true);
         break;
         case "#microsoft.graph.serviceStorageQuotaBreakdown":
             serializeServiceStorageQuotaBreakdown(writer, entity, true);
@@ -132153,6 +132925,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.virtualEventTownhall":
             serializeVirtualEventTownhall(writer, entity, true);
+        break;
+        case "#microsoft.graph.virtualEventTownhallRegistrationConfiguration":
+            serializeVirtualEventTownhallRegistrationConfiguration(writer, entity, true);
         break;
         case "#microsoft.graph.virtualEventWebinar":
             serializeVirtualEventWebinar(writer, entity, true);
@@ -134164,6 +134939,7 @@ export function serializeGroup(writer: SerializationWriter, group: Partial<Group
     writer.writeStringValue("onPremisesSecurityIdentifier", group.onPremisesSecurityIdentifier);
     writer.writeObjectValue<OnPremisesSyncBehavior>("onPremisesSyncBehavior", group.onPremisesSyncBehavior, serializeOnPremisesSyncBehavior);
     writer.writeBooleanValue("onPremisesSyncEnabled", group.onPremisesSyncEnabled);
+    writer.writeStringValue("organizationId", group.organizationId);
     writer.writeCollectionOfObjectValues<DirectoryObject>("owners", group.owners, serializeDirectoryObject);
     writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", group.permissionGrants, serializeResourceSpecificPermissionGrant);
     writer.writeObjectValue<ProfilePhoto>("photo", group.photo, serializeProfilePhoto);
@@ -134687,6 +135463,7 @@ export function serializeIdentityGovernance(writer: SerializationWriter, identit
     if (!identityGovernance || isSerializingDerivedType) { return; }
     writer.writeObjectValue<AccessReviewSet>("accessReviews", identityGovernance.accessReviews, serializeAccessReviewSet);
     writer.writeObjectValue<AppConsentApprovalRoute>("appConsent", identityGovernance.appConsent, serializeAppConsentApprovalRoute);
+    writer.writeCollectionOfObjectValues<AccessPackageCatalog>("catalogs", identityGovernance.catalogs, serializeAccessPackageCatalog);
     writer.writeObjectValue<EntitlementManagement>("entitlementManagement", identityGovernance.entitlementManagement, serializeEntitlementManagement);
     writer.writeObjectValue<LifecycleWorkflowsContainer>("lifecycleWorkflows", identityGovernance.lifecycleWorkflows, serializeLifecycleWorkflowsContainer);
     writer.writeStringValue("@odata.type", identityGovernance.odataType);
@@ -141539,6 +142316,7 @@ export function serializeOnlineMeetingBase(writer: SerializationWriter, onlineMe
     writer.writeObjectValue<AudioConferencing>("audioConferencing", onlineMeetingBase.audioConferencing, serializeAudioConferencing);
     writer.writeObjectValue<ChatInfo>("chatInfo", onlineMeetingBase.chatInfo, serializeChatInfo);
     writer.writeObjectValue<ChatRestrictions>("chatRestrictions", onlineMeetingBase.chatRestrictions, serializeChatRestrictions);
+    writer.writeObjectValue<CloudVideoInteropInfo>("cloudVideoInteropInfo", onlineMeetingBase.cloudVideoInteropInfo, serializeCloudVideoInteropInfo);
     writer.writeDateValue("expiryDateTime", onlineMeetingBase.expiryDateTime);
     writer.writeBooleanValue("isEndToEndEncryptionEnabled", onlineMeetingBase.isEndToEndEncryptionEnabled);
     writer.writeBooleanValue("isEntryExitAnnounced", onlineMeetingBase.isEntryExitAnnounced);
@@ -141548,6 +142326,7 @@ export function serializeOnlineMeetingBase(writer: SerializationWriter, onlineMe
     writer.writeObjectValue<LobbyBypassSettings>("lobbyBypassSettings", onlineMeetingBase.lobbyBypassSettings, serializeLobbyBypassSettings);
     writer.writeStringValue("meetingOptionsWebUrl", onlineMeetingBase.meetingOptionsWebUrl);
     writer.writeStringValue("meetingSpokenLanguageTag", onlineMeetingBase.meetingSpokenLanguageTag);
+    writer.writeEnumValue<OnlineMeetingType>("meetingType", onlineMeetingBase.meetingType);
     writer.writeBooleanValue("recordAutomatically", onlineMeetingBase.recordAutomatically);
     writer.writeObjectValue<OnlineMeetingSensitivityLabelAssignment>("sensitivityLabelAssignment", onlineMeetingBase.sensitivityLabelAssignment, serializeOnlineMeetingSensitivityLabelAssignment);
     writer.writeEnumValue<MeetingChatHistoryDefaultMode>("shareMeetingChatHistoryDefault", onlineMeetingBase.shareMeetingChatHistoryDefault);
@@ -145301,6 +146080,7 @@ export function serializeProcessContentBatchRequest(writer: SerializationWriter,
 export function serializeProcessContentMetadataBase(writer: SerializationWriter, processContentMetadataBase: Partial<ProcessContentMetadataBase> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!processContentMetadataBase || isSerializingDerivedType) { return; }
     writer.writeObjectValue<ContentBase>("content", processContentMetadataBase.content, serializeContentBase);
+    writer.writeEnumValue<ContentCategory>("contentCategory", processContentMetadataBase.contentCategory);
     writer.writeStringValue("correlationId", processContentMetadataBase.correlationId);
     writer.writeDateValue("createdDateTime", processContentMetadataBase.createdDateTime);
     writer.writeStringValue("identifier", processContentMetadataBase.identifier);
@@ -146670,6 +147450,34 @@ export function serializeRemoteLockActionResult(writer: SerializationWriter, rem
     if (!remoteLockActionResult || isSerializingDerivedType) { return; }
     serializeDeviceActionResult(writer, remoteLockActionResult, isSerializingDerivedType)
     writer.writeStringValue("unlockPin", remoteLockActionResult.unlockPin);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RemoteTenantGroup The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRemoteTenantGroup(writer: SerializationWriter, remoteTenantGroup: Partial<RemoteTenantGroup> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!remoteTenantGroup || isSerializingDerivedType) { return; }
+    serializeDirectoryObject(writer, remoteTenantGroup, isSerializingDerivedType)
+    writer.writeStringValue("remoteGroupDisplayName", remoteTenantGroup.remoteGroupDisplayName);
+    writer.writeGuidValue("remoteGroupId", remoteTenantGroup.remoteGroupId);
+    writer.writeStringValue("remoteTenantDisplayName", remoteTenantGroup.remoteTenantDisplayName);
+    writer.writeGuidValue("remoteTenantId", remoteTenantGroup.remoteTenantId);
+    writer.writeStringValue("remoteTenantPrimaryDomain", remoteTenantGroup.remoteTenantPrimaryDomain);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RemoteTenantGroupCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRemoteTenantGroupCollectionResponse(writer: SerializationWriter, remoteTenantGroupCollectionResponse: Partial<RemoteTenantGroupCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!remoteTenantGroupCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, remoteTenantGroupCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RemoteTenantGroup>("value", remoteTenantGroupCollectionResponse.value, serializeRemoteTenantGroup);
 }
 /**
  * Serializes information the current object
@@ -149049,6 +149857,22 @@ export function serializeServicePrincipalSignIn(writer: SerializationWriter, ser
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ServiceProviderConstraints The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeServiceProviderConstraints(writer: SerializationWriter, serviceProviderConstraints: Partial<ServiceProviderConstraints> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!serviceProviderConstraints || isSerializingDerivedType) { return; }
+    serializeEntity(writer, serviceProviderConstraints, isSerializingDerivedType)
+    switch (serviceProviderConstraints.odataType) {
+        case "#microsoft.graph.delegatedAdminServiceProviderConstraints":
+            serializeDelegatedAdminServiceProviderConstraints(writer, serviceProviderConstraints, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param ServiceProvisioningError The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -150014,16 +150838,19 @@ export function serializeSignIn(writer: SerializationWriter, signIn: Partial<Sig
     writer.writeStringValue("appDisplayName", signIn.appDisplayName);
     writer.writeStringValue("appId", signIn.appId);
     writer.writeCollectionOfObjectValues<AppliedConditionalAccessPolicy>("appliedConditionalAccessPolicies", signIn.appliedConditionalAccessPolicies, serializeAppliedConditionalAccessPolicy);
+    writer.writeObjectValue<AuthenticationAppDeviceDetails>("authenticationAppDeviceDetails", signIn.authenticationAppDeviceDetails, serializeAuthenticationAppDeviceDetails);
     writer.writeStringValue("clientAppUsed", signIn.clientAppUsed);
     writer.writeEnumValue<ConditionalAccessStatus>("conditionalAccessStatus", signIn.conditionalAccessStatus);
     writer.writeStringValue("correlationId", signIn.correlationId);
     writer.writeDateValue("createdDateTime", signIn.createdDateTime);
     writer.writeObjectValue<DeviceDetail>("deviceDetail", signIn.deviceDetail, serializeDeviceDetail);
+    writer.writeStringValue("homeTenantId", signIn.homeTenantId);
     writer.writeStringValue("ipAddress", signIn.ipAddress);
     writer.writeBooleanValue("isInteractive", signIn.isInteractive);
     writer.writeObjectValue<SignInLocation>("location", signIn.location, serializeSignInLocation);
     writer.writeStringValue("resourceDisplayName", signIn.resourceDisplayName);
     writer.writeStringValue("resourceId", signIn.resourceId);
+    writer.writeStringValue("resourceTenantId", signIn.resourceTenantId);
     writer.writeEnumValue<RiskDetail>("riskDetail", signIn.riskDetail);
     if(signIn.riskEventTypes)
     writer.writeCollectionOfEnumValues<RiskEventType>("riskEventTypes", signIn.riskEventTypes);
@@ -150031,7 +150858,10 @@ export function serializeSignIn(writer: SerializationWriter, signIn: Partial<Sig
     writer.writeEnumValue<RiskLevel>("riskLevelAggregated", signIn.riskLevelAggregated);
     writer.writeEnumValue<RiskLevel>("riskLevelDuringSignIn", signIn.riskLevelDuringSignIn);
     writer.writeEnumValue<RiskState>("riskState", signIn.riskState);
+    writer.writeStringValue("servicePrincipalId", signIn.servicePrincipalId);
+    writer.writeStringValue("servicePrincipalName", signIn.servicePrincipalName);
     writer.writeObjectValue<SignInStatus>("status", signIn.status, serializeSignInStatus);
+    writer.writeStringValue("userAgent", signIn.userAgent);
     writer.writeStringValue("userDisplayName", signIn.userDisplayName);
     writer.writeStringValue("userId", signIn.userId);
     writer.writeStringValue("userPrincipalName", signIn.userPrincipalName);
@@ -154046,6 +154876,7 @@ export function serializeUnifiedRoleAssignment(writer: SerializationWriter, unif
     writer.writeStringValue("directoryScopeId", unifiedRoleAssignment.directoryScopeId);
     writer.writeObjectValue<DirectoryObject>("principal", unifiedRoleAssignment.principal, serializeDirectoryObject);
     writer.writeStringValue("principalId", unifiedRoleAssignment.principalId);
+    writer.writeStringValue("principalOrganizationId", unifiedRoleAssignment.principalOrganizationId);
     writer.writeObjectValue<UnifiedRoleDefinition>("roleDefinition", unifiedRoleAssignment.roleDefinition, serializeUnifiedRoleDefinition);
     writer.writeStringValue("roleDefinitionId", unifiedRoleAssignment.roleDefinitionId);
 }
@@ -154870,6 +155701,7 @@ export function serializeUser(writer: SerializationWriter, user: Partial<User> |
     writer.writeDateValue("signInSessionsValidFromDateTime", user.signInSessionsValidFromDateTime);
     writer.writeCollectionOfPrimitiveValues<string>("skills", user.skills);
     writer.writeObjectValue<UserSolutionRoot>("solutions", user.solutions, serializeUserSolutionRoot);
+    writer.writeCollectionOfObjectValues<DirectoryObject>("sponsorOf", user.sponsorOf, serializeDirectoryObject);
     writer.writeCollectionOfObjectValues<DirectoryObject>("sponsors", user.sponsors, serializeDirectoryObject);
     writer.writeStringValue("state", user.state);
     writer.writeStringValue("streetAddress", user.streetAddress);
@@ -156572,6 +157404,7 @@ export function serializeVirtualEvent(writer: SerializationWriter, virtualEvent:
     writer.writeStringValue("displayName", virtualEvent.displayName);
     writer.writeObjectValue<DateTimeTimeZone>("endDateTime", virtualEvent.endDateTime, serializeDateTimeTimeZone);
     writer.writeCollectionOfObjectValues<VirtualEventExternalInformation>("externalEventInformation", virtualEvent.externalEventInformation, serializeVirtualEventExternalInformation);
+    writer.writeBooleanValue("isRegistrationRequired", virtualEvent.isRegistrationRequired);
     writer.writeCollectionOfObjectValues<VirtualEventPresenter>("presenters", virtualEvent.presenters, serializeVirtualEventPresenter);
     writer.writeCollectionOfObjectValues<VirtualEventSession>("sessions", virtualEvent.sessions, serializeVirtualEventSession);
     writer.writeObjectValue<VirtualEventSettings>("settings", virtualEvent.settings, serializeVirtualEventSettings);
@@ -156729,9 +157562,14 @@ export function serializeVirtualEventRegistrationConfiguration(writer: Serializa
     if (!virtualEventRegistrationConfiguration || isSerializingDerivedType) { return; }
     serializeEntity(writer, virtualEventRegistrationConfiguration, isSerializingDerivedType)
     writer.writeNumberValue("capacity", virtualEventRegistrationConfiguration.capacity);
+    writer.writeBooleanValue("isManualApprovalEnabled", virtualEventRegistrationConfiguration.isManualApprovalEnabled);
+    writer.writeBooleanValue("isWaitlistEnabled", virtualEventRegistrationConfiguration.isWaitlistEnabled);
     writer.writeCollectionOfObjectValues<VirtualEventRegistrationQuestionBase>("questions", virtualEventRegistrationConfiguration.questions, serializeVirtualEventRegistrationQuestionBase);
     writer.writeStringValue("registrationWebUrl", virtualEventRegistrationConfiguration.registrationWebUrl);
     switch (virtualEventRegistrationConfiguration.odataType) {
+        case "#microsoft.graph.virtualEventTownhallRegistrationConfiguration":
+            serializeVirtualEventTownhallRegistrationConfiguration(writer, virtualEventRegistrationConfiguration, true);
+        break;
         case "#microsoft.graph.virtualEventWebinarRegistrationConfiguration":
             serializeVirtualEventWebinarRegistrationConfiguration(writer, virtualEventRegistrationConfiguration, true);
         break;
@@ -156822,6 +157660,7 @@ export function serializeVirtualEventRegistrationQuestionBaseCollectionResponse(
 export function serializeVirtualEventSession(writer: SerializationWriter, virtualEventSession: Partial<VirtualEventSession> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!virtualEventSession || isSerializingDerivedType) { return; }
     serializeOnlineMeetingBase(writer, virtualEventSession, isSerializingDerivedType)
+    writer.writeNumberValue("capacity", virtualEventSession.capacity);
     writer.writeObjectValue<DateTimeTimeZone>("endDateTime", virtualEventSession.endDateTime, serializeDateTimeTimeZone);
     writer.writeObjectValue<DateTimeTimeZone>("startDateTime", virtualEventSession.startDateTime, serializeDateTimeTimeZone);
     writer.writeStringValue("videoOnDemandWebUrl", virtualEventSession.videoOnDemandWebUrl);
@@ -156876,9 +157715,12 @@ export function serializeVirtualEventTownhall(writer: SerializationWriter, virtu
     if (!virtualEventTownhall || isSerializingDerivedType) { return; }
     serializeVirtualEvent(writer, virtualEventTownhall, isSerializingDerivedType)
     writer.writeEnumValue<MeetingAudience>("audience", virtualEventTownhall.audience);
+    writer.writeNumberValue("capacity", virtualEventTownhall.capacity);
     writer.writeCollectionOfObjectValues<CommunicationsUserIdentity>("coOrganizers", virtualEventTownhall.coOrganizers, serializeCommunicationsUserIdentity);
     writer.writeCollectionOfObjectValues<Identity>("invitedAttendees", virtualEventTownhall.invitedAttendees, serializeIdentity);
     writer.writeBooleanValue("isInviteOnly", virtualEventTownhall.isInviteOnly);
+    writer.writeObjectValue<VirtualEventTownhallRegistrationConfiguration>("registrationConfiguration", virtualEventTownhall.registrationConfiguration, serializeVirtualEventTownhallRegistrationConfiguration);
+    writer.writeCollectionOfObjectValues<VirtualEventRegistration>("registrations", virtualEventTownhall.registrations, serializeVirtualEventRegistration);
 }
 /**
  * Serializes information the current object
@@ -156891,6 +157733,17 @@ export function serializeVirtualEventTownhallCollectionResponse(writer: Serializ
     if (!virtualEventTownhallCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, virtualEventTownhallCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<VirtualEventTownhall>("value", virtualEventTownhallCollectionResponse.value, serializeVirtualEventTownhall);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param VirtualEventTownhallRegistrationConfiguration The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeVirtualEventTownhallRegistrationConfiguration(writer: SerializationWriter, virtualEventTownhallRegistrationConfiguration: Partial<VirtualEventTownhallRegistrationConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!virtualEventTownhallRegistrationConfiguration || isSerializingDerivedType) { return; }
+    serializeVirtualEventRegistrationConfiguration(writer, virtualEventTownhallRegistrationConfiguration, isSerializingDerivedType)
 }
 /**
  * Serializes information the current object
@@ -156929,8 +157782,6 @@ export function serializeVirtualEventWebinarCollectionResponse(writer: Serializa
 export function serializeVirtualEventWebinarRegistrationConfiguration(writer: SerializationWriter, virtualEventWebinarRegistrationConfiguration: Partial<VirtualEventWebinarRegistrationConfiguration> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!virtualEventWebinarRegistrationConfiguration || isSerializingDerivedType) { return; }
     serializeVirtualEventRegistrationConfiguration(writer, virtualEventWebinarRegistrationConfiguration, isSerializingDerivedType)
-    writer.writeBooleanValue("isManualApprovalEnabled", virtualEventWebinarRegistrationConfiguration.isManualApprovalEnabled);
-    writer.writeBooleanValue("isWaitlistEnabled", virtualEventWebinarRegistrationConfiguration.isWaitlistEnabled);
 }
 /**
  * Serializes information the current object
@@ -161020,6 +161871,8 @@ export interface ServicePrincipalSignIn extends Parsable, SignInIdentity {
      */
     servicePrincipalId?: string | null;
 }
+export interface ServiceProviderConstraints extends Entity, Parsable {
+}
 export interface ServiceProvisioningError extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -162200,6 +163053,10 @@ export interface SignIn extends Entity, Parsable {
      */
     appliedConditionalAccessPolicies?: AppliedConditionalAccessPolicy[] | null;
     /**
+     * The authenticationAppDeviceDetails property
+     */
+    authenticationAppDeviceDetails?: AuthenticationAppDeviceDetails | null;
+    /**
      * Identifies the client used for the sign-in activity. Modern authentication clients include Browser, modern clients. Legacy authentication clients include Exchange ActiveSync, IMAP, MAPI, SMTP, POP, and other clients.  Supports $filter (eq).
      */
     clientAppUsed?: string | null;
@@ -162220,6 +163077,10 @@ export interface SignIn extends Entity, Parsable {
      */
     deviceDetail?: DeviceDetail | null;
     /**
+     * The homeTenantId property
+     */
+    homeTenantId?: string | null;
+    /**
      * IP address of the client used to sign in.  Supports $filter (eq, startsWith).
      */
     ipAddress?: string | null;
@@ -162239,6 +163100,10 @@ export interface SignIn extends Entity, Parsable {
      * ID of the resource that the user signed into.  Supports $filter (eq).
      */
     resourceId?: string | null;
+    /**
+     * The resourceTenantId property
+     */
+    resourceTenantId?: string | null;
     /**
      * The reason behind a specific state of a risky user, sign-in, or a risk event. The value none means that Microsoft Entra risk detection did not flag the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.
      */
@@ -162264,9 +163129,21 @@ export interface SignIn extends Entity, Parsable {
      */
     riskState?: RiskState | null;
     /**
+     * The servicePrincipalId property
+     */
+    servicePrincipalId?: string | null;
+    /**
+     * The servicePrincipalName property
+     */
+    servicePrincipalName?: string | null;
+    /**
      * Sign-in status. Includes the error code and description of the error (if a sign-in failure occurs).  Supports $filter (eq) on errorCode property.
      */
     status?: SignInStatus | null;
+    /**
+     * The userAgent property
+     */
+    userAgent?: string | null;
     /**
      * Display name of the user that initiated the sign-in.  Supports $filter (eq, startsWith).
      */
@@ -166942,6 +167819,10 @@ export interface UnifiedRoleAssignment extends Entity, Parsable {
      */
     principalId?: string | null;
     /**
+     * The principalOrganizationId property
+     */
+    principalOrganizationId?: string | null;
+    /**
      * The roleDefinition the assignment is for. Supports $expand.
      */
     roleDefinition?: UnifiedRoleDefinition | null;
@@ -168242,6 +169123,10 @@ export interface User extends DirectoryObject, Parsable {
      * The identifier that relates the user to the working time schedule triggers. Read-Only. Nullable
      */
     solutions?: UserSolutionRoot | null;
+    /**
+     * Directory objects that this user sponsors, such as guest users, agent users, agent blueprints, agent blueprint principals, and agent identities. If the user is a member of a group that's a sponsor, the objects sponsored by that group are also included. Read-only. Nullable. Supports $filter, $count, $select, $expand, $top, and $skip.
+     */
+    sponsorOf?: DirectoryObject[] | null;
     /**
      * The users and groups responsible for this guest's privileges in the tenant and keeping the guest's information and access updated. (HTTP Methods: GET, POST, DELETE.). Supports $expand.
      */
@@ -170616,6 +171501,10 @@ export interface VirtualEvent extends Entity, Parsable {
      */
     externalEventInformation?: VirtualEventExternalInformation[] | null;
     /**
+     * Indicates whether attendee registration is enabled for the virtual event.
+     */
+    isRegistrationRequired?: boolean | null;
+    /**
      * The virtual event presenters.
      */
     presenters?: VirtualEventPresenter[] | null;
@@ -170805,6 +171694,14 @@ export interface VirtualEventRegistrationConfiguration extends Entity, Parsable 
      */
     capacity?: number | null;
     /**
+     * Indicates whether registrations require organizer approval before a participant is confirmed.
+     */
+    isManualApprovalEnabled?: boolean | null;
+    /**
+     * Indicates whether more registrants are automatically placed on a waitlist when capacity is reached.
+     */
+    isWaitlistEnabled?: boolean | null;
+    /**
      * Registration questions.
      */
     questions?: VirtualEventRegistrationQuestionBase[] | null;
@@ -170879,6 +171776,10 @@ export interface VirtualEventRegistrationQuestionBaseCollectionResponse extends 
 }
 export interface VirtualEventSession extends OnlineMeetingBase, Parsable {
     /**
+     * Represents the expected number of attendees for the virtual event session.
+     */
+    capacity?: number | null;
+    /**
      * The virtual event session end time.
      */
     endDateTime?: DateTimeTimeZone | null;
@@ -170932,6 +171833,10 @@ export interface VirtualEventTownhall extends Parsable, VirtualEvent {
      */
     audience?: MeetingAudience | null;
     /**
+     * Represents the expected number of attendees for the town hall.
+     */
+    capacity?: number | null;
+    /**
      * Identity information of the coorganizers of the town hall.
      */
     coOrganizers?: CommunicationsUserIdentity[] | null;
@@ -170943,12 +171848,22 @@ export interface VirtualEventTownhall extends Parsable, VirtualEvent {
      * Indicates whether the town hall is only open to invited people and groups within your organization. The isInviteOnly property can only be true if the value of the audience property is set to organization.
      */
     isInviteOnly?: boolean | null;
+    /**
+     * Registration configuration of the town hall.
+     */
+    registrationConfiguration?: VirtualEventTownhallRegistrationConfiguration | null;
+    /**
+     * Registration records of the town hall.
+     */
+    registrations?: VirtualEventRegistration[] | null;
 }
 export interface VirtualEventTownhallCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
      * The value property
      */
     value?: VirtualEventTownhall[] | null;
+}
+export interface VirtualEventTownhallRegistrationConfiguration extends Parsable, VirtualEventRegistrationConfiguration {
 }
 export interface VirtualEventWebinar extends Parsable, VirtualEvent {
     /**
@@ -170975,14 +171890,6 @@ export interface VirtualEventWebinarCollectionResponse extends BaseCollectionPag
     value?: VirtualEventWebinar[] | null;
 }
 export interface VirtualEventWebinarRegistrationConfiguration extends Parsable, VirtualEventRegistrationConfiguration {
-    /**
-     * The isManualApprovalEnabled property
-     */
-    isManualApprovalEnabled?: boolean | null;
-    /**
-     * The isWaitlistEnabled property
-     */
-    isWaitlistEnabled?: boolean | null;
 }
 export type VisibilitySetting = (typeof VisibilitySettingObject)[keyof typeof VisibilitySettingObject];
 export interface VisualInfo extends AdditionalDataHolder, BackedModel, Parsable {
@@ -177996,6 +178903,11 @@ export const ContactRelationshipObject = {
     Other: "other",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const ContentCategoryObject = {
+    None: "none",
+    Ai: "ai",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const ContentProcessingErrorTypeObject = {
     Transient: "transient",
     Permanent: "permanent",
@@ -178031,6 +178943,12 @@ export const CsaStarLevelObject = {
     CStarAssessment: "cStarAssessment",
     SelfAssessment: "selfAssessment",
     NotSupported: "notSupported",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const CustomDataProvidedResourceUploadStatusObject = {
+    Active: "active",
+    Complete: "complete",
+    Expired: "expired",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const CustomExtensionCalloutInstanceStatusObject = {
@@ -180022,6 +180940,14 @@ export const OnlineMeetingRoleObject = {
     UnknownFutureValue: "unknownFutureValue",
     Producer: "producer",
     Coorganizer: "coorganizer",
+} as const;
+export const OnlineMeetingTypeObject = {
+    Adhoc: "adhoc",
+    Scheduled: "scheduled",
+    Recurring: "recurring",
+    Broadcast: "broadcast",
+    Meetnow: "meetnow",
+    UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const OnlineMeetingVideoDisabledReasonObject = {
     WatermarkProtection: "watermarkProtection",
@@ -183001,6 +183927,10 @@ export const UserActivityTypeObject = {
     DownloadText: "downloadText",
     DownloadFile: "downloadFile",
     UnknownFutureValue: "unknownFutureValue",
+    CopyToClipboard: "copyToClipboard",
+    PasteFromClipboard: "pasteFromClipboard",
+    Print: "print",
+    AccessDebugTools: "accessDebugTools",
 } as const;
 export const UserActivityTypesObject = {
     None: "none",
@@ -183009,6 +183939,10 @@ export const UserActivityTypesObject = {
     DownloadText: "downloadText",
     DownloadFile: "downloadFile",
     UnknownFutureValue: "unknownFutureValue",
+    CopyToClipboard: "copyToClipboard",
+    PasteFromClipboard: "pasteFromClipboard",
+    Print: "print",
+    AccessDebugTools: "accessDebugTools",
 } as const;
 export const UserDefaultAuthenticationMethodObject = {
     Push: "push",

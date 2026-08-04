@@ -27,7 +27,7 @@ export interface RegistrationsRequestBuilder extends BaseRequestBuilder<Registra
      */
      byVirtualEventRegistrationId(virtualEventRegistrationId: string) : VirtualEventRegistrationItemRequestBuilder;
     /**
-     * Get a list of all registration records of a webinar.
+     * Get a list of all registration records of a webinar or town hall.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventRegistrationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,7 +35,7 @@ export interface RegistrationsRequestBuilder extends BaseRequestBuilder<Registra
      */
      get(requestConfiguration?: RequestConfiguration<RegistrationsRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventRegistrationCollectionResponse | undefined>;
     /**
-     * Create a registration record for a registrant of a webinar. This method registers the person for the webinar. 
+     * Create a registration record for a registrant of a webinar or town hall. This method registers the person for the webinar or town hall. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventRegistration>}
@@ -44,13 +44,13 @@ export interface RegistrationsRequestBuilder extends BaseRequestBuilder<Registra
      */
      post(body: VirtualEventRegistration, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventRegistration | undefined>;
     /**
-     * Get a list of all registration records of a webinar.
+     * Get a list of all registration records of a webinar or town hall.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RegistrationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a registration record for a registrant of a webinar. This method registers the person for the webinar. 
+     * Create a registration record for a registrant of a webinar or town hall. This method registers the person for the webinar or town hall. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +58,7 @@ export interface RegistrationsRequestBuilder extends BaseRequestBuilder<Registra
      toPostRequestInformation(body: VirtualEventRegistration, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of all registration records of a webinar.
+ * Get a list of all registration records of a webinar or town hall.
  */
 export interface RegistrationsRequestBuilderGetQueryParameters {
     /**
