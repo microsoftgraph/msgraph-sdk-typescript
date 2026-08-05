@@ -8,6 +8,14 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { PresentersRequestBuilderNavigationMetadata, PresentersRequestBuilderRequestsMetadata, type PresentersRequestBuilder } from './presenters/index.js';
 // @ts-ignore
+import { RegistrationConfigurationRequestBuilderNavigationMetadata, RegistrationConfigurationRequestBuilderRequestsMetadata, type RegistrationConfigurationRequestBuilder } from './registrationConfiguration/index.js';
+// @ts-ignore
+import { RegistrationsRequestBuilderNavigationMetadata, RegistrationsRequestBuilderRequestsMetadata, type RegistrationsRequestBuilder } from './registrations/index.js';
+// @ts-ignore
+import { RegistrationsWithEmailRequestBuilderNavigationMetadata, RegistrationsWithEmailRequestBuilderRequestsMetadata, type RegistrationsWithEmailRequestBuilder } from './registrationsWithEmail/index.js';
+// @ts-ignore
+import { RegistrationsWithUserIdRequestBuilderNavigationMetadata, RegistrationsWithUserIdRequestBuilderRequestsMetadata, type RegistrationsWithUserIdRequestBuilder } from './registrationsWithUserId/index.js';
+// @ts-ignore
 import { SessionsRequestBuilderNavigationMetadata, SessionsRequestBuilderRequestsMetadata, type SessionsRequestBuilder } from './sessions/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -20,6 +28,14 @@ export interface VirtualEventTownhallItemRequestBuilder extends BaseRequestBuild
      * Provides operations to manage the presenters property of the microsoft.graph.virtualEvent entity.
      */
     get presenters(): PresentersRequestBuilder;
+    /**
+     * Provides operations to manage the registrationConfiguration property of the microsoft.graph.virtualEventTownhall entity.
+     */
+    get registrationConfiguration(): RegistrationConfigurationRequestBuilder;
+    /**
+     * Provides operations to manage the registrations property of the microsoft.graph.virtualEventTownhall entity.
+     */
+    get registrations(): RegistrationsRequestBuilder;
     /**
      * Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
      */
@@ -47,6 +63,18 @@ export interface VirtualEventTownhallItemRequestBuilder extends BaseRequestBuild
      * @see {@link https://learn.microsoft.com/graph/api/virtualeventtownhall-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: VirtualEventTownhall, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventTownhall | undefined>;
+    /**
+     * Provides operations to manage the registrations property of the microsoft.graph.virtualEventTownhall entity.
+     * @param email Alternate key of virtualEventRegistration
+     * @returns {RegistrationsWithEmailRequestBuilder}
+     */
+     registrationsWithEmail(email: string | undefined) : RegistrationsWithEmailRequestBuilder;
+    /**
+     * Provides operations to manage the registrations property of the microsoft.graph.virtualEventTownhall entity.
+     * @param userId Alternate key of virtualEventRegistration
+     * @returns {RegistrationsWithUserIdRequestBuilder}
+     */
+     registrationsWithUserId(userId: string | undefined) : RegistrationsWithUserIdRequestBuilder;
     /**
      * Delete navigation property townhalls for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -95,9 +123,27 @@ const VirtualEventTownhallItemRequestBuilderGetQueryParametersMapper: Record<str
  * Metadata for all the navigation properties in the request builder.
  */
 export const VirtualEventTownhallItemRequestBuilderNavigationMetadata: Record<Exclude<keyof VirtualEventTownhallItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    registrationsWithEmail: {
+        requestsMetadata: RegistrationsWithEmailRequestBuilderRequestsMetadata,
+        navigationMetadata: RegistrationsWithEmailRequestBuilderNavigationMetadata,
+        pathParametersMappings: ["email"],
+    },
+    registrationsWithUserId: {
+        requestsMetadata: RegistrationsWithUserIdRequestBuilderRequestsMetadata,
+        navigationMetadata: RegistrationsWithUserIdRequestBuilderNavigationMetadata,
+        pathParametersMappings: ["userId"],
+    },
     presenters: {
         requestsMetadata: PresentersRequestBuilderRequestsMetadata,
         navigationMetadata: PresentersRequestBuilderNavigationMetadata,
+    },
+    registrationConfiguration: {
+        requestsMetadata: RegistrationConfigurationRequestBuilderRequestsMetadata,
+        navigationMetadata: RegistrationConfigurationRequestBuilderNavigationMetadata,
+    },
+    registrations: {
+        requestsMetadata: RegistrationsRequestBuilderRequestsMetadata,
+        navigationMetadata: RegistrationsRequestBuilderNavigationMetadata,
     },
     sessions: {
         requestsMetadata: SessionsRequestBuilderRequestsMetadata,

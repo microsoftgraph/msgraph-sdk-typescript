@@ -6,12 +6,18 @@ import { createMultiTenantOrganizationIdentitySyncPolicyTemplateFromDiscriminato
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { ResetToDefaultSettingsRequestBuilderRequestsMetadata, type ResetToDefaultSettingsRequestBuilder } from './resetToDefaultSettings/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the multiTenantOrganizationIdentitySynchronization property of the microsoft.graph.policyTemplate entity.
  */
 export interface MultiTenantOrganizationIdentitySynchronizationRequestBuilder extends BaseRequestBuilder<MultiTenantOrganizationIdentitySynchronizationRequestBuilder> {
+    /**
+     * Provides operations to call the resetToDefaultSettings method.
+     */
+    get resetToDefaultSettings(): ResetToDefaultSettingsRequestBuilder;
     /**
      * Delete navigation property multiTenantOrganizationIdentitySynchronization for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -78,6 +84,14 @@ export const MultiTenantOrganizationIdentitySynchronizationRequestBuilderUriTemp
 const MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const MultiTenantOrganizationIdentitySynchronizationRequestBuilderNavigationMetadata: Record<Exclude<keyof MultiTenantOrganizationIdentitySynchronizationRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    resetToDefaultSettings: {
+        requestsMetadata: ResetToDefaultSettingsRequestBuilderRequestsMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

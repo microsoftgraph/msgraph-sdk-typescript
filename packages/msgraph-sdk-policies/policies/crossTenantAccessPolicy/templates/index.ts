@@ -6,9 +6,9 @@ import { createPolicyTemplateFromDiscriminatorValue, serializePolicyTemplate, ty
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { MultiTenantOrganizationIdentitySynchronizationRequestBuilderRequestsMetadata, type MultiTenantOrganizationIdentitySynchronizationRequestBuilder } from './multiTenantOrganizationIdentitySynchronization/index.js';
+import { MultiTenantOrganizationIdentitySynchronizationRequestBuilderNavigationMetadata, MultiTenantOrganizationIdentitySynchronizationRequestBuilderRequestsMetadata, type MultiTenantOrganizationIdentitySynchronizationRequestBuilder } from './multiTenantOrganizationIdentitySynchronization/index.js';
 // @ts-ignore
-import { MultiTenantOrganizationPartnerConfigurationRequestBuilderRequestsMetadata, type MultiTenantOrganizationPartnerConfigurationRequestBuilder } from './multiTenantOrganizationPartnerConfiguration/index.js';
+import { MultiTenantOrganizationPartnerConfigurationRequestBuilderNavigationMetadata, MultiTenantOrganizationPartnerConfigurationRequestBuilderRequestsMetadata, type MultiTenantOrganizationPartnerConfigurationRequestBuilder } from './multiTenantOrganizationPartnerConfiguration/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -95,9 +95,11 @@ const TemplatesRequestBuilderGetQueryParametersMapper: Record<string, string> = 
 export const TemplatesRequestBuilderNavigationMetadata: Record<Exclude<keyof TemplatesRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     multiTenantOrganizationIdentitySynchronization: {
         requestsMetadata: MultiTenantOrganizationIdentitySynchronizationRequestBuilderRequestsMetadata,
+        navigationMetadata: MultiTenantOrganizationIdentitySynchronizationRequestBuilderNavigationMetadata,
     },
     multiTenantOrganizationPartnerConfiguration: {
         requestsMetadata: MultiTenantOrganizationPartnerConfigurationRequestBuilderRequestsMetadata,
+        navigationMetadata: MultiTenantOrganizationPartnerConfigurationRequestBuilderNavigationMetadata,
     },
 };
 /**

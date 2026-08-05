@@ -13,7 +13,7 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface VirtualEventRegistrationQuestionBaseItemRequestBuilder extends BaseRequestBuilder<VirtualEventRegistrationQuestionBaseItemRequestBuilder> {
     /**
-     * Delete a registration question from a webinar. The question can either be a predefined registration question or a custom registration question. 
+     * Delete a registration question from a webinar or town hall. The question can either be a predefined registration question or a custom registration question. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      * @see {@link https://learn.microsoft.com/graph/api/virtualeventregistrationquestionbase-delete?view=graph-rest-1.0|Find more info here}
@@ -35,7 +35,7 @@ export interface VirtualEventRegistrationQuestionBaseItemRequestBuilder extends 
      */
      patch(body: VirtualEventRegistrationQuestionBase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventRegistrationQuestionBase | undefined>;
     /**
-     * Delete a registration question from a webinar. The question can either be a predefined registration question or a custom registration question. 
+     * Delete a registration question from a webinar or town hall. The question can either be a predefined registration question or a custom registration question. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

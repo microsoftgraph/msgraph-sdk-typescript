@@ -27,7 +27,7 @@ export interface QuestionsRequestBuilder extends BaseRequestBuilder<QuestionsReq
      */
      byVirtualEventRegistrationQuestionBaseId(virtualEventRegistrationQuestionBaseId: string) : VirtualEventRegistrationQuestionBaseItemRequestBuilder;
     /**
-     * Get a list of all registration questions for a webinar. The list can include either predefined registration questions or custom registration questions.
+     * Get a list of all registration questions for a webinar or town hall. The list can include either predefined registration questions or custom registration questions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventRegistrationQuestionBaseCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -35,7 +35,7 @@ export interface QuestionsRequestBuilder extends BaseRequestBuilder<QuestionsReq
      */
      get(requestConfiguration?: RequestConfiguration<QuestionsRequestBuilderGetQueryParameters> | undefined) : Promise<VirtualEventRegistrationQuestionBaseCollectionResponse | undefined>;
     /**
-     * Create a registration question for a webinar. You can create either a predefined registration question or a custom registration question.
+     * Create a registration question for a webinar or town hall. You can create either a predefined registration question or a custom registration question.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<VirtualEventRegistrationQuestionBase>}
@@ -44,13 +44,13 @@ export interface QuestionsRequestBuilder extends BaseRequestBuilder<QuestionsReq
      */
      post(body: VirtualEventRegistrationQuestionBase, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<VirtualEventRegistrationQuestionBase | undefined>;
     /**
-     * Get a list of all registration questions for a webinar. The list can include either predefined registration questions or custom registration questions.
+     * Get a list of all registration questions for a webinar or town hall. The list can include either predefined registration questions or custom registration questions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<QuestionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create a registration question for a webinar. You can create either a predefined registration question or a custom registration question.
+     * Create a registration question for a webinar or town hall. You can create either a predefined registration question or a custom registration question.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -58,7 +58,7 @@ export interface QuestionsRequestBuilder extends BaseRequestBuilder<QuestionsReq
      toPostRequestInformation(body: VirtualEventRegistrationQuestionBase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get a list of all registration questions for a webinar. The list can include either predefined registration questions or custom registration questions.
+ * Get a list of all registration questions for a webinar or town hall. The list can include either predefined registration questions or custom registration questions.
  */
 export interface QuestionsRequestBuilderGetQueryParameters {
     /**
