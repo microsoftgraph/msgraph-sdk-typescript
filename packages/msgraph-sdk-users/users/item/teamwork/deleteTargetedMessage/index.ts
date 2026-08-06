@@ -38,14 +38,15 @@ export interface DeleteTargetedMessagePostRequestBody extends AdditionalDataHold
  */
 export interface DeleteTargetedMessageRequestBuilder extends BaseRequestBuilder<DeleteTargetedMessageRequestBuilder> {
     /**
-     * Invoke action deleteTargetedMessage
+     * Delete a specific targeted message from a channel context. Teams administrators can use this API to remove targeted messages by providing the message ID, team ID, and channel ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-deletetargetedmessage?view=graph-rest-1.0|Find more info here}
      */
      post(body: DeleteTargetedMessagePostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Invoke action deleteTargetedMessage
+     * Delete a specific targeted message from a channel context. Teams administrators can use this API to remove targeted messages by providing the message ID, team ID, and channel ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
