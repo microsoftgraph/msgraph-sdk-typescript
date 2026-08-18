@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RecoveryJobItemRequestBuilder extends BaseRequestBuilder<RecoveryJobItemRequestBuilder> {
     /**
-     * Get recoveryJobs from directory
+     * Collection of recovery jobs created for this snapshot.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RecoveryJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<RecoveryJobItemRequestBuilderGetQueryParameters> | undefined) : Promise<RecoveryJob | undefined>;
     /**
-     * Get recoveryJobs from directory
+     * Collection of recovery jobs created for this snapshot.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RecoveryJobItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get recoveryJobs from directory
+ * Collection of recovery jobs created for this snapshot.
  */
 export interface RecoveryJobItemRequestBuilderGetQueryParameters {
     /**

@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AuditLogRecordItemRequestBuilder extends BaseRequestBuilder<AuditLogRecordItemRequestBuilder> {
     /**
-     * An individual audit log record.
+     * The collection of audit log records retrieved by the query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuditLogRecord>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AuditLogRecordItemRequestBuilderGetQueryParameters> | undefined) : Promise<AuditLogRecord | undefined>;
     /**
-     * An individual audit log record.
+     * The collection of audit log records retrieved by the query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AuditLogRecordItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * An individual audit log record.
+ * The collection of audit log records retrieved by the query.
  */
 export interface AuditLogRecordItemRequestBuilderGetQueryParameters {
     /**

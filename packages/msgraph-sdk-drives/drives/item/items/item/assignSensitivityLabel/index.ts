@@ -31,14 +31,15 @@ export interface AssignSensitivityLabelPostRequestBody extends AdditionalDataHol
  */
 export interface AssignSensitivityLabelRequestBuilder extends BaseRequestBuilder<AssignSensitivityLabelRequestBuilder> {
     /**
-     * Invoke action assignSensitivityLabel
+     * Asynchronously assign a sensitivity label to a driveItem. This API is part of the Microsoft SharePoint and OneDrive APIs that perform advanced premium administrative functions, and is considered as protected. Protected APIs require you to have more validations, beyond permission and consent, before you can use them. For more information about sensitivity labels from an administrator's perspective, see Enable sensitivity labels for Office files in SharePoint and OneDrive. This API applies sensitivity labels to files at rest. Office clients don't apply watermarks, headers, or footers to files that contain the label information. For more information about sensitivity labels from an administrator's perspective, see Enable sensitivity labels for Office files in SharePoint and OneDrive.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-assignsensitivitylabel?view=graph-rest-1.0|Find more info here}
      */
      post(body: AssignSensitivityLabelPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Invoke action assignSensitivityLabel
+     * Asynchronously assign a sensitivity label to a driveItem. This API is part of the Microsoft SharePoint and OneDrive APIs that perform advanced premium administrative functions, and is considered as protected. Protected APIs require you to have more validations, beyond permission and consent, before you can use them. For more information about sensitivity labels from an administrator's perspective, see Enable sensitivity labels for Office files in SharePoint and OneDrive. This API applies sensitivity labels to files at rest. Office clients don't apply watermarks, headers, or footers to files that contain the label information. For more information about sensitivity labels from an administrator's perspective, see Enable sensitivity labels for Office files in SharePoint and OneDrive.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

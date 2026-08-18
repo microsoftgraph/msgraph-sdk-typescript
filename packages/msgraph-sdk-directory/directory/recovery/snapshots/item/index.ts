@@ -31,7 +31,7 @@ export interface SnapshotItemRequestBuilder extends BaseRequestBuilder<SnapshotI
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get snapshots from directory
+     * Collection of backup snapshots available for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<Snapshot>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -52,7 +52,7 @@ export interface SnapshotItemRequestBuilder extends BaseRequestBuilder<SnapshotI
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get snapshots from directory
+     * Collection of backup snapshots available for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -66,7 +66,7 @@ export interface SnapshotItemRequestBuilder extends BaseRequestBuilder<SnapshotI
      toPatchRequestInformation(body: Snapshot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get snapshots from directory
+ * Collection of backup snapshots available for the tenant.
  */
 export interface SnapshotItemRequestBuilderGetQueryParameters {
     /**

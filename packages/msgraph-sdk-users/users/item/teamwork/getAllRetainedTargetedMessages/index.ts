@@ -40,21 +40,22 @@ export interface GetAllRetainedTargetedMessagesGetResponse extends BaseCollectio
  */
 export interface GetAllRetainedTargetedMessagesRequestBuilder extends BaseRequestBuilder<GetAllRetainedTargetedMessagesRequestBuilder> {
     /**
-     * Invoke function getAllRetainedTargetedMessages
+     * Get all retained targeted messages sent to a specific user in group chats and channels.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAllRetainedTargetedMessagesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-getallretainedtargetedmessages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAllRetainedTargetedMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllRetainedTargetedMessagesGetResponse | undefined>;
     /**
-     * Invoke function getAllRetainedTargetedMessages
+     * Get all retained targeted messages sent to a specific user in group chats and channels.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAllRetainedTargetedMessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getAllRetainedTargetedMessages
+ * Get all retained targeted messages sent to a specific user in group chats and channels.
  */
 export interface GetAllRetainedTargetedMessagesRequestBuilderGetQueryParameters {
     /**

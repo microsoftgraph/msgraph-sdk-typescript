@@ -27,21 +27,21 @@ export interface RecordsRequestBuilder extends BaseRequestBuilder<RecordsRequest
      */
      byAuditLogRecordId(auditLogRecordId: string) : AuditLogRecordItemRequestBuilder;
     /**
-     * An individual audit log record.
+     * The collection of audit log records retrieved by the query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuditLogRecordCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<RecordsRequestBuilderGetQueryParameters> | undefined) : Promise<AuditLogRecordCollectionResponse | undefined>;
     /**
-     * An individual audit log record.
+     * The collection of audit log records retrieved by the query.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RecordsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * An individual audit log record.
+ * The collection of audit log records retrieved by the query.
  */
 export interface RecordsRequestBuilderGetQueryParameters {
     /**

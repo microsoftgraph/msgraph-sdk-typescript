@@ -25,7 +25,7 @@ export interface RecoveryJobBaseItemRequestBuilder extends BaseRequestBuilder<Re
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get jobs from directory
+     * Collection of all recovery jobs (both preview and recovery) for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RecoveryJobBase>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface RecoveryJobBaseItemRequestBuilder extends BaseRequestBuilder<Re
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get jobs from directory
+     * Collection of all recovery jobs (both preview and recovery) for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface RecoveryJobBaseItemRequestBuilder extends BaseRequestBuilder<Re
      toPatchRequestInformation(body: RecoveryJobBase, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get jobs from directory
+ * Collection of all recovery jobs (both preview and recovery) for the tenant.
  */
 export interface RecoveryJobBaseItemRequestBuilderGetQueryParameters {
     /**

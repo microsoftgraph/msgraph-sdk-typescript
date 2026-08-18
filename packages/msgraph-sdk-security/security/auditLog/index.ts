@@ -25,7 +25,7 @@ export interface AuditLogRequestBuilder extends BaseRequestBuilder<AuditLogReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get auditLog from security
+     * The entry point for the audit log query API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<AuditCoreRoot>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -46,7 +46,7 @@ export interface AuditLogRequestBuilder extends BaseRequestBuilder<AuditLogReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get auditLog from security
+     * The entry point for the audit log query API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -60,7 +60,7 @@ export interface AuditLogRequestBuilder extends BaseRequestBuilder<AuditLogReque
      toPatchRequestInformation(body: AuditCoreRoot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get auditLog from security
+ * The entry point for the audit log query API.
  */
 export interface AuditLogRequestBuilderGetQueryParameters {
     /**
