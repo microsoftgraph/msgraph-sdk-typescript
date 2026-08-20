@@ -27,10 +27,11 @@ export interface SnapshotsRequestBuilder extends BaseRequestBuilder<SnapshotsReq
      */
      bySnapshotId(snapshotId: string) : SnapshotItemRequestBuilder;
     /**
-     * Get snapshots from directory
+     * Get a list of available backup snapshot objects for the tenant. Snapshots represent points in time to which the tenant can be restored.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SnapshotCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/entrarecoveryservices-recovery-list-snapshots?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SnapshotsRequestBuilderGetQueryParameters> | undefined) : Promise<SnapshotCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface SnapshotsRequestBuilder extends BaseRequestBuilder<SnapshotsReq
      */
      post(body: Snapshot, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<Snapshot | undefined>;
     /**
-     * Get snapshots from directory
+     * Get a list of available backup snapshot objects for the tenant. Snapshots represent points in time to which the tenant can be restored.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface SnapshotsRequestBuilder extends BaseRequestBuilder<SnapshotsReq
      toPostRequestInformation(body: Snapshot, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get snapshots from directory
+ * Get a list of available backup snapshot objects for the tenant. Snapshots represent points in time to which the tenant can be restored.
  */
 export interface SnapshotsRequestBuilderGetQueryParameters {
     /**

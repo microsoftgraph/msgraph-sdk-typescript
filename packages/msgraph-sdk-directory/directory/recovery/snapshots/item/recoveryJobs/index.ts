@@ -27,21 +27,21 @@ export interface RecoveryJobsRequestBuilder extends BaseRequestBuilder<RecoveryJ
      */
      byRecoveryJobId(recoveryJobId: string) : RecoveryJobItemRequestBuilder;
     /**
-     * Get recoveryJobs from directory
+     * Collection of recovery jobs created for this snapshot.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RecoveryJobCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<RecoveryJobsRequestBuilderGetQueryParameters> | undefined) : Promise<RecoveryJobCollectionResponse | undefined>;
     /**
-     * Get recoveryJobs from directory
+     * Collection of recovery jobs created for this snapshot.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RecoveryJobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get recoveryJobs from directory
+ * Collection of recovery jobs created for this snapshot.
  */
 export interface RecoveryJobsRequestBuilderGetQueryParameters {
     /**

@@ -960,7 +960,7 @@ export interface AuditConfigAuditRecord extends AuditData, Parsable {
  */
 export interface AuditCoreRoot extends Entity, Parsable {
     /**
-     * The queries property
+     * The collection of audit log queries.
      */
     queries?: AuditLogQuery[] | null;
 }
@@ -973,7 +973,7 @@ export interface AuditData extends AdditionalDataHolder, BackedModel, Parsable {
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The dynamicProperties property
+     * An open-type dictionary that contains dynamic audit event properties as name-value pairs.
      */
     dynamicProperties?: AuditRecordTypeDictionary | null;
     /**
@@ -986,55 +986,55 @@ export interface AuditData extends AdditionalDataHolder, BackedModel, Parsable {
  */
 export interface AuditLogQuery extends Entity, Parsable {
     /**
-     * The administrative units tagged to an audit log record.
+     * The collection of administrative unit IDs to filter on.
      */
     administrativeUnitIdFilters?: string[] | null;
     /**
-     * The display name of the saved audit log query.
+     * The display name of the audit log query.
      */
     displayName?: string | null;
     /**
-     * The end date of the date range in the query.
+     * The end date and time of the audit log query filter.
      */
     filterEndDateTime?: Date | null;
     /**
-     * The start date of the date range in the query.
+     * The start date and time of the audit log query filter.
      */
     filterStartDateTime?: Date | null;
     /**
-     * The IP address of the device that was used when the activity was logged.
+     * The collection of IP addresses to filter on.
      */
     ipAddressFilters?: string[] | null;
     /**
-     * Free text field to search non-indexed properties of the audit log.
+     * The keyword to filter on.
      */
     keywordFilter?: string | null;
     /**
-     * For SharePoint and OneDrive for Business activity, the full path name of the file or folder accessed by the user. For Exchange admin audit logging, the name of the object that was modified by the cmdlet.
+     * The collection of object IDs to filter on.
      */
     objectIdFilters?: string[] | null;
     /**
-     * The name of the user or admin activity. For a description of the most common operations/activities, see Search the audit log in the Office 365 Protection Center.
+     * The collection of operations to filter on.
      */
     operationFilters?: string[] | null;
     /**
-     * An individual audit log record.
+     * The collection of audit log records retrieved by the query.
      */
     records?: AuditLogRecord[] | null;
     /**
-     * The type of operation indicated by the record. For the list of member values, see auditLogRecordType.
+     * The collection of record types to filter on.
      */
     recordTypeFilters?: AuditLogRecordType[] | null;
     /**
-     * The serviceFilters property
+     * The collection of services to filter on.
      */
     serviceFilters?: string[] | null;
     /**
-     * Describes the current status of the query. The possible values are: notStarted, running, succeeded, failed, cancelled, unknownFutureValue.
+     * The status of the audit log query. Possible values are: notStarted, running, succeeded, failed, cancelled, unknownFutureValue.
      */
     status?: AuditLogQueryStatus | null;
     /**
-     * The UPN (user principal name) of the user who performed the action (specified in the operation property) that resulted in the record being logged; for example, myname@mydomain_name.
+     * The collection of user principal names to filter on.
      */
     userPrincipalNameFilters?: string[] | null;
 }
@@ -1050,35 +1050,35 @@ export type AuditLogQueryStatus = (typeof AuditLogQueryStatusObject)[keyof typeo
  */
 export interface AuditLogRecord extends Entity, Parsable {
     /**
-     * The administrative units tagged to an audit log record.
+     * The collection of administrative units associated with the record.
      */
     administrativeUnits?: string[] | null;
     /**
-     * A JSON object that contains the actual audit log data.
+     * The audit data associated with the record.
      */
     auditData?: AuditData | null;
     /**
-     * The type of operation indicated by the record. For the list of member values, see auditLogRecordType.
+     * The type of the audit log record.
      */
     auditLogRecordType?: AuditLogRecordType | null;
     /**
-     * The IP address of the device used when the activity was logged. The IP address is displayed in either an IPv4 or IPv6 address format.
+     * The IP address of the client that performed the activity.
      */
     clientIp?: string | null;
     /**
-     * The date and time in UTC when the user performed the activity.
+     * The date and time when the activity was performed.
      */
     createdDateTime?: Date | null;
     /**
-     * For Exchange admin audit logging, the name of the object modified by the cmdlet. For SharePoint activity, the full URL path name of the file or folder accessed by a user. For Microsoft Entra activity, the name of the user account that was modified.
+     * The identifier of the object that was affected by the activity.
      */
     objectId?: string | null;
     /**
-     * The name of the user or admin activity.
+     * The name of the activity that was performed.
      */
     operation?: string | null;
     /**
-     * The GUID for your organization.
+     * The GUID of the organization's Microsoft 365 tenant.
      */
     organizationId?: string | null;
     /**
@@ -1086,15 +1086,15 @@ export interface AuditLogRecord extends Entity, Parsable {
      */
     service?: string | null;
     /**
-     * The user who performed the action (specified in the Operation property) that resulted in the record being logged. Audit records for activity performed by system accounts (such as SHAREPOINT/system or NT AUTHORITY/SYSTEM) are also included in the audit log. Another common value for the UserId property is app@sharepoint. It indicates that the 'user' who performed the activity was an application with the necessary permissions in SharePoint to perform organization-wide actions (such as searching a SharePoint site or OneDrive account) on behalf of a user, admin, or service.
+     * The identifier of the user, system account, service, or application that performed the activity.
      */
     userId?: string | null;
     /**
-     * UPN of the user who performed the action.
+     * The user principal name of the user who performed the activity.
      */
     userPrincipalName?: string | null;
     /**
-     * The type of user that performed the operation. The possible values are: regular, reserved, admin, dcAdmin, system, application, servicePrincipal, customPolicy, systemPolicy, partnerTechnician, guest, unknownFutureValue.
+     * The type of user who performed the activity. Possible values are: regular, reserved, admin, dcAdmin, system, application, servicePrincipal, customPolicy, systemPolicy, partnerTechnician, guest, unknownFutureValue.
      */
     userType?: AuditLogUserType | null;
 }

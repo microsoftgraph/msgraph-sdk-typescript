@@ -27,21 +27,21 @@ export interface RecoveryPreviewJobsRequestBuilder extends BaseRequestBuilder<Re
      */
      byRecoveryPreviewJobId(recoveryPreviewJobId: string) : RecoveryPreviewJobItemRequestBuilder;
     /**
-     * Get recoveryPreviewJobs from directory
+     * Collection of preview jobs created for this snapshot.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RecoveryPreviewJobCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<RecoveryPreviewJobsRequestBuilderGetQueryParameters> | undefined) : Promise<RecoveryPreviewJobCollectionResponse | undefined>;
     /**
-     * Get recoveryPreviewJobs from directory
+     * Collection of preview jobs created for this snapshot.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RecoveryPreviewJobsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get recoveryPreviewJobs from directory
+ * Collection of preview jobs created for this snapshot.
  */
 export interface RecoveryPreviewJobsRequestBuilderGetQueryParameters {
     /**

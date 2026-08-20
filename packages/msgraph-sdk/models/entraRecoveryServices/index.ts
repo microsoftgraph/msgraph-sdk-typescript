@@ -348,7 +348,7 @@ export interface EntityTypeAndIds extends AdditionalDataHolder, BackedModel, Par
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The entityIds property
+     * The list of entity IDs for the specified entity type.
      */
     entityIds?: string[] | null;
     /**
@@ -362,18 +362,18 @@ export interface EntityTypeAndIds extends AdditionalDataHolder, BackedModel, Par
 }
 export interface Recovery extends Entity, Parsable {
     /**
-     * The jobs property
+     * Collection of all recovery jobs (both preview and recovery) for the tenant.
      */
     jobs?: RecoveryJobBase[] | null;
     /**
-     * The snapshots property
+     * Collection of backup snapshots available for the tenant.
      */
     snapshots?: Snapshot[] | null;
 }
 export type RecoveryAction = (typeof RecoveryActionObject)[keyof typeof RecoveryActionObject];
 export interface RecoveryChangeObjectBase extends Entity, Parsable {
     /**
-     * The displayName property
+     * The display name of the changed object in its current state, used to uniquely identify the object. Supports $filter (eq, ne, startswith).
      */
     displayName?: string | null;
     /**
@@ -381,7 +381,7 @@ export interface RecoveryChangeObjectBase extends Entity, Parsable {
      */
     entityTypeName?: ResourceTypeName | null;
     /**
-     * The failureMessage property
+     * The error message if the change failed to apply. Only populated in getFailedChanges responses. null otherwise.
      */
     failureMessage?: string | null;
     /**
@@ -391,29 +391,29 @@ export interface RecoveryChangeObjectBase extends Entity, Parsable {
 }
 export interface RecoveryJob extends Parsable, RecoveryJobBase {
     /**
-     * The totalFailedChanges property
+     * The count of changes (including both objects and links) that failed to apply during recovery.
      */
     totalFailedChanges?: number | null;
     /**
-     * The totalLinksModified property
+     * The count of directory object links (relationships) that were successfully modified during recovery. This value may be less than totalChangedLinksCalculated if some link changes failed.
      */
     totalLinksModified?: number | null;
     /**
-     * The totalObjectsModified property
+     * The count of directory objects that were successfully modified during recovery. This value may be less than totalChangedObjectsCalculated if some object changes failed.
      */
     totalObjectsModified?: number | null;
 }
 export interface RecoveryJobBase extends Entity, Parsable {
     /**
-     * The filteringCriteria property
+     * Optional filtering criteria used to scope the job to specific entity types or entity IDs.
      */
     filteringCriteria?: RecoveryJobFilteringCriteriaBase | null;
     /**
-     * The jobCompletionDateTime property
+     * The date and time when the job completed. Null if the job is still running.
      */
     jobCompletionDateTime?: Date | null;
     /**
-     * The jobStartDateTime property
+     * The date and time when the job started.
      */
     jobStartDateTime?: Date | null;
     /**
@@ -421,15 +421,15 @@ export interface RecoveryJobBase extends Entity, Parsable {
      */
     status?: RecoveryStatus | null;
     /**
-     * The targetStateDateTime property
+     * The target snapshot timestamp to which the tenant is being restored. Supports $filter (eq, ne).
      */
     targetStateDateTime?: Date | null;
     /**
-     * The totalChangedLinksCalculated property
+     * The total count of changed directory object links (relationships) calculated by the job. null until the job completes calculation. Not all calculated link changes may be successfully applied; see totalLinksModified on derived types for the count of links that were actually modified.
      */
     totalChangedLinksCalculated?: number | null;
     /**
-     * The totalChangedObjectsCalculated property
+     * The total count of changed directory objects calculated by the job. null until the job completes calculation. Not all calculated object changes may be successfully applied; see totalObjectsModified on derived types for the count of objects that were actually modified.
      */
     totalChangedObjectsCalculated?: number | null;
 }
@@ -447,13 +447,13 @@ export interface RecoveryJobCollectionResponse extends BaseCollectionPaginationC
 }
 export interface RecoveryJobEntityNameAndIdsFilter extends Parsable, RecoveryJobFilteringCriteriaBase {
     /**
-     * The filterValues property
+     * The list of entity type and ID pairs to include in the recovery job. Duplicate entity types are not allowed and return a 400 Bad Request error.
      */
     filterValues?: EntityTypeAndIds[] | null;
 }
 export interface RecoveryJobEntityNamesFilter extends Parsable, RecoveryJobFilteringCriteriaBase {
     /**
-     * The entityTypes property
+     * The list of entity types to include in the recovery job.
      */
     entityTypes?: ResourceTypeName[] | null;
 }
@@ -680,19 +680,19 @@ export function serializeSnapshotCollectionResponse(writer: SerializationWriter,
 }
 export interface Snapshot extends Entity, Parsable {
     /**
-     * The createdDateTime property
+     * The date and time when the snapshot was created.
      */
     createdDateTime?: Date | null;
     /**
-     * The recoveryJobs property
+     * Collection of recovery jobs created for this snapshot.
      */
     recoveryJobs?: RecoveryJob[] | null;
     /**
-     * The recoveryPreviewJobs property
+     * Collection of preview jobs created for this snapshot.
      */
     recoveryPreviewJobs?: RecoveryPreviewJob[] | null;
     /**
-     * The totalChangedObjects property
+     * The total number of changed objects identified in this snapshot.
      */
     totalChangedObjects?: number | null;
 }

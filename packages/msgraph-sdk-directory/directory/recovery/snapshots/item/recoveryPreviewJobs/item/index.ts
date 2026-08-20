@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RecoveryPreviewJobItemRequestBuilder extends BaseRequestBuilder<RecoveryPreviewJobItemRequestBuilder> {
     /**
-     * Get recoveryPreviewJobs from directory
+     * Collection of preview jobs created for this snapshot.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RecoveryPreviewJob>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<RecoveryPreviewJobItemRequestBuilderGetQueryParameters> | undefined) : Promise<RecoveryPreviewJob | undefined>;
     /**
-     * Get recoveryPreviewJobs from directory
+     * Collection of preview jobs created for this snapshot.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RecoveryPreviewJobItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get recoveryPreviewJobs from directory
+ * Collection of preview jobs created for this snapshot.
  */
 export interface RecoveryPreviewJobItemRequestBuilderGetQueryParameters {
     /**

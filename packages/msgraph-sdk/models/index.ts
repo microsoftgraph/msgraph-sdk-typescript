@@ -1382,7 +1382,7 @@ export interface AccessReviewInstanceDecisionItemResource extends AdditionalData
      */
     odataType?: string | null;
     /**
-     * Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.
+     * Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackage, AccessPackageAssignmentPolicy.
      */
     type?: string | null;
 }
@@ -9873,7 +9873,7 @@ export interface Chat extends Entity, Parsable {
      */
     tabs?: TeamsTab[] | null;
     /**
-     * The targetedMessages property
+     * A collection of targeted messages in the chat that are visible only to specific users. Nullable. You can't expand this relationship using $expand. Targeted messages can also be retrieved via the userTeamwork: getAllTargetedMessages API.
      */
     targetedMessages?: TargetedChatMessage[] | null;
     /**
@@ -113161,7 +113161,7 @@ export interface Security extends Entity, Parsable {
      */
     attackSimulation?: AttackSimulationRoot | null;
     /**
-     * The auditLog property
+     * The entry point for the audit log query API.
      */
     auditLog?: AuditCoreRoot | null;
     /**
@@ -165343,7 +165343,7 @@ export interface TargetDeviceGroupCollectionResponse extends BaseCollectionPagin
 }
 export interface TargetedChatMessage extends ChatMessage, Parsable {
     /**
-     * The recipient property
+     * The intended recipient of the targeted message.
      */
     recipient?: Identity | null;
 }

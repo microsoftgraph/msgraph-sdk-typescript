@@ -40,21 +40,22 @@ export interface GetAllTargetedMessagesGetResponse extends BaseCollectionPaginat
  */
 export interface GetAllTargetedMessagesRequestBuilder extends BaseRequestBuilder<GetAllTargetedMessagesRequestBuilder> {
     /**
-     * Invoke function getAllTargetedMessages
+     * Get all targeted messages sent to a specific user in group chats and channels.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAllTargetedMessagesGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-getalltargetedmessages?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GetAllTargetedMessagesRequestBuilderGetQueryParameters> | undefined) : Promise<GetAllTargetedMessagesGetResponse | undefined>;
     /**
-     * Invoke function getAllTargetedMessages
+     * Get all targeted messages sent to a specific user in group chats and channels.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GetAllTargetedMessagesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Invoke function getAllTargetedMessages
+ * Get all targeted messages sent to a specific user in group chats and channels.
  */
 export interface GetAllTargetedMessagesRequestBuilderGetQueryParameters {
     /**
