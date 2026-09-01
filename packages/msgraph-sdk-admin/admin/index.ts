@@ -6,7 +6,7 @@ import { createAdminFromDiscriminatorValue, serializeAdmin, type Admin } from '@
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { ConfigurationManagementRequestBuilderNavigationMetadata, ConfigurationManagementRequestBuilderRequestsMetadata, type ConfigurationManagementRequestBuilder } from './configurationManagement/index.js';
+import { ConfigurationManagementRequestBuilderNavigationMetadata, type ConfigurationManagementRequestBuilder } from './configurationManagement/index.js';
 // @ts-ignore
 import { EdgeRequestBuilderNavigationMetadata, EdgeRequestBuilderRequestsMetadata, type EdgeRequestBuilder } from './edge/index.js';
 // @ts-ignore
@@ -31,7 +31,7 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  */
 export interface AdminRequestBuilder extends BaseRequestBuilder<AdminRequestBuilder> {
     /**
-     * Provides operations to manage the configurationManagement property of the microsoft.graph.admin entity.
+     * The configurationManagement property
      */
     get configurationManagement(): ConfigurationManagementRequestBuilder;
     /**
@@ -124,7 +124,6 @@ const AdminRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  */
 export const AdminRequestBuilderNavigationMetadata: Record<Exclude<keyof AdminRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     configurationManagement: {
-        requestsMetadata: ConfigurationManagementRequestBuilderRequestsMetadata,
         navigationMetadata: ConfigurationManagementRequestBuilderNavigationMetadata,
     },
     edge: {

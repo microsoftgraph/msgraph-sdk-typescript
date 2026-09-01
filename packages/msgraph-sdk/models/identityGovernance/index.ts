@@ -60,6 +60,46 @@ export interface AttributeChangeTrigger extends Parsable, WorkflowExecutionTrigg
      */
     triggerAttributes?: TriggerAttribute[] | null;
 }
+export interface AttributeSetEntry extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The name (key) of the attribute.
+     */
+    name?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The value of the attribute.
+     */
+    value?: string | null;
+}
+export interface AwaitedWorkflowProcessingResult extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The processingStatus property
+     */
+    processingStatus?: LifecycleWorkflowProcessingStatus | null;
+    /**
+     * A collection of reasons for the current processing status. May be empty.
+     */
+    statusReasons?: string[] | null;
+    /**
+     * The subject that was processed by the workflow.
+     */
+    subject?: WorkflowSubject | null;
+}
 export interface CancelRunsScope extends CancelScope, Parsable {
     /**
      * The runs property
@@ -156,6 +196,24 @@ export function createAttributeChangeTriggerFromDiscriminatorValue(parseNode: Pa
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AttributeSetEntry}
+ */
+// @ts-ignore
+export function createAttributeSetEntryFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAttributeSetEntry;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AwaitedWorkflowProcessingResult}
+ */
+// @ts-ignore
+export function createAwaitedWorkflowProcessingResultFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAwaitedWorkflowProcessingResult;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CancelRunsScope}
  */
 // @ts-ignore
@@ -235,6 +293,24 @@ export function createCustomTaskExtensionCollectionResponseFromDiscriminatorValu
 // @ts-ignore
 export function createCustomTaskExtensionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCustomTaskExtension;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CustomTaskExtensionResponseData}
+ */
+// @ts-ignore
+export function createCustomTaskExtensionResponseDataFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCustomTaskExtensionResponseData;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DirectoryObjectWorkflowSubject}
+ */
+// @ts-ignore
+export function createDirectoryObjectWorkflowSubjectFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDirectoryObjectWorkflowSubject;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -320,6 +396,24 @@ export function createPreviewFailedTaskFromDiscriminatorValue(parseNode: ParseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ProvisioningAttributeMapping}
+ */
+// @ts-ignore
+export function createProvisioningAttributeMappingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoProvisioningAttributeMapping;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ProvisioningObjectWorkflowSubject}
+ */
+// @ts-ignore
+export function createProvisioningObjectWorkflowSubjectFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoProvisioningObjectWorkflowSubject;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {QuarantineCondition}
  */
 // @ts-ignore
@@ -392,6 +486,33 @@ export function createRunFromDiscriminatorValue(parseNode: ParseNode | undefined
 // @ts-ignore
 export function createRunSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRunSummary;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SubjectProcessingResultCollectionResponse}
+ */
+// @ts-ignore
+export function createSubjectProcessingResultCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSubjectProcessingResultCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SubjectProcessingResult}
+ */
+// @ts-ignore
+export function createSubjectProcessingResultFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSubjectProcessingResult;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SubjectSummary}
+ */
+// @ts-ignore
+export function createSubjectSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSubjectSummary;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -601,6 +722,8 @@ export function createWorkflowExecutionConditionsFromDiscriminatorValue(parseNod
             switch (mappingValue) {
                 case "#microsoft.graph.identityGovernance.onDemandExecutionOnly":
                     return deserializeIntoOnDemandExecutionOnly;
+                case "#microsoft.graph.identityGovernance.provisioningAttributeMapping":
+                    return deserializeIntoProvisioningAttributeMapping;
                 case "#microsoft.graph.identityGovernance.triggerAndScopeBasedConditions":
                     return deserializeIntoTriggerAndScopeBasedConditions;
             }
@@ -673,6 +796,28 @@ export function createWorkflowsInsightsSummaryFromDiscriminatorValue(parseNode: 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {WorkflowSubject}
+ */
+// @ts-ignore
+export function createWorkflowSubjectFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.identityGovernance.directoryObjectWorkflowSubject":
+                    return deserializeIntoDirectoryObjectWorkflowSubject;
+                case "#microsoft.graph.identityGovernance.provisioningObjectWorkflowSubject":
+                    return deserializeIntoProvisioningObjectWorkflowSubject;
+            }
+        }
+    }
+    return deserializeIntoWorkflowSubject;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {WorkflowTemplateCollectionResponse}
  */
 // @ts-ignore
@@ -727,6 +872,10 @@ export interface CustomTaskExtension extends CustomCalloutExtension, Parsable {
      * When the custom extension was last modified.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      */
     lastModifiedDateTime?: Date | null;
+    /**
+     * The replyMode property
+     */
+    replyMode?: CustomTaskExtensionReplyMode | null;
 }
 export interface CustomTaskExtensionCallbackConfiguration extends CustomExtensionCallbackConfiguration, Parsable {
     /**
@@ -745,6 +894,10 @@ export interface CustomTaskExtensionCalloutData extends CustomExtensionData, Par
      * The subject property
      */
     subject?: User | null;
+    /**
+     * The target subject for workflow execution.
+     */
+    targetSubject?: WorkflowSubject | null;
     /**
      * The task property
      */
@@ -765,6 +918,21 @@ export interface CustomTaskExtensionCollectionResponse extends BaseCollectionPag
     value?: CustomTaskExtension[] | null;
 }
 export type CustomTaskExtensionOperationStatus = (typeof CustomTaskExtensionOperationStatusObject)[keyof typeof CustomTaskExtensionOperationStatusObject];
+export type CustomTaskExtensionReplyMode = (typeof CustomTaskExtensionReplyModeObject)[keyof typeof CustomTaskExtensionReplyModeObject];
+export interface CustomTaskExtensionResponseData extends CustomExtensionData, Parsable {
+    /**
+     * The operationStatus property
+     */
+    operationStatus?: CustomTaskExtensionOperationStatus | null;
+    /**
+     * A collection of status reason strings. May be empty.
+     */
+    statusReasons?: string[] | null;
+    /**
+     * The workflow subject that was processed by the custom task extension.
+     */
+    targetSubject?: WorkflowSubject | null;
+}
 /**
  * The deserialization information for the current model
  * @param ActivateGroupScope The instance to deserialize into.
@@ -842,6 +1010,35 @@ export function deserializeIntoAttributeChangeTrigger(attributeChangeTrigger: Pa
 }
 /**
  * The deserialization information for the current model
+ * @param AttributeSetEntry The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAttributeSetEntry(attributeSetEntry: Partial<AttributeSetEntry> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { attributeSetEntry.backingStoreEnabled = true; },
+        "name": n => { attributeSetEntry.name = n.getStringValue(); },
+        "@odata.type": n => { attributeSetEntry.odataType = n.getStringValue(); },
+        "value": n => { attributeSetEntry.value = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AwaitedWorkflowProcessingResult The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAwaitedWorkflowProcessingResult(awaitedWorkflowProcessingResult: Partial<AwaitedWorkflowProcessingResult> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { awaitedWorkflowProcessingResult.backingStoreEnabled = true; },
+        "@odata.type": n => { awaitedWorkflowProcessingResult.odataType = n.getStringValue(); },
+        "processingStatus": n => { awaitedWorkflowProcessingResult.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatusObject); },
+        "statusReasons": n => { awaitedWorkflowProcessingResult.statusReasons = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "subject": n => { awaitedWorkflowProcessingResult.subject = n.getObjectValue<WorkflowSubject>(createWorkflowSubjectFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CancelRunsScope The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -890,6 +1087,7 @@ export function deserializeIntoCustomTaskExtension(customTaskExtension: Partial<
         "createdDateTime": n => { customTaskExtension.createdDateTime = n.getDateValue(); },
         "lastModifiedBy": n => { customTaskExtension.lastModifiedBy = n.getObjectValue<User>(createUserFromDiscriminatorValue); },
         "lastModifiedDateTime": n => { customTaskExtension.lastModifiedDateTime = n.getDateValue(); },
+        "replyMode": n => { customTaskExtension.replyMode = n.getEnumValue<CustomTaskExtensionReplyMode>(CustomTaskExtensionReplyModeObject); },
     }
 }
 /**
@@ -926,6 +1124,7 @@ export function deserializeIntoCustomTaskExtensionCalloutData(customTaskExtensio
     return {
         ...deserializeIntoCustomExtensionData(customTaskExtensionCalloutData),
         "subject": n => { customTaskExtensionCalloutData.subject = n.getObjectValue<User>(createUserFromDiscriminatorValue); },
+        "targetSubject": n => { customTaskExtensionCalloutData.targetSubject = n.getObjectValue<WorkflowSubject>(createWorkflowSubjectFromDiscriminatorValue); },
         "task": n => { customTaskExtensionCalloutData.task = n.getObjectValue<Task>(createTaskFromDiscriminatorValue); },
         "taskProcessingresult": n => { customTaskExtensionCalloutData.taskProcessingresult = n.getObjectValue<TaskProcessingResult>(createTaskProcessingResultFromDiscriminatorValue); },
         "workflow": n => { customTaskExtensionCalloutData.workflow = n.getObjectValue<Workflow>(createWorkflowFromDiscriminatorValue); },
@@ -941,6 +1140,32 @@ export function deserializeIntoCustomTaskExtensionCollectionResponse(customTaskE
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(customTaskExtensionCollectionResponse),
         "value": n => { customTaskExtensionCollectionResponse.value = n.getCollectionOfObjectValues<CustomTaskExtension>(createCustomTaskExtensionFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CustomTaskExtensionResponseData The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCustomTaskExtensionResponseData(customTaskExtensionResponseData: Partial<CustomTaskExtensionResponseData> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoCustomExtensionData(customTaskExtensionResponseData),
+        "operationStatus": n => { customTaskExtensionResponseData.operationStatus = n.getEnumValue<CustomTaskExtensionOperationStatus>(CustomTaskExtensionOperationStatusObject); },
+        "statusReasons": n => { customTaskExtensionResponseData.statusReasons = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "targetSubject": n => { customTaskExtensionResponseData.targetSubject = n.getObjectValue<WorkflowSubject>(createWorkflowSubjectFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param DirectoryObjectWorkflowSubject The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDirectoryObjectWorkflowSubject(directoryObjectWorkflowSubject: Partial<DirectoryObjectWorkflowSubject> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowSubject(directoryObjectWorkflowSubject),
+        "directoryObject": n => { directoryObjectWorkflowSubject.directoryObject = n.getObjectValue<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
     }
 }
 /**
@@ -1066,6 +1291,30 @@ export function deserializeIntoPreviewFailedTask(previewFailedTask: Partial<Prev
 }
 /**
  * The deserialization information for the current model
+ * @param ProvisioningAttributeMapping The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoProvisioningAttributeMapping(provisioningAttributeMapping: Partial<ProvisioningAttributeMapping> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowExecutionConditions(provisioningAttributeMapping),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ProvisioningObjectWorkflowSubject The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoProvisioningObjectWorkflowSubject(provisioningObjectWorkflowSubject: Partial<ProvisioningObjectWorkflowSubject> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowSubject(provisioningObjectWorkflowSubject),
+        "attributeSetEntries": n => { provisioningObjectWorkflowSubject.attributeSetEntries = n.getCollectionOfObjectValues<AttributeSetEntry>(createAttributeSetEntryFromDiscriminatorValue); },
+        "id": n => { provisioningObjectWorkflowSubject.id = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param QuarantineCondition The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1135,6 +1384,7 @@ export function deserializeIntoRun(run: Partial<Run> | undefined = {}) : Record<
         "reprocessedRuns": n => { run.reprocessedRuns = n.getCollectionOfObjectValues<Run>(createRunFromDiscriminatorValue); },
         "scheduledDateTime": n => { run.scheduledDateTime = n.getDateValue(); },
         "startedDateTime": n => { run.startedDateTime = n.getDateValue(); },
+        "subjectProcessingResults": n => { run.subjectProcessingResults = n.getCollectionOfObjectValues<SubjectProcessingResult>(createSubjectProcessingResultFromDiscriminatorValue); },
         "successfulUsersCount": n => { run.successfulUsersCount = n.getNumberValue(); },
         "taskProcessingResults": n => { run.taskProcessingResults = n.getCollectionOfObjectValues<TaskProcessingResult>(createTaskProcessingResultFromDiscriminatorValue); },
         "totalTasksCount": n => { run.totalTasksCount = n.getNumberValue(); },
@@ -1172,6 +1422,59 @@ export function deserializeIntoRunSummary(runSummary: Partial<RunSummary> | unde
         "totalRuns": n => { runSummary.totalRuns = n.getNumberValue(); },
         "totalTasks": n => { runSummary.totalTasks = n.getNumberValue(); },
         "totalUsers": n => { runSummary.totalUsers = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param SubjectProcessingResult The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSubjectProcessingResult(subjectProcessingResult: Partial<SubjectProcessingResult> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(subjectProcessingResult),
+        "completedDateTime": n => { subjectProcessingResult.completedDateTime = n.getDateValue(); },
+        "failedTasksCount": n => { subjectProcessingResult.failedTasksCount = n.getNumberValue(); },
+        "processingStatus": n => { subjectProcessingResult.processingStatus = n.getEnumValue<LifecycleWorkflowProcessingStatus>(LifecycleWorkflowProcessingStatusObject); },
+        "reprocessedRuns": n => { subjectProcessingResult.reprocessedRuns = n.getCollectionOfObjectValues<Run>(createRunFromDiscriminatorValue); },
+        "scheduledDateTime": n => { subjectProcessingResult.scheduledDateTime = n.getDateValue(); },
+        "startedDateTime": n => { subjectProcessingResult.startedDateTime = n.getDateValue(); },
+        "subject": n => { subjectProcessingResult.subject = n.getObjectValue<WorkflowSubject>(createWorkflowSubjectFromDiscriminatorValue); },
+        "subjectType": n => { subjectProcessingResult.subjectType = n.getCollectionOfEnumValues<SubjectType>(SubjectTypeObject); },
+        "taskProcessingResults": n => { subjectProcessingResult.taskProcessingResults = n.getCollectionOfObjectValues<TaskProcessingResult>(createTaskProcessingResultFromDiscriminatorValue); },
+        "totalTasksCount": n => { subjectProcessingResult.totalTasksCount = n.getNumberValue(); },
+        "totalUnprocessedTasksCount": n => { subjectProcessingResult.totalUnprocessedTasksCount = n.getNumberValue(); },
+        "workflowExecutionType": n => { subjectProcessingResult.workflowExecutionType = n.getEnumValue<WorkflowExecutionType>(WorkflowExecutionTypeObject); },
+        "workflowVersion": n => { subjectProcessingResult.workflowVersion = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param SubjectProcessingResultCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSubjectProcessingResultCollectionResponse(subjectProcessingResultCollectionResponse: Partial<SubjectProcessingResultCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(subjectProcessingResultCollectionResponse),
+        "value": n => { subjectProcessingResultCollectionResponse.value = n.getCollectionOfObjectValues<SubjectProcessingResult>(createSubjectProcessingResultFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param SubjectSummary The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSubjectSummary(subjectSummary: Partial<SubjectSummary> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { subjectSummary.backingStoreEnabled = true; },
+        "failedSubjects": n => { subjectSummary.failedSubjects = n.getNumberValue(); },
+        "failedTasks": n => { subjectSummary.failedTasks = n.getNumberValue(); },
+        "@odata.type": n => { subjectSummary.odataType = n.getStringValue(); },
+        "successfulSubjects": n => { subjectSummary.successfulSubjects = n.getNumberValue(); },
+        "totalSubjects": n => { subjectSummary.totalSubjects = n.getNumberValue(); },
+        "totalTasks": n => { subjectSummary.totalTasks = n.getNumberValue(); },
     }
 }
 /**
@@ -1252,6 +1555,7 @@ export function deserializeIntoTaskProcessingResult(taskProcessingResult: Partia
         "startedDateTime": n => { taskProcessingResult.startedDateTime = n.getDateValue(); },
         "subject": n => { taskProcessingResult.subject = n.getObjectValue<User>(createUserFromDiscriminatorValue); },
         "task": n => { taskProcessingResult.task = n.getObjectValue<Task>(createTaskFromDiscriminatorValue); },
+        "workflowSubject": n => { taskProcessingResult.workflowSubject = n.getObjectValue<WorkflowSubject>(createWorkflowSubjectFromDiscriminatorValue); },
     }
 }
 /**
@@ -1479,6 +1783,7 @@ export function deserializeIntoWorkflow(workflow: Partial<Workflow> | undefined 
         "quarantineDetails": n => { workflow.quarantineDetails = n.getObjectValue<QuarantineDetails>(createQuarantineDetailsFromDiscriminatorValue); },
         "runs": n => { workflow.runs = n.getCollectionOfObjectValues<Run>(createRunFromDiscriminatorValue); },
         "settings": n => { workflow.settings = n.getObjectValue<WorkflowSetting>(createWorkflowSettingFromDiscriminatorValue); },
+        "subjectProcessingResults": n => { workflow.subjectProcessingResults = n.getCollectionOfObjectValues<SubjectProcessingResult>(createSubjectProcessingResultFromDiscriminatorValue); },
         "taskReports": n => { workflow.taskReports = n.getCollectionOfObjectValues<TaskReport>(createTaskReportFromDiscriminatorValue); },
         "userProcessingResults": n => { workflow.userProcessingResults = n.getCollectionOfObjectValues<UserProcessingResult>(createUserProcessingResultFromDiscriminatorValue); },
         "version": n => { workflow.version = n.getNumberValue(); },
@@ -1506,6 +1811,7 @@ export function deserializeIntoWorkflowBase(workflowBase: Partial<WorkflowBase> 
         "lastModifiedBy": n => { workflowBase.lastModifiedBy = n.getObjectValue<User>(createUserFromDiscriminatorValue); },
         "lastModifiedDateTime": n => { workflowBase.lastModifiedDateTime = n.getDateValue(); },
         "@odata.type": n => { workflowBase.odataType = n.getStringValue(); },
+        "targetSubjectType": n => { workflowBase.targetSubjectType = n.getCollectionOfEnumValues<SubjectType>(SubjectTypeObject); },
         "tasks": n => { workflowBase.tasks = n.getCollectionOfObjectValues<Task>(createTaskFromDiscriminatorValue); },
     }
 }
@@ -1602,6 +1908,18 @@ export function deserializeIntoWorkflowsInsightsSummary(workflowsInsightsSummary
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowSubject The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoWorkflowSubject(workflowSubject: Partial<WorkflowSubject> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { workflowSubject.backingStoreEnabled = true; },
+        "@odata.type": n => { workflowSubject.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param WorkflowTemplate The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1652,6 +1970,12 @@ export function deserializeIntoWorkflowVersionCollectionResponse(workflowVersion
         ...deserializeIntoBaseCollectionPaginationCountResponse(workflowVersionCollectionResponse),
         "value": n => { workflowVersionCollectionResponse.value = n.getCollectionOfObjectValues<WorkflowVersion>(createWorkflowVersionFromDiscriminatorValue); },
     }
+}
+export interface DirectoryObjectWorkflowSubject extends Parsable, WorkflowSubject {
+    /**
+     * The directoryObject property
+     */
+    directoryObject?: DirectoryObject | null;
 }
 export interface GroupBasedSubjectSet extends Parsable, SubjectSet {
     /**
@@ -1772,6 +2096,18 @@ export interface PreviewFailedTask extends AdditionalDataHolder, BackedModel, Pa
      */
     taskId?: string | null;
 }
+export interface ProvisioningAttributeMapping extends Parsable, WorkflowExecutionConditions {
+}
+export interface ProvisioningObjectWorkflowSubject extends Parsable, WorkflowSubject {
+    /**
+     * The attribute set entries representing the subject's attributes. Each entry is a key-value pair.
+     */
+    attributeSetEntries?: AttributeSetEntry[] | null;
+    /**
+     * The identifier of the provisioning object subject.
+     */
+    id?: string | null;
+}
 export interface QuarantineCondition extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -1866,6 +2202,10 @@ export interface Run extends Entity, Parsable {
      * The date time that the run execution started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      */
     startedDateTime?: Date | null;
+    /**
+     * The processing results for each subject in this workflow run.
+     */
+    subjectProcessingResults?: SubjectProcessingResult[] | null;
     /**
      * The number of successfully completed users in the run.
      */
@@ -2026,6 +2366,35 @@ export function serializeAttributeChangeTrigger(writer: SerializationWriter, att
 }
 /**
  * Serializes information the current object
+ * @param AttributeSetEntry The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAttributeSetEntry(writer: SerializationWriter, attributeSetEntry: Partial<AttributeSetEntry> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!attributeSetEntry || isSerializingDerivedType) { return; }
+    writer.writeStringValue("name", attributeSetEntry.name);
+    writer.writeStringValue("@odata.type", attributeSetEntry.odataType);
+    writer.writeStringValue("value", attributeSetEntry.value);
+    writer.writeAdditionalData(attributeSetEntry.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param AwaitedWorkflowProcessingResult The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAwaitedWorkflowProcessingResult(writer: SerializationWriter, awaitedWorkflowProcessingResult: Partial<AwaitedWorkflowProcessingResult> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!awaitedWorkflowProcessingResult || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", awaitedWorkflowProcessingResult.odataType);
+    writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", awaitedWorkflowProcessingResult.processingStatus);
+    writer.writeCollectionOfPrimitiveValues<string>("statusReasons", awaitedWorkflowProcessingResult.statusReasons);
+    writer.writeObjectValue<WorkflowSubject>("subject", awaitedWorkflowProcessingResult.subject, serializeWorkflowSubject);
+    writer.writeAdditionalData(awaitedWorkflowProcessingResult.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param CancelRunsScope The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -2080,6 +2449,7 @@ export function serializeCustomTaskExtension(writer: SerializationWriter, custom
     writer.writeDateValue("createdDateTime", customTaskExtension.createdDateTime);
     writer.writeObjectValue<User>("lastModifiedBy", customTaskExtension.lastModifiedBy, serializeUser);
     writer.writeDateValue("lastModifiedDateTime", customTaskExtension.lastModifiedDateTime);
+    writer.writeEnumValue<CustomTaskExtensionReplyMode>("replyMode", customTaskExtension.replyMode);
 }
 /**
  * Serializes information the current object
@@ -2116,6 +2486,7 @@ export function serializeCustomTaskExtensionCalloutData(writer: SerializationWri
     if (!customTaskExtensionCalloutData || isSerializingDerivedType) { return; }
     serializeCustomExtensionData(writer, customTaskExtensionCalloutData, isSerializingDerivedType)
     writer.writeObjectValue<User>("subject", customTaskExtensionCalloutData.subject, serializeUser);
+    writer.writeObjectValue<WorkflowSubject>("targetSubject", customTaskExtensionCalloutData.targetSubject, serializeWorkflowSubject);
     writer.writeObjectValue<Task>("task", customTaskExtensionCalloutData.task, serializeTask);
     writer.writeObjectValue<TaskProcessingResult>("taskProcessingresult", customTaskExtensionCalloutData.taskProcessingresult, serializeTaskProcessingResult);
     writer.writeObjectValue<Workflow>("workflow", customTaskExtensionCalloutData.workflow, serializeWorkflow);
@@ -2131,6 +2502,32 @@ export function serializeCustomTaskExtensionCollectionResponse(writer: Serializa
     if (!customTaskExtensionCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, customTaskExtensionCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<CustomTaskExtension>("value", customTaskExtensionCollectionResponse.value, serializeCustomTaskExtension);
+}
+/**
+ * Serializes information the current object
+ * @param CustomTaskExtensionResponseData The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCustomTaskExtensionResponseData(writer: SerializationWriter, customTaskExtensionResponseData: Partial<CustomTaskExtensionResponseData> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!customTaskExtensionResponseData || isSerializingDerivedType) { return; }
+    serializeCustomExtensionData(writer, customTaskExtensionResponseData, isSerializingDerivedType)
+    writer.writeEnumValue<CustomTaskExtensionOperationStatus>("operationStatus", customTaskExtensionResponseData.operationStatus);
+    writer.writeCollectionOfPrimitiveValues<string>("statusReasons", customTaskExtensionResponseData.statusReasons);
+    writer.writeObjectValue<WorkflowSubject>("targetSubject", customTaskExtensionResponseData.targetSubject, serializeWorkflowSubject);
+}
+/**
+ * Serializes information the current object
+ * @param DirectoryObjectWorkflowSubject The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDirectoryObjectWorkflowSubject(writer: SerializationWriter, directoryObjectWorkflowSubject: Partial<DirectoryObjectWorkflowSubject> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!directoryObjectWorkflowSubject || isSerializingDerivedType) { return; }
+    serializeWorkflowSubject(writer, directoryObjectWorkflowSubject, isSerializingDerivedType)
+    writer.writeObjectValue<DirectoryObject>("directoryObject", directoryObjectWorkflowSubject.directoryObject, serializeDirectoryObject);
 }
 /**
  * Serializes information the current object
@@ -2256,6 +2653,30 @@ export function serializePreviewFailedTask(writer: SerializationWriter, previewF
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ProvisioningAttributeMapping The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeProvisioningAttributeMapping(writer: SerializationWriter, provisioningAttributeMapping: Partial<ProvisioningAttributeMapping> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!provisioningAttributeMapping || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionConditions(writer, provisioningAttributeMapping, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ProvisioningObjectWorkflowSubject The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeProvisioningObjectWorkflowSubject(writer: SerializationWriter, provisioningObjectWorkflowSubject: Partial<ProvisioningObjectWorkflowSubject> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!provisioningObjectWorkflowSubject || isSerializingDerivedType) { return; }
+    serializeWorkflowSubject(writer, provisioningObjectWorkflowSubject, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<AttributeSetEntry>("attributeSetEntries", provisioningObjectWorkflowSubject.attributeSetEntries, serializeAttributeSetEntry);
+    writer.writeStringValue("id", provisioningObjectWorkflowSubject.id);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param QuarantineCondition The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -2333,6 +2754,7 @@ export function serializeRun(writer: SerializationWriter, run: Partial<Run> | un
     writer.writeCollectionOfObjectValues<Run>("reprocessedRuns", run.reprocessedRuns, serializeRun);
     writer.writeDateValue("scheduledDateTime", run.scheduledDateTime);
     writer.writeDateValue("startedDateTime", run.startedDateTime);
+    writer.writeCollectionOfObjectValues<SubjectProcessingResult>("subjectProcessingResults", run.subjectProcessingResults, serializeSubjectProcessingResult);
     writer.writeNumberValue("successfulUsersCount", run.successfulUsersCount);
     writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", run.taskProcessingResults, serializeTaskProcessingResult);
     writer.writeNumberValue("totalTasksCount", run.totalTasksCount);
@@ -2370,6 +2792,59 @@ export function serializeRunSummary(writer: SerializationWriter, runSummary: Par
     writer.writeNumberValue("totalTasks", runSummary.totalTasks);
     writer.writeNumberValue("totalUsers", runSummary.totalUsers);
     writer.writeAdditionalData(runSummary.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SubjectProcessingResult The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSubjectProcessingResult(writer: SerializationWriter, subjectProcessingResult: Partial<SubjectProcessingResult> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!subjectProcessingResult || isSerializingDerivedType) { return; }
+    serializeEntity(writer, subjectProcessingResult, isSerializingDerivedType)
+    writer.writeDateValue("completedDateTime", subjectProcessingResult.completedDateTime);
+    writer.writeNumberValue("failedTasksCount", subjectProcessingResult.failedTasksCount);
+    writer.writeEnumValue<LifecycleWorkflowProcessingStatus>("processingStatus", subjectProcessingResult.processingStatus);
+    writer.writeCollectionOfObjectValues<Run>("reprocessedRuns", subjectProcessingResult.reprocessedRuns, serializeRun);
+    writer.writeDateValue("scheduledDateTime", subjectProcessingResult.scheduledDateTime);
+    writer.writeDateValue("startedDateTime", subjectProcessingResult.startedDateTime);
+    writer.writeObjectValue<WorkflowSubject>("subject", subjectProcessingResult.subject, serializeWorkflowSubject);
+    writer.writeEnumValue<SubjectType[]>("subjectType", subjectProcessingResult.subjectType);
+    writer.writeCollectionOfObjectValues<TaskProcessingResult>("taskProcessingResults", subjectProcessingResult.taskProcessingResults, serializeTaskProcessingResult);
+    writer.writeNumberValue("totalTasksCount", subjectProcessingResult.totalTasksCount);
+    writer.writeNumberValue("totalUnprocessedTasksCount", subjectProcessingResult.totalUnprocessedTasksCount);
+    writer.writeEnumValue<WorkflowExecutionType>("workflowExecutionType", subjectProcessingResult.workflowExecutionType);
+    writer.writeNumberValue("workflowVersion", subjectProcessingResult.workflowVersion);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SubjectProcessingResultCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSubjectProcessingResultCollectionResponse(writer: SerializationWriter, subjectProcessingResultCollectionResponse: Partial<SubjectProcessingResultCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!subjectProcessingResultCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, subjectProcessingResultCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<SubjectProcessingResult>("value", subjectProcessingResultCollectionResponse.value, serializeSubjectProcessingResult);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SubjectSummary The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSubjectSummary(writer: SerializationWriter, subjectSummary: Partial<SubjectSummary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!subjectSummary || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("failedSubjects", subjectSummary.failedSubjects);
+    writer.writeNumberValue("failedTasks", subjectSummary.failedTasks);
+    writer.writeStringValue("@odata.type", subjectSummary.odataType);
+    writer.writeNumberValue("successfulSubjects", subjectSummary.successfulSubjects);
+    writer.writeNumberValue("totalSubjects", subjectSummary.totalSubjects);
+    writer.writeNumberValue("totalTasks", subjectSummary.totalTasks);
+    writer.writeAdditionalData(subjectSummary.additionalData);
 }
 /**
  * Serializes information the current object
@@ -2450,6 +2925,7 @@ export function serializeTaskProcessingResult(writer: SerializationWriter, taskP
     writer.writeDateValue("startedDateTime", taskProcessingResult.startedDateTime);
     writer.writeObjectValue<User>("subject", taskProcessingResult.subject, serializeUser);
     writer.writeObjectValue<Task>("task", taskProcessingResult.task, serializeTask);
+    writer.writeObjectValue<WorkflowSubject>("workflowSubject", taskProcessingResult.workflowSubject, serializeWorkflowSubject);
 }
 /**
  * Serializes information the current object
@@ -2677,6 +3153,7 @@ export function serializeWorkflow(writer: SerializationWriter, workflow: Partial
     writer.writeObjectValue<QuarantineDetails>("quarantineDetails", workflow.quarantineDetails, serializeQuarantineDetails);
     writer.writeCollectionOfObjectValues<Run>("runs", workflow.runs, serializeRun);
     writer.writeObjectValue<WorkflowSetting>("settings", workflow.settings, serializeWorkflowSetting);
+    writer.writeCollectionOfObjectValues<SubjectProcessingResult>("subjectProcessingResults", workflow.subjectProcessingResults, serializeSubjectProcessingResult);
     writer.writeCollectionOfObjectValues<TaskReport>("taskReports", workflow.taskReports, serializeTaskReport);
     writer.writeCollectionOfObjectValues<UserProcessingResult>("userProcessingResults", workflow.userProcessingResults, serializeUserProcessingResult);
     writer.writeNumberValue("version", workflow.version);
@@ -2703,6 +3180,7 @@ export function serializeWorkflowBase(writer: SerializationWriter, workflowBase:
     writer.writeObjectValue<User>("lastModifiedBy", workflowBase.lastModifiedBy, serializeUser);
     writer.writeDateValue("lastModifiedDateTime", workflowBase.lastModifiedDateTime);
     writer.writeStringValue("@odata.type", workflowBase.odataType);
+    writer.writeEnumValue<SubjectType[]>("targetSubjectType", workflowBase.targetSubjectType);
     writer.writeCollectionOfObjectValues<Task>("tasks", workflowBase.tasks, serializeTask);
     writer.writeAdditionalData(workflowBase.additionalData);
     switch (workflowBase.odataType) {
@@ -2740,6 +3218,9 @@ export function serializeWorkflowExecutionConditions(writer: SerializationWriter
     switch (workflowExecutionConditions.odataType) {
         case "#microsoft.graph.identityGovernance.onDemandExecutionOnly":
             serializeOnDemandExecutionOnly(writer, workflowExecutionConditions, true);
+        break;
+        case "#microsoft.graph.identityGovernance.provisioningAttributeMapping":
+            serializeProvisioningAttributeMapping(writer, workflowExecutionConditions, true);
         break;
         case "#microsoft.graph.identityGovernance.triggerAndScopeBasedConditions":
             serializeTriggerAndScopeBasedConditions(writer, workflowExecutionConditions, true);
@@ -2830,6 +3311,26 @@ export function serializeWorkflowsInsightsSummary(writer: SerializationWriter, w
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowSubject The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeWorkflowSubject(writer: SerializationWriter, workflowSubject: Partial<WorkflowSubject> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowSubject || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", workflowSubject.odataType);
+    writer.writeAdditionalData(workflowSubject.additionalData);
+    switch (workflowSubject.odataType) {
+        case "#microsoft.graph.identityGovernance.directoryObjectWorkflowSubject":
+            serializeDirectoryObjectWorkflowSubject(writer, workflowSubject, true);
+        break;
+        case "#microsoft.graph.identityGovernance.provisioningObjectWorkflowSubject":
+            serializeProvisioningObjectWorkflowSubject(writer, workflowSubject, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param WorkflowTemplate The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -2880,6 +3381,97 @@ export function serializeWorkflowVersionCollectionResponse(writer: Serialization
     serializeBaseCollectionPaginationCountResponse(writer, workflowVersionCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<WorkflowVersion>("value", workflowVersionCollectionResponse.value, serializeWorkflowVersion);
 }
+export interface SubjectProcessingResult extends Entity, Parsable {
+    /**
+     * The date and time when the subject processing completed. Read-only.
+     */
+    completedDateTime?: Date | null;
+    /**
+     * The count of tasks that failed for the subject. Read-only.
+     */
+    failedTasksCount?: number | null;
+    /**
+     * The processingStatus property
+     */
+    processingStatus?: LifecycleWorkflowProcessingStatus | null;
+    /**
+     * The reprocessed runs associated with this subject processing result.
+     */
+    reprocessedRuns?: Run[] | null;
+    /**
+     * The date and time when processing was scheduled. Read-only.
+     */
+    scheduledDateTime?: Date | null;
+    /**
+     * The date and time when processing started. Read-only.
+     */
+    startedDateTime?: Date | null;
+    /**
+     * The subject property
+     */
+    subject?: WorkflowSubject | null;
+    /**
+     * The subjectType property
+     */
+    subjectType?: SubjectType[] | null;
+    /**
+     * The task-level processing results for this subject. Read-only.
+     */
+    taskProcessingResults?: TaskProcessingResult[] | null;
+    /**
+     * The total number of tasks in the workflow. Read-only.
+     */
+    totalTasksCount?: number | null;
+    /**
+     * The count of tasks that have not yet been processed. Read-only.
+     */
+    totalUnprocessedTasksCount?: number | null;
+    /**
+     * The workflowExecutionType property
+     */
+    workflowExecutionType?: WorkflowExecutionType | null;
+    /**
+     * The version of the workflow at the time of execution. Read-only.
+     */
+    workflowVersion?: number | null;
+}
+export interface SubjectProcessingResultCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: SubjectProcessingResult[] | null;
+}
+export interface SubjectSummary extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The number of subjects with at least one failed task in a subject summary.
+     */
+    failedSubjects?: number | null;
+    /**
+     * The number of failed tasks for subjects in a subject summary.
+     */
+    failedTasks?: number | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The number of subjects where all tasks succeeded in a subject summary.
+     */
+    successfulSubjects?: number | null;
+    /**
+     * The total number of subjects in a subject summary.
+     */
+    totalSubjects?: number | null;
+    /**
+     * The total tasks of subjects in a subject summary.
+     */
+    totalTasks?: number | null;
+}
+export type SubjectType = (typeof SubjectTypeObject)[keyof typeof SubjectTypeObject];
 export interface Task extends Entity, Parsable {
     /**
      * Arguments included within the task.  For guidance to configure this property, see Configure the arguments for built-in Lifecycle Workflow tasks. Required.
@@ -2989,6 +3581,10 @@ export interface TaskProcessingResult extends Entity, Parsable {
      * The task property
      */
     task?: Task | null;
+    /**
+     * The workflow subject associated with this task processing result. Populated for extensibility and provisioning workflows.
+     */
+    workflowSubject?: WorkflowSubject | null;
 }
 export interface TaskProcessingResultCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -3331,6 +3927,10 @@ export interface Workflow extends Parsable, WorkflowBase {
      */
     settings?: WorkflowSetting | null;
     /**
+     * Per-subject workflow execution results.
+     */
+    subjectProcessingResults?: SubjectProcessingResult[] | null;
+    /**
      * Represents the aggregation of task execution data for tasks within a workflow object.
      */
     taskReports?: TaskReport[] | null;
@@ -3400,6 +4000,10 @@ export interface WorkflowBase extends AdditionalDataHolder, BackedModel, Parsabl
      * The OdataType property
      */
     odataType?: string | null;
+    /**
+     * The targetSubjectType property
+     */
+    targetSubjectType?: SubjectType[] | null;
     /**
      * The tasks in the workflow.
      */
@@ -3538,6 +4142,16 @@ export interface WorkflowsInsightsSummary extends AdditionalDataHolder, BackedMo
      */
     totalUsers?: number | null;
 }
+export interface WorkflowSubject extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export interface WorkflowTemplate extends Entity, Parsable {
     /**
      * The category property
@@ -3598,17 +4212,25 @@ export const CustomTaskExtensionOperationStatusObject = {
     Failed: "failed",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const CustomTaskExtensionReplyModeObject = {
+    None: "none",
+    Callback: "callback",
+    Response: "response",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const LifecycleTaskCategoryObject = {
     Joiner: "joiner",
     Leaver: "leaver",
     UnknownFutureValue: "unknownFutureValue",
     Mover: "mover",
+    Extensibility: "extensibility",
 } as const;
 export const LifecycleWorkflowCategoryObject = {
     Joiner: "joiner",
     Leaver: "leaver",
     UnknownFutureValue: "unknownFutureValue",
     Mover: "mover",
+    Extensibility: "extensibility",
 } as const;
 export const LifecycleWorkflowProcessingStatusObject = {
     Queued: "queued",
@@ -3638,6 +4260,11 @@ export const QuarantineTypeObject = {
     MultipleConditionsExceeded: "multipleConditionsExceeded",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const SubjectTypeObject = {
+    User: "user",
+    UnknownFutureValue: "unknownFutureValue",
+    ProvisioningObject: "provisioningObject",
+} as const;
 export const ValueTypeObject = {
     EnumEscaped: "enum",
     String: "string",
@@ -3651,6 +4278,7 @@ export const WorkflowExecutionTypeObject = {
     UnknownFutureValue: "unknownFutureValue",
     ActivatedWithScope: "activatedWithScope",
     Preview: "preview",
+    ExtensibilityOnDemand: "extensibilityOnDemand",
 } as const;
 export const WorkflowTriggerTimeBasedAttributeObject = {
     EmployeeHireDate: "employeeHireDate",

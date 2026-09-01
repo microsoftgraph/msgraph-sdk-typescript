@@ -6,6 +6,10 @@ import { createAccessReviewStageFromDiscriminatorValue, serializeAccessReviewSta
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { AcceptRecommendationsRequestBuilderRequestsMetadata, type AcceptRecommendationsRequestBuilder } from './acceptRecommendations/index.js';
+// @ts-ignore
+import { BatchRecordDecisionsRequestBuilderRequestsMetadata, type BatchRecordDecisionsRequestBuilder } from './batchRecordDecisions/index.js';
+// @ts-ignore
 import { DecisionsRequestBuilderNavigationMetadata, DecisionsRequestBuilderRequestsMetadata, type DecisionsRequestBuilder } from './decisions/index.js';
 // @ts-ignore
 import { StopRequestBuilderRequestsMetadata, type StopRequestBuilder } from './stop/index.js';
@@ -16,6 +20,14 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
  */
 export interface AccessReviewStageItemRequestBuilder extends BaseRequestBuilder<AccessReviewStageItemRequestBuilder> {
+    /**
+     * Provides operations to call the acceptRecommendations method.
+     */
+    get acceptRecommendations(): AcceptRecommendationsRequestBuilder;
+    /**
+     * Provides operations to call the batchRecordDecisions method.
+     */
+    get batchRecordDecisions(): BatchRecordDecisionsRequestBuilder;
     /**
      * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
      */
@@ -95,6 +107,12 @@ const AccessReviewStageItemRequestBuilderGetQueryParametersMapper: Record<string
  * Metadata for all the navigation properties in the request builder.
  */
 export const AccessReviewStageItemRequestBuilderNavigationMetadata: Record<Exclude<keyof AccessReviewStageItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    acceptRecommendations: {
+        requestsMetadata: AcceptRecommendationsRequestBuilderRequestsMetadata,
+    },
+    batchRecordDecisions: {
+        requestsMetadata: BatchRecordDecisionsRequestBuilderRequestsMetadata,
+    },
     decisions: {
         requestsMetadata: DecisionsRequestBuilderRequestsMetadata,
         navigationMetadata: DecisionsRequestBuilderNavigationMetadata,

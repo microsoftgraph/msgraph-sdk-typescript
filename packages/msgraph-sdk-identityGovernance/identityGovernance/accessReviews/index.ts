@@ -10,6 +10,8 @@ import { DefinitionsRequestBuilderNavigationMetadata, DefinitionsRequestBuilderR
 // @ts-ignore
 import { HistoryDefinitionsRequestBuilderNavigationMetadata, HistoryDefinitionsRequestBuilderRequestsMetadata, type HistoryDefinitionsRequestBuilder } from './historyDefinitions/index.js';
 // @ts-ignore
+import { type UnifiedRequestBuilder, UnifiedRequestBuilderNavigationMetadata, UnifiedRequestBuilderRequestsMetadata } from './unified/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +26,10 @@ export interface AccessReviewsRequestBuilder extends BaseRequestBuilder<AccessRe
      * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
      */
     get historyDefinitions(): HistoryDefinitionsRequestBuilder;
+    /**
+     * Provides operations to manage the unified property of the microsoft.graph.accessReviewSet entity.
+     */
+    get unified(): UnifiedRequestBuilder;
     /**
      * Delete navigation property accessReviews for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -100,6 +106,10 @@ export const AccessReviewsRequestBuilderNavigationMetadata: Record<Exclude<keyof
     historyDefinitions: {
         requestsMetadata: HistoryDefinitionsRequestBuilderRequestsMetadata,
         navigationMetadata: HistoryDefinitionsRequestBuilderNavigationMetadata,
+    },
+    unified: {
+        requestsMetadata: UnifiedRequestBuilderRequestsMetadata,
+        navigationMetadata: UnifiedRequestBuilderNavigationMetadata,
     },
 };
 /**
