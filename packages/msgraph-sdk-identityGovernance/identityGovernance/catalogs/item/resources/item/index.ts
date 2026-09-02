@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { EnvironmentRequestBuilderRequestsMetadata, type EnvironmentRequestBuilder } from './environment/index.js';
 // @ts-ignore
+import { ExternalOriginResourceConnectorRequestBuilderRequestsMetadata, type ExternalOriginResourceConnectorRequestBuilder } from './externalOriginResourceConnector/index.js';
+// @ts-ignore
 import { RefreshRequestBuilderRequestsMetadata, type RefreshRequestBuilder } from './refresh/index.js';
 // @ts-ignore
 import { RolesRequestBuilderNavigationMetadata, RolesRequestBuilderRequestsMetadata, type RolesRequestBuilder } from './roles/index.js';
@@ -26,6 +28,10 @@ export interface AccessPackageResourceItemRequestBuilder extends BaseRequestBuil
      * Provides operations to manage the environment property of the microsoft.graph.accessPackageResource entity.
      */
     get environment(): EnvironmentRequestBuilder;
+    /**
+     * Provides operations to manage the externalOriginResourceConnector property of the microsoft.graph.accessPackageResource entity.
+     */
+    get externalOriginResourceConnector(): ExternalOriginResourceConnectorRequestBuilder;
     /**
      * Provides operations to call the refresh method.
      */
@@ -113,6 +119,9 @@ const AccessPackageResourceItemRequestBuilderGetQueryParametersMapper: Record<st
 export const AccessPackageResourceItemRequestBuilderNavigationMetadata: Record<Exclude<keyof AccessPackageResourceItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     environment: {
         requestsMetadata: EnvironmentRequestBuilderRequestsMetadata,
+    },
+    externalOriginResourceConnector: {
+        requestsMetadata: ExternalOriginResourceConnectorRequestBuilderRequestsMetadata,
     },
     refresh: {
         requestsMetadata: RefreshRequestBuilderRequestsMetadata,

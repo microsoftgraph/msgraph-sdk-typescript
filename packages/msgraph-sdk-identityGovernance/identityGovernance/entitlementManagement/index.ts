@@ -26,6 +26,8 @@ import { ConnectedOrganizationsRequestBuilderNavigationMetadata, ConnectedOrgani
 // @ts-ignore
 import { ControlConfigurationsRequestBuilderNavigationMetadata, ControlConfigurationsRequestBuilderRequestsMetadata, type ControlConfigurationsRequestBuilder } from './controlConfigurations/index.js';
 // @ts-ignore
+import { ExternalOriginResourceConnectorsRequestBuilderNavigationMetadata, ExternalOriginResourceConnectorsRequestBuilderRequestsMetadata, type ExternalOriginResourceConnectorsRequestBuilder } from './externalOriginResourceConnectors/index.js';
+// @ts-ignore
 import { ResourceEnvironmentsRequestBuilderNavigationMetadata, ResourceEnvironmentsRequestBuilderRequestsMetadata, type ResourceEnvironmentsRequestBuilder } from './resourceEnvironments/index.js';
 // @ts-ignore
 import { ResourceRequestsRequestBuilderNavigationMetadata, ResourceRequestsRequestBuilderRequestsMetadata, type ResourceRequestsRequestBuilder } from './resourceRequests/index.js';
@@ -86,6 +88,10 @@ export interface EntitlementManagementRequestBuilder extends BaseRequestBuilder<
      * Provides operations to manage the controlConfigurations property of the microsoft.graph.entitlementManagement entity.
      */
     get controlConfigurations(): ControlConfigurationsRequestBuilder;
+    /**
+     * Provides operations to manage the externalOriginResourceConnectors property of the microsoft.graph.entitlementManagement entity.
+     */
+    get externalOriginResourceConnectors(): ExternalOriginResourceConnectorsRequestBuilder;
     /**
      * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
      */
@@ -228,6 +234,10 @@ export const EntitlementManagementRequestBuilderNavigationMetadata: Record<Exclu
     controlConfigurations: {
         requestsMetadata: ControlConfigurationsRequestBuilderRequestsMetadata,
         navigationMetadata: ControlConfigurationsRequestBuilderNavigationMetadata,
+    },
+    externalOriginResourceConnectors: {
+        requestsMetadata: ExternalOriginResourceConnectorsRequestBuilderRequestsMetadata,
+        navigationMetadata: ExternalOriginResourceConnectorsRequestBuilderNavigationMetadata,
     },
     resourceEnvironments: {
         requestsMetadata: ResourceEnvironmentsRequestBuilderRequestsMetadata,

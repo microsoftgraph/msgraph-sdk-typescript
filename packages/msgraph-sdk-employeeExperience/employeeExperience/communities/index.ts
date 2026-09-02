@@ -6,8 +6,6 @@ import { createCommunityCollectionResponseFromDiscriminatorValue, createCommunit
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
-// @ts-ignore
 import { CommunityItemRequestBuilderNavigationMetadata, CommunityItemRequestBuilderRequestsMetadata, type CommunityItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -16,10 +14,6 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the communities property of the microsoft.graph.employeeExperience entity.
  */
 export interface CommunitiesRequestBuilder extends BaseRequestBuilder<CommunitiesRequestBuilder> {
-    /**
-     * Provides operations to count the resources in the collection.
-     */
-    get count(): CountRequestBuilder;
     /**
      * Provides operations to manage the communities property of the microsoft.graph.employeeExperience entity.
      * @param communityId The unique identifier of community
@@ -119,9 +113,6 @@ export const CommunitiesRequestBuilderNavigationMetadata: Record<Exclude<keyof C
         requestsMetadata: CommunityItemRequestBuilderRequestsMetadata,
         navigationMetadata: CommunityItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["community%2Did"],
-    },
-    count: {
-        requestsMetadata: CountRequestBuilderRequestsMetadata,
     },
 };
 /**

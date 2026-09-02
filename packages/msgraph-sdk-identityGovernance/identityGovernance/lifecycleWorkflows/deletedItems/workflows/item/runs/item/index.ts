@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { ReprocessedRunsRequestBuilderNavigationMetadata, ReprocessedRunsRequestBuilderRequestsMetadata, type ReprocessedRunsRequestBuilder } from './reprocessedRuns/index.js';
 // @ts-ignore
+import { SubjectProcessingResultsRequestBuilderNavigationMetadata, SubjectProcessingResultsRequestBuilderRequestsMetadata, type SubjectProcessingResultsRequestBuilder } from './subjectProcessingResults/index.js';
+// @ts-ignore
 import { TaskProcessingResultsRequestBuilderNavigationMetadata, TaskProcessingResultsRequestBuilderRequestsMetadata, type TaskProcessingResultsRequestBuilder } from './taskProcessingResults/index.js';
 // @ts-ignore
 import { type UserProcessingResultsRequestBuilder, UserProcessingResultsRequestBuilderNavigationMetadata, UserProcessingResultsRequestBuilderRequestsMetadata } from './userProcessingResults/index.js';
@@ -22,6 +24,10 @@ export interface RunItemRequestBuilder extends BaseRequestBuilder<RunItemRequest
      * Provides operations to manage the reprocessedRuns property of the microsoft.graph.identityGovernance.run entity.
      */
     get reprocessedRuns(): ReprocessedRunsRequestBuilder;
+    /**
+     * Provides operations to manage the subjectProcessingResults property of the microsoft.graph.identityGovernance.run entity.
+     */
+    get subjectProcessingResults(): SubjectProcessingResultsRequestBuilder;
     /**
      * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.run entity.
      */
@@ -75,6 +81,10 @@ export const RunItemRequestBuilderNavigationMetadata: Record<Exclude<keyof RunIt
     reprocessedRuns: {
         requestsMetadata: ReprocessedRunsRequestBuilderRequestsMetadata,
         navigationMetadata: ReprocessedRunsRequestBuilderNavigationMetadata,
+    },
+    subjectProcessingResults: {
+        requestsMetadata: SubjectProcessingResultsRequestBuilderRequestsMetadata,
+        navigationMetadata: SubjectProcessingResultsRequestBuilderNavigationMetadata,
     },
     taskProcessingResults: {
         requestsMetadata: TaskProcessingResultsRequestBuilderRequestsMetadata,

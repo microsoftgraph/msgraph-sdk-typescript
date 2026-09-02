@@ -6,7 +6,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { createHuntingQueryResultsFromDiscriminatorValue, serializeHuntingQueryResults, type HuntingQueryResults } from '@microsoft/msgraph-sdk/models/security/index.js';
 // @ts-ignore
-import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { type AdditionalDataHolder, type BackedModel, type BackingStore, type BaseRequestBuilder, type Guid, type Parsable, type ParsableFactory, type ParseNode, type RequestConfiguration, type RequestInformation, type RequestsMetadata, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -28,6 +28,7 @@ export function deserializeIntoRunHuntingQueryPostRequestBody(runHuntingQueryPos
         "backingStoreEnabled": n => { runHuntingQueryPostRequestBody.backingStoreEnabled = true; },
         "query": n => { runHuntingQueryPostRequestBody.query = n.getStringValue(); },
         "timespan": n => { runHuntingQueryPostRequestBody.timespan = n.getStringValue(); },
+        "workspaceId": n => { runHuntingQueryPostRequestBody.workspaceId = n.getGuidValue(); },
     }
 }
 /**
@@ -63,6 +64,10 @@ export interface RunHuntingQueryPostRequestBody extends AdditionalDataHolder, Ba
      * The timespan property
      */
     timespan?: string | null;
+    /**
+     * The workspaceId property
+     */
+    workspaceId?: Guid | null;
 }
 /**
  * Serializes information the current object
@@ -75,6 +80,7 @@ export function serializeRunHuntingQueryPostRequestBody(writer: SerializationWri
     if (!runHuntingQueryPostRequestBody || isSerializingDerivedType) { return; }
     writer.writeStringValue("query", runHuntingQueryPostRequestBody.query);
     writer.writeStringValue("timespan", runHuntingQueryPostRequestBody.timespan);
+    writer.writeGuidValue("workspaceId", runHuntingQueryPostRequestBody.workspaceId);
     writer.writeAdditionalData(runHuntingQueryPostRequestBody.additionalData);
 }
 /**

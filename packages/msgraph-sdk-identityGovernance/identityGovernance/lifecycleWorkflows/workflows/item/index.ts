@@ -16,6 +16,8 @@ import { LastModifiedByRequestBuilderNavigationMetadata, LastModifiedByRequestBu
 // @ts-ignore
 import { MicrosoftGraphIdentityGovernanceActivateRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceActivateRequestBuilder } from './microsoftGraphIdentityGovernanceActivate/index.js';
 // @ts-ignore
+import { MicrosoftGraphIdentityGovernanceActivateAndWaitRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceActivateAndWaitRequestBuilder } from './microsoftGraphIdentityGovernanceActivateAndWait/index.js';
+// @ts-ignore
 import { MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder } from './microsoftGraphIdentityGovernanceActivateWithScope/index.js';
 // @ts-ignore
 import { MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilderRequestsMetadata, type MicrosoftGraphIdentityGovernanceCancelProcessingRequestBuilder } from './microsoftGraphIdentityGovernanceCancelProcessing/index.js';
@@ -33,6 +35,8 @@ import { MicrosoftGraphIdentityGovernanceRestoreRequestBuilderRequestsMetadata, 
 import { PreviewScopeRequestBuilderNavigationMetadata, PreviewScopeRequestBuilderRequestsMetadata, type PreviewScopeRequestBuilder } from './previewScope/index.js';
 // @ts-ignore
 import { RunsRequestBuilderNavigationMetadata, RunsRequestBuilderRequestsMetadata, type RunsRequestBuilder } from './runs/index.js';
+// @ts-ignore
+import { SubjectProcessingResultsRequestBuilderNavigationMetadata, SubjectProcessingResultsRequestBuilderRequestsMetadata, type SubjectProcessingResultsRequestBuilder } from './subjectProcessingResults/index.js';
 // @ts-ignore
 import { TaskReportsRequestBuilderNavigationMetadata, TaskReportsRequestBuilderRequestsMetadata, type TaskReportsRequestBuilder } from './taskReports/index.js';
 // @ts-ignore
@@ -69,6 +73,10 @@ export interface WorkflowItemRequestBuilder extends BaseRequestBuilder<WorkflowI
      */
     get microsoftGraphIdentityGovernanceActivate(): MicrosoftGraphIdentityGovernanceActivateRequestBuilder;
     /**
+     * Provides operations to call the activateAndWait method.
+     */
+    get microsoftGraphIdentityGovernanceActivateAndWait(): MicrosoftGraphIdentityGovernanceActivateAndWaitRequestBuilder;
+    /**
      * Provides operations to call the activateWithScope method.
      */
     get microsoftGraphIdentityGovernanceActivateWithScope(): MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilder;
@@ -104,6 +112,10 @@ export interface WorkflowItemRequestBuilder extends BaseRequestBuilder<WorkflowI
      * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
      */
     get runs(): RunsRequestBuilder;
+    /**
+     * Provides operations to manage the subjectProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
+     */
+    get subjectProcessingResults(): SubjectProcessingResultsRequestBuilder;
     /**
      * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
      */
@@ -211,6 +223,9 @@ export const WorkflowItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
     microsoftGraphIdentityGovernanceActivate: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceActivateRequestBuilderRequestsMetadata,
     },
+    microsoftGraphIdentityGovernanceActivateAndWait: {
+        requestsMetadata: MicrosoftGraphIdentityGovernanceActivateAndWaitRequestBuilderRequestsMetadata,
+    },
     microsoftGraphIdentityGovernanceActivateWithScope: {
         requestsMetadata: MicrosoftGraphIdentityGovernanceActivateWithScopeRequestBuilderRequestsMetadata,
     },
@@ -239,6 +254,10 @@ export const WorkflowItemRequestBuilderNavigationMetadata: Record<Exclude<keyof 
     runs: {
         requestsMetadata: RunsRequestBuilderRequestsMetadata,
         navigationMetadata: RunsRequestBuilderNavigationMetadata,
+    },
+    subjectProcessingResults: {
+        requestsMetadata: SubjectProcessingResultsRequestBuilderRequestsMetadata,
+        navigationMetadata: SubjectProcessingResultsRequestBuilderNavigationMetadata,
     },
     taskReports: {
         requestsMetadata: TaskReportsRequestBuilderRequestsMetadata,

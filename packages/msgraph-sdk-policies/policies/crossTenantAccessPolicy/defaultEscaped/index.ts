@@ -6,6 +6,8 @@ import { createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { M365CapabilitiesRequestBuilderNavigationMetadata, M365CapabilitiesRequestBuilderRequestsMetadata, type M365CapabilitiesRequestBuilder } from './m365Capabilities/index.js';
+// @ts-ignore
 import { ResetToSystemDefaultRequestBuilderRequestsMetadata, type ResetToSystemDefaultRequestBuilder } from './resetToSystemDefault/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +16,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.
  */
 export interface DefaultRequestBuilder extends BaseRequestBuilder<DefaultRequestBuilder> {
+    /**
+     * Provides operations to manage the m365Capabilities property of the microsoft.graph.crossTenantAccessPolicyConfigurationDefault entity.
+     */
+    get m365Capabilities(): M365CapabilitiesRequestBuilder;
     /**
      * Provides operations to call the resetToSystemDefault method.
      */
@@ -89,6 +95,10 @@ const DefaultRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const DefaultRequestBuilderNavigationMetadata: Record<Exclude<keyof DefaultRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    m365Capabilities: {
+        requestsMetadata: M365CapabilitiesRequestBuilderRequestsMetadata,
+        navigationMetadata: M365CapabilitiesRequestBuilderNavigationMetadata,
+    },
     resetToSystemDefault: {
         requestsMetadata: ResetToSystemDefaultRequestBuilderRequestsMetadata,
     },
