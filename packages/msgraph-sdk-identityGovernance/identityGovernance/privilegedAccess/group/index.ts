@@ -20,6 +20,8 @@ import { EligibilityScheduleRequestsRequestBuilderNavigationMetadata, Eligibilit
 // @ts-ignore
 import { EligibilitySchedulesRequestBuilderNavigationMetadata, EligibilitySchedulesRequestBuilderRequestsMetadata, type EligibilitySchedulesRequestBuilder } from './eligibilitySchedules/index.js';
 // @ts-ignore
+import { ResourcesRequestBuilderNavigationMetadata, ResourcesRequestBuilderRequestsMetadata, type ResourcesRequestBuilder } from './resources/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -54,6 +56,10 @@ export interface GroupRequestBuilder extends BaseRequestBuilder<GroupRequestBuil
      * Provides operations to manage the eligibilitySchedules property of the microsoft.graph.privilegedAccessGroup entity.
      */
     get eligibilitySchedules(): EligibilitySchedulesRequestBuilder;
+    /**
+     * Provides operations to manage the resources property of the microsoft.graph.privilegedAccessGroup entity.
+     */
+    get resources(): ResourcesRequestBuilder;
     /**
      * Delete navigation property group for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -150,6 +156,10 @@ export const GroupRequestBuilderNavigationMetadata: Record<Exclude<keyof GroupRe
     eligibilitySchedules: {
         requestsMetadata: EligibilitySchedulesRequestBuilderRequestsMetadata,
         navigationMetadata: EligibilitySchedulesRequestBuilderNavigationMetadata,
+    },
+    resources: {
+        requestsMetadata: ResourcesRequestBuilderRequestsMetadata,
+        navigationMetadata: ResourcesRequestBuilderNavigationMetadata,
     },
 };
 /**

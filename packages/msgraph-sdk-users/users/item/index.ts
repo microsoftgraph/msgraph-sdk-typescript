@@ -104,6 +104,8 @@ import { MemberOfRequestBuilderNavigationMetadata, MemberOfRequestBuilderRequest
 // @ts-ignore
 import { MessagesRequestBuilderNavigationMetadata, MessagesRequestBuilderRequestsMetadata, type MessagesRequestBuilder } from './messages/index.js';
 // @ts-ignore
+import { NotesRequestBuilderNavigationMetadata, NotesRequestBuilderRequestsMetadata, type NotesRequestBuilder } from './notes/index.js';
+// @ts-ignore
 import { Oauth2PermissionGrantsRequestBuilderNavigationMetadata, Oauth2PermissionGrantsRequestBuilderRequestsMetadata, type Oauth2PermissionGrantsRequestBuilder } from './oauth2PermissionGrants/index.js';
 // @ts-ignore
 import { OnenoteRequestBuilderNavigationMetadata, OnenoteRequestBuilderRequestsMetadata, type OnenoteRequestBuilder } from './onenote/index.js';
@@ -366,6 +368,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * Provides operations to manage the messages property of the microsoft.graph.user entity.
      */
     get messages(): MessagesRequestBuilder;
+    /**
+     * Provides operations to manage the notes property of the microsoft.graph.user entity.
+     */
+    get notes(): NotesRequestBuilder;
     /**
      * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity.
      */
@@ -760,6 +766,10 @@ export const UserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof User
     messages: {
         requestsMetadata: MessagesRequestBuilderRequestsMetadata,
         navigationMetadata: MessagesRequestBuilderNavigationMetadata,
+    },
+    notes: {
+        requestsMetadata: NotesRequestBuilderRequestsMetadata,
+        navigationMetadata: NotesRequestBuilderNavigationMetadata,
     },
     oauth2PermissionGrants: {
         requestsMetadata: Oauth2PermissionGrantsRequestBuilderRequestsMetadata,
