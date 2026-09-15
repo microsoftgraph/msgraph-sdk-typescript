@@ -324,6 +324,15 @@ export function createGroupBasedSubjectSetFromDiscriminatorValue(parseNode: Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {GuestSponsorTrigger}
+ */
+// @ts-ignore
+export function createGuestSponsorTriggerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGuestSponsorTrigger;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Insights}
  */
 // @ts-ignore
@@ -746,6 +755,8 @@ export function createWorkflowExecutionTriggerFromDiscriminatorValue(parseNode: 
             switch (mappingValue) {
                 case "#microsoft.graph.identityGovernance.attributeChangeTrigger":
                     return deserializeIntoAttributeChangeTrigger;
+                case "#microsoft.graph.identityGovernance.guestSponsorTrigger":
+                    return deserializeIntoGuestSponsorTrigger;
                 case "#microsoft.graph.identityGovernance.membershipChangeTrigger":
                     return deserializeIntoMembershipChangeTrigger;
                 case "#microsoft.graph.identityGovernance.timeBasedAttributeTrigger":
@@ -1178,6 +1189,18 @@ export function deserializeIntoGroupBasedSubjectSet(groupBasedSubjectSet: Partia
     return {
         ...deserializeIntoSubjectSet(groupBasedSubjectSet),
         "groups": n => { groupBasedSubjectSet.groups = n.getCollectionOfObjectValues<Group>(createGroupFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param GuestSponsorTrigger The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoGuestSponsorTrigger(guestSponsorTrigger: Partial<GuestSponsorTrigger> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowExecutionTrigger(guestSponsorTrigger),
+        "minimumRequiredSponsors": n => { guestSponsorTrigger.minimumRequiredSponsors = n.getNumberValue(); },
     }
 }
 /**
@@ -1983,6 +2006,12 @@ export interface GroupBasedSubjectSet extends Parsable, SubjectSet {
      */
     groups?: Group[] | null;
 }
+export interface GuestSponsorTrigger extends Parsable, WorkflowExecutionTrigger {
+    /**
+     * The minimumRequiredSponsors property
+     */
+    minimumRequiredSponsors?: number | null;
+}
 export interface Insights extends Entity, Parsable {
 }
 export interface LifecycleManagementSettings extends Entity, Parsable {
@@ -2540,6 +2569,18 @@ export function serializeGroupBasedSubjectSet(writer: SerializationWriter, group
     if (!groupBasedSubjectSet || isSerializingDerivedType) { return; }
     serializeSubjectSet(writer, groupBasedSubjectSet, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<Group>("groups", groupBasedSubjectSet.groups, serializeGroup);
+}
+/**
+ * Serializes information the current object
+ * @param GuestSponsorTrigger The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeGuestSponsorTrigger(writer: SerializationWriter, guestSponsorTrigger: Partial<GuestSponsorTrigger> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!guestSponsorTrigger || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionTrigger(writer, guestSponsorTrigger, isSerializingDerivedType)
+    writer.writeNumberValue("minimumRequiredSponsors", guestSponsorTrigger.minimumRequiredSponsors);
 }
 /**
  * Serializes information the current object
@@ -3241,6 +3282,9 @@ export function serializeWorkflowExecutionTrigger(writer: SerializationWriter, w
     switch (workflowExecutionTrigger.odataType) {
         case "#microsoft.graph.identityGovernance.attributeChangeTrigger":
             serializeAttributeChangeTrigger(writer, workflowExecutionTrigger, true);
+        break;
+        case "#microsoft.graph.identityGovernance.guestSponsorTrigger":
+            serializeGuestSponsorTrigger(writer, workflowExecutionTrigger, true);
         break;
         case "#microsoft.graph.identityGovernance.membershipChangeTrigger":
             serializeMembershipChangeTrigger(writer, workflowExecutionTrigger, true);

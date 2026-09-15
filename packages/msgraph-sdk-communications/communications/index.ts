@@ -69,7 +69,7 @@ export interface CommunicationsRequestBuilder extends BaseRequestBuilder<Communi
      get(requestConfiguration?: RequestConfiguration<CommunicationsRequestBuilderGetQueryParameters> | undefined) : Promise<CloudCommunications | undefined>;
     /**
      * Update communications
-     * @param body Represents a container that exposes navigation properties for cloud communications resources.
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<CloudCommunications>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -83,7 +83,7 @@ export interface CommunicationsRequestBuilder extends BaseRequestBuilder<Communi
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CommunicationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
      * Update communications
-     * @param body Represents a container that exposes navigation properties for cloud communications resources.
+     * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
