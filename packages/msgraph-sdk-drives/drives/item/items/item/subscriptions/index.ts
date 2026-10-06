@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
+import { GetVapidPublicKeyRequestBuilderRequestsMetadata, type GetVapidPublicKeyRequestBuilder } from './getVapidPublicKey/index.js';
+// @ts-ignore
 import { SubscriptionItemRequestBuilderNavigationMetadata, SubscriptionItemRequestBuilderRequestsMetadata, type SubscriptionItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -20,6 +22,10 @@ export interface SubscriptionsRequestBuilder extends BaseRequestBuilder<Subscrip
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Provides operations to call the getVapidPublicKey method.
+     */
+    get getVapidPublicKey(): GetVapidPublicKeyRequestBuilder;
     /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.
      * @param subscriptionId The unique identifier of subscription
@@ -120,6 +126,9 @@ export const SubscriptionsRequestBuilderNavigationMetadata: Record<Exclude<keyof
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    getVapidPublicKey: {
+        requestsMetadata: GetVapidPublicKeyRequestBuilderRequestsMetadata,
     },
 };
 /**

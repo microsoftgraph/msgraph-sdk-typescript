@@ -19,18 +19,20 @@ export interface GovernanceRelationshipItemRequestBuilder extends BaseRequestBui
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get governanceRelationships from directory
+     * Read the properties of a governanceRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GovernanceRelationship>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-governancerelationship-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GovernanceRelationshipItemRequestBuilderGetQueryParameters> | undefined) : Promise<GovernanceRelationship | undefined>;
     /**
-     * Update the navigation property governanceRelationships in directory
+     * Update the status property of a governanceRelationship to initiate the termination process. There are two models for termination:1) Initiated by the governing tenant: After the governing tenant updates the status to terminationRequestedByGoverningTenant, the governed tenant may subsequently update the status to terminated.1) Directly terminated by the governed tenant: The governed tenant updates the status to terminated to immediately terminate the relationship. When the governed tenant updates the status to terminated in either model, the resources that were provisioned in the governed tenant upon relationship creation are deleted.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GovernanceRelationship>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-governancerelationship-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: GovernanceRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GovernanceRelationship | undefined>;
     /**
@@ -40,13 +42,13 @@ export interface GovernanceRelationshipItemRequestBuilder extends BaseRequestBui
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get governanceRelationships from directory
+     * Read the properties of a governanceRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GovernanceRelationshipItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property governanceRelationships in directory
+     * Update the status property of a governanceRelationship to initiate the termination process. There are two models for termination:1) Initiated by the governing tenant: After the governing tenant updates the status to terminationRequestedByGoverningTenant, the governed tenant may subsequently update the status to terminated.1) Directly terminated by the governed tenant: The governed tenant updates the status to terminated to immediately terminate the relationship. When the governed tenant updates the status to terminated in either model, the resources that were provisioned in the governed tenant upon relationship creation are deleted.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +56,7 @@ export interface GovernanceRelationshipItemRequestBuilder extends BaseRequestBui
      toPatchRequestInformation(body: GovernanceRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get governanceRelationships from directory
+ * Read the properties of a governanceRelationship object.
  */
 export interface GovernanceRelationshipItemRequestBuilderGetQueryParameters {
     /**

@@ -20,6 +20,8 @@ import { RoleDefinitionRequestBuilderRequestsMetadata, type RoleDefinitionReques
 // @ts-ignore
 import { TargetScheduleRequestBuilderRequestsMetadata, type TargetScheduleRequestBuilder } from './targetSchedule/index.js';
 // @ts-ignore
+import { type UpdateRequestRequestBuilder, UpdateRequestRequestBuilderRequestsMetadata } from './updateRequest/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -54,6 +56,10 @@ export interface UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends 
      * Provides operations to manage the targetSchedule property of the microsoft.graph.unifiedRoleAssignmentScheduleRequest entity.
      */
     get targetSchedule(): TargetScheduleRequestBuilder;
+    /**
+     * Provides operations to call the updateRequest method.
+     */
+    get updateRequest(): UpdateRequestRequestBuilder;
     /**
      * Delete navigation property roleAssignmentScheduleRequests for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -144,6 +150,9 @@ export const UnifiedRoleAssignmentScheduleRequestItemRequestBuilderNavigationMet
     },
     targetSchedule: {
         requestsMetadata: TargetScheduleRequestBuilderRequestsMetadata,
+    },
+    updateRequest: {
+        requestsMetadata: UpdateRequestRequestBuilderRequestsMetadata,
     },
 };
 /**

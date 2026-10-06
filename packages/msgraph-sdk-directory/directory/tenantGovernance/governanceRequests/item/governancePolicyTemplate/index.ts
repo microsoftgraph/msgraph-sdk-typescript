@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface GovernancePolicyTemplateRequestBuilder extends BaseRequestBuilder<GovernancePolicyTemplateRequestBuilder> {
     /**
-     * Get governancePolicyTemplate from directory
+     * The governance policy template associated with this request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TenantGovernancePolicyTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<GovernancePolicyTemplateRequestBuilderGetQueryParameters> | undefined) : Promise<TenantGovernancePolicyTemplate | undefined>;
     /**
-     * Get governancePolicyTemplate from directory
+     * The governance policy template associated with this request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GovernancePolicyTemplateRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get governancePolicyTemplate from directory
+ * The governance policy template associated with this request.
  */
 export interface GovernancePolicyTemplateRequestBuilderGetQueryParameters {
     /**

@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface BillingMetricsRequestBuilder extends BaseRequestBuilder<BillingMetricsRequestBuilder> {
     /**
-     * Get billingMetrics from directory
+     * Billing metrics for this related tenant. Expanded by default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<BillingMetrics>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<BillingMetricsRequestBuilderGetQueryParameters> | undefined) : Promise<BillingMetrics | undefined>;
     /**
-     * Get billingMetrics from directory
+     * Billing metrics for this related tenant. Expanded by default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<BillingMetricsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get billingMetrics from directory
+ * Billing metrics for this related tenant. Expanded by default.
  */
 export interface BillingMetricsRequestBuilderGetQueryParameters {
     /**

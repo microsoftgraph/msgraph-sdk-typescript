@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface MultiTenantApplicationMetricsRequestBuilder extends BaseRequestBuilder<MultiTenantApplicationMetricsRequestBuilder> {
     /**
-     * Get multiTenantApplicationMetrics from directory
+     * Multi-tenant application usage metrics for this related tenant. Expanded by default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MultiTenantApplicationMetrics>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<MultiTenantApplicationMetricsRequestBuilderGetQueryParameters> | undefined) : Promise<MultiTenantApplicationMetrics | undefined>;
     /**
-     * Get multiTenantApplicationMetrics from directory
+     * Multi-tenant application usage metrics for this related tenant. Expanded by default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<MultiTenantApplicationMetricsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get multiTenantApplicationMetrics from directory
+ * Multi-tenant application usage metrics for this related tenant. Expanded by default.
  */
 export interface MultiTenantApplicationMetricsRequestBuilderGetQueryParameters {
     /**

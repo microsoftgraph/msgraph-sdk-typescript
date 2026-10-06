@@ -6,6 +6,8 @@ import { createSubscriptionCollectionResponseFromDiscriminatorValue, createSubsc
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { GetVapidPublicKeyRequestBuilderRequestsMetadata, type GetVapidPublicKeyRequestBuilder } from './getVapidPublicKey/index.js';
+// @ts-ignore
 import { SubscriptionItemRequestBuilderNavigationMetadata, SubscriptionItemRequestBuilderRequestsMetadata, type SubscriptionItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +16,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the collection of subscription entities.
  */
 export interface SubscriptionsRequestBuilder extends BaseRequestBuilder<SubscriptionsRequestBuilder> {
+    /**
+     * Provides operations to call the getVapidPublicKey method.
+     */
+    get getVapidPublicKey(): GetVapidPublicKeyRequestBuilder;
     /**
      * Provides operations to manage the collection of subscription entities.
      * @param subscriptionId The unique identifier of subscription
@@ -113,6 +119,9 @@ export const SubscriptionsRequestBuilderNavigationMetadata: Record<Exclude<keyof
         requestsMetadata: SubscriptionItemRequestBuilderRequestsMetadata,
         navigationMetadata: SubscriptionItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["subscription%2Did"],
+    },
+    getVapidPublicKey: {
+        requestsMetadata: GetVapidPublicKeyRequestBuilderRequestsMetadata,
     },
 };
 /**
