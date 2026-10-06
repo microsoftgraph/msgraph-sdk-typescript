@@ -68,7 +68,7 @@ export interface SetCurrentLocationPostRequestBody extends AdditionalDataHolder,
  */
 export interface SetCurrentLocationRequestBuilder extends BaseRequestBuilder<SetCurrentLocationRequestBuilder> {
     /**
-     * Update your work location for the current day or current active segment. This action allows you to quickly update your work location without modifying individual occurrences.
+     * Update a user's work location for the current day or current active segment. This action quickly updates the user's work location without modifying individual occurrences.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -76,7 +76,7 @@ export interface SetCurrentLocationRequestBuilder extends BaseRequestBuilder<Set
      */
      post(body: SetCurrentLocationPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Update your work location for the current day or current active segment. This action allows you to quickly update your work location without modifying individual occurrences.
+     * Update a user's work location for the current day or current active segment. This action quickly updates the user's work location without modifying individual occurrences.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

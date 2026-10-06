@@ -6,6 +6,8 @@ import { createPrivilegedAccessRootFromDiscriminatorValue, serializePrivilegedAc
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
+import { CustomExtensionsRequestBuilderNavigationMetadata, CustomExtensionsRequestBuilderRequestsMetadata, type CustomExtensionsRequestBuilder } from './customExtensions/index.js';
+// @ts-ignore
 import { GroupRequestBuilderNavigationMetadata, GroupRequestBuilderRequestsMetadata, type GroupRequestBuilder } from './group/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -14,6 +16,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the privilegedAccess property of the microsoft.graph.identityGovernance entity.
  */
 export interface PrivilegedAccessRequestBuilder extends BaseRequestBuilder<PrivilegedAccessRequestBuilder> {
+    /**
+     * Provides operations to manage the customExtensions property of the microsoft.graph.privilegedAccessRoot entity.
+     */
+    get customExtensions(): CustomExtensionsRequestBuilder;
     /**
      * Provides operations to manage the group property of the microsoft.graph.privilegedAccessRoot entity.
      */
@@ -87,6 +93,10 @@ const PrivilegedAccessRequestBuilderGetQueryParametersMapper: Record<string, str
  * Metadata for all the navigation properties in the request builder.
  */
 export const PrivilegedAccessRequestBuilderNavigationMetadata: Record<Exclude<keyof PrivilegedAccessRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    customExtensions: {
+        requestsMetadata: CustomExtensionsRequestBuilderRequestsMetadata,
+        navigationMetadata: CustomExtensionsRequestBuilderNavigationMetadata,
+    },
     group: {
         requestsMetadata: GroupRequestBuilderRequestsMetadata,
         navigationMetadata: GroupRequestBuilderNavigationMetadata,

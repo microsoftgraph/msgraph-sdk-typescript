@@ -27,28 +27,30 @@ export interface GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuil
      */
      byTenantGovernancePolicyTemplateId(tenantGovernancePolicyTemplateId: string) : TenantGovernancePolicyTemplateItemRequestBuilder;
     /**
-     * Get governancePolicyTemplates from directory
+     * Get a list of the tenantGovernancePolicyTemplate objects and their properties. Policy templates define the configuration that is applied when establishing governance relationships.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TenantGovernancePolicyTemplateCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-list-governancepolicytemplates?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GovernancePolicyTemplatesRequestBuilderGetQueryParameters> | undefined) : Promise<TenantGovernancePolicyTemplateCollectionResponse | undefined>;
     /**
-     * Create new navigation property to governancePolicyTemplates for directory
+     * Create a new tenantGovernancePolicyTemplate that defines the configuration for establishing governance relationships, including role assignments and applications to provision.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TenantGovernancePolicyTemplate>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-post-governancepolicytemplates?view=graph-rest-1.0|Find more info here}
      */
      post(body: TenantGovernancePolicyTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TenantGovernancePolicyTemplate | undefined>;
     /**
-     * Get governancePolicyTemplates from directory
+     * Get a list of the tenantGovernancePolicyTemplate objects and their properties. Policy templates define the configuration that is applied when establishing governance relationships.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GovernancePolicyTemplatesRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to governancePolicyTemplates for directory
+     * Create a new tenantGovernancePolicyTemplate that defines the configuration for establishing governance relationships, including role assignments and applications to provision.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface GovernancePolicyTemplatesRequestBuilder extends BaseRequestBuil
      toPostRequestInformation(body: TenantGovernancePolicyTemplate, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get governancePolicyTemplates from directory
+ * Get a list of the tenantGovernancePolicyTemplate objects and their properties. Policy templates define the configuration that is applied when establishing governance relationships.
  */
 export interface GovernancePolicyTemplatesRequestBuilderGetQueryParameters {
     /**

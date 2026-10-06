@@ -1364,7 +1364,7 @@ export interface AccessReviewInstanceDecisionItem extends Entity, Parsable {
      */
     justification?: string | null;
     /**
-     * The permission property
+     * The permission that grants the principal access to a resource. Read-only.
      */
     permission?: AccessReviewInstanceDecisionItemPermission | null;
     /**
@@ -1431,15 +1431,15 @@ export interface AccessReviewInstanceDecisionItemCollectionResponse extends Base
 }
 export interface AccessReviewInstanceDecisionItemCustomDataProvidedResource extends AccessReviewInstanceDecisionItemResource, Parsable {
     /**
-     * The customData property
+     * Custom data to include with the decision.
      */
     customData?: string | null;
     /**
-     * The scopeDisplayName property
+     * The name of the scope for the decision.
      */
     scopeDisplayName?: string | null;
     /**
-     * The scopeId property
+     * The identifier of the scope for the decision.
      */
     scopeId?: string | null;
 }
@@ -1449,15 +1449,15 @@ export interface AccessReviewInstanceDecisionItemPermission extends AdditionalDa
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The description property
+     * The description of the permission.
      */
     description?: string | null;
     /**
-     * The displayName property
+     * The display name of the permission.
      */
     displayName?: string | null;
     /**
-     * The id property
+     * The identifier of the permission.
      */
     id?: string | null;
     /**
@@ -1465,7 +1465,7 @@ export interface AccessReviewInstanceDecisionItemPermission extends AdditionalDa
      */
     odataType?: string | null;
     /**
-     * The type property
+     * The type of the permission.
      */
     type?: string | null;
 }
@@ -1475,7 +1475,7 @@ export interface AccessReviewInstanceDecisionItemResource extends AdditionalData
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The description property
+     * Description of the resource.
      */
     description?: string | null;
     /**
@@ -1491,7 +1491,7 @@ export interface AccessReviewInstanceDecisionItemResource extends AdditionalData
      */
     odataType?: string | null;
     /**
-     * Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackage, AccessPackageAssignmentPolicy.
+     * Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackage, AccessPackageAssignmentPolicy, and CustomDataProvidedResource.
      */
     type?: string | null;
 }
@@ -3842,7 +3842,7 @@ export interface ApiApplication extends AdditionalDataHolder, BackedModel, Parsa
      */
     knownClientApplications?: Guid[] | null;
     /**
-     * The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes.
+     * The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes. These scopes and the application's appRoles share a default limit of 700 permission definitions per application. Enabled and disabled definitions both count. For counting rules, behavior for existing objects above the limit, and design guidance, see App role limits.
      */
     oauth2PermissionScopes?: PermissionScope[] | null;
     /**
@@ -4059,7 +4059,7 @@ export interface Application extends DirectoryObject, Parsable {
      */
     appManagementPolicies?: AppManagementPolicy[] | null;
     /**
-     * The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
+     * The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. App roles and exposed delegated permission scopes (api.oauth2PermissionScopes) share a default limit of 700 permission definitions per application. Enabled and disabled definitions both count. This limit is separate from the aggregate 1,200-entry application manifest limit and from app role assignment limits. For counting rules, behavior for existing objects above the limit, and design guidance, see App role limits.
      */
     appRoles?: AppRole[] | null;
     /**
@@ -4285,11 +4285,11 @@ export interface ApplicationResourcePermission extends AdditionalDataHolder, Bac
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The id property
+     * The unique identifier of the permission.
      */
     id?: string | null;
     /**
-     * The name property
+     * The name of the permission.
      */
     name?: string | null;
     /**
@@ -4777,11 +4777,11 @@ export interface ApplicationsRequiredResourceAccess extends AdditionalDataHolder
      */
     odataType?: string | null;
     /**
-     * The permissions property
+     * The collection of resource permissions required by the application.
      */
     permissions?: ApplicationResourcePermission[] | null;
     /**
-     * The resourceAppId property
+     * The appId (client ID) of the resource that the application needs to access.
      */
     resourceAppId?: string | null;
 }
@@ -7274,27 +7274,27 @@ export interface B2bRegistrationMetrics extends Entity, Parsable {
 }
 export interface B2BRegistrationMetricsBase extends Entity, Parsable {
     /**
-     * The inboundTotalUsers property
+     * The total number of inbound B2B guest users registered.
      */
     inboundTotalUsers?: number | null;
     /**
-     * The outboundTotalUsers property
+     * The total number of outbound B2B users from this tenant registered in other tenants.
      */
     outboundTotalUsers?: number | null;
     /**
-     * The watermarkDateTime property
+     * The date and time when the metrics snapshot was taken.
      */
     watermarkDateTime?: Date | null;
 }
 export interface B2BRegistrationMetricsInitial extends B2BRegistrationMetricsBase, Parsable {
     /**
-     * The createdDateTime property
+     * Timestamp that represents the date time that B2B registration data was initially aggregated.
      */
     createdDateTime?: Date | null;
 }
 export interface B2BRegistrationMetricsRecent extends B2BRegistrationMetricsBase, Parsable {
     /**
-     * The updateDateTime property
+     * Timestamp that represents the most recent time B2B registration data was aggregated and have sufficiently changed for the related tenant.
      */
     updateDateTime?: Date | null;
 }
@@ -7310,35 +7310,35 @@ export interface B2BSignInActivityMetrics extends Entity, Parsable {
 }
 export interface B2BSignInActivityMetricsBase extends Entity, Parsable {
     /**
-     * The inboundMonthlyTotalApplications property
+     * The total number of applications accessed by inbound users in the last month.
      */
     inboundMonthlyTotalApplications?: number | null;
     /**
-     * The inboundMonthlyTotalUsers property
+     * The total number of unique inbound users with sign-in activity in the last month.
      */
     inboundMonthlyTotalUsers?: number | null;
     /**
-     * The outboundMonthlyTotalApplications property
+     * The total number of applications accessed by outbound users in the last month.
      */
     outboundMonthlyTotalApplications?: number | null;
     /**
-     * The outboundMonthlyTotalUsers property
+     * The total number of unique outbound users with sign-in activity in the last month.
      */
     outboundMonthlyTotalUsers?: number | null;
     /**
-     * The watermarkDateTime property
+     * The date and time when the metrics snapshot was taken.
      */
     watermarkDateTime?: Date | null;
 }
 export interface B2BSignInActivityMetricsInitial extends B2BSignInActivityMetricsBase, Parsable {
     /**
-     * The createdDateTime property
+     * Timestamp that represents when the time B2B sign-in activity content was initially aggregated for the related tenant.
      */
     createdDateTime?: Date | null;
 }
 export interface B2BSignInActivityMetricsRecent extends B2BSignInActivityMetricsBase, Parsable {
     /**
-     * The updateDateTime property
+     * Timestamp that represents the most recent time B2B registration data was aggregated and have sufficiently changed for the related tenant.
      */
     updateDateTime?: Date | null;
 }
@@ -7680,47 +7680,47 @@ export interface BillingMetrics extends Entity, Parsable {
 }
 export interface BillingMetricsBase extends Entity, Parsable {
     /**
-     * The foreignAssociatedTenantBillingManagementActiveCount property
+     * The number of foreign associated tenants with active billing management.
      */
     foreignAssociatedTenantBillingManagementActiveCount?: number | null;
     /**
-     * The foreignAssociatedTenantCount property
+     * The total number of foreign associated tenants.
      */
     foreignAssociatedTenantCount?: number | null;
     /**
-     * The foreignAssociatedTenantProvisioningActiveCount property
+     * The number of foreign associated tenants with active provisioning.
      */
     foreignAssociatedTenantProvisioningActiveCount?: number | null;
     /**
-     * The localAssociatedTenantBillingManagementActiveCount property
+     * The number of local associated tenants with active billing management.
      */
     localAssociatedTenantBillingManagementActiveCount?: number | null;
     /**
-     * The localAssociatedTenantCount property
+     * The total number of local associated tenants.
      */
     localAssociatedTenantCount?: number | null;
     /**
-     * The localAssociatedTenantIds property
+     * The list of local associated tenant IDs.
      */
     localAssociatedTenantIds?: string[] | null;
     /**
-     * The localAssociatedTenantProvisioningActiveCount property
+     * The number of local associated tenants with active provisioning.
      */
     localAssociatedTenantProvisioningActiveCount?: number | null;
     /**
-     * The watermarkDateTime property
+     * The date and time when the metrics snapshot was taken.
      */
     watermarkDateTime?: Date | null;
 }
 export interface BillingMetricsInitial extends BillingMetricsBase, Parsable {
     /**
-     * The createdDateTime property
+     * Timestamp that represents when billing metrics are initially aggregated for the related tenant.
      */
     createdDateTime?: Date | null;
 }
 export interface BillingMetricsRecent extends BillingMetricsBase, Parsable {
     /**
-     * The updateDateTime property
+     * Timestamp that represents when billing metrics are aggregated and have sufficiently changed for the related tenant.
      */
     updateDateTime?: Date | null;
 }
@@ -21313,6 +21313,8 @@ export function createCustomCalloutExtensionFromDiscriminatorValue(parseNode: Pa
                     return deserializeIntoOnTokenIssuanceStartCustomExtension;
                 case "#microsoft.graph.onVerifiedIdClaimValidationCustomExtension":
                     return deserializeIntoOnVerifiedIdClaimValidationCustomExtension;
+                case "#microsoft.graph.roleManagementCustomCalloutExtension":
+                    return deserializeIntoRoleManagementCustomCalloutExtension;
             }
         }
     }
@@ -26466,6 +26468,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoRoleAssignment;
                 case "#microsoft.graph.roleDefinition":
                     return deserializeIntoRoleDefinition;
+                case "#microsoft.graph.roleManagementCustomCalloutExtension":
+                    return deserializeIntoRoleManagementCustomCalloutExtension;
                 case "#microsoft.graph.room":
                     return deserializeIntoRoom;
                 case "#microsoft.graph.roomList":
@@ -26978,6 +26982,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoUnifiedRoleManagementPolicyAssignment;
                 case "#microsoft.graph.unifiedRoleManagementPolicyAuthenticationContextRule":
                     return deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule;
+                case "#microsoft.graph.unifiedRoleManagementPolicyCustomExtensionRule":
+                    return deserializeIntoUnifiedRoleManagementPolicyCustomExtensionRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule":
                     return deserializeIntoUnifiedRoleManagementPolicyEnablementRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyExpirationRule":
@@ -37621,6 +37627,24 @@ export function createRoleDefinitionFromDiscriminatorValue(parseNode: ParseNode 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RoleManagementCustomCalloutExtensionCollectionResponse}
+ */
+// @ts-ignore
+export function createRoleManagementCustomCalloutExtensionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRoleManagementCustomCalloutExtensionCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RoleManagementCustomCalloutExtension}
+ */
+// @ts-ignore
+export function createRoleManagementCustomCalloutExtensionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRoleManagementCustomCalloutExtension;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RoleManagement}
  */
 // @ts-ignore
@@ -41959,6 +41983,15 @@ export function createUnifiedRoleManagementPolicyCollectionResponseFromDiscrimin
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {UnifiedRoleManagementPolicyCustomExtensionRule}
+ */
+// @ts-ignore
+export function createUnifiedRoleManagementPolicyCustomExtensionRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoUnifiedRoleManagementPolicyCustomExtensionRule;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {UnifiedRoleManagementPolicyEnablementRule}
  */
 // @ts-ignore
@@ -42018,6 +42051,8 @@ export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(pars
                     return deserializeIntoUnifiedRoleManagementPolicyApprovalRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyAuthenticationContextRule":
                     return deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule;
+                case "#microsoft.graph.unifiedRoleManagementPolicyCustomExtensionRule":
+                    return deserializeIntoUnifiedRoleManagementPolicyCustomExtensionRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule":
                     return deserializeIntoUnifiedRoleManagementPolicyEnablementRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyExpirationRule":
@@ -45895,6 +45930,7 @@ export interface CustomCalloutExtensionCollectionResponse extends BaseCollection
      */
     value?: CustomCalloutExtension[] | null;
 }
+export type CustomCalloutExtensionType = (typeof CustomCalloutExtensionTypeObject)[keyof typeof CustomCalloutExtensionTypeObject];
 export interface CustomDataProvidedResource extends AccessPackageResource, Parsable {
     /**
      * The endpoint configuration of the logic app that is triggered when the access review for this resource goes into an initializing state.
@@ -46099,6 +46135,7 @@ export interface CustomExtensionOverwriteConfiguration extends AdditionalDataHol
      */
     odataType?: string | null;
 }
+export type CustomExtensionResourceType = (typeof CustomExtensionResourceTypeObject)[keyof typeof CustomExtensionResourceTypeObject];
 export interface CustomExtensionStageSetting extends Entity, Parsable {
     /**
      * Indicates the custom workflow extension that will be executed at this stage. Nullable. Supports $expand.
@@ -46590,7 +46627,7 @@ export interface DelegatedAdministrationRoleAssignment extends AdditionalDataHol
      */
     group?: Group | null;
     /**
-     * The groupDisplayName property
+     * The display name of the security group referenced by the group navigation property. Server-populated and read-only; returns null if the referenced group has been deleted.
      */
     groupDisplayName?: string | null;
     /**
@@ -46598,7 +46635,7 @@ export interface DelegatedAdministrationRoleAssignment extends AdditionalDataHol
      */
     odataType?: string | null;
     /**
-     * The roleTemplates property
+     * A collection of role templates that define the roles to be assigned to the group in the governed tenant.
      */
     roleTemplates?: RoleTemplate[] | null;
 }
@@ -46608,11 +46645,11 @@ export interface DelegatedAdministrationRoleAssignmentSnapshot extends Additiona
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The groupDisplayName property
+     * The display name of the security group identified by groupId at the time the snapshot was created. Read-only.
      */
     groupDisplayName?: string | null;
     /**
-     * The groupId property
+     * The object ID of the role-assignable security group in the governing tenant that will be assigned the specified roles.
      */
     groupId?: string | null;
     /**
@@ -46620,7 +46657,7 @@ export interface DelegatedAdministrationRoleAssignmentSnapshot extends Additiona
      */
     odataType?: string | null;
     /**
-     * The roleTemplates property
+     * The collection of role templates that define the Microsoft Entra roles to be assigned.
      */
     roleTemplates?: RoleTemplate[] | null;
 }
@@ -74754,6 +74791,7 @@ export function deserializeIntoPrivilegedAccessGroupEligibilityScheduleRequestCo
 export function deserializeIntoPrivilegedAccessRoot(privilegedAccessRoot: Partial<PrivilegedAccessRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(privilegedAccessRoot),
+        "customExtensions": n => { privilegedAccessRoot.customExtensions = n.getCollectionOfObjectValues<RoleManagementCustomCalloutExtension>(createRoleManagementCustomCalloutExtensionFromDiscriminatorValue); },
         "group": n => { privilegedAccessRoot.group = n.getObjectValue<PrivilegedAccessGroup>(createPrivilegedAccessGroupFromDiscriminatorValue); },
     }
 }
@@ -77154,6 +77192,32 @@ export function deserializeIntoRoleManagement(roleManagement: Partial<RoleManage
         "directory": n => { roleManagement.directory = n.getObjectValue<RbacApplication>(createRbacApplicationFromDiscriminatorValue); },
         "entitlementManagement": n => { roleManagement.entitlementManagement = n.getObjectValue<RbacApplication>(createRbacApplicationFromDiscriminatorValue); },
         "@odata.type": n => { roleManagement.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RoleManagementCustomCalloutExtension The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRoleManagementCustomCalloutExtension(roleManagementCustomCalloutExtension: Partial<RoleManagementCustomCalloutExtension> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoCustomCalloutExtension(roleManagementCustomCalloutExtension),
+        "customAttributes": n => { roleManagementCustomCalloutExtension.customAttributes = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "resourceType": n => { roleManagementCustomCalloutExtension.resourceType = n.getEnumValue<CustomExtensionResourceType>(CustomExtensionResourceTypeObject); },
+        "type": n => { roleManagementCustomCalloutExtension.type = n.getEnumValue<CustomCalloutExtensionType>(CustomCalloutExtensionTypeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RoleManagementCustomCalloutExtensionCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRoleManagementCustomCalloutExtensionCollectionResponse(roleManagementCustomCalloutExtensionCollectionResponse: Partial<RoleManagementCustomCalloutExtensionCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(roleManagementCustomCalloutExtensionCollectionResponse),
+        "value": n => { roleManagementCustomCalloutExtensionCollectionResponse.value = n.getCollectionOfObjectValues<RoleManagementCustomCalloutExtension>(createRoleManagementCustomCalloutExtensionFromDiscriminatorValue); },
     }
 }
 /**
@@ -80753,6 +80817,9 @@ export function deserializeIntoSubscription(subscription: Partial<Subscription> 
         "notificationUrl": n => { subscription.notificationUrl = n.getStringValue(); },
         "notificationUrlAppId": n => { subscription.notificationUrlAppId = n.getStringValue(); },
         "resource": n => { subscription.resource = n.getStringValue(); },
+        "vapidPublicKey": n => { subscription.vapidPublicKey = n.getStringValue(); },
+        "webPushEncryptionP256dhPublicKey": n => { subscription.webPushEncryptionP256dhPublicKey = n.getStringValue(); },
+        "webPushEncryptionSecret": n => { subscription.webPushEncryptionSecret = n.getStringValue(); },
     }
 }
 /**
@@ -83666,6 +83733,21 @@ export function deserializeIntoUnifiedRoleManagementPolicyCollectionResponse(uni
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(unifiedRoleManagementPolicyCollectionResponse),
         "value": n => { unifiedRoleManagementPolicyCollectionResponse.value = n.getCollectionOfObjectValues<UnifiedRoleManagementPolicy>(createUnifiedRoleManagementPolicyFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param UnifiedRoleManagementPolicyCustomExtensionRule The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoUnifiedRoleManagementPolicyCustomExtensionRule(unifiedRoleManagementPolicyCustomExtensionRule: Partial<UnifiedRoleManagementPolicyCustomExtensionRule> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoUnifiedRoleManagementPolicyRule(unifiedRoleManagementPolicyCustomExtensionRule),
+        "customAttributes": n => { unifiedRoleManagementPolicyCustomExtensionRule.customAttributes = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "customExtensionId": n => { unifiedRoleManagementPolicyCustomExtensionRule.customExtensionId = n.getStringValue(); },
+        "displayName": n => { unifiedRoleManagementPolicyCustomExtensionRule.displayName = n.getStringValue(); },
+        "isEnabled": n => { unifiedRoleManagementPolicyCustomExtensionRule.isEnabled = n.getBooleanValue(); },
     }
 }
 /**
@@ -92247,7 +92329,7 @@ export interface Directory extends Entity, Parsable {
      */
     subscriptions?: CompanySubscription[] | null;
     /**
-     * The tenantGovernance property
+     * Container for Microsoft Entra Tenant Governance capabilities.
      */
     tenantGovernance?: TenantGovernance | null;
 }
@@ -95527,6 +95609,7 @@ export interface ErrorDetail extends AdditionalDataHolder, BackedModel, Parsable
      */
     resourceType?: string | null;
 }
+export type EvaluationOutcome = (typeof EvaluationOutcomeObject)[keyof typeof EvaluationOutcomeObject];
 export interface Event extends OutlookItem, Parsable {
     /**
      * true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. The default is true.
@@ -96867,7 +96950,7 @@ export interface FileStorageContainerTypeSettings extends AdditionalDataHolder, 
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue.
+     * A comma-separated list of settings that can be overridden in the consuming tenant. The possible values are: urlTemplate, isDiscoverabilityEnabled, isSearchEnabled, isItemVersioningEnabled, itemMajorVersionLimit, maxStoragePerContainerInBytes, unknownFutureValue, isOfficeRestricted.
      */
     consumingTenantOverridables?: FileStorageContainerTypeSettingsOverride[] | null;
     /**
@@ -97255,27 +97338,27 @@ export interface GovernanceInsightCollectionResponse extends BaseCollectionPagin
 }
 export interface GovernanceInvitation extends Entity, Parsable {
     /**
-     * The createdDateTime property
+     * The date and time when the invitation was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. Supports $filter (lt, le, gt, ge, eq, ne) and $orderBy.
      */
     createdDateTime?: Date | null;
     /**
-     * The expirationDateTime property
+     * The date and time when the invitation expires. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. Supports $filter (lt, le, gt, ge, eq, ne) and $orderBy.
      */
     expirationDateTime?: Date | null;
     /**
-     * The governedTenantId property
+     * The Microsoft Entra tenant ID of the governed tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governedTenantId?: string | null;
     /**
-     * The governedTenantName property
+     * The display name of the governed tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governedTenantName?: string | null;
     /**
-     * The governingTenantId property
+     * The Microsoft Entra tenant ID of the governing tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governingTenantId?: string | null;
     /**
-     * The governingTenantName property
+     * The display name of the governing tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governingTenantName?: string | null;
 }
@@ -97291,23 +97374,23 @@ export interface GovernanceRelationship extends Entity, Parsable {
      */
     createdType?: RelationshipCreationType | null;
     /**
-     * The creationDateTime property
+     * The date and time when the relationship was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2026 is 2026-01-01T00:00:00Z. Supports $filter (lt, le, gt, ge, eq, ne) and $orderBy.
      */
     creationDateTime?: Date | null;
     /**
-     * The governedTenantId property
+     * The Microsoft Entra tenant ID of the governed tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governedTenantId?: string | null;
     /**
-     * The governedTenantName property
+     * The display name of the governed tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governedTenantName?: string | null;
     /**
-     * The governingTenantId property
+     * The Microsoft Entra tenant ID of the governing tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governingTenantId?: string | null;
     /**
-     * The governingTenantName property
+     * The display name of the governing tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governingTenantName?: string | null;
     /**
@@ -97327,27 +97410,27 @@ export interface GovernanceRelationshipCollectionResponse extends BaseCollection
 }
 export interface GovernanceRequest extends Entity, Parsable {
     /**
-     * The expirationDateTime property
+     * The date and time when the request expires if not accepted or rejected. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. Supports $filter (lt, le, gt, ge, eq, ne) and $orderBy.
      */
     expirationDateTime?: Date | null;
     /**
-     * The governancePolicyTemplate property
+     * The governance policy template associated with this request.
      */
     governancePolicyTemplate?: TenantGovernancePolicyTemplate | null;
     /**
-     * The governedTenantId property
+     * The Microsoft Entra tenant ID of the governed tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governedTenantId?: string | null;
     /**
-     * The governedTenantName property
+     * The display name of the governed tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governedTenantName?: string | null;
     /**
-     * The governingTenantId property
+     * The Microsoft Entra tenant ID of the governing tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governingTenantId?: string | null;
     /**
-     * The governingTenantName property
+     * The display name of the governing tenant. Supports $filter (eq, ne) and $orderBy.
      */
     governingTenantName?: string | null;
     /**
@@ -97355,7 +97438,7 @@ export interface GovernanceRequest extends Entity, Parsable {
      */
     policySnapshot?: RelationshipPolicy | null;
     /**
-     * The requestDateTime property
+     * The date and time when the request was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. Supports $filter (lt, le, gt, ge, eq, ne) and $orderBy.
      */
     requestDateTime?: Date | null;
     /**
@@ -105316,33 +105399,33 @@ export interface MultiTenantApplicationMetrics extends Entity, Parsable {
 }
 export interface MultiTenantApplicationMetricsBase extends Entity, Parsable {
     /**
-     * The inboundMonthlyTotalApplications property
+     * The total number of inbound multi-tenant applications in the last month.
      */
     inboundMonthlyTotalApplications?: number | null;
     /**
-     * The outboundMonthlyTotalApplications property
+     * The total number of outbound multi-tenant applications in the last month.
      */
     outboundMonthlyTotalApplications?: number | null;
     /**
-     * The watermarkDateTime property
+     * The date and time when the metrics snapshot was taken.
      */
     watermarkDateTime?: Date | null;
 }
 export interface MultiTenantApplicationMetricsInitial extends MultiTenantApplicationMetricsBase, Parsable {
     /**
-     * The createdDateTime property
+     * Timestamp that represents when multitenant application metrics are initially aggregated for the related tenant.
      */
     createdDateTime?: Date | null;
 }
 export interface MultiTenantApplicationMetricsRecent extends MultiTenantApplicationMetricsBase, Parsable {
     /**
-     * The updateDateTime property
+     * Timestamp that represents when multitenant application metrics are aggregated and have sufficiently changed for the related tenant.
      */
     updateDateTime?: Date | null;
 }
 export interface MultiTenantApplicationsToProvision extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The appId property
+     * The appId (client ID) of the multi-tenant application.
      */
     appId?: string | null;
     /**
@@ -105350,11 +105433,11 @@ export interface MultiTenantApplicationsToProvision extends AdditionalDataHolder
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The displayName property
+     * The display name of the application.
      */
     displayName?: string | null;
     /**
-     * The objectId property
+     * The object ID of the service principal in the governing tenant.
      */
     objectId?: string | null;
     /**
@@ -105362,13 +105445,13 @@ export interface MultiTenantApplicationsToProvision extends AdditionalDataHolder
      */
     odataType?: string | null;
     /**
-     * The requiredResourceAccesses property
+     * The collection of resource accesses (permissions) required by the application.
      */
     requiredResourceAccesses?: ApplicationsRequiredResourceAccess[] | null;
 }
 export interface MultiTenantApplicationsToProvisionSnapshot extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The appId property
+     * The appId (client ID) of the multi-tenant application.
      */
     appId?: string | null;
     /**
@@ -105376,11 +105459,11 @@ export interface MultiTenantApplicationsToProvisionSnapshot extends AdditionalDa
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The displayName property
+     * The display name of the application.
      */
     displayName?: string | null;
     /**
-     * The objectId property
+     * The object ID of the service principal in the governing tenant.
      */
     objectId?: string | null;
     /**
@@ -105388,7 +105471,7 @@ export interface MultiTenantApplicationsToProvisionSnapshot extends AdditionalDa
      */
     odataType?: string | null;
     /**
-     * The requiredResourceAccesses property
+     * The collection of resource accesses (permissions) required by the application.
      */
     requiredResourceAccesses?: ApplicationsRequiredResourceAccess[] | null;
 }
@@ -111521,6 +111604,10 @@ export type PrivilegedAccessGroupMemberType = (typeof PrivilegedAccessGroupMembe
 export type PrivilegedAccessGroupRelationships = (typeof PrivilegedAccessGroupRelationshipsObject)[keyof typeof PrivilegedAccessGroupRelationshipsObject];
 export interface PrivilegedAccessRoot extends Entity, Parsable {
     /**
+     * The customExtensions property
+     */
+    customExtensions?: RoleManagementCustomCalloutExtension[] | null;
+    /**
      * A group that's governed through Privileged Identity Management (PIM).
      */
     group?: PrivilegedAccessGroup | null;
@@ -113295,31 +113382,31 @@ export interface RelatedContact extends AdditionalDataHolder, BackedModel, Parsa
 }
 export interface RelatedTenant extends Entity, Parsable {
     /**
-     * The appB2BSignInActivityMetrics property
+     * B2B sign-in activity metrics for this related tenant. Expanded by default.
      */
     appB2BSignInActivityMetrics?: B2BSignInActivityMetrics | null;
     /**
-     * The b2BRegistrationMetrics property
+     * B2B registration metrics for this related tenant. Expanded by default.
      */
     b2BRegistrationMetrics?: B2bRegistrationMetrics | null;
     /**
-     * The b2BSignInActivityMetrics property
+     * B2B sign-in activity metrics for this related tenant. Expanded by default.
      */
     b2BSignInActivityMetrics?: B2BSignInActivityMetrics | null;
     /**
-     * The billingMetrics property
+     * Billing metrics for this related tenant. Expanded by default.
      */
     billingMetrics?: BillingMetrics | null;
     /**
-     * The createdDateTime property
+     * The date and time when the related tenant was discovered. The timestamp type represents date and time information using ISO 8601 format and is always in UTC.
      */
     createdDateTime?: Date | null;
     /**
-     * Indicates whether this tenant is a Microsoft infrastructure tenant.
+     * Indicates whether the related tenant is a Microsoft infrastructure tenant. Read-only.
      */
     isMicrosoftInfrastructure?: boolean | null;
     /**
-     * The multiTenantApplicationMetrics property
+     * Multi-tenant application usage metrics for this related tenant. Expanded by default.
      */
     multiTenantApplicationMetrics?: MultiTenantApplicationMetrics | null;
 }
@@ -113331,7 +113418,7 @@ export interface RelatedTenantCollectionResponse extends BaseCollectionPaginatio
 }
 export interface RelatedTenantsRefreshRequest extends Entity, Parsable {
     /**
-     * The location property
+     * The location URL where the status of the refresh request can be retrieved.
      */
     location?: string | null;
 }
@@ -113342,15 +113429,15 @@ export interface RelationshipPolicy extends AdditionalDataHolder, BackedModel, P
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The delegatedAdministrationRoleAssignments property
+     * A snapshot of the delegated administration role assignments configured in this policy.
      */
     delegatedAdministrationRoleAssignments?: DelegatedAdministrationRoleAssignmentSnapshot[] | null;
     /**
-     * The governedTenantCanTerminate property
+     * Indicates whether the governed tenant can terminate the relationship.
      */
     governedTenantCanTerminate?: boolean | null;
     /**
-     * The multiTenantApplicationsToProvision property
+     * A snapshot of the multi-tenant applications to be provisioned in the governed tenant.
      */
     multiTenantApplicationsToProvision?: MultiTenantApplicationsToProvisionSnapshot[] | null;
     /**
@@ -113358,11 +113445,11 @@ export interface RelationshipPolicy extends AdditionalDataHolder, BackedModel, P
      */
     odataType?: string | null;
     /**
-     * The policyId property
+     * The identifier of the source policy template from which this snapshot was created.
      */
     policyId?: string | null;
     /**
-     * The version property
+     * The version of the source policy template from which this snapshot was created.
      */
     version?: number | null;
 }
@@ -114818,6 +114905,26 @@ export interface RoleManagement extends AdditionalDataHolder, BackedModel, Parsa
      */
     odataType?: string | null;
 }
+export interface RoleManagementCustomCalloutExtension extends CustomCalloutExtension, Parsable {
+    /**
+     * The customAttributes property
+     */
+    customAttributes?: string[] | null;
+    /**
+     * The resourceType property
+     */
+    resourceType?: CustomExtensionResourceType | null;
+    /**
+     * The type property
+     */
+    type?: CustomCalloutExtensionType | null;
+}
+export interface RoleManagementCustomCalloutExtensionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: RoleManagementCustomCalloutExtension[] | null;
+}
 /**
  * Contains the set of ResourceActions determining the allowed and not allowed permissions for each role.
  */
@@ -114841,11 +114948,11 @@ export interface RoleTemplate extends AdditionalDataHolder, BackedModel, Parsabl
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The id property
+     * The template ID of the Microsoft Entra role (e.g., 62e90394-69f5-4237-9190-012177145e10 for Global Administrator).
      */
     id?: string | null;
     /**
-     * The name property
+     * The display name of the role (e.g., 'Global Administrator', 'Helpdesk Administrator').
      */
     name?: string | null;
     /**
@@ -127541,6 +127648,9 @@ export function serializeCustomCalloutExtension(writer: SerializationWriter, cus
         case "#microsoft.graph.onVerifiedIdClaimValidationCustomExtension":
             serializeOnVerifiedIdClaimValidationCustomExtension(writer, customCalloutExtension, true);
         break;
+        case "#microsoft.graph.roleManagementCustomCalloutExtension":
+            serializeRoleManagementCustomCalloutExtension(writer, customCalloutExtension, true);
+        break;
     }
 }
 /**
@@ -135415,6 +135525,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.roleDefinition":
             serializeRoleDefinition(writer, entity, true);
         break;
+        case "#microsoft.graph.roleManagementCustomCalloutExtension":
+            serializeRoleManagementCustomCalloutExtension(writer, entity, true);
+        break;
         case "#microsoft.graph.room":
             serializeRoom(writer, entity, true);
         break;
@@ -136182,6 +136295,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.unifiedRoleManagementPolicyAuthenticationContextRule":
             serializeUnifiedRoleManagementPolicyAuthenticationContextRule(writer, entity, true);
+        break;
+        case "#microsoft.graph.unifiedRoleManagementPolicyCustomExtensionRule":
+            serializeUnifiedRoleManagementPolicyCustomExtensionRule(writer, entity, true);
         break;
         case "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule":
             serializeUnifiedRoleManagementPolicyEnablementRule(writer, entity, true);
@@ -149835,6 +149951,7 @@ export function serializePrivilegedAccessGroupEligibilityScheduleRequestCollecti
 export function serializePrivilegedAccessRoot(writer: SerializationWriter, privilegedAccessRoot: Partial<PrivilegedAccessRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!privilegedAccessRoot || isSerializingDerivedType) { return; }
     serializeEntity(writer, privilegedAccessRoot, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RoleManagementCustomCalloutExtension>("customExtensions", privilegedAccessRoot.customExtensions, serializeRoleManagementCustomCalloutExtension);
     writer.writeObjectValue<PrivilegedAccessGroup>("group", privilegedAccessRoot.group, serializePrivilegedAccessGroup);
 }
 /**
@@ -152404,6 +152521,32 @@ export function serializeRoleManagement(writer: SerializationWriter, roleManagem
     writer.writeObjectValue<RbacApplication>("entitlementManagement", roleManagement.entitlementManagement, serializeRbacApplication);
     writer.writeStringValue("@odata.type", roleManagement.odataType);
     writer.writeAdditionalData(roleManagement.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RoleManagementCustomCalloutExtension The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRoleManagementCustomCalloutExtension(writer: SerializationWriter, roleManagementCustomCalloutExtension: Partial<RoleManagementCustomCalloutExtension> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!roleManagementCustomCalloutExtension || isSerializingDerivedType) { return; }
+    serializeCustomCalloutExtension(writer, roleManagementCustomCalloutExtension, isSerializingDerivedType)
+    writer.writeCollectionOfPrimitiveValues<string>("customAttributes", roleManagementCustomCalloutExtension.customAttributes);
+    writer.writeEnumValue<CustomExtensionResourceType>("resourceType", roleManagementCustomCalloutExtension.resourceType);
+    writer.writeEnumValue<CustomCalloutExtensionType>("type", roleManagementCustomCalloutExtension.type);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RoleManagementCustomCalloutExtensionCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRoleManagementCustomCalloutExtensionCollectionResponse(writer: SerializationWriter, roleManagementCustomCalloutExtensionCollectionResponse: Partial<RoleManagementCustomCalloutExtensionCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!roleManagementCustomCalloutExtensionCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, roleManagementCustomCalloutExtensionCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<RoleManagementCustomCalloutExtension>("value", roleManagementCustomCalloutExtensionCollectionResponse.value, serializeRoleManagementCustomCalloutExtension);
 }
 /**
  * Serializes information the current object
@@ -156198,6 +156341,9 @@ export function serializeSubscription(writer: SerializationWriter, subscription:
     writer.writeStringValue("notificationUrl", subscription.notificationUrl);
     writer.writeStringValue("notificationUrlAppId", subscription.notificationUrlAppId);
     writer.writeStringValue("resource", subscription.resource);
+    writer.writeStringValue("vapidPublicKey", subscription.vapidPublicKey);
+    writer.writeStringValue("webPushEncryptionP256dhPublicKey", subscription.webPushEncryptionP256dhPublicKey);
+    writer.writeStringValue("webPushEncryptionSecret", subscription.webPushEncryptionSecret);
 }
 /**
  * Serializes information the current object
@@ -159205,6 +159351,21 @@ export function serializeUnifiedRoleManagementPolicyCollectionResponse(writer: S
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UnifiedRoleManagementPolicyCustomExtensionRule The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeUnifiedRoleManagementPolicyCustomExtensionRule(writer: SerializationWriter, unifiedRoleManagementPolicyCustomExtensionRule: Partial<UnifiedRoleManagementPolicyCustomExtensionRule> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!unifiedRoleManagementPolicyCustomExtensionRule || isSerializingDerivedType) { return; }
+    serializeUnifiedRoleManagementPolicyRule(writer, unifiedRoleManagementPolicyCustomExtensionRule, isSerializingDerivedType)
+    writer.writeCollectionOfPrimitiveValues<string>("customAttributes", unifiedRoleManagementPolicyCustomExtensionRule.customAttributes);
+    writer.writeStringValue("customExtensionId", unifiedRoleManagementPolicyCustomExtensionRule.customExtensionId);
+    writer.writeStringValue("displayName", unifiedRoleManagementPolicyCustomExtensionRule.displayName);
+    writer.writeBooleanValue("isEnabled", unifiedRoleManagementPolicyCustomExtensionRule.isEnabled);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param UnifiedRoleManagementPolicyEnablementRule The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -159260,6 +159421,9 @@ export function serializeUnifiedRoleManagementPolicyRule(writer: SerializationWr
         break;
         case "#microsoft.graph.unifiedRoleManagementPolicyAuthenticationContextRule":
             serializeUnifiedRoleManagementPolicyAuthenticationContextRule(writer, unifiedRoleManagementPolicyRule, true);
+        break;
+        case "#microsoft.graph.unifiedRoleManagementPolicyCustomExtensionRule":
+            serializeUnifiedRoleManagementPolicyCustomExtensionRule(writer, unifiedRoleManagementPolicyRule, true);
         break;
         case "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule":
             serializeUnifiedRoleManagementPolicyEnablementRule(writer, unifiedRoleManagementPolicyRule, true);
@@ -165589,7 +165753,7 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
      */
     appRoleAssignments?: AppRoleAssignment[] | null;
     /**
-     * The roles exposed by the application that's linked to this service principal. For more information, see the appRoles property definition on the application entity. Not nullable.
+     * The roles exposed by the application that's linked to this service principal. For more information, see the appRoles property definition on the application entity. Not nullable. App roles and exposed delegated permission scopes (oauth2PermissionScopes) share a default limit of 700 permission definitions per service principal, including definitions inherited from the application and definitions added directly to the service principal. Enabled and disabled definitions both count. This limit counts definitions, not app role assignments. For counting rules, behavior for existing objects above the limit, and design guidance, see App role limits.
      */
     appRoles?: AppRole[] | null;
     /**
@@ -165677,7 +165841,7 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
      */
     oauth2PermissionGrants?: OAuth2PermissionGrant[] | null;
     /**
-     * The delegated permissions exposed by the application. For more information, see the oauth2PermissionScopes property on the application entity's api property. Not nullable.
+     * The delegated permissions exposed by the application. For more information, see the oauth2PermissionScopes property on the application entity's api property. Not nullable. These scopes and appRoles share a default limit of 700 permission definitions per service principal. Enabled and disabled definitions both count. For counting rules, behavior for existing objects above the limit, and design guidance, see App role limits.
      */
     oauth2PermissionScopes?: PermissionScope[] | null;
     /**
@@ -168816,6 +168980,18 @@ export interface Subscription extends Entity, Parsable {
      * Required. Specifies the resource that is monitored for changes. Don't include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
      */
     resource?: string | null;
+    /**
+     * Optional. The application server's VAPID public key, base64url-encoded (P-256 uncompressed point, 65 bytes pre-encoding). Obtained by calling the getVapidPublicKey function on the subscription collection. The browser passes this value to PushManager.subscribe({ applicationServerKey: vapidPublicKey }) to bind the push subscription to this server identity. Required when notificationUrl targets a known Web Push service origin (for example, *.push.apple.com, fcm.googleapis.com, updates.push.services.mozilla.com); rejected with 400 Bad Request if supplied on a standard webhook subscription. For more information, see RFC 8292.
+     */
+    vapidPublicKey?: string | null;
+    /**
+     * Optional. The subscriber's ECDH public key, base64url-encoded (P-256 uncompressed point, 65 bytes pre-encoding). Obtained from the browser via PushSubscription.getKey('p256dh'). Used as the peer public key during ECDH key agreement to derive the per-message content encryption key for RFC 8291 payload encryption. Required when notificationUrl targets a known Web Push service origin; rejected with 400 Bad Request if supplied on a standard webhook subscription. For more information, see RFC 8291 Section 3.
+     */
+    webPushEncryptionP256dhPublicKey?: string | null;
+    /**
+     * Optional. The subscriber's auth secret, base64url-encoded (16 bytes pre-encoding). Obtained from the browser via PushSubscription.getKey('auth'). Used as the HMAC-SHA-256 salt for the HKDF combine step that derives key material for RFC 8291 payload encryption. Write-only: this value is never returned in GET responses (returned as null). Treat as a secret. Required when notificationUrl targets a known Web Push service origin; rejected with 400 Bad Request if supplied on a standard webhook subscription. For more information, see RFC 8291 Section 3.
+     */
+    webPushEncryptionSecret?: string | null;
 }
 export interface SubscriptionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -170587,61 +170763,61 @@ export interface TenantDataSecurityAndGovernance extends DataSecurityAndGovernan
 }
 export interface TenantGovernance extends Entity, Parsable {
     /**
-     * The governanceInvitations property
+     * Collection of governance invitations associated with the tenant.
      */
     governanceInvitations?: GovernanceInvitation[] | null;
     /**
-     * The governancePolicyTemplates property
+     * Collection of governance policy templates associated with the tenant.
      */
     governancePolicyTemplates?: TenantGovernancePolicyTemplate[] | null;
     /**
-     * The governanceRelationships property
+     * Collection of governance relationships associated with the tenant.
      */
     governanceRelationships?: GovernanceRelationship[] | null;
     /**
-     * The governanceRequests property
+     * Collection of governance requests associated with the tenant.
      */
     governanceRequests?: GovernanceRequest[] | null;
     /**
-     * The relatedTenants property
+     * Collection of related tenants associated with the tenant.
      */
     relatedTenants?: RelatedTenant[] | null;
     /**
-     * The settings property
+     * Settings for the tenant governance container.
      */
     settings?: TenantGovernanceSetting | null;
 }
 export interface TenantGovernancePolicyTemplate extends Entity, Parsable {
     /**
-     * The createdDateTime property
+     * The date and time when the template was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. Supports $filter (lt, le, gt, ge, eq, ne) and $orderBy.
      */
     createdDateTime?: Date | null;
     /**
-     * The delegatedAdministrationRoleAssignments property
+     * A collection of delegated administration role assignments to be applied in the governed tenant when the governance relationship is established.
      */
     delegatedAdministrationRoleAssignments?: DelegatedAdministrationRoleAssignment[] | null;
     /**
-     * The description property
+     * A description of the policy template. Supports $filter (eq, ne) and $orderBy.
      */
     description?: string | null;
     /**
-     * The displayName property
+     * The display name of the policy template. Supports $filter (eq, ne) and $orderBy.
      */
     displayName?: string | null;
     /**
-     * The governedTenantCanTerminate property
+     * Not implemented.
      */
     governedTenantCanTerminate?: boolean | null;
     /**
-     * The lastModifiedDateTime property
+     * The date and time when the template was last modified. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. Supports $filter (lt, le, gt, ge, eq, ne) and $orderBy.
      */
     lastModifiedDateTime?: Date | null;
     /**
-     * The multiTenantApplicationsToProvision property
+     * A collection of multi-tenant applications to be provisioned in the governed tenant when the governance relationship is established.
      */
     multiTenantApplicationsToProvision?: MultiTenantApplicationsToProvision[] | null;
     /**
-     * The version property
+     * The version of the policy template. Version count increased by 1 when updated. Supports $filter (lt, le, gt, ge, eq, ne) and $orderBy.
      */
     version?: string | null;
 }
@@ -170653,11 +170829,11 @@ export interface TenantGovernancePolicyTemplateCollectionResponse extends BaseCo
 }
 export interface TenantGovernanceSetting extends Entity, Parsable {
     /**
-     * The canReceiveInvitations property
+     * Indicates whether the tenant can receive governance invitations. When set to false, the tenant cannot receive new governance invitations. When set to true, other tenants can send your tenant invitations by providing your tenant id or domain name. Default value is false.
      */
     canReceiveInvitations?: boolean | null;
     /**
-     * The isRelatedTenantsEnabled property
+     * Indicates whether the related tenants feature is enabled for tenant discovery. When set to false, related tenant APIs don't work. This property can be enabled by calling the enableRelatedTenants action. Default value is false.
      */
     isRelatedTenantsEnabled?: boolean | null;
 }
@@ -172307,6 +172483,24 @@ export interface UnifiedRoleManagementPolicyCollectionResponse extends BaseColle
      * The value property
      */
     value?: UnifiedRoleManagementPolicy[] | null;
+}
+export interface UnifiedRoleManagementPolicyCustomExtensionRule extends Parsable, UnifiedRoleManagementPolicyRule {
+    /**
+     * The customAttributes property
+     */
+    customAttributes?: string[] | null;
+    /**
+     * The customExtensionId property
+     */
+    customExtensionId?: string | null;
+    /**
+     * The displayName property
+     */
+    displayName?: string | null;
+    /**
+     * The isEnabled property
+     */
+    isEnabled?: boolean | null;
 }
 export interface UnifiedRoleManagementPolicyEnablementRule extends Parsable, UnifiedRoleManagementPolicyRule {
     /**
@@ -183135,6 +183329,13 @@ export const CsaStarLevelObject = {
     NotSupported: "notSupported",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const CustomCalloutExtensionTypeObject = {
+    PreApproval: "preApproval",
+    PostApproval: "postApproval",
+    Grant: "grant",
+    Revoke: "revoke",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const CustomDataProvidedResourceUploadStatusObject = {
     Active: "active",
     Complete: "complete",
@@ -183147,6 +183348,12 @@ export const CustomExtensionCalloutInstanceStatusObject = {
     CalloutFailed: "calloutFailed",
     CallbackTimedOut: "callbackTimedOut",
     WaitingForCallback: "waitingForCallback",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const CustomExtensionResourceTypeObject = {
+    EntraRoles: "entraRoles",
+    AzureResources: "azureResources",
+    EntraGroups: "entraGroups",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const CustomSecurityAttributeComparisonOperatorObject = {
@@ -184032,6 +184239,11 @@ export const ErrorCorrectionLevelObject = {
     M: "m",
     Q: "q",
     H: "h",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const EvaluationOutcomeObject = {
+    Approved: "approved",
+    Denied: "denied",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const EventTypeObject = {

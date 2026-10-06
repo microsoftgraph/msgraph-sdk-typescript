@@ -27,28 +27,30 @@ export interface GovernanceInvitationsRequestBuilder extends BaseRequestBuilder<
      */
      byGovernanceInvitationId(governanceInvitationId: string) : GovernanceInvitationItemRequestBuilder;
     /**
-     * Get governanceInvitations from directory
+     * Get a list of the governanceInvitation objects and their properties. This API method returns all governance invitations where the calling tenant is either the governing tenant or the governed tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GovernanceInvitationCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-list-governanceinvitations?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GovernanceInvitationsRequestBuilderGetQueryParameters> | undefined) : Promise<GovernanceInvitationCollectionResponse | undefined>;
     /**
-     * Create new navigation property to governanceInvitations for directory
+     * Create a new governanceInvitation to establish a governance relationship with a governed tenant. Invitations provide an alternative mechanism to governance requests for initiating relationships.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GovernanceInvitation>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-post-governanceinvitations?view=graph-rest-1.0|Find more info here}
      */
      post(body: GovernanceInvitation, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GovernanceInvitation | undefined>;
     /**
-     * Get governanceInvitations from directory
+     * Get a list of the governanceInvitation objects and their properties. This API method returns all governance invitations where the calling tenant is either the governing tenant or the governed tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GovernanceInvitationsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to governanceInvitations for directory
+     * Create a new governanceInvitation to establish a governance relationship with a governed tenant. Invitations provide an alternative mechanism to governance requests for initiating relationships.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface GovernanceInvitationsRequestBuilder extends BaseRequestBuilder<
      toPostRequestInformation(body: GovernanceInvitation, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get governanceInvitations from directory
+ * Get a list of the governanceInvitation objects and their properties. This API method returns all governance invitations where the calling tenant is either the governing tenant or the governed tenant.
  */
 export interface GovernanceInvitationsRequestBuilderGetQueryParameters {
     /**

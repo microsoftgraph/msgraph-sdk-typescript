@@ -25,18 +25,20 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get settings from directory
+     * Read the properties of the tenantGovernanceSetting singleton, which controls related tenant discovery and invitation capabilities.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TenantGovernanceSetting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-tenantgovernancesetting-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : Promise<TenantGovernanceSetting | undefined>;
     /**
-     * Update the navigation property settings in directory
+     * Update the canReceiveInvitations property of the tenantGovernanceSetting singleton. This property controls whether the tenant can receive governance invitations.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TenantGovernanceSetting>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-tenantgovernancesetting-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: TenantGovernanceSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<TenantGovernanceSetting | undefined>;
     /**
@@ -46,13 +48,13 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get settings from directory
+     * Read the properties of the tenantGovernanceSetting singleton, which controls related tenant discovery and invitation capabilities.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SettingsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property settings in directory
+     * Update the canReceiveInvitations property of the tenantGovernanceSetting singleton. This property controls whether the tenant can receive governance invitations.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +62,7 @@ export interface SettingsRequestBuilder extends BaseRequestBuilder<SettingsReque
      toPatchRequestInformation(body: TenantGovernanceSetting, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get settings from directory
+ * Read the properties of the tenantGovernanceSetting singleton, which controls related tenant discovery and invitation capabilities.
  */
 export interface SettingsRequestBuilderGetQueryParameters {
     /**

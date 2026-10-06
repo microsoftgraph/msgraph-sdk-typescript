@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface B2BRegistrationMetricsRequestBuilder extends BaseRequestBuilder<B2BRegistrationMetricsRequestBuilder> {
     /**
-     * Get b2BRegistrationMetrics from directory
+     * B2B registration metrics for this related tenant. Expanded by default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<B2bRegistrationMetrics>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<B2BRegistrationMetricsRequestBuilderGetQueryParameters> | undefined) : Promise<B2bRegistrationMetrics | undefined>;
     /**
-     * Get b2BRegistrationMetrics from directory
+     * B2B registration metrics for this related tenant. Expanded by default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<B2BRegistrationMetricsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get b2BRegistrationMetrics from directory
+ * B2B registration metrics for this related tenant. Expanded by default.
  */
 export interface B2BRegistrationMetricsRequestBuilderGetQueryParameters {
     /**

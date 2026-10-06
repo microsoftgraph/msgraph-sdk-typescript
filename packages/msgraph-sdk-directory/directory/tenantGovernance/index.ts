@@ -55,7 +55,7 @@ export interface TenantGovernanceRequestBuilder extends BaseRequestBuilder<Tenan
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get tenantGovernance from directory
+     * Container for Microsoft Entra Tenant Governance capabilities.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<TenantGovernance>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -76,7 +76,7 @@ export interface TenantGovernanceRequestBuilder extends BaseRequestBuilder<Tenan
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get tenantGovernance from directory
+     * Container for Microsoft Entra Tenant Governance capabilities.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -90,7 +90,7 @@ export interface TenantGovernanceRequestBuilder extends BaseRequestBuilder<Tenan
      toPatchRequestInformation(body: TenantGovernance, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get tenantGovernance from directory
+ * Container for Microsoft Entra Tenant Governance capabilities.
  */
 export interface TenantGovernanceRequestBuilderGetQueryParameters {
     /**

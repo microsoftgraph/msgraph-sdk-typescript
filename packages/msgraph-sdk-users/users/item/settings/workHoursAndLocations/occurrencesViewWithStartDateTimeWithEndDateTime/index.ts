@@ -40,7 +40,7 @@ export interface OccurrencesViewWithStartDateTimeWithEndDateTimeGetResponse exte
  */
 export interface OccurrencesViewWithStartDateTimeWithEndDateTimeRequestBuilder extends BaseRequestBuilder<OccurrencesViewWithStartDateTimeWithEndDateTimeRequestBuilder> {
     /**
-     * Get work plan occurrences from your own work plan within a specified date range. This function requires the startDateTime and endDateTime parameters.
+     * Get work plan occurrences from a user's work plan within a specified date range. This function requires the startDateTime and endDateTime parameters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OccurrencesViewWithStartDateTimeWithEndDateTimeGetResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -48,14 +48,14 @@ export interface OccurrencesViewWithStartDateTimeWithEndDateTimeRequestBuilder e
      */
      get(requestConfiguration?: RequestConfiguration<OccurrencesViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : Promise<OccurrencesViewWithStartDateTimeWithEndDateTimeGetResponse | undefined>;
     /**
-     * Get work plan occurrences from your own work plan within a specified date range. This function requires the startDateTime and endDateTime parameters.
+     * Get work plan occurrences from a user's work plan within a specified date range. This function requires the startDateTime and endDateTime parameters.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OccurrencesViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get work plan occurrences from your own work plan within a specified date range. This function requires the startDateTime and endDateTime parameters.
+ * Get work plan occurrences from a user's work plan within a specified date range. This function requires the startDateTime and endDateTime parameters.
  */
 export interface OccurrencesViewWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters {
     /**

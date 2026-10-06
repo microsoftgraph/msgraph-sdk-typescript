@@ -27,10 +27,11 @@ export interface GovernanceRelationshipsRequestBuilder extends BaseRequestBuilde
      */
      byGovernanceRelationshipId(governanceRelationshipId: string) : GovernanceRelationshipItemRequestBuilder;
     /**
-     * Get governanceRelationships from directory
+     * Get a list of the governanceRelationship objects and their properties. This API method returns all governance relationships where the calling tenant is either the governing tenant or the governed tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GovernanceRelationshipCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-list-governancerelationships?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GovernanceRelationshipsRequestBuilderGetQueryParameters> | undefined) : Promise<GovernanceRelationshipCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface GovernanceRelationshipsRequestBuilder extends BaseRequestBuilde
      */
      post(body: GovernanceRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GovernanceRelationship | undefined>;
     /**
-     * Get governanceRelationships from directory
+     * Get a list of the governanceRelationship objects and their properties. This API method returns all governance relationships where the calling tenant is either the governing tenant or the governed tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface GovernanceRelationshipsRequestBuilder extends BaseRequestBuilde
      toPostRequestInformation(body: GovernanceRelationship, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get governanceRelationships from directory
+ * Get a list of the governanceRelationship objects and their properties. This API method returns all governance relationships where the calling tenant is either the governing tenant or the governed tenant.
  */
 export interface GovernanceRelationshipsRequestBuilderGetQueryParameters {
     /**

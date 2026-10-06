@@ -25,18 +25,20 @@ export interface GovernanceRequestItemRequestBuilder extends BaseRequestBuilder<
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get governanceRequests from directory
+     * Read the properties of a governanceRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GovernanceRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-governancerequest-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GovernanceRequestItemRequestBuilderGetQueryParameters> | undefined) : Promise<GovernanceRequest | undefined>;
     /**
-     * Update the navigation property governanceRequests in directory
+     * Update the status property of a governanceRequest to accept or reject the governance request. Only the governed tenant can update the request status.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GovernanceRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-governancerequest-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: GovernanceRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GovernanceRequest | undefined>;
     /**
@@ -46,13 +48,13 @@ export interface GovernanceRequestItemRequestBuilder extends BaseRequestBuilder<
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get governanceRequests from directory
+     * Read the properties of a governanceRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GovernanceRequestItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property governanceRequests in directory
+     * Update the status property of a governanceRequest to accept or reject the governance request. Only the governed tenant can update the request status.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -60,7 +62,7 @@ export interface GovernanceRequestItemRequestBuilder extends BaseRequestBuilder<
      toPatchRequestInformation(body: GovernanceRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get governanceRequests from directory
+ * Read the properties of a governanceRequest object.
  */
 export interface GovernanceRequestItemRequestBuilderGetQueryParameters {
     /**

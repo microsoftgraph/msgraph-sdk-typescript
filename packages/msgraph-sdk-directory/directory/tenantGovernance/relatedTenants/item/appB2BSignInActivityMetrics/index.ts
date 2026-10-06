@@ -13,21 +13,21 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface AppB2BSignInActivityMetricsRequestBuilder extends BaseRequestBuilder<AppB2BSignInActivityMetricsRequestBuilder> {
     /**
-     * Get appB2BSignInActivityMetrics from directory
+     * B2B sign-in activity metrics for this related tenant. Expanded by default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<B2BSignInActivityMetrics>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
      */
      get(requestConfiguration?: RequestConfiguration<AppB2BSignInActivityMetricsRequestBuilderGetQueryParameters> | undefined) : Promise<B2BSignInActivityMetrics | undefined>;
     /**
-     * Get appB2BSignInActivityMetrics from directory
+     * B2B sign-in activity metrics for this related tenant. Expanded by default.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<AppB2BSignInActivityMetricsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Get appB2BSignInActivityMetrics from directory
+ * B2B sign-in activity metrics for this related tenant. Expanded by default.
  */
 export interface AppB2BSignInActivityMetricsRequestBuilderGetQueryParameters {
     /**

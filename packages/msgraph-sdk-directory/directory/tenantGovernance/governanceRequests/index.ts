@@ -27,28 +27,30 @@ export interface GovernanceRequestsRequestBuilder extends BaseRequestBuilder<Gov
      */
      byGovernanceRequestId(governanceRequestId: string) : GovernanceRequestItemRequestBuilder;
     /**
-     * Get governanceRequests from directory
+     * Get a list of the governanceRequest objects and their properties. This API method returns all governance requests where the calling tenant is either the governing tenant or the governed tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GovernanceRequestCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-list-governancerequests?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<GovernanceRequestsRequestBuilderGetQueryParameters> | undefined) : Promise<GovernanceRequestCollectionResponse | undefined>;
     /**
-     * Create new navigation property to governanceRequests for directory
+     * Create a new governanceRequest to establish a governance relationship with a governed tenant. The governed tenant can then accept or reject the request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GovernanceRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-post-governancerequests?view=graph-rest-1.0|Find more info here}
      */
      post(body: GovernanceRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GovernanceRequest | undefined>;
     /**
-     * Get governanceRequests from directory
+     * Get a list of the governanceRequest objects and their properties. This API method returns all governance requests where the calling tenant is either the governing tenant or the governed tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<GovernanceRequestsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to governanceRequests for directory
+     * Create a new governanceRequest to establish a governance relationship with a governed tenant. The governed tenant can then accept or reject the request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface GovernanceRequestsRequestBuilder extends BaseRequestBuilder<Gov
      toPostRequestInformation(body: GovernanceRequest, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get governanceRequests from directory
+ * Get a list of the governanceRequest objects and their properties. This API method returns all governance requests where the calling tenant is either the governing tenant or the governed tenant.
  */
 export interface GovernanceRequestsRequestBuilderGetQueryParameters {
     /**

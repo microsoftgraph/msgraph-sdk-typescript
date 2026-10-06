@@ -33,10 +33,11 @@ export interface RelatedTenantsRequestBuilder extends BaseRequestBuilder<Related
      */
      byRelatedTenantId(relatedTenantId: string) : RelatedTenantItemRequestBuilder;
     /**
-     * Get relatedTenants from directory
+     * Get a list of relatedTenant objects and their properties, including relationship metrics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RelatedTenantCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-list-relatedtenants?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RelatedTenantsRequestBuilderGetQueryParameters> | undefined) : Promise<RelatedTenantCollectionResponse | undefined>;
     /**
@@ -48,7 +49,7 @@ export interface RelatedTenantsRequestBuilder extends BaseRequestBuilder<Related
      */
      post(body: RelatedTenant, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RelatedTenant | undefined>;
     /**
-     * Get relatedTenants from directory
+     * Get a list of relatedTenant objects and their properties, including relationship metrics.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -62,7 +63,7 @@ export interface RelatedTenantsRequestBuilder extends BaseRequestBuilder<Related
      toPostRequestInformation(body: RelatedTenant, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get relatedTenants from directory
+ * Get a list of relatedTenant objects and their properties, including relationship metrics.
  */
 export interface RelatedTenantsRequestBuilderGetQueryParameters {
     /**
