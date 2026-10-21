@@ -24,6 +24,8 @@ import { PhoneMethodsRequestBuilderNavigationMetadata, PhoneMethodsRequestBuilde
 // @ts-ignore
 import { PlatformCredentialMethodsRequestBuilderNavigationMetadata, PlatformCredentialMethodsRequestBuilderRequestsMetadata, type PlatformCredentialMethodsRequestBuilder } from './platformCredentialMethods/index.js';
 // @ts-ignore
+import { ResourceAccountKeyAuthenticationMethodsRequestBuilderNavigationMetadata, ResourceAccountKeyAuthenticationMethodsRequestBuilderRequestsMetadata, type ResourceAccountKeyAuthenticationMethodsRequestBuilder } from './resourceAccountKeyAuthenticationMethods/index.js';
+// @ts-ignore
 import { SoftwareOathMethodsRequestBuilderNavigationMetadata, SoftwareOathMethodsRequestBuilderRequestsMetadata, type SoftwareOathMethodsRequestBuilder } from './softwareOathMethods/index.js';
 // @ts-ignore
 import { TemporaryAccessPassMethodsRequestBuilderNavigationMetadata, TemporaryAccessPassMethodsRequestBuilderRequestsMetadata, type TemporaryAccessPassMethodsRequestBuilder } from './temporaryAccessPassMethods/index.js';
@@ -72,6 +74,10 @@ export interface AuthenticationRequestBuilder extends BaseRequestBuilder<Authent
      * Provides operations to manage the platformCredentialMethods property of the microsoft.graph.authentication entity.
      */
     get platformCredentialMethods(): PlatformCredentialMethodsRequestBuilder;
+    /**
+     * Provides operations to manage the resourceAccountKeyAuthenticationMethods property of the microsoft.graph.authentication entity.
+     */
+    get resourceAccountKeyAuthenticationMethods(): ResourceAccountKeyAuthenticationMethodsRequestBuilder;
     /**
      * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
      */
@@ -188,6 +194,10 @@ export const AuthenticationRequestBuilderNavigationMetadata: Record<Exclude<keyo
     platformCredentialMethods: {
         requestsMetadata: PlatformCredentialMethodsRequestBuilderRequestsMetadata,
         navigationMetadata: PlatformCredentialMethodsRequestBuilderNavigationMetadata,
+    },
+    resourceAccountKeyAuthenticationMethods: {
+        requestsMetadata: ResourceAccountKeyAuthenticationMethodsRequestBuilderRequestsMetadata,
+        navigationMetadata: ResourceAccountKeyAuthenticationMethodsRequestBuilderNavigationMetadata,
     },
     softwareOathMethods: {
         requestsMetadata: SoftwareOathMethodsRequestBuilderRequestsMetadata,

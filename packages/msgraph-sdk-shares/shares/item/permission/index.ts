@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { GrantRequestBuilderRequestsMetadata, type GrantRequestBuilder } from './grant/index.js';
 // @ts-ignore
+import { RevokeGrantsRequestBuilderRequestsMetadata, type RevokeGrantsRequestBuilder } from './revokeGrants/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface PermissionRequestBuilder extends BaseRequestBuilder<PermissionR
      * Provides operations to call the grant method.
      */
     get grant(): GrantRequestBuilder;
+    /**
+     * Provides operations to call the revokeGrants method.
+     */
+    get revokeGrants(): RevokeGrantsRequestBuilder;
     /**
      * Delete navigation property permission for shares
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -89,6 +95,9 @@ const PermissionRequestBuilderGetQueryParametersMapper: Record<string, string> =
 export const PermissionRequestBuilderNavigationMetadata: Record<Exclude<keyof PermissionRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     grant: {
         requestsMetadata: GrantRequestBuilderRequestsMetadata,
+    },
+    revokeGrants: {
+        requestsMetadata: RevokeGrantsRequestBuilderRequestsMetadata,
     },
 };
 /**

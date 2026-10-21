@@ -74,15 +74,16 @@ export interface UpdateRequestPostRequestBody extends AdditionalDataHolder, Back
  */
 export interface UpdateRequestRequestBuilder extends BaseRequestBuilder<UpdateRequestRequestBuilder> {
     /**
-     * Invoke action updateRequest
+     * Update a privilegedAccessGroupAssignmentScheduleRequest object with the result of a custom extension evaluation. This action is used to submit the result of a custom extension evaluation for a role assignment request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<PrivilegedAccessGroupAssignmentScheduleRequest>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentschedulerequest-updaterequest?view=graph-rest-1.0|Find more info here}
      */
      post(body: UpdateRequestPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<PrivilegedAccessGroupAssignmentScheduleRequest | undefined>;
     /**
-     * Invoke action updateRequest
+     * Update a privilegedAccessGroupAssignmentScheduleRequest object with the result of a custom extension evaluation. This action is used to submit the result of a custom extension evaluation for a role assignment request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

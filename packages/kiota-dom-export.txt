@@ -17738,6 +17738,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.devices.devicesRequestBuilder:
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.devicesRequestBuilder::|public|getAvailableExtensionProperties:GetAvailableExtensionPropertiesRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.devicesRequestBuilder::|public|getByIds:GetByIdsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.devicesRequestBuilder::|public|post(body:Device; requestConfiguration?:RequestConfiguration<object>):Device
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.devicesRequestBuilder::|public|provision:ProvisionRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.devicesRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<DevicesRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.devicesRequestBuilder::|public|toPostRequestInformation(body:Device; requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.devicesRequestBuilder::|public|validateProperties:ValidatePropertiesRequestBuilder
@@ -18506,6 +18507,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.transitiveMemberO
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.transitiveMemberOf.transitiveMemberOfRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.transitiveMemberOf.transitiveMemberOfRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.transitiveMemberOf.transitiveMemberOfRequestBuilder~~>BaseRequestBuilder<TransitiveMemberOfRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision.ProvisionPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision.ProvisionPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision.ProvisionPostRequestBody::|public|provisioningBlob:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision.ProvisionPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision.provisionRequestBuilder::|public|post(body:ProvisionPostRequestBody; requestConfiguration?:RequestConfiguration<object>):ProvisionResponse
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision.provisionRequestBuilder::|public|toPostRequestInformation(body:ProvisionPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision.provisionRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision.provisionRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision.provisionRequestBuilder~~>BaseRequestBuilder<ProvisionRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision::createProvisionPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):ProvisionPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision::deserializeIntoProvisionPostRequestBody(ProvisionPostRequestBody:ProvisionPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.devices.provision::serializeProvisionPostRequestBody(writer:SerializationWriter; ProvisionPostRequestBody:ProvisionPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.validateProperties.ValidatePropertiesPostRequestBody::|public|AdditionalData:Record<string, unknown>
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.validateProperties.ValidatePropertiesPostRequestBody::|public|backingStoreEnabled:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.devices.validateProperties.ValidatePropertiesPostRequestBody::|public|displayName:string
@@ -20185,11 +20198,17 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.rel
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.refresh.refreshRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.refresh.refreshRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.refresh.refreshRequestBuilder~~>BaseRequestBuilder<RefreshRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.refreshStatus.refreshStatusRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<object>):RelatedTenantsRefreshStatus
+github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.refreshStatus.refreshStatusRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.refreshStatus.refreshStatusRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.refreshStatus.refreshStatusRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.refreshStatus.refreshStatusRequestBuilder~~>BaseRequestBuilder<RefreshStatusRequestBuilder>
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.relatedTenantsRequestBuilder::|public|byRelatedTenantId(relatedTenantId:string):RelatedTenantItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.relatedTenantsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.relatedTenantsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<RelatedTenantsRequestBuilderGetQueryParameters>):RelatedTenantCollectionResponse
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.relatedTenantsRequestBuilder::|public|post(body:RelatedTenant; requestConfiguration?:RequestConfiguration<object>):RelatedTenant
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.relatedTenantsRequestBuilder::|public|refresh:RefreshRequestBuilder
+github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.relatedTenantsRequestBuilder::|public|refreshStatus:RefreshStatusRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.relatedTenantsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<RelatedTenantsRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.relatedTenantsRequestBuilder::|public|toPostRequestInformation(body:RelatedTenant; requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.directory.tenantGovernance.relatedTenants.relatedTenantsRequestBuilderGetQueryParameters::|public|count:boolean
@@ -22153,6 +22172,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permiss
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -22163,6 +22183,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permiss
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.items.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -37638,6 +37670,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.pe
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -37648,6 +37681,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.pe
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.items.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -37883,6 +37928,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.i
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -37893,6 +37939,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.i
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.drives.item.list.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -48360,6 +48418,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.i
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -48370,6 +48429,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.i
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.items.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -48604,6 +48675,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.i
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -48614,6 +48686,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.i
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -50560,6 +50644,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permiss
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -50570,6 +50655,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permiss
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -80069,6 +80166,12 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.androidWorkProfileRequi
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.androidWorkProfileRequiredPasswordType::0006-atLeastAlphanumeric
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.androidWorkProfileRequiredPasswordType::0007-alphanumericWithSymbols
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.androidWorkProfileRequiredPasswordTypeObject
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.AnonymousCalendarSharingFreeBusyDetail::|public|OdataType:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.AnonymousCalendarSharingFreeBusyDetail~~>M365CapabilityBase; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.AnonymousCalendarSharingFreeBusyReviewer::|public|OdataType:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.AnonymousCalendarSharingFreeBusyReviewer~~>M365CapabilityBase; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.AnonymousCalendarSharingFreeBusySimple::|public|OdataType:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.AnonymousCalendarSharingFreeBusySimple~~>M365CapabilityBase; Parsable
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.AnonymousGuestConversationMember::|public|anonymousGuestId:string
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.AnonymousGuestConversationMember::|public|OdataType:string
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.AnonymousGuestConversationMember~~>ConversationMember; Parsable
@@ -80999,6 +81102,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.Authentication::|public
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.Authentication::|public|passwordMethods:PasswordAuthenticationMethod[]
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.Authentication::|public|phoneMethods:PhoneAuthenticationMethod[]
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.Authentication::|public|platformCredentialMethods:PlatformCredentialAuthenticationMethod[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.Authentication::|public|resourceAccountKeyAuthenticationMethods:ResourceAccountKeyAuthenticationMethod[]
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.Authentication::|public|softwareOathMethods:SoftwareOathAuthenticationMethod[]
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.Authentication::|public|temporaryAccessPassMethods:TemporaryAccessPassAuthenticationMethod[]
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.Authentication::|public|windowsHelloForBusinessMethods:WindowsHelloForBusinessAuthenticationMethod[]
@@ -88403,6 +88507,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTyp
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeRegistrationSettings::|public|backingStoreEnabled:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeRegistrationSettings::|public|isDiscoverabilityEnabled:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeRegistrationSettings::|public|isItemVersioningEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeRegistrationSettings::|public|isOfficeRestricted:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeRegistrationSettings::|public|isSearchEnabled:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeRegistrationSettings::|public|isSharingRestricted:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeRegistrationSettings::|public|itemMajorVersionLimit:number
@@ -88417,6 +88522,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTyp
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeSettings::|public|consumingTenantOverridables:FileStorageContainerTypeSettingsOverride
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeSettings::|public|isDiscoverabilityEnabled:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeSettings::|public|isItemVersioningEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeSettings::|public|isOfficeRestricted:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeSettings::|public|isSearchEnabled:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeSettings::|public|isSharingRestricted:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeSettings::|public|itemMajorVersionLimit:number
@@ -88431,6 +88537,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.fileStorageContainerTyp
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.fileStorageContainerTypeSettingsOverride::0004-itemMajorVersionLimit
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.fileStorageContainerTypeSettingsOverride::0005-maxStoragePerContainerInBytes
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.fileStorageContainerTypeSettingsOverride::0006-unknownFutureValue
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.fileStorageContainerTypeSettingsOverride::0007-isOfficeRestricted
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.fileStorageContainerTypeSettingsOverrideObject
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerTypeSettings~~>AdditionalDataHolder; BackedModel; Parsable
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.FileStorageContainerType~~>Entity; Parsable
@@ -96007,6 +96114,12 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisioningStep~~>Addi
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisioningSystem::|public|details:DetailsInfo
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisioningSystem::|public|OdataType:string
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisioningSystem~~>Identity; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisionResponse::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisionResponse::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisionResponse::|public|challenge:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisionResponse::|public|deviceId:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisionResponse::|public|odataType:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProvisionResponse~~>AdditionalDataHolder; BackedModel; Parsable
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProxiedDomain::|public|AdditionalData:Record<string, unknown>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProxiedDomain::|public|backingStoreEnabled:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ProxiedDomain::|public|ipAddressOrFQDN:string
@@ -96520,6 +96633,13 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantCollection
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshRequest::|public|location:string
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshRequest::|public|OdataType:string
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshRequest~~>Entity; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshStatus::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshStatus::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshStatus::|public|isFirstRefresh:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshStatus::|public|mostRecentRefreshDateTime:Date
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshStatus::|public|mostRecentRefreshRequestStatus:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshStatus::|public|odataType:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenantsRefreshStatus~~>AdditionalDataHolder; BackedModel; Parsable
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.RelatedTenant~~>Entity; Parsable
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.relationshipCreationType::0000-approvedByAdmin
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.relationshipCreationType::0001-addOnTenant
@@ -96726,6 +96846,12 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.resourceAccessType::000
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.resourceAccessType::0004-unknownFutureValue
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.resourceAccessTypeObject
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAccess~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAccountKeyAuthenticationMethod::|public|device:Device
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAccountKeyAuthenticationMethod::|public|displayName:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAccountKeyAuthenticationMethod::|public|OdataType:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAccountKeyAuthenticationMethodCollectionResponse::|public|value:ResourceAccountKeyAuthenticationMethod[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAccountKeyAuthenticationMethodCollectionResponse~~>BaseCollectionPaginationCountResponse; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAccountKeyAuthenticationMethod~~>AuthenticationMethod; Parsable
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAction::|public|AdditionalData:Record<string, unknown>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAction::|public|allowedResourceActions:string[]
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.ResourceAction::|public|backingStoreEnabled:boolean
@@ -98162,14 +98288,17 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditData::|pu
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditData::|public|odataType:string
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditData~~>AdditionalDataHolder; BackedModel; Parsable
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|administrativeUnitIdFilters:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|approximateReturnedRecordCount:number
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|displayName:string
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|filterEndDateTime:Date
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|filterStartDateTime:Date
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|ipAddressFilters:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|isRecordCountLimitExceeded:boolean
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|keywordFilter:string
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|objectIdFilters:string[]
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|OdataType:string
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|operationFilters:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|recordCountLimit:number
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|records:AuditLogRecord[]
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|recordTypeFilters:AuditLogRecordType[]
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.security.AuditLogQuery::|public|serviceFilters:string[]
@@ -104988,7 +105117,8 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models.systemBrowserEnabledOn:
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.systemBrowserEnabledOn::0001-ios
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.systemBrowserEnabledOn::0002-android
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.systemBrowserEnabledOn::0003-mac
-github.com/microsoftgraph/msgraph-sdk-typescript/.models.systemBrowserEnabledOn::0004-unknownFutureValue
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.systemBrowserEnabledOn::0004-linux
+github.com/microsoftgraph/msgraph-sdk-typescript/.models.systemBrowserEnabledOn::0005-unknownFutureValue
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.systemBrowserEnabledOnObject
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.SystemFacet::|public|AdditionalData:Record<string, unknown>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models.SystemFacet::|public|backingStoreEnabled:boolean
@@ -110007,6 +110137,9 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::createAndroidStoreAppF
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createAndroidWorkProfileCompliancePolicyFromDiscriminatorValue(parseNode:ParseNode):AndroidWorkProfileCompliancePolicy
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createAndroidWorkProfileCustomConfigurationFromDiscriminatorValue(parseNode:ParseNode):AndroidWorkProfileCustomConfiguration
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createAndroidWorkProfileGeneralDeviceConfigurationFromDiscriminatorValue(parseNode:ParseNode):AndroidWorkProfileGeneralDeviceConfiguration
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::createAnonymousCalendarSharingFreeBusyDetailFromDiscriminatorValue(parseNode:ParseNode):AnonymousCalendarSharingFreeBusyDetail
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::createAnonymousCalendarSharingFreeBusyReviewerFromDiscriminatorValue(parseNode:ParseNode):AnonymousCalendarSharingFreeBusyReviewer
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::createAnonymousCalendarSharingFreeBusySimpleFromDiscriminatorValue(parseNode:ParseNode):AnonymousCalendarSharingFreeBusySimple
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createAnonymousGuestConversationMemberFromDiscriminatorValue(parseNode:ParseNode):AnonymousGuestConversationMember
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createApiApplicationFromDiscriminatorValue(parseNode:ParseNode):ApiApplication
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createApiAuthenticationConfigurationBaseFromDiscriminatorValue(parseNode:ParseNode):ApiAuthenticationConfigurationBase
@@ -111716,6 +111849,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::createProvisioningServ
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createProvisioningStatusInfoFromDiscriminatorValue(parseNode:ParseNode):ProvisioningStatusInfo
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createProvisioningStepFromDiscriminatorValue(parseNode:ParseNode):ProvisioningStep
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createProvisioningSystemFromDiscriminatorValue(parseNode:ParseNode):ProvisioningSystem
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::createProvisionResponseFromDiscriminatorValue(parseNode:ParseNode):ProvisionResponse
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createProxiedDomainFromDiscriminatorValue(parseNode:ParseNode):ProxiedDomain
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createPublicationFacetFromDiscriminatorValue(parseNode:ParseNode):PublicationFacet
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createPublicClientApplicationFromDiscriminatorValue(parseNode:ParseNode):PublicClientApplication
@@ -111760,6 +111894,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::createRelatedContactFr
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createRelatedTenantCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):RelatedTenantCollectionResponse
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createRelatedTenantFromDiscriminatorValue(parseNode:ParseNode):RelatedTenant
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createRelatedTenantsRefreshRequestFromDiscriminatorValue(parseNode:ParseNode):RelatedTenantsRefreshRequest
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::createRelatedTenantsRefreshStatusFromDiscriminatorValue(parseNode:ParseNode):RelatedTenantsRefreshStatus
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createRelationshipPolicyFromDiscriminatorValue(parseNode:ParseNode):RelationshipPolicy
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createRelyingPartyDetailedSummaryFromDiscriminatorValue(parseNode:ParseNode):RelyingPartyDetailedSummary
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createReminderFromDiscriminatorValue(parseNode:ParseNode):Reminder
@@ -111785,6 +111920,8 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::createReservablePlaceM
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createResetPasscodeActionResultFromDiscriminatorValue(parseNode:ParseNode):ResetPasscodeActionResult
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createResourceAccessDetailFromDiscriminatorValue(parseNode:ParseNode):ResourceAccessDetail
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createResourceAccessFromDiscriminatorValue(parseNode:ParseNode):ResourceAccess
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::createResourceAccountKeyAuthenticationMethodCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):ResourceAccountKeyAuthenticationMethodCollectionResponse
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::createResourceAccountKeyAuthenticationMethodFromDiscriminatorValue(parseNode:ParseNode):ResourceAccountKeyAuthenticationMethod
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createResourceActionFromDiscriminatorValue(parseNode:ParseNode):ResourceAction
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createResourceLinkFromDiscriminatorValue(parseNode:ParseNode):ResourceLink
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::createResourceOperationCollectionResponseFromDiscriminatorValue(parseNode:ParseNode):ResourceOperationCollectionResponse
@@ -112817,6 +112954,9 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoAndroid
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoAndroidWorkProfileCompliancePolicy(AndroidWorkProfileCompliancePolicy:AndroidWorkProfileCompliancePolicy={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoAndroidWorkProfileCustomConfiguration(AndroidWorkProfileCustomConfiguration:AndroidWorkProfileCustomConfiguration={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration(AndroidWorkProfileGeneralDeviceConfiguration:AndroidWorkProfileGeneralDeviceConfiguration={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoAnonymousCalendarSharingFreeBusyDetail(AnonymousCalendarSharingFreeBusyDetail:AnonymousCalendarSharingFreeBusyDetail={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoAnonymousCalendarSharingFreeBusyReviewer(AnonymousCalendarSharingFreeBusyReviewer:AnonymousCalendarSharingFreeBusyReviewer={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoAnonymousCalendarSharingFreeBusySimple(AnonymousCalendarSharingFreeBusySimple:AnonymousCalendarSharingFreeBusySimple={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoAnonymousGuestConversationMember(AnonymousGuestConversationMember:AnonymousGuestConversationMember={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoApiApplication(ApiApplication:ApiApplication={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoApiAuthenticationConfigurationBase(ApiAuthenticationConfigurationBase:ApiAuthenticationConfigurationBase={}):Record<string, (node: ParseNode) => void>
@@ -114526,6 +114666,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoProvisi
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoProvisioningStatusInfo(ProvisioningStatusInfo:ProvisioningStatusInfo={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoProvisioningStep(ProvisioningStep:ProvisioningStep={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoProvisioningSystem(ProvisioningSystem:ProvisioningSystem={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoProvisionResponse(ProvisionResponse:ProvisionResponse={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoProxiedDomain(ProxiedDomain:ProxiedDomain={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoPublicationFacet(PublicationFacet:PublicationFacet={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoPublicClientApplication(PublicClientApplication:PublicClientApplication={}):Record<string, (node: ParseNode) => void>
@@ -114570,6 +114711,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoRelated
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoRelatedTenant(RelatedTenant:RelatedTenant={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoRelatedTenantCollectionResponse(RelatedTenantCollectionResponse:RelatedTenantCollectionResponse={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoRelatedTenantsRefreshRequest(RelatedTenantsRefreshRequest:RelatedTenantsRefreshRequest={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoRelatedTenantsRefreshStatus(RelatedTenantsRefreshStatus:RelatedTenantsRefreshStatus={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoRelationshipPolicy(RelationshipPolicy:RelationshipPolicy={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoRelyingPartyDetailedSummary(RelyingPartyDetailedSummary:RelyingPartyDetailedSummary={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoReminder(Reminder:Reminder={}):Record<string, (node: ParseNode) => void>
@@ -114595,6 +114737,8 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoReserva
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoResetPasscodeActionResult(ResetPasscodeActionResult:ResetPasscodeActionResult={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoResourceAccess(ResourceAccess:ResourceAccess={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoResourceAccessDetail(ResourceAccessDetail:ResourceAccessDetail={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoResourceAccountKeyAuthenticationMethod(ResourceAccountKeyAuthenticationMethod:ResourceAccountKeyAuthenticationMethod={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoResourceAccountKeyAuthenticationMethodCollectionResponse(ResourceAccountKeyAuthenticationMethodCollectionResponse:ResourceAccountKeyAuthenticationMethodCollectionResponse={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoResourceAction(ResourceAction:ResourceAction={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoResourceLink(ResourceLink:ResourceLink={}):Record<string, (node: ParseNode) => void>
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::deserializeIntoResourceOperation(ResourceOperation:ResourceOperation={}):Record<string, (node: ParseNode) => void>
@@ -115627,6 +115771,9 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeAndroidStoreA
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeAndroidWorkProfileCompliancePolicy(writer:SerializationWriter; AndroidWorkProfileCompliancePolicy:AndroidWorkProfileCompliancePolicy={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeAndroidWorkProfileCustomConfiguration(writer:SerializationWriter; AndroidWorkProfileCustomConfiguration:AndroidWorkProfileCustomConfiguration={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeAndroidWorkProfileGeneralDeviceConfiguration(writer:SerializationWriter; AndroidWorkProfileGeneralDeviceConfiguration:AndroidWorkProfileGeneralDeviceConfiguration={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeAnonymousCalendarSharingFreeBusyDetail(writer:SerializationWriter; AnonymousCalendarSharingFreeBusyDetail:AnonymousCalendarSharingFreeBusyDetail={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeAnonymousCalendarSharingFreeBusyReviewer(writer:SerializationWriter; AnonymousCalendarSharingFreeBusyReviewer:AnonymousCalendarSharingFreeBusyReviewer={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeAnonymousCalendarSharingFreeBusySimple(writer:SerializationWriter; AnonymousCalendarSharingFreeBusySimple:AnonymousCalendarSharingFreeBusySimple={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeAnonymousGuestConversationMember(writer:SerializationWriter; AnonymousGuestConversationMember:AnonymousGuestConversationMember={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeApiApplication(writer:SerializationWriter; ApiApplication:ApiApplication={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeApiAuthenticationConfigurationBase(writer:SerializationWriter; ApiAuthenticationConfigurationBase:ApiAuthenticationConfigurationBase={}; isSerializingDerivedType?:boolean=false):void
@@ -117336,6 +117483,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeProvisioningS
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeProvisioningStatusInfo(writer:SerializationWriter; ProvisioningStatusInfo:ProvisioningStatusInfo={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeProvisioningStep(writer:SerializationWriter; ProvisioningStep:ProvisioningStep={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeProvisioningSystem(writer:SerializationWriter; ProvisioningSystem:ProvisioningSystem={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeProvisionResponse(writer:SerializationWriter; ProvisionResponse:ProvisionResponse={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeProxiedDomain(writer:SerializationWriter; ProxiedDomain:ProxiedDomain={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializePublicationFacet(writer:SerializationWriter; PublicationFacet:PublicationFacet={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializePublicClientApplication(writer:SerializationWriter; PublicClientApplication:PublicClientApplication={}; isSerializingDerivedType?:boolean=false):void
@@ -117380,6 +117528,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeRelatedContac
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeRelatedTenant(writer:SerializationWriter; RelatedTenant:RelatedTenant={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeRelatedTenantCollectionResponse(writer:SerializationWriter; RelatedTenantCollectionResponse:RelatedTenantCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeRelatedTenantsRefreshRequest(writer:SerializationWriter; RelatedTenantsRefreshRequest:RelatedTenantsRefreshRequest={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeRelatedTenantsRefreshStatus(writer:SerializationWriter; RelatedTenantsRefreshStatus:RelatedTenantsRefreshStatus={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeRelationshipPolicy(writer:SerializationWriter; RelationshipPolicy:RelationshipPolicy={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeRelyingPartyDetailedSummary(writer:SerializationWriter; RelyingPartyDetailedSummary:RelyingPartyDetailedSummary={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeReminder(writer:SerializationWriter; Reminder:Reminder={}; isSerializingDerivedType?:boolean=false):void
@@ -117405,6 +117554,8 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeReservablePla
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeResetPasscodeActionResult(writer:SerializationWriter; ResetPasscodeActionResult:ResetPasscodeActionResult={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeResourceAccess(writer:SerializationWriter; ResourceAccess:ResourceAccess={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeResourceAccessDetail(writer:SerializationWriter; ResourceAccessDetail:ResourceAccessDetail={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeResourceAccountKeyAuthenticationMethod(writer:SerializationWriter; ResourceAccountKeyAuthenticationMethod:ResourceAccountKeyAuthenticationMethod={}; isSerializingDerivedType?:boolean=false):void
+github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeResourceAccountKeyAuthenticationMethodCollectionResponse(writer:SerializationWriter; ResourceAccountKeyAuthenticationMethodCollectionResponse:ResourceAccountKeyAuthenticationMethodCollectionResponse={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeResourceAction(writer:SerializationWriter; ResourceAction:ResourceAction={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeResourceLink(writer:SerializationWriter; ResourceLink:ResourceLink={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.models::serializeResourceOperation(writer:SerializationWriter; ResourceOperation:ResourceOperation={}; isSerializingDerivedType?:boolean=false):void
@@ -134269,6 +134420,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.pe
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -134279,6 +134431,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.pe
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -134513,6 +134677,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.i
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -134523,6 +134688,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.i
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -134631,6 +134808,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permiss
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -134641,6 +134819,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permiss
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.permissionRequestBuilder~~>BaseRequestBuilder<PermissionRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.permission.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.root.content.contentRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.root.content.contentRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<ContentRequestBuilderGetQueryParameters>):ArrayBuffer
 github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.root.content.contentRequestBuilder::|public|put(body:ArrayBuffer; requestConfiguration?:RequestConfiguration<object>):DriveItem
@@ -136580,6 +136770,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.it
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -136590,6 +136781,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.it
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.items.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -136824,6 +137027,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissi
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -136834,6 +137038,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissi
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.lists.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -138768,6 +138984,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.Pe
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -138778,6 +138995,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.pe
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -146179,6 +146408,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -146189,6 +146419,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.containers.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -146901,6 +147143,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedCon
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.PermissionItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):Permission
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.PermissionItemRequestBuilder::|public|grant:GrantRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.PermissionItemRequestBuilder::|public|patch(body:Permission; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.PermissionItemRequestBuilder::|public|revokeGrants:RevokeGrantsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.PermissionItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.PermissionItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<PermissionItemRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.PermissionItemRequestBuilder::|public|toPatchRequestInformation(body:Permission; requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -146911,6 +147154,18 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedCon
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.permissionItemRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.permissionItemRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.PermissionItemRequestBuilder~~>BaseRequestBuilder<PermissionItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|AdditionalData:Record<string, unknown>
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|backingStoreEnabled:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody::|public|grantees:DriveRecipient[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants.RevokeGrantsPostRequestBody~~>AdditionalDataHolder; BackedModel; Parsable
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|post(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):Permission
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder::|public|toPostRequestInformation(body:RevokeGrantsPostRequestBody; requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants.revokeGrantsRequestBuilder~~>BaseRequestBuilder<RevokeGrantsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants::createRevokeGrantsPostRequestBodyFromDiscriminatorValue(parseNode:ParseNode):RevokeGrantsPostRequestBody
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants::deserializeIntoRevokeGrantsPostRequestBody(RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}):Record<string, (node: ParseNode) => void>
+github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.item.revokeGrants::serializeRevokeGrantsPostRequestBody(writer:SerializationWriter; RevokeGrantsPostRequestBody:RevokeGrantsPostRequestBody={}; isSerializingDerivedType?:boolean=false):void
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.permissionsRequestBuilder::|public|byPermissionId(permissionId:string):PermissionItemRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.permissionsRequestBuilder::|public|Count:CountRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.storage.fileStorage.deletedContainers.item.permissions.permissionsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<PermissionsRequestBuilderGetQueryParameters>):PermissionCollectionResponse
@@ -151991,6 +152246,7 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.auth
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.authenticationRequestBuilder::|public|patch(body:Authentication; requestConfiguration?:RequestConfiguration<object>):Authentication
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.authenticationRequestBuilder::|public|phoneMethods:PhoneMethodsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.authenticationRequestBuilder::|public|platformCredentialMethods:PlatformCredentialMethodsRequestBuilder
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.authenticationRequestBuilder::|public|resourceAccountKeyAuthenticationMethods:ResourceAccountKeyAuthenticationMethodsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.authenticationRequestBuilder::|public|softwareOathMethods:SoftwareOathMethodsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.authenticationRequestBuilder::|public|temporaryAccessPassMethods:TemporaryAccessPassMethodsRequestBuilder
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.authenticationRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
@@ -152390,6 +152646,51 @@ github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.plat
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.platformCredentialMethods.platformCredentialMethodsRequestBuilderRequestsMetadata
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.platformCredentialMethods.platformCredentialMethodsRequestBuilderUriTemplate
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.platformCredentialMethods.platformCredentialMethodsRequestBuilder~~>BaseRequestBuilder<PlatformCredentialMethodsRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.count.CountRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):number
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.count.CountRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.count.CountRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.count.CountRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.count.countRequestBuilderGetQueryParametersMapper
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.count.countRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.count.countRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.count.CountRequestBuilder~~>BaseRequestBuilder<CountRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.device.deviceRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<DeviceRequestBuilderGetQueryParameters>):Device
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.device.deviceRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<DeviceRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.device.deviceRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.device.deviceRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.device.deviceRequestBuilderGetQueryParametersMapper
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.device.deviceRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.device.deviceRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.device.deviceRequestBuilder~~>BaseRequestBuilder<DeviceRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.ResourceAccountKeyAuthenticationMethodItemRequestBuilder::|public|delete(requestConfiguration?:RequestConfiguration<object>):void
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.ResourceAccountKeyAuthenticationMethodItemRequestBuilder::|public|device:DeviceRequestBuilder
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.ResourceAccountKeyAuthenticationMethodItemRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<ResourceAccountKeyAuthenticationMethodItemRequestBuilderGetQueryParameters>):ResourceAccountKeyAuthenticationMethod
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.ResourceAccountKeyAuthenticationMethodItemRequestBuilder::|public|toDeleteRequestInformation(requestConfiguration?:RequestConfiguration<object>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.ResourceAccountKeyAuthenticationMethodItemRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<ResourceAccountKeyAuthenticationMethodItemRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.ResourceAccountKeyAuthenticationMethodItemRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.ResourceAccountKeyAuthenticationMethodItemRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.resourceAccountKeyAuthenticationMethodItemRequestBuilderGetQueryParametersMapper
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.resourceAccountKeyAuthenticationMethodItemRequestBuilderNavigationMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.resourceAccountKeyAuthenticationMethodItemRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.resourceAccountKeyAuthenticationMethodItemRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.item.ResourceAccountKeyAuthenticationMethodItemRequestBuilder~~>BaseRequestBuilder<ResourceAccountKeyAuthenticationMethodItemRequestBuilder>
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilder::|public|byResourceAccountKeyAuthenticationMethodId(resourceAccountKeyAuthenticationMethodId:string):ResourceAccountKeyAuthenticationMethodItemRequestBuilder
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilder::|public|Count:CountRequestBuilder
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<ResourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters>):ResourceAccountKeyAuthenticationMethodCollectionResponse
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<ResourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters>):RequestInformation
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters::|public|count:boolean
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters::|public|expand:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters::|public|filter:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters::|public|orderby:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters::|public|search:string
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters::|public|select:string[]
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters::|public|skip:number
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParameters::|public|top:number
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderGetQueryParametersMapper
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderNavigationMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderRequestsMetadata
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilderUriTemplate
+github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.resourceAccountKeyAuthenticationMethods.resourceAccountKeyAuthenticationMethodsRequestBuilder~~>BaseRequestBuilder<ResourceAccountKeyAuthenticationMethodsRequestBuilder>
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.softwareOathMethods.count.CountRequestBuilder::|public|get(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):number
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.softwareOathMethods.count.CountRequestBuilder::|public|toGetRequestInformation(requestConfiguration?:RequestConfiguration<CountRequestBuilderGetQueryParameters>):RequestInformation
 github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.softwareOathMethods.count.CountRequestBuilderGetQueryParameters::|public|filter:string
