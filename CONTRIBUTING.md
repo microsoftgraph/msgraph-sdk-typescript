@@ -6,6 +6,19 @@ All pull requests should be submitted against the **main** branch or a specific 
 
 When a new package is about to be released, the release PR will be merged into `main`. The package will be generated from `main`.
 
+## Development prerequisites
+
+Use Node.js 22.x, 24.x, or 26.x. GitHub Actions builds all three supported versions; Azure daily-build and release pipelines use Node.js 22.x.
+
+Install dependencies and build all workspaces from the repository root:
+
+```shell
+npm ci
+npm run build
+```
+
+After building, run the integration tests with `npm test`. These tests call Microsoft Graph and require `TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET`, and `USER_ID` environment variables for a test tenant with appropriate permissions. GitHub Actions runs them only when its configured client secret is available.
+
 ## Commit message format
 
 To support our automated release process, pull requests are required to follow the [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/)

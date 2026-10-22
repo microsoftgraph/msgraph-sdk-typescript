@@ -46,7 +46,7 @@ extends:
               - task: NodeTool@0
                 displayName: Set up Node.js
                 inputs:
-                  versionSpec: '20.x'
+                  versionSpec: '22.x'
 
               - task: npm@1
                 displayName: Install dependencies
