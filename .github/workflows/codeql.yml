@@ -20,6 +20,7 @@ on:
   schedule:
     - cron: '37 21 * * 1'
 
+
 jobs:
   analyze:
     name: Analyze
