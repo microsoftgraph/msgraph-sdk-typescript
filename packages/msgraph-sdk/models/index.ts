@@ -3821,6 +3821,12 @@ export interface AndroidWorkProfileGeneralDeviceConfiguration extends DeviceConf
     workProfileRequirePassword?: boolean | null;
 }
 export type AndroidWorkProfileRequiredPasswordType = (typeof AndroidWorkProfileRequiredPasswordTypeObject)[keyof typeof AndroidWorkProfileRequiredPasswordTypeObject];
+export interface AnonymousCalendarSharingFreeBusyDetail extends M365CapabilityBase, Parsable {
+}
+export interface AnonymousCalendarSharingFreeBusyReviewer extends M365CapabilityBase, Parsable {
+}
+export interface AnonymousCalendarSharingFreeBusySimple extends M365CapabilityBase, Parsable {
+}
 export interface AnonymousGuestConversationMember extends ConversationMember, Parsable {
     /**
      * Unique ID that represents the user. Note: This ID can change if the user leaves and rejoins the meeting, or joins from a different device.
@@ -6412,6 +6418,10 @@ export interface Authentication extends Entity, Parsable {
      * Represents a platform credential instance registered to a user on Mac OS.
      */
     platformCredentialMethods?: PlatformCredentialAuthenticationMethod[] | null;
+    /**
+     * Represents the resource account key credentials registered to a user for authentication on shared devices.
+     */
+    resourceAccountKeyAuthenticationMethods?: ResourceAccountKeyAuthenticationMethod[] | null;
     /**
      * The software OATH time-based one-time password (TOTP) applications registered to a user for authentication.
      */
@@ -15943,6 +15953,33 @@ export function createAndroidWorkProfileGeneralDeviceConfigurationFromDiscrimina
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AnonymousCalendarSharingFreeBusyDetail}
+ */
+// @ts-ignore
+export function createAnonymousCalendarSharingFreeBusyDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAnonymousCalendarSharingFreeBusyDetail;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AnonymousCalendarSharingFreeBusyReviewer}
+ */
+// @ts-ignore
+export function createAnonymousCalendarSharingFreeBusyReviewerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAnonymousCalendarSharingFreeBusyReviewer;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AnonymousCalendarSharingFreeBusySimple}
+ */
+// @ts-ignore
+export function createAnonymousCalendarSharingFreeBusySimpleFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAnonymousCalendarSharingFreeBusySimple;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AnonymousGuestConversationMember}
  */
 // @ts-ignore
@@ -17388,6 +17425,8 @@ export function createAuthenticationMethodFromDiscriminatorValue(parseNode: Pars
                     return deserializeIntoPlatformCredentialAuthenticationMethod;
                 case "#microsoft.graph.qrCodePinAuthenticationMethod":
                     return deserializeIntoQrCodePinAuthenticationMethod;
+                case "#microsoft.graph.resourceAccountKeyAuthenticationMethod":
+                    return deserializeIntoResourceAccountKeyAuthenticationMethod;
                 case "#microsoft.graph.softwareOathAuthenticationMethod":
                     return deserializeIntoSoftwareOathAuthenticationMethod;
                 case "#microsoft.graph.temporaryAccessPassAuthenticationMethod":
@@ -25068,6 +25107,12 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoAndroidWorkProfileCustomConfiguration;
                 case "#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration":
                     return deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration;
+                case "#microsoft.graph.anonymousCalendarSharingFreeBusyDetail":
+                    return deserializeIntoAnonymousCalendarSharingFreeBusyDetail;
+                case "#microsoft.graph.anonymousCalendarSharingFreeBusyReviewer":
+                    return deserializeIntoAnonymousCalendarSharingFreeBusyReviewer;
+                case "#microsoft.graph.anonymousCalendarSharingFreeBusySimple":
+                    return deserializeIntoAnonymousCalendarSharingFreeBusySimple;
                 case "#microsoft.graph.anonymousGuestConversationMember":
                     return deserializeIntoAnonymousGuestConversationMember;
                 case "#microsoft.graph.appCatalogs":
@@ -26440,6 +26485,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoRequest;
                 case "#microsoft.graph.resellerDelegatedAdminRelationship":
                     return deserializeIntoResellerDelegatedAdminRelationship;
+                case "#microsoft.graph.resourceAccountKeyAuthenticationMethod":
+                    return deserializeIntoResourceAccountKeyAuthenticationMethod;
                 case "#microsoft.graph.resourceOperation":
                     return deserializeIntoResourceOperation;
                 case "#microsoft.graph.resourceSpecificPermissionGrant":
@@ -30579,6 +30626,12 @@ export function createM365CapabilityBaseFromDiscriminatorValue(parseNode: ParseN
         const mappingValue = mappingValueNode.getStringValue();
         if (mappingValue) {
             switch (mappingValue) {
+                case "#microsoft.graph.anonymousCalendarSharingFreeBusyDetail":
+                    return deserializeIntoAnonymousCalendarSharingFreeBusyDetail;
+                case "#microsoft.graph.anonymousCalendarSharingFreeBusyReviewer":
+                    return deserializeIntoAnonymousCalendarSharingFreeBusyReviewer;
+                case "#microsoft.graph.anonymousCalendarSharingFreeBusySimple":
+                    return deserializeIntoAnonymousCalendarSharingFreeBusySimple;
                 case "#microsoft.graph.crossTenantCalendarAvailabilityBasic":
                     return deserializeIntoCrossTenantCalendarAvailabilityBasic;
                 case "#microsoft.graph.crossTenantCalendarAvailabilityLimitedDetails":
@@ -36456,6 +36509,15 @@ export function createProvisioningSystemFromDiscriminatorValue(parseNode: ParseN
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ProvisionResponse}
+ */
+// @ts-ignore
+export function createProvisionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoProvisionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {ProxiedDomain}
  */
 // @ts-ignore
@@ -36865,6 +36927,15 @@ export function createRelatedTenantsRefreshRequestFromDiscriminatorValue(parseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RelatedTenantsRefreshStatus}
+ */
+// @ts-ignore
+export function createRelatedTenantsRefreshStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRelatedTenantsRefreshStatus;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {RelationshipPolicy}
  */
 // @ts-ignore
@@ -37107,6 +37178,24 @@ export function createResourceAccessDetailFromDiscriminatorValue(parseNode: Pars
 // @ts-ignore
 export function createResourceAccessFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoResourceAccess;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourceAccountKeyAuthenticationMethodCollectionResponse}
+ */
+// @ts-ignore
+export function createResourceAccountKeyAuthenticationMethodCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourceAccountKeyAuthenticationMethodCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ResourceAccountKeyAuthenticationMethod}
+ */
+// @ts-ignore
+export function createResourceAccountKeyAuthenticationMethodFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoResourceAccountKeyAuthenticationMethod;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -46085,7 +46174,7 @@ export interface CustomExtensionClientConfiguration extends AdditionalDataHolder
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The max number of retries that Microsoft Entra ID makes to the external API. Values of 0 or 1 are supported. If null, the default for the service applies.
+     * The max number of retries that Microsoft Entra ID makes to the external API. For a roleManagementCustomCalloutExtension, the valid range is from 0 through 5. For other custom extensions, values of 0 or 1 are supported. If null, the default for the service applies.
      */
     maximumRetries?: number | null;
     /**
@@ -46093,7 +46182,7 @@ export interface CustomExtensionClientConfiguration extends AdditionalDataHolder
      */
     odataType?: string | null;
     /**
-     * The max duration in milliseconds that Microsoft Entra ID waits for a response from the external app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
+     * The max duration in milliseconds that Microsoft Entra ID waits for a response from the external app before it shuts down the connection. For a roleManagementCustomCalloutExtension, the valid range is from 1000 through 60000 milliseconds. For other custom extensions, the valid range is from 200 through 2000 milliseconds and the default is 1000 milliseconds.
      */
     timeoutInMilliseconds?: number | null;
 }
@@ -49696,6 +49785,39 @@ export function deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration(andr
 }
 /**
  * The deserialization information for the current model
+ * @param AnonymousCalendarSharingFreeBusyDetail The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAnonymousCalendarSharingFreeBusyDetail(anonymousCalendarSharingFreeBusyDetail: Partial<AnonymousCalendarSharingFreeBusyDetail> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoM365CapabilityBase(anonymousCalendarSharingFreeBusyDetail),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AnonymousCalendarSharingFreeBusyReviewer The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAnonymousCalendarSharingFreeBusyReviewer(anonymousCalendarSharingFreeBusyReviewer: Partial<AnonymousCalendarSharingFreeBusyReviewer> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoM365CapabilityBase(anonymousCalendarSharingFreeBusyReviewer),
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param AnonymousCalendarSharingFreeBusySimple The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAnonymousCalendarSharingFreeBusySimple(anonymousCalendarSharingFreeBusySimple: Partial<AnonymousCalendarSharingFreeBusySimple> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoM365CapabilityBase(anonymousCalendarSharingFreeBusySimple),
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param AnonymousGuestConversationMember The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -51459,6 +51581,7 @@ export function deserializeIntoAuthentication(authentication: Partial<Authentica
         "passwordMethods": n => { authentication.passwordMethods = n.getCollectionOfObjectValues<PasswordAuthenticationMethod>(createPasswordAuthenticationMethodFromDiscriminatorValue); },
         "phoneMethods": n => { authentication.phoneMethods = n.getCollectionOfObjectValues<PhoneAuthenticationMethod>(createPhoneAuthenticationMethodFromDiscriminatorValue); },
         "platformCredentialMethods": n => { authentication.platformCredentialMethods = n.getCollectionOfObjectValues<PlatformCredentialAuthenticationMethod>(createPlatformCredentialAuthenticationMethodFromDiscriminatorValue); },
+        "resourceAccountKeyAuthenticationMethods": n => { authentication.resourceAccountKeyAuthenticationMethods = n.getCollectionOfObjectValues<ResourceAccountKeyAuthenticationMethod>(createResourceAccountKeyAuthenticationMethodFromDiscriminatorValue); },
         "softwareOathMethods": n => { authentication.softwareOathMethods = n.getCollectionOfObjectValues<SoftwareOathAuthenticationMethod>(createSoftwareOathAuthenticationMethodFromDiscriminatorValue); },
         "temporaryAccessPassMethods": n => { authentication.temporaryAccessPassMethods = n.getCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>(createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue); },
         "windowsHelloForBusinessMethods": n => { authentication.windowsHelloForBusinessMethods = n.getCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>(createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue); },
@@ -63726,6 +63849,7 @@ export function deserializeIntoFileStorageContainerTypeRegistrationSettings(file
         "backingStoreEnabled": n => { fileStorageContainerTypeRegistrationSettings.backingStoreEnabled = true; },
         "isDiscoverabilityEnabled": n => { fileStorageContainerTypeRegistrationSettings.isDiscoverabilityEnabled = n.getBooleanValue(); },
         "isItemVersioningEnabled": n => { fileStorageContainerTypeRegistrationSettings.isItemVersioningEnabled = n.getBooleanValue(); },
+        "isOfficeRestricted": n => { fileStorageContainerTypeRegistrationSettings.isOfficeRestricted = n.getBooleanValue(); },
         "isSearchEnabled": n => { fileStorageContainerTypeRegistrationSettings.isSearchEnabled = n.getBooleanValue(); },
         "isSharingRestricted": n => { fileStorageContainerTypeRegistrationSettings.isSharingRestricted = n.getBooleanValue(); },
         "itemMajorVersionLimit": n => { fileStorageContainerTypeRegistrationSettings.itemMajorVersionLimit = n.getNumberValue(); },
@@ -63747,6 +63871,7 @@ export function deserializeIntoFileStorageContainerTypeSettings(fileStorageConta
         "consumingTenantOverridables": n => { fileStorageContainerTypeSettings.consumingTenantOverridables = n.getCollectionOfEnumValues<FileStorageContainerTypeSettingsOverride>(FileStorageContainerTypeSettingsOverrideObject); },
         "isDiscoverabilityEnabled": n => { fileStorageContainerTypeSettings.isDiscoverabilityEnabled = n.getBooleanValue(); },
         "isItemVersioningEnabled": n => { fileStorageContainerTypeSettings.isItemVersioningEnabled = n.getBooleanValue(); },
+        "isOfficeRestricted": n => { fileStorageContainerTypeSettings.isOfficeRestricted = n.getBooleanValue(); },
         "isSearchEnabled": n => { fileStorageContainerTypeSettings.isSearchEnabled = n.getBooleanValue(); },
         "isSharingRestricted": n => { fileStorageContainerTypeSettings.isSharingRestricted = n.getBooleanValue(); },
         "itemMajorVersionLimit": n => { fileStorageContainerTypeSettings.itemMajorVersionLimit = n.getNumberValue(); },
@@ -75442,6 +75567,20 @@ export function deserializeIntoProvisioningSystem(provisioningSystem: Partial<Pr
 }
 /**
  * The deserialization information for the current model
+ * @param ProvisionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoProvisionResponse(provisionResponse: Partial<ProvisionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { provisionResponse.backingStoreEnabled = true; },
+        "challenge": n => { provisionResponse.challenge = n.getStringValue(); },
+        "deviceId": n => { provisionResponse.deviceId = n.getStringValue(); },
+        "@odata.type": n => { provisionResponse.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param ProxiedDomain The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -76112,6 +76251,21 @@ export function deserializeIntoRelatedTenantsRefreshRequest(relatedTenantsRefres
 }
 /**
  * The deserialization information for the current model
+ * @param RelatedTenantsRefreshStatus The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRelatedTenantsRefreshStatus(relatedTenantsRefreshStatus: Partial<RelatedTenantsRefreshStatus> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { relatedTenantsRefreshStatus.backingStoreEnabled = true; },
+        "isFirstRefresh": n => { relatedTenantsRefreshStatus.isFirstRefresh = n.getBooleanValue(); },
+        "mostRecentRefreshDateTime": n => { relatedTenantsRefreshStatus.mostRecentRefreshDateTime = n.getDateValue(); },
+        "mostRecentRefreshRequestStatus": n => { relatedTenantsRefreshStatus.mostRecentRefreshRequestStatus = n.getStringValue(); },
+        "@odata.type": n => { relatedTenantsRefreshStatus.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param RelationshipPolicy The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -76493,6 +76647,31 @@ export function deserializeIntoResourceAccessDetail(resourceAccessDetail: Partia
         "status": n => { resourceAccessDetail.status = n.getEnumValue<ResourceAccessStatus>(ResourceAccessStatusObject); },
         "storageId": n => { resourceAccessDetail.storageId = n.getStringValue(); },
         "url": n => { resourceAccessDetail.url = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourceAccountKeyAuthenticationMethod The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourceAccountKeyAuthenticationMethod(resourceAccountKeyAuthenticationMethod: Partial<ResourceAccountKeyAuthenticationMethod> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoAuthenticationMethod(resourceAccountKeyAuthenticationMethod),
+        "device": n => { resourceAccountKeyAuthenticationMethod.device = n.getObjectValue<Device>(createDeviceFromDiscriminatorValue); },
+        "displayName": n => { resourceAccountKeyAuthenticationMethod.displayName = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ResourceAccountKeyAuthenticationMethodCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoResourceAccountKeyAuthenticationMethodCollectionResponse(resourceAccountKeyAuthenticationMethodCollectionResponse: Partial<ResourceAccountKeyAuthenticationMethodCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(resourceAccountKeyAuthenticationMethodCollectionResponse),
+        "value": n => { resourceAccountKeyAuthenticationMethodCollectionResponse.value = n.getCollectionOfObjectValues<ResourceAccountKeyAuthenticationMethod>(createResourceAccountKeyAuthenticationMethodFromDiscriminatorValue); },
     }
 }
 /**
@@ -96916,6 +97095,10 @@ export interface FileStorageContainerTypeRegistrationSettings extends Additional
      */
     isItemVersioningEnabled?: boolean | null;
     /**
+     * Indicates whether Office apps (Word, Excel, and PowerPoint) for desktop and web are restricted for containers of this container type.
+     */
+    isOfficeRestricted?: boolean | null;
+    /**
      * Indicates whether search is enabled.
      */
     isSearchEnabled?: boolean | null;
@@ -96961,6 +97144,10 @@ export interface FileStorageContainerTypeSettings extends AdditionalDataHolder, 
      * Indicates whether item versioning is enabled.
      */
     isItemVersioningEnabled?: boolean | null;
+    /**
+     * Indicates whether Office apps (Word, Excel, and PowerPoint) for desktop and web are restricted for containers of this container type.
+     */
+    isOfficeRestricted?: boolean | null;
     /**
      * Indicates whether search is enabled.
      */
@@ -97548,7 +97735,7 @@ export interface Group extends DirectoryObject, Parsable {
      */
     appRoleAssignments?: AppRoleAssignment[] | null;
     /**
-     * The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group or a cloud security group. Requires a Microsoft Entra ID P1 license. Requires $select to retrieve. This property can be specified during group creation or update. However, for cloud security groups, it's immutable once set. This property can be updated only in delegated scenarios where the caller requires both the Microsoft Graph permission and a supported administrator role. See Key differences from Microsoft 365 group labeling to learn more about managing this property for Microsoft 365 vs. cloud security groups.
+     * The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group or a cloud security group. Requires a Microsoft Entra ID P1 license. Requires $select to retrieve. This property can be specified during group creation or update. However, for cloud security groups, it's immutable once set. This property can be updated only in delegated scenarios where the caller requires both the Microsoft Graph permission and a supported administrator role. To learn more about managing this property for Microsoft 365 vs. cloud security groups, see Key differences from Microsoft 365 group labeling.
      */
     assignedLabels?: AssignedLabel[] | null;
     /**
@@ -98081,7 +98268,7 @@ export interface HostSecurityState extends AdditionalDataHolder, BackedModel, Pa
 }
 export interface HttpRequestEndpoint extends CustomExtensionEndpointConfiguration, Parsable {
     /**
-     * The HTTP endpoint that a custom extension calls.
+     * The URL of the HTTP endpoint that Microsoft Entra ID calls for the custom extension.
      */
     targetUrl?: string | null;
 }
@@ -110236,11 +110423,11 @@ export interface PreAuthorizedApplication extends AdditionalDataHolder, BackedMo
 export type PrereleaseFeatures = (typeof PrereleaseFeaturesObject)[keyof typeof PrereleaseFeaturesObject];
 export interface Presence extends Entity, Parsable {
     /**
-     * The supplemental information to a user's availability. Possible values are available, away, beRightBack, busy, doNotDisturb, offline, outOfOffice, presenceUnknown.
+     * The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, Offline, OutOfOffice, PresenceUnknown.
      */
     activity?: string | null;
     /**
-     * The base presence information for a user. Possible values are available, away, beRightBack, busy, doNotDisturb, focusing, inACall, inAMeeting, offline, presenting, presenceUnknown.
+     * The base presence information for a user. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, Focusing, InACall, InAMeeting, Offline, Presenting, PresenceUnknown.
      */
     availability?: string | null;
     /**
@@ -111604,7 +111791,7 @@ export type PrivilegedAccessGroupMemberType = (typeof PrivilegedAccessGroupMembe
 export type PrivilegedAccessGroupRelationships = (typeof PrivilegedAccessGroupRelationshipsObject)[keyof typeof PrivilegedAccessGroupRelationshipsObject];
 export interface PrivilegedAccessRoot extends Entity, Parsable {
     /**
-     * The customExtensions property
+     * The custom extensions configured for PIM role management operations.
      */
     customExtensions?: RoleManagementCustomCalloutExtension[] | null;
     /**
@@ -112461,6 +112648,24 @@ export interface ProvisioningSystem extends Identity, Parsable {
      * Details of the system.
      */
     details?: DetailsInfo | null;
+}
+export interface ProvisionResponse extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The cryptographic challenge that the device uses to complete its registration with the directory.
+     */
+    challenge?: string | null;
+    /**
+     * The unique identifier of the provisioned device.
+     */
+    deviceId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 /**
  * Proxied Domain
@@ -113422,6 +113627,31 @@ export interface RelatedTenantsRefreshRequest extends Entity, Parsable {
      */
     location?: string | null;
 }
+/**
+ * Represents the status of the most recent Related Tenants refresh operation.
+ */
+export interface RelatedTenantsRefreshStatus extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The isFirstRefresh property
+     */
+    isFirstRefresh?: boolean | null;
+    /**
+     * The mostRecentRefreshDateTime property
+     */
+    mostRecentRefreshDateTime?: Date | null;
+    /**
+     * The mostRecentRefreshRequestStatus property
+     */
+    mostRecentRefreshRequestStatus?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export type RelationshipCreationType = (typeof RelationshipCreationTypeObject)[keyof typeof RelationshipCreationTypeObject];
 export interface RelationshipPolicy extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -113976,6 +114206,22 @@ export interface ResourceAccessDetail extends AdditionalDataHolder, BackedModel,
 }
 export type ResourceAccessStatus = (typeof ResourceAccessStatusObject)[keyof typeof ResourceAccessStatusObject];
 export type ResourceAccessType = (typeof ResourceAccessTypeObject)[keyof typeof ResourceAccessTypeObject];
+export interface ResourceAccountKeyAuthenticationMethod extends AuthenticationMethod, Parsable {
+    /**
+     * The registered device on which this resource account key resides. Supports $expand.
+     */
+    device?: Device | null;
+    /**
+     * The display name of the resource account key credential as shown in the Teams Room interface.
+     */
+    displayName?: string | null;
+}
+export interface ResourceAccountKeyAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: ResourceAccountKeyAuthenticationMethod[] | null;
+}
 /**
  * Set of allowed and not allowed actions for a resource.
  */
@@ -114907,7 +115153,7 @@ export interface RoleManagement extends AdditionalDataHolder, BackedModel, Parsa
 }
 export interface RoleManagementCustomCalloutExtension extends CustomCalloutExtension, Parsable {
     /**
-     * The customAttributes property
+     * The custom attribute names to include in the callout payload.
      */
     customAttributes?: string[] | null;
     /**
@@ -119271,6 +119517,39 @@ export function serializeAndroidWorkProfileGeneralDeviceConfiguration(writer: Se
 }
 /**
  * Serializes information the current object
+ * @param AnonymousCalendarSharingFreeBusyDetail The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAnonymousCalendarSharingFreeBusyDetail(writer: SerializationWriter, anonymousCalendarSharingFreeBusyDetail: Partial<AnonymousCalendarSharingFreeBusyDetail> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!anonymousCalendarSharingFreeBusyDetail || isSerializingDerivedType) { return; }
+    serializeM365CapabilityBase(writer, anonymousCalendarSharingFreeBusyDetail, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param AnonymousCalendarSharingFreeBusyReviewer The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAnonymousCalendarSharingFreeBusyReviewer(writer: SerializationWriter, anonymousCalendarSharingFreeBusyReviewer: Partial<AnonymousCalendarSharingFreeBusyReviewer> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!anonymousCalendarSharingFreeBusyReviewer || isSerializingDerivedType) { return; }
+    serializeM365CapabilityBase(writer, anonymousCalendarSharingFreeBusyReviewer, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
+ * @param AnonymousCalendarSharingFreeBusySimple The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAnonymousCalendarSharingFreeBusySimple(writer: SerializationWriter, anonymousCalendarSharingFreeBusySimple: Partial<AnonymousCalendarSharingFreeBusySimple> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!anonymousCalendarSharingFreeBusySimple || isSerializingDerivedType) { return; }
+    serializeM365CapabilityBase(writer, anonymousCalendarSharingFreeBusySimple, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
  * @param AnonymousGuestConversationMember The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -121090,6 +121369,7 @@ export function serializeAuthentication(writer: SerializationWriter, authenticat
     writer.writeCollectionOfObjectValues<PasswordAuthenticationMethod>("passwordMethods", authentication.passwordMethods, serializePasswordAuthenticationMethod);
     writer.writeCollectionOfObjectValues<PhoneAuthenticationMethod>("phoneMethods", authentication.phoneMethods, serializePhoneAuthenticationMethod);
     writer.writeCollectionOfObjectValues<PlatformCredentialAuthenticationMethod>("platformCredentialMethods", authentication.platformCredentialMethods, serializePlatformCredentialAuthenticationMethod);
+    writer.writeCollectionOfObjectValues<ResourceAccountKeyAuthenticationMethod>("resourceAccountKeyAuthenticationMethods", authentication.resourceAccountKeyAuthenticationMethods, serializeResourceAccountKeyAuthenticationMethod);
     writer.writeCollectionOfObjectValues<SoftwareOathAuthenticationMethod>("softwareOathMethods", authentication.softwareOathMethods, serializeSoftwareOathAuthenticationMethod);
     writer.writeCollectionOfObjectValues<TemporaryAccessPassAuthenticationMethod>("temporaryAccessPassMethods", authentication.temporaryAccessPassMethods, serializeTemporaryAccessPassAuthenticationMethod);
     writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("windowsHelloForBusinessMethods", authentication.windowsHelloForBusinessMethods, serializeWindowsHelloForBusinessAuthenticationMethod);
@@ -121468,6 +121748,9 @@ export function serializeAuthenticationMethod(writer: SerializationWriter, authe
         break;
         case "#microsoft.graph.qrCodePinAuthenticationMethod":
             serializeQrCodePinAuthenticationMethod(writer, authenticationMethod, true);
+        break;
+        case "#microsoft.graph.resourceAccountKeyAuthenticationMethod":
+            serializeResourceAccountKeyAuthenticationMethod(writer, authenticationMethod, true);
         break;
         case "#microsoft.graph.softwareOathAuthenticationMethod":
             serializeSoftwareOathAuthenticationMethod(writer, authenticationMethod, true);
@@ -133425,6 +133708,15 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration":
             serializeAndroidWorkProfileGeneralDeviceConfiguration(writer, entity, true);
         break;
+        case "#microsoft.graph.anonymousCalendarSharingFreeBusyDetail":
+            serializeAnonymousCalendarSharingFreeBusyDetail(writer, entity, true);
+        break;
+        case "#microsoft.graph.anonymousCalendarSharingFreeBusyReviewer":
+            serializeAnonymousCalendarSharingFreeBusyReviewer(writer, entity, true);
+        break;
+        case "#microsoft.graph.anonymousCalendarSharingFreeBusySimple":
+            serializeAnonymousCalendarSharingFreeBusySimple(writer, entity, true);
+        break;
         case "#microsoft.graph.anonymousGuestConversationMember":
             serializeAnonymousGuestConversationMember(writer, entity, true);
         break;
@@ -135482,6 +135774,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.resellerDelegatedAdminRelationship":
             serializeResellerDelegatedAdminRelationship(writer, entity, true);
+        break;
+        case "#microsoft.graph.resourceAccountKeyAuthenticationMethod":
+            serializeResourceAccountKeyAuthenticationMethod(writer, entity, true);
         break;
         case "#microsoft.graph.resourceOperation":
             serializeResourceOperation(writer, entity, true);
@@ -138000,6 +138295,7 @@ export function serializeFileStorageContainerTypeRegistrationSettings(writer: Se
     if (!fileStorageContainerTypeRegistrationSettings || isSerializingDerivedType) { return; }
     writer.writeBooleanValue("isDiscoverabilityEnabled", fileStorageContainerTypeRegistrationSettings.isDiscoverabilityEnabled);
     writer.writeBooleanValue("isItemVersioningEnabled", fileStorageContainerTypeRegistrationSettings.isItemVersioningEnabled);
+    writer.writeBooleanValue("isOfficeRestricted", fileStorageContainerTypeRegistrationSettings.isOfficeRestricted);
     writer.writeBooleanValue("isSearchEnabled", fileStorageContainerTypeRegistrationSettings.isSearchEnabled);
     writer.writeBooleanValue("isSharingRestricted", fileStorageContainerTypeRegistrationSettings.isSharingRestricted);
     writer.writeNumberValue("itemMajorVersionLimit", fileStorageContainerTypeRegistrationSettings.itemMajorVersionLimit);
@@ -138021,6 +138317,7 @@ export function serializeFileStorageContainerTypeSettings(writer: SerializationW
     writer.writeEnumValue<FileStorageContainerTypeSettingsOverride[]>("consumingTenantOverridables", fileStorageContainerTypeSettings.consumingTenantOverridables);
     writer.writeBooleanValue("isDiscoverabilityEnabled", fileStorageContainerTypeSettings.isDiscoverabilityEnabled);
     writer.writeBooleanValue("isItemVersioningEnabled", fileStorageContainerTypeSettings.isItemVersioningEnabled);
+    writer.writeBooleanValue("isOfficeRestricted", fileStorageContainerTypeSettings.isOfficeRestricted);
     writer.writeBooleanValue("isSearchEnabled", fileStorageContainerTypeSettings.isSearchEnabled);
     writer.writeBooleanValue("isSharingRestricted", fileStorageContainerTypeSettings.isSharingRestricted);
     writer.writeNumberValue("itemMajorVersionLimit", fileStorageContainerTypeSettings.itemMajorVersionLimit);
@@ -141865,6 +142162,15 @@ export function serializeM365CapabilityBase(writer: SerializationWriter, m365Cap
     writer.writeDateValue("lastModifiedDateTime", m365CapabilityBase.lastModifiedDateTime);
     writer.writeStringValue("name", m365CapabilityBase.name);
     switch (m365CapabilityBase.odataType) {
+        case "#microsoft.graph.anonymousCalendarSharingFreeBusyDetail":
+            serializeAnonymousCalendarSharingFreeBusyDetail(writer, m365CapabilityBase, true);
+        break;
+        case "#microsoft.graph.anonymousCalendarSharingFreeBusyReviewer":
+            serializeAnonymousCalendarSharingFreeBusyReviewer(writer, m365CapabilityBase, true);
+        break;
+        case "#microsoft.graph.anonymousCalendarSharingFreeBusySimple":
+            serializeAnonymousCalendarSharingFreeBusySimple(writer, m365CapabilityBase, true);
+        break;
         case "#microsoft.graph.crossTenantCalendarAvailabilityBasic":
             serializeCrossTenantCalendarAvailabilityBasic(writer, m365CapabilityBase, true);
         break;
@@ -150683,6 +150989,20 @@ export function serializeProvisioningSystem(writer: SerializationWriter, provisi
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ProvisionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeProvisionResponse(writer: SerializationWriter, provisionResponse: Partial<ProvisionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!provisionResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("challenge", provisionResponse.challenge);
+    writer.writeStringValue("deviceId", provisionResponse.deviceId);
+    writer.writeStringValue("@odata.type", provisionResponse.odataType);
+    writer.writeAdditionalData(provisionResponse.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param ProxiedDomain The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -151361,6 +151681,21 @@ export function serializeRelatedTenantsRefreshRequest(writer: SerializationWrite
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RelatedTenantsRefreshStatus The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRelatedTenantsRefreshStatus(writer: SerializationWriter, relatedTenantsRefreshStatus: Partial<RelatedTenantsRefreshStatus> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!relatedTenantsRefreshStatus || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("isFirstRefresh", relatedTenantsRefreshStatus.isFirstRefresh);
+    writer.writeDateValue("mostRecentRefreshDateTime", relatedTenantsRefreshStatus.mostRecentRefreshDateTime);
+    writer.writeStringValue("mostRecentRefreshRequestStatus", relatedTenantsRefreshStatus.mostRecentRefreshRequestStatus);
+    writer.writeStringValue("@odata.type", relatedTenantsRefreshStatus.odataType);
+    writer.writeAdditionalData(relatedTenantsRefreshStatus.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param RelationshipPolicy The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -151761,6 +152096,31 @@ export function serializeResourceAccessDetail(writer: SerializationWriter, resou
     writer.writeStringValue("storageId", resourceAccessDetail.storageId);
     writer.writeStringValue("url", resourceAccessDetail.url);
     writer.writeAdditionalData(resourceAccessDetail.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourceAccountKeyAuthenticationMethod The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourceAccountKeyAuthenticationMethod(writer: SerializationWriter, resourceAccountKeyAuthenticationMethod: Partial<ResourceAccountKeyAuthenticationMethod> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourceAccountKeyAuthenticationMethod || isSerializingDerivedType) { return; }
+    serializeAuthenticationMethod(writer, resourceAccountKeyAuthenticationMethod, isSerializingDerivedType)
+    writer.writeObjectValue<Device>("device", resourceAccountKeyAuthenticationMethod.device, serializeDevice);
+    writer.writeStringValue("displayName", resourceAccountKeyAuthenticationMethod.displayName);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param ResourceAccountKeyAuthenticationMethodCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeResourceAccountKeyAuthenticationMethodCollectionResponse(writer: SerializationWriter, resourceAccountKeyAuthenticationMethodCollectionResponse: Partial<ResourceAccountKeyAuthenticationMethodCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!resourceAccountKeyAuthenticationMethodCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, resourceAccountKeyAuthenticationMethodCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<ResourceAccountKeyAuthenticationMethod>("value", resourceAccountKeyAuthenticationMethodCollectionResponse.value, serializeResourceAccountKeyAuthenticationMethod);
 }
 /**
  * Serializes information the current object
@@ -172486,19 +172846,19 @@ export interface UnifiedRoleManagementPolicyCollectionResponse extends BaseColle
 }
 export interface UnifiedRoleManagementPolicyCustomExtensionRule extends Parsable, UnifiedRoleManagementPolicyRule {
     /**
-     * The customAttributes property
+     * The custom attributes associated with the policy rule. Read-only.
      */
     customAttributes?: string[] | null;
     /**
-     * The customExtensionId property
+     * The unique identifier of the roleManagementCustomCalloutExtension associated with this rule.
      */
     customExtensionId?: string | null;
     /**
-     * The displayName property
+     * The display name of the policy rule. Read-only.
      */
     displayName?: string | null;
     /**
-     * The isEnabled property
+     * Indicates whether the custom extension rule is enabled.
      */
     isEnabled?: boolean | null;
 }
@@ -184370,6 +184730,7 @@ export const FileStorageContainerTypeSettingsOverrideObject = {
     ItemMajorVersionLimit: "itemMajorVersionLimit",
     MaxStoragePerContainerInBytes: "maxStoragePerContainerInBytes",
     UnknownFutureValue: "unknownFutureValue",
+    IsOfficeRestricted: "isOfficeRestricted",
 } as const;
 export const FilterModeObject = {
     Include: "include",
@@ -188028,6 +188389,7 @@ export const SystemBrowserEnabledOnObject = {
     Ios: "ios",
     Android: "android",
     Mac: "mac",
+    Linux: "linux",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 /**

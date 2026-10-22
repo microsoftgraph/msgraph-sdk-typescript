@@ -16,6 +16,8 @@ import { GetByIdsRequestBuilderRequestsMetadata, type GetByIdsRequestBuilder } f
 // @ts-ignore
 import { DeviceItemRequestBuilderNavigationMetadata, DeviceItemRequestBuilderRequestsMetadata, type DeviceItemRequestBuilder } from './item/index.js';
 // @ts-ignore
+import { ProvisionRequestBuilderRequestsMetadata, type ProvisionRequestBuilder } from './provision/index.js';
+// @ts-ignore
 import { type ValidatePropertiesRequestBuilder, ValidatePropertiesRequestBuilderRequestsMetadata } from './validateProperties/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -40,6 +42,10 @@ export interface DevicesRequestBuilder extends BaseRequestBuilder<DevicesRequest
      * Provides operations to call the getByIds method.
      */
     get getByIds(): GetByIdsRequestBuilder;
+    /**
+     * Provides operations to call the provision method.
+     */
+    get provision(): ProvisionRequestBuilder;
     /**
      * Provides operations to call the validateProperties method.
      */
@@ -155,6 +161,9 @@ export const DevicesRequestBuilderNavigationMetadata: Record<Exclude<keyof Devic
     },
     getByIds: {
         requestsMetadata: GetByIdsRequestBuilderRequestsMetadata,
+    },
+    provision: {
+        requestsMetadata: ProvisionRequestBuilderRequestsMetadata,
     },
     validateProperties: {
         requestsMetadata: ValidatePropertiesRequestBuilderRequestsMetadata,
