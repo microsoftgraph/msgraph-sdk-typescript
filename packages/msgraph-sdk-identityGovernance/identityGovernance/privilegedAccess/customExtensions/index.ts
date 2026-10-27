@@ -27,28 +27,30 @@ export interface CustomExtensionsRequestBuilder extends BaseRequestBuilder<Custo
      */
      byRoleManagementCustomCalloutExtensionId(roleManagementCustomCalloutExtensionId: string) : RoleManagementCustomCalloutExtensionItemRequestBuilder;
     /**
-     * Get customExtensions from identityGovernance
+     * Get a list of roleManagementCustomCalloutExtension objects configured for Privileged Identity Management (PIM).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleManagementCustomCalloutExtensionCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessroot-list-customextensions?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<CustomExtensionsRequestBuilderGetQueryParameters> | undefined) : Promise<RoleManagementCustomCalloutExtensionCollectionResponse | undefined>;
     /**
-     * Create new navigation property to customExtensions for identityGovernance
+     * Create a new roleManagementCustomCalloutExtension object for Privileged Identity Management (PIM).
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleManagementCustomCalloutExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessroot-post-customextensions?view=graph-rest-1.0|Find more info here}
      */
      post(body: RoleManagementCustomCalloutExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleManagementCustomCalloutExtension | undefined>;
     /**
-     * Get customExtensions from identityGovernance
+     * Get a list of roleManagementCustomCalloutExtension objects configured for Privileged Identity Management (PIM).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<CustomExtensionsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Create new navigation property to customExtensions for identityGovernance
+     * Create a new roleManagementCustomCalloutExtension object for Privileged Identity Management (PIM).
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -56,7 +58,7 @@ export interface CustomExtensionsRequestBuilder extends BaseRequestBuilder<Custo
      toPostRequestInformation(body: RoleManagementCustomCalloutExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get customExtensions from identityGovernance
+ * Get a list of roleManagementCustomCalloutExtension objects configured for Privileged Identity Management (PIM).
  */
 export interface CustomExtensionsRequestBuilderGetQueryParameters {
     /**

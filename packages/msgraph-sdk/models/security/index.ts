@@ -990,6 +990,10 @@ export interface AuditLogQuery extends Entity, Parsable {
      */
     administrativeUnitIdFilters?: string[] | null;
     /**
+     * The approximate number of records retrieved by the query. This value can be higher or lower than recordCountLimit due to distributed counting. Read-only.
+     */
+    approximateReturnedRecordCount?: number | null;
+    /**
      * The display name of the audit log query.
      */
     displayName?: string | null;
@@ -1006,7 +1010,11 @@ export interface AuditLogQuery extends Entity, Parsable {
      */
     ipAddressFilters?: string[] | null;
     /**
-     * The keyword to filter on.
+     * Indicates whether the query exceeded the per-search record-count limit. The default value is false. A value of true is authoritative and isn't derived from approximateReturnedRecordCount. Read-only.
+     */
+    isRecordCountLimitExceeded?: boolean | null;
+    /**
+     * Free text to match against the non-indexed content of each record: the workload-specific properties inside auditData, including its AppAccessContext object. The indexed common-schema properties, such as the operation name, aren't matched by keyword; use their own filters, such as operationFilters, for those.
      */
     keywordFilter?: string | null;
     /**
@@ -1017,6 +1025,10 @@ export interface AuditLogQuery extends Entity, Parsable {
      * The collection of operations to filter on.
      */
     operationFilters?: string[] | null;
+    /**
+     * The record-count threshold used to limit query result retrieval. Read-only.
+     */
+    recordCountLimit?: number | null;
     /**
      * The collection of audit log records retrieved by the query.
      */
@@ -9694,13 +9706,16 @@ export function deserializeIntoAuditLogQuery(auditLogQuery: Partial<AuditLogQuer
     return {
         ...deserializeIntoEntity(auditLogQuery),
         "administrativeUnitIdFilters": n => { auditLogQuery.administrativeUnitIdFilters = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "approximateReturnedRecordCount": n => { auditLogQuery.approximateReturnedRecordCount = n.getNumberValue(); },
         "displayName": n => { auditLogQuery.displayName = n.getStringValue(); },
         "filterEndDateTime": n => { auditLogQuery.filterEndDateTime = n.getDateValue(); },
         "filterStartDateTime": n => { auditLogQuery.filterStartDateTime = n.getDateValue(); },
         "ipAddressFilters": n => { auditLogQuery.ipAddressFilters = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "isRecordCountLimitExceeded": n => { auditLogQuery.isRecordCountLimitExceeded = n.getBooleanValue(); },
         "keywordFilter": n => { auditLogQuery.keywordFilter = n.getStringValue(); },
         "objectIdFilters": n => { auditLogQuery.objectIdFilters = n.getCollectionOfPrimitiveValues<string>("string"); },
         "operationFilters": n => { auditLogQuery.operationFilters = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "recordCountLimit": n => { auditLogQuery.recordCountLimit = n.getNumberValue(); },
         "records": n => { auditLogQuery.records = n.getCollectionOfObjectValues<AuditLogRecord>(createAuditLogRecordFromDiscriminatorValue); },
         "recordTypeFilters": n => { auditLogQuery.recordTypeFilters = n.getCollectionOfEnumValues<AuditLogRecordType>(AuditLogRecordTypeObject); },
         "serviceFilters": n => { auditLogQuery.serviceFilters = n.getCollectionOfPrimitiveValues<string>("string"); },

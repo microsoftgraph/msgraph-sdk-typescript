@@ -12,6 +12,8 @@ import { RelatedTenantItemRequestBuilderNavigationMetadata, RelatedTenantItemReq
 // @ts-ignore
 import { RefreshRequestBuilderRequestsMetadata, type RefreshRequestBuilder } from './refresh/index.js';
 // @ts-ignore
+import { RefreshStatusRequestBuilderRequestsMetadata, type RefreshStatusRequestBuilder } from './refreshStatus/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -26,6 +28,10 @@ export interface RelatedTenantsRequestBuilder extends BaseRequestBuilder<Related
      * Provides operations to call the refresh method.
      */
     get refresh(): RefreshRequestBuilder;
+    /**
+     * Provides operations to call the refreshStatus method.
+     */
+    get refreshStatus(): RefreshStatusRequestBuilder;
     /**
      * Provides operations to manage the relatedTenants property of the microsoft.graph.tenantGovernance entity.
      * @param relatedTenantId The unique identifier of relatedTenant
@@ -130,6 +136,9 @@ export const RelatedTenantsRequestBuilderNavigationMetadata: Record<Exclude<keyo
     },
     refresh: {
         requestsMetadata: RefreshRequestBuilderRequestsMetadata,
+    },
+    refreshStatus: {
+        requestsMetadata: RefreshStatusRequestBuilderRequestsMetadata,
     },
 };
 /**

@@ -13,40 +13,43 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RoleManagementCustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder<RoleManagementCustomCalloutExtensionItemRequestBuilder> {
     /**
-     * Delete navigation property customExtensions for identityGovernance
+     * Delete a roleManagementCustomCalloutExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/rolemanagementcustomcalloutextension-delete?view=graph-rest-1.0|Find more info here}
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Get customExtensions from identityGovernance
+     * Retrieve the properties of a roleManagementCustomCalloutExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleManagementCustomCalloutExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/rolemanagementcustomcalloutextension-get?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<RoleManagementCustomCalloutExtensionItemRequestBuilderGetQueryParameters> | undefined) : Promise<RoleManagementCustomCalloutExtension | undefined>;
     /**
-     * Update the navigation property customExtensions in identityGovernance
+     * Update the properties of a roleManagementCustomCalloutExtension object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RoleManagementCustomCalloutExtension>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/rolemanagementcustomcalloutextension-update?view=graph-rest-1.0|Find more info here}
      */
      patch(body: RoleManagementCustomCalloutExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RoleManagementCustomCalloutExtension | undefined>;
     /**
-     * Delete navigation property customExtensions for identityGovernance
+     * Delete a roleManagementCustomCalloutExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Get customExtensions from identityGovernance
+     * Retrieve the properties of a roleManagementCustomCalloutExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<RoleManagementCustomCalloutExtensionItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the navigation property customExtensions in identityGovernance
+     * Update the properties of a roleManagementCustomCalloutExtension object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -54,7 +57,7 @@ export interface RoleManagementCustomCalloutExtensionItemRequestBuilder extends 
      toPatchRequestInformation(body: RoleManagementCustomCalloutExtension, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get customExtensions from identityGovernance
+ * Retrieve the properties of a roleManagementCustomCalloutExtension object.
  */
 export interface RoleManagementCustomCalloutExtensionItemRequestBuilderGetQueryParameters {
     /**

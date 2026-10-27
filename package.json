@@ -11,7 +11,7 @@
   "devDependencies": {
     "rimraf": "^6.0.1"
   },
-  "version": "1.0.0-preview.91",
+  "version": "1.0.0-preview.92",
   "engines": {
     "node": "22.x || 24.x || 26.x"
   }
