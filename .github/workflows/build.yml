@@ -4,11 +4,6 @@ name: Node.js CI
 
 on:
   workflow_dispatch:
-    inputs:
-      run_integration_tests:
-        description: Run Microsoft Graph integration tests (non-blocking)
-        type: boolean
-        default: false
   push:
     branches: [main]
     tags: [ 'v*' ]
@@ -38,7 +33,6 @@ jobs:
       - run: npm run build
       - name: Check for Secret availability
         id: my-key-check
-        if: github.event_name == 'workflow_dispatch' && inputs.run_integration_tests
         # perform secret check & put boolean result as an output
         shell: bash
         run: |
@@ -47,10 +41,8 @@ jobs:
           else
             echo "defined=false" >> $GITHUB_OUTPUT;
           fi
-      - name: Run integration tests (non-blocking)
-        run: npm run test
-        if: github.event_name == 'workflow_dispatch' && inputs.run_integration_tests && steps.my-key-check.outputs.defined == 'true'
-        continue-on-error: true
+      - run: npm run test
+        if: steps.my-key-check.outputs.defined == 'true'
         env:
           TENANT_ID: ${{secrets.tenant_id}}
           CLIENT_ID: ${{secrets.client_id}}

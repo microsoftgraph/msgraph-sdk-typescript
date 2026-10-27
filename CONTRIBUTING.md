@@ -17,9 +17,7 @@ npm ci
 npm run build
 ```
 
-After building, run the integration tests with `npm test`. These tests call Microsoft Graph and require `TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET`, and `USER_ID` environment variables for a test tenant with appropriate permissions.
-
-In the Node.js CI workflow, integration tests are disabled for pull requests, pushes, and manual runs by default. To opt in, manually run the workflow with `run_integration_tests` enabled; the configured client secret must also be available. Integration test failures remain visible in the logs but do not fail the job or the aggregate build check. Dependency installation and compilation failures still fail CI.
+After building, run the integration tests with `npm test`. These tests call Microsoft Graph and require `TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET`, and `USER_ID` environment variables for a test tenant with appropriate permissions. GitHub Actions runs them only when its configured client secret is available.
 
 ## Commit message format
 
