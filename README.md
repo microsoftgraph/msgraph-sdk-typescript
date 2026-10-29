@@ -8,6 +8,8 @@ Get started with the Microsoft Graph SDK for Typescript by integrating the [Micr
 
 ## 1. Installation
 
+Supported Node.js versions are 22.x, 24.x, and 26.x.
+
 ```shell
 # this will install the main package
 npm install @microsoft/msgraph-sdk
