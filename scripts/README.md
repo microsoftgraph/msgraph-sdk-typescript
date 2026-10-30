@@ -9,6 +9,8 @@ This package provides a fluent API for interacting with Microsoft Graph administ
 
 ## 1. Installation
 
+Supported Node.js versions are 22.x, 24.x, and 26.x.
+
 To install the package, use npm:
 
 ```shell
