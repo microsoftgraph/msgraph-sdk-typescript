@@ -6,12 +6,18 @@ import { createUnifiedRoleDefinitionFromDiscriminatorValue, serializeUnifiedRole
 // @ts-ignore
 import { createODataErrorFromDiscriminatorValue, type ODataError } from '@microsoft/msgraph-sdk/models/oDataErrors/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { RestoreRequestBuilderRequestsMetadata, type RestoreRequestBuilder } from './restore/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
  */
 export interface UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder<UnifiedRoleDefinitionItemRequestBuilder> {
+    /**
+     * Provides operations to call the restore method.
+     */
+    get restore(): RestoreRequestBuilder;
     /**
      * Delete navigation property inheritsPermissionsFrom for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -76,6 +82,14 @@ export const UnifiedRoleDefinitionItemRequestBuilderUriTemplate = "{+baseurl}/ro
 const UnifiedRoleDefinitionItemRequestBuilderGetQueryParametersMapper: Record<string, string> = {
     "expand": "%24expand",
     "select": "%24select",
+};
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const UnifiedRoleDefinitionItemRequestBuilderNavigationMetadata: Record<Exclude<keyof UnifiedRoleDefinitionItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    restore: {
+        requestsMetadata: RestoreRequestBuilderRequestsMetadata,
+    },
 };
 /**
  * Metadata for all the requests in the request builder.

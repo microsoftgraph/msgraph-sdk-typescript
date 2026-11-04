@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
+import { DeltaRequestBuilderRequestsMetadata, type DeltaRequestBuilder } from './delta/index.js';
+// @ts-ignore
 import { CalendarItemRequestBuilderNavigationMetadata, CalendarItemRequestBuilderRequestsMetadata, type CalendarItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
@@ -20,6 +22,10 @@ export interface CalendarsRequestBuilder extends BaseRequestBuilder<CalendarsReq
      * Provides operations to count the resources in the collection.
      */
     get count(): CountRequestBuilder;
+    /**
+     * Provides operations to call the delta method.
+     */
+    get delta(): DeltaRequestBuilder;
     /**
      * Provides operations to manage the calendars property of the microsoft.graph.user entity.
      * @param calendarId The unique identifier of calendar
@@ -120,6 +126,9 @@ export const CalendarsRequestBuilderNavigationMetadata: Record<Exclude<keyof Cal
     },
     count: {
         requestsMetadata: CountRequestBuilderRequestsMetadata,
+    },
+    delta: {
+        requestsMetadata: DeltaRequestBuilderRequestsMetadata,
     },
 };
 /**

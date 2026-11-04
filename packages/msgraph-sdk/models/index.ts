@@ -12,11 +12,11 @@ import { deserializeIntoConnectionOperation, deserializeIntoConnectionOperationC
 // @ts-ignore
 import { createLifecycleWorkflowsContainerFromDiscriminatorValue, createWorkflowFromDiscriminatorValue, deserializeIntoCustomTaskExtension, deserializeIntoCustomTaskExtensionCallbackConfiguration, deserializeIntoCustomTaskExtensionCallbackData, deserializeIntoCustomTaskExtensionCalloutData, deserializeIntoCustomTaskExtensionCollectionResponse, deserializeIntoCustomTaskExtensionResponseData, deserializeIntoGroupBasedSubjectSet, deserializeIntoInsights, deserializeIntoLifecycleManagementSettings, deserializeIntoLifecycleWorkflowsContainer, deserializeIntoRuleBasedSubjectSet, deserializeIntoRun, deserializeIntoRunCollectionResponse, deserializeIntoSubjectProcessingResult, deserializeIntoSubjectProcessingResultCollectionResponse, deserializeIntoTask, deserializeIntoTaskCollectionResponse, deserializeIntoTaskDefinition, deserializeIntoTaskDefinitionCollectionResponse, deserializeIntoTaskProcessingResult, deserializeIntoTaskProcessingResultCollectionResponse, deserializeIntoTaskReport, deserializeIntoTaskReportCollectionResponse, deserializeIntoUserProcessingResult, deserializeIntoUserProcessingResultCollectionResponse, deserializeIntoWorkflowCollectionResponse, deserializeIntoWorkflowTemplate, deserializeIntoWorkflowTemplateCollectionResponse, deserializeIntoWorkflowVersionCollectionResponse, serializeCustomTaskExtension, serializeCustomTaskExtensionCallbackConfiguration, serializeCustomTaskExtensionCallbackData, serializeCustomTaskExtensionCalloutData, serializeCustomTaskExtensionCollectionResponse, serializeCustomTaskExtensionResponseData, serializeGroupBasedSubjectSet, serializeInsights, serializeLifecycleManagementSettings, serializeLifecycleWorkflowsContainer, serializeRuleBasedSubjectSet, serializeRun, serializeRunCollectionResponse, serializeSubjectProcessingResult, serializeSubjectProcessingResultCollectionResponse, serializeTask, serializeTaskCollectionResponse, serializeTaskDefinition, serializeTaskDefinitionCollectionResponse, serializeTaskProcessingResult, serializeTaskProcessingResultCollectionResponse, serializeTaskReport, serializeTaskReportCollectionResponse, serializeUserProcessingResult, serializeUserProcessingResultCollectionResponse, serializeWorkflow, serializeWorkflowCollectionResponse, serializeWorkflowTemplate, serializeWorkflowTemplateCollectionResponse, serializeWorkflowVersionCollectionResponse, type CustomTaskExtension, type CustomTaskExtensionCallbackConfiguration, type CustomTaskExtensionCallbackData, type CustomTaskExtensionCalloutData, type CustomTaskExtensionResponseData, type GroupBasedSubjectSet, type Insights, type LifecycleManagementSettings, type LifecycleWorkflowsContainer, type RuleBasedSubjectSet, type Run, type SubjectProcessingResult, type Task, type TaskDefinition, type TaskProcessingResult, type TaskReport, type UserProcessingResult, type Workflow, type WorkflowTemplate } from './identityGovernance/index.js';
 // @ts-ignore
-import { createBillingFromDiscriminatorValue, deserializeIntoAzureUsage, deserializeIntoBilledReconciliation, deserializeIntoBilledUsage, deserializeIntoBilling, deserializeIntoBillingReconciliation, deserializeIntoExportSuccessOperation, deserializeIntoFailedOperation, deserializeIntoManifest, deserializeIntoManifestCollectionResponse, deserializeIntoOperationCollectionResponse, deserializeIntoRunningOperation, deserializeIntoUnbilledReconciliation, deserializeIntoUnbilledUsage, serializeAzureUsage, serializeBilledReconciliation, serializeBilledUsage, serializeBilling, serializeBillingReconciliation, serializeExportSuccessOperation, serializeFailedOperation, serializeManifest, serializeManifestCollectionResponse, serializeOperationCollectionResponse, serializeRunningOperation, serializeUnbilledReconciliation, serializeUnbilledUsage, type AzureUsage, type BilledReconciliation, type BilledUsage, type Billing, type BillingReconciliation, type ExportSuccessOperation, type FailedOperation, type Manifest, type RunningOperation, type UnbilledReconciliation, type UnbilledUsage } from './partners/billing/index.js';
+import { createBillingFromDiscriminatorValue, deserializeIntoAzureAggregatedUsage, deserializeIntoAzureUsage, deserializeIntoBilledAggregatedUsage, deserializeIntoBilledReconciliation, deserializeIntoBilledUsage, deserializeIntoBilling, deserializeIntoBillingReconciliation, deserializeIntoExportSuccessOperation, deserializeIntoFailedOperation, deserializeIntoManifest, deserializeIntoManifestCollectionResponse, deserializeIntoOperationCollectionResponse, deserializeIntoRunningOperation, deserializeIntoUnbilledReconciliation, deserializeIntoUnbilledUsage, serializeAzureAggregatedUsage, serializeAzureUsage, serializeBilledAggregatedUsage, serializeBilledReconciliation, serializeBilledUsage, serializeBilling, serializeBillingReconciliation, serializeExportSuccessOperation, serializeFailedOperation, serializeManifest, serializeManifestCollectionResponse, serializeOperationCollectionResponse, serializeRunningOperation, serializeUnbilledReconciliation, serializeUnbilledUsage, type AzureAggregatedUsage, type AzureUsage, type BilledAggregatedUsage, type BilledReconciliation, type BilledUsage, type Billing, type BillingReconciliation, type ExportSuccessOperation, type FailedOperation, type Manifest, type RunningOperation, type UnbilledReconciliation, type UnbilledUsage } from './partners/billing/index.js';
 // @ts-ignore
 import { createAcronymFromDiscriminatorValue, createBookmarkFromDiscriminatorValue, createQnaFromDiscriminatorValue, deserializeIntoAcronym, deserializeIntoAcronymCollectionResponse, deserializeIntoBookmark, deserializeIntoBookmarkCollectionResponse, deserializeIntoQna, deserializeIntoQnaCollectionResponse, deserializeIntoSearchAnswer, serializeAcronym, serializeAcronymCollectionResponse, serializeBookmark, serializeBookmarkCollectionResponse, serializeQna, serializeQnaCollectionResponse, serializeSearchAnswer, type Acronym, type Bookmark, type Qna, type SearchAnswer } from './search/index.js';
 // @ts-ignore
-import { BehaviorDuringRetentionPeriodObject, createAuditCoreRootFromDiscriminatorValue, createCasesRootFromDiscriminatorValue, createCollaborationRootFromDiscriminatorValue, createIdentityContainerFromDiscriminatorValue as I935b7de91425579f950e93b26ee70d12698bf4d797e21a9ad70489ad679cdff9, createIncidentFromDiscriminatorValue, createLabelsRootFromDiscriminatorValue, createThreatIntelligenceFromDiscriminatorValue, createTriggersRootFromDiscriminatorValue, createTriggerTypesRootFromDiscriminatorValue, deserializeIntoAnalyzedEmail, deserializeIntoAnalyzedEmailCollectionResponse, deserializeIntoArticle, deserializeIntoArticleCollectionResponse, deserializeIntoArticleIndicator, deserializeIntoArticleIndicatorCollectionResponse, deserializeIntoArtifact, deserializeIntoAuditCoreRoot, deserializeIntoAuditLogQuery, deserializeIntoAuditLogQueryCollectionResponse, deserializeIntoAuditLogRecord, deserializeIntoAuditLogRecordCollectionResponse, deserializeIntoAuthorityTemplate, deserializeIntoAuthorityTemplateCollectionResponse, deserializeIntoAutoAuditingConfiguration, deserializeIntoCaseEscaped, deserializeIntoCaseOperation, deserializeIntoCaseOperationCollectionResponse, deserializeIntoCasesRoot, deserializeIntoCategoryTemplate, deserializeIntoCategoryTemplateCollectionResponse, deserializeIntoCitationTemplate, deserializeIntoCitationTemplateCollectionResponse, deserializeIntoCollaborationRoot, deserializeIntoDataSet, deserializeIntoDataSource, deserializeIntoDataSourceCollectionResponse, deserializeIntoDataSourceContainer, deserializeIntoDepartmentTemplate, deserializeIntoDepartmentTemplateCollectionResponse, deserializeIntoDispositionReviewStage, deserializeIntoDispositionReviewStageCollectionResponse, deserializeIntoEdiscoveryAddToReviewSetOperation, deserializeIntoEdiscoveryCase, deserializeIntoEdiscoveryCaseCollectionResponse, deserializeIntoEdiscoveryCaseMember, deserializeIntoEdiscoveryCaseMemberCollectionResponse, deserializeIntoEdiscoveryCaseSettings, deserializeIntoEdiscoveryCustodian, deserializeIntoEdiscoveryCustodianCollectionResponse, deserializeIntoEdiscoveryEstimateOperation, deserializeIntoEdiscoveryExportOperation, deserializeIntoEdiscoveryHoldOperation, deserializeIntoEdiscoveryHoldPolicySyncOperation, deserializeIntoEdiscoveryIndexOperation, deserializeIntoEdiscoveryNoncustodialDataSource, deserializeIntoEdiscoveryNoncustodialDataSourceCollectionResponse, deserializeIntoEdiscoveryPurgeDataOperation, deserializeIntoEdiscoveryReviewSet, deserializeIntoEdiscoveryReviewSetCollectionResponse, deserializeIntoEdiscoveryReviewSetQuery, deserializeIntoEdiscoveryReviewSetQueryCollectionResponse, deserializeIntoEdiscoveryReviewTag, deserializeIntoEdiscoveryReviewTagCollectionResponse, deserializeIntoEdiscoverySearch, deserializeIntoEdiscoverySearchCollectionResponse, deserializeIntoEdiscoverySearchExportOperation, deserializeIntoEdiscoveryTagOperation, deserializeIntoFilePlanDescriptor, deserializeIntoFilePlanDescriptorTemplate, deserializeIntoFilePlanReferenceTemplate, deserializeIntoFilePlanReferenceTemplateCollectionResponse, deserializeIntoHealthIssue, deserializeIntoHealthIssueCollectionResponse, deserializeIntoHost, deserializeIntoHostCollectionResponse, deserializeIntoHostComponent, deserializeIntoHostComponentCollectionResponse, deserializeIntoHostCookie, deserializeIntoHostCookieCollectionResponse, deserializeIntoHostname, deserializeIntoHostPair, deserializeIntoHostPairCollectionResponse, deserializeIntoHostPort, deserializeIntoHostPortCollectionResponse, deserializeIntoHostReputation, deserializeIntoHostSslCertificate, deserializeIntoHostSslCertificateCollectionResponse, deserializeIntoHostTracker, deserializeIntoHostTrackerCollectionResponse, deserializeIntoIdentityAccounts, deserializeIntoIdentityAccountsCollectionResponse, deserializeIntoIncident, deserializeIntoIncidentCollectionResponse, deserializeIntoIndicator, deserializeIntoIntelligenceProfile, deserializeIntoIntelligenceProfileCollectionResponse, deserializeIntoIntelligenceProfileIndicator, deserializeIntoIntelligenceProfileIndicatorCollectionResponse, deserializeIntoIpAddress, deserializeIntoLabelsRoot, deserializeIntoNetworkAdapter, deserializeIntoPassiveDnsRecord, deserializeIntoPassiveDnsRecordCollectionResponse, deserializeIntoRetentionEvent, deserializeIntoRetentionEventCollectionResponse, deserializeIntoRetentionEventType, deserializeIntoRetentionEventTypeCollectionResponse, deserializeIntoRetentionLabel, deserializeIntoRetentionLabelCollectionResponse, deserializeIntoSearch, deserializeIntoSensor, deserializeIntoSensorCandidate, deserializeIntoSensorCandidateActivationConfiguration, deserializeIntoSensorCandidateCollectionResponse, deserializeIntoSensorCollectionResponse, deserializeIntoSettingsContainer, deserializeIntoSiteSource, deserializeIntoSiteSourceCollectionResponse, deserializeIntoSslCertificate, deserializeIntoSslCertificateCollectionResponse, deserializeIntoSubcategoryTemplate, deserializeIntoSubcategoryTemplateCollectionResponse, deserializeIntoSubdomain, deserializeIntoSubdomainCollectionResponse, deserializeIntoTag, deserializeIntoThreatIntelligence, deserializeIntoTriggersRoot, deserializeIntoTriggerTypesRoot, deserializeIntoUnclassifiedArtifact, deserializeIntoUnifiedGroupSource, deserializeIntoUnifiedGroupSourceCollectionResponse, deserializeIntoUserSource, deserializeIntoUserSourceCollectionResponse, deserializeIntoVulnerability, deserializeIntoVulnerabilityCollectionResponse, deserializeIntoVulnerabilityComponent, deserializeIntoVulnerabilityComponentCollectionResponse, deserializeIntoWhoisBaseRecord, deserializeIntoWhoisHistoryRecord, deserializeIntoWhoisHistoryRecordCollectionResponse, deserializeIntoWhoisRecord, deserializeIntoWhoisRecordCollectionResponse, serializeAnalyzedEmail, serializeAnalyzedEmailCollectionResponse, serializeArticle, serializeArticleCollectionResponse, serializeArticleIndicator, serializeArticleIndicatorCollectionResponse, serializeArtifact, serializeAuditCoreRoot, serializeAuditLogQuery, serializeAuditLogQueryCollectionResponse, serializeAuditLogRecord, serializeAuditLogRecordCollectionResponse, serializeAuthorityTemplate, serializeAuthorityTemplateCollectionResponse, serializeAutoAuditingConfiguration, serializeCaseEscaped, serializeCaseOperation, serializeCaseOperationCollectionResponse, serializeCasesRoot, serializeCategoryTemplate, serializeCategoryTemplateCollectionResponse, serializeCitationTemplate, serializeCitationTemplateCollectionResponse, serializeCollaborationRoot, serializeDataSet, serializeDataSource, serializeDataSourceCollectionResponse, serializeDataSourceContainer, serializeDepartmentTemplate, serializeDepartmentTemplateCollectionResponse, serializeDispositionReviewStage, serializeDispositionReviewStageCollectionResponse, serializeEdiscoveryAddToReviewSetOperation, serializeEdiscoveryCase, serializeEdiscoveryCaseCollectionResponse, serializeEdiscoveryCaseMember, serializeEdiscoveryCaseMemberCollectionResponse, serializeEdiscoveryCaseSettings, serializeEdiscoveryCustodian, serializeEdiscoveryCustodianCollectionResponse, serializeEdiscoveryEstimateOperation, serializeEdiscoveryExportOperation, serializeEdiscoveryHoldOperation, serializeEdiscoveryHoldPolicySyncOperation, serializeEdiscoveryIndexOperation, serializeEdiscoveryNoncustodialDataSource, serializeEdiscoveryNoncustodialDataSourceCollectionResponse, serializeEdiscoveryPurgeDataOperation, serializeEdiscoveryReviewSet, serializeEdiscoveryReviewSetCollectionResponse, serializeEdiscoveryReviewSetQuery, serializeEdiscoveryReviewSetQueryCollectionResponse, serializeEdiscoveryReviewTag, serializeEdiscoveryReviewTagCollectionResponse, serializeEdiscoverySearch, serializeEdiscoverySearchCollectionResponse, serializeEdiscoverySearchExportOperation, serializeEdiscoveryTagOperation, serializeFilePlanDescriptor, serializeFilePlanDescriptorTemplate, serializeFilePlanReferenceTemplate, serializeFilePlanReferenceTemplateCollectionResponse, serializeHealthIssue, serializeHealthIssueCollectionResponse, serializeHost, serializeHostCollectionResponse, serializeHostComponent, serializeHostComponentCollectionResponse, serializeHostCookie, serializeHostCookieCollectionResponse, serializeHostname, serializeHostPair, serializeHostPairCollectionResponse, serializeHostPort, serializeHostPortCollectionResponse, serializeHostReputation, serializeHostSslCertificate, serializeHostSslCertificateCollectionResponse, serializeHostTracker, serializeHostTrackerCollectionResponse, serializeIdentityAccounts, serializeIdentityAccountsCollectionResponse, serializeIdentityContainer as I3578b2bed1b5c0dc75d4936caf82e6213a17e94d1aa9efb2f5f64827fd00f3f1, serializeIncident, serializeIncidentCollectionResponse, serializeIndicator, serializeIntelligenceProfile, serializeIntelligenceProfileCollectionResponse, serializeIntelligenceProfileIndicator, serializeIntelligenceProfileIndicatorCollectionResponse, serializeIpAddress, serializeLabelsRoot, serializeNetworkAdapter, serializePassiveDnsRecord, serializePassiveDnsRecordCollectionResponse, serializeRetentionEvent, serializeRetentionEventCollectionResponse, serializeRetentionEventType, serializeRetentionEventTypeCollectionResponse, serializeRetentionLabel, serializeRetentionLabelCollectionResponse, serializeSearch, serializeSensor, serializeSensorCandidate, serializeSensorCandidateActivationConfiguration, serializeSensorCandidateCollectionResponse, serializeSensorCollectionResponse, serializeSettingsContainer, serializeSiteSource, serializeSiteSourceCollectionResponse, serializeSslCertificate, serializeSslCertificateCollectionResponse, serializeSubcategoryTemplate, serializeSubcategoryTemplateCollectionResponse, serializeSubdomain, serializeSubdomainCollectionResponse, serializeTag, serializeThreatIntelligence, serializeTriggersRoot, serializeTriggerTypesRoot, serializeUnclassifiedArtifact, serializeUnifiedGroupSource, serializeUnifiedGroupSourceCollectionResponse, serializeUserSource, serializeUserSourceCollectionResponse, serializeVulnerability, serializeVulnerabilityCollectionResponse, serializeVulnerabilityComponent, serializeVulnerabilityComponentCollectionResponse, serializeWhoisBaseRecord, serializeWhoisHistoryRecord, serializeWhoisHistoryRecordCollectionResponse, serializeWhoisRecord, serializeWhoisRecordCollectionResponse, type AnalyzedEmail, type Article, type ArticleIndicator, type Artifact, type AuditCoreRoot, type AuditLogQuery, type AuditLogRecord, type AuthorityTemplate, type AutoAuditingConfiguration, type BehaviorDuringRetentionPeriod, type CaseEscaped, type CaseOperation, type CasesRoot, type CategoryTemplate, type CitationTemplate, type CollaborationRoot, type DataSet, type DataSource, type DataSourceContainer, type DepartmentTemplate, type DispositionReviewStage, type EdiscoveryAddToReviewSetOperation, type EdiscoveryCase, type EdiscoveryCaseMember, type EdiscoveryCaseSettings, type EdiscoveryCustodian, type EdiscoveryEstimateOperation, type EdiscoveryExportOperation, type EdiscoveryHoldOperation, type EdiscoveryHoldPolicySyncOperation, type EdiscoveryIndexOperation, type EdiscoveryNoncustodialDataSource, type EdiscoveryPurgeDataOperation, type EdiscoveryReviewSet, type EdiscoveryReviewSetQuery, type EdiscoveryReviewTag, type EdiscoverySearch, type EdiscoverySearchExportOperation, type EdiscoveryTagOperation, type FilePlanDescriptor, type FilePlanDescriptorTemplate, type FilePlanReferenceTemplate, type HealthIssue, type Host, type HostComponent, type HostCookie, type Hostname, type HostPair, type HostPort, type HostReputation, type HostSslCertificate, type HostTracker, type IdentityAccounts, type IdentityContainer as I2b88f0c27d7fd9c000e7e4e78cc3161590db07c518949b504f8a27680ed1200f, type Incident, type Indicator, type IntelligenceProfile, type IntelligenceProfileIndicator, type IpAddress, type LabelsRoot, type NetworkAdapter, type PassiveDnsRecord, type RetentionEvent, type RetentionEventType, type RetentionLabel, type Search, type Sensor, type SensorCandidate, type SensorCandidateActivationConfiguration, type SettingsContainer, type SiteSource, type SslCertificate, type SubcategoryTemplate, type Subdomain, type Tag, type ThreatIntelligence, type TriggersRoot, type TriggerTypesRoot, type UnclassifiedArtifact, type UnifiedGroupSource, type UserSource, type Vulnerability, type VulnerabilityComponent, type WhoisBaseRecord, type WhoisHistoryRecord, type WhoisRecord } from './security/index.js';
+import { BehaviorDuringRetentionPeriodObject, createAuditCoreRootFromDiscriminatorValue, createCasesRootFromDiscriminatorValue, createCollaborationRootFromDiscriminatorValue, createIdentityContainerFromDiscriminatorValue as I935b7de91425579f950e93b26ee70d12698bf4d797e21a9ad70489ad679cdff9, createIncidentFromDiscriminatorValue, createLabelsRootFromDiscriminatorValue, createRulesRootFromDiscriminatorValue, createThreatIntelligenceFromDiscriminatorValue, createTriggersRootFromDiscriminatorValue, createTriggerTypesRootFromDiscriminatorValue, deserializeIntoAnalyzedEmail, deserializeIntoAnalyzedEmailCollectionResponse, deserializeIntoArticle, deserializeIntoArticleCollectionResponse, deserializeIntoArticleIndicator, deserializeIntoArticleIndicatorCollectionResponse, deserializeIntoArtifact, deserializeIntoAuditCoreRoot, deserializeIntoAuditLogQuery, deserializeIntoAuditLogQueryCollectionResponse, deserializeIntoAuditLogRecord, deserializeIntoAuditLogRecordCollectionResponse, deserializeIntoAuthorityTemplate, deserializeIntoAuthorityTemplateCollectionResponse, deserializeIntoAutoAuditingConfiguration, deserializeIntoCaseEscaped, deserializeIntoCaseOperation, deserializeIntoCaseOperationCollectionResponse, deserializeIntoCasesRoot, deserializeIntoCategoryTemplate, deserializeIntoCategoryTemplateCollectionResponse, deserializeIntoCitationTemplate, deserializeIntoCitationTemplateCollectionResponse, deserializeIntoCollaborationRoot, deserializeIntoDataSet, deserializeIntoDataSource, deserializeIntoDataSourceCollectionResponse, deserializeIntoDataSourceContainer, deserializeIntoDepartmentTemplate, deserializeIntoDepartmentTemplateCollectionResponse, deserializeIntoDetectionRule, deserializeIntoDetectionRuleCollectionResponse, deserializeIntoDispositionReviewStage, deserializeIntoDispositionReviewStageCollectionResponse, deserializeIntoEdiscoveryAddToReviewSetOperation, deserializeIntoEdiscoveryCase, deserializeIntoEdiscoveryCaseCollectionResponse, deserializeIntoEdiscoveryCaseMember, deserializeIntoEdiscoveryCaseMemberCollectionResponse, deserializeIntoEdiscoveryCaseSettings, deserializeIntoEdiscoveryCustodian, deserializeIntoEdiscoveryCustodianCollectionResponse, deserializeIntoEdiscoveryEstimateOperation, deserializeIntoEdiscoveryExportOperation, deserializeIntoEdiscoveryHoldOperation, deserializeIntoEdiscoveryHoldPolicySyncOperation, deserializeIntoEdiscoveryIndexOperation, deserializeIntoEdiscoveryNoncustodialDataSource, deserializeIntoEdiscoveryNoncustodialDataSourceCollectionResponse, deserializeIntoEdiscoveryPurgeDataOperation, deserializeIntoEdiscoveryReviewSet, deserializeIntoEdiscoveryReviewSetCollectionResponse, deserializeIntoEdiscoveryReviewSetQuery, deserializeIntoEdiscoveryReviewSetQueryCollectionResponse, deserializeIntoEdiscoveryReviewTag, deserializeIntoEdiscoveryReviewTagCollectionResponse, deserializeIntoEdiscoverySearch, deserializeIntoEdiscoverySearchCollectionResponse, deserializeIntoEdiscoverySearchExportOperation, deserializeIntoEdiscoveryTagOperation, deserializeIntoFilePlanDescriptor, deserializeIntoFilePlanDescriptorTemplate, deserializeIntoFilePlanReferenceTemplate, deserializeIntoFilePlanReferenceTemplateCollectionResponse, deserializeIntoHealthIssue, deserializeIntoHealthIssueCollectionResponse, deserializeIntoHost, deserializeIntoHostCollectionResponse, deserializeIntoHostComponent, deserializeIntoHostComponentCollectionResponse, deserializeIntoHostCookie, deserializeIntoHostCookieCollectionResponse, deserializeIntoHostname, deserializeIntoHostPair, deserializeIntoHostPairCollectionResponse, deserializeIntoHostPort, deserializeIntoHostPortCollectionResponse, deserializeIntoHostReputation, deserializeIntoHostSslCertificate, deserializeIntoHostSslCertificateCollectionResponse, deserializeIntoHostTracker, deserializeIntoHostTrackerCollectionResponse, deserializeIntoIdentityAccounts, deserializeIntoIdentityAccountsCollectionResponse, deserializeIntoIncident, deserializeIntoIncidentCollectionResponse, deserializeIntoIndicator, deserializeIntoIntelligenceProfile, deserializeIntoIntelligenceProfileCollectionResponse, deserializeIntoIntelligenceProfileIndicator, deserializeIntoIntelligenceProfileIndicatorCollectionResponse, deserializeIntoIpAddress, deserializeIntoLabelsRoot, deserializeIntoNetworkAdapter, deserializeIntoPassiveDnsRecord, deserializeIntoPassiveDnsRecordCollectionResponse, deserializeIntoRetentionEvent, deserializeIntoRetentionEventCollectionResponse, deserializeIntoRetentionEventType, deserializeIntoRetentionEventTypeCollectionResponse, deserializeIntoRetentionLabel, deserializeIntoRetentionLabelCollectionResponse, deserializeIntoRulesRoot, deserializeIntoSearch, deserializeIntoSensor, deserializeIntoSensorCandidate, deserializeIntoSensorCandidateActivationConfiguration, deserializeIntoSensorCandidateCollectionResponse, deserializeIntoSensorCollectionResponse, deserializeIntoSettingsContainer, deserializeIntoSiteSource, deserializeIntoSiteSourceCollectionResponse, deserializeIntoSslCertificate, deserializeIntoSslCertificateCollectionResponse, deserializeIntoSubcategoryTemplate, deserializeIntoSubcategoryTemplateCollectionResponse, deserializeIntoSubdomain, deserializeIntoSubdomainCollectionResponse, deserializeIntoTag, deserializeIntoThreatIntelligence, deserializeIntoTriggersRoot, deserializeIntoTriggerTypesRoot, deserializeIntoUnclassifiedArtifact, deserializeIntoUnifiedGroupSource, deserializeIntoUnifiedGroupSourceCollectionResponse, deserializeIntoUserSource, deserializeIntoUserSourceCollectionResponse, deserializeIntoVulnerability, deserializeIntoVulnerabilityCollectionResponse, deserializeIntoVulnerabilityComponent, deserializeIntoVulnerabilityComponentCollectionResponse, deserializeIntoWhoisBaseRecord, deserializeIntoWhoisHistoryRecord, deserializeIntoWhoisHistoryRecordCollectionResponse, deserializeIntoWhoisRecord, deserializeIntoWhoisRecordCollectionResponse, serializeAnalyzedEmail, serializeAnalyzedEmailCollectionResponse, serializeArticle, serializeArticleCollectionResponse, serializeArticleIndicator, serializeArticleIndicatorCollectionResponse, serializeArtifact, serializeAuditCoreRoot, serializeAuditLogQuery, serializeAuditLogQueryCollectionResponse, serializeAuditLogRecord, serializeAuditLogRecordCollectionResponse, serializeAuthorityTemplate, serializeAuthorityTemplateCollectionResponse, serializeAutoAuditingConfiguration, serializeCaseEscaped, serializeCaseOperation, serializeCaseOperationCollectionResponse, serializeCasesRoot, serializeCategoryTemplate, serializeCategoryTemplateCollectionResponse, serializeCitationTemplate, serializeCitationTemplateCollectionResponse, serializeCollaborationRoot, serializeDataSet, serializeDataSource, serializeDataSourceCollectionResponse, serializeDataSourceContainer, serializeDepartmentTemplate, serializeDepartmentTemplateCollectionResponse, serializeDetectionRule, serializeDetectionRuleCollectionResponse, serializeDispositionReviewStage, serializeDispositionReviewStageCollectionResponse, serializeEdiscoveryAddToReviewSetOperation, serializeEdiscoveryCase, serializeEdiscoveryCaseCollectionResponse, serializeEdiscoveryCaseMember, serializeEdiscoveryCaseMemberCollectionResponse, serializeEdiscoveryCaseSettings, serializeEdiscoveryCustodian, serializeEdiscoveryCustodianCollectionResponse, serializeEdiscoveryEstimateOperation, serializeEdiscoveryExportOperation, serializeEdiscoveryHoldOperation, serializeEdiscoveryHoldPolicySyncOperation, serializeEdiscoveryIndexOperation, serializeEdiscoveryNoncustodialDataSource, serializeEdiscoveryNoncustodialDataSourceCollectionResponse, serializeEdiscoveryPurgeDataOperation, serializeEdiscoveryReviewSet, serializeEdiscoveryReviewSetCollectionResponse, serializeEdiscoveryReviewSetQuery, serializeEdiscoveryReviewSetQueryCollectionResponse, serializeEdiscoveryReviewTag, serializeEdiscoveryReviewTagCollectionResponse, serializeEdiscoverySearch, serializeEdiscoverySearchCollectionResponse, serializeEdiscoverySearchExportOperation, serializeEdiscoveryTagOperation, serializeFilePlanDescriptor, serializeFilePlanDescriptorTemplate, serializeFilePlanReferenceTemplate, serializeFilePlanReferenceTemplateCollectionResponse, serializeHealthIssue, serializeHealthIssueCollectionResponse, serializeHost, serializeHostCollectionResponse, serializeHostComponent, serializeHostComponentCollectionResponse, serializeHostCookie, serializeHostCookieCollectionResponse, serializeHostname, serializeHostPair, serializeHostPairCollectionResponse, serializeHostPort, serializeHostPortCollectionResponse, serializeHostReputation, serializeHostSslCertificate, serializeHostSslCertificateCollectionResponse, serializeHostTracker, serializeHostTrackerCollectionResponse, serializeIdentityAccounts, serializeIdentityAccountsCollectionResponse, serializeIdentityContainer as I3578b2bed1b5c0dc75d4936caf82e6213a17e94d1aa9efb2f5f64827fd00f3f1, serializeIncident, serializeIncidentCollectionResponse, serializeIndicator, serializeIntelligenceProfile, serializeIntelligenceProfileCollectionResponse, serializeIntelligenceProfileIndicator, serializeIntelligenceProfileIndicatorCollectionResponse, serializeIpAddress, serializeLabelsRoot, serializeNetworkAdapter, serializePassiveDnsRecord, serializePassiveDnsRecordCollectionResponse, serializeRetentionEvent, serializeRetentionEventCollectionResponse, serializeRetentionEventType, serializeRetentionEventTypeCollectionResponse, serializeRetentionLabel, serializeRetentionLabelCollectionResponse, serializeRulesRoot, serializeSearch, serializeSensor, serializeSensorCandidate, serializeSensorCandidateActivationConfiguration, serializeSensorCandidateCollectionResponse, serializeSensorCollectionResponse, serializeSettingsContainer, serializeSiteSource, serializeSiteSourceCollectionResponse, serializeSslCertificate, serializeSslCertificateCollectionResponse, serializeSubcategoryTemplate, serializeSubcategoryTemplateCollectionResponse, serializeSubdomain, serializeSubdomainCollectionResponse, serializeTag, serializeThreatIntelligence, serializeTriggersRoot, serializeTriggerTypesRoot, serializeUnclassifiedArtifact, serializeUnifiedGroupSource, serializeUnifiedGroupSourceCollectionResponse, serializeUserSource, serializeUserSourceCollectionResponse, serializeVulnerability, serializeVulnerabilityCollectionResponse, serializeVulnerabilityComponent, serializeVulnerabilityComponentCollectionResponse, serializeWhoisBaseRecord, serializeWhoisHistoryRecord, serializeWhoisHistoryRecordCollectionResponse, serializeWhoisRecord, serializeWhoisRecordCollectionResponse, type AnalyzedEmail, type Article, type ArticleIndicator, type Artifact, type AuditCoreRoot, type AuditLogQuery, type AuditLogRecord, type AuthorityTemplate, type AutoAuditingConfiguration, type BehaviorDuringRetentionPeriod, type CaseEscaped, type CaseOperation, type CasesRoot, type CategoryTemplate, type CitationTemplate, type CollaborationRoot, type DataSet, type DataSource, type DataSourceContainer, type DepartmentTemplate, type DetectionRule, type DispositionReviewStage, type EdiscoveryAddToReviewSetOperation, type EdiscoveryCase, type EdiscoveryCaseMember, type EdiscoveryCaseSettings, type EdiscoveryCustodian, type EdiscoveryEstimateOperation, type EdiscoveryExportOperation, type EdiscoveryHoldOperation, type EdiscoveryHoldPolicySyncOperation, type EdiscoveryIndexOperation, type EdiscoveryNoncustodialDataSource, type EdiscoveryPurgeDataOperation, type EdiscoveryReviewSet, type EdiscoveryReviewSetQuery, type EdiscoveryReviewTag, type EdiscoverySearch, type EdiscoverySearchExportOperation, type EdiscoveryTagOperation, type FilePlanDescriptor, type FilePlanDescriptorTemplate, type FilePlanReferenceTemplate, type HealthIssue, type Host, type HostComponent, type HostCookie, type Hostname, type HostPair, type HostPort, type HostReputation, type HostSslCertificate, type HostTracker, type IdentityAccounts, type IdentityContainer as I2b88f0c27d7fd9c000e7e4e78cc3161590db07c518949b504f8a27680ed1200f, type Incident, type Indicator, type IntelligenceProfile, type IntelligenceProfileIndicator, type IpAddress, type LabelsRoot, type NetworkAdapter, type PassiveDnsRecord, type RetentionEvent, type RetentionEventType, type RetentionLabel, type RulesRoot, type Search, type Sensor, type SensorCandidate, type SensorCandidateActivationConfiguration, type SettingsContainer, type SiteSource, type SslCertificate, type SubcategoryTemplate, type Subdomain, type Tag, type ThreatIntelligence, type TriggersRoot, type TriggerTypesRoot, type UnclassifiedArtifact, type UnifiedGroupSource, type UserSource, type Vulnerability, type VulnerabilityComponent, type WhoisBaseRecord, type WhoisHistoryRecord, type WhoisRecord } from './security/index.js';
 // @ts-ignore
 import { createTeamsAdminRootFromDiscriminatorValue, deserializeIntoNumberAssignment, deserializeIntoNumberAssignmentCollectionResponse, deserializeIntoPolicyIdentifierDetail, deserializeIntoTeamsAdminRoot, deserializeIntoTeamsPolicyAssignment, deserializeIntoTeamsPolicyUserAssignment, deserializeIntoTeamsPolicyUserAssignmentCollectionResponse, deserializeIntoTeamsUserConfiguration, deserializeIntoTeamsUserConfigurationCollectionResponse, deserializeIntoTelephoneNumberLongRunningOperation, deserializeIntoTelephoneNumberLongRunningOperationCollectionResponse, deserializeIntoTelephoneNumberManagementRoot, serializeNumberAssignment, serializeNumberAssignmentCollectionResponse, serializePolicyIdentifierDetail, serializeTeamsAdminRoot, serializeTeamsPolicyAssignment, serializeTeamsPolicyUserAssignment, serializeTeamsPolicyUserAssignmentCollectionResponse, serializeTeamsUserConfiguration, serializeTeamsUserConfigurationCollectionResponse, serializeTelephoneNumberLongRunningOperation, serializeTelephoneNumberLongRunningOperationCollectionResponse, serializeTelephoneNumberManagementRoot, type NumberAssignment, type PolicyIdentifierDetail, type TeamsAdminRoot, type TeamsPolicyAssignment, type TeamsPolicyUserAssignment, type TeamsUserConfiguration, type TelephoneNumberLongRunningOperation, type TelephoneNumberManagementRoot } from './teamsAdministration/index.js';
 // @ts-ignore
@@ -371,7 +371,7 @@ export interface AccessPackageAssignmentRequest extends Entity, Parsable {
      */
     justification?: string | null;
     /**
-     * The parameters property
+     * Additional parameters that control how the request is processed, such as bypassing the approval requirement configured on the access package policy.
      */
     parameters?: AccessPackageAssignmentRequestParameters | null;
     /**
@@ -467,7 +467,7 @@ export interface AccessPackageAssignmentRequestParameters extends AdditionalData
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The bypassApproval property
+     * When true, bypasses the approval requirement configured on the access package policy for this request.
      */
     bypassApproval?: boolean | null;
     /**
@@ -4284,6 +4284,7 @@ export interface ApplicationLocation extends AdditionalDataHolder, BackedModel, 
      */
     odataType?: string | null;
 }
+export type ApplicationMode = (typeof ApplicationModeObject)[keyof typeof ApplicationModeObject];
 export type ApplicationPermissionType = (typeof ApplicationPermissionTypeObject)[keyof typeof ApplicationPermissionTypeObject];
 export interface ApplicationResourcePermission extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -5770,6 +5771,10 @@ export interface AttendanceRecord extends Entity, Parsable {
      * Email address of the user associated with this attendance record.
      */
     emailAddress?: string | null;
+    /**
+     * The list of real-time participant interaction behaviors during a meeting.
+     */
+    engagements?: MeetingEngagement[] | null;
     /**
      * The external information for a virtualEventRegistration.
      */
@@ -7380,6 +7385,80 @@ export interface B2xIdentityUserFlowCollectionResponse extends BaseCollectionPag
      */
     value?: B2xIdentityUserFlow[] | null;
 }
+export interface BackupCountStatistics extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The date and time when this metric was calculated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     */
+    lastComputedDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The count of artifacts in offboardRequested state. This metric captures artifacts in protection‑unit–level offboarding and artifacts offboarded due to an unhealthy billing profile.
+     */
+    offboardRequested?: number | null;
+    /**
+     * The count of artifacts in protected state.
+     */
+    protectedCompleted?: number | null;
+    /**
+     * The count of artifacts whose protection was attempted but failed. These artifacts typically have unprotected as their status.
+     */
+    protectedFailed?: number | null;
+    /**
+     * The count of artifacts whose protection attempt is currently in progress. This metric applies to artifacts for which the process to start or resume taking backups is still required.
+     */
+    protectedInProgress?: number | null;
+    /**
+     * The count of artifacts not associated with any policy. This property is always null for a policy-level report. Nullable.
+     */
+    removed?: number | null;
+    /**
+     * The count of artifacts in the specified entity. The currently supported entity is a backup policy.
+     */
+    total?: number | null;
+    /**
+     * The count of artifacts that are no longer actively protected. These artifacts have historical restore points, but no new backups are taken.
+     */
+    unprotectedCompleted?: number | null;
+    /**
+     * The count of artifacts for which unprotection was attempted but didn't complete. These artifacts are typically in the protected state.
+     */
+    unprotectedFailed?: number | null;
+    /**
+     * The count of artifacts for which unprotection is currently in progress.
+     */
+    unprotectedInProgress?: number | null;
+}
+export interface BackupPolicyReport extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The ID of the backup policy.
+     */
+    backupPolicyId?: string | null;
+    /**
+     * The countStatistics property
+     */
+    countStatistics?: BackupCountStatistics | null;
+    /**
+     * The display name of the backup policy.
+     */
+    displayName?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export interface BackupReport extends Entity, Parsable {
+}
 export interface BackupRestoreRoot extends Entity, Parsable {
     /**
      * The list of browse sessions in the tenant.
@@ -7441,6 +7520,10 @@ export interface BackupRestoreRoot extends Entity, Parsable {
      * List of protection units in the tenant.
      */
     protectionUnits?: ProtectionUnitBase[] | null;
+    /**
+     * The backup reports available in the tenant.
+     */
+    reports?: BackupReport | null;
     /**
      * List of restore points in the tenant.
      */
@@ -9162,6 +9245,10 @@ export interface Calendar extends Entity, Parsable {
      * Indicates whether this user calendar can be deleted from the user mailbox.
      */
     isRemovable?: boolean | null;
+    /**
+     * true if someone shared this calendar with the user; false otherwise. This property is always false for a calendar owner. This property is set when sharing is initiated in an Outlook client and can be reset when sharing is canceled through the client or the corresponding calendarPermission resource. Read-only.
+     */
+    isSharedWithMe?: boolean | null;
     /**
      * Indicates whether this user calendar supports tracking of meeting responses. Only meeting invites sent from users' primary calendars support tracking of meeting responses.
      */
@@ -13963,6 +14050,10 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      */
     longDescription?: string | null;
     /**
+     * Request metadata returned by an explicit opt-in package detail read. Null when not loaded.
+     */
+    requestMetadata?: CopilotPackageRequestMetadata | null;
+    /**
      * The sensitivity property
      */
     sensitivity?: string | null;
@@ -13979,6 +14070,70 @@ export interface CopilotPackageDetail extends CopilotPackage, Parsable {
      */
     totalSessions?: number | null;
 }
+/**
+ * The business identifier, first explicit assignee contact, all explicit assignees, submission date, and additional collected data of one package request.
+ */
+export interface CopilotPackageRequestInfo extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Additional data collected for this request, represented as a JSON object. Null when no value is available. Read-only.
+     */
+    additionalMetadata?: UntypedNode | null;
+    /**
+     * All explicit assigned recipients returned by Governance, in source order with duplicates preserved. The first member supplies the requestedBy display contact; the collection is not truncated to that member. Empty means no explicit members were returned, not that the request has no audience. Broad or all-users audiences are not expanded or represented by this collection.
+     */
+    assignees?: CopilotPackageRequestPrincipal[] | null;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The business request identifier returned by Governance, or null when unavailable. Not a requester identity, title identifier, correlation identifier, or Graph resource key or address. Uniqueness and lifetime stability are not guaranteed. No existing Graph operation in this proposal consumes this value.
+     */
+    identifier?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The display name and contact address of the first explicitly assigned principal. The address may be a mail address or user principal name. Null only when there are no explicit assignees; a present first assignee may have null name and address. The first principal may be a user, group, or agent; requestedBy does not identify the request creator.
+     */
+    requestedBy?: EmailAddress | null;
+    /**
+     * The request submission date and time in ISO 8601 format. Null when unknown; independent of assignee presence and not the package creation or modification time.
+     */
+    requestedDateTime?: Date | null;
+}
+/**
+ * A snapshot of first explicit assignee contacts, request dates, and additional request data for a package.
+ */
+export interface CopilotPackageRequestMetadata extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The request snapshots returned by the service. Empty when metadata was loaded and no requests were found.
+     */
+    requests?: CopilotPackageRequestInfo[] | null;
+}
+/**
+ * A read-only snapshot of one explicit Governance assignee. Inherited id and displayName are the source identifier and resolved name, or null when unavailable. Identifier meaning depends on principalType and does not imply a resolvable directory-object URL. Openness is inherited from identity; the producer returns only the documented fields, never raw owner objects.
+ */
+export interface CopilotPackageRequestPrincipal extends Identity, Parsable {
+    /**
+     * The principalType property
+     */
+    principalType?: CopilotPackageRequestPrincipalType | null;
+    /**
+     * The actual userPrincipalName returned by Governance for user or agentUser principals. Null when unavailable and for other principal kinds. Never inferred from an email address or creator identity.
+     */
+    userPrincipalName?: string | null;
+}
+export type CopilotPackageRequestPrincipalType = (typeof CopilotPackageRequestPrincipalTypeObject)[keyof typeof CopilotPackageRequestPrincipalTypeObject];
 export type CopilotPackageRequestStatus = (typeof CopilotPackageRequestStatusObject)[keyof typeof CopilotPackageRequestStatusObject];
 export type CopilotPackageRequestType = (typeof CopilotPackageRequestTypeObject)[keyof typeof CopilotPackageRequestTypeObject];
 export interface CopilotReportRoot extends Entity, Parsable {
@@ -17826,6 +17981,33 @@ export function createB2xIdentityUserFlowFromDiscriminatorValue(parseNode: Parse
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {BackupCountStatistics}
+ */
+// @ts-ignore
+export function createBackupCountStatisticsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoBackupCountStatistics;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {BackupPolicyReport}
+ */
+// @ts-ignore
+export function createBackupPolicyReportFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoBackupPolicyReport;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {BackupReport}
+ */
+// @ts-ignore
+export function createBackupReportFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoBackupReport;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {BackupRestoreRoot}
  */
 // @ts-ignore
@@ -20975,6 +21157,33 @@ export function createCopilotPackageFromDiscriminatorValue(parseNode: ParseNode 
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPackageRequestInfo}
+ */
+// @ts-ignore
+export function createCopilotPackageRequestInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPackageRequestInfo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPackageRequestMetadata}
+ */
+// @ts-ignore
+export function createCopilotPackageRequestMetadataFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPackageRequestMetadata;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CopilotPackageRequestPrincipal}
+ */
+// @ts-ignore
+export function createCopilotPackageRequestPrincipalFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCopilotPackageRequestPrincipal;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CopilotReportRoot}
  */
 // @ts-ignore
@@ -21202,11 +21411,65 @@ export function createCrossTenantMailTipsLimitedFromDiscriminatorValue(parseNode
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CrossTenantMigrationCancelResponse}
+ */
+// @ts-ignore
+export function createCrossTenantMigrationCancelResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCrossTenantMigrationCancelResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CrossTenantMigration}
  */
 // @ts-ignore
 export function createCrossTenantMigrationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCrossTenantMigration;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CrossTenantMigrationJobCollectionResponse}
+ */
+// @ts-ignore
+export function createCrossTenantMigrationJobCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCrossTenantMigrationJobCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CrossTenantMigrationJob}
+ */
+// @ts-ignore
+export function createCrossTenantMigrationJobFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCrossTenantMigrationJob;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CrossTenantMigrationServiceStatusDetails}
+ */
+// @ts-ignore
+export function createCrossTenantMigrationServiceStatusDetailsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCrossTenantMigrationServiceStatusDetails;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CrossTenantMigrationTaskCollectionResponse}
+ */
+// @ts-ignore
+export function createCrossTenantMigrationTaskCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCrossTenantMigrationTaskCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CrossTenantMigrationTask}
+ */
+// @ts-ignore
+export function createCrossTenantMigrationTaskFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCrossTenantMigrationTask;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -21252,6 +21515,15 @@ export function createCrossTenantUserSyncInboundFromDiscriminatorValue(parseNode
 // @ts-ignore
 export function createCurrencyColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoCurrencyColumn;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CurrentLabel}
+ */
+// @ts-ignore
+export function createCurrentLabelFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCurrentLabel;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -23077,6 +23349,8 @@ export function createDictionaryFromDiscriminatorValue(parseNode: ParseNode | un
                     return deserializeIntoOpenComplexDictionaryType;
                 case "#microsoft.graph.resultTemplateDictionary":
                     return deserializeIntoResultTemplateDictionary;
+                case "#microsoft.graph.stringDictionary":
+                    return deserializeIntoStringDictionary;
             }
         }
     }
@@ -23262,6 +23536,15 @@ export function createDirectoryRoleCollectionResponseFromDiscriminatorValue(pars
 // @ts-ignore
 export function createDirectoryRoleFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoDirectoryRole;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DirectoryRoleManagementDeletedItemContainer}
+ */
+// @ts-ignore
+export function createDirectoryRoleManagementDeletedItemContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDirectoryRoleManagementDeletedItemContainer;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -25225,6 +25508,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoB2BSignInActivityMetricsRecent;
                 case "#microsoft.graph.b2xIdentityUserFlow":
                     return deserializeIntoB2xIdentityUserFlow;
+                case "#microsoft.graph.backupReport":
+                    return deserializeIntoBackupReport;
                 case "#microsoft.graph.backupRestoreRoot":
                     return deserializeIntoBackupRestoreRoot;
                 case "#microsoft.graph.baseItem":
@@ -25451,6 +25736,10 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCrossTenantMailTipsLimited;
                 case "#microsoft.graph.crossTenantMigration":
                     return deserializeIntoCrossTenantMigration;
+                case "#microsoft.graph.crossTenantMigrationJob":
+                    return deserializeIntoCrossTenantMigrationJob;
+                case "#microsoft.graph.crossTenantMigrationTask":
+                    return deserializeIntoCrossTenantMigrationTask;
                 case "#microsoft.graph.crossTenantOpenProfileCard":
                     return deserializeIntoCrossTenantOpenProfileCard;
                 case "#microsoft.graph.crossTenantPlacesDeskBooking":
@@ -25599,6 +25888,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoDirectoryObjectPartnerReference;
                 case "#microsoft.graph.directoryRole":
                     return deserializeIntoDirectoryRole;
+                case "#microsoft.graph.directoryRoleManagementDeletedItemContainer":
+                    return deserializeIntoDirectoryRoleManagementDeletedItemContainer;
                 case "#microsoft.graph.directoryRoleTemplate":
                     return deserializeIntoDirectoryRoleTemplate;
                 case "#microsoft.graph.documentSetVersion":
@@ -26123,6 +26414,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget;
                 case "#microsoft.graph.microsoftStoreForBusinessApp":
                     return deserializeIntoMicrosoftStoreForBusinessApp;
+                case "#microsoft.graph.migrationsRoot":
+                    return deserializeIntoMigrationsRoot;
                 case "#microsoft.graph.mobileApp":
                     return deserializeIntoMobileApp;
                 case "#microsoft.graph.mobileAppAssignment":
@@ -26281,8 +26574,12 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoParticipantLeftNotification;
                 case "#microsoft.graph.partners":
                     return deserializeIntoPartners;
+                case "#microsoft.graph.partners.billing.azureAggregatedUsage":
+                    return deserializeIntoAzureAggregatedUsage;
                 case "#microsoft.graph.partners.billing.azureUsage":
                     return deserializeIntoAzureUsage;
+                case "#microsoft.graph.partners.billing.billedAggregatedUsage":
+                    return deserializeIntoBilledAggregatedUsage;
                 case "#microsoft.graph.partners.billing.billedReconciliation":
                     return deserializeIntoBilledReconciliation;
                 case "#microsoft.graph.partners.billing.billedUsage":
@@ -26597,6 +26894,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoDataSourceContainer;
                 case "#microsoft.graph.security.departmentTemplate":
                     return deserializeIntoDepartmentTemplate;
+                case "#microsoft.graph.security.detectionRule":
+                    return deserializeIntoDetectionRule;
                 case "#microsoft.graph.security.dispositionReviewStage":
                     return deserializeIntoDispositionReviewStage;
                 case "#microsoft.graph.security.ediscoveryAddToReviewSetOperation":
@@ -26687,6 +26986,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoRetentionEventType;
                 case "#microsoft.graph.security.retentionLabel":
                     return deserializeIntoRetentionLabel;
+                case "#microsoft.graph.security.rulesRoot":
+                    return deserializeIntoRulesRoot;
                 case "#microsoft.graph.security.search":
                     return deserializeIntoSearch;
                 case "#microsoft.graph.security.sensor":
@@ -26815,6 +27116,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoSimulationAutomation;
                 case "#microsoft.graph.simulationAutomationRun":
                     return deserializeIntoSimulationAutomationRun;
+                case "#microsoft.graph.singleValueExtendedProperty":
+                    return deserializeIntoSingleValueExtendedProperty;
                 case "#microsoft.graph.singleValueLegacyExtendedProperty":
                     return deserializeIntoSingleValueLegacyExtendedProperty;
                 case "#microsoft.graph.site":
@@ -27413,6 +27716,15 @@ export function createErrorDetailFromDiscriminatorValue(parseNode: ParseNode | u
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ErrorEscaped}
+ */
+// @ts-ignore
+export function createErrorEscapedFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoErrorEscaped;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {EventCollectionResponse}
  */
 // @ts-ignore
@@ -27581,6 +27893,15 @@ export function createExchangeMessageTraceDetailFromDiscriminatorValue(parseNode
 // @ts-ignore
 export function createExchangeMessageTraceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoExchangeMessageTrace;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {ExchangeOnlineCrossTenantMigrationSettings}
+ */
+// @ts-ignore
+export function createExchangeOnlineCrossTenantMigrationSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoExchangeOnlineCrossTenantMigrationSettings;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -28900,6 +29221,8 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
                     return deserializeIntoCommunicationsPhoneIdentity;
                 case "#microsoft.graph.communicationsUserIdentity":
                     return deserializeIntoCommunicationsUserIdentity;
+                case "#microsoft.graph.copilotPackageRequestPrincipal":
+                    return deserializeIntoCopilotPackageRequestPrincipal;
                 case "#microsoft.graph.emailIdentity":
                     return deserializeIntoEmailIdentity;
                 case "#microsoft.graph.initiator":
@@ -31806,6 +32129,15 @@ export function createMeetingAttendanceReportFromDiscriminatorValue(parseNode: P
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MeetingEngagement}
+ */
+// @ts-ignore
+export function createMeetingEngagementFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMeetingEngagement;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MeetingInfo}
  */
 // @ts-ignore
@@ -32187,6 +32519,15 @@ export function createMicrosoftStoreForBusinessAppFromDiscriminatorValue(parseNo
 // @ts-ignore
 export function createMicrosoftTrainingAssignmentMappingFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMicrosoftTrainingAssignmentMapping;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MigrationsRoot}
+ */
+// @ts-ignore
+export function createMigrationsRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMigrationsRoot;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -39445,6 +39786,15 @@ export function createSingleUserFromDiscriminatorValue(parseNode: ParseNode | un
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {SingleValueExtendedProperty}
+ */
+// @ts-ignore
+export function createSingleValueExtendedPropertyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoSingleValueExtendedProperty;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {SingleValueLegacyExtendedProperty}
  */
 // @ts-ignore
@@ -39859,6 +40209,15 @@ export function createStorageSettingsFromDiscriminatorValue(parseNode: ParseNode
 // @ts-ignore
 export function createStringCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoStringCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {StringDictionary}
+ */
+// @ts-ignore
+export function createStringDictionaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoStringDictionary;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -45924,6 +46283,141 @@ export interface CrossTenantMailTipsLimited extends M365CapabilityBase, Parsable
 }
 export interface CrossTenantMigration extends M365CapabilityBase, Parsable {
 }
+export interface CrossTenantMigrationCancelResponse extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The description of the cancellation request.
+     */
+    message?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The cancellation request status.
+     */
+    status?: string | null;
+}
+export interface CrossTenantMigrationJob extends Entity, Parsable {
+    /**
+     * Date and time after which the migration should be performed. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
+     */
+    completeAfterDateTime?: Date | null;
+    /**
+     * User principal name (UPN) of the user who created the job. Read-only.
+     */
+    createdBy?: string | null;
+    /**
+     * When the job was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z. Read-only.
+     */
+    createdDateTime?: Date | null;
+    /**
+     * Display name of the job. Must be unique per tenant.
+     */
+    displayName?: string | null;
+    /**
+     * Settings to use for migration of Exchange workload. Nullable.
+     */
+    exchangeSettings?: ExchangeOnlineCrossTenantMigrationSettings | null;
+    /**
+     * The jobType property
+     */
+    jobType?: CrossTenantMigrationJobType | null;
+    /**
+     * When this migration job was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z. Read-only.
+     */
+    lastUpdatedDateTime?: Date | null;
+    /**
+     * Status message of the migration job. Nullable. Read-only.
+     */
+    message?: string | null;
+    /**
+     * IDs (GUID) of the resources that are migrated with the migration job.
+     */
+    resources?: string[] | null;
+    /**
+     * Type of resource being migrated. Only Users is currently supported.
+     */
+    resourceType?: string | null;
+    /**
+     * ID (GUID) of the source tenant for the content migration.
+     */
+    sourceTenantId?: string | null;
+    /**
+     * The status property
+     */
+    status?: CrossTenantMigrationJobStatus | null;
+    /**
+     * ID of the target tenant for the content migration. Read-only.
+     */
+    targetTenantId?: string | null;
+    /**
+     * Details and status of the users migrated in this migration job.
+     */
+    users?: CrossTenantMigrationTask[] | null;
+    /**
+     * Workloads to migrate. Supported workloads are Teams, Exchange, and ODSP (OneDrive/SharePoint).
+     */
+    workloads?: string[] | null;
+}
+export interface CrossTenantMigrationJobCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CrossTenantMigrationJob[] | null;
+}
+export type CrossTenantMigrationJobStatus = (typeof CrossTenantMigrationJobStatusObject)[keyof typeof CrossTenantMigrationJobStatusObject];
+export type CrossTenantMigrationJobType = (typeof CrossTenantMigrationJobTypeObject)[keyof typeof CrossTenantMigrationJobTypeObject];
+export type CrossTenantMigrationServiceStatus = (typeof CrossTenantMigrationServiceStatusObject)[keyof typeof CrossTenantMigrationServiceStatusObject];
+export interface CrossTenantMigrationServiceStatusDetails extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * Errors associated with the migration for this service.
+     */
+    errors?: ErrorEscaped[] | null;
+    /**
+     * Service status message.
+     */
+    message?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Service or workload associated with the status details.
+     */
+    service?: string | null;
+    /**
+     * The status property
+     */
+    status?: CrossTenantMigrationServiceStatus | null;
+}
+export interface CrossTenantMigrationTask extends Entity, Parsable {
+    /**
+     * Most recent status of this migration task.
+     */
+    currentStatus?: CrossTenantMigrationServiceStatusDetails[] | null;
+    /**
+     * Date and time when the task was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
+     */
+    lastUpdatedDateTime?: Date | null;
+    /**
+     * Type of migration task. Currently, only Users is supported.
+     */
+    taskType?: string | null;
+}
+export interface CrossTenantMigrationTaskCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: CrossTenantMigrationTask[] | null;
+}
 export interface CrossTenantOpenProfileCard extends M365CapabilityBase, Parsable {
 }
 export interface CrossTenantPlacesDeskBooking extends M365CapabilityBase, Parsable {
@@ -45954,6 +46448,24 @@ export interface CurrencyColumn extends AdditionalDataHolder, BackedModel, Parsa
      * Specifies the locale from which to infer the currency symbol.
      */
     locale?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export interface CurrentLabel extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * The applicationMode property
+     */
+    applicationMode?: ApplicationMode | null;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The id property
+     */
+    id?: string | null;
     /**
      * The OdataType property
      */
@@ -51143,6 +51655,7 @@ export function deserializeIntoAttendanceRecord(attendanceRecord: Partial<Attend
         ...deserializeIntoEntity(attendanceRecord),
         "attendanceIntervals": n => { attendanceRecord.attendanceIntervals = n.getCollectionOfObjectValues<AttendanceInterval>(createAttendanceIntervalFromDiscriminatorValue); },
         "emailAddress": n => { attendanceRecord.emailAddress = n.getStringValue(); },
+        "engagements": n => { attendanceRecord.engagements = n.getCollectionOfObjectValues<MeetingEngagement>(createMeetingEngagementFromDiscriminatorValue); },
         "externalRegistrationInformation": n => { attendanceRecord.externalRegistrationInformation = n.getObjectValue<VirtualEventExternalRegistrationInformation>(createVirtualEventExternalRegistrationInformationFromDiscriminatorValue); },
         "identity": n => { attendanceRecord.identity = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
         "registrationId": n => { attendanceRecord.registrationId = n.getStringValue(); },
@@ -52471,6 +52984,54 @@ export function deserializeIntoB2xIdentityUserFlowCollectionResponse(b2xIdentity
 }
 /**
  * The deserialization information for the current model
+ * @param BackupCountStatistics The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoBackupCountStatistics(backupCountStatistics: Partial<BackupCountStatistics> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { backupCountStatistics.backingStoreEnabled = true; },
+        "lastComputedDateTime": n => { backupCountStatistics.lastComputedDateTime = n.getDateValue(); },
+        "@odata.type": n => { backupCountStatistics.odataType = n.getStringValue(); },
+        "offboardRequested": n => { backupCountStatistics.offboardRequested = n.getNumberValue(); },
+        "protectedCompleted": n => { backupCountStatistics.protectedCompleted = n.getNumberValue(); },
+        "protectedFailed": n => { backupCountStatistics.protectedFailed = n.getNumberValue(); },
+        "protectedInProgress": n => { backupCountStatistics.protectedInProgress = n.getNumberValue(); },
+        "removed": n => { backupCountStatistics.removed = n.getNumberValue(); },
+        "total": n => { backupCountStatistics.total = n.getNumberValue(); },
+        "unprotectedCompleted": n => { backupCountStatistics.unprotectedCompleted = n.getNumberValue(); },
+        "unprotectedFailed": n => { backupCountStatistics.unprotectedFailed = n.getNumberValue(); },
+        "unprotectedInProgress": n => { backupCountStatistics.unprotectedInProgress = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param BackupPolicyReport The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoBackupPolicyReport(backupPolicyReport: Partial<BackupPolicyReport> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { backupPolicyReport.backingStoreEnabled = true; },
+        "backupPolicyId": n => { backupPolicyReport.backupPolicyId = n.getStringValue(); },
+        "countStatistics": n => { backupPolicyReport.countStatistics = n.getObjectValue<BackupCountStatistics>(createBackupCountStatisticsFromDiscriminatorValue); },
+        "displayName": n => { backupPolicyReport.displayName = n.getStringValue(); },
+        "@odata.type": n => { backupPolicyReport.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param BackupReport The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoBackupReport(backupReport: Partial<BackupReport> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(backupReport),
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param BackupRestoreRoot The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -52493,6 +53054,7 @@ export function deserializeIntoBackupRestoreRoot(backupRestoreRoot: Partial<Back
         "oneDriveForBusinessRestoreSessions": n => { backupRestoreRoot.oneDriveForBusinessRestoreSessions = n.getCollectionOfObjectValues<OneDriveForBusinessRestoreSession>(createOneDriveForBusinessRestoreSessionFromDiscriminatorValue); },
         "protectionPolicies": n => { backupRestoreRoot.protectionPolicies = n.getCollectionOfObjectValues<ProtectionPolicyBase>(createProtectionPolicyBaseFromDiscriminatorValue); },
         "protectionUnits": n => { backupRestoreRoot.protectionUnits = n.getCollectionOfObjectValues<ProtectionUnitBase>(createProtectionUnitBaseFromDiscriminatorValue); },
+        "reports": n => { backupRestoreRoot.reports = n.getObjectValue<BackupReport>(createBackupReportFromDiscriminatorValue); },
         "restorePoints": n => { backupRestoreRoot.restorePoints = n.getCollectionOfObjectValues<RestorePoint>(createRestorePointFromDiscriminatorValue); },
         "restoreSessions": n => { backupRestoreRoot.restoreSessions = n.getCollectionOfObjectValues<RestoreSessionBase>(createRestoreSessionBaseFromDiscriminatorValue); },
         "serviceApps": n => { backupRestoreRoot.serviceApps = n.getCollectionOfObjectValues<ServiceApp>(createServiceAppFromDiscriminatorValue); },
@@ -53636,6 +54198,7 @@ export function deserializeIntoCalendar(calendar: Partial<Calendar> | undefined 
         "hexColor": n => { calendar.hexColor = n.getStringValue(); },
         "isDefaultCalendar": n => { calendar.isDefaultCalendar = n.getBooleanValue(); },
         "isRemovable": n => { calendar.isRemovable = n.getBooleanValue(); },
+        "isSharedWithMe": n => { calendar.isSharedWithMe = n.getBooleanValue(); },
         "isTallyingResponses": n => { calendar.isTallyingResponses = n.getBooleanValue(); },
         "multiValueExtendedProperties": n => { calendar.multiValueExtendedProperties = n.getCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(createMultiValueLegacyExtendedPropertyFromDiscriminatorValue); },
         "name": n => { calendar.name = n.getStringValue(); },
@@ -57162,10 +57725,54 @@ export function deserializeIntoCopilotPackageDetail(copilotPackageDetail: Partia
         "exceptionRate": n => { copilotPackageDetail.exceptionRate = n.getNumberValue(); },
         "lastUsedDateTime": n => { copilotPackageDetail.lastUsedDateTime = n.getDateValue(); },
         "longDescription": n => { copilotPackageDetail.longDescription = n.getStringValue(); },
+        "requestMetadata": n => { copilotPackageDetail.requestMetadata = n.getObjectValue<CopilotPackageRequestMetadata>(createCopilotPackageRequestMetadataFromDiscriminatorValue); },
         "sensitivity": n => { copilotPackageDetail.sensitivity = n.getStringValue(); },
         "sharedWithUsersAndGroups": n => { copilotPackageDetail.sharedWithUsersAndGroups = n.getCollectionOfObjectValues<PackageAccessEntity>(createPackageAccessEntityFromDiscriminatorValue); },
         "totalRunTimeInHours": n => { copilotPackageDetail.totalRunTimeInHours = n.getNumberValue(); },
         "totalSessions": n => { copilotPackageDetail.totalSessions = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPackageRequestInfo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPackageRequestInfo(copilotPackageRequestInfo: Partial<CopilotPackageRequestInfo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "additionalMetadata": n => { copilotPackageRequestInfo.additionalMetadata = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "assignees": n => { copilotPackageRequestInfo.assignees = n.getCollectionOfObjectValues<CopilotPackageRequestPrincipal>(createCopilotPackageRequestPrincipalFromDiscriminatorValue); },
+        "backingStoreEnabled": n => { copilotPackageRequestInfo.backingStoreEnabled = true; },
+        "identifier": n => { copilotPackageRequestInfo.identifier = n.getStringValue(); },
+        "@odata.type": n => { copilotPackageRequestInfo.odataType = n.getStringValue(); },
+        "requestedBy": n => { copilotPackageRequestInfo.requestedBy = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
+        "requestedDateTime": n => { copilotPackageRequestInfo.requestedDateTime = n.getDateValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPackageRequestMetadata The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPackageRequestMetadata(copilotPackageRequestMetadata: Partial<CopilotPackageRequestMetadata> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { copilotPackageRequestMetadata.backingStoreEnabled = true; },
+        "@odata.type": n => { copilotPackageRequestMetadata.odataType = n.getStringValue(); },
+        "requests": n => { copilotPackageRequestMetadata.requests = n.getCollectionOfObjectValues<CopilotPackageRequestInfo>(createCopilotPackageRequestInfoFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CopilotPackageRequestPrincipal The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCopilotPackageRequestPrincipal(copilotPackageRequestPrincipal: Partial<CopilotPackageRequestPrincipal> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoIdentity(copilotPackageRequestPrincipal),
+        "principalType": n => { copilotPackageRequestPrincipal.principalType = n.getEnumValue<CopilotPackageRequestPrincipalType>(CopilotPackageRequestPrincipalTypeObject); },
+        "userPrincipalName": n => { copilotPackageRequestPrincipal.userPrincipalName = n.getStringValue(); },
     }
 }
 /**
@@ -57526,6 +58133,100 @@ export function deserializeIntoCrossTenantMigration(crossTenantMigration: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param CrossTenantMigrationCancelResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCrossTenantMigrationCancelResponse(crossTenantMigrationCancelResponse: Partial<CrossTenantMigrationCancelResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { crossTenantMigrationCancelResponse.backingStoreEnabled = true; },
+        "message": n => { crossTenantMigrationCancelResponse.message = n.getStringValue(); },
+        "@odata.type": n => { crossTenantMigrationCancelResponse.odataType = n.getStringValue(); },
+        "status": n => { crossTenantMigrationCancelResponse.status = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CrossTenantMigrationJob The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCrossTenantMigrationJob(crossTenantMigrationJob: Partial<CrossTenantMigrationJob> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(crossTenantMigrationJob),
+        "completeAfterDateTime": n => { crossTenantMigrationJob.completeAfterDateTime = n.getDateValue(); },
+        "createdBy": n => { crossTenantMigrationJob.createdBy = n.getStringValue(); },
+        "createdDateTime": n => { crossTenantMigrationJob.createdDateTime = n.getDateValue(); },
+        "displayName": n => { crossTenantMigrationJob.displayName = n.getStringValue(); },
+        "exchangeSettings": n => { crossTenantMigrationJob.exchangeSettings = n.getObjectValue<ExchangeOnlineCrossTenantMigrationSettings>(createExchangeOnlineCrossTenantMigrationSettingsFromDiscriminatorValue); },
+        "jobType": n => { crossTenantMigrationJob.jobType = n.getEnumValue<CrossTenantMigrationJobType>(CrossTenantMigrationJobTypeObject); },
+        "lastUpdatedDateTime": n => { crossTenantMigrationJob.lastUpdatedDateTime = n.getDateValue(); },
+        "message": n => { crossTenantMigrationJob.message = n.getStringValue(); },
+        "resources": n => { crossTenantMigrationJob.resources = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "resourceType": n => { crossTenantMigrationJob.resourceType = n.getStringValue(); },
+        "sourceTenantId": n => { crossTenantMigrationJob.sourceTenantId = n.getStringValue(); },
+        "status": n => { crossTenantMigrationJob.status = n.getEnumValue<CrossTenantMigrationJobStatus>(CrossTenantMigrationJobStatusObject); },
+        "targetTenantId": n => { crossTenantMigrationJob.targetTenantId = n.getStringValue(); },
+        "users": n => { crossTenantMigrationJob.users = n.getCollectionOfObjectValues<CrossTenantMigrationTask>(createCrossTenantMigrationTaskFromDiscriminatorValue); },
+        "workloads": n => { crossTenantMigrationJob.workloads = n.getCollectionOfPrimitiveValues<string>("string"); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CrossTenantMigrationJobCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCrossTenantMigrationJobCollectionResponse(crossTenantMigrationJobCollectionResponse: Partial<CrossTenantMigrationJobCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(crossTenantMigrationJobCollectionResponse),
+        "value": n => { crossTenantMigrationJobCollectionResponse.value = n.getCollectionOfObjectValues<CrossTenantMigrationJob>(createCrossTenantMigrationJobFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CrossTenantMigrationServiceStatusDetails The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCrossTenantMigrationServiceStatusDetails(crossTenantMigrationServiceStatusDetails: Partial<CrossTenantMigrationServiceStatusDetails> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { crossTenantMigrationServiceStatusDetails.backingStoreEnabled = true; },
+        "errors": n => { crossTenantMigrationServiceStatusDetails.errors = n.getCollectionOfObjectValues<ErrorEscaped>(createErrorEscapedFromDiscriminatorValue); },
+        "message": n => { crossTenantMigrationServiceStatusDetails.message = n.getStringValue(); },
+        "@odata.type": n => { crossTenantMigrationServiceStatusDetails.odataType = n.getStringValue(); },
+        "service": n => { crossTenantMigrationServiceStatusDetails.service = n.getStringValue(); },
+        "status": n => { crossTenantMigrationServiceStatusDetails.status = n.getEnumValue<CrossTenantMigrationServiceStatus>(CrossTenantMigrationServiceStatusObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CrossTenantMigrationTask The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCrossTenantMigrationTask(crossTenantMigrationTask: Partial<CrossTenantMigrationTask> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(crossTenantMigrationTask),
+        "currentStatus": n => { crossTenantMigrationTask.currentStatus = n.getCollectionOfObjectValues<CrossTenantMigrationServiceStatusDetails>(createCrossTenantMigrationServiceStatusDetailsFromDiscriminatorValue); },
+        "lastUpdatedDateTime": n => { crossTenantMigrationTask.lastUpdatedDateTime = n.getDateValue(); },
+        "taskType": n => { crossTenantMigrationTask.taskType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CrossTenantMigrationTaskCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCrossTenantMigrationTaskCollectionResponse(crossTenantMigrationTaskCollectionResponse: Partial<CrossTenantMigrationTaskCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(crossTenantMigrationTaskCollectionResponse),
+        "value": n => { crossTenantMigrationTaskCollectionResponse.value = n.getCollectionOfObjectValues<CrossTenantMigrationTask>(createCrossTenantMigrationTaskFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param CrossTenantOpenProfileCard The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -57581,6 +58282,20 @@ export function deserializeIntoCurrencyColumn(currencyColumn: Partial<CurrencyCo
         "backingStoreEnabled": n => { currencyColumn.backingStoreEnabled = true; },
         "locale": n => { currencyColumn.locale = n.getStringValue(); },
         "@odata.type": n => { currencyColumn.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CurrentLabel The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCurrentLabel(currentLabel: Partial<CurrentLabel> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "applicationMode": n => { currentLabel.applicationMode = n.getEnumValue<ApplicationMode>(ApplicationModeObject); },
+        "backingStoreEnabled": n => { currentLabel.backingStoreEnabled = true; },
+        "id": n => { currentLabel.id = n.getStringValue(); },
+        "@odata.type": n => { currentLabel.odataType = n.getStringValue(); },
     }
 }
 /**
@@ -60280,6 +60995,18 @@ export function deserializeIntoDirectoryRoleCollectionResponse(directoryRoleColl
 }
 /**
  * The deserialization information for the current model
+ * @param DirectoryRoleManagementDeletedItemContainer The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDirectoryRoleManagementDeletedItemContainer(directoryRoleManagementDeletedItemContainer: Partial<DirectoryRoleManagementDeletedItemContainer> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(directoryRoleManagementDeletedItemContainer),
+        "roleDefinitions": n => { directoryRoleManagementDeletedItemContainer.roleDefinitions = n.getCollectionOfObjectValues<UnifiedRoleDefinition>(createUnifiedRoleDefinitionFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param DirectoryRoleTemplate The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -62815,6 +63542,20 @@ export function deserializeIntoErrorDetail(errorDetail: Partial<ErrorDetail> | u
 }
 /**
  * The deserialization information for the current model
+ * @param ErrorEscaped The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoErrorEscaped(errorEscaped: Partial<ErrorEscaped> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { errorEscaped.backingStoreEnabled = true; },
+        "code": n => { errorEscaped.code = n.getStringValue(); },
+        "message": n => { errorEscaped.message = n.getStringValue(); },
+        "@odata.type": n => { errorEscaped.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param Event The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -63003,6 +63744,20 @@ export function deserializeIntoExchangeMessageTraceDetail(exchangeMessageTraceDe
         "description": n => { exchangeMessageTraceDetail.description = n.getStringValue(); },
         "event": n => { exchangeMessageTraceDetail.event = n.getStringValue(); },
         "messageId": n => { exchangeMessageTraceDetail.messageId = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param ExchangeOnlineCrossTenantMigrationSettings The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoExchangeOnlineCrossTenantMigrationSettings(exchangeOnlineCrossTenantMigrationSettings: Partial<ExchangeOnlineCrossTenantMigrationSettings> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { exchangeOnlineCrossTenantMigrationSettings.backingStoreEnabled = true; },
+        "@odata.type": n => { exchangeOnlineCrossTenantMigrationSettings.odataType = n.getStringValue(); },
+        "sourceEndpoint": n => { exchangeOnlineCrossTenantMigrationSettings.sourceEndpoint = n.getStringValue(); },
+        "targetDeliveryDomain": n => { exchangeOnlineCrossTenantMigrationSettings.targetDeliveryDomain = n.getStringValue(); },
     }
 }
 /**
@@ -69105,6 +69860,21 @@ export function deserializeIntoMeetingAttendanceReportCollectionResponse(meeting
 }
 /**
  * The deserialization information for the current model
+ * @param MeetingEngagement The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMeetingEngagement(meetingEngagement: Partial<MeetingEngagement> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { meetingEngagement.backingStoreEnabled = true; },
+        "dateTime": n => { meetingEngagement.dateTime = n.getDateValue(); },
+        "engagementSubType": n => { meetingEngagement.engagementSubType = n.getStringValue(); },
+        "engagementType": n => { meetingEngagement.engagementType = n.getEnumValue<MeetingEngagementType>(MeetingEngagementTypeObject); },
+        "@odata.type": n => { meetingEngagement.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param MeetingInfo The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -69699,6 +70469,18 @@ export function deserializeIntoMicrosoftTrainingAssignmentMapping(microsoftTrain
         ...deserializeIntoTrainingSetting(microsoftTrainingAssignmentMapping),
         "assignedTo": n => { microsoftTrainingAssignmentMapping.assignedTo = n.getCollectionOfEnumValues<TrainingAssignedTo>(TrainingAssignedToObject); },
         "training": n => { microsoftTrainingAssignmentMapping.training = n.getObjectValue<Training>(createTrainingFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param MigrationsRoot The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMigrationsRoot(migrationsRoot: Partial<MigrationsRoot> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(migrationsRoot),
+        "crossTenantMigrationJobs": n => { migrationsRoot.crossTenantMigrationJobs = n.getCollectionOfObjectValues<CrossTenantMigrationJob>(createCrossTenantMigrationJobFromDiscriminatorValue); },
     }
 }
 /**
@@ -72137,6 +72919,7 @@ export function deserializeIntoOptionalClaims(optionalClaims: Partial<OptionalCl
         "accessToken": n => { optionalClaims.accessToken = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
         "backingStoreEnabled": n => { optionalClaims.backingStoreEnabled = true; },
         "idToken": n => { optionalClaims.idToken = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
+        "kerberosTicket": n => { optionalClaims.kerberosTicket = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
         "@odata.type": n => { optionalClaims.odataType = n.getStringValue(); },
         "saml2Token": n => { optionalClaims.saml2Token = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
     }
@@ -73272,10 +74055,12 @@ export function deserializeIntoPlace(place: Partial<Place> | undefined = {}) : R
         ...deserializeIntoEntity(place),
         "address": n => { place.address = n.getObjectValue<PhysicalAddress>(createPhysicalAddressFromDiscriminatorValue); },
         "checkIns": n => { place.checkIns = n.getCollectionOfObjectValues<CheckInClaim>(createCheckInClaimFromDiscriminatorValue); },
+        "customProperties": n => { place.customProperties = n.getObjectValue<StringDictionary>(createStringDictionaryFromDiscriminatorValue); },
         "displayName": n => { place.displayName = n.getStringValue(); },
         "geoCoordinates": n => { place.geoCoordinates = n.getObjectValue<OutlookGeoCoordinates>(createOutlookGeoCoordinatesFromDiscriminatorValue); },
         "isWheelChairAccessible": n => { place.isWheelChairAccessible = n.getBooleanValue(); },
         "label": n => { place.label = n.getStringValue(); },
+        "lastUpdatedTime": n => { place.lastUpdatedTime = n.getDateValue(); },
         "parentId": n => { place.parentId = n.getStringValue(); },
         "phone": n => { place.phone = n.getStringValue(); },
         "placeId": n => { place.placeId = n.getStringValue(); },
@@ -75023,6 +75808,7 @@ export function deserializeIntoProcessContentMetadataBase(processContentMetadata
         "modifiedDateTime": n => { processContentMetadataBase.modifiedDateTime = n.getDateValue(); },
         "name": n => { processContentMetadataBase.name = n.getStringValue(); },
         "@odata.type": n => { processContentMetadataBase.odataType = n.getStringValue(); },
+        "sensitivityLabels": n => { processContentMetadataBase.sensitivityLabels = n.getCollectionOfObjectValues<CurrentLabel>(createCurrentLabelFromDiscriminatorValue); },
         "sequenceNumber": n => { processContentMetadataBase.sequenceNumber = n.getNumberValue(); },
     }
 }
@@ -75783,6 +76569,7 @@ export function deserializeIntoQuota(quota: Partial<Quota> | undefined = {}) : R
 export function deserializeIntoRbacApplication(rbacApplication: Partial<RbacApplication> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(rbacApplication),
+        "deletedItems": n => { rbacApplication.deletedItems = n.getObjectValue<DirectoryRoleManagementDeletedItemContainer>(createDirectoryRoleManagementDeletedItemContainerFromDiscriminatorValue); },
         "resourceNamespaces": n => { rbacApplication.resourceNamespaces = n.getCollectionOfObjectValues<UnifiedRbacResourceNamespace>(createUnifiedRbacResourceNamespaceFromDiscriminatorValue); },
         "roleAssignments": n => { rbacApplication.roleAssignments = n.getCollectionOfObjectValues<UnifiedRoleAssignment>(createUnifiedRoleAssignmentFromDiscriminatorValue); },
         "roleAssignmentScheduleInstances": n => { rbacApplication.roleAssignmentScheduleInstances = n.getCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>(createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue); },
@@ -76950,6 +77737,7 @@ export function deserializeIntoRestoreSessionBase(restoreSessionBase: Partial<Re
         "error": n => { restoreSessionBase.errorEscaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
         "lastModifiedBy": n => { restoreSessionBase.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "lastModifiedDateTime": n => { restoreSessionBase.lastModifiedDateTime = n.getDateValue(); },
+        "policyId": n => { restoreSessionBase.policyId = n.getStringValue(); },
         "restoreJobType": n => { restoreSessionBase.restoreJobType = n.getEnumValue<RestoreJobType>(RestoreJobTypeObject); },
         "restoreSessionArtifactCount": n => { restoreSessionBase.restoreSessionArtifactCount = n.getObjectValue<RestoreSessionArtifactCount>(createRestoreSessionArtifactCountFromDiscriminatorValue); },
         "status": n => { restoreSessionBase.status = n.getEnumValue<RestoreSessionStatus>(RestoreSessionStatusObject); },
@@ -77383,6 +78171,7 @@ export function deserializeIntoRoleManagementCustomCalloutExtension(roleManageme
     return {
         ...deserializeIntoCustomCalloutExtension(roleManagementCustomCalloutExtension),
         "customAttributes": n => { roleManagementCustomCalloutExtension.customAttributes = n.getCollectionOfPrimitiveValues<string>("string"); },
+        "isEnabled": n => { roleManagementCustomCalloutExtension.isEnabled = n.getBooleanValue(); },
         "resourceType": n => { roleManagementCustomCalloutExtension.resourceType = n.getEnumValue<CustomExtensionResourceType>(CustomExtensionResourceTypeObject); },
         "type": n => { roleManagementCustomCalloutExtension.type = n.getEnumValue<CustomCalloutExtensionType>(CustomCalloutExtensionTypeObject); },
     }
@@ -78228,6 +79017,7 @@ export function deserializeIntoSecurity(security: Partial<Security> | undefined 
         "identities": n => { security.identities = n.getObjectValue<I2b88f0c27d7fd9c000e7e4e78cc3161590db07c518949b504f8a27680ed1200f>(I935b7de91425579f950e93b26ee70d12698bf4d797e21a9ad70489ad679cdff9); },
         "incidents": n => { security.incidents = n.getCollectionOfObjectValues<Incident>(createIncidentFromDiscriminatorValue); },
         "labels": n => { security.labels = n.getObjectValue<LabelsRoot>(createLabelsRootFromDiscriminatorValue); },
+        "rules": n => { security.rules = n.getObjectValue<RulesRoot>(createRulesRootFromDiscriminatorValue); },
         "secureScoreControlProfiles": n => { security.secureScoreControlProfiles = n.getCollectionOfObjectValues<SecureScoreControlProfile>(createSecureScoreControlProfileFromDiscriminatorValue); },
         "secureScores": n => { security.secureScores = n.getCollectionOfObjectValues<SecureScore>(createSecureScoreFromDiscriminatorValue); },
         "subjectRightsRequests": n => { security.subjectRightsRequests = n.getCollectionOfObjectValues<SubjectRightsRequest>(createSubjectRightsRequestFromDiscriminatorValue); },
@@ -78333,6 +79123,7 @@ export function deserializeIntoSensitivityLabel(sensitivityLabel: Partial<Sensit
     return {
         ...deserializeIntoEntity(sensitivityLabel),
         "actionSource": n => { sensitivityLabel.actionSource = n.getEnumValue<LabelActionSource>(LabelActionSourceObject); },
+        "applicationMode": n => { sensitivityLabel.applicationMode = n.getEnumValue<ApplicationMode>(ApplicationModeObject); },
         "autoTooltip": n => { sensitivityLabel.autoTooltip = n.getStringValue(); },
         "description": n => { sensitivityLabel.description = n.getStringValue(); },
         "displayName": n => { sensitivityLabel.displayName = n.getStringValue(); },
@@ -80054,6 +80845,18 @@ export function deserializeIntoSingleUser(singleUser: Partial<SingleUser> | unde
 }
 /**
  * The deserialization information for the current model
+ * @param SingleValueExtendedProperty The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoSingleValueExtendedProperty(singleValueExtendedProperty: Partial<SingleValueExtendedProperty> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(singleValueExtendedProperty),
+        "value": n => { singleValueExtendedProperty.value = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param SingleValueLegacyExtendedProperty The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -80458,6 +81261,7 @@ export function deserializeIntoSolutionsRoot(solutionsRoot: Partial<SolutionsRoo
         "backupRestore": n => { solutionsRoot.backupRestore = n.getObjectValue<BackupRestoreRoot>(createBackupRestoreRootFromDiscriminatorValue); },
         "bookingBusinesses": n => { solutionsRoot.bookingBusinesses = n.getCollectionOfObjectValues<BookingBusiness>(createBookingBusinessFromDiscriminatorValue); },
         "bookingCurrencies": n => { solutionsRoot.bookingCurrencies = n.getCollectionOfObjectValues<BookingCurrency>(createBookingCurrencyFromDiscriminatorValue); },
+        "migrations": n => { solutionsRoot.migrations = n.getObjectValue<MigrationsRoot>(createMigrationsRootFromDiscriminatorValue); },
         "@odata.type": n => { solutionsRoot.odataType = n.getStringValue(); },
         "virtualEvents": n => { solutionsRoot.virtualEvents = n.getObjectValue<VirtualEventsRoot>(createVirtualEventsRootFromDiscriminatorValue); },
     }
@@ -80674,6 +81478,17 @@ export function deserializeIntoStringCollectionResponse(stringCollectionResponse
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(stringCollectionResponse),
         "value": n => { stringCollectionResponse.value = n.getCollectionOfPrimitiveValues<string>("string"); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param StringDictionary The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoStringDictionary(stringDictionary: Partial<StringDictionary> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoDictionary(stringDictionary),
     }
 }
 /**
@@ -83214,6 +84029,7 @@ export function deserializeIntoTodoTask(todoTask: Partial<TodoTask> | undefined 
         "linkedResources": n => { todoTask.linkedResources = n.getCollectionOfObjectValues<LinkedResource>(createLinkedResourceFromDiscriminatorValue); },
         "recurrence": n => { todoTask.recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
         "reminderDateTime": n => { todoTask.reminderDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
+        "singleValueExtendedProperties": n => { todoTask.singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueExtendedProperty>(createSingleValueExtendedPropertyFromDiscriminatorValue); },
         "startDateTime": n => { todoTask.startDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         "status": n => { todoTask.status = n.getEnumValue<TaskStatus>(TaskStatusObject); },
         "title": n => { todoTask.title = n.getStringValue(); },
@@ -83244,6 +84060,7 @@ export function deserializeIntoTodoTaskList(todoTaskList: Partial<TodoTaskList> 
         "extensions": n => { todoTaskList.extensions = n.getCollectionOfObjectValues<Extension>(createExtensionFromDiscriminatorValue); },
         "isOwner": n => { todoTaskList.isOwner = n.getBooleanValue(); },
         "isShared": n => { todoTaskList.isShared = n.getBooleanValue(); },
+        "singleValueExtendedProperties": n => { todoTaskList.singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueExtendedProperty>(createSingleValueExtendedPropertyFromDiscriminatorValue); },
         "tasks": n => { todoTaskList.tasks = n.getCollectionOfObjectValues<TodoTask>(createTodoTaskFromDiscriminatorValue); },
         "wellknownListName": n => { todoTaskList.wellknownListName = n.getEnumValue<WellknownListName>(WellknownListNameObject); },
     }
@@ -92655,6 +93472,12 @@ export interface DirectoryRoleCollectionResponse extends BaseCollectionPaginatio
      */
     value?: DirectoryRole[] | null;
 }
+export interface DirectoryRoleManagementDeletedItemContainer extends Entity, Parsable {
+    /**
+     * The soft-deleted custom role definitions in the directory.
+     */
+    roleDefinitions?: UnifiedRoleDefinition[] | null;
+}
 export interface DirectoryRoleTemplate extends DirectoryObject, Parsable {
     /**
      * The description to set for the directory role. Read-only.
@@ -95755,7 +96578,7 @@ export interface EnumeratedDeviceRegistrationMembership extends DeviceRegistrati
 }
 export interface EnumeratedDomains extends Parsable, ValidatingDomains {
     /**
-     * The domainNames property
+     * List of federated or managed root domains that Microsoft Entra ID validates.
      */
     domainNames?: string[] | null;
 }
@@ -95787,6 +96610,24 @@ export interface ErrorDetail extends AdditionalDataHolder, BackedModel, Parsable
      * Name of the resource type.
      */
     resourceType?: string | null;
+}
+export interface ErrorEscaped extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The error code.
+     */
+    code?: string | null;
+    /**
+     * The message for the error.
+     */
+    message?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
 }
 export type EvaluationOutcome = (typeof EvaluationOutcomeObject)[keyof typeof EvaluationOutcomeObject];
 export interface Event extends OutlookItem, Parsable {
@@ -96144,6 +96985,24 @@ export interface ExchangeMessageTraceDetail extends Entity, Parsable {
     messageId?: string | null;
 }
 export type ExchangeMessageTraceStatus = (typeof ExchangeMessageTraceStatusObject)[keyof typeof ExchangeMessageTraceStatusObject];
+export interface ExchangeOnlineCrossTenantMigrationSettings extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * Name of the migration endpoint in the source tenant.
+     */
+    sourceEndpoint?: string | null;
+    /**
+     * Delivery domain on the target tenant.
+     */
+    targetDeliveryDomain?: string | null;
+}
 export interface ExchangeProtectionPolicy extends Parsable, ProtectionPolicyBase {
     /**
      * The rules associated with the Exchange protection policy.
@@ -104262,6 +105121,29 @@ export interface MeetingAttendanceReportCollectionResponse extends BaseCollectio
 export type MeetingAudience = (typeof MeetingAudienceObject)[keyof typeof MeetingAudienceObject];
 export type MeetingChatHistoryDefaultMode = (typeof MeetingChatHistoryDefaultModeObject)[keyof typeof MeetingChatHistoryDefaultModeObject];
 export type MeetingChatMode = (typeof MeetingChatModeObject)[keyof typeof MeetingChatModeObject];
+export interface MeetingEngagement extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The date and time when the engagement event occurred. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2026 is 2026-01-01T00:00:00Z.
+     */
+    dateTime?: Date | null;
+    /**
+     * The specific engagement action within the engagement type. The possible values are: like, love, applause, laugh, surprised for reaction; raiseHand for hand; cameraOn, cameraOff for camera; and mute, unmute for microphone.
+     */
+    engagementSubType?: string | null;
+    /**
+     * The category of the engagement event. The possible values are: reaction, hand, camera, microphone, unknownFutureValue.
+     */
+    engagementType?: MeetingEngagementType | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
+export type MeetingEngagementType = (typeof MeetingEngagementTypeObject)[keyof typeof MeetingEngagementTypeObject];
 export interface MeetingInfo extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
@@ -105129,6 +106011,12 @@ export interface MicrosoftTrainingAssignmentMapping extends Parsable, TrainingSe
     training?: Training | null;
 }
 export type MigrationMode = (typeof MigrationModeObject)[keyof typeof MigrationModeObject];
+export interface MigrationsRoot extends Entity, Parsable {
+    /**
+     * Migration jobs associated with this tenant.
+     */
+    crossTenantMigrationJobs?: CrossTenantMigrationJob[] | null;
+}
 export type MigrationStatus = (typeof MigrationStatusObject)[keyof typeof MigrationStatusObject];
 /**
  * Contains properties for a generic mime content.
@@ -107936,6 +108824,10 @@ export interface OptionalClaims extends AdditionalDataHolder, BackedModel, Parsa
      */
     idToken?: OptionalClaim[] | null;
     /**
+     * The kerberosTicket property
+     */
+    kerberosTicket?: OptionalClaim[] | null;
+    /**
      * The OdataType property
      */
     odataType?: string | null;
@@ -109594,6 +110486,10 @@ export interface Place extends Entity, Parsable {
      */
     checkIns?: CheckInClaim[] | null;
     /**
+     * Custom properties for the place. Each property has a string key and a string value. Nullable.
+     */
+    customProperties?: StringDictionary | null;
+    /**
      * The name that is associated with the place.
      */
     displayName?: string | null;
@@ -109609,6 +110505,10 @@ export interface Place extends Entity, Parsable {
      * User-defined description of the place.
      */
     label?: string | null;
+    /**
+     * The date and time when the place was last updated. The timestamp is in ISO 8601 format and is always in UTC. Read-only. Nullable.
+     */
+    lastUpdatedTime?: Date | null;
     /**
      * The ID of a parent place.
      */
@@ -110241,7 +111141,7 @@ export interface PolicyRoot extends Entity, Parsable {
      */
     featureRolloutPolicies?: FeatureRolloutPolicy[] | null;
     /**
-     * The federatedTokenValidationPolicy property
+     * Represents a policy to control enabling or disabling validation of federation authentication tokens.
      */
     federatedTokenValidationPolicy?: FederatedTokenValidationPolicy | null;
     /**
@@ -111554,7 +112454,7 @@ export interface PrivilegedAccessGroup extends Entity, Parsable {
      */
     eligibilitySchedules?: PrivilegedAccessGroupEligibilitySchedule[] | null;
     /**
-     * The resources property
+     * The groups managed through PIM for groups.
      */
     resources?: GroupResource[] | null;
 }
@@ -111978,6 +112878,10 @@ export interface ProcessContentMetadataBase extends AdditionalDataHolder, Backed
      * The OdataType property
      */
     odataType?: string | null;
+    /**
+     * The sensitivityLabels property
+     */
+    sensitivityLabels?: CurrentLabel[] | null;
     /**
      * A sequence number indicating the order in which content was generated or should be processed, required when correlationId is used.
      */
@@ -112958,6 +113862,10 @@ export type RatingUnitedStatesMoviesType = (typeof RatingUnitedStatesMoviesTypeO
 export type RatingUnitedStatesTelevisionType = (typeof RatingUnitedStatesTelevisionTypeObject)[keyof typeof RatingUnitedStatesTelevisionTypeObject];
 export interface RbacApplication extends Entity, Parsable {
     /**
+     * Container for custom role definitions that have been soft-deleted from Microsoft Entra directory role management.
+     */
+    deletedItems?: DirectoryRoleManagementDeletedItemContainer | null;
+    /**
      * The resourceNamespaces property
      */
     resourceNamespaces?: UnifiedRbacResourceNamespace[] | null;
@@ -113636,15 +114544,15 @@ export interface RelatedTenantsRefreshStatus extends AdditionalDataHolder, Backe
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The isFirstRefresh property
+     * Indicates whether the operation is the first refresh of the related tenants list.
      */
     isFirstRefresh?: boolean | null;
     /**
-     * The mostRecentRefreshDateTime property
+     * The date and time of the most recent refresh operation. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
      */
     mostRecentRefreshDateTime?: Date | null;
     /**
-     * The mostRecentRefreshRequestStatus property
+     * The status of the most recent refresh operation.
      */
     mostRecentRefreshRequestStatus?: string | null;
     /**
@@ -114522,7 +115430,7 @@ export interface RestorePoint extends Entity, Parsable {
      */
     protectionDateTime?: Date | null;
     /**
-     * The site, drive, or mailbox units that are protected under a protection policy.
+     * The site, drive, or mailbox unit protected under a protection policy. Supports $expand and $filter on protectionUnit/policyId using the eq operator.
      */
     protectionUnit?: ProtectionUnitBase | null;
     /**
@@ -114629,6 +115537,10 @@ export interface RestoreSessionBase extends Entity, Parsable {
      * Timestamp of the last modification of the restore session.
      */
     lastModifiedDateTime?: Date | null;
+    /**
+     * The identifier of the protection policy that scopes the restore session. When supplied during creation or update, the service validates that the referenced protection units belong to the specified policy.
+     */
+    policyId?: string | null;
     /**
      * Indicates whether the restore session was created normally or by a bulk job.
      */
@@ -115156,6 +116068,10 @@ export interface RoleManagementCustomCalloutExtension extends CustomCalloutExten
      * The custom attribute names to include in the callout payload.
      */
     customAttributes?: string[] | null;
+    /**
+     * When true, enables the custom extension. When false, disables it. Nullable.
+     */
+    isEnabled?: boolean | null;
     /**
      * The resourceType property
      */
@@ -116354,6 +117270,10 @@ export interface Security extends Entity, Parsable {
      */
     labels?: LabelsRoot | null;
     /**
+     * Container for the security rules configured in Microsoft Defender XDR, including custom detection rules.
+     */
+    rules?: RulesRoot | null;
+    /**
      * The secureScoreControlProfiles property
      */
     secureScoreControlProfiles?: SecureScoreControlProfile[] | null;
@@ -116500,6 +117420,10 @@ export interface SensitivityLabel extends Entity, Parsable {
      * The actionSource property
      */
     actionSource?: LabelActionSource | null;
+    /**
+     * The applicationMode property
+     */
+    applicationMode?: ApplicationMode | null;
     /**
      * The autoTooltip property
      */
@@ -120926,6 +121850,7 @@ export function serializeAttendanceRecord(writer: SerializationWriter, attendanc
     serializeEntity(writer, attendanceRecord, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<AttendanceInterval>("attendanceIntervals", attendanceRecord.attendanceIntervals, serializeAttendanceInterval);
     writer.writeStringValue("emailAddress", attendanceRecord.emailAddress);
+    writer.writeCollectionOfObjectValues<MeetingEngagement>("engagements", attendanceRecord.engagements, serializeMeetingEngagement);
     writer.writeObjectValue<VirtualEventExternalRegistrationInformation>("externalRegistrationInformation", attendanceRecord.externalRegistrationInformation, serializeVirtualEventExternalRegistrationInformation);
     writer.writeObjectValue<Identity>("identity", attendanceRecord.identity, serializeIdentity);
     writer.writeStringValue("registrationId", attendanceRecord.registrationId);
@@ -122412,6 +123337,54 @@ export function serializeB2xIdentityUserFlowCollectionResponse(writer: Serializa
 }
 /**
  * Serializes information the current object
+ * @param BackupCountStatistics The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBackupCountStatistics(writer: SerializationWriter, backupCountStatistics: Partial<BackupCountStatistics> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!backupCountStatistics || isSerializingDerivedType) { return; }
+    writer.writeDateValue("lastComputedDateTime", backupCountStatistics.lastComputedDateTime);
+    writer.writeStringValue("@odata.type", backupCountStatistics.odataType);
+    writer.writeNumberValue("offboardRequested", backupCountStatistics.offboardRequested);
+    writer.writeNumberValue("protectedCompleted", backupCountStatistics.protectedCompleted);
+    writer.writeNumberValue("protectedFailed", backupCountStatistics.protectedFailed);
+    writer.writeNumberValue("protectedInProgress", backupCountStatistics.protectedInProgress);
+    writer.writeNumberValue("removed", backupCountStatistics.removed);
+    writer.writeNumberValue("total", backupCountStatistics.total);
+    writer.writeNumberValue("unprotectedCompleted", backupCountStatistics.unprotectedCompleted);
+    writer.writeNumberValue("unprotectedFailed", backupCountStatistics.unprotectedFailed);
+    writer.writeNumberValue("unprotectedInProgress", backupCountStatistics.unprotectedInProgress);
+    writer.writeAdditionalData(backupCountStatistics.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param BackupPolicyReport The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBackupPolicyReport(writer: SerializationWriter, backupPolicyReport: Partial<BackupPolicyReport> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!backupPolicyReport || isSerializingDerivedType) { return; }
+    writer.writeStringValue("backupPolicyId", backupPolicyReport.backupPolicyId);
+    writer.writeObjectValue<BackupCountStatistics>("countStatistics", backupPolicyReport.countStatistics, serializeBackupCountStatistics);
+    writer.writeStringValue("displayName", backupPolicyReport.displayName);
+    writer.writeStringValue("@odata.type", backupPolicyReport.odataType);
+    writer.writeAdditionalData(backupPolicyReport.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param BackupReport The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBackupReport(writer: SerializationWriter, backupReport: Partial<BackupReport> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!backupReport || isSerializingDerivedType) { return; }
+    serializeEntity(writer, backupReport, isSerializingDerivedType)
+}
+/**
+ * Serializes information the current object
  * @param BackupRestoreRoot The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -122435,6 +123408,7 @@ export function serializeBackupRestoreRoot(writer: SerializationWriter, backupRe
     writer.writeCollectionOfObjectValues<OneDriveForBusinessRestoreSession>("oneDriveForBusinessRestoreSessions", backupRestoreRoot.oneDriveForBusinessRestoreSessions, serializeOneDriveForBusinessRestoreSession);
     writer.writeCollectionOfObjectValues<ProtectionPolicyBase>("protectionPolicies", backupRestoreRoot.protectionPolicies, serializeProtectionPolicyBase);
     writer.writeCollectionOfObjectValues<ProtectionUnitBase>("protectionUnits", backupRestoreRoot.protectionUnits, serializeProtectionUnitBase);
+    writer.writeObjectValue<BackupReport>("reports", backupRestoreRoot.reports, serializeBackupReport);
     writer.writeCollectionOfObjectValues<RestorePoint>("restorePoints", backupRestoreRoot.restorePoints, serializeRestorePoint);
     writer.writeCollectionOfObjectValues<RestoreSessionBase>("restoreSessions", backupRestoreRoot.restoreSessions, serializeRestoreSessionBase);
     writer.writeCollectionOfObjectValues<ServiceApp>("serviceApps", backupRestoreRoot.serviceApps, serializeServiceApp);
@@ -123689,6 +124663,7 @@ export function serializeCalendar(writer: SerializationWriter, calendar: Partial
     writer.writeStringValue("hexColor", calendar.hexColor);
     writer.writeBooleanValue("isDefaultCalendar", calendar.isDefaultCalendar);
     writer.writeBooleanValue("isRemovable", calendar.isRemovable);
+    writer.writeBooleanValue("isSharedWithMe", calendar.isSharedWithMe);
     writer.writeBooleanValue("isTallyingResponses", calendar.isTallyingResponses);
     writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", calendar.multiValueExtendedProperties, serializeMultiValueLegacyExtendedProperty);
     writer.writeStringValue("name", calendar.name);
@@ -127398,6 +128373,42 @@ export function serializeCopilotPackageDetail(writer: SerializationWriter, copil
 }
 /**
  * Serializes information the current object
+ * @param CopilotPackageRequestInfo The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPackageRequestInfo(writer: SerializationWriter, copilotPackageRequestInfo: Partial<CopilotPackageRequestInfo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPackageRequestInfo || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", copilotPackageRequestInfo.odataType);
+    writer.writeAdditionalData(copilotPackageRequestInfo.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotPackageRequestMetadata The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPackageRequestMetadata(writer: SerializationWriter, copilotPackageRequestMetadata: Partial<CopilotPackageRequestMetadata> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPackageRequestMetadata || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", copilotPackageRequestMetadata.odataType);
+    writer.writeAdditionalData(copilotPackageRequestMetadata.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CopilotPackageRequestPrincipal The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCopilotPackageRequestPrincipal(writer: SerializationWriter, copilotPackageRequestPrincipal: Partial<CopilotPackageRequestPrincipal> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!copilotPackageRequestPrincipal || isSerializingDerivedType) { return; }
+    serializeIdentity(writer, copilotPackageRequestPrincipal, isSerializingDerivedType)
+    writer.writeEnumValue<CopilotPackageRequestPrincipalType>("principalType", copilotPackageRequestPrincipal.principalType);
+}
+/**
+ * Serializes information the current object
  * @param CopilotReportRoot The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -127759,6 +128770,100 @@ export function serializeCrossTenantMigration(writer: SerializationWriter, cross
 }
 /**
  * Serializes information the current object
+ * @param CrossTenantMigrationCancelResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCrossTenantMigrationCancelResponse(writer: SerializationWriter, crossTenantMigrationCancelResponse: Partial<CrossTenantMigrationCancelResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!crossTenantMigrationCancelResponse || isSerializingDerivedType) { return; }
+    writer.writeStringValue("message", crossTenantMigrationCancelResponse.message);
+    writer.writeStringValue("@odata.type", crossTenantMigrationCancelResponse.odataType);
+    writer.writeStringValue("status", crossTenantMigrationCancelResponse.status);
+    writer.writeAdditionalData(crossTenantMigrationCancelResponse.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CrossTenantMigrationJob The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCrossTenantMigrationJob(writer: SerializationWriter, crossTenantMigrationJob: Partial<CrossTenantMigrationJob> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!crossTenantMigrationJob || isSerializingDerivedType) { return; }
+    serializeEntity(writer, crossTenantMigrationJob, isSerializingDerivedType)
+    writer.writeDateValue("completeAfterDateTime", crossTenantMigrationJob.completeAfterDateTime);
+    writer.writeStringValue("createdBy", crossTenantMigrationJob.createdBy);
+    writer.writeDateValue("createdDateTime", crossTenantMigrationJob.createdDateTime);
+    writer.writeStringValue("displayName", crossTenantMigrationJob.displayName);
+    writer.writeObjectValue<ExchangeOnlineCrossTenantMigrationSettings>("exchangeSettings", crossTenantMigrationJob.exchangeSettings, serializeExchangeOnlineCrossTenantMigrationSettings);
+    writer.writeEnumValue<CrossTenantMigrationJobType>("jobType", crossTenantMigrationJob.jobType);
+    writer.writeDateValue("lastUpdatedDateTime", crossTenantMigrationJob.lastUpdatedDateTime);
+    writer.writeStringValue("message", crossTenantMigrationJob.message);
+    writer.writeCollectionOfPrimitiveValues<string>("resources", crossTenantMigrationJob.resources);
+    writer.writeStringValue("resourceType", crossTenantMigrationJob.resourceType);
+    writer.writeStringValue("sourceTenantId", crossTenantMigrationJob.sourceTenantId);
+    writer.writeEnumValue<CrossTenantMigrationJobStatus>("status", crossTenantMigrationJob.status);
+    writer.writeStringValue("targetTenantId", crossTenantMigrationJob.targetTenantId);
+    writer.writeCollectionOfObjectValues<CrossTenantMigrationTask>("users", crossTenantMigrationJob.users, serializeCrossTenantMigrationTask);
+    writer.writeCollectionOfPrimitiveValues<string>("workloads", crossTenantMigrationJob.workloads);
+}
+/**
+ * Serializes information the current object
+ * @param CrossTenantMigrationJobCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCrossTenantMigrationJobCollectionResponse(writer: SerializationWriter, crossTenantMigrationJobCollectionResponse: Partial<CrossTenantMigrationJobCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!crossTenantMigrationJobCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, crossTenantMigrationJobCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CrossTenantMigrationJob>("value", crossTenantMigrationJobCollectionResponse.value, serializeCrossTenantMigrationJob);
+}
+/**
+ * Serializes information the current object
+ * @param CrossTenantMigrationServiceStatusDetails The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCrossTenantMigrationServiceStatusDetails(writer: SerializationWriter, crossTenantMigrationServiceStatusDetails: Partial<CrossTenantMigrationServiceStatusDetails> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!crossTenantMigrationServiceStatusDetails || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<ErrorEscaped>("errors", crossTenantMigrationServiceStatusDetails.errors, serializeErrorEscaped);
+    writer.writeStringValue("message", crossTenantMigrationServiceStatusDetails.message);
+    writer.writeStringValue("@odata.type", crossTenantMigrationServiceStatusDetails.odataType);
+    writer.writeStringValue("service", crossTenantMigrationServiceStatusDetails.service);
+    writer.writeEnumValue<CrossTenantMigrationServiceStatus>("status", crossTenantMigrationServiceStatusDetails.status);
+    writer.writeAdditionalData(crossTenantMigrationServiceStatusDetails.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CrossTenantMigrationTask The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCrossTenantMigrationTask(writer: SerializationWriter, crossTenantMigrationTask: Partial<CrossTenantMigrationTask> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!crossTenantMigrationTask || isSerializingDerivedType) { return; }
+    serializeEntity(writer, crossTenantMigrationTask, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CrossTenantMigrationServiceStatusDetails>("currentStatus", crossTenantMigrationTask.currentStatus, serializeCrossTenantMigrationServiceStatusDetails);
+    writer.writeDateValue("lastUpdatedDateTime", crossTenantMigrationTask.lastUpdatedDateTime);
+    writer.writeStringValue("taskType", crossTenantMigrationTask.taskType);
+}
+/**
+ * Serializes information the current object
+ * @param CrossTenantMigrationTaskCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCrossTenantMigrationTaskCollectionResponse(writer: SerializationWriter, crossTenantMigrationTaskCollectionResponse: Partial<CrossTenantMigrationTaskCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!crossTenantMigrationTaskCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, crossTenantMigrationTaskCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CrossTenantMigrationTask>("value", crossTenantMigrationTaskCollectionResponse.value, serializeCrossTenantMigrationTask);
+}
+/**
+ * Serializes information the current object
  * @param CrossTenantOpenProfileCard The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -127815,6 +128920,20 @@ export function serializeCurrencyColumn(writer: SerializationWriter, currencyCol
     writer.writeStringValue("locale", currencyColumn.locale);
     writer.writeStringValue("@odata.type", currencyColumn.odataType);
     writer.writeAdditionalData(currencyColumn.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CurrentLabel The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCurrentLabel(writer: SerializationWriter, currentLabel: Partial<CurrentLabel> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!currentLabel || isSerializingDerivedType) { return; }
+    writer.writeEnumValue<ApplicationMode>("applicationMode", currentLabel.applicationMode);
+    writer.writeStringValue("id", currentLabel.id);
+    writer.writeStringValue("@odata.type", currentLabel.odataType);
+    writer.writeAdditionalData(currentLabel.additionalData);
 }
 /**
  * Serializes information the current object
@@ -130668,6 +131787,9 @@ export function serializeDictionary(writer: SerializationWriter, dictionary: Par
         case "#microsoft.graph.resultTemplateDictionary":
             serializeResultTemplateDictionary(writer, dictionary, true);
         break;
+        case "#microsoft.graph.stringDictionary":
+            serializeStringDictionary(writer, dictionary, true);
+        break;
     }
 }
 /**
@@ -130947,6 +132069,18 @@ export function serializeDirectoryRoleCollectionResponse(writer: SerializationWr
     if (!directoryRoleCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, directoryRoleCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<DirectoryRole>("value", directoryRoleCollectionResponse.value, serializeDirectoryRole);
+}
+/**
+ * Serializes information the current object
+ * @param DirectoryRoleManagementDeletedItemContainer The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDirectoryRoleManagementDeletedItemContainer(writer: SerializationWriter, directoryRoleManagementDeletedItemContainer: Partial<DirectoryRoleManagementDeletedItemContainer> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!directoryRoleManagementDeletedItemContainer || isSerializingDerivedType) { return; }
+    serializeEntity(writer, directoryRoleManagementDeletedItemContainer, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("roleDefinitions", directoryRoleManagementDeletedItemContainer.roleDefinitions, serializeUnifiedRoleDefinition);
 }
 /**
  * Serializes information the current object
@@ -133885,6 +135019,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.b2xIdentityUserFlow":
             serializeB2xIdentityUserFlow(writer, entity, true);
         break;
+        case "#microsoft.graph.backupReport":
+            serializeBackupReport(writer, entity, true);
+        break;
         case "#microsoft.graph.backupRestoreRoot":
             serializeBackupRestoreRoot(writer, entity, true);
         break;
@@ -134224,6 +135361,12 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.crossTenantMigration":
             serializeCrossTenantMigration(writer, entity, true);
         break;
+        case "#microsoft.graph.crossTenantMigrationJob":
+            serializeCrossTenantMigrationJob(writer, entity, true);
+        break;
+        case "#microsoft.graph.crossTenantMigrationTask":
+            serializeCrossTenantMigrationTask(writer, entity, true);
+        break;
         case "#microsoft.graph.crossTenantOpenProfileCard":
             serializeCrossTenantOpenProfileCard(writer, entity, true);
         break;
@@ -134445,6 +135588,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.directoryRole":
             serializeDirectoryRole(writer, entity, true);
+        break;
+        case "#microsoft.graph.directoryRoleManagementDeletedItemContainer":
+            serializeDirectoryRoleManagementDeletedItemContainer(writer, entity, true);
         break;
         case "#microsoft.graph.directoryRoleTemplate":
             serializeDirectoryRoleTemplate(writer, entity, true);
@@ -135232,6 +136378,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.microsoftStoreForBusinessApp":
             serializeMicrosoftStoreForBusinessApp(writer, entity, true);
         break;
+        case "#microsoft.graph.migrationsRoot":
+            serializeMigrationsRoot(writer, entity, true);
+        break;
         case "#microsoft.graph.mobileApp":
             serializeMobileApp(writer, entity, true);
         break;
@@ -135469,8 +136618,14 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.partners":
             serializePartners(writer, entity, true);
         break;
+        case "#microsoft.graph.partners.billing.azureAggregatedUsage":
+            serializeAzureAggregatedUsage(writer, entity, true);
+        break;
         case "#microsoft.graph.partners.billing.azureUsage":
             serializeAzureUsage(writer, entity, true);
+        break;
+        case "#microsoft.graph.partners.billing.billedAggregatedUsage":
+            serializeBilledAggregatedUsage(writer, entity, true);
         break;
         case "#microsoft.graph.partners.billing.billedReconciliation":
             serializeBilledReconciliation(writer, entity, true);
@@ -135943,6 +137098,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.security.departmentTemplate":
             serializeDepartmentTemplate(writer, entity, true);
         break;
+        case "#microsoft.graph.security.detectionRule":
+            serializeDetectionRule(writer, entity, true);
+        break;
         case "#microsoft.graph.security.dispositionReviewStage":
             serializeDispositionReviewStage(writer, entity, true);
         break;
@@ -136077,6 +137235,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.security.retentionLabel":
             serializeRetentionLabel(writer, entity, true);
+        break;
+        case "#microsoft.graph.security.rulesRoot":
+            serializeRulesRoot(writer, entity, true);
         break;
         case "#microsoft.graph.security.search":
             serializeSearch(writer, entity, true);
@@ -136269,6 +137430,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.simulationAutomationRun":
             serializeSimulationAutomationRun(writer, entity, true);
+        break;
+        case "#microsoft.graph.singleValueExtendedProperty":
+            serializeSingleValueExtendedProperty(writer, entity, true);
         break;
         case "#microsoft.graph.singleValueLegacyExtendedProperty":
             serializeSingleValueLegacyExtendedProperty(writer, entity, true);
@@ -137154,6 +138318,20 @@ export function serializeErrorDetail(writer: SerializationWriter, errorDetail: P
 }
 /**
  * Serializes information the current object
+ * @param ErrorEscaped The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeErrorEscaped(writer: SerializationWriter, errorEscaped: Partial<ErrorEscaped> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!errorEscaped || isSerializingDerivedType) { return; }
+    writer.writeStringValue("code", errorEscaped.code);
+    writer.writeStringValue("message", errorEscaped.message);
+    writer.writeStringValue("@odata.type", errorEscaped.odataType);
+    writer.writeAdditionalData(errorEscaped.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param Event The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -137443,6 +138621,20 @@ export function serializeExchangeMessageTraceDetail(writer: SerializationWriter,
     writer.writeStringValue("description", exchangeMessageTraceDetail.description);
     writer.writeStringValue("event", exchangeMessageTraceDetail.event);
     writer.writeStringValue("messageId", exchangeMessageTraceDetail.messageId);
+}
+/**
+ * Serializes information the current object
+ * @param ExchangeOnlineCrossTenantMigrationSettings The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeExchangeOnlineCrossTenantMigrationSettings(writer: SerializationWriter, exchangeOnlineCrossTenantMigrationSettings: Partial<ExchangeOnlineCrossTenantMigrationSettings> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!exchangeOnlineCrossTenantMigrationSettings || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", exchangeOnlineCrossTenantMigrationSettings.odataType);
+    writer.writeStringValue("sourceEndpoint", exchangeOnlineCrossTenantMigrationSettings.sourceEndpoint);
+    writer.writeStringValue("targetDeliveryDomain", exchangeOnlineCrossTenantMigrationSettings.targetDeliveryDomain);
+    writer.writeAdditionalData(exchangeOnlineCrossTenantMigrationSettings.additionalData);
 }
 /**
  * Serializes information the current object
@@ -139386,6 +140578,9 @@ export function serializeIdentity(writer: SerializationWriter, identity: Partial
         break;
         case "#microsoft.graph.communicationsUserIdentity":
             serializeCommunicationsUserIdentity(writer, identity, true);
+        break;
+        case "#microsoft.graph.copilotPackageRequestPrincipal":
+            serializeCopilotPackageRequestPrincipal(writer, identity, true);
         break;
         case "#microsoft.graph.emailIdentity":
             serializeEmailIdentity(writer, identity, true);
@@ -143926,6 +145121,21 @@ export function serializeMeetingAttendanceReportCollectionResponse(writer: Seria
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MeetingEngagement The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMeetingEngagement(writer: SerializationWriter, meetingEngagement: Partial<MeetingEngagement> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!meetingEngagement || isSerializingDerivedType) { return; }
+    writer.writeDateValue("dateTime", meetingEngagement.dateTime);
+    writer.writeStringValue("engagementSubType", meetingEngagement.engagementSubType);
+    writer.writeEnumValue<MeetingEngagementType>("engagementType", meetingEngagement.engagementType);
+    writer.writeStringValue("@odata.type", meetingEngagement.odataType);
+    writer.writeAdditionalData(meetingEngagement.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param MeetingInfo The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -144551,6 +145761,18 @@ export function serializeMicrosoftTrainingAssignmentMapping(writer: Serializatio
     if(microsoftTrainingAssignmentMapping.assignedTo)
     writer.writeCollectionOfEnumValues<TrainingAssignedTo>("assignedTo", microsoftTrainingAssignmentMapping.assignedTo);
     writer.writeObjectValue<Training>("training", microsoftTrainingAssignmentMapping.training, serializeTraining);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MigrationsRoot The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMigrationsRoot(writer: SerializationWriter, migrationsRoot: Partial<MigrationsRoot> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!migrationsRoot || isSerializingDerivedType) { return; }
+    serializeEntity(writer, migrationsRoot, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<CrossTenantMigrationJob>("crossTenantMigrationJobs", migrationsRoot.crossTenantMigrationJobs, serializeCrossTenantMigrationJob);
 }
 /**
  * Serializes information the current object
@@ -147289,6 +148511,7 @@ export function serializeOptionalClaims(writer: SerializationWriter, optionalCla
     if (!optionalClaims || isSerializingDerivedType) { return; }
     writer.writeCollectionOfObjectValues<OptionalClaim>("accessToken", optionalClaims.accessToken, serializeOptionalClaim);
     writer.writeCollectionOfObjectValues<OptionalClaim>("idToken", optionalClaims.idToken, serializeOptionalClaim);
+    writer.writeCollectionOfObjectValues<OptionalClaim>("kerberosTicket", optionalClaims.kerberosTicket, serializeOptionalClaim);
     writer.writeStringValue("@odata.type", optionalClaims.odataType);
     writer.writeCollectionOfObjectValues<OptionalClaim>("saml2Token", optionalClaims.saml2Token, serializeOptionalClaim);
     writer.writeAdditionalData(optionalClaims.additionalData);
@@ -148470,6 +149693,7 @@ export function serializePlace(writer: SerializationWriter, place: Partial<Place
     serializeEntity(writer, place, isSerializingDerivedType)
     writer.writeObjectValue<PhysicalAddress>("address", place.address, serializePhysicalAddress);
     writer.writeCollectionOfObjectValues<CheckInClaim>("checkIns", place.checkIns, serializeCheckInClaim);
+    writer.writeObjectValue<StringDictionary>("customProperties", place.customProperties, serializeStringDictionary);
     writer.writeStringValue("displayName", place.displayName);
     writer.writeObjectValue<OutlookGeoCoordinates>("geoCoordinates", place.geoCoordinates, serializeOutlookGeoCoordinates);
     writer.writeBooleanValue("isWheelChairAccessible", place.isWheelChairAccessible);
@@ -150387,6 +151611,7 @@ export function serializeProcessContentMetadataBase(writer: SerializationWriter,
     writer.writeDateValue("modifiedDateTime", processContentMetadataBase.modifiedDateTime);
     writer.writeStringValue("name", processContentMetadataBase.name);
     writer.writeStringValue("@odata.type", processContentMetadataBase.odataType);
+    writer.writeCollectionOfObjectValues<CurrentLabel>("sensitivityLabels", processContentMetadataBase.sensitivityLabels, serializeCurrentLabel);
     writer.writeNumberValue("sequenceNumber", processContentMetadataBase.sequenceNumber);
     writer.writeAdditionalData(processContentMetadataBase.additionalData);
     switch (processContentMetadataBase.odataType) {
@@ -151205,6 +152430,7 @@ export function serializeQuota(writer: SerializationWriter, quota: Partial<Quota
 export function serializeRbacApplication(writer: SerializationWriter, rbacApplication: Partial<RbacApplication> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!rbacApplication || isSerializingDerivedType) { return; }
     serializeEntity(writer, rbacApplication, isSerializingDerivedType)
+    writer.writeObjectValue<DirectoryRoleManagementDeletedItemContainer>("deletedItems", rbacApplication.deletedItems, serializeDirectoryRoleManagementDeletedItemContainer);
     writer.writeCollectionOfObjectValues<UnifiedRbacResourceNamespace>("resourceNamespaces", rbacApplication.resourceNamespaces, serializeUnifiedRbacResourceNamespace);
     writer.writeCollectionOfObjectValues<UnifiedRoleAssignment>("roleAssignments", rbacApplication.roleAssignments, serializeUnifiedRoleAssignment);
     writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>("roleAssignmentScheduleInstances", rbacApplication.roleAssignmentScheduleInstances, serializeUnifiedRoleAssignmentScheduleInstance);
@@ -152424,6 +153650,7 @@ export function serializeRestoreSessionBase(writer: SerializationWriter, restore
     writer.writeObjectValue<PublicError>("error", restoreSessionBase.errorEscaped, serializePublicError);
     writer.writeObjectValue<IdentitySet>("lastModifiedBy", restoreSessionBase.lastModifiedBy, serializeIdentitySet);
     writer.writeDateValue("lastModifiedDateTime", restoreSessionBase.lastModifiedDateTime);
+    writer.writeStringValue("policyId", restoreSessionBase.policyId);
     writer.writeEnumValue<RestoreJobType>("restoreJobType", restoreSessionBase.restoreJobType);
     writer.writeObjectValue<RestoreSessionArtifactCount>("restoreSessionArtifactCount", restoreSessionBase.restoreSessionArtifactCount, serializeRestoreSessionArtifactCount);
     writer.writeEnumValue<RestoreSessionStatus>("status", restoreSessionBase.status);
@@ -152893,6 +154120,7 @@ export function serializeRoleManagementCustomCalloutExtension(writer: Serializat
     if (!roleManagementCustomCalloutExtension || isSerializingDerivedType) { return; }
     serializeCustomCalloutExtension(writer, roleManagementCustomCalloutExtension, isSerializingDerivedType)
     writer.writeCollectionOfPrimitiveValues<string>("customAttributes", roleManagementCustomCalloutExtension.customAttributes);
+    writer.writeBooleanValue("isEnabled", roleManagementCustomCalloutExtension.isEnabled);
     writer.writeEnumValue<CustomExtensionResourceType>("resourceType", roleManagementCustomCalloutExtension.resourceType);
     writer.writeEnumValue<CustomCalloutExtensionType>("type", roleManagementCustomCalloutExtension.type);
 }
@@ -153776,6 +155004,7 @@ export function serializeSecurity(writer: SerializationWriter, security: Partial
     writer.writeObjectValue<I2b88f0c27d7fd9c000e7e4e78cc3161590db07c518949b504f8a27680ed1200f>("identities", security.identities, I3578b2bed1b5c0dc75d4936caf82e6213a17e94d1aa9efb2f5f64827fd00f3f1);
     writer.writeCollectionOfObjectValues<Incident>("incidents", security.incidents, serializeIncident);
     writer.writeObjectValue<LabelsRoot>("labels", security.labels, serializeLabelsRoot);
+    writer.writeObjectValue<RulesRoot>("rules", security.rules, serializeRulesRoot);
     writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("secureScoreControlProfiles", security.secureScoreControlProfiles, serializeSecureScoreControlProfile);
     writer.writeCollectionOfObjectValues<SecureScore>("secureScores", security.secureScores, serializeSecureScore);
     writer.writeCollectionOfObjectValues<SubjectRightsRequest>("subjectRightsRequests", security.subjectRightsRequests, serializeSubjectRightsRequest);
@@ -153881,6 +155110,7 @@ export function serializeSensitivityLabel(writer: SerializationWriter, sensitivi
     if (!sensitivityLabel || isSerializingDerivedType) { return; }
     serializeEntity(writer, sensitivityLabel, isSerializingDerivedType)
     writer.writeEnumValue<LabelActionSource>("actionSource", sensitivityLabel.actionSource);
+    writer.writeEnumValue<ApplicationMode>("applicationMode", sensitivityLabel.applicationMode);
     writer.writeStringValue("autoTooltip", sensitivityLabel.autoTooltip);
     writer.writeStringValue("description", sensitivityLabel.description);
     writer.writeStringValue("displayName", sensitivityLabel.displayName);
@@ -155676,6 +156906,18 @@ export function serializeSingleUser(writer: SerializationWriter, singleUser: Par
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param SingleValueExtendedProperty The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeSingleValueExtendedProperty(writer: SerializationWriter, singleValueExtendedProperty: Partial<SingleValueExtendedProperty> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!singleValueExtendedProperty || isSerializingDerivedType) { return; }
+    serializeEntity(writer, singleValueExtendedProperty, isSerializingDerivedType)
+    writer.writeStringValue("value", singleValueExtendedProperty.value);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param SingleValueLegacyExtendedProperty The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -156075,6 +157317,7 @@ export function serializeSolutionsRoot(writer: SerializationWriter, solutionsRoo
     writer.writeObjectValue<BackupRestoreRoot>("backupRestore", solutionsRoot.backupRestore, serializeBackupRestoreRoot);
     writer.writeCollectionOfObjectValues<BookingBusiness>("bookingBusinesses", solutionsRoot.bookingBusinesses, serializeBookingBusiness);
     writer.writeCollectionOfObjectValues<BookingCurrency>("bookingCurrencies", solutionsRoot.bookingCurrencies, serializeBookingCurrency);
+    writer.writeObjectValue<MigrationsRoot>("migrations", solutionsRoot.migrations, serializeMigrationsRoot);
     writer.writeStringValue("@odata.type", solutionsRoot.odataType);
     writer.writeObjectValue<VirtualEventsRoot>("virtualEvents", solutionsRoot.virtualEvents, serializeVirtualEventsRoot);
     writer.writeAdditionalData(solutionsRoot.additionalData);
@@ -156302,6 +157545,17 @@ export function serializeStringCollectionResponse(writer: SerializationWriter, s
     if (!stringCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, stringCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfPrimitiveValues<string>("value", stringCollectionResponse.value);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param StringDictionary The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeStringDictionary(writer: SerializationWriter, stringDictionary: Partial<StringDictionary> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!stringDictionary || isSerializingDerivedType) { return; }
+    serializeDictionary(writer, stringDictionary, isSerializingDerivedType)
 }
 /**
  * Serializes information the current object
@@ -158994,6 +160248,7 @@ export function serializeTodoTask(writer: SerializationWriter, todoTask: Partial
     writer.writeCollectionOfObjectValues<LinkedResource>("linkedResources", todoTask.linkedResources, serializeLinkedResource);
     writer.writeObjectValue<PatternedRecurrence>("recurrence", todoTask.recurrence, serializePatternedRecurrence);
     writer.writeObjectValue<DateTimeTimeZone>("reminderDateTime", todoTask.reminderDateTime, serializeDateTimeTimeZone);
+    writer.writeCollectionOfObjectValues<SingleValueExtendedProperty>("singleValueExtendedProperties", todoTask.singleValueExtendedProperties, serializeSingleValueExtendedProperty);
     writer.writeObjectValue<DateTimeTimeZone>("startDateTime", todoTask.startDateTime, serializeDateTimeTimeZone);
     writer.writeEnumValue<TaskStatus>("status", todoTask.status);
     writer.writeStringValue("title", todoTask.title);
@@ -159024,6 +160279,7 @@ export function serializeTodoTaskList(writer: SerializationWriter, todoTaskList:
     writer.writeCollectionOfObjectValues<Extension>("extensions", todoTaskList.extensions, serializeExtension);
     writer.writeBooleanValue("isOwner", todoTaskList.isOwner);
     writer.writeBooleanValue("isShared", todoTaskList.isShared);
+    writer.writeCollectionOfObjectValues<SingleValueExtendedProperty>("singleValueExtendedProperties", todoTaskList.singleValueExtendedProperties, serializeSingleValueExtendedProperty);
     writer.writeCollectionOfObjectValues<TodoTask>("tasks", todoTaskList.tasks, serializeTodoTask);
     writer.writeEnumValue<WellknownListName>("wellknownListName", todoTaskList.wellknownListName);
 }
@@ -168190,6 +169446,12 @@ export interface SingleUser extends Parsable, SubjectSet {
      */
     userId?: string | null;
 }
+export interface SingleValueExtendedProperty extends Entity, Parsable {
+    /**
+     * The value of the property.
+     */
+    value?: string | null;
+}
 export interface SingleValueLegacyExtendedProperty extends Entity, Parsable {
     /**
      * A property value.
@@ -168625,6 +169887,10 @@ export interface SolutionsRoot extends AdditionalDataHolder, BackedModel, Parsab
      */
     bookingCurrencies?: BookingCurrency[] | null;
     /**
+     * The entry point for cross-tenant migration operations.
+     */
+    migrations?: MigrationsRoot | null;
+    /**
      * The OdataType property
      */
     odataType?: string | null;
@@ -168890,6 +170156,8 @@ export interface StringCollectionResponse extends BaseCollectionPaginationCountR
      * The value property
      */
     value?: string[] | null;
+}
+export interface StringDictionary extends Dictionary, Parsable {
 }
 export interface StringKeyAttributeMappingSourceValuePair extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -172040,6 +173308,10 @@ export interface TodoTask extends Entity, Parsable {
      */
     reminderDateTime?: DateTimeTimeZone | null;
     /**
+     * A collection of custom fields linked to the task.
+     */
+    singleValueExtendedProperties?: SingleValueExtendedProperty[] | null;
+    /**
      * The date and time in the specified time zone at which the task is scheduled to start.
      */
     startDateTime?: DateTimeTimeZone | null;
@@ -172075,6 +173347,10 @@ export interface TodoTaskList extends Entity, Parsable {
      * True if the task list is shared with other users
      */
     isShared?: boolean | null;
+    /**
+     * The collection of single-value extended properties defined for the task list. Nullable.
+     */
+    singleValueExtendedProperties?: SingleValueExtendedProperty[] | null;
     /**
      * The tasks in this task list. Read-only. Nullable.
      */
@@ -182504,6 +183780,12 @@ export const ApplicationGuardBlockFileTransferTypeObject = {
     /** Block clipboard to transfer Text file */
     BlockTextFile: "blockTextFile",
 } as const;
+export const ApplicationModeObject = {
+    Manual: "manual",
+    Automatic: "automatic",
+    Recommended: "recommended",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const ApplicationPermissionTypeObject = {
     /** Represents a type of permission that is for an app only scenario. No user is involved. */
     Role: "role",
@@ -183629,6 +184911,18 @@ export const ContentProcessingErrorTypeObject = {
     Permanent: "permanent",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const CopilotPackageRequestPrincipalTypeObject = {
+    /** An explicit user principal. */
+    User: "user",
+    /** An explicit group principal; group membership is not expanded. */
+    Group: "group",
+    /** An agent application identifier reported by Governance. Not assumed to be a service principal object identifier. */
+    AgentApplication: "agentApplication",
+    /** An agent user principal. */
+    AgentUser: "agentUser",
+    /** An evolvable value also used when the source principal kind is missing or unrecognized. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 /**
  * The lifecycle status of a package governance request.
  */
@@ -183679,6 +184973,48 @@ export const CrossTenantAccessPolicyTargetTypeObject = {
     Application: "application",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
+export const CrossTenantMigrationJobStatusObject = {
+    Submitted: "submitted",
+    Approved: "approved",
+    Processing: "processing",
+    CuttingOver: "cuttingOver",
+    InProgress: "inProgress",
+    Completed: "completed",
+    CompletedWithErrors: "completedWithErrors",
+    Failed: "failed",
+    Cancelled: "cancelled",
+    PendingCancel: "pendingCancel",
+    AdminActionRequired: "adminActionRequired",
+    ValidateSubmitted: "validateSubmitted",
+    ValidateProcessing: "validateProcessing",
+    ValidateInProgress: "validateInProgress",
+    ValidatePassed: "validatePassed",
+    ValidateFailed: "validateFailed",
+    PendingDelete: "pendingDelete",
+    Deleted: "deleted",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const CrossTenantMigrationJobTypeObject = {
+    Validate: "validate",
+    Migrate: "migrate",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const CrossTenantMigrationServiceStatusObject = {
+    NotStarted: "notStarted",
+    Valid: "valid",
+    Invalid: "invalid",
+    ErrorEscaped: "error",
+    InProgress: "inProgress",
+    Completed: "completed",
+    Failed: "failed",
+    Cancelled: "cancelled",
+    PendingCancel: "pendingCancel",
+    Syncing: "syncing",
+    Synced: "synced",
+    Finalizing: "finalizing",
+    ForceComplete: "forceComplete",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const CsaStarLevelObject = {
     None: "none",
     Attestation: "attestation",
@@ -183715,6 +185051,8 @@ export const CustomExtensionResourceTypeObject = {
     AzureResources: "azureResources",
     EntraGroups: "entraGroups",
     UnknownFutureValue: "unknownFutureValue",
+    ApplicationAuthorization: "applicationAuthorization",
+    AppRoles: "appRoles",
 } as const;
 export const CustomSecurityAttributeComparisonOperatorObject = {
     Equals: "equals",
@@ -185339,6 +186677,13 @@ export const MeetingChatModeObject = {
     Enabled: "enabled",
     Disabled: "disabled",
     Limited: "limited",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+export const MeetingEngagementTypeObject = {
+    Reaction: "reaction",
+    Hand: "hand",
+    Camera: "camera",
+    Microphone: "microphone",
     UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const MeetingLiveShareOptionsObject = {

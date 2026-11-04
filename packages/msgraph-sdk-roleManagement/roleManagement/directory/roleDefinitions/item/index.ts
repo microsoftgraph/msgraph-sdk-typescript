@@ -8,6 +8,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { InheritsPermissionsFromRequestBuilderNavigationMetadata, InheritsPermissionsFromRequestBuilderRequestsMetadata, type InheritsPermissionsFromRequestBuilder } from './inheritsPermissionsFrom/index.js';
 // @ts-ignore
+import { RestoreRequestBuilderRequestsMetadata, type RestoreRequestBuilder } from './restore/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,6 +20,10 @@ export interface UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuil
      * Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
      */
     get inheritsPermissionsFrom(): InheritsPermissionsFromRequestBuilder;
+    /**
+     * Provides operations to call the restore method.
+     */
+    get restore(): RestoreRequestBuilder;
     /**
      * Delete a unifiedRoleDefinition object. You can't delete built-in roles. Deleting an active custom role definition soft-deletes it. You can then restore the role or permanently delete it from the deleted-items collection. This feature requires a Microsoft Entra ID P1 or P2 license.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -93,6 +99,9 @@ export const UnifiedRoleDefinitionItemRequestBuilderNavigationMetadata: Record<E
     inheritsPermissionsFrom: {
         requestsMetadata: InheritsPermissionsFromRequestBuilderRequestsMetadata,
         navigationMetadata: InheritsPermissionsFromRequestBuilderNavigationMetadata,
+    },
+    restore: {
+        requestsMetadata: RestoreRequestBuilderRequestsMetadata,
     },
 };
 /**

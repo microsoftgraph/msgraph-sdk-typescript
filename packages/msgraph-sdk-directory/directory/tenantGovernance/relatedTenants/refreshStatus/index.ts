@@ -13,14 +13,15 @@ import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type Requ
  */
 export interface RefreshStatusRequestBuilder extends BaseRequestBuilder<RefreshStatusRequestBuilder> {
     /**
-     * Invoke function refreshStatus
+     * Get the status of the most recent related tenants refresh operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RelatedTenantsRefreshStatus>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/tenantgovernanceservices-relatedtenant-refreshstatus?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RelatedTenantsRefreshStatus | undefined>;
     /**
-     * Invoke function refreshStatus
+     * Get the status of the most recent related tenants refresh operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */

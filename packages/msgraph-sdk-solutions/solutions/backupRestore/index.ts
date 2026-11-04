@@ -38,6 +38,8 @@ import { ProtectionPoliciesRequestBuilderNavigationMetadata, ProtectionPoliciesR
 // @ts-ignore
 import { ProtectionUnitsRequestBuilderNavigationMetadata, ProtectionUnitsRequestBuilderRequestsMetadata, type ProtectionUnitsRequestBuilder } from './protectionUnits/index.js';
 // @ts-ignore
+import { ReportsRequestBuilderNavigationMetadata, ReportsRequestBuilderRequestsMetadata, type ReportsRequestBuilder } from './reports/index.js';
+// @ts-ignore
 import { RestorePointsRequestBuilderNavigationMetadata, RestorePointsRequestBuilderRequestsMetadata, type RestorePointsRequestBuilder } from './restorePoints/index.js';
 // @ts-ignore
 import { RestoreSessionsRequestBuilderNavigationMetadata, RestoreSessionsRequestBuilderRequestsMetadata, type RestoreSessionsRequestBuilder } from './restoreSessions/index.js';
@@ -126,6 +128,10 @@ export interface BackupRestoreRequestBuilder extends BaseRequestBuilder<BackupRe
      * Provides operations to manage the protectionUnits property of the microsoft.graph.backupRestoreRoot entity.
      */
     get protectionUnits(): ProtectionUnitsRequestBuilder;
+    /**
+     * Provides operations to manage the reports property of the microsoft.graph.backupRestoreRoot entity.
+     */
+    get reports(): ReportsRequestBuilder;
     /**
      * Provides operations to manage the restorePoints property of the microsoft.graph.backupRestoreRoot entity.
      */
@@ -293,6 +299,10 @@ export const BackupRestoreRequestBuilderNavigationMetadata: Record<Exclude<keyof
     protectionUnits: {
         requestsMetadata: ProtectionUnitsRequestBuilderRequestsMetadata,
         navigationMetadata: ProtectionUnitsRequestBuilderNavigationMetadata,
+    },
+    reports: {
+        requestsMetadata: ReportsRequestBuilderRequestsMetadata,
+        navigationMetadata: ReportsRequestBuilderNavigationMetadata,
     },
     restorePoints: {
         requestsMetadata: RestorePointsRequestBuilderRequestsMetadata,

@@ -28,6 +28,8 @@ import { LabelsRequestBuilderNavigationMetadata, LabelsRequestBuilderRequestsMet
 // @ts-ignore
 import { MicrosoftGraphSecurityRunHuntingQueryRequestBuilderRequestsMetadata, type MicrosoftGraphSecurityRunHuntingQueryRequestBuilder } from './microsoftGraphSecurityRunHuntingQuery/index.js';
 // @ts-ignore
+import { RulesRequestBuilderNavigationMetadata, RulesRequestBuilderRequestsMetadata, type RulesRequestBuilder } from './rules/index.js';
+// @ts-ignore
 import { SecureScoreControlProfilesRequestBuilderNavigationMetadata, SecureScoreControlProfilesRequestBuilderRequestsMetadata, type SecureScoreControlProfilesRequestBuilder } from './secureScoreControlProfiles/index.js';
 // @ts-ignore
 import { SecureScoresRequestBuilderNavigationMetadata, SecureScoresRequestBuilderRequestsMetadata, type SecureScoresRequestBuilder } from './secureScores/index.js';
@@ -48,6 +50,7 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
 export interface SecurityRequestBuilder extends BaseRequestBuilder<SecurityRequestBuilder> {
     /**
      * Provides operations to manage the alerts property of the microsoft.graph.security entity.
+     * @deprecated The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation on 2024-04-10 and will be removed 2026-04-10
      */
     get alerts(): AlertsRequestBuilder;
     /**
@@ -90,6 +93,10 @@ export interface SecurityRequestBuilder extends BaseRequestBuilder<SecurityReque
      * Provides operations to call the runHuntingQuery method.
      */
     get microsoftGraphSecurityRunHuntingQuery(): MicrosoftGraphSecurityRunHuntingQueryRequestBuilder;
+    /**
+     * Provides operations to manage the rules property of the microsoft.graph.security entity.
+     */
+    get rules(): RulesRequestBuilder;
     /**
      * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
      */
@@ -213,6 +220,10 @@ export const SecurityRequestBuilderNavigationMetadata: Record<Exclude<keyof Secu
     },
     microsoftGraphSecurityRunHuntingQuery: {
         requestsMetadata: MicrosoftGraphSecurityRunHuntingQueryRequestBuilderRequestsMetadata,
+    },
+    rules: {
+        requestsMetadata: RulesRequestBuilderRequestsMetadata,
+        navigationMetadata: RulesRequestBuilderNavigationMetadata,
     },
     secureScoreControlProfiles: {
         requestsMetadata: SecureScoreControlProfilesRequestBuilderRequestsMetadata,

@@ -6,6 +6,8 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { createBillingFromDiscriminatorValue, serializeBilling, type Billing } from '@microsoft/msgraph-sdk/models/partners/billing/index.js';
 // @ts-ignore
+import { AggregatedUsageRequestBuilderNavigationMetadata, AggregatedUsageRequestBuilderRequestsMetadata, type AggregatedUsageRequestBuilder } from './aggregatedUsage/index.js';
+// @ts-ignore
 import { ManifestsRequestBuilderNavigationMetadata, ManifestsRequestBuilderRequestsMetadata, type ManifestsRequestBuilder } from './manifests/index.js';
 // @ts-ignore
 import { OperationsRequestBuilderNavigationMetadata, OperationsRequestBuilderRequestsMetadata, type OperationsRequestBuilder } from './operations/index.js';
@@ -20,6 +22,10 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
  * Provides operations to manage the billing property of the microsoft.graph.partners entity.
  */
 export interface BillingRequestBuilder extends BaseRequestBuilder<BillingRequestBuilder> {
+    /**
+     * Provides operations to manage the aggregatedUsage property of the microsoft.graph.partners.billing.billing entity.
+     */
+    get aggregatedUsage(): AggregatedUsageRequestBuilder;
     /**
      * Provides operations to manage the manifests property of the microsoft.graph.partners.billing.billing entity.
      */
@@ -105,6 +111,10 @@ const BillingRequestBuilderGetQueryParametersMapper: Record<string, string> = {
  * Metadata for all the navigation properties in the request builder.
  */
 export const BillingRequestBuilderNavigationMetadata: Record<Exclude<keyof BillingRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    aggregatedUsage: {
+        requestsMetadata: AggregatedUsageRequestBuilderRequestsMetadata,
+        navigationMetadata: AggregatedUsageRequestBuilderNavigationMetadata,
+    },
     manifests: {
         requestsMetadata: ManifestsRequestBuilderRequestsMetadata,
         navigationMetadata: ManifestsRequestBuilderNavigationMetadata,
