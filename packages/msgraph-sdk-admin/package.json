@@ -30,7 +30,7 @@
   "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
   "dependencies": {
     "@microsoft/msgraph-sdk": "^1.0.0-preview.42",
-    "tslib": "^2.6.2"
+    "tslib": "^2.9.1"
   },
   "types": "index.d.ts",
   "devDependencies": {
