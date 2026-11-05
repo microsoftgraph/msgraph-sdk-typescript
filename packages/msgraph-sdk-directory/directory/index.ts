@@ -76,6 +76,7 @@ export interface DirectoryRequestBuilder extends BaseRequestBuilder<DirectoryReq
     get recovery(): RecoveryRequestBuilder;
     /**
      * Provides operations to manage the remoteTenantGroups property of the microsoft.graph.directory entity.
+     * @deprecated  as of 2025-03/PrivatePreview:remoteTenantGroupsAPI on 2025-12-02 and will be removed 2028-12-07
      */
     get remoteTenantGroups(): RemoteTenantGroupsRequestBuilder;
     /**

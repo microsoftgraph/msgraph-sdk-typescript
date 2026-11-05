@@ -7,6 +7,12 @@ import { createPublicErrorFromDiscriminatorValue, deserializeIntoBaseCollectionP
 import { type AdditionalDataHolder, type BackedModel, type BackingStore, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export type AttributeSet = (typeof AttributeSetObject)[keyof typeof AttributeSetObject];
+export interface AzureAggregatedUsage extends Entity, Parsable {
+    /**
+     * The billed property
+     */
+    billed?: BilledAggregatedUsage | null;
+}
 export interface AzureUsage extends Entity, Parsable {
     /**
      * The billed property
@@ -17,11 +23,17 @@ export interface AzureUsage extends Entity, Parsable {
      */
     unbilled?: UnbilledUsage | null;
 }
+export interface BilledAggregatedUsage extends Entity, Parsable {
+}
 export interface BilledReconciliation extends Entity, Parsable {
 }
 export interface BilledUsage extends Entity, Parsable {
 }
 export interface Billing extends Entity, Parsable {
+    /**
+     * The aggregatedUsage property
+     */
+    aggregatedUsage?: AzureAggregatedUsage | null;
     /**
      * Represents metadata for the exported data.
      */
@@ -71,11 +83,29 @@ export interface Blob extends AdditionalDataHolder, BackedModel, Parsable {
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {AzureAggregatedUsage}
+ */
+// @ts-ignore
+export function createAzureAggregatedUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoAzureAggregatedUsage;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {AzureUsage}
  */
 // @ts-ignore
 export function createAzureUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoAzureUsage;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {BilledAggregatedUsage}
+ */
+// @ts-ignore
+export function createBilledAggregatedUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoBilledAggregatedUsage;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -220,6 +250,18 @@ export function createUnbilledUsageFromDiscriminatorValue(parseNode: ParseNode |
 }
 /**
  * The deserialization information for the current model
+ * @param AzureAggregatedUsage The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoAzureAggregatedUsage(azureAggregatedUsage: Partial<AzureAggregatedUsage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(azureAggregatedUsage),
+        "billed": n => { azureAggregatedUsage.billed = n.getObjectValue<BilledAggregatedUsage>(createBilledAggregatedUsageFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param AzureUsage The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -229,6 +271,17 @@ export function deserializeIntoAzureUsage(azureUsage: Partial<AzureUsage> | unde
         ...deserializeIntoEntity(azureUsage),
         "billed": n => { azureUsage.billed = n.getObjectValue<BilledUsage>(createBilledUsageFromDiscriminatorValue); },
         "unbilled": n => { azureUsage.unbilled = n.getObjectValue<UnbilledUsage>(createUnbilledUsageFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param BilledAggregatedUsage The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoBilledAggregatedUsage(billedAggregatedUsage: Partial<BilledAggregatedUsage> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(billedAggregatedUsage),
     }
 }
 /**
@@ -262,6 +315,7 @@ export function deserializeIntoBilledUsage(billedUsage: Partial<BilledUsage> | u
 export function deserializeIntoBilling(billing: Partial<Billing> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(billing),
+        "aggregatedUsage": n => { billing.aggregatedUsage = n.getObjectValue<AzureAggregatedUsage>(createAzureAggregatedUsageFromDiscriminatorValue); },
         "manifests": n => { billing.manifests = n.getCollectionOfObjectValues<Manifest>(createManifestFromDiscriminatorValue); },
         "operations": n => { billing.operations = n.getCollectionOfObjectValues<Operation>(createOperationFromDiscriminatorValue); },
         "reconciliation": n => { billing.reconciliation = n.getObjectValue<BillingReconciliation>(createBillingReconciliationFromDiscriminatorValue); },
@@ -495,6 +549,18 @@ export interface RunningOperation extends Operation, Parsable {
 }
 /**
  * Serializes information the current object
+ * @param AzureAggregatedUsage The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeAzureAggregatedUsage(writer: SerializationWriter, azureAggregatedUsage: Partial<AzureAggregatedUsage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!azureAggregatedUsage || isSerializingDerivedType) { return; }
+    serializeEntity(writer, azureAggregatedUsage, isSerializingDerivedType)
+    writer.writeObjectValue<BilledAggregatedUsage>("billed", azureAggregatedUsage.billed, serializeBilledAggregatedUsage);
+}
+/**
+ * Serializes information the current object
  * @param AzureUsage The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -505,6 +571,17 @@ export function serializeAzureUsage(writer: SerializationWriter, azureUsage: Par
     serializeEntity(writer, azureUsage, isSerializingDerivedType)
     writer.writeObjectValue<BilledUsage>("billed", azureUsage.billed, serializeBilledUsage);
     writer.writeObjectValue<UnbilledUsage>("unbilled", azureUsage.unbilled, serializeUnbilledUsage);
+}
+/**
+ * Serializes information the current object
+ * @param BilledAggregatedUsage The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeBilledAggregatedUsage(writer: SerializationWriter, billedAggregatedUsage: Partial<BilledAggregatedUsage> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!billedAggregatedUsage || isSerializingDerivedType) { return; }
+    serializeEntity(writer, billedAggregatedUsage, isSerializingDerivedType)
 }
 /**
  * Serializes information the current object
@@ -538,6 +615,7 @@ export function serializeBilledUsage(writer: SerializationWriter, billedUsage: P
 export function serializeBilling(writer: SerializationWriter, billing: Partial<Billing> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!billing || isSerializingDerivedType) { return; }
     serializeEntity(writer, billing, isSerializingDerivedType)
+    writer.writeObjectValue<AzureAggregatedUsage>("aggregatedUsage", billing.aggregatedUsage, serializeAzureAggregatedUsage);
     writer.writeCollectionOfObjectValues<Manifest>("manifests", billing.manifests, serializeManifest);
     writer.writeCollectionOfObjectValues<Operation>("operations", billing.operations, serializeOperation);
     writer.writeObjectValue<BillingReconciliation>("reconciliation", billing.reconciliation, serializeBillingReconciliation);

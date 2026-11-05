@@ -8,7 +8,7 @@ import { createODataErrorFromDiscriminatorValue, type ODataError } from '@micros
 // @ts-ignore
 import { CountRequestBuilderRequestsMetadata, type CountRequestBuilder } from './count/index.js';
 // @ts-ignore
-import { type UnifiedRoleDefinitionItemRequestBuilder, UnifiedRoleDefinitionItemRequestBuilderRequestsMetadata } from './item/index.js';
+import { type UnifiedRoleDefinitionItemRequestBuilder, UnifiedRoleDefinitionItemRequestBuilderNavigationMetadata, UnifiedRoleDefinitionItemRequestBuilderRequestsMetadata } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -115,6 +115,7 @@ const InheritsPermissionsFromRequestBuilderGetQueryParametersMapper: Record<stri
 export const InheritsPermissionsFromRequestBuilderNavigationMetadata: Record<Exclude<keyof InheritsPermissionsFromRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byUnifiedRoleDefinitionId1: {
         requestsMetadata: UnifiedRoleDefinitionItemRequestBuilderRequestsMetadata,
+        navigationMetadata: UnifiedRoleDefinitionItemRequestBuilderNavigationMetadata,
         pathParametersMappings: ["unifiedRoleDefinition%2Did1"],
     },
     count: {

@@ -20,6 +20,7 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
 export interface InsightsRequestBuilder extends BaseRequestBuilder<InsightsRequestBuilder> {
     /**
      * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
     get shared(): SharedRequestBuilder;
     /**
@@ -28,6 +29,7 @@ export interface InsightsRequestBuilder extends BaseRequestBuilder<InsightsReque
     get trending(): TrendingRequestBuilder;
     /**
      * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
+     * @deprecated This API is deprecated and will stop returning data after January, 2028. as of 2026-01/Removal on 2026-01-28 and will be removed 2028-01-01
      */
     get used(): UsedRequestBuilder;
     /**

@@ -60,6 +60,7 @@ export interface DriveItemRequestBuilder extends BaseRequestBuilder<DriveItemReq
     get list(): ListRequestBuilder;
     /**
      * Provides operations to call the recent method.
+     * @deprecated This API is deprecated and will stop returning data after November, 2027. as of 2025-11/Removal on 2025-11-13 and will be removed 2027-11-01
      */
     get recent(): RecentRequestBuilder;
     /**
@@ -68,6 +69,7 @@ export interface DriveItemRequestBuilder extends BaseRequestBuilder<DriveItemReq
     get root(): RootRequestBuilder;
     /**
      * Provides operations to call the sharedWithMe method.
+     * @deprecated This API is deprecated and will stop returning data after November, 2027. as of 2025-11/Removal on 2025-11-13 and will be removed 2027-11-01
      */
     get sharedWithMe(): SharedWithMeRequestBuilder;
     /**

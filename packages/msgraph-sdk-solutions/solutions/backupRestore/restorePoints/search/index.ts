@@ -27,6 +27,7 @@ export function deserializeIntoSearchPostRequestBody(searchPostRequestBody: Part
     return {
         "artifactQuery": n => { searchPostRequestBody.artifactQuery = n.getObjectValue<ArtifactQuery>(createArtifactQueryFromDiscriminatorValue); },
         "backingStoreEnabled": n => { searchPostRequestBody.backingStoreEnabled = true; },
+        "policyId": n => { searchPostRequestBody.policyId = n.getStringValue(); },
         "protectionTimePeriod": n => { searchPostRequestBody.protectionTimePeriod = n.getObjectValue<TimePeriod>(createTimePeriodFromDiscriminatorValue); },
         "protectionUnitIds": n => { searchPostRequestBody.protectionUnitIds = n.getCollectionOfPrimitiveValues<string>("string"); },
         "restorePointPreference": n => { searchPostRequestBody.restorePointPreference = n.getEnumValue<RestorePointPreference>(RestorePointPreferenceObject); },
@@ -42,6 +43,10 @@ export interface SearchPostRequestBody extends AdditionalDataHolder, BackedModel
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
+    /**
+     * The policyId property
+     */
+    policyId?: string | null;
     /**
      * The protectionTimePeriod property
      */
@@ -64,7 +69,7 @@ export interface SearchPostRequestBody extends AdditionalDataHolder, BackedModel
  */
 export interface SearchRequestBuilder extends BaseRequestBuilder<SearchRequestBuilder> {
     /**
-     * Search for the restorePoint objects associated with a protectionUnit.
+     * Search for the restorePoint objects associated with a protectionUnit. You can also provide policyId to scope the search to a protection policy and validate that the specified protection units belong to that policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<RestorePointSearchResponse>}
@@ -73,7 +78,7 @@ export interface SearchRequestBuilder extends BaseRequestBuilder<SearchRequestBu
      */
      post(body: SearchPostRequestBody, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<RestorePointSearchResponse | undefined>;
     /**
-     * Search for the restorePoint objects associated with a protectionUnit.
+     * Search for the restorePoint objects associated with a protectionUnit. You can also provide policyId to scope the search to a protection policy and validate that the specified protection units belong to that policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
@@ -90,6 +95,7 @@ export interface SearchRequestBuilder extends BaseRequestBuilder<SearchRequestBu
 export function serializeSearchPostRequestBody(writer: SerializationWriter, searchPostRequestBody: Partial<SearchPostRequestBody> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!searchPostRequestBody || isSerializingDerivedType) { return; }
     writer.writeObjectValue<ArtifactQuery>("artifactQuery", searchPostRequestBody.artifactQuery, serializeArtifactQuery);
+    writer.writeStringValue("policyId", searchPostRequestBody.policyId);
     writer.writeObjectValue<TimePeriod>("protectionTimePeriod", searchPostRequestBody.protectionTimePeriod, serializeTimePeriod);
     writer.writeCollectionOfPrimitiveValues<string>("protectionUnitIds", searchPostRequestBody.protectionUnitIds);
     writer.writeEnumValue<RestorePointPreference>("restorePointPreference", searchPostRequestBody.restorePointPreference);

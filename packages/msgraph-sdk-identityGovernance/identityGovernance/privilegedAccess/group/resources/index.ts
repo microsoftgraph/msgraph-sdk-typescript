@@ -27,10 +27,11 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      */
      byGroupResourceId(groupResourceId: string) : GroupResourceItemRequestBuilder;
     /**
-     * Get resources from identityGovernance
+     * Get a list of the groupResource objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GroupResourceCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
+     * @see {@link https://learn.microsoft.com/graph/api/privilegedaccessgroup-list-resources?view=graph-rest-1.0|Find more info here}
      */
      get(requestConfiguration?: RequestConfiguration<ResourcesRequestBuilderGetQueryParameters> | undefined) : Promise<GroupResourceCollectionResponse | undefined>;
     /**
@@ -42,7 +43,7 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      */
      post(body: GroupResource, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<GroupResource | undefined>;
     /**
-     * Get resources from identityGovernance
+     * Get a list of the groupResource objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -56,7 +57,7 @@ export interface ResourcesRequestBuilder extends BaseRequestBuilder<ResourcesReq
      toPostRequestInformation(body: GroupResource, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get resources from identityGovernance
+ * Get a list of the groupResource objects and their properties.
  */
 export interface ResourcesRequestBuilderGetQueryParameters {
     /**

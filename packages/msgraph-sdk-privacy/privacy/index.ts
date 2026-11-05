@@ -16,6 +16,7 @@ import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type 
 export interface PrivacyRequestBuilder extends BaseRequestBuilder<PrivacyRequestBuilder> {
     /**
      * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     get subjectRightsRequests(): SubjectRightsRequestsRequestBuilder;
     /**
