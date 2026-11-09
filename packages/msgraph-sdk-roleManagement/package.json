@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/msgraph-sdk-rolemanagement",
-  "version": "1.0.0-preview.92",
+  "version": "1.0.0-preview.93",
   "description": "RoleManagement fluent API for Microsoft Graph",
   "keywords": [
     "Microsoft",
