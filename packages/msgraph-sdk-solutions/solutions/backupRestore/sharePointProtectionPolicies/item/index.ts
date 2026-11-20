@@ -44,7 +44,7 @@ export interface SharePointProtectionPolicyItemRequestBuilder extends BaseReques
      */
      get(requestConfiguration?: RequestConfiguration<SharePointProtectionPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<SharePointProtectionPolicy | undefined>;
     /**
-     * Update a SharePoint protection policy. This method adds a siteprotectionunit to or removes it from the protection policy.
+     * Update a SharePoint protection policy. This method updates retention settings or adds a siteProtectionUnit to or removes it from the protection policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<SharePointProtectionPolicy>}
@@ -65,7 +65,7 @@ export interface SharePointProtectionPolicyItemRequestBuilder extends BaseReques
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<SharePointProtectionPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update a SharePoint protection policy. This method adds a siteprotectionunit to or removes it from the protection policy.
+     * Update a SharePoint protection policy. This method updates retention settings or adds a siteProtectionUnit to or removes it from the protection policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

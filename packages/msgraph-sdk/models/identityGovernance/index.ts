@@ -378,6 +378,33 @@ export function createOnDemandExecutionOnlyFromDiscriminatorValue(parseNode: Par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {OperatorBetween}
+ */
+// @ts-ignore
+export function createOperatorBetweenFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoOperatorBetween;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {OperatorEqualTo}
+ */
+// @ts-ignore
+export function createOperatorEqualToFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoOperatorEqualTo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {OperatorLessThanEqualTo}
+ */
+// @ts-ignore
+export function createOperatorLessThanEqualToFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoOperatorLessThanEqualTo;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Parameter}
  */
 // @ts-ignore
@@ -616,6 +643,15 @@ export function createTimeBasedAttributeTriggerFromDiscriminatorValue(parseNode:
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TimeBasedAttributeTriggerV2}
+ */
+// @ts-ignore
+export function createTimeBasedAttributeTriggerV2FromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTimeBasedAttributeTriggerV2;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TopTasksInsightsSummary}
  */
 // @ts-ignore
@@ -761,12 +797,40 @@ export function createWorkflowExecutionTriggerFromDiscriminatorValue(parseNode: 
                     return deserializeIntoMembershipChangeTrigger;
                 case "#microsoft.graph.identityGovernance.timeBasedAttributeTrigger":
                     return deserializeIntoTimeBasedAttributeTrigger;
+                case "#microsoft.graph.identityGovernance.timeBasedAttributeTriggerV2":
+                    return deserializeIntoTimeBasedAttributeTriggerV2;
                 case "#microsoft.graph.identityGovernance.userInactivityTrigger":
                     return deserializeIntoUserInactivityTrigger;
             }
         }
     }
     return deserializeIntoWorkflowExecutionTrigger;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {WorkflowExecutionTriggerOperator}
+ */
+// @ts-ignore
+export function createWorkflowExecutionTriggerOperatorFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.identityGovernance.operatorBetween":
+                    return deserializeIntoOperatorBetween;
+                case "#microsoft.graph.identityGovernance.operatorEqualTo":
+                    return deserializeIntoOperatorEqualTo;
+                case "#microsoft.graph.identityGovernance.operatorLessThanEqualTo":
+                    return deserializeIntoOperatorLessThanEqualTo;
+                case "#microsoft.graph.identityGovernance.workflowTriggerTimeBasedOperator":
+                    return deserializeIntoWorkflowTriggerTimeBasedOperator;
+            }
+        }
+    }
+    return deserializeIntoWorkflowExecutionTriggerOperator;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -843,6 +907,30 @@ export function createWorkflowTemplateCollectionResponseFromDiscriminatorValue(p
 // @ts-ignore
 export function createWorkflowTemplateFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoWorkflowTemplate;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {WorkflowTriggerTimeBasedOperator}
+ */
+// @ts-ignore
+export function createWorkflowTriggerTimeBasedOperatorFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.identityGovernance.operatorBetween":
+                    return deserializeIntoOperatorBetween;
+                case "#microsoft.graph.identityGovernance.operatorEqualTo":
+                    return deserializeIntoOperatorEqualTo;
+                case "#microsoft.graph.identityGovernance.operatorLessThanEqualTo":
+                    return deserializeIntoOperatorLessThanEqualTo;
+            }
+        }
+    }
+    return deserializeIntoWorkflowTriggerTimeBasedOperator;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -1271,6 +1359,43 @@ export function deserializeIntoOnDemandExecutionOnly(onDemandExecutionOnly: Part
 }
 /**
  * The deserialization information for the current model
+ * @param OperatorBetween The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoOperatorBetween(operatorBetween: Partial<OperatorBetween> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowTriggerTimeBasedOperator(operatorBetween),
+        "greaterThanOffsetInDays": n => { operatorBetween.greaterThanOffsetInDays = n.getNumberValue(); },
+        "lessThanOffsetInDays": n => { operatorBetween.lessThanOffsetInDays = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param OperatorEqualTo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoOperatorEqualTo(operatorEqualTo: Partial<OperatorEqualTo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowTriggerTimeBasedOperator(operatorEqualTo),
+        "offsetInDays": n => { operatorEqualTo.offsetInDays = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param OperatorLessThanEqualTo The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoOperatorLessThanEqualTo(operatorLessThanEqualTo: Partial<OperatorLessThanEqualTo> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowTriggerTimeBasedOperator(operatorLessThanEqualTo),
+        "offsetInDays": n => { operatorLessThanEqualTo.offsetInDays = n.getNumberValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param Parameter The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1659,6 +1784,19 @@ export function deserializeIntoTimeBasedAttributeTrigger(timeBasedAttributeTrigg
 }
 /**
  * The deserialization information for the current model
+ * @param TimeBasedAttributeTriggerV2 The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTimeBasedAttributeTriggerV2(timeBasedAttributeTriggerV2: Partial<TimeBasedAttributeTriggerV2> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowExecutionTrigger(timeBasedAttributeTriggerV2),
+        "attribute": n => { timeBasedAttributeTriggerV2.attribute = n.getStringValue(); },
+        "operator": n => { timeBasedAttributeTriggerV2.operator = n.getObjectValue<WorkflowExecutionTriggerOperator>(createWorkflowExecutionTriggerOperatorFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param TopTasksInsightsSummary The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1876,6 +2014,18 @@ export function deserializeIntoWorkflowExecutionTrigger(workflowExecutionTrigger
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowExecutionTriggerOperator The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoWorkflowExecutionTriggerOperator(workflowExecutionTriggerOperator: Partial<WorkflowExecutionTriggerOperator> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { workflowExecutionTriggerOperator.backingStoreEnabled = true; },
+        "@odata.type": n => { workflowExecutionTriggerOperator.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param WorkflowSetting The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1971,6 +2121,18 @@ export function deserializeIntoWorkflowTemplateCollectionResponse(workflowTempla
 }
 /**
  * The deserialization information for the current model
+ * @param WorkflowTriggerTimeBasedOperator The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoWorkflowTriggerTimeBasedOperator(workflowTriggerTimeBasedOperator: Partial<WorkflowTriggerTimeBasedOperator> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWorkflowExecutionTriggerOperator(workflowTriggerTimeBasedOperator),
+        "eventTiming": n => { workflowTriggerTimeBasedOperator.eventTiming = n.getEnumValue<WorkflowTriggerOperatorEventTiming>(WorkflowTriggerOperatorEventTimingObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param WorkflowVersion The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -2037,7 +2199,7 @@ export interface LifecycleWorkflowsContainer extends Entity, Parsable {
      */
     customTaskExtensions?: CustomTaskExtension[] | null;
     /**
-     * Deleted workflows in your lifecycle workflows instance.
+     * Deleted workflows and lifecycle policies in your lifecycle workflows instance.
      */
     deletedItems?: DeletedItemContainer | null;
     /**
@@ -2070,6 +2232,28 @@ export interface MembershipChangeTrigger extends Parsable, WorkflowExecutionTrig
 }
 export type MembershipChangeType = (typeof MembershipChangeTypeObject)[keyof typeof MembershipChangeTypeObject];
 export interface OnDemandExecutionOnly extends Parsable, WorkflowExecutionConditions {
+}
+export interface OperatorBetween extends Parsable, WorkflowTriggerTimeBasedOperator {
+    /**
+     * The exclusive lower bound of the date range, in days. The value must be a nonnegative integer and less than lessThanOffsetInDays.
+     */
+    greaterThanOffsetInDays?: number | null;
+    /**
+     * The exclusive upper bound of the date range, in days. The value must be a nonnegative integer and greater than greaterThanOffsetInDays. The difference between the upper and lower bounds can't exceed 180 days.
+     */
+    lessThanOffsetInDays?: number | null;
+}
+export interface OperatorEqualTo extends Parsable, WorkflowTriggerTimeBasedOperator {
+    /**
+     * The exact number of days between the current date and the date in the user attribute. The value must be a nonnegative integer.
+     */
+    offsetInDays?: number | null;
+}
+export interface OperatorLessThanEqualTo extends Parsable, WorkflowTriggerTimeBasedOperator {
+    /**
+     * The maximum number of days between the current date and the date in the user attribute. The value must be a nonnegative integer.
+     */
+    offsetInDays?: number | null;
 }
 export interface Parameter extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -2651,6 +2835,43 @@ export function serializeOnDemandExecutionOnly(writer: SerializationWriter, onDe
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OperatorBetween The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeOperatorBetween(writer: SerializationWriter, operatorBetween: Partial<OperatorBetween> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!operatorBetween || isSerializingDerivedType) { return; }
+    serializeWorkflowTriggerTimeBasedOperator(writer, operatorBetween, isSerializingDerivedType)
+    writer.writeNumberValue("greaterThanOffsetInDays", operatorBetween.greaterThanOffsetInDays);
+    writer.writeNumberValue("lessThanOffsetInDays", operatorBetween.lessThanOffsetInDays);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OperatorEqualTo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeOperatorEqualTo(writer: SerializationWriter, operatorEqualTo: Partial<OperatorEqualTo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!operatorEqualTo || isSerializingDerivedType) { return; }
+    serializeWorkflowTriggerTimeBasedOperator(writer, operatorEqualTo, isSerializingDerivedType)
+    writer.writeNumberValue("offsetInDays", operatorEqualTo.offsetInDays);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param OperatorLessThanEqualTo The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeOperatorLessThanEqualTo(writer: SerializationWriter, operatorLessThanEqualTo: Partial<OperatorLessThanEqualTo> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!operatorLessThanEqualTo || isSerializingDerivedType) { return; }
+    serializeWorkflowTriggerTimeBasedOperator(writer, operatorLessThanEqualTo, isSerializingDerivedType)
+    writer.writeNumberValue("offsetInDays", operatorLessThanEqualTo.offsetInDays);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param Parameter The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -3047,6 +3268,19 @@ export function serializeTimeBasedAttributeTrigger(writer: SerializationWriter, 
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TimeBasedAttributeTriggerV2 The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTimeBasedAttributeTriggerV2(writer: SerializationWriter, timeBasedAttributeTriggerV2: Partial<TimeBasedAttributeTriggerV2> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!timeBasedAttributeTriggerV2 || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionTrigger(writer, timeBasedAttributeTriggerV2, isSerializingDerivedType)
+    writer.writeStringValue("attribute", timeBasedAttributeTriggerV2.attribute);
+    writer.writeObjectValue<WorkflowExecutionTriggerOperator>("operator", timeBasedAttributeTriggerV2.operator, serializeWorkflowExecutionTriggerOperator);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param TopTasksInsightsSummary The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -3292,8 +3526,37 @@ export function serializeWorkflowExecutionTrigger(writer: SerializationWriter, w
         case "#microsoft.graph.identityGovernance.timeBasedAttributeTrigger":
             serializeTimeBasedAttributeTrigger(writer, workflowExecutionTrigger, true);
         break;
+        case "#microsoft.graph.identityGovernance.timeBasedAttributeTriggerV2":
+            serializeTimeBasedAttributeTriggerV2(writer, workflowExecutionTrigger, true);
+        break;
         case "#microsoft.graph.identityGovernance.userInactivityTrigger":
             serializeUserInactivityTrigger(writer, workflowExecutionTrigger, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowExecutionTriggerOperator The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeWorkflowExecutionTriggerOperator(writer: SerializationWriter, workflowExecutionTriggerOperator: Partial<WorkflowExecutionTriggerOperator> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowExecutionTriggerOperator || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", workflowExecutionTriggerOperator.odataType);
+    writer.writeAdditionalData(workflowExecutionTriggerOperator.additionalData);
+    switch (workflowExecutionTriggerOperator.odataType) {
+        case "#microsoft.graph.identityGovernance.operatorBetween":
+            serializeOperatorBetween(writer, workflowExecutionTriggerOperator, true);
+        break;
+        case "#microsoft.graph.identityGovernance.operatorEqualTo":
+            serializeOperatorEqualTo(writer, workflowExecutionTriggerOperator, true);
+        break;
+        case "#microsoft.graph.identityGovernance.operatorLessThanEqualTo":
+            serializeOperatorLessThanEqualTo(writer, workflowExecutionTriggerOperator, true);
+        break;
+        case "#microsoft.graph.identityGovernance.workflowTriggerTimeBasedOperator":
+            serializeWorkflowTriggerTimeBasedOperator(writer, workflowExecutionTriggerOperator, true);
         break;
     }
 }
@@ -3399,6 +3662,29 @@ export function serializeWorkflowTemplateCollectionResponse(writer: Serializatio
     if (!workflowTemplateCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, workflowTemplateCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<WorkflowTemplate>("value", workflowTemplateCollectionResponse.value, serializeWorkflowTemplate);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param WorkflowTriggerTimeBasedOperator The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeWorkflowTriggerTimeBasedOperator(writer: SerializationWriter, workflowTriggerTimeBasedOperator: Partial<WorkflowTriggerTimeBasedOperator> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!workflowTriggerTimeBasedOperator || isSerializingDerivedType) { return; }
+    serializeWorkflowExecutionTriggerOperator(writer, workflowTriggerTimeBasedOperator, isSerializingDerivedType)
+    writer.writeEnumValue<WorkflowTriggerOperatorEventTiming>("eventTiming", workflowTriggerTimeBasedOperator.eventTiming);
+    switch (workflowTriggerTimeBasedOperator.odataType) {
+        case "#microsoft.graph.identityGovernance.operatorBetween":
+            serializeOperatorBetween(writer, workflowTriggerTimeBasedOperator, true);
+        break;
+        case "#microsoft.graph.identityGovernance.operatorEqualTo":
+            serializeOperatorEqualTo(writer, workflowTriggerTimeBasedOperator, true);
+        break;
+        case "#microsoft.graph.identityGovernance.operatorLessThanEqualTo":
+            serializeOperatorLessThanEqualTo(writer, workflowTriggerTimeBasedOperator, true);
+        break;
+    }
 }
 /**
  * Serializes information the current object
@@ -3727,6 +4013,16 @@ export interface TimeBasedAttributeTrigger extends Parsable, WorkflowExecutionTr
      * The timeBasedAttribute property
      */
     timeBasedAttribute?: WorkflowTriggerTimeBasedAttribute | null;
+}
+export interface TimeBasedAttributeTriggerV2 extends Parsable, WorkflowExecutionTrigger {
+    /**
+     * The name of the date-type user attribute to evaluate, such as employeeHireDate or employeeLeaveDateTime.
+     */
+    attribute?: string | null;
+    /**
+     * The operator property
+     */
+    operator?: WorkflowExecutionTriggerOperator | null;
 }
 export interface TopTasksInsightsSummary extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -4079,6 +4375,16 @@ export interface WorkflowExecutionTrigger extends AdditionalDataHolder, BackedMo
      */
     odataType?: string | null;
 }
+export interface WorkflowExecutionTriggerOperator extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+}
 export type WorkflowExecutionType = (typeof WorkflowExecutionTypeObject)[keyof typeof WorkflowExecutionTypeObject];
 export interface WorkflowSetting extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -4224,7 +4530,14 @@ export interface WorkflowTemplateCollectionResponse extends BaseCollectionPagina
      */
     value?: WorkflowTemplate[] | null;
 }
+export type WorkflowTriggerOperatorEventTiming = (typeof WorkflowTriggerOperatorEventTimingObject)[keyof typeof WorkflowTriggerOperatorEventTimingObject];
 export type WorkflowTriggerTimeBasedAttribute = (typeof WorkflowTriggerTimeBasedAttributeObject)[keyof typeof WorkflowTriggerTimeBasedAttributeObject];
+export interface WorkflowTriggerTimeBasedOperator extends Parsable, WorkflowExecutionTriggerOperator {
+    /**
+     * The eventTiming property
+     */
+    eventTiming?: WorkflowTriggerOperatorEventTiming | null;
+}
 export interface WorkflowVersion extends Parsable, WorkflowBase {
     /**
      * The settings property
@@ -4323,6 +4636,12 @@ export const WorkflowExecutionTypeObject = {
     ActivatedWithScope: "activatedWithScope",
     Preview: "preview",
     ExtensibilityOnDemand: "extensibilityOnDemand",
+} as const;
+export const WorkflowTriggerOperatorEventTimingObject = {
+    Before: "before",
+    After: "after",
+    On: "on",
+    UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const WorkflowTriggerTimeBasedAttributeObject = {
     EmployeeHireDate: "employeeHireDate",

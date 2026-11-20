@@ -25,7 +25,7 @@ export interface DeletedItemsRequestBuilder extends BaseRequestBuilder<DeletedIt
      */
      delete(requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<void>;
     /**
-     * Deleted workflows in your lifecycle workflows instance.
+     * Deleted workflows and lifecycle policies in your lifecycle workflows instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<DeletedItemContainer>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -38,14 +38,14 @@ export interface DeletedItemsRequestBuilder extends BaseRequestBuilder<DeletedIt
      */
      toDeleteRequestInformation(requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
     /**
-     * Deleted workflows in your lifecycle workflows instance.
+     * Deleted workflows and lifecycle policies in your lifecycle workflows instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<DeletedItemsRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
 }
 /**
- * Deleted workflows in your lifecycle workflows instance.
+ * Deleted workflows and lifecycle policies in your lifecycle workflows instance.
  */
 export interface DeletedItemsRequestBuilderGetQueryParameters {
     /**
