@@ -50,6 +50,8 @@ import { DeviceManagementTroubleshootingEventsRequestBuilderNavigationMetadata, 
 // @ts-ignore
 import { DirectReportsRequestBuilderNavigationMetadata, DirectReportsRequestBuilderRequestsMetadata, type DirectReportsRequestBuilder } from './directReports/index.js';
 // @ts-ignore
+import { DistributionListsRequestBuilderNavigationMetadata, DistributionListsRequestBuilderRequestsMetadata, type DistributionListsRequestBuilder } from './distributionLists/index.js';
+// @ts-ignore
 import { DriveRequestBuilderRequestsMetadata, type DriveRequestBuilder } from './drive/index.js';
 // @ts-ignore
 import { DrivesRequestBuilderNavigationMetadata, DrivesRequestBuilderRequestsMetadata, type DrivesRequestBuilder } from './drives/index.js';
@@ -264,6 +266,10 @@ export interface UserItemRequestBuilder extends BaseRequestBuilder<UserItemReque
      * Provides operations to manage the directReports property of the microsoft.graph.user entity.
      */
     get directReports(): DirectReportsRequestBuilder;
+    /**
+     * Provides operations to manage the distributionLists property of the microsoft.graph.user entity.
+     */
+    get distributionLists(): DistributionListsRequestBuilder;
     /**
      * Provides operations to manage the drive property of the microsoft.graph.user entity.
      */
@@ -673,6 +679,10 @@ export const UserItemRequestBuilderNavigationMetadata: Record<Exclude<keyof User
     directReports: {
         requestsMetadata: DirectReportsRequestBuilderRequestsMetadata,
         navigationMetadata: DirectReportsRequestBuilderNavigationMetadata,
+    },
+    distributionLists: {
+        requestsMetadata: DistributionListsRequestBuilderRequestsMetadata,
+        navigationMetadata: DistributionListsRequestBuilderNavigationMetadata,
     },
     drive: {
         requestsMetadata: DriveRequestBuilderRequestsMetadata,

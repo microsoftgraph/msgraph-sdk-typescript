@@ -10,6 +10,8 @@ import { ContainedAppsRequestBuilderNavigationMetadata, ContainedAppsRequestBuil
 // @ts-ignore
 import { FilesRequestBuilderNavigationMetadata, FilesRequestBuilderRequestsMetadata, type FilesRequestBuilder } from './files/index.js';
 // @ts-ignore
+import { ScriptsRequestBuilderNavigationMetadata, ScriptsRequestBuilderRequestsMetadata, type ScriptsRequestBuilder } from './scripts/index.js';
+// @ts-ignore
 import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,6 +26,10 @@ export interface MobileAppContentItemRequestBuilder extends BaseRequestBuilder<M
      * Provides operations to manage the files property of the microsoft.graph.mobileAppContent entity.
      */
     get files(): FilesRequestBuilder;
+    /**
+     * Provides operations to manage the scripts property of the microsoft.graph.mobileAppContent entity.
+     */
+    get scripts(): ScriptsRequestBuilder;
     /**
      * Delete navigation property contentVersions for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -100,6 +106,10 @@ export const MobileAppContentItemRequestBuilderNavigationMetadata: Record<Exclud
     files: {
         requestsMetadata: FilesRequestBuilderRequestsMetadata,
         navigationMetadata: FilesRequestBuilderNavigationMetadata,
+    },
+    scripts: {
+        requestsMetadata: ScriptsRequestBuilderRequestsMetadata,
+        navigationMetadata: ScriptsRequestBuilderNavigationMetadata,
     },
 };
 /**

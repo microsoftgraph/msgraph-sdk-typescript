@@ -44,7 +44,7 @@ export interface ExchangeProtectionPolicyItemRequestBuilder extends BaseRequestB
      */
      get(requestConfiguration?: RequestConfiguration<ExchangeProtectionPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<ExchangeProtectionPolicy | undefined>;
     /**
-     * Update an Exchange protection policy. This method adds a mailboxprotectionunit to or removes it from the protection policy.
+     * Update an Exchange protection policy. This method updates retention settings or adds a mailboxProtectionUnit to or removes it from the protection policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<ExchangeProtectionPolicy>}
@@ -65,7 +65,7 @@ export interface ExchangeProtectionPolicyItemRequestBuilder extends BaseRequestB
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<ExchangeProtectionPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update an Exchange protection policy. This method adds a mailboxprotectionunit to or removes it from the protection policy.
+     * Update an Exchange protection policy. This method updates retention settings or adds a mailboxProtectionUnit to or removes it from the protection policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}

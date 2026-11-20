@@ -33,7 +33,7 @@ export interface FoldersRequestBuilder extends BaseRequestBuilder<FoldersRequest
      */
      byMailboxFolderId(mailboxFolderId: string) : MailboxFolderItemRequestBuilder;
     /**
-     * Get all the mailboxFolder objects in the specified mailbox, including any search folders.
+     * Get all the mailboxFolder objects in the specified mailbox, including any search folders. By default, hidden folders aren't returned. To include them, specify includeHiddenFolders=true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxFolderCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -50,7 +50,7 @@ export interface FoldersRequestBuilder extends BaseRequestBuilder<FoldersRequest
      */
      post(body: MailboxFolder, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MailboxFolder | undefined>;
     /**
-     * Get all the mailboxFolder objects in the specified mailbox, including any search folders.
+     * Get all the mailboxFolder objects in the specified mailbox, including any search folders. By default, hidden folders aren't returned. To include them, specify includeHiddenFolders=true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -64,7 +64,7 @@ export interface FoldersRequestBuilder extends BaseRequestBuilder<FoldersRequest
      toPostRequestInformation(body: MailboxFolder, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get all the mailboxFolder objects in the specified mailbox, including any search folders.
+ * Get all the mailboxFolder objects in the specified mailbox, including any search folders. By default, hidden folders aren't returned. To include them, specify includeHiddenFolders=true.
  */
 export interface FoldersRequestBuilderGetQueryParameters {
     /**

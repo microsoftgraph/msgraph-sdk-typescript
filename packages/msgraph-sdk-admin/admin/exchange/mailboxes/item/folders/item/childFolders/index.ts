@@ -33,7 +33,7 @@ export interface ChildFoldersRequestBuilder extends BaseRequestBuilder<ChildFold
      */
      byMailboxFolderId1(mailboxFolderId1: string) : MailboxFolderItemRequestBuilder;
     /**
-     * Get the mailboxFolder collection under the specified mailboxFolder in a mailbox.
+     * Get the mailboxFolder collection under the specified mailboxFolder in a mailbox. By default, hidden child folders aren't returned. To include them, specify includeHiddenFolders=true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<MailboxFolderCollectionResponse>}
      * @throws {ODataError} error when the service returns a 4XX or 5XX status code
@@ -49,7 +49,7 @@ export interface ChildFoldersRequestBuilder extends BaseRequestBuilder<ChildFold
      */
      post(body: MailboxFolder, requestConfiguration?: RequestConfiguration<object> | undefined) : Promise<MailboxFolder | undefined>;
     /**
-     * Get the mailboxFolder collection under the specified mailboxFolder in a mailbox.
+     * Get the mailboxFolder collection under the specified mailboxFolder in a mailbox. By default, hidden child folders aren't returned. To include them, specify includeHiddenFolders=true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
      */
@@ -63,7 +63,7 @@ export interface ChildFoldersRequestBuilder extends BaseRequestBuilder<ChildFold
      toPostRequestInformation(body: MailboxFolder, requestConfiguration?: RequestConfiguration<object> | undefined) : RequestInformation;
 }
 /**
- * Get the mailboxFolder collection under the specified mailboxFolder in a mailbox.
+ * Get the mailboxFolder collection under the specified mailboxFolder in a mailbox. By default, hidden child folders aren't returned. To include them, specify includeHiddenFolders=true.
  */
 export interface ChildFoldersRequestBuilderGetQueryParameters {
     /**

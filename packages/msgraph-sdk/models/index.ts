@@ -2220,6 +2220,10 @@ export interface AgentIdentityBlueprintPrincipal extends Parsable, ServicePrinci
     sponsors?: DirectoryObject[] | null;
 }
 export interface AgentUser extends Parsable, User {
+    /**
+     * The application IDs (appId values) authorized to manage the agent user's backing agent blueprint. Read-only. Not nullable. Returns an empty collection when no manager applications are configured. Returned only with $select and the microsoft.graph.agentUser type cast; see Get agentUser. Doesn't support $filter.
+     */
+    managerApplications?: Guid[] | null;
 }
 export interface AggregationOption extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -8739,6 +8743,14 @@ export interface BrowseQueryResponseItem extends AdditionalDataHolder, BackedMod
      */
     backingStoreEnabled?: boolean | null;
     /**
+     * The identity of the user or application that created the item. Returned only when type is file or folder.
+     */
+    createdBy?: IdentitySet | null;
+    /**
+     * The date and time when the item was created. Returned only when type is file or folder. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
+     */
+    createdDateTime?: Date | null;
+    /**
      * Unique identifier of the returned item.
      */
     itemKey?: string | null;
@@ -8746,6 +8758,14 @@ export interface BrowseQueryResponseItem extends AdditionalDataHolder, BackedMod
      * The count of items present within the items; for example, the count of files in a folder.
      */
     itemsCount?: number | null;
+    /**
+     * The identity of the user or application that last modified the item. Returned only when type is file or folder.
+     */
+    lastModifiedBy?: IdentitySet | null;
+    /**
+     * The date and time when the item was last modified. Returned only when type is file or folder. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2024, is 2024-01-01T00:00:00Z.
+     */
+    lastModifiedDateTime?: Date | null;
     /**
      * The name of the item.
      */
@@ -23585,6 +23605,42 @@ export function createDisplayNameLocalizationFromDiscriminatorValue(parseNode: P
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DistributionListCollectionResponse}
+ */
+// @ts-ignore
+export function createDistributionListCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDistributionListCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DistributionList}
+ */
+// @ts-ignore
+export function createDistributionListFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDistributionList;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DistributionListMemberCollectionResponse}
+ */
+// @ts-ignore
+export function createDistributionListMemberCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDistributionListMemberCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {DistributionListMember}
+ */
+// @ts-ignore
+export function createDistributionListMemberFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoDistributionListMember;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {DlpActionInfo}
  */
 // @ts-ignore
@@ -25892,6 +25948,10 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoDirectoryRoleManagementDeletedItemContainer;
                 case "#microsoft.graph.directoryRoleTemplate":
                     return deserializeIntoDirectoryRoleTemplate;
+                case "#microsoft.graph.distributionList":
+                    return deserializeIntoDistributionList;
+                case "#microsoft.graph.distributionListMember":
+                    return deserializeIntoDistributionListMember;
                 case "#microsoft.graph.documentSetVersion":
                     return deserializeIntoDocumentSetVersion;
                 case "#microsoft.graph.domain":
@@ -26426,6 +26486,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoMobileAppContent;
                 case "#microsoft.graph.mobileAppContentFile":
                     return deserializeIntoMobileAppContentFile;
+                case "#microsoft.graph.mobileAppContentScript":
+                    return deserializeIntoMobileAppContentScript;
                 case "#microsoft.graph.mobileAppRelationship":
                     return deserializeIntoMobileAppRelationship;
                 case "#microsoft.graph.mobileAppTroubleshootingEvent":
@@ -27492,6 +27554,12 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoWebPart;
                 case "#microsoft.graph.win32LobApp":
                     return deserializeIntoWin32LobApp;
+                case "#microsoft.graph.win32LobAppInstallPowerShellScript":
+                    return deserializeIntoWin32LobAppInstallPowerShellScript;
+                case "#microsoft.graph.win32LobAppScript":
+                    return deserializeIntoWin32LobAppScript;
+                case "#microsoft.graph.win32LobAppUninstallPowerShellScript":
+                    return deserializeIntoWin32LobAppUninstallPowerShellScript;
                 case "#microsoft.graph.windows10CompliancePolicy":
                     return deserializeIntoWindows10CompliancePolicy;
                 case "#microsoft.graph.windows10CustomConfiguration":
@@ -32236,6 +32304,15 @@ export function createMeetingTimeSuggestionsResultFromDiscriminatorValue(parseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {Member}
+ */
+// @ts-ignore
+export function createMemberFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMember;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MembersAddedEventMessageDetail}
  */
 // @ts-ignore
@@ -32656,6 +32733,39 @@ export function createMobileAppContentFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MobileAppContentScriptCollectionResponse}
+ */
+// @ts-ignore
+export function createMobileAppContentScriptCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMobileAppContentScriptCollectionResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MobileAppContentScript}
+ */
+// @ts-ignore
+export function createMobileAppContentScriptFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.win32LobAppInstallPowerShellScript":
+                    return deserializeIntoWin32LobAppInstallPowerShellScript;
+                case "#microsoft.graph.win32LobAppScript":
+                    return deserializeIntoWin32LobAppScript;
+                case "#microsoft.graph.win32LobAppUninstallPowerShellScript":
+                    return deserializeIntoWin32LobAppUninstallPowerShellScript;
+            }
+        }
+    }
+    return deserializeIntoMobileAppContentScript;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {MobileApp}
  */
 // @ts-ignore
@@ -32771,6 +32881,15 @@ export function createMobileAppRelationshipCollectionResponseFromDiscriminatorVa
 // @ts-ignore
 export function createMobileAppRelationshipFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoMobileAppRelationship;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {MobileAppScriptReference}
+ */
+// @ts-ignore
+export function createMobileAppScriptReferenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoMobileAppScriptReference;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -34663,6 +34782,8 @@ export function createOutlookItemFromDiscriminatorValue(parseNode: ParseNode | u
                     return deserializeIntoCalendarSharingMessage;
                 case "#microsoft.graph.contact":
                     return deserializeIntoContact;
+                case "#microsoft.graph.distributionList":
+                    return deserializeIntoDistributionList;
                 case "#microsoft.graph.event":
                     return deserializeIntoEvent;
                 case "#microsoft.graph.eventMessage":
@@ -37820,6 +37941,15 @@ export function createResultTemplateOptionFromDiscriminatorValue(parseNode: Pars
 // @ts-ignore
 export function createRetentionLabelSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoRetentionLabelSettings;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {RetentionPeriodChange}
+ */
+// @ts-ignore
+export function createRetentionPeriodChangeFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoRetentionPeriodChange;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -41377,6 +41507,15 @@ export function createTeamworkUserIdentityFromDiscriminatorValue(parseNode: Pars
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {TelecomProviderSettings}
+ */
+// @ts-ignore
+export function createTelecomProviderSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoTelecomProviderSettings;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {TeleconferenceDeviceAudioQuality}
  */
 // @ts-ignore
@@ -44393,6 +44532,15 @@ export function createWin32LobAppInstallExperienceFromDiscriminatorValue(parseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {Win32LobAppInstallPowerShellScript}
+ */
+// @ts-ignore
+export function createWin32LobAppInstallPowerShellScriptFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoWin32LobAppInstallPowerShellScript;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {Win32LobAppMsiInformation}
  */
 // @ts-ignore
@@ -44469,6 +44617,37 @@ export function createWin32LobAppRuleFromDiscriminatorValue(parseNode: ParseNode
         }
     }
     return deserializeIntoWin32LobAppRule;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {Win32LobAppScript}
+ */
+// @ts-ignore
+export function createWin32LobAppScriptFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    const mappingValueNode = parseNode?.getChildNode("@odata.type");
+    if (mappingValueNode) {
+        const mappingValue = mappingValueNode.getStringValue();
+        if (mappingValue) {
+            switch (mappingValue) {
+                case "#microsoft.graph.win32LobAppInstallPowerShellScript":
+                    return deserializeIntoWin32LobAppInstallPowerShellScript;
+                case "#microsoft.graph.win32LobAppUninstallPowerShellScript":
+                    return deserializeIntoWin32LobAppUninstallPowerShellScript;
+            }
+        }
+    }
+    return deserializeIntoWin32LobAppScript;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {Win32LobAppUninstallPowerShellScript}
+ */
+// @ts-ignore
+export function createWin32LobAppUninstallPowerShellScriptFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoWin32LobAppUninstallPowerShellScript;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -46455,7 +46634,7 @@ export interface CurrencyColumn extends AdditionalDataHolder, BackedModel, Parsa
 }
 export interface CurrentLabel extends AdditionalDataHolder, BackedModel, Parsable {
     /**
-     * The applicationMode property
+     * The application mode associated with the sensitivity label. The possible values are: manual, automatic, recommended, unknownFutureValue.
      */
     applicationMode?: ApplicationMode | null;
     /**
@@ -46463,7 +46642,7 @@ export interface CurrentLabel extends AdditionalDataHolder, BackedModel, Parsabl
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The id property
+     * The GUID that identifies the sensitivity label.
      */
     id?: string | null;
     /**
@@ -49285,6 +49464,7 @@ export function deserializeIntoAgentIdentityBlueprintPrincipal(agentIdentityBlue
 export function deserializeIntoAgentUser(agentUser: Partial<AgentUser> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoUser(agentUser),
+        "managerApplications": n => { agentUser.managerApplications = n.getCollectionOfPrimitiveValues<Guid>("string"); },
     }
 }
 /**
@@ -53872,8 +54052,12 @@ export function deserializeIntoBroadcastMeetingSettings(broadcastMeetingSettings
 export function deserializeIntoBrowseQueryResponseItem(browseQueryResponseItem: Partial<BrowseQueryResponseItem> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         "backingStoreEnabled": n => { browseQueryResponseItem.backingStoreEnabled = true; },
+        "createdBy": n => { browseQueryResponseItem.createdBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+        "createdDateTime": n => { browseQueryResponseItem.createdDateTime = n.getDateValue(); },
         "itemKey": n => { browseQueryResponseItem.itemKey = n.getStringValue(); },
         "itemsCount": n => { browseQueryResponseItem.itemsCount = n.getNumberValue(); },
+        "lastModifiedBy": n => { browseQueryResponseItem.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+        "lastModifiedDateTime": n => { browseQueryResponseItem.lastModifiedDateTime = n.getDateValue(); },
         "name": n => { browseQueryResponseItem.name = n.getStringValue(); },
         "@odata.type": n => { browseQueryResponseItem.odataType = n.getStringValue(); },
         "sizeInBytes": n => { browseQueryResponseItem.sizeInBytes = n.getStringValue(); },
@@ -61057,6 +61241,61 @@ export function deserializeIntoDisplayNameLocalization(displayNameLocalization: 
 }
 /**
  * The deserialization information for the current model
+ * @param DistributionList The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDistributionList(distributionList: Partial<DistributionList> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoOutlookItem(distributionList),
+        "displayName": n => { distributionList.displayName = n.getStringValue(); },
+        "members": n => { distributionList.members = n.getCollectionOfObjectValues<DistributionListMember>(createDistributionListMemberFromDiscriminatorValue); },
+        "notes": n => { distributionList.notes = n.getStringValue(); },
+        "personId": n => { distributionList.personId = n.getStringValue(); },
+        "singleValueExtendedProperties": n => { distributionList.singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(createSingleValueLegacyExtendedPropertyFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param DistributionListCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDistributionListCollectionResponse(distributionListCollectionResponse: Partial<DistributionListCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(distributionListCollectionResponse),
+        "value": n => { distributionListCollectionResponse.value = n.getCollectionOfObjectValues<DistributionList>(createDistributionListFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param DistributionListMember The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDistributionListMember(distributionListMember: Partial<DistributionListMember> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(distributionListMember),
+        "contact": n => { distributionListMember.contact = n.getObjectValue<Contact>(createContactFromDiscriminatorValue); },
+        "displayName": n => { distributionListMember.displayName = n.getStringValue(); },
+        "memberId": n => { distributionListMember.memberId = n.getStringValue(); },
+        "type": n => { distributionListMember.type = n.getEnumValue<RecipientType>(RecipientTypeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param DistributionListMemberCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoDistributionListMemberCollectionResponse(distributionListMemberCollectionResponse: Partial<DistributionListMemberCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(distributionListMemberCollectionResponse),
+        "value": n => { distributionListMemberCollectionResponse.value = n.getCollectionOfObjectValues<DistributionListMember>(createDistributionListMemberFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param DlpActionInfo The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -65142,6 +65381,7 @@ export function deserializeIntoGranularRestoreArtifactBase(granularRestoreArtifa
         ...deserializeIntoEntity(granularRestoreArtifactBase),
         "browseSessionId": n => { granularRestoreArtifactBase.browseSessionId = n.getStringValue(); },
         "completionDateTime": n => { granularRestoreArtifactBase.completionDateTime = n.getDateValue(); },
+        "error": n => { granularRestoreArtifactBase.errorEscaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
         "restoredItemKey": n => { granularRestoreArtifactBase.restoredItemKey = n.getStringValue(); },
         "restoredItemPath": n => { granularRestoreArtifactBase.restoredItemPath = n.getStringValue(); },
         "restoredItemWebUrl": n => { granularRestoreArtifactBase.restoredItemWebUrl = n.getStringValue(); },
@@ -68570,6 +68810,7 @@ export function deserializeIntoMailboxFolder(mailboxFolder: Partial<MailboxFolde
         "childFolderCount": n => { mailboxFolder.childFolderCount = n.getNumberValue(); },
         "childFolders": n => { mailboxFolder.childFolders = n.getCollectionOfObjectValues<MailboxFolder>(createMailboxFolderFromDiscriminatorValue); },
         "displayName": n => { mailboxFolder.displayName = n.getStringValue(); },
+        "isHidden": n => { mailboxFolder.isHidden = n.getBooleanValue(); },
         "items": n => { mailboxFolder.items = n.getCollectionOfObjectValues<MailboxItem>(createMailboxItemFromDiscriminatorValue); },
         "multiValueExtendedProperties": n => { mailboxFolder.multiValueExtendedProperties = n.getCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(createMultiValueLegacyExtendedPropertyFromDiscriminatorValue); },
         "parentFolderId": n => { mailboxFolder.parentFolderId = n.getStringValue(); },
@@ -69992,6 +70233,22 @@ export function deserializeIntoMeetingTimeSuggestionsResult(meetingTimeSuggestio
 }
 /**
  * The deserialization information for the current model
+ * @param Member The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMember(member: Partial<Member> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { member.backingStoreEnabled = true; },
+        "displayName": n => { member.displayName = n.getStringValue(); },
+        "key": n => { member.key = n.getStringValue(); },
+        "memberId": n => { member.memberId = n.getStringValue(); },
+        "@odata.type": n => { member.odataType = n.getStringValue(); },
+        "type": n => { member.type = n.getEnumValue<RecipientType>(RecipientTypeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param MembersAddedEventMessageDetail The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -70609,6 +70866,7 @@ export function deserializeIntoMobileAppContent(mobileAppContent: Partial<Mobile
         ...deserializeIntoEntity(mobileAppContent),
         "containedApps": n => { mobileAppContent.containedApps = n.getCollectionOfObjectValues<MobileContainedApp>(createMobileContainedAppFromDiscriminatorValue); },
         "files": n => { mobileAppContent.files = n.getCollectionOfObjectValues<MobileAppContentFile>(createMobileAppContentFileFromDiscriminatorValue); },
+        "scripts": n => { mobileAppContent.scripts = n.getCollectionOfObjectValues<MobileAppContentScript>(createMobileAppContentScriptFromDiscriminatorValue); },
     }
 }
 /**
@@ -70654,6 +70912,32 @@ export function deserializeIntoMobileAppContentFileCollectionResponse(mobileAppC
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(mobileAppContentFileCollectionResponse),
         "value": n => { mobileAppContentFileCollectionResponse.value = n.getCollectionOfObjectValues<MobileAppContentFile>(createMobileAppContentFileFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param MobileAppContentScript The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMobileAppContentScript(mobileAppContentScript: Partial<MobileAppContentScript> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoEntity(mobileAppContentScript),
+        "content": n => { mobileAppContentScript.content = n.getStringValue(); },
+        "displayName": n => { mobileAppContentScript.displayName = n.getStringValue(); },
+        "state": n => { mobileAppContentScript.state = n.getEnumValue<MobileAppContentScriptState>(MobileAppContentScriptStateObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param MobileAppContentScriptCollectionResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMobileAppContentScriptCollectionResponse(mobileAppContentScriptCollectionResponse: Partial<MobileAppContentScriptCollectionResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(mobileAppContentScriptCollectionResponse),
+        "value": n => { mobileAppContentScriptCollectionResponse.value = n.getCollectionOfObjectValues<MobileAppContentScript>(createMobileAppContentScriptFromDiscriminatorValue); },
     }
 }
 /**
@@ -70712,6 +70996,19 @@ export function deserializeIntoMobileAppRelationshipCollectionResponse(mobileApp
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(mobileAppRelationshipCollectionResponse),
         "value": n => { mobileAppRelationshipCollectionResponse.value = n.getCollectionOfObjectValues<MobileAppRelationship>(createMobileAppRelationshipFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param MobileAppScriptReference The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoMobileAppScriptReference(mobileAppScriptReference: Partial<MobileAppScriptReference> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { mobileAppScriptReference.backingStoreEnabled = true; },
+        "@odata.type": n => { mobileAppScriptReference.odataType = n.getStringValue(); },
+        "targetId": n => { mobileAppScriptReference.targetId = n.getStringValue(); },
     }
 }
 /**
@@ -76159,12 +76456,14 @@ export function deserializeIntoProtectionRuleBase(protectionRuleBase: Partial<Pr
 export function deserializeIntoProtectionUnitBase(protectionUnitBase: Partial<ProtectionUnitBase> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(protectionUnitBase),
+        "backupRetentionPeriodInDays": n => { protectionUnitBase.backupRetentionPeriodInDays = n.getNumberValue(); },
         "createdBy": n => { protectionUnitBase.createdBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "createdDateTime": n => { protectionUnitBase.createdDateTime = n.getDateValue(); },
         "error": n => { protectionUnitBase.errorEscaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); },
         "lastModifiedBy": n => { protectionUnitBase.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "lastModifiedDateTime": n => { protectionUnitBase.lastModifiedDateTime = n.getDateValue(); },
         "offboardRequestedDateTime": n => { protectionUnitBase.offboardRequestedDateTime = n.getDateValue(); },
+        "pendingRetentionPeriodChange": n => { protectionUnitBase.pendingRetentionPeriodChange = n.getObjectValue<RetentionPeriodChange>(createRetentionPeriodChangeFromDiscriminatorValue); },
         "policyId": n => { protectionUnitBase.policyId = n.getStringValue(); },
         "protectionSources": n => { protectionUnitBase.protectionSources = n.getCollectionOfEnumValues<ProtectionSource>(ProtectionSourceObject); },
         "status": n => { protectionUnitBase.status = n.getEnumValue<ProtectionUnitStatus>(ProtectionUnitStatusObject); },
@@ -77833,6 +78132,21 @@ export function deserializeIntoRetentionLabelSettings(retentionLabelSettings: Pa
         "isMetadataUpdateAllowed": n => { retentionLabelSettings.isMetadataUpdateAllowed = n.getBooleanValue(); },
         "isRecordLocked": n => { retentionLabelSettings.isRecordLocked = n.getBooleanValue(); },
         "@odata.type": n => { retentionLabelSettings.odataType = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param RetentionPeriodChange The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoRetentionPeriodChange(retentionPeriodChange: Partial<RetentionPeriodChange> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "backingStoreEnabled": n => { retentionPeriodChange.backingStoreEnabled = true; },
+        "effectiveFromDateTime": n => { retentionPeriodChange.effectiveFromDateTime = n.getDateValue(); },
+        "@odata.type": n => { retentionPeriodChange.odataType = n.getStringValue(); },
+        "status": n => { retentionPeriodChange.status = n.getEnumValue<RetentionPeriodChangeStatus>(RetentionPeriodChangeStatusObject); },
+        "targetRetentionPeriodInDays": n => { retentionPeriodChange.targetRetentionPeriodInDays = n.getNumberValue(); },
     }
 }
 /**
@@ -81146,6 +81460,7 @@ export function deserializeIntoSmsAuthenticationMethodConfiguration(smsAuthentic
     return {
         ...deserializeIntoAuthenticationMethodConfiguration(smsAuthenticationMethodConfiguration),
         "includeTargets": n => { smsAuthenticationMethodConfiguration.includeTargets = n.getCollectionOfObjectValues<SmsAuthenticationMethodTarget>(createSmsAuthenticationMethodTargetFromDiscriminatorValue); },
+        "telecomProviderSettings": n => { smsAuthenticationMethodConfiguration.telecomProviderSettings = n.getObjectValue<TelecomProviderSettings>(createTelecomProviderSettingsFromDiscriminatorValue); },
     }
 }
 /**
@@ -83118,6 +83433,22 @@ export function deserializeIntoTeamworkUserIdentity(teamworkUserIdentity: Partia
 }
 /**
  * The deserialization information for the current model
+ * @param TelecomProviderSettings The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoTelecomProviderSettings(telecomProviderSettings: Partial<TelecomProviderSettings> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "appId": n => { telecomProviderSettings.appId = n.getGuidValue(); },
+        "backingStoreEnabled": n => { telecomProviderSettings.backingStoreEnabled = true; },
+        "isEvaluationModeEnabled": n => { telecomProviderSettings.isEvaluationModeEnabled = n.getBooleanValue(); },
+        "migrationPercentage": n => { telecomProviderSettings.migrationPercentage = n.getNumberValue(); },
+        "@odata.type": n => { telecomProviderSettings.odataType = n.getStringValue(); },
+        "url": n => { telecomProviderSettings.url = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param TeleconferenceDeviceAudioQuality The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -84533,11 +84864,13 @@ export function deserializeIntoUnifiedRoleAssignmentScheduleRequestCollectionRes
 export function deserializeIntoUnifiedRoleDefinition(unifiedRoleDefinition: Partial<UnifiedRoleDefinition> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(unifiedRoleDefinition),
+        "deletedDateTime": n => { unifiedRoleDefinition.deletedDateTime = n.getDateValue(); },
         "description": n => { unifiedRoleDefinition.description = n.getStringValue(); },
         "displayName": n => { unifiedRoleDefinition.displayName = n.getStringValue(); },
         "inheritsPermissionsFrom": n => { unifiedRoleDefinition.inheritsPermissionsFrom = n.getCollectionOfObjectValues<UnifiedRoleDefinition>(createUnifiedRoleDefinitionFromDiscriminatorValue); },
         "isBuiltIn": n => { unifiedRoleDefinition.isBuiltIn = n.getBooleanValue(); },
         "isEnabled": n => { unifiedRoleDefinition.isEnabled = n.getBooleanValue(); },
+        "isPrivileged": n => { unifiedRoleDefinition.isPrivileged = n.getBooleanValue(); },
         "resourceScopes": n => { unifiedRoleDefinition.resourceScopes = n.getCollectionOfPrimitiveValues<string>("string"); },
         "rolePermissions": n => { unifiedRoleDefinition.rolePermissions = n.getCollectionOfObjectValues<UnifiedRolePermission>(createUnifiedRolePermissionFromDiscriminatorValue); },
         "templateId": n => { unifiedRoleDefinition.templateId = n.getStringValue(); },
@@ -85143,6 +85476,7 @@ export function deserializeIntoUser(user: Partial<User> | undefined = {}) : Reco
         "deviceManagementTroubleshootingEvents": n => { user.deviceManagementTroubleshootingEvents = n.getCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>(createDeviceManagementTroubleshootingEventFromDiscriminatorValue); },
         "directReports": n => { user.directReports = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
         "displayName": n => { user.displayName = n.getStringValue(); },
+        "distributionLists": n => { user.distributionLists = n.getCollectionOfObjectValues<DistributionList>(createDistributionListFromDiscriminatorValue); },
         "drive": n => { user.drive = n.getObjectValue<Drive>(createDriveFromDiscriminatorValue); },
         "drives": n => { user.drives = n.getCollectionOfObjectValues<Drive>(createDriveFromDiscriminatorValue); },
         "employeeExperience": n => { user.employeeExperience = n.getObjectValue<EmployeeExperienceUser>(createEmployeeExperienceUserFromDiscriminatorValue); },
@@ -87298,6 +87632,7 @@ export function deserializeIntoVoiceAuthenticationMethodConfiguration(voiceAuthe
         ...deserializeIntoAuthenticationMethodConfiguration(voiceAuthenticationMethodConfiguration),
         "includeTargets": n => { voiceAuthenticationMethodConfiguration.includeTargets = n.getCollectionOfObjectValues<AuthenticationMethodTarget>(createAuthenticationMethodTargetFromDiscriminatorValue); },
         "isOfficePhoneAllowed": n => { voiceAuthenticationMethodConfiguration.isOfficePhoneAllowed = n.getBooleanValue(); },
+        "telecomProviderSettings": n => { voiceAuthenticationMethodConfiguration.telecomProviderSettings = n.getObjectValue<TelecomProviderSettings>(createTelecomProviderSettingsFromDiscriminatorValue); },
     }
 }
 /**
@@ -87759,6 +88094,8 @@ export function deserializeIntoWhatIfAnalysisResult(whatIfAnalysisResult: Partia
 export function deserializeIntoWin32LobApp(win32LobApp: Partial<Win32LobApp> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoMobileLobApp(win32LobApp),
+        "activeInstallScript": n => { win32LobApp.activeInstallScript = n.getObjectValue<MobileAppScriptReference>(createMobileAppScriptReferenceFromDiscriminatorValue); },
+        "activeUninstallScript": n => { win32LobApp.activeUninstallScript = n.getObjectValue<MobileAppScriptReference>(createMobileAppScriptReferenceFromDiscriminatorValue); },
         "allowedArchitectures": n => { win32LobApp.allowedArchitectures = n.getCollectionOfEnumValues<WindowsArchitecture>(WindowsArchitectureObject); },
         "applicableArchitectures": n => { win32LobApp.applicableArchitectures = n.getCollectionOfEnumValues<WindowsArchitecture>(WindowsArchitectureObject); },
         "installCommandLine": n => { win32LobApp.installCommandLine = n.getStringValue(); },
@@ -87845,6 +88182,17 @@ export function deserializeIntoWin32LobAppInstallExperience(win32LobAppInstallEx
         "deviceRestartBehavior": n => { win32LobAppInstallExperience.deviceRestartBehavior = n.getEnumValue<Win32LobAppRestartBehavior>(Win32LobAppRestartBehaviorObject); },
         "@odata.type": n => { win32LobAppInstallExperience.odataType = n.getStringValue(); },
         "runAsAccount": n => { win32LobAppInstallExperience.runAsAccount = n.getEnumValue<RunAsAccountType>(RunAsAccountTypeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param Win32LobAppInstallPowerShellScript The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoWin32LobAppInstallPowerShellScript(win32LobAppInstallPowerShellScript: Partial<Win32LobAppInstallPowerShellScript> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWin32LobAppScript(win32LobAppInstallPowerShellScript),
     }
 }
 /**
@@ -87956,6 +88304,30 @@ export function deserializeIntoWin32LobAppRule(win32LobAppRule: Partial<Win32Lob
         "backingStoreEnabled": n => { win32LobAppRule.backingStoreEnabled = true; },
         "@odata.type": n => { win32LobAppRule.odataType = n.getStringValue(); },
         "ruleType": n => { win32LobAppRule.ruleType = n.getEnumValue<Win32LobAppRuleType>(Win32LobAppRuleTypeObject); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param Win32LobAppScript The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoWin32LobAppScript(win32LobAppScript: Partial<Win32LobAppScript> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoMobileAppContentScript(win32LobAppScript),
+        "enforceSignatureCheck": n => { win32LobAppScript.enforceSignatureCheck = n.getBooleanValue(); },
+        "runAs32Bit": n => { win32LobAppScript.runAs32Bit = n.getBooleanValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param Win32LobAppUninstallPowerShellScript The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoWin32LobAppUninstallPowerShellScript(win32LobAppUninstallPowerShellScript: Partial<Win32LobAppUninstallPowerShellScript> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoWin32LobAppScript(win32LobAppUninstallPowerShellScript),
     }
 }
 /**
@@ -93516,6 +93888,58 @@ export interface DisplayNameLocalization extends AdditionalDataHolder, BackedMod
      */
     odataType?: string | null;
 }
+export interface DistributionList extends OutlookItem, Parsable {
+    /**
+     * The display name of the distribution list.
+     */
+    displayName?: string | null;
+    /**
+     * The members of the distribution list. Not returned by default; use $expand=members to include. Read-only.
+     */
+    members?: DistributionListMember[] | null;
+    /**
+     * Notes about the distribution list.
+     */
+    notes?: string | null;
+    /**
+     * The unique identifier of the distribution list in the mailbox. Read-only.
+     */
+    personId?: string | null;
+    /**
+     * The collection of single-value extended properties defined for the distribution list. Read-only.
+     */
+    singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | null;
+}
+export interface DistributionListCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: DistributionList[] | null;
+}
+export interface DistributionListMember extends Entity, Parsable {
+    /**
+     * The contact associated with the distribution list member. Read-only.
+     */
+    contact?: Contact | null;
+    /**
+     * The display name of the member. Read-only.
+     */
+    displayName?: string | null;
+    /**
+     * A system-generated unique identifier. Nonempty for contact, privateDL, and mailbox members. Read-only.
+     */
+    memberId?: string | null;
+    /**
+     * The type property
+     */
+    type?: RecipientType | null;
+}
+export interface DistributionListMemberCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: DistributionListMember[] | null;
+}
 export type DlpAction = (typeof DlpActionObject)[keyof typeof DlpActionObject];
 export interface DlpActionInfo extends AdditionalDataHolder, BackedModel, Parsable {
     /**
@@ -98536,6 +98960,10 @@ export interface GranularRestoreArtifactBase extends Entity, Parsable {
      */
     completionDateTime?: Date | null;
     /**
+     * Contains error details if the restoration fails or completes with an error.
+     */
+    errorEscaped?: PublicError | null;
+    /**
      * The unique identifier for the restored artifact.
      */
     restoredItemKey?: string | null;
@@ -98566,7 +98994,7 @@ export interface GranularRestoreArtifactBase extends Entity, Parsable {
 }
 export interface GranularSiteRestoreArtifact extends GranularRestoreArtifactBase, Parsable {
     /**
-     * Id of the site in which artifact is present.
+     * The ID of the site in which the artifact is present.
      */
     siteId?: string | null;
 }
@@ -103310,6 +103738,10 @@ export interface MailboxFolder extends Entity, Parsable {
      */
     displayName?: string | null;
     /**
+     * Indicates whether the folder is hidden. The default value is false. This property can be set only when you create the folder; it can't be updated using PATCH. By default, listing folders or listing child folders returns only folders that aren't hidden. To include hidden folders in the response, use the optional query parameter includeHiddenFolders=true. The response includes both hidden and nonhidden folders. If you use $select to limit the returned properties, include isHidden in the selection.
+     */
+    isHidden?: boolean | null;
+    /**
      * The collection of items in this folder.
      */
     items?: MailboxItem[] | null;
@@ -105307,6 +105739,32 @@ export interface MeetingTimeSuggestionsResult extends AdditionalDataHolder, Back
      */
     odataType?: string | null;
 }
+export interface Member extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The display name of the member. Optional.
+     */
+    displayName?: string | null;
+    /**
+     * The email address or routing key of the member. Optional.
+     */
+    key?: string | null;
+    /**
+     * A system-generated unique identifier for contact, privateDL, and mailbox members. Optional.
+     */
+    memberId?: string | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The type property
+     */
+    type?: RecipientType | null;
+}
 export interface MembersAddedEventMessageDetail extends EventMessageDetail, Parsable {
     /**
      * Initiator of the event.
@@ -106178,6 +106636,10 @@ export interface MobileAppContent extends Entity, Parsable {
      * The list of files for this app content version.
      */
     files?: MobileAppContentFile[] | null;
+    /**
+     * The list of scripts for this app content version.
+     */
+    scripts?: MobileAppContentScript[] | null;
 }
 export interface MobileAppContentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**
@@ -106237,6 +106699,30 @@ export interface MobileAppContentFileCollectionResponse extends BaseCollectionPa
     value?: MobileAppContentFile[] | null;
 }
 export type MobileAppContentFileUploadState = (typeof MobileAppContentFileUploadStateObject)[keyof typeof MobileAppContentFileUploadStateObject];
+/**
+ * Contains properties for a script associated with amobileLobApp entity.
+ */
+export interface MobileAppContentScript extends Entity, Parsable {
+    /**
+     * The content of the script. This is a Base64-encoded representation of the script's original content. The original content (before Base64 encoding) has a maximum size limit of 100KB.
+     */
+    content?: string | null;
+    /**
+     * The display name for the script.
+     */
+    displayName?: string | null;
+    /**
+     * A list of possible script lifecycle states.
+     */
+    state?: MobileAppContentScriptState | null;
+}
+export interface MobileAppContentScriptCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
+    /**
+     * The value property
+     */
+    value?: MobileAppContentScript[] | null;
+}
+export type MobileAppContentScriptState = (typeof MobileAppContentScriptStateObject)[keyof typeof MobileAppContentScriptStateObject];
 /**
  * The identifier for a mobile app.
  */
@@ -106318,6 +106804,23 @@ export interface MobileAppRelationshipCollectionResponse extends BaseCollectionP
      * The value property
      */
     value?: MobileAppRelationship[] | null;
+}
+/**
+ * A complex type that contains an identifier which is a reference an associated mobileAppContentScript entity.
+ */
+export interface MobileAppScriptReference extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The identifier of an associated mobileAppContentScript entity.
+     */
+    targetId?: string | null;
 }
 export interface MobileAppTroubleshootingEvent extends Entity, Parsable {
     /**
@@ -108824,7 +109327,7 @@ export interface OptionalClaims extends AdditionalDataHolder, BackedModel, Parsa
      */
     idToken?: OptionalClaim[] | null;
     /**
-     * The kerberosTicket property
+     * Optional claims that control group SID resolution for Kerberos tickets. The supported claim name is groups.
      */
     kerberosTicket?: OptionalClaim[] | null;
     /**
@@ -112879,7 +113382,7 @@ export interface ProcessContentMetadataBase extends AdditionalDataHolder, Backed
      */
     odataType?: string | null;
     /**
-     * The sensitivityLabels property
+     * Caller-supplied sensitivity labels describing the content.
      */
     sensitivityLabels?: CurrentLabel[] | null;
     /**
@@ -113271,6 +113774,10 @@ export type ProtectionScopeState = (typeof ProtectionScopeStateObject)[keyof typ
 export type ProtectionSource = (typeof ProtectionSourceObject)[keyof typeof ProtectionSourceObject];
 export interface ProtectionUnitBase extends Entity, Parsable {
     /**
+     * The policy-configured retention period of the backup, in days. Not nullable.
+     */
+    backupRetentionPeriodInDays?: number | null;
+    /**
      * The identity of the person who created the protection unit.
      */
     createdBy?: IdentitySet | null;
@@ -113294,6 +113801,10 @@ export interface ProtectionUnitBase extends Entity, Parsable {
      * The date and time when protection unit offboard was requested. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     offboardRequestedDateTime?: Date | null;
+    /**
+     * The retention period change to be applied to the protection unit when it moves between policies with different retention periods. Read-only. null when no change is pending.
+     */
+    pendingRetentionPeriodChange?: RetentionPeriodChange | null;
     /**
      * The unique identifier of the protection policy based on which protection unit was created.
      */
@@ -114120,6 +114631,7 @@ export interface Recipient extends AdditionalDataHolder, BackedModel, Parsable {
     odataType?: string | null;
 }
 export type RecipientScopeType = (typeof RecipientScopeTypeObject)[keyof typeof RecipientScopeTypeObject];
+export type RecipientType = (typeof RecipientTypeObject)[keyof typeof RecipientTypeObject];
 export interface RecommendedAction extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Web URL to the recommended action.
@@ -115642,13 +116154,36 @@ export interface RetentionLabelSettings extends AdditionalDataHolder, BackedMode
      */
     odataType?: string | null;
 }
+export interface RetentionPeriodChange extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * The date and time from which the retention period change takes effect. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2026, is 2026-01-01T00:00:00Z. Nullable.
+     */
+    effectiveFromDateTime?: Date | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The status property
+     */
+    status?: RetentionPeriodChangeStatus | null;
+    /**
+     * Specifies the retention period, in days, that applies after the change is completed. Nullable.
+     */
+    targetRetentionPeriodInDays?: number | null;
+}
+export type RetentionPeriodChangeStatus = (typeof RetentionPeriodChangeStatusObject)[keyof typeof RetentionPeriodChangeStatusObject];
 export interface RetentionSetting extends AdditionalDataHolder, BackedModel, Parsable {
     /**
      * Stores model information.
      */
     backingStoreEnabled?: boolean | null;
     /**
-     * The frequency of the backup.
+     * The backup frequency, expressed as an ISO 8601 repeating interval. The service defines the backup intervals: R/PT10M for 10-minute copies and R/P1W for weekly copies. Use R/P1W when specifying the policy retention period in a create or update request.
      */
     interval?: string | null;
     /**
@@ -115656,7 +116191,7 @@ export interface RetentionSetting extends AdditionalDataHolder, BackedModel, Par
      */
     odataType?: string | null;
     /**
-     * The period of time to retain the protected data for a single Microsoft 365 service.
+     * The period of time to retain the protected data for a single Microsoft 365 service, expressed as an ISO 8601 duration. The supported policy retention periods in create and update requests are: P90D, P180D, P365D, P730D, P1095D, P1460D, P1825D, P2190D, P2555D, P2920D, P3285D, and P3650D. Other policy retention periods aren't supported.
      */
     period?: Duration | null;
 }
@@ -124327,8 +124862,12 @@ export function serializeBroadcastMeetingSettings(writer: SerializationWriter, b
 // @ts-ignore
 export function serializeBrowseQueryResponseItem(writer: SerializationWriter, browseQueryResponseItem: Partial<BrowseQueryResponseItem> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!browseQueryResponseItem || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<IdentitySet>("createdBy", browseQueryResponseItem.createdBy, serializeIdentitySet);
+    writer.writeDateValue("createdDateTime", browseQueryResponseItem.createdDateTime);
     writer.writeStringValue("itemKey", browseQueryResponseItem.itemKey);
     writer.writeNumberValue("itemsCount", browseQueryResponseItem.itemsCount);
+    writer.writeObjectValue<IdentitySet>("lastModifiedBy", browseQueryResponseItem.lastModifiedBy, serializeIdentitySet);
+    writer.writeDateValue("lastModifiedDateTime", browseQueryResponseItem.lastModifiedDateTime);
     writer.writeStringValue("name", browseQueryResponseItem.name);
     writer.writeStringValue("@odata.type", browseQueryResponseItem.odataType);
     writer.writeStringValue("sizeInBytes", browseQueryResponseItem.sizeInBytes);
@@ -132134,6 +132673,61 @@ export function serializeDisplayNameLocalization(writer: SerializationWriter, di
 }
 /**
  * Serializes information the current object
+ * @param DistributionList The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDistributionList(writer: SerializationWriter, distributionList: Partial<DistributionList> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!distributionList || isSerializingDerivedType) { return; }
+    serializeOutlookItem(writer, distributionList, isSerializingDerivedType)
+    writer.writeStringValue("displayName", distributionList.displayName);
+    writer.writeCollectionOfObjectValues<DistributionListMember>("members", distributionList.members, serializeDistributionListMember);
+    writer.writeStringValue("notes", distributionList.notes);
+    writer.writeStringValue("personId", distributionList.personId);
+    writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", distributionList.singleValueExtendedProperties, serializeSingleValueLegacyExtendedProperty);
+}
+/**
+ * Serializes information the current object
+ * @param DistributionListCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDistributionListCollectionResponse(writer: SerializationWriter, distributionListCollectionResponse: Partial<DistributionListCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!distributionListCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, distributionListCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<DistributionList>("value", distributionListCollectionResponse.value, serializeDistributionList);
+}
+/**
+ * Serializes information the current object
+ * @param DistributionListMember The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDistributionListMember(writer: SerializationWriter, distributionListMember: Partial<DistributionListMember> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!distributionListMember || isSerializingDerivedType) { return; }
+    serializeEntity(writer, distributionListMember, isSerializingDerivedType)
+    writer.writeObjectValue<Contact>("contact", distributionListMember.contact, serializeContact);
+    writer.writeStringValue("displayName", distributionListMember.displayName);
+    writer.writeStringValue("memberId", distributionListMember.memberId);
+    writer.writeEnumValue<RecipientType>("type", distributionListMember.type);
+}
+/**
+ * Serializes information the current object
+ * @param DistributionListMemberCollectionResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeDistributionListMemberCollectionResponse(writer: SerializationWriter, distributionListMemberCollectionResponse: Partial<DistributionListMemberCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!distributionListMemberCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, distributionListMemberCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<DistributionListMember>("value", distributionListMemberCollectionResponse.value, serializeDistributionListMember);
+}
+/**
+ * Serializes information the current object
  * @param DlpActionInfo The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -135595,6 +136189,12 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         case "#microsoft.graph.directoryRoleTemplate":
             serializeDirectoryRoleTemplate(writer, entity, true);
         break;
+        case "#microsoft.graph.distributionList":
+            serializeDistributionList(writer, entity, true);
+        break;
+        case "#microsoft.graph.distributionListMember":
+            serializeDistributionListMember(writer, entity, true);
+        break;
         case "#microsoft.graph.documentSetVersion":
             serializeDocumentSetVersion(writer, entity, true);
         break;
@@ -136395,6 +136995,9 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.mobileAppContentFile":
             serializeMobileAppContentFile(writer, entity, true);
+        break;
+        case "#microsoft.graph.mobileAppContentScript":
+            serializeMobileAppContentScript(writer, entity, true);
         break;
         case "#microsoft.graph.mobileAppRelationship":
             serializeMobileAppRelationship(writer, entity, true);
@@ -137994,6 +138597,15 @@ export function serializeEntity(writer: SerializationWriter, entity: Partial<Ent
         break;
         case "#microsoft.graph.win32LobApp":
             serializeWin32LobApp(writer, entity, true);
+        break;
+        case "#microsoft.graph.win32LobAppInstallPowerShellScript":
+            serializeWin32LobAppInstallPowerShellScript(writer, entity, true);
+        break;
+        case "#microsoft.graph.win32LobAppScript":
+            serializeWin32LobAppScript(writer, entity, true);
+        break;
+        case "#microsoft.graph.win32LobAppUninstallPowerShellScript":
+            serializeWin32LobAppUninstallPowerShellScript(writer, entity, true);
         break;
         case "#microsoft.graph.windows10CompliancePolicy":
             serializeWindows10CompliancePolicy(writer, entity, true);
@@ -140053,6 +140665,7 @@ export function serializeGranularRestoreArtifactBase(writer: SerializationWriter
     serializeEntity(writer, granularRestoreArtifactBase, isSerializingDerivedType)
     writer.writeStringValue("browseSessionId", granularRestoreArtifactBase.browseSessionId);
     writer.writeDateValue("completionDateTime", granularRestoreArtifactBase.completionDateTime);
+    writer.writeObjectValue<PublicError>("error", granularRestoreArtifactBase.errorEscaped, serializePublicError);
     writer.writeStringValue("restoredItemKey", granularRestoreArtifactBase.restoredItemKey);
     writer.writeStringValue("restoredItemPath", granularRestoreArtifactBase.restoredItemPath);
     writer.writeStringValue("restoredItemWebUrl", granularRestoreArtifactBase.restoredItemWebUrl);
@@ -143755,6 +144368,7 @@ export function serializeMailboxFolder(writer: SerializationWriter, mailboxFolde
     writer.writeNumberValue("childFolderCount", mailboxFolder.childFolderCount);
     writer.writeCollectionOfObjectValues<MailboxFolder>("childFolders", mailboxFolder.childFolders, serializeMailboxFolder);
     writer.writeStringValue("displayName", mailboxFolder.displayName);
+    writer.writeBooleanValue("isHidden", mailboxFolder.isHidden);
     writer.writeCollectionOfObjectValues<MailboxItem>("items", mailboxFolder.items, serializeMailboxItem);
     writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", mailboxFolder.multiValueExtendedProperties, serializeMultiValueLegacyExtendedProperty);
     writer.writeStringValue("parentFolderId", mailboxFolder.parentFolderId);
@@ -145269,6 +145883,22 @@ export function serializeMeetingTimeSuggestionsResult(writer: SerializationWrite
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Member The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMember(writer: SerializationWriter, member: Partial<Member> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!member || isSerializingDerivedType) { return; }
+    writer.writeStringValue("displayName", member.displayName);
+    writer.writeStringValue("key", member.key);
+    writer.writeStringValue("memberId", member.memberId);
+    writer.writeStringValue("@odata.type", member.odataType);
+    writer.writeEnumValue<RecipientType>("type", member.type);
+    writer.writeAdditionalData(member.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param MembersAddedEventMessageDetail The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -146004,6 +146634,7 @@ export function serializeMobileAppContent(writer: SerializationWriter, mobileApp
     serializeEntity(writer, mobileAppContent, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<MobileContainedApp>("containedApps", mobileAppContent.containedApps, serializeMobileContainedApp);
     writer.writeCollectionOfObjectValues<MobileAppContentFile>("files", mobileAppContent.files, serializeMobileAppContentFile);
+    writer.writeCollectionOfObjectValues<MobileAppContentScript>("scripts", mobileAppContent.scripts, serializeMobileAppContentScript);
 }
 /**
  * Serializes information the current object
@@ -146045,6 +146676,43 @@ export function serializeMobileAppContentFileCollectionResponse(writer: Serializ
     if (!mobileAppContentFileCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, mobileAppContentFileCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<MobileAppContentFile>("value", mobileAppContentFileCollectionResponse.value, serializeMobileAppContentFile);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MobileAppContentScript The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMobileAppContentScript(writer: SerializationWriter, mobileAppContentScript: Partial<MobileAppContentScript> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!mobileAppContentScript || isSerializingDerivedType) { return; }
+    serializeEntity(writer, mobileAppContentScript, isSerializingDerivedType)
+    writer.writeStringValue("content", mobileAppContentScript.content);
+    writer.writeStringValue("displayName", mobileAppContentScript.displayName);
+    writer.writeEnumValue<MobileAppContentScriptState>("state", mobileAppContentScript.state);
+    switch (mobileAppContentScript.odataType) {
+        case "#microsoft.graph.win32LobAppInstallPowerShellScript":
+            serializeWin32LobAppInstallPowerShellScript(writer, mobileAppContentScript, true);
+        break;
+        case "#microsoft.graph.win32LobAppScript":
+            serializeWin32LobAppScript(writer, mobileAppContentScript, true);
+        break;
+        case "#microsoft.graph.win32LobAppUninstallPowerShellScript":
+            serializeWin32LobAppUninstallPowerShellScript(writer, mobileAppContentScript, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MobileAppContentScriptCollectionResponse The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMobileAppContentScriptCollectionResponse(writer: SerializationWriter, mobileAppContentScriptCollectionResponse: Partial<MobileAppContentScriptCollectionResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!mobileAppContentScriptCollectionResponse || isSerializingDerivedType) { return; }
+    serializeBaseCollectionPaginationCountResponse(writer, mobileAppContentScriptCollectionResponse, isSerializingDerivedType)
+    writer.writeCollectionOfObjectValues<MobileAppContentScript>("value", mobileAppContentScriptCollectionResponse.value, serializeMobileAppContentScript);
 }
 /**
  * Serializes information the current object
@@ -146104,6 +146772,19 @@ export function serializeMobileAppRelationshipCollectionResponse(writer: Seriali
     if (!mobileAppRelationshipCollectionResponse || isSerializingDerivedType) { return; }
     serializeBaseCollectionPaginationCountResponse(writer, mobileAppRelationshipCollectionResponse, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<MobileAppRelationship>("value", mobileAppRelationshipCollectionResponse.value, serializeMobileAppRelationship);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param MobileAppScriptReference The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeMobileAppScriptReference(writer: SerializationWriter, mobileAppScriptReference: Partial<MobileAppScriptReference> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!mobileAppScriptReference || isSerializingDerivedType) { return; }
+    writer.writeStringValue("@odata.type", mobileAppScriptReference.odataType);
+    writer.writeStringValue("targetId", mobileAppScriptReference.targetId);
+    writer.writeAdditionalData(mobileAppScriptReference.additionalData);
 }
 /**
  * Serializes information the current object
@@ -148794,6 +149475,9 @@ export function serializeOutlookItem(writer: SerializationWriter, outlookItem: P
         break;
         case "#microsoft.graph.contact":
             serializeContact(writer, outlookItem, true);
+        break;
+        case "#microsoft.graph.distributionList":
+            serializeDistributionList(writer, outlookItem, true);
         break;
         case "#microsoft.graph.event":
             serializeEvent(writer, outlookItem, true);
@@ -151998,6 +152682,7 @@ export function serializeProtectionRuleBase(writer: SerializationWriter, protect
 export function serializeProtectionUnitBase(writer: SerializationWriter, protectionUnitBase: Partial<ProtectionUnitBase> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!protectionUnitBase || isSerializingDerivedType) { return; }
     serializeEntity(writer, protectionUnitBase, isSerializingDerivedType)
+    writer.writeNumberValue("backupRetentionPeriodInDays", protectionUnitBase.backupRetentionPeriodInDays);
     writer.writeObjectValue<IdentitySet>("createdBy", protectionUnitBase.createdBy, serializeIdentitySet);
     writer.writeDateValue("createdDateTime", protectionUnitBase.createdDateTime);
     writer.writeObjectValue<PublicError>("error", protectionUnitBase.errorEscaped, serializePublicError);
@@ -153762,6 +154447,21 @@ export function serializeRetentionLabelSettings(writer: SerializationWriter, ret
     writer.writeBooleanValue("isRecordLocked", retentionLabelSettings.isRecordLocked);
     writer.writeStringValue("@odata.type", retentionLabelSettings.odataType);
     writer.writeAdditionalData(retentionLabelSettings.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param RetentionPeriodChange The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeRetentionPeriodChange(writer: SerializationWriter, retentionPeriodChange: Partial<RetentionPeriodChange> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!retentionPeriodChange || isSerializingDerivedType) { return; }
+    writer.writeDateValue("effectiveFromDateTime", retentionPeriodChange.effectiveFromDateTime);
+    writer.writeStringValue("@odata.type", retentionPeriodChange.odataType);
+    writer.writeEnumValue<RetentionPeriodChangeStatus>("status", retentionPeriodChange.status);
+    writer.writeNumberValue("targetRetentionPeriodInDays", retentionPeriodChange.targetRetentionPeriodInDays);
+    writer.writeAdditionalData(retentionPeriodChange.additionalData);
 }
 /**
  * Serializes information the current object
@@ -157203,6 +157903,7 @@ export function serializeSmsAuthenticationMethodConfiguration(writer: Serializat
     if (!smsAuthenticationMethodConfiguration || isSerializingDerivedType) { return; }
     serializeAuthenticationMethodConfiguration(writer, smsAuthenticationMethodConfiguration, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<SmsAuthenticationMethodTarget>("includeTargets", smsAuthenticationMethodConfiguration.includeTargets, serializeSmsAuthenticationMethodTarget);
+    writer.writeObjectValue<TelecomProviderSettings>("telecomProviderSettings", smsAuthenticationMethodConfiguration.telecomProviderSettings, serializeTelecomProviderSettings);
 }
 /**
  * Serializes information the current object
@@ -159302,6 +160003,22 @@ export function serializeTeamworkUserIdentity(writer: SerializationWriter, teamw
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param TelecomProviderSettings The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeTelecomProviderSettings(writer: SerializationWriter, telecomProviderSettings: Partial<TelecomProviderSettings> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!telecomProviderSettings || isSerializingDerivedType) { return; }
+    writer.writeGuidValue("appId", telecomProviderSettings.appId);
+    writer.writeBooleanValue("isEvaluationModeEnabled", telecomProviderSettings.isEvaluationModeEnabled);
+    writer.writeNumberValue("migrationPercentage", telecomProviderSettings.migrationPercentage);
+    writer.writeStringValue("@odata.type", telecomProviderSettings.odataType);
+    writer.writeStringValue("url", telecomProviderSettings.url);
+    writer.writeAdditionalData(telecomProviderSettings.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param TeleconferenceDeviceAudioQuality The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
@@ -160767,11 +161484,13 @@ export function serializeUnifiedRoleAssignmentScheduleRequestCollectionResponse(
 export function serializeUnifiedRoleDefinition(writer: SerializationWriter, unifiedRoleDefinition: Partial<UnifiedRoleDefinition> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!unifiedRoleDefinition || isSerializingDerivedType) { return; }
     serializeEntity(writer, unifiedRoleDefinition, isSerializingDerivedType)
+    writer.writeDateValue("deletedDateTime", unifiedRoleDefinition.deletedDateTime);
     writer.writeStringValue("description", unifiedRoleDefinition.description);
     writer.writeStringValue("displayName", unifiedRoleDefinition.displayName);
     writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("inheritsPermissionsFrom", unifiedRoleDefinition.inheritsPermissionsFrom, serializeUnifiedRoleDefinition);
     writer.writeBooleanValue("isBuiltIn", unifiedRoleDefinition.isBuiltIn);
     writer.writeBooleanValue("isEnabled", unifiedRoleDefinition.isEnabled);
+    writer.writeBooleanValue("isPrivileged", unifiedRoleDefinition.isPrivileged);
     writer.writeCollectionOfPrimitiveValues<string>("resourceScopes", unifiedRoleDefinition.resourceScopes);
     writer.writeCollectionOfObjectValues<UnifiedRolePermission>("rolePermissions", unifiedRoleDefinition.rolePermissions, serializeUnifiedRolePermission);
     writer.writeStringValue("templateId", unifiedRoleDefinition.templateId);
@@ -161414,6 +162133,7 @@ export function serializeUser(writer: SerializationWriter, user: Partial<User> |
     writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>("deviceManagementTroubleshootingEvents", user.deviceManagementTroubleshootingEvents, serializeDeviceManagementTroubleshootingEvent);
     writer.writeCollectionOfObjectValues<DirectoryObject>("directReports", user.directReports, serializeDirectoryObject);
     writer.writeStringValue("displayName", user.displayName);
+    writer.writeCollectionOfObjectValues<DistributionList>("distributionLists", user.distributionLists, serializeDistributionList);
     writer.writeObjectValue<Drive>("drive", user.drive, serializeDrive);
     writer.writeCollectionOfObjectValues<Drive>("drives", user.drives, serializeDrive);
     writer.writeObjectValue<EmployeeExperienceUser>("employeeExperience", user.employeeExperience, serializeEmployeeExperienceUser);
@@ -163614,6 +164334,7 @@ export function serializeVoiceAuthenticationMethodConfiguration(writer: Serializ
     serializeAuthenticationMethodConfiguration(writer, voiceAuthenticationMethodConfiguration, isSerializingDerivedType)
     writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", voiceAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
     writer.writeBooleanValue("isOfficePhoneAllowed", voiceAuthenticationMethodConfiguration.isOfficePhoneAllowed);
+    writer.writeObjectValue<TelecomProviderSettings>("telecomProviderSettings", voiceAuthenticationMethodConfiguration.telecomProviderSettings, serializeTelecomProviderSettings);
 }
 /**
  * Serializes information the current object
@@ -164099,6 +164820,8 @@ export function serializeWhatIfAnalysisResult(writer: SerializationWriter, whatI
 export function serializeWin32LobApp(writer: SerializationWriter, win32LobApp: Partial<Win32LobApp> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!win32LobApp || isSerializingDerivedType) { return; }
     serializeMobileLobApp(writer, win32LobApp, isSerializingDerivedType)
+    writer.writeObjectValue<MobileAppScriptReference>("activeInstallScript", win32LobApp.activeInstallScript, serializeMobileAppScriptReference);
+    writer.writeObjectValue<MobileAppScriptReference>("activeUninstallScript", win32LobApp.activeUninstallScript, serializeMobileAppScriptReference);
     writer.writeEnumValue<WindowsArchitecture[]>("allowedArchitectures", win32LobApp.allowedArchitectures);
     writer.writeEnumValue<WindowsArchitecture[]>("applicableArchitectures", win32LobApp.applicableArchitectures);
     writer.writeStringValue("installCommandLine", win32LobApp.installCommandLine);
@@ -164185,6 +164908,17 @@ export function serializeWin32LobAppInstallExperience(writer: SerializationWrite
     writer.writeStringValue("@odata.type", win32LobAppInstallExperience.odataType);
     writer.writeEnumValue<RunAsAccountType>("runAsAccount", win32LobAppInstallExperience.runAsAccount);
     writer.writeAdditionalData(win32LobAppInstallExperience.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Win32LobAppInstallPowerShellScript The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeWin32LobAppInstallPowerShellScript(writer: SerializationWriter, win32LobAppInstallPowerShellScript: Partial<Win32LobAppInstallPowerShellScript> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!win32LobAppInstallPowerShellScript || isSerializingDerivedType) { return; }
+    serializeWin32LobAppScript(writer, win32LobAppInstallPowerShellScript, isSerializingDerivedType)
 }
 /**
  * Serializes information the current object
@@ -164310,6 +165044,38 @@ export function serializeWin32LobAppRule(writer: SerializationWriter, win32LobAp
             serializeWin32LobAppRegistryRule(writer, win32LobAppRule, true);
         break;
     }
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Win32LobAppScript The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeWin32LobAppScript(writer: SerializationWriter, win32LobAppScript: Partial<Win32LobAppScript> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!win32LobAppScript || isSerializingDerivedType) { return; }
+    serializeMobileAppContentScript(writer, win32LobAppScript, isSerializingDerivedType)
+    writer.writeBooleanValue("enforceSignatureCheck", win32LobAppScript.enforceSignatureCheck);
+    writer.writeBooleanValue("runAs32Bit", win32LobAppScript.runAs32Bit);
+    switch (win32LobAppScript.odataType) {
+        case "#microsoft.graph.win32LobAppInstallPowerShellScript":
+            serializeWin32LobAppInstallPowerShellScript(writer, win32LobAppScript, true);
+        break;
+        case "#microsoft.graph.win32LobAppUninstallPowerShellScript":
+            serializeWin32LobAppUninstallPowerShellScript(writer, win32LobAppScript, true);
+        break;
+    }
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param Win32LobAppUninstallPowerShellScript The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeWin32LobAppUninstallPowerShellScript(writer: SerializationWriter, win32LobAppUninstallPowerShellScript: Partial<Win32LobAppUninstallPowerShellScript> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!win32LobAppUninstallPowerShellScript || isSerializingDerivedType) { return; }
+    serializeWin32LobAppScript(writer, win32LobAppUninstallPowerShellScript, isSerializingDerivedType)
 }
 /**
  * Serializes information the current object
@@ -169756,6 +170522,10 @@ export interface SmsAuthenticationMethodConfiguration extends AuthenticationMeth
      * A collection of groups that are enabled to use the authentication method.
      */
     includeTargets?: SmsAuthenticationMethodTarget[] | null;
+    /**
+     * Settings for routing SMS authentication traffic through a telecom provider integration.
+     */
+    telecomProviderSettings?: TelecomProviderSettings | null;
 }
 export interface SmsAuthenticationMethodTarget extends AuthenticationMethodTarget, Parsable {
     /**
@@ -172143,6 +172913,32 @@ export interface TeamworkUserIdentity extends Identity, Parsable {
     userIdentityType?: TeamworkUserIdentityType | null;
 }
 export type TeamworkUserIdentityType = (typeof TeamworkUserIdentityTypeObject)[keyof typeof TeamworkUserIdentityTypeObject];
+export interface TelecomProviderSettings extends AdditionalDataHolder, BackedModel, Parsable {
+    /**
+     * The application (client) ID used to authenticate to the telecom provider.
+     */
+    appId?: Guid | null;
+    /**
+     * Stores model information.
+     */
+    backingStoreEnabled?: boolean | null;
+    /**
+     * true to run the telecom provider integration in evaluation (nonenforcing) mode; otherwise, false.
+     */
+    isEvaluationModeEnabled?: boolean | null;
+    /**
+     * The percentage of authentication traffic routed to the telecom provider. Valid values range from 0 through 100.
+     */
+    migrationPercentage?: number | null;
+    /**
+     * The OdataType property
+     */
+    odataType?: string | null;
+    /**
+     * The endpoint URL of the telecom provider integration.
+     */
+    url?: string | null;
+}
 export interface TeleconferenceDeviceAudioQuality extends Parsable, TeleconferenceDeviceMediaQuality {
 }
 export interface TeleconferenceDeviceMediaQuality extends AdditionalDataHolder, BackedModel, Parsable {
@@ -173882,6 +174678,10 @@ export interface UnifiedRoleAssignmentScheduleRequestCollectionResponse extends 
 }
 export interface UnifiedRoleDefinition extends Entity, Parsable {
     /**
+     * The date and time when the custom role definition was deleted. The value is null for active and restored role definitions. Read-only.
+     */
+    deletedDateTime?: Date | null;
+    /**
      * The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.
      */
     description?: string | null;
@@ -173901,6 +174701,10 @@ export interface UnifiedRoleDefinition extends Entity, Parsable {
      * Flag indicating whether the role is enabled for assignment. If false the role is not available for assignment. Read-only when isBuiltIn is true.
      */
     isEnabled?: boolean | null;
+    /**
+     * Flag indicating whether the role is privileged. Microsoft Entra ID defines a role as privileged if it contains at least one sensitive resource action in the allowedResourceActions collection of rolePermissions. Applies only to actions in the microsoft.directory resource namespace. Nullable. A value of null indicates that the privileged classification is unavailable, not that the role is nonprivileged. Read-only. Supports $filter (eq).
+     */
+    isPrivileged?: boolean | null;
     /**
      * List of the scopes or permissions the role definition applies to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment.
      */
@@ -174714,6 +175518,10 @@ export interface User extends DirectoryObject, Parsable {
      * The name displayed in the address book for the user. This value is usually the combination of the user's first name, middle initial, and family name. This property is required when a user is created and it can't be cleared during updates. Maximum length is 256 characters. Returned by default. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values), $orderby, and $search.
      */
     displayName?: string | null;
+    /**
+     * The personal distribution lists in the user's mailbox. Read-only. Nullable.
+     */
+    distributionLists?: DistributionList[] | null;
     /**
      * The user's OneDrive. Read-only.
      */
@@ -177878,6 +178686,10 @@ export interface VoiceAuthenticationMethodConfiguration extends AuthenticationMe
      * true if users can register office phones, otherwise, false.
      */
     isOfficePhoneAllowed?: boolean | null;
+    /**
+     * Settings for routing voice authentication traffic through a telecom provider integration.
+     */
+    telecomProviderSettings?: TelecomProviderSettings | null;
 }
 export type VolumeType = (typeof VolumeTypeObject)[keyof typeof VolumeTypeObject];
 /**
@@ -178490,6 +179302,14 @@ export interface WhatIfAnalysisResult extends ConditionalAccessPolicy, Parsable 
  */
 export interface Win32LobApp extends MobileLobApp, Parsable {
     /**
+     * Contains the unique identifier of the associated install script for this Win32 app to be used instead of the install command line by the managed device during app installation. When null, the install command line is used instead.
+     */
+    activeInstallScript?: MobileAppScriptReference | null;
+    /**
+     * Contains the unique identifier of the associated uninstall script for this Win32 app to be used instead of the uninstall command line by the managed device during app uninstallation. When null, the uninstall command line is used instead.
+     */
+    activeUninstallScript?: MobileAppScriptReference | null;
+    /**
      * Indicates the Windows architecture(s) this app should be installed on. The app will be treated as not applicable for devices with architectures not matching the selected value. When a non-null value is provided for the allowedArchitectures property, the value of the applicableArchitectures property is set to none. The possible values are: null, x86, x64, arm64. The possible values are: none, x86, x64, arm, neutral.
      */
     allowedArchitectures?: WindowsArchitecture[] | null;
@@ -178645,6 +179465,11 @@ export interface Win32LobAppInstallExperience extends AdditionalDataHolder, Back
      * Indicates the type of execution context the app runs in.
      */
     runAsAccount?: RunAsAccountType | null;
+}
+/**
+ * A representation of a PowerShell script that is used to install a Win32 app on an end-user device managed by Intune.
+ */
+export interface Win32LobAppInstallPowerShellScript extends Parsable, Win32LobAppScript {
 }
 /**
  * Contains MSI app properties for a Win32 App.
@@ -178841,6 +179666,24 @@ export interface Win32LobAppRule extends AdditionalDataHolder, BackedModel, Pars
 }
 export type Win32LobAppRuleOperator = (typeof Win32LobAppRuleOperatorObject)[keyof typeof Win32LobAppRuleOperatorObject];
 export type Win32LobAppRuleType = (typeof Win32LobAppRuleTypeObject)[keyof typeof Win32LobAppRuleTypeObject];
+/**
+ * A representation of a script that can be run on an end-user device managed by Intune in relation to a Win32 app.
+ */
+export interface Win32LobAppScript extends MobileAppContentScript, Parsable {
+    /**
+     * Indicates whether or not to enforce a signature check when running the script. When TRUE, the script cannot be run without enforcing a signature check. When FALSE, no signature check will be enforced when running the script. Default value is FALSE.
+     */
+    enforceSignatureCheck?: boolean | null;
+    /**
+     * Indicates whether the script will run as 32-bit or 64-bit. When TRUE, the script will run as 32-bit. When FALSE, the script will run as 64-bit. Default value is FALSE.
+     */
+    runAs32Bit?: boolean | null;
+}
+/**
+ * A representation of a PowerShell script that is used to uninstall a Win32 app on an end-user device managed by Intune.
+ */
+export interface Win32LobAppUninstallPowerShellScript extends Parsable, Win32LobAppScript {
+}
 export type Win32LobAutoUpdateSupersededAppsState = (typeof Win32LobAutoUpdateSupersededAppsStateObject)[keyof typeof Win32LobAutoUpdateSupersededAppsStateObject];
 /**
  * This class contains compliance settings for Windows 10.
@@ -186830,6 +187673,19 @@ export const MobileAppContentFileUploadStateObject = {
     CommitFileTimedOut: "commitFileTimedOut",
 } as const;
 /**
+ * A list of possible script lifecycle states.
+ */
+export const MobileAppContentScriptStateObject = {
+    /** Indicates that the script content is in a pending state. */
+    CommitPending: "commitPending",
+    /** Indicates that the script content is ready. */
+    CommitSuccess: "commitSuccess",
+    /** Indicates that the script is in an unusable state. */
+    CommitFailed: "commitFailed",
+    /** Evolvable enumeration sentinel value. Do not use. */
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
+/**
  * Indicates the publishing state of an app.
  */
 export const MobileAppPublishingStateObject = {
@@ -188832,6 +189688,13 @@ export const RecipientScopeTypeObject = {
     ExternalPartner: "externalPartner",
     ExternalNonPartner: "externalNonPartner",
 } as const;
+export const RecipientTypeObject = {
+    Contact: "contact",
+    OneOff: "oneOff",
+    Mailbox: "mailbox",
+    PrivateDL: "privateDL",
+    UnknownFutureValue: "unknownFutureValue",
+} as const;
 export const RecordingStatusObject = {
     Unknown: "unknown",
     NotRecording: "notRecording",
@@ -189091,6 +189954,13 @@ export const RestrictionActionObject = {
     Warn: "warn",
     Audit: "audit",
     Block: "block",
+} as const;
+export const RetentionPeriodChangeStatusObject = {
+    None: "none",
+    InProgress: "inProgress",
+    Failed: "failed",
+    Completed: "completed",
+    UnknownFutureValue: "unknownFutureValue",
 } as const;
 export const RiskDetailObject = {
     None: "none",

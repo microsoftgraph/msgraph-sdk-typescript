@@ -44,7 +44,7 @@ export interface OneDriveForBusinessProtectionPolicyItemRequestBuilder extends B
      */
      get(requestConfiguration?: RequestConfiguration<OneDriveForBusinessProtectionPolicyItemRequestBuilderGetQueryParameters> | undefined) : Promise<OneDriveForBusinessProtectionPolicy | undefined>;
     /**
-     * Update the protection policy for the OneDrive service in Microsoft 365. This method adds a driveProtectionUnit to or removes it from a oneDriveForBusinessProtectionPolicy object.
+     * Update the protection policy for the OneDrive service in Microsoft 365. This method updates retention settings or adds a driveProtectionUnit to or removes it from a oneDriveForBusinessProtectionPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<OneDriveForBusinessProtectionPolicy>}
@@ -65,7 +65,7 @@ export interface OneDriveForBusinessProtectionPolicyItemRequestBuilder extends B
      */
      toGetRequestInformation(requestConfiguration?: RequestConfiguration<OneDriveForBusinessProtectionPolicyItemRequestBuilderGetQueryParameters> | undefined) : RequestInformation;
     /**
-     * Update the protection policy for the OneDrive service in Microsoft 365. This method adds a driveProtectionUnit to or removes it from a oneDriveForBusinessProtectionPolicy object.
+     * Update the protection policy for the OneDrive service in Microsoft 365. This method updates retention settings or adds a driveProtectionUnit to or removes it from a oneDriveForBusinessProtectionPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {RequestInformation}
